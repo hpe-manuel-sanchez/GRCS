@@ -1,0 +1,232 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    ViewBag.Title = "Search For R2 Project";
+    Layout = "";
+}
+@{
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href=@Url.Content("/Gcs/Content/ClearenceSite.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClrR2ProjectsSearch.js")" type="text/javascript"></script>
+
+<div id="divErrorMsgLinkToR2" style="display: none; width: 100%; margin: 10px" class="warning1">
+</div>
+<div id="divMessageLinkToR2" style="display: none; width: 100%; margin: 10px" class="success">
+</div>
+<div id="projectTab" style="margin: 0 auto; width: 100%;">
+    <div id="projectaccordion" class="clrR2Project-searchBoxContainer" style="display: block;">
+        <div id="clrR2Project-firstContentDv">
+            <!-- Project ID start here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Project Id :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.ProjectCode, new { id = "ProjectId", @class = "clrR2Project-inputTypeText" })
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.ProjectCode)
+                </div>
+            </div>
+            <!-- Project ID End here -->
+            <!-- Project Description start here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Project Description :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.Title, new { id = "Title", @class = "clrR2Project-inputTypeText" })
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.Title)
+                </div>
+            </div>
+            <!-- projectDescription End here -->
+            <!-- Blank Div -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <b>&nbsp;</b>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    <b>&nbsp;</b>
+                </div>
+            </div>
+            <!-- Blank Div -->
+        </div>
+        <div id="clrR2Project-secondContentDv">
+            <!-- Company Start Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <span class="madatoryField">@mandatory</span>
+                    <label>Company :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.DataAdminCompany, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearchForDAG", "ClearanceProject"), SearchFor = "SearchProject", id = "AdminCompanyName", @class = "clrR2Project-inputTypeText" })
+                    @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.AdminCompanyId, new { id = "AdminCompanyId" })
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.AdminCompanyId)
+                </div>
+            </div>
+            <!-- Company Ends Here -->
+            <!-- Division Start Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Division :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.DropDownListFor(model => model.RegularProjectDetails.ProjectInfo.divisionId, new SelectList(Model.DivisionList, "value", "text", Model.RegularProjectDetails.ProjectInfo.divisionId), "--Select--", new { id = "DivisionId", @class = "clrR2Project-selectBox" })
+                    @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.divisionId)
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.divisionDisplay)
+                </div>
+            </div>
+            <!-- Division Ends Here -->
+            <!-- Label Start Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Label :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.DropDownListFor(model => model.RegularProjectDetails.ProjectInfo.LabelId, new SelectList(Model.LabelList, "value", "text", Model.RegularProjectDetails.ProjectInfo.LabelId), "--Select--", new { id = "LabelId", @class = "clrR2Project-selectBox" })
+                    @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.LabelId)
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.Label)
+                </div>
+            </div>
+            <!-- Label ends Here -->
+        </div>
+        <div id="clrR2Project-thirdContentDv">
+            <!-- Artist Name Start Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Artist Name :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.ArtistName, new { id = "ArtistName", @class = "clrR2Project-inputTypeText" })
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.ArtistName)
+                </div>
+            </div>
+            <!-- Artist Name Here -->
+
+            <!-- Artist ID Start Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    <label>Artist ID :</label>
+                </div>
+                <div class="clrR2Project-valueDv">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.artistId, new { id = "ArtistID", @class = "clrR2Project-inputTypeText" })
+                    @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.artistId)
+                </div>
+            </div>
+            <!-- Artist ID Here -->
+            <!-- Action Button Here -->
+            <div class="clrR2Project-contentWrapper">
+                <div class="clrR2Project-divField">
+                    &nbsp;
+                </div>
+                <div class="clrR2Project-valueDv">
+                    <div class="btnAction">
+                        <input type="button" name="searchProject" id="searchProject" value="Search" class="primbutton" />
+                        <input type="button" name="resetProject" id="resetProject" value="Reset" class="secbutton" />
+                    </div>
+                </div>
+            </div>
+            <!-- Action Button Here -->
+        </div>
+    </div>
+
+    <!-- SHOW ITEM PER PAGE -->
+    <div id="trNoResults" style="display: none" class="clrR2Project-contentBox">
+        <div class="clrR2Project-researchResultWrapper">
+            <div class="clrR2Project-columShowItm1 clrR2Project-searchResultLineHeight">
+                <label>No Search Result	Found For </label>
+                "<span id="spnNoResults" style="font-weight: bold;"></span>"
+            </div>
+            <div class="clrR2Project-columShowItm2 clrR2Project-searchResultLineHeight">
+                <input type="button" name="createR2Project" id="createR2Project" class="plbutton" value="Create R2 Project" />
+            </div>
+            <div class="clrR2Project-columShowItm3 clrR2Project-searchResultLineHeight">
+            </div>
+        </div>
+    </div>
+
+    <div id="trShowPaging" style="display: none" class="clrR2Project-contentBox">
+        <div class="clrR2Project-researchResultWrapper">
+            <div class="clrR2Project-columShowItm1 clrR2Project-searchResultLineHeight">
+                <label>Search Result Found For </label>
+                "<span id="spnSearchResult" style="font-weight: bold;"></span>"
+            </div>
+            <div class="clrR2Project-columShowItm4 clrR2Project-searchResultLineHeight">
+                <label>Show </label>
+                @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "itemPerPage" })
+                <label>Items per page</label>
+            </div>
+        </div>
+    </div>
+
+    <div id="projectgrid" style="display: none; height: 100px !important; margin: 1px; overflow-y: auto;" class="clrR2Project-contentBox">
+    </div>
+
+    <!--START RESULT GRID -->
+    <div class="clrR2Project-researchResultWrapper">
+        <div id="freeHand" style="display: none">
+            <table border="0" class="clrR2Project-bottomBorder">
+                <thead>
+                    <tr>
+                        <th class="cellAlignLeft">Project Description</th>
+                        <th class="cellAlignLeft">Company</th>
+                        <th class="cellAlignLeft">Division</th>
+                        <th class="cellAlignLeft">Artist Name</th>
+                        <th class="cellAlignLeft"></th>
+                        <th class="cellAlignLeft">Label</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cellAlignLeft">
+                            <span class="madatoryField">@mandatory</span>
+                            @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.Title, new { id = "projectTitleFreeHand", @class = "clrR2Project-inputTypeText" })
+                            @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.Title)
+                        </td>
+                        <td class="cellAlignLeft">
+                            <span class="madatoryField">@mandatory</span>
+                            @Html.TextBoxFor(model => model.RegularProjectDetails.ProjectInfo.DataAdminCompany, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearchForDAG", "ClearanceProject"), SearchFor = "CreateProject", id = "companyNameFreeHand", @class = "clrR2Project-inputTypeText" })
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.AdminCompanyId, new { id = "companyIdFreeHand" })
+                            @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.AdminCompanyId)
+                        </td>
+                        <td class="cellAlignLeft">
+                            <span class="madatoryField">@mandatory</span>
+                            @Html.DropDownListFor(model => model.RegularProjectDetails.ProjectInfo.divisionId, new SelectList(Model.DivisionList, "value", "text", Model.RegularProjectDetails.ProjectInfo.divisionId), "--Select--", new { id = "divisionIdFreeHand", @class = "clrR2Project-selectBox" })
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.divisionId)
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.ArtistNameInfo, new { id = "ArtistNameInfo" })
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.ArtistIdInfo, new { id = "ArtistIdInfo" })
+                            @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.divisionDisplay)
+                        </td>
+                        <td class="cellAlignLeft">
+                            <span class="madatoryField">@mandatory</span>
+                            <input id="btnManageArtist" type="button" value="@ClearanceLayout.AdvResSearchManageArtistButton"  class="plbutton" />
+                        </td>
+                        <td id="divArtistName"></td>
+                        <td style="display: none" id="hdnArtistId"></td>
+                        <td class="cellAlignLeft">
+                            <span class="madatoryField">@mandatory</span>
+                            @Html.DropDownListFor(model => model.RegularProjectDetails.ProjectInfo.LabelId, new SelectList(Model.LabelList, "value", "text", Model.RegularProjectDetails.ProjectInfo.LabelId), "--Select--", new { id = "labelIdFreeHand", @class = "clrR2Project-selectBox" })
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ProjectInfo.LabelId)
+                            @Html.ValidationMessageFor(model => model.RegularProjectDetails.ProjectInfo.Label)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- START BTN LINK TO PROJECT -->
+    <div class="clrR2Project-researchResultWrapper">
+        <div class="clrR2Project-columShowItm1">
+        </div>
+        <div class="clrR2Project-columShowItm2">
+        </div>
+        <div class="clrR2Project-columShowItm3">
+        </div>
+        <div class="clrR2Project-columShowItm5">
+            <input type="button" name="projToRep" id="projToRep" class="primbutton" value="Link to Project" />
+        </div>
+    </div>
+</div>

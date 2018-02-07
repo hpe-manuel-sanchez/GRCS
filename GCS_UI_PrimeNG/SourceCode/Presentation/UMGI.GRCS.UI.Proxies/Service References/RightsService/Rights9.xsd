@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="ReleaseRightsSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="ReleaseRights" nillable="true" type="tns:ArrayOfRepertoireRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReleaseRightsSaveInfo" nillable="true" type="tns:ReleaseRightsSaveInfo" />
+  <xs:complexType name="ModifierInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+  <xs:complexType name="ArrayOfRepertoireRights">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RepertoireRights" nillable="true" type="tns:RepertoireRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRepertoireRights" nillable="true" type="tns:ArrayOfRepertoireRights" />
+  <xs:complexType name="RepertoireRights">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RightSetInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DigitallyExploited" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DigitallyExploitedText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ExceptionText" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExcludedCountry" nillable="true" type="q1:ArrayOflong" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExcludedTerritory" nillable="true" type="q2:ArrayOflong" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IncludedCountry" nillable="true" type="q3:ArrayOflong" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IncludedTerritory" nillable="true" type="q4:ArrayOflong" />
+          <xs:element minOccurs="0" name="LostReason" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LostRightsDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LostRightsText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhysicallyExploited" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PhysicallyExploitedText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightsExpiryRule" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightsPeriod" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepertoireRights" nillable="true" type="tns:RepertoireRights" />
+  <xs:complexType name="RightSetInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LostRights" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModifiedDateTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RepertoireId" type="xs:long" />
+      <xs:element minOccurs="0" name="RightSetId" type="xs:long" />
+      <xs:element minOccurs="0" name="TerritorialRights" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RightSetInfo" nillable="true" type="tns:RightSetInfo" />
+  <xs:complexType name="ResourceRightsSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="ResourceRights" nillable="true" type="tns:ArrayOfResourceAcquiredRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceRightsSaveInfo" nillable="true" type="tns:ResourceRightsSaveInfo" />
+  <xs:complexType name="ArrayOfResourceAcquiredRights">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceAcquiredRights" nillable="true" type="tns:ResourceAcquiredRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceAcquiredRights" nillable="true" type="tns:ArrayOfResourceAcquiredRights" />
+  <xs:complexType name="ResourceAcquiredRights">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RepertoireRights">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActiveForMrkt" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DigitallyUnbundled" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MobileExploited" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PPBClaim" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ReviewStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResourceAcquiredRights" nillable="true" type="tns:ResourceAcquiredRights" />
+  <xs:complexType name="ReviewStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" type="tns:ReviewStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReviewStatus" nillable="true" type="tns:ReviewStatus" />
+  <xs:simpleType name="ReviewStatusType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="All">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NewForReview">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="FinalForReview">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Final">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ReviewStatusType" nillable="true" type="tns:ReviewStatusType" />
+  <xs:complexType name="SecondaryRightsSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfSecondaryRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecondaryRightsSaveInfo" nillable="true" type="tns:SecondaryRightsSaveInfo" />
+  <xs:complexType name="ArrayOfSecondaryRights">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SecondaryRights" nillable="true" type="tns:SecondaryRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSecondaryRights" nillable="true" type="tns:ArrayOfSecondaryRights" />
+  <xs:complexType name="SecondaryRights">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RightSetInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReviewStatus" nillable="true" type="tns:ReviewStatus" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="SecondaryExploitation" nillable="true" type="q5:ArrayOfContractExploitationRestrictions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecondaryRights" nillable="true" type="tns:SecondaryRights" />
+  <xs:complexType name="PreClearanceSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfPreClearanceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreClearanceSaveInfo" nillable="true" type="tns:PreClearanceSaveInfo" />
+  <xs:complexType name="ArrayOfPreClearanceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PreClearanceInfo" nillable="true" type="tns:PreClearanceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPreClearanceInfo" nillable="true" type="tns:ArrayOfPreClearanceInfo" />
+  <xs:complexType name="PreClearanceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BudgetCompilation" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Countries" nillable="true" type="q6:ArrayOflong" />
+      <xs:element minOccurs="0" name="DirectMarketing" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MasterSyncroniseUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MidPriceCompilation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Premium" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReviewStatusTypes" nillable="true" type="tns:ResourceRightSet" />
+      <xs:element minOccurs="0" name="RightInfo" nillable="true" type="tns:RightSetInfo" />
+      <xs:element minOccurs="0" name="TerritoryExclusions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TopPriceCompilation" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreClearanceInfo" nillable="true" type="tns:PreClearanceInfo" />
+  <xs:complexType name="ResourceRightSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" type="tns:ReviewStatusType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceRightSet" nillable="true" type="tns:ResourceRightSet" />
+  <xs:complexType name="ResourceDigitalSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfResourceDigitalRestrictions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceDigitalSaveInfo" nillable="true" type="tns:ResourceDigitalSaveInfo" />
+  <xs:complexType name="ArrayOfResourceDigitalRestrictions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceDigitalRestrictions" nillable="true" type="tns:ResourceDigitalRestrictions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceDigitalRestrictions" nillable="true" type="tns:ArrayOfResourceDigitalRestrictions" />
+  <xs:complexType name="ResourceDigitalRestrictions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DigitalRestrictions" nillable="true" type="tns:DigitalRestrictionsInfo" />
+      <xs:element minOccurs="0" name="IsAcquired" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReviewStatus" nillable="true" type="tns:ReviewStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceDigitalRestrictions" nillable="true" type="tns:ResourceDigitalRestrictions" />
+  <xs:complexType name="DigitalRestrictionsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RightSetInfo">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="DigitalRestrictions" nillable="true" type="q7:ArrayOfContractDigitalRestrictions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DigitalRestrictionsInfo" nillable="true" type="tns:DigitalRestrictionsInfo" />
+  <xs:complexType name="ReviewRightsMasterInfo">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LostRightsReason" nillable="true" type="q8:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReleasePreDefinedParameters" nillable="true" type="q9:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResourcePreDefinedParameters" nillable="true" type="q10:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResourceTypes" nillable="true" type="q11:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReviewReason" nillable="true" type="q12:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReviewStatus" nillable="true" type="q13:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RightsPeriod" nillable="true" type="q14:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReviewRightsMasterInfo" nillable="true" type="tns:ReviewRightsMasterInfo" />
+  <xs:complexType name="SecondaryRightsMasterData">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsentPeriod" nillable="true" type="q15:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExploitationTypes" nillable="true" type="q16:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictedOptions" nillable="true" type="q17:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Restrictions" nillable="true" type="q18:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecondaryRightsMasterData" nillable="true" type="tns:SecondaryRightsMasterData" />
+  <xs:complexType name="PreClearanceMasterData">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClearanceMasterData" nillable="true" type="q19:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PreClearanceMasterData" nillable="true" type="tns:PreClearanceMasterData" />
+  <xs:complexType name="DigitalRightsMasterData">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CommercialModelTypes" nillable="true" type="q20:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CommercialModelTypesReverse" nillable="true" type="q21:ArrayOfKeyValueOfstringint" />
+      <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsentPeriodTypes" nillable="true" type="q22:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsentPeriodTypesReverse" nillable="true" type="q23:ArrayOfKeyValueOfstringint" />
+      <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContentTypes" nillable="true" type="q24:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictionReason" nillable="true" type="q25:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictionReasonReverse" nillable="true" type="q26:ArrayOfKeyValueOfstringint" />
+      <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictionTypes" nillable="true" type="q27:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictionTypesReverse" nillable="true" type="q28:ArrayOfKeyValueOfstringint" />
+      <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UseTypes" nillable="true" type="q29:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UseTypesReverse" nillable="true" type="q30:ArrayOfKeyValueOfstringint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DigitalRightsMasterData" nillable="true" type="tns:DigitalRightsMasterData" />
+  <xs:complexType name="ReleaseDigitalSaveInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifierInfo" nillable="true" type="tns:ModifierInfo" />
+      <xs:element minOccurs="0" name="Rights" nillable="true" type="tns:ArrayOfReleaseDigitalRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReleaseDigitalSaveInfo" nillable="true" type="tns:ReleaseDigitalSaveInfo" />
+  <xs:complexType name="ArrayOfReleaseDigitalRights">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReleaseDigitalRights" nillable="true" type="tns:ReleaseDigitalRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReleaseDigitalRights" nillable="true" type="tns:ArrayOfReleaseDigitalRights" />
+  <xs:complexType name="ReleaseDigitalRights">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Release">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DigitalRights" nillable="true" type="tns:DigitalRestrictionsInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReleaseDigitalRights" nillable="true" type="tns:ReleaseDigitalRights" />
+  <xs:complexType name="Release">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Repertoire">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Configration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractId" type="xs:long" />
+          <xs:element minOccurs="0" name="IsSplitDeal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LostRights" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseType" type="tns:ReleaseType" />
+          <xs:element minOccurs="0" name="ReleaseTypeInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightSetId" type="xs:long" />
+          <xs:element minOccurs="0" name="RightsSource" type="tns:RightsSource" />
+          <xs:element minOccurs="0" name="RightsSourceId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RightsSourceInfo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TerritorialRights" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPCId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Release" nillable="true" type="tns:Release" />
+  <xs:complexType name="Repertoire">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q31:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdminCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdminCompanyId" type="xs:long" />
+          <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="LinkedContract" type="tns:LinkType" />
+          <xs:element minOccurs="0" name="LinkedTooltip" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LostRightsDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="R2ReleaseId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReleaseId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="RepertoireId" type="xs:long" />
+          <xs:element minOccurs="0" name="ReviewStatusPermitted" type="ser:char" />
+          <xs:element minOccurs="0" name="RightsEditPermitted" type="ser:char" />
+          <xs:element minOccurs="0" name="SensitiveInfoPermitted" type="ser:char" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalRows" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Repertoire" nillable="true" type="tns:Repertoire" />
+  <xs:simpleType name="LinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Contract" />
+      <xs:enumeration value="SplitDeal" />
+      <xs:enumeration value="MAC" />
+      <xs:enumeration value="SAC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LinkType" nillable="true" type="tns:LinkType" />
+  <xs:simpleType name="ReleaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="PhysicalRelease" />
+      <xs:enumeration value="DigitalRelease" />
+      <xs:enumeration value="PhysicallyLinked" />
+      <xs:enumeration value="DigitalLink" />
+      <xs:enumeration value="DigitalPackage" />
+      <xs:enumeration value="PhysicalPackage" />
+      <xs:enumeration value="DigitalLinkedPackage" />
+      <xs:enumeration value="PhysicallyLinkedPackage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReleaseType" nillable="true" type="tns:ReleaseType" />
+  <xs:simpleType name="RightsSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="RollUpComplete" />
+      <xs:enumeration value="RollUpPartial" />
+      <xs:enumeration value="Contract" />
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="ClearanceRequest" />
+      <xs:enumeration value="User" />
+      <xs:enumeration value="RollUpMissing" />
+      <xs:enumeration value="RollUpComplex" />
+      <xs:enumeration value="RollUpMissingOrComplex" />
+      <xs:enumeration value="MAC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RightsSource" nillable="true" type="tns:RightsSource" />
+</xs:schema>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxProjectDetail">
+    <Position X="3.75" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAIAI=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxProjectDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxRequest">
+    <Position X="3.5" Y="9.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>YYGIAGKEYoAQiQwIMIIFUAgQQhHAHEfEigAAEAAQAII=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ListItem">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAAI=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ListItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxFilterCriteria">
+    <Position X="0.75" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAIAAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxFilterCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxSearchCriteria">
+    <Position X="3.25" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAIAAAgAEAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxSearchCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxProject">
+    <Position X="0.75" Y="9.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ARAIAAYQAAIoAQAIAASAEAAEAgAAqBBIUgAQNAAAICA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxSearchResult">
+    <Position X="0.75" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACIAAAAAAAAAAAAAAEAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxSearchResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxFolder">
+    <Position X="0.75" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABACAAAAAAAAAAAgBAAAAAAAIAAAAAAAAAQA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxFolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxDispatch">
+    <Position X="6.25" Y="14.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxDispatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxRequestAction">
+    <Position X="6.25" Y="9.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAAAAAAAAAAAAAAABAAACAAIAAQAABAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxRequestAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxAuthorization">
+    <Position X="8.25" Y="2.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAJAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxAuthorization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxResourceHistory">
+    <Position X="6.25" Y="12.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAiAAAAIAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxResourceHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxResourceHistoryItem">
+    <Position X="10" Y="12.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAEAAAIAAAAAAAAAgEAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxResourceHistoryItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxState">
+    <Position X="6" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAACAAgCAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceInboxState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceNotification">
+    <Position X="3.75" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAAACAAQIAAAAAAAAAAAAAADAAAQAAAAAAAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceRoutingDetails">
+    <Position X="9" Y="14.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEIAAAAAgAAAAQAAQABAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Entities\ClearanceInboxEntities\ClearanceRoutingDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,59 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsRestrictionTabModel
+ <table class="sample" id = "divDigitalSection">
+                <thead>
+                    <tr>
+                        <th style="width: 9%;">
+                            @ContractResource.ContentTypeColumn
+                        </th>
+                        <th style="width: 9%;">
+                            @ContractResource.UseTypeColumn
+                        </th>
+                        <th style="width: 13%;">
+                            @ContractResource.CommercialModelColumn
+                        </th>
+                        <th style="width: 14%;">
+                            @ContractResource.RestrictionColumn
+                        </th>
+                        <th style="width: 17%;">
+                            @ContractResource.ConsentPeriodColumn
+                        </th>
+                        <th style="width: 32%;">
+                            @ContractResource.NotesColumn
+                        </th>
+                        <th style="width: 6%;">
+                            @ContractResource.SelectCheckBox
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int index = 0; index < Model.DigitalRestriction.Count; index++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DropDownListFor(model => model.DigitalRestriction[index].ContentTypeId, new SelectList(Model.ContentTypeList, "value", "text", Model.DigitalRestriction[index].ContentTypeId), new { @class = "ContentTypeList rightSetField" })
+                                 @Html.HiddenFor(model => model.DigitalRestriction[index].DigitalRestrictionId)
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(model => model.DigitalRestriction[index].UseTypeId, new SelectList(Model.UseTypeList, "value", "text", Model.DigitalRestriction[index].UseTypeId), new { @class = "UseTypeList rightSetField" })
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(model => model.DigitalRestriction[index].CommercialModelId, new SelectList(Model.CommercialModelsList, "value", "text", Model.DigitalRestriction[index].CommercialModelId), new { @class = "CommercialModelList rightSetField" })
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(model => model.DigitalRestriction[index].RestrictionId, new SelectList(Model.RestrictionList, "value", "text", Model.DigitalRestriction[index].RestrictionId), new { @class = "DigitalrestrictionList rightSetField" })
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(model => model.DigitalRestriction[index].ConsentPeriodId, new SelectList(Model.ConsentPeriodList, "value", "text", Model.DigitalRestriction[index].ConsentPeriodId), new { @class = "DigitalconsentList rightSetField" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => model.DigitalRestriction[index].Notes, new { maxlength = 495, @class = "rightSetField" })
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);">
+                                    <img class="deleteImage" alt="Delete" src="@Url.Content("/GCS/Images/delete.png")" /></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>

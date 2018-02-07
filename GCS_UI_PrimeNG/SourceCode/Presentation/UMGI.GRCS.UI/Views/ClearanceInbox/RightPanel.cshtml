@@ -1,0 +1,49 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.Resx.Resource.ClearanceInbox
+
+<div id="rightPanel" class="always-hidden">
+
+    <div class="rightPanelHeader green-header-background">
+        
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix smallWidth-M">
+            <span id="projectReferenceNumber">0</span>
+        </div>
+
+        <div class="inboxRightHeaderUpcNum floatR text-align-left margin-right-forty-per smallWidth-M no-decoration marginTop">
+            <span>@Html.Label("", "Submitted")</span>
+        </div>
+
+    </div>
+
+    <div class="rightPanelHeader grey-header-background">
+        <ul class="headerlist" id="availableActions"></ul>
+    </div>
+    
+    <div class="rightPanelHeader floatL">
+
+        <div class="floatL width-32per">
+            <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix margin-top-threepix smallWidth-20 no-decoration">@Html.Label("","UPC:")</div>
+            <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix margin-top-threepix no-decoration no-bold"><span id="upc"></span></div>
+        </div>
+
+        <div class="floatR">
+            <div class="inboxRightHeaderUpcNum floatL text-align-right margin-right-tenpix no-decoration">@Html.Label("","RCC Handler:")</div>
+            <div class="inboxRightHeaderUpcNum floatR text-align-left margin-right-tenpix no-decoration no-bold"><span id="rccHandler"></span></div>
+        </div>
+
+    </div>
+
+    <div class="scroll-pane-before">
+        <div id="projectRequest"></div>
+    </div>
+
+    <div class="rightPanelHeader">
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix no-decoration">@Html.Label("", "Resources of Existing Release")</div>
+    </div>
+    
+    <div class="scroll-pane-before">
+        <div id="projectRequestExistingRelease"></div>
+    </div>
+
+</div>

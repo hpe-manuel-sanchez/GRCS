@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="ArtistSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" base="q1:RepertoireSearchCriteriaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsSearchNameInAllNameFields" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ArtistSearchCriteria" nillable="true" type="tns:ArtistSearchCriteria" />
+  <xs:complexType name="ArtistContractSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtistContracts" nillable="true" type="tns:ArrayOfArtistContract" />
+      <xs:element minOccurs="0" name="RowIndex" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistContractSearchResult" nillable="true" type="tns:ArtistContractSearchResult" />
+  <xs:complexType name="ArrayOfArtistContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistContract" nillable="true" type="tns:ArtistContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistContract" nillable="true" type="tns:ArrayOfArtistContract" />
+  <xs:complexType name="ArtistContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ArtistId" type="xs:long" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyId" type="xs:long" />
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ISAC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsLinked" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ArtistContract" nillable="true" type="tns:ArtistContract" />
+  <xs:complexType name="ArtistInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q3:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContributionId" type="xs:long" />
+          <xs:element minOccurs="0" name="HasArtistRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasComposerRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasWriterRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsPrimary" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameId" type="xs:long" />
+          <xs:element minOccurs="0" name="R2AccountId" type="xs:long" />
+          <xs:element minOccurs="0" name="RoleNo" type="xs:int" />
+          <xs:element minOccurs="0" name="SequenceNo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ArtistInfo" nillable="true" type="tns:ArtistInfo" />
+  <xs:complexType name="ArrayOfArtistInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistInfo" nillable="true" type="tns:ArtistInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistInfo" nillable="true" type="tns:ArrayOfArtistInfo" />
+</xs:schema>

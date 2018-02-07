@@ -1,0 +1,241 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using System.Web.Mvc
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+
+@{
+    ViewBag.Title = "Clearance Inbox";
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceInbox.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+
+@*Merge this jtable with original table & minify*@
+
+<script src="@Url.Content("/GCS/Scripts/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Jlinq/jLinq-2.2.1.packed.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.easing.1.3.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.nicescroll.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceInbox.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceInboxUI.js")" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript">
+        
+    var user_Authorizations             =  @(ViewBag.UserAuthorizations);
+    var user_WorkGroups                 =  @(ViewBag.UserWorkgroups);
+
+    var system_Folders                  =  @(ViewBag.SystemFolders);
+    var folderId_HighPriority           =  @(ViewBag.HighPriorityFolderId);
+    var folderId_Pending                =  @(ViewBag.PendingFolderId);
+    var folderId_ArtistConsent          =  @(ViewBag.ArtistConsentFolderId);
+
+    var default_FolderSize              =  @(ViewBag.DefaultFolderSize);
+    
+    var url_InboxSearch                 = '@Url.Action("GetInboxSearchResult", "ClearanceInbox")';
+    var url_InboxSaveFilters            = '@Url.Action("SaveInboxFilters", "ClearanceInbox")';
+    //var url_InboxImages               = '@Url.Content("/GCS/Images/ClearanceInbox")';
+    var url_GetDispatchWorkgroups       = '@Url.Action("GetDispatchWorkgroups", "ClearanceInbox")';
+    var url_ManageFolders               = '@Url.Action("ManageInboxFolders", "ClearanceInbox")';
+    var url_ManageProjects              = '@Url.Action("ManageInboxProjects", "ClearanceInbox")'; 
+
+    var url_GetInboxProjectDetail       = '@Url.Action("GetInboxProjectDetail", "ClearanceInbox")';
+    var url_UpdateProjectReadStatus     = '@Url.Action("UpdateProjectReadStatus", "ClearanceInbox")';
+    var url_UpdateProjectAssignedToUser = '@Url.Action("UpdateProjectAssignedToUser", "ClearanceInbox")';
+    var url_UpdateRequestAssignedToUser = '@Url.Action("UpdateRequestAssignedToUser", "ClearanceInbox")';
+    var url_UpdateRequestReviewComment  = '@Url.Action("UpdateRequestReviewComment", "ClearanceInbox")';
+    var url_PerformRequestAction        = '@Url.Action("PerformRequestAction", "ClearanceInbox")';
+
+    var url_DisplayProjectDetail        = '@Url.Action("OpenClearanceProjectInReadOnly", "ClearanceProject")';
+
+</script>
+
+<div id="loadingDiv" class="always-hidden loadingDv">
+
+    <img src="Images/ClearanceInbox/loading.gif" />
+
+</div>
+
+<div style="margin:3px 5px;position:relative;">
+    
+    <div id="divMessage" class="always-hidden"></div>
+
+    <div id="inboxWrapper">
+
+        @Html.Partial("LeftPanel")
+
+        <div id="inboxRightWrapperPanel" class="light-grey-background">
+            <div id="inboxHeaderScreen" class="dark-green-background">
+                <span>@Html.Label("", "Inbox")</span>
+    
+                <div id="inboxRefreshWrapper" onclick="refreshInbox();"></div>
+
+                <div id="inboxReminderWrapper">
+                    <div id="inboxReminderCount"></div>
+                    <div id="inboxReminder"></div>
+                </div>
+
+                <div id="inboxNotificationWrapper">
+                    <div id="inboxNotificationCount"></div>
+                    <div id="inboxNotification"></div>
+                </div>
+
+            </div>
+
+            @Html.Partial("CenterPanel")
+
+            <div id="movingPanel1" class="text-align-right">
+                <img src="Images/ClearanceInbox/collapse.png" id="collapseFolderView" />
+            </div>
+
+            <div id="movingPanel2" class="text-align-right">
+                <img src="Images/ClearanceInbox/expand.png" id="expandFolderView" />
+            </div>
+
+            <div id="middelPanel"></div>
+
+            @Html.Partial("RightPanel")
+        
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" language="javascript">
+
+     getSearchResult(); 
+
+</script>
+
+<div id="template-dragHelper" class="always-hidden drag">
+    <div class="floatL ptitle">Project Title</div><div id="projectTitle" class="floatL ptitlev"></div>
+    <div class="clear"></div>
+    <div class="floatL ptitle">Project Ref #</div><div id="projectReferenceNumber" class="floatL ptitlev"></div>
+    <div class="clear"></div>
+    <div class="floatL ptitle">Project Type</div><div id="projectType" class="floatL ptitlev"></div>
+    <div class="clear"></div>
+</div>
+
+<div id="popUp" class="always-hidden">
+
+    <div id="popup-inbox-folder" class="always-hidden">
+    
+        <div style="margin:3px 5px;position:relative;">
+
+            <div class="floatL text-align-right pop-name-label">
+                <label id="lbl-popUp-message" class="always-hidden"></label>
+                <label id="lbl-folder-name" class="always-hidden"></label>
+            </div>
+        
+            <div class="floatL text-align-left pop-field-name">
+                <input id="txt-folder-name" type="text" class="always-hidden"/>
+            </div>
+        
+            <div class="floatL text-align-left pop-button">
+                <input id="btn-folder-create" type="button" value="Create" class="always-hidden plbutton" />
+                <input id="btn-folder-save" type="button" value="Save" class="always-hidden plbutton" />
+                <input id="btn-folder-cancel" type="button" value="Cancel" class="always-hidden plbutton" />
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="popup-request-conditionallyapprove" class="always-hidden">
+
+        <div style="margin:3px 5px;position:relative;">
+
+            <div><label class="labelbold">Please enter comments</label></div>
+
+            <div><textarea id="txt-request-conditionallyapprove-comments" rows="5" cols="20" ></textarea></div>
+        
+            <div class="floatR text-align-left pop-button4">
+                <input id="btn-request-conditionallyapprove-conditionallyapprove" class=" plbutton" type="button" value="Conditionally Approve"  />
+                <input id="btn-request-conditionallyapprove-cancel" type="button" class=" plbutton" value="Cancel"  />
+            </div>
+   
+        </div>
+    
+    </div>
+
+    <div id="popup-request-rejectrequest" class="always-hidden">
+
+        <div style="margin:3px 5px;position:relative;">
+                
+            <div><label class="labelbold">Please select a comment and/or enter comments</label></div>
+            <div><label class="labelbold">Predefined reason for rejection :</label></div>
+                
+                <br />
+                
+            <div>@Html.DropDownList("ddl-request-rejectrequest-reason", new SelectList(@ViewBag.RejectReasons, "Value", "Text"), "--  Select a Reason for Rejection  --")</div>
+                
+                <br />
+
+            <div><textarea id="txt-request-rejectrequest-comments" rows="5" cols="20" ></textarea></div>
+                
+                <br />
+
+            <div class="floatR text-align-left pop-button2">
+                <input id="btn-request-rejectrequest-reject" type="button" class="plbutton" value="Reject"  />
+                <input id="btn-request-rejectrequest-cancel" type="button" class="plbutton" value="Cancel"  />
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div id="popup-request-dispatch" class="always-hidden">
+
+         <div style="margin:3px 5px;position:relative;">
+     
+            <div><label class="labelbold">Select a Workgroup</label></div>
+
+                <div>
+
+                    <div id="div-request-dispatch-workgroups" class="dispatchDv"> 
+                        <table class="inboxTable nomargin">
+                        @foreach (ClearanceInboxDispatch dispatchWorkgroup in @ViewBag.DispatchWorkgroups)
+                        {
+                            <tr>
+                                <td><span><input type="radio" id="rdoDispatchWorkgroup_@(dispatchWorkgroup.WorkgroupId)" class="regular-checkbox" value="@(dispatchWorkgroup.WorkgroupId)" name="dispatchWorkgroup"/></span></td>
+                                <td><span>@dispatchWorkgroup.WorkgroupName</span></td>
+                                <td><span>@String.Join("; ",dispatchWorkgroup.WorkgroupPrimaryUser)</span></td>
+                            </tr>
+                        }
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="floatR text-align-left pop-button2" style="padding-top:5px;">
+                    <input id="btn-request-dispatch-dispatch" type="button" class="plbutton" value="Dispatch"  />
+                    <input id="btn-request-dispatch-cancel" type="button" class="plbutton" value="Cancel"  />
+                </div>
+            </div>
+         
+    </div>
+
+    <div id="popup-request-routetorccadmin" class="always-hidden">
+
+        <div style="margin:3px 5px;position:relative;">
+
+            <div><label class="labelbold">Please enter comments</label></div>
+                
+            <div>
+                <div id="div-request-dispatch-workgroups" > 
+                    <textarea id="txt-request-routetorccadmin-comments" ></textarea>
+                </div>
+            </div>
+            
+            <div class="floatL text-align-left pop-button3">
+                <input id="btn-request-routetorccadmin-routetorccadmin" type="button"  class="plbutton" value="Route to RCC Admin"  />
+                <input id="btn-request-routetorccadmin-cancel" type="button"  class="plbutton" value="Cancel"  />
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

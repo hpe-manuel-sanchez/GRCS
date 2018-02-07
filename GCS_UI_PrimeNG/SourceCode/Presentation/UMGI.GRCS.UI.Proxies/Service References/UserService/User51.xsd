@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/User/User.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/User/User.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/User/User.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:7778/User/User.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:complexType name="ArrayOfGcsPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GcsPermission" nillable="true" type="tns:GcsPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGcsPermission" nillable="true" type="tns:ArrayOfGcsPermission" />
+  <xs:complexType name="GcsPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfCSPermissionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GcsPermission" nillable="true" type="tns:GcsPermission" />
+  <xs:complexType name="ArrayOfCSPermissionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CSPermissionType" type="tns:CSPermissionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCSPermissionType" nillable="true" type="tns:ArrayOfCSPermissionType" />
+  <xs:simpleType name="CSPermissionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="long" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="CreateParentWorkgroup" />
+      <xs:enumeration value="MaintainParentWorkgroup" />
+      <xs:enumeration value="CreateChildWorkgroup" />
+      <xs:enumeration value="MaintainChildWorkgroup" />
+      <xs:enumeration value="DeactivateParentWorkgroup" />
+      <xs:enumeration value="DeactivateChildWorkgroup" />
+      <xs:enumeration value="DeleteParentWorkgroup" />
+      <xs:enumeration value="DeleteChildWorkgroup" />
+      <xs:enumeration value="WorkgroupDeviation" />
+      <xs:enumeration value="ClrProjectCreation" />
+      <xs:enumeration value="ClrProjectSubmission" />
+      <xs:enumeration value="DeleteClrProject" />
+      <xs:enumeration value="MapR2ProjectAndClrProject" />
+      <xs:enumeration value="UserTransfer" />
+      <xs:enumeration value="PushtoR2ForProductcreation" />
+      <xs:enumeration value="ModifyAndResubmitClrProject" />
+      <xs:enumeration value="CancelClrProject" />
+      <xs:enumeration value="CancelResourceInClrProject" />
+      <xs:enumeration value="ReinstateCancelledResources" />
+      <xs:enumeration value="ReinstateCancelledproject" />
+      <xs:enumeration value="ReapplyRejectedClearanceRequest" />
+      <xs:enumeration value="ProjectCompletion" />
+      <xs:enumeration value="ReopenCompletedProject" />
+      <xs:enumeration value="LinkingFreehandCompanyAndResource" />
+      <xs:enumeration value="UpCallocation" />
+      <xs:enumeration value="ClearanceProjectInquiry" />
+      <xs:enumeration value="RoutingVariationsMatrix" />
+      <xs:enumeration value="CreateTemplateForEmailsandClrProject" />
+      <xs:enumeration value="RemainderMails" />
+      <xs:enumeration value="ApproveClearanceRequest" />
+      <xs:enumeration value="ConditionallyApproveClearanceRequest" />
+      <xs:enumeration value="RejectClearanceRequest" />
+      <xs:enumeration value="DispatchClearanceRequest" />
+      <xs:enumeration value="LinkingUnlinkingRepertoireInGcSbyLegalReview" />
+      <xs:enumeration value="UnlinkingRepertoireInGcSbylegalReviewer" />
+      <xs:enumeration value="ArtistConsent" />
+      <xs:enumeration value="AddtopRecleared" />
+      <xs:enumeration value="ViewpriorApprovalofRequest" />
+      <xs:enumeration value="RouteOrphanRequest" />
+      <xs:enumeration value="RouteOneStopRequest" />
+      <xs:enumeration value="CreateAndMaintainSafeTerritories" />
+      <xs:enumeration value="UnlockProjects" />
+      <xs:enumeration value="MimicRoleofRequestorAndReviewer" />
+      <xs:enumeration value="CreationofclrRoutingcontract" />
+      <xs:enumeration value="SearchAndPrint" />
+      <xs:enumeration value="UserPreference" />
+      <xs:enumeration value="RevViewContracts" />
+      <xs:enumeration value="RevAssignedToRequestLevel" />
+      <xs:enumeration value="RevManageContract" />
+      <xs:enumeration value="RevReviewCommentsRequest" />
+      <xs:enumeration value="RevReviewCommentsProjectLevel" />
+      <xs:enumeration value="RevViewHistory" />
+      <xs:enumeration value="RevViewReInstateRequest" />
+      <xs:enumeration value="RevArtistConsent" />
+      <xs:enumeration value="RevUndoArtistConsent" />
+      <xs:enumeration value="RevRouteToRCCAdmin" />
+      <xs:enumeration value="RevAssignedToProjectLevel" />
+      <xs:enumeration value="RevApprove" />
+      <xs:enumeration value="RevConditionallyApprove" />
+      <xs:enumeration value="RevReject" />
+      <xs:enumeration value="RevDispatch" />
+      <xs:enumeration value="RevProjectLevelAction" />
+      <xs:enumeration value="ManageRejectReason" />
+      <xs:enumeration value="AutomaticUPCAllocation" />
+      <xs:enumeration value="ManualUPCAllocation" />
+      <xs:enumeration value="RemoveUPC" />
+      <xs:enumeration value="ManageSafeTerritories" />
+      <xs:enumeration value="DeactivateWorkgroup" />
+      <xs:enumeration value="DeleteWorkgroup" />
+      <xs:enumeration value="ManageUserWorkgroups" />
+      <xs:enumeration value="MimicUser" />
+      <xs:enumeration value="LinkFreeHandResource" />
+      <xs:enumeration value="clrCreateNewFromExisting" />
+      <xs:enumeration value="PushToR2FirstPush" />
+      <xs:enumeration value="PushToR2SubsequentPush" />
+      <xs:enumeration value="MoveToResearchFolder" />
+      <xs:enumeration value="MoveToInternalReviewFolder" />
+      <xs:enumeration value="MoveToSideArtistSample" />
+      <xs:enumeration value="UndoMoveToResearchFolder" />
+      <xs:enumeration value="UndoMoveToInternalReviewFolder" />
+      <xs:enumeration value="UndoMoveToSideArtistSample" />
+      <xs:enumeration value="AssignedTo" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CSPermissionType" nillable="true" type="tns:CSPermissionType" />
+  <xs:complexType name="ArrayOfGrsPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GrsPermission" nillable="true" type="tns:GrsPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrsPermission" nillable="true" type="tns:ArrayOfGrsPermission" />
+  <xs:complexType name="GrsPermission">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIds" nillable="true" type="q2:ArrayOfKeyValueOflonglong" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContractStatusIds" nillable="true" type="q3:ArrayOflong" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CountryIds" nillable="true" type="q4:ArrayOflong" />
+          <xs:element minOccurs="0" name="DataAccessGroups" nillable="true" type="tns:ArrayOfDataAccessGroup" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tasks" type="tns:GrsTasks" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorkFlowIds" nillable="true" type="q5:ArrayOflong" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GrsPermission" nillable="true" type="tns:GrsPermission" />
+  <xs:complexType name="ArrayOfDataAccessGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataAccessGroup" nillable="true" type="tns:DataAccessGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataAccessGroup" nillable="true" type="tns:ArrayOfDataAccessGroup" />
+  <xs:complexType name="DataAccessGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q6:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DagFilterType" type="tns:DagFilterType" />
+          <xs:element minOccurs="0" name="DataAccessGroupData" nillable="true" type="tns:ArrayOfDataAccessGroupData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataAccessGroup" nillable="true" type="tns:DataAccessGroup" />
+  <xs:simpleType name="DagFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Country" />
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="Workflow" />
+      <xs:enumeration value="Contract" />
+      <xs:enumeration value="CompanyAccount" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DagFilterType" nillable="true" type="tns:DagFilterType" />
+  <xs:complexType name="ArrayOfDataAccessGroupData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataAccessGroupData" nillable="true" type="tns:DataAccessGroupData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataAccessGroupData" nillable="true" type="tns:ArrayOfDataAccessGroupData" />
+  <xs:complexType name="DataAccessGroupData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q7:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2AccountId" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataAccessGroupData" nillable="true" type="tns:DataAccessGroupData" />
+  <xs:simpleType name="GrsTasks">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="long" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CreateNCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CreateCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditNCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditNCRAppContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditCACContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DeleteNCRcontract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DeleteCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ApproveNCRcontract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewUnapprovedcontract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ContractMaintinanceWQ">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ContractLinkingWQ">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LinkContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UnlinkContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8192</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UnlinkCRContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16384</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LinkNCRContractToContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32768</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UnLinkNCRContractToContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LinkSplitContractToContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131072</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UnlinkSplitContractToContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">262144</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="RightsReviewWQ">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">524288</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditRightsDataHeader">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1048576</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditRightsDataDigital">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2097152</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditRightsDataSecondary">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4194304</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EditRightsDataPrecleared">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8388608</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UpdateReviewStatus">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16777216</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewSensitiveData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">33554432</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewRepertoireRights">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67108864</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="AddressBookMaintinance">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">134217728</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LocalAdminPermission">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">268435456</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SystemAdministratorPermisson">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">536870912</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ContractTemplateMaintinance">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1073741824</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DigitalRestrictionTemplate">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2147483648</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewContractSenstiveData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4294967296</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SearchContract">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8589934592</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ViewSensitiveRightsData">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17179869184</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="GrsTasks" nillable="true" type="tns:GrsTasks" />
+  <xs:simpleType name="AnaTargetApplication">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Grcs" />
+      <xs:enumeration value="Grs" />
+      <xs:enumeration value="Gcs" />
+      <xs:enumeration value="R2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AnaTargetApplication" nillable="true" type="tns:AnaTargetApplication" />
+  <xs:complexType name="GcsAuthentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DefaultCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultRequestingCompanyId" type="xs:long" />
+      <xs:element minOccurs="0" name="EmailId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAuthorized" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMimicUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUserPreferenceSet" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MimicUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfGcsPermission" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="PreferredRoleGroup" type="q8:KeyValuePairOfunsignedBytestring" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="RoleGroups" nillable="true" type="q9:ArrayOfKeyValuePairOfunsignedBytestring" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Roles" nillable="true" type="q10:ArrayOfKeyValuePairOfunsignedBytestring" />
+      <xs:element minOccurs="0" name="TargetApplication" type="tns:AnaTargetApplication" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Workgroups" nillable="true" type="q11:ArrayOfKeyValuePairOflongstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GcsAuthentication" nillable="true" type="tns:GcsAuthentication" />
+  <xs:complexType name="ApplicationUser">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q12:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationUser" nillable="true" type="tns:ApplicationUser" />
+  <xs:complexType name="GrsAuthentication">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q13:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationUser" nillable="true" type="tns:ApplicationUser" />
+          <xs:element minOccurs="0" name="HashCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAuthorized" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfGrsPermission" />
+          <xs:element minOccurs="0" name="TargetApplication" type="tns:AnaTargetApplication" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GrsAuthentication" nillable="true" type="tns:GrsAuthentication" />
+</xs:schema>

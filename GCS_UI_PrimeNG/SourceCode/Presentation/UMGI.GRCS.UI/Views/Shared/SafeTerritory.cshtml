@@ -1,0 +1,89 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.BusinessEntities.Entities.ContractEntities
+@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@using System.Resources
+@model UMGI.GRCS.UI.Models.ManageTerritoryModel
+@{
+    var resManager = new ResourceManager("UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource", typeof(ClearenceResource).Assembly);
+    ViewBag.Title = resManager.GetString("TerritorialRightsHeader");
+}
+<link href="@Url.Content("/GCS/Content/ManageTerritory.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/AuditTrail.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SafeTerritory.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var  sitecollection = @Html.Raw(Json.Encode(ViewBag.Territories));
+</script>
+
+<div class="commonParentContainer trContainer">
+    <div id="saveErrorMessage" class="warning" style="margin: 2px;">
+    </div>
+    <div id="saveMessage" style="display: none; margin: 2px" class="success">
+    </div>
+    <div class="autocompleteContainer">
+        <input id="autocomplete" class="alignLeft" style="margin-right: 10px;" />
+        <div class="primbutton_left">
+        </div>
+        <div class="alignLeft">
+            <input type="button" value="Find" id="btnSearchTerritory" class="primbutton" />
+        </div>
+        <div class="primbutton_right">
+        </div>
+        <span class="hyperlink"><a id="btnClear" href="javascript:void(0);">@resManager.GetString("ClearFilter")</a></span>
+    </div>
+    <div class="terrRightsContainer clearFloat" style="height: 320px">
+        <div class="gr_clearFloat">
+            <div class="firstHeaderColumn" style="height: 24px !important; width: 52.6%;">
+                &nbsp;
+            </div>
+            <div class="columnWithContent" style="height: 24px; width: 7.8%;">@resManager.GetString("NotApplicable")
+            </div>
+            <div class="lastColumn" style="height: 24px; width: 9.3%; font-weight: bold; text-align: center; line-height: 23px;">@resManager.GetString("SafeTerritory")
+            </div>
+        </div>
+        <div id="mainDiv" style="overflow: scroll;">
+            @{
+                bool item = false;
+            }
+            @Html.BindMenu(ViewBag.Territories as List<TerritorialDisplay>, item)
+        </div>
+        <div class="excludeIncludeList">
+            <div>
+                <a style="text-decoration: underline; float: right; margin-right: 15px;" href="#" onclick="return getSafeTerritoryAuditHistory(AuditObjectType.ManageSafeTerritoriesAuditHistory)">History</a>
+            </div>
+            <br class="clear" />
+            <div class="includeItemsCont">@ClearanceLayout.SafeTerritoriesList
+                <label id="TerritoriesCount">
+                </label>
+            </div>
+            <select size="22" multiple="multiple" id="includeitems" class="zeroMargin">
+            </select>
+        </div>
+    </div>
+    <br class="clear" />
+    <div id="buttonContainer">
+        <div class="btnHolder">
+            <div class="primbutton_left">
+            </div>
+            <div style="float: right;">
+                <input type="button" class="primbutton" value="@resManager.GetString("SaveButton")" id="btnSaveTerritory" />
+            </div>
+            <div class="primbutton_right btnSpace">
+            </div>
+            <div class="secbutton_left">
+            </div>
+            <div style="float: right;">
+                <input type="button" class="secbutton" value="@resManager.GetString("CancelButton")" id="btnCancelPopup" />
+            </div>
+            <div class="secbutton_right">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var pageSuccessMessage = '@ClearanceLayout.js_SavedMessage';
+    var pageErrorMessage = '@ClearanceLayout.js_ErrorMessage';
+</script>

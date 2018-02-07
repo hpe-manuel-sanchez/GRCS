@@ -1,0 +1,111 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    ViewBag.Title = @ClearanceLayout.ClrProjSearchPageTitle;
+
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+<script type="text/javascript">
+
+    var mandatorySearchCriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var ClrProjSearchProjectReferenceNumberLabel = '@ClearanceLayout.ClrProjSearchProjectReferenceNumberHeader';
+    var ClrProjSearchProjectTitleLabel = '@ClearanceLayout.ClrProjSearchProjectTitleLabel';
+    var ClrProjSearchLocalReferenceLabel = '@ClearanceLayout.ClrProjSearchLocalReferenceLabel';
+    var ClrProjSearchProjectTypeLabel = '@ClearanceLayout.ClrProjSearchProjectTypeLabel';
+    var ClrProjSearchRequestTypeLabel = '@ClearanceLayout.ClrProjSearchRequestTypeLabel';
+    var ClrProjSearchRequestingCompanyLabel = '@ClearanceLayout.ClrProjSearchRequestingCompanyLabel';
+    var ClrProjSearchThirdPartyCompanyLabel = '@ClearanceLayout.ClrProjSearchThirdPartyCompanyLabel';
+    var mandatoryselectProject = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectProject';
+</script>
+
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceProject/ClearanceProjectSearch.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceProjectSearch.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("CopyProjectDetails", "ClearanceProject", FormMethod.Post))
+{
+    <div id="searchPanel" class="searchBox">
+        <div id="headerScreen">
+            <h5 class="white_font_color">@ClearanceLayout.CreateNewFromExistingProjectHeader</h5>
+        </div>
+        <table style="width: 100%; padding-top: 5px; padding-bottom: 15px;">
+            <tr>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchProjectReferenceNumberTxtbox)</td>
+                <td align="left">@Html.TextBox("txtPRN")</td>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchProjectTypeDropdwn)</td>
+                <td align="left">@Html.DropDownListFor(model => model.ProjectType, new SelectList(Model.ProjectType, "Value", "Text", Model.ProjectType), "Select", new { id = "ddlProjectTypeCopy", onchange = "ChangeProjectTypeCopy(this.id);" })</td>
+                <td align="right" nowrap="nowrap" style="width: 12%;" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchThirdPartyCompanyTxtbox)</td>
+                <td align="left">
+                    @Html.TextBoxFor(model => model.RegularProjectDetails.ThirdPartyCompanyName, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearch", "Search"), SearchFor = "ThirdParyCompanyName", id = "txtUPC" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchProjectTitleTxtbox)</td>
+                <td align="left">@Html.TextBoxFor(model => model.MasterProjectDetails.ProjectTitle, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearch", "Search"), SearchFor = "ProjectTitle", id = "txtProjectTitle" })</td>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchRequestTypeDropdwn)</td>
+                <td align="left">@Html.DropDownListFor(model => model.RequestType, new SelectList(Model.RequestType, "Value", "Text", Model.RequestType), "Select", new { @class = "createfrom-existing-select", id = "ddlRequestTypeCopy" })</td>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchRequestorTxtbox)</td>
+                <td align="left">@Html.TextBox("txtRequestor")</td>
+            </tr>
+            <tr>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchLocalReferenceTxtbox)</td>
+                <td align="left">@Html.TextBox("txtLocalReference")</td>
+                <td align="right" nowrap="nowrap" class="rqt-bold">@Html.Label(@ClearanceLayout.ClrProjSearchRequestingCompanyTxtbox)</td>
+                <td align="left">@Html.TextBoxFor(model => model.MasterProjectDetails.RequestCompanyName, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearch", "Search"), SearchFor = "RequestCompanyName", id = "txtRequestingCompany" })</td>
+                <td align="left">&nbsp;</td>
+                <td align="left" style="padding-right: 14px;">
+                    <input id="btnSearchProject" type="button" class="primbutton" value="@ClearanceLayout.SearchButton" />&nbsp;&nbsp;
+                    <input id="btnSearchProjectReset" type="button" class="secbutton" value="@ClearanceLayout.ResetButton" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="padding: 5px 10px; display: none;" id="trShowPaging">
+        <table style="width: 100%; padding-top: 10px;">
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tr id="trPagingRow">
+                            <td align="left" colspan="3">
+                                <b>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel &nbsp;</b>
+                                "<span id="spnSearchResult" style="font-weight: bold;"></span>"
+                            </td>
+                            <td align="right" colspan="3">
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown &nbsp;
+                                @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPaging" }) &nbsp;
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <div id="divErrorMessage"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" colspan="6">
+                                <div id="searchProjectList"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" colspan="6">
+                                <div id="SelectedRowList" style="display: none"></div>
+                                @Html.Hidden("SelectedProjectId")
+                                @Html.Hidden("SelectedProjectType")
+                            </td>
+                        </tr>
+                        <tr id="trAddProject" style="display: none;">
+                            <td align="right" colspan="6">
+                                <input id="btnAddProject"  type="button" class="primbutton" value="@ClearanceLayout.CopyButton" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+

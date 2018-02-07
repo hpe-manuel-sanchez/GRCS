@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Project/Project.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Project/Project.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Project/Project.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+  <xs:complexType name="RepertoireSearchCriteriaBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistId" type="xs:long" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyId" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Criteria" nillable="true" type="q2:FilterFields" />
+          <xs:element minOccurs="0" name="ExcludeLocalRows" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepertoireSearchCriteriaBase" nillable="true" type="tns:RepertoireSearchCriteriaBase" />
+  <xs:complexType name="RepertoireSearchResultsBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q3:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdminCompanyId" type="xs:long" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" minOccurs="0" name="ArtistInfo" nillable="true" type="q4:ArrayOfArtistInfo" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2AccountId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepertoireSearchResultsBase" nillable="true" type="tns:RepertoireSearchResultsBase" />
+</xs:schema>

@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:element name="SaveInboxFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q1:LeanUserInfo" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q2:RoleGroup" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q3:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q4:ClearanceInboxSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveInboxFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="SaveInboxFiltersResult" nillable="true" type="q5:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q6:LeanUserInfo" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q7:RoleGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetInboxFiltersResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRccHandlers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q8:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRccHandlersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetRccHandlersResult" nillable="true" type="q9:ArrayOfListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequestors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q10:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRequestorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetRequestorsResult" nillable="true" type="q11:ArrayOfListItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWorkgroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q12:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserWorkgroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUserWorkgroupsResult" nillable="true" type="q13:ArrayOfKeyValueOflongArrayOfKeyValueOflongstringty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q14:LeanUserInfo" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q15:RoleGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetInboxDataResult" nillable="true" type="q16:ClearanceInboxData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxSearchResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q17:LeanUserInfo" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q18:RoleGroup" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q19:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q20:ClearanceInboxSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxSearchResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetInboxSearchResultResult" nillable="true" type="q21:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageInboxFolders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q22:LeanUserInfo" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q23:RoleGroup" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q24:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q25:ClearanceInboxSearchCriteria" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFolder" nillable="true" type="q26:ClearanceInboxFolder" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="folderAction" type="q27:FolderAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageInboxFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="ManageInboxFoldersResult" nillable="true" type="q28:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageInboxProjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q29:LeanUserInfo" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q30:RoleGroup" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q31:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q32:ClearanceInboxSearchCriteria" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxProject" nillable="true" type="q33:ClearanceInboxProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageInboxProjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="ManageInboxProjectsResult" nillable="true" type="q34:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectReadStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q35:LeanUserInfo" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxProject" nillable="true" type="q36:ClearanceInboxProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectReadStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveInboxFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q37:LeanUserInfo" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q38:RoleGroup" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q39:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q40:ClearanceInboxSearchCriteria" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFolder" nillable="true" type="q41:ClearanceInboxFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveInboxFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="SaveInboxFolderResult" nillable="true" type="q42:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUnsubmittedProjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q43:LeanUserInfo" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q44:RoleGroup" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q45:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q46:ClearanceInboxSearchCriteria" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFolder" nillable="true" type="q47:ClearanceInboxFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUnsubmittedProjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="DeleteUnsubmittedProjectsResult" nillable="true" type="q48:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserIdFromUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserIdFromUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserIdFromUserNameResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFolders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetFoldersResult" nillable="true" type="q49:ArrayOfClearanceInboxFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFolderById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="folderId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFolderByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetFolderByIdResult" nillable="true" type="q50:ClearanceInboxFolder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDispatchWorkgroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="workGroupId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDispatchWorkgroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetUserDispatchWorkgroupsResult" nillable="true" type="q51:ArrayOfClearanceInboxDispatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxProjectDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q52:RoleGroup" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q53:LeanUserInfo" />
+        <xs:element minOccurs="0" name="folderId" type="xs:long" />
+        <xs:element minOccurs="0" name="clearanceProjectId" type="xs:long" />
+        <xs:element minOccurs="0" name="workgroupId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxProjectDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetInboxProjectDetailResult" nillable="true" type="q54:ClearanceInboxProjectDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxProjectRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q55:RoleGroup" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q56:LeanUserInfo" />
+        <xs:element minOccurs="0" name="clearanceProjectId" type="xs:long" />
+        <xs:element minOccurs="0" name="workgroupId" type="xs:long" />
+        <xs:element minOccurs="0" name="folderId" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageNo" type="xs:int" />
+        <xs:element minOccurs="0" name="sortField" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gridType" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInboxProjectRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetInboxProjectRequestsResult" nillable="true" type="q57:ArrayOfClearanceInboxRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestAssignedToUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q58:LeanUserInfo" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxRequest" nillable="true" type="q59:ClearanceInboxRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestAssignedToUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestReviewComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q60:LeanUserInfo" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxRequest" nillable="true" type="q61:ClearanceInboxRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestReviewCommentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestAssignedTo_ReviewComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q62:LeanUserInfo" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxRequestAction" nillable="true" type="q63:ClearanceInboxRequestAction" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q64:RoleGroup" />
+        <xs:element minOccurs="0" name="selectAllAcrossPages" type="xs:boolean" />
+        <xs:element minOccurs="0" name="gridType" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isAssignedToEnabled" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isCommentMultipleEnabled" type="xs:boolean" />
+        <xs:element minOccurs="0" name="commentMultiple" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRequestAssignedTo_ReviewCommentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PerformRequestAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q65:LeanUserInfo" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxFilterCriteria" nillable="true" type="q66:ClearanceInboxFilterCriteria" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxSearchCriteria" nillable="true" type="q67:ClearanceInboxSearchCriteria" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxRequestAction" nillable="true" type="q68:ClearanceInboxRequestAction" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q69:RoleGroup" />
+        <xs:element minOccurs="0" name="selectAllAcrossPages" type="xs:boolean" />
+        <xs:element minOccurs="0" name="gridType" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PerformRequestActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="PerformRequestActionResult" nillable="true" type="q70:ClearanceInboxSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearanceContractSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="contractSearch" nillable="true" type="q71:ContractDetails" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInformation" nillable="true" type="q72:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearanceContractSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="ClearanceContractSearchResult" nillable="true" type="q73:ArrayOfContractDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceArtistDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="resourceId" type="xs:long" />
+        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="routedItemId" nillable="true" type="q74:ArrayOflong" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInformation" nillable="true" type="q75:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceArtistDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="GetResourceArtistDetailResult" nillable="true" type="q76:ArrayOfContractDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceArtistDetailSelectedResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResourceIds" nillable="true" type="xs:string" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInformation" nillable="true" type="q77:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceArtistDetailSelectedResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="GetResourceArtistDetailSelectedResourcesResult" nillable="true" type="q78:ArrayOfContractDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q79:LeanUserInfo" />
+        <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+        <xs:element minOccurs="0" name="startIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pagesize" type="xs:int" />
+        <xs:element minOccurs="0" name="sortingField" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetResourceHistoryResult" nillable="true" type="q80:ClearanceInboxResourceHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRejectReasons">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRejectReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="GetRejectReasonsResult" nillable="true" type="q81:ArrayOfClearanceRejectReason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRejectReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceRejectData" nillable="true" type="q82:ClearanceRejectReason" />
+        <xs:element minOccurs="0" name="userLoginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRejectReasonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRejectReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reasonId" type="xs:long" />
+        <xs:element minOccurs="0" name="userLoginName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRejectReasonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotificationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroupId" type="q83:RoleGroup" />
+        <xs:element minOccurs="0" name="projectId" type="xs:long" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" minOccurs="0" name="notificatonType" type="q84:RoutingNotificationEnum" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q85:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotificationStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateClearanceContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="contractDetails" nillable="true" type="q86:ContractDetails" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfor" nillable="true" type="q87:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateClearanceContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="CreateClearanceContractResult" nillable="true" type="q88:ContractInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveContractDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="contractIdList" nillable="true" type="q89:ArrayOfKeyValuePairOflongboolean" />
+        <xs:element minOccurs="0" name="resourceId" type="xs:long" />
+        <xs:element minOccurs="0" name="routedItemId" type="xs:long" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q90:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveContractDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveContractDetailResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveContractDetailSelectedRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="contractIdList" nillable="true" type="q91:ArrayOfKeyValuePairOflongboolean" />
+        <xs:element minOccurs="0" name="resourceIds" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q92:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveContractDetailSelectedRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveContractDetailSelectedRequestsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRCCHandler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProjectId" type="xs:long" />
+        <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q93:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRCCHandlerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clrProjectId" type="xs:long" />
+        <xs:element minOccurs="0" name="emailType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q94:LeanUserInfo" />
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="resourcesId" nillable="true" type="q95:ArrayOflong" />
+        <xs:element minOccurs="0" name="selectAllAcrossPages" type="xs:boolean" />
+        <xs:element minOccurs="0" name="gridType" type="xs:unsignedByte" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="roleGroup" type="q96:RoleGroup" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="clearanceInboxRequestaction" nillable="true" type="q97:ClearanceInboxRequestAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerateEmailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

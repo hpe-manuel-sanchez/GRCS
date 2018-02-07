@@ -1,0 +1,561 @@
+﻿.yellowDigitalRestrictionLink
+{
+background:url('/GCS/Images/yellowRight.png') no-repeat scroll right top !important;
+color: #222 !important;
+font-weight: bold !important;}
+.violetPreClearanceLink
+{
+background:url('/GCS/Images/purpleRight.png') no-repeat scroll right top !important;
+color: #222 !important;
+font-weight: bold !important;} 
+.greenSecondaryExploitationLink
+{
+background:url('/GCS/Images/greenRight.png') no-repeat scroll right top !important;
+color: #222 !important;
+font-weight: bold !important;} 
+.blueClassAcquiredLink
+{
+background:url('/GCS/Images/blueRight.png') no-repeat scroll right top !important;
+color: #222 !important;
+font-weight: bold !important;} 
+
+.divRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divRightsPriorityWorkQTab #screenTabs li.ui-widget-content a .divRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divRightsPriorityWorkQTab #screenTabs li.ui-widget-header a .divRightsPriorityWorkQTab #screenTabs li.ui-state-active a             
+{
+color: #000 !important;
+font-weight:bold;}
+.divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-content a .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-header a .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a             
+{
+color: #000 !important;
+font-weight:bold;}
+
+
+
+.divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-default, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-content #screenTabs li.ui-state-default, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-header .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-default
+{
+background: url("/GCS/Images/pre_inactive_left.png") no-repeat scroll left top;
+color: #222 !important;
+
+padding: 0 0px 0 4px;
+}
+.divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-default a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-content a #screenTabs li.ui-state-default a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-header a .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-default a
+{
+background: url("/GCS/Images/pre_inactive_right.png") no-repeat scroll right top;
+color: #222 !important;
+
+padding: 5px 14px 5px 9px;
+}
+    
+.divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-content #screenTabs li.ui-state-active, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-header .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active
+{
+background: url("/GCS/Images/pri_act_left.png") no-repeat scroll left top;
+color: #222 !important;
+font-weight:bold;
+padding: 0 0px 0 4px;
+}
+.divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-content a .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a, .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-widget-header a .divReleaseRightsPriorityWorkQTab #screenTabs li.ui-state-active a
+{
+background: url("/GCS/Images/pri_act_right.png") no-repeat scroll right top;
+color: #222 !important;
+font-weight:bold;
+padding: 5px 14px 5px 9px;
+}
+ 
+.priorityPartialView {
+overflow: hidden;
+}
+ 
+
+.sampleArtist
+{
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1121px;
+background-repeat: no-repeat;
+margin: 0 auto;
+height:24px;
+width:20px;
+}
+ 
+.sampleExists {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1094px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.resourceAudio {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1268px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.resourceVideo {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1292px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.resourceImage {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1245px;
+height:24px;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.resourceMerchandise {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1341px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.resourceText {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1367px;
+height:24px;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.resourceOthers {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: 25px -1316px;
+height:24px;
+width:20px;
+}
+ 
+.resourceInfo {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: 25px -1014px;
+height:20px;
+width:20px;
+float: right;
+}
+
+.resourceInfoRights {
+    background-image: url("/GCS/Images/grs_sprite_img.png");
+    background-position: 25px -1014px;
+    float: right;
+    height: 20px;
+    margin: -5px 0 0 0 \0/IE9; /* IE8+9 */
+   *margin: -5px 0 0 0;/* IE8+7 */
+    margin: -20px 0 0 0;
+    margin: -5px 0 0 0 \9; 
+
+    width: 20px;
+}
+  
+.resourceInfoHeader {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: 25px -1020px;
+float: right;
+height: 15px;
+
+width: 20px;
+}
+.globePlus {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1197px;
+background-repeat: no-repeat;
+margin: 0 auto;
+height:24px;
+width:20px;
+}
+
+.tdglobePlus {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: 23px -1194px;
+background-repeat: no-repeat;
+height:24px;
+}
+
+.exclusionPlus {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: 23px -987px;
+background-repeat: no-repeat;
+height:24px;
+}
+ 
+.rightslinkedContract{
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1542px;
+height:24px;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.rightsSplit {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1172px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.rightsMAC {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -963px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.rightsSAC {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1145px;
+height:24px;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.flagBlue {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1392px;
+height:24px;
+background-repeat: no-repeat;
+width:20px;
+}
+ 
+.flagOrange {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1444px;
+height:24px;
+width:20px;
+background-repeat: no-repeat;
+}
+ 
+.flagGreen {
+background-image:url(/GCS/Images/grs_sprite_img.png);
+background-position: -4px -1417px;
+height:24px;
+background-repeat: no-repeat;
+width:20px;
+}
+
+.reviewFlagBlue {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -1390px !important;
+height:24px !important;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.reviewFlagOrange {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -1438px !important;
+height:24px !important;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.reviewFlagGreen {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -1414px !important;
+height:24px !important;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+
+.reviewFlagBlueUpdated {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -2307px !important;
+height:24px !important;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+ 
+.reviewFlagOrangeUpdated {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -2387px !important;
+height:24px !important;
+width:20px;
+background-repeat: no-repeat;
+margin: 0 auto;
+}
+ 
+.reviewFlagGreenUpdated {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: 0px -2347px !important;
+height:24px !important;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px;
+}
+
+.errorImageRights {
+background-image:url(/GCS/Images/grs_sprite_img.png) !important;
+background-position: -4px -807px !important;
+height:24px !important;
+background-repeat: no-repeat;
+margin: 0 auto;
+width:20px; 
+}
+
+
+.btnSpaceLocal
+{
+margin-right:6px;}
+.customMenu
+{
+margin-top: 13px; margin-right: 15px;} 
+.wqTabs
+{
+clear:both; height:auto;}  
+#menuTab
+{
+padding: 0 !important;
+background-color: #b8d0e9 !important;
+border-bottom: 1px solid #a6a6a6;
+}
+    
+#screenTabs li.ui-state-default, #screenTabs li.ui-widget-content #screenTabs li.ui-state-default, #screenTabs li.ui-widget-header #screenTabs li.ui-state-default
+{
+background: url("/GCS/Images/pre_inactive_left.png") no-repeat scroll left top;
+color: #222 !important;
+font-weight: normal;
+padding: 0 0px 0 4px;
+}
+#screenTabs li.ui-state-default a, #screenTabs li.ui-widget-content a #screenTabs li.ui-state-default a, #screenTabs li.ui-widget-header a #screenTabs li.ui-state-default a
+{
+background: url("/GCS/Images/pre_inactive_right.png") no-repeat scroll right top;
+color: #222 !important;
+font-weight: normal;
+padding: 5px 14px 5px 9px;
+}
+    
+#screenTabs li.ui-state-active, #screenTabs li.ui-widget-content #screenTabs li.ui-state-active, #screenTabs li.ui-widget-header #screenTabs li.ui-state-active
+{
+background: url("/GCS/Images/pri_act_left.png") no-repeat scroll left top;
+color: #fff !important;
+font-weight: normal;
+padding: 0 0px 0 4px;
+}
+#screenTabs li.ui-state-active a, #screenTabs li.ui-widget-content a #screenTabs li.ui-state-active a, #screenTabs li.ui-widget-header a #screenTabs li.ui-state-active a
+{
+background: url("/GCS/Images/pri_act_right.png") no-repeat scroll right top;
+color: #fff !important;
+font-weight: normal;
+padding: 5px 14px 5px 9px;
+}
+ul#screenTabs
+{
+position: relative;
+top: 0px;
+}     
+.wqCustomSetting
+{
+padding-top: 7px !important;}
+#divRightsAcquiredTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #9acbef;}
+
+#divDigitalRestrictionsTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #ffdc25;}
+#divSecondaryExploitationTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #AAE083;}
+#divPreClearanceTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #E2B3FF;}      
+#divRightsAcquiredTab #jqgrid    
+{
+margin-top:-10px;
+}
+#divDigitalRestrictionsTab #jqgrid 
+{
+margin-top:-10px;
+}
+#divSecondaryExploitationTab #jqgrid  
+{
+margin-top:-10px;
+}
+#divPreClearanceTab #jqgrid    
+{
+margin-top:-10px;
+}
+
+
+#divResourceRightsAcquiredTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #AFDBFE;
+/*margin-top:-10px;*/
+}
+
+#divResourceDigitalRestrictionsTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #ffdc25;
+/*margin-top:-10px;*/
+}
+#divResourceSecondaryExploitationTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #AAE083;
+/*margin-top:-10px;*/
+}
+#divResourcePreclearanceTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop    
+{
+background-color: #E2B3FF;
+/*margin-top:-10px;*/
+}    
+  
+.divRightsPriorityWorkQTab .top_desc
+{
+padding-left:17px;
+padding-top:7px;}    
+#secondaryExp, #preClearanceGrid, #digitalGrid, #rightsAcquired
+{
+border: none !important; }  
+
+    
+
+#divScrollPriorityWorkQueue #divRightsWorkQueue
+{
+margin-top:2px;}
+.customMenu .helpSupportImg
+{
+padding: 5px 20px 5px 10px !important;
+background-image: url("/GCS/Images/grs_sprite_img.png");
+background-position: 132px -1566px;
+background-repeat: no-repeat; }
+.customMenu ul#navlist li:hover .helpSupportImg
+{
+background-image: url("/GCS/Images/grs_sprite_img.png") !important;
+background-position: 132px -1585px !important;
+background-repeat: no-repeat !important;
+padding: 5px 20px 5px 10px !important;}
+.customMenu .helpNavMenu ul#subnavlist
+{
+right:15px;
+top:100px\9;
+width:158px;}  
+.customAlignWarning
+{
+    top: 129px !important;}  
+    .customAlignWarningChrome
+    {
+       top: 128px !important; }
+.colorTabs
+{
+background-color: #fff !important;
+border-bottom: none !important;}
+.colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.yellowDigitalRestriction, .colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-selected.ui-state-active.yellowDigitalRestriction
+{
+/*background-color: Yellow !important; */
+background:url('/GCS/Images/yellowLeft.png') no-repeat scroll left top;}
+.colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.blueClassAcquired, .colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-selected.ui-state-active.blueClassAcquired
+{
+/*background-color: Blue !important;*/
+background:url('/GCS/Images/blueLeft.png') no-repeat scroll left top;}
+            
+.colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.greenSecondaryExploitation, .colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-selected.ui-state-active.greenSecondaryExploitation
+{
+/*background-color: Green !important;*/
+background:url('/GCS/Images/greenLeft.png') no-repeat scroll left top;}
+           
+.colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.violetPreClearance, .colorTabs #screenTabs .ui-state-default.ui-corner-top.ui-tabs-selected.ui-state-active.violetPreClearance
+{
+/*background-color: Violet !important;*/
+background:url('/GCS/Images/purpleLeft.png') no-repeat scroll left top;}
+            
+.colorTabs #screenTabs li.ui-state-active a, .colorTabs #screenTabs li.ui-widget-content a .colorTabs #screenTabs li.ui-state-active a, .colorTabs #screenTabs li.ui-widget-header a .colorTabs #screenTabs li.ui-state-active a
+{
+/* background-image:none;*/}
+
+#jqgrid .Syncfusion-Grid-Core
+{
+border:none !important;  }
+.ui-tabs .ui-tabs-panel
+{
+padding:0 !important;}
+#divScrollRightsReviewTabs
+{
+/*height: 525px;
+overflow-y: scroll;
+overflow-x: hidden;*/
+}
+#divRightsPriorityWorkQueueTab li .ui-icon-close
+{
+float: left; /*margin: 0.4em 0.2em 0 0;*/
+cursor: pointer;
+margin-left: -16px;
+margin-top: 5px;
+background:url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -6px -2032px transparent !important; 
+}
+#add_tab
+{
+cursor: pointer;
+}
+#divRightsCustomSettingPopUp
+{
+padding-top: 0;
+padding-bottom: 0;
+padding-left: 0;
+padding-right: 0;
+overflow: hidden;
+}
+.ui-tabs
+{
+padding: 0;
+}
+      
+        
+ul#screenTabs
+{
+position: relative;
+top: 0px;
+} 
+#navlist #active
+{
+text-align: left;}
+.divRightsPriorityWorkQTab ul#screenTabs
+{
+position: relative;
+top: 1px !important;
+} 
+
+#menuuTab {
+    background-color: #F0F0F0;
+    border-bottom: 3px solid #3171BB;
+    width: 100%;
+}
+#divRightsPriorityWorkQueueTab ul#navlist li:hover divRightsPriorityWorkQueueTab ul#subnavlist li a{
+width:138px;
+}
+#divRightsPriorityWorkQueueTab .subMenusNav li a
+{
+ width:138px;   }
+ 
+ .disabledElement
+{
+    background:#DCDFE2;
+}
+
+     .hyperTextBlue {
+        text-decoration: underline;
+        color: #143489;
+         cursor: pointer;
+    }
+    .hyperTextBlack {
+        text-decoration: underline;
+         cursor: pointer;
+    }

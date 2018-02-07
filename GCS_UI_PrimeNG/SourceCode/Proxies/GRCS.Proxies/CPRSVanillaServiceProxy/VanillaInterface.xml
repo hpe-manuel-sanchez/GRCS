@@ -1,0 +1,2496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://umusic.net/webservices/itdi/vanilla" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://umusic.net/webservices/itdi/vanilla" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://umusic.net/webservices/itdi/vanilla">
+      <s:element name="Authenticated_GetTerritorialRightsByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetTerritorialRightsByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetTerritorialRightsByCPRSProductIDResult" type="tns:ProductTerritoryRights" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductTerritoryRights">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCore">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="ReleaseRights" type="tns:ProductTerritoryRightsReleaseRights" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ProductCore">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductUPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UPV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Manufacturers" type="tns:ArrayOfManufacturer" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufactureLocation" type="tns:ManufactureLocation" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPRSArtist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPRSTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Availability" type="tns:ProductCoreAvailability" />
+          <s:element minOccurs="0" maxOccurs="1" name="GRiD" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPRSFormat" type="tns:CodeDescType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfManufacturer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Manufacturer" nillable="true" type="tns:Manufacturer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Manufacturer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+        <s:attribute name="ManufacturerID" type="s:int" use="required" />
+      </s:complexType>
+      <s:complexType name="ManufactureLocation">
+        <s:attribute name="LocationID" type="s:int" use="required" />
+        <s:attribute name="Description" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="ProductCoreAvailability">
+        <s:restriction base="s:string">
+          <s:enumeration value="PhysicalOnly" />
+          <s:enumeration value="DigitalOnly" />
+          <s:enumeration value="PhysicalAndDigital" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CodeDescType">
+        <s:attribute name="Code" type="s:string" />
+        <s:attribute name="Description" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Product">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCore">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CPRSVersionTitle" nillable="true" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastUpdated" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="HasExplicitLyrics" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CPRSMusicType" type="tns:CPRSProductMusicType" />
+              <s:element minOccurs="1" maxOccurs="1" name="CPRSManufacturingType" type="tns:CPRSProductMusicType" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsPriorityRelease" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="CPRSMarketingDivision" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CPRSRepertoireOwnerLabel" type="tns:LabelType" />
+              <s:element minOccurs="0" maxOccurs="1" name="CPRSReleasingLabel" type="tns:LabelType" />
+              <s:element minOccurs="1" maxOccurs="1" name="CPRSReleasingTerritory" type="tns:ReleasingTerritory" />
+              <s:element minOccurs="0" maxOccurs="1" name="RMS" type="tns:ProductRMS" />
+              <s:element minOccurs="1" maxOccurs="1" name="Collaborators" nillable="true" type="tns:ArrayOfProductPerson" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="ProductDetails" type="tns:ProductProductDetails" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="CPRSProductMusicType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Pop" />
+          <s:enumeration value="ClassicsAndJazz" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LabelType">
+        <s:attribute name="LabelID" type="s:int" use="required" />
+        <s:attribute name="LabelName" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ReleasingTerritory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ISO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransNat" type="s:string" />
+        </s:sequence>
+        <s:attribute name="Name" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ProductRMS">
+        <s:attribute name="RMSProductID" type="s:long" />
+        <s:attribute name="RMSProjectID" type="s:string" />
+        <s:attribute name="RMSConfigID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfProductPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:ProductPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductProductDetails">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="DigitalDetails" type="tns:DigitalProductDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhysicalDetails" type="tns:PhysicalProductDetails" />
+          </s:choice>
+        </s:sequence>
+        <s:attribute name="ProductMedium" type="tns:CPRSProductMedium" use="required" />
+      </s:complexType>
+      <s:complexType name="DigitalProductDetails">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCommon">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ExclusivityStartDate" type="s:date" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExclusivityEndDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfTracks" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BizPartner" nillable="true" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BizPartners" nillable="true" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ActionsAfter" nillable="true" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DigStockDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="AlbumOnly" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="LicExpDate" type="s:date" />
+              <s:element minOccurs="0" maxOccurs="1" name="PricingComments" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AspectRatio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ContentType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CJProductType" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ProductCommon">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSVersionTitle" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSProductType" type="tns:ProductType" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSStatus" type="tns:ProductStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPRSFormat" type="tns:CodeDescType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPRSConfigID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocalVersions" nillable="true" type="tns:ArrayOfProductCommonLocalVersion" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSPriceCode" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProductType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Undefined" />
+          <s:enumeration value="Promo" />
+          <s:enumeration value="Commercial" />
+          <s:enumeration value="Exclusive" />
+          <s:enumeration value="Import" />
+          <s:enumeration value="IMS" />
+          <s:enumeration value="Distribution" />
+          <s:enumeration value="ePD" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ProductStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Scheduled" />
+          <s:enumeration value="InProgress" />
+          <s:enumeration value="Deleted" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProductCommonLocalVersion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocalVersion" type="tns:ProductCommonLocalVersion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductCommonLocalVersion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:LocalVersionType" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LocalVersionType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LLVersionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Country" type="tns:Territory" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialOrders" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InitialOrderValidation" type="tns:InitialOrderValidation" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoMID" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleasingLabel" type="tns:LabelType" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalCatNo" />
+          <s:element minOccurs="0" maxOccurs="1" name="VS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UPV" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Territory">
+        <s:attribute name="Name" type="s:string" />
+        <s:attribute name="ISO" type="s:string" />
+      </s:complexType>
+      <s:complexType name="InitialOrderValidation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:InitialOrderValidationStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Validator" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InitialOrderValidationStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotValidated" />
+          <s:enumeration value="Validated" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSUserId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhysicalProductDetails">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCommon">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" default="0" name="DiskCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SetType" type="tns:CPRSSetType" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsCopyProtected" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="InitialOrders" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeccaDGGInitialOrders" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NPSC" type="tns:CodeDescType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Components" type="tns:ArrayOfComponent" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReorderInfo" type="tns:PhysicalProductDetailsReorderInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhysStockDate" type="s:date" />
+              <s:element minOccurs="0" maxOccurs="1" name="IMS" type="tns:PhysicalProductDetailsIMS" />
+              <s:element minOccurs="0" maxOccurs="1" name="DistributionOnly" type="tns:PhysicalProductDetailsDistributionOnly" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsAutoSampling" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="InitialOrderApproval" type="tns:InitialOrderApproval" />
+              <s:element minOccurs="0" maxOccurs="1" name="InitialOrderValidation" type="tns:InitialOrderValidation" />
+              <s:element minOccurs="0" maxOccurs="1" name="DeccaDGGInitialOrderApproval" type="tns:InitialOrderApproval" />
+              <s:element minOccurs="0" maxOccurs="1" name="LimitedEdition" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SpecialProject" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="CPRSSetType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Set" />
+          <s:enumeration value="SuperSet" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfComponent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Component" nillable="true" type="tns:Component" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Component">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CPRSComponentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentUPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Artist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Format" type="tns:CodeDescType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubComponent" type="tns:Component" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhysicalProductDetailsReorderInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhysicalProductDetailsIMS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SupWarehse" type="tns:CodeDescType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Licensee" type="tns:CodeDescType" />
+          <s:element minOccurs="1" maxOccurs="1" name="IniOrdEst" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhysicalProductDetailsDistributionOnly">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleasingLabel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeadTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrigCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InitialOrderApproval">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:InitialOrderApprovalStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Approver" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InitialOrderApprovalStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotRequired" />
+          <s:enumeration value="AwaitingApproval" />
+          <s:enumeration value="Approved" />
+          <s:enumeration value="Rejected" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CPRSProductMedium">
+        <s:restriction base="s:string">
+          <s:enumeration value="Physical" />
+          <s:enumeration value="Digital" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ProductTerritoryRightsReleaseRights">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RRT" type="tns:RRT" />
+        </s:sequence>
+        <s:attribute name="ProductMedium" type="tns:CPRSProductMedium" use="required" />
+      </s:complexType>
+      <s:complexType name="RRT">
+        <s:attribute name="ISO" type="s:string" />
+      </s:complexType>
+      <s:element name="GetTerritorialRightsByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTerritorialRightsByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTerritorialRightsByCPRSProductIDResult" type="tns:ProductTerritoryRights" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDigitalReleaseDataByProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductDigitalReleases">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductDigitalRelease" type="tns:ProductDigitalRelease" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductDigitalRelease">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCore">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DigitalRelease" type="tns:DigitalRelease" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DigitalRelease">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductionInitiatedStatus" type="tns:ProductionStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductionInitiated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductionActiveWorkflow" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RMSFinalStatus" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BomApprovedStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="BomApprovedDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BomApprovedCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MusicProcessedStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="MusicProcessedDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MusicProcessedCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrontCoverStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrontCoverDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FrontCoverCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullWAVStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullWAVDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullWAVCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadyDownloadStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadyDownloadDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadyDownloadCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LatDevFinalStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="LatDevFinalStatusDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LatDevFinalStatusCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoAvailableToDistributeStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoAvailableToDistributeDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="VideoAvailableToDistributeCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookletSentToDAVeTeamStatus" type="tns:MilestoneStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookletSentToDAVeTeamDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="BookletSentToDAVeTeamCompletedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RMSeUSEStatus" type="tns:RMSStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="RMSeUSEDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RMSeUseCompletedDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProductionStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Not Initiated" />
+          <s:enumeration value="Initiated" />
+          <s:enumeration value="Cancelled" />
+          <s:enumeration value="Completed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MilestoneStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Not Initiated" />
+          <s:enumeration value="Not Applicable" />
+          <s:enumeration value="Not Completed" />
+          <s:enumeration value="Active" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Bypassed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RMSStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Not Final" />
+          <s:enumeration value="Final" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetDigitalReleaseDataByProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDigitalReleaseDataByProductIDResult" type="tns:ProductDigitalReleases" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetDigitalReleaseDataByProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetDigitalReleaseDataByProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetDigitalReleaseDataByProductIDResult" type="tns:ProductDigitalReleases" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetDigitalReleaseDataByProductIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CPRSProductIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Authenticated_GetDigitalReleaseDataByProductIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetDigitalReleaseDataByProductIDListResult" type="tns:ProductDigitalReleases" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDigitalReleaseDataByProductIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="products" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDigitalReleaseDataByProductIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDigitalReleaseDataByProductIDListResult" type="tns:ProductDigitalReleases" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOMDataByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LocalLanguageBOMs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocalLanguageBOM" type="tns:LocalLanguageBOM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocalLanguageBOM">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BillOfMaterialsCore">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LocalLanguageVersionID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BillOfMaterialsCore">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BOMID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorUsername">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="id" type="s:int" use="required" />
+                  <s:attribute name="Name" type="s:string" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusChangeTimeStamp" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentApprovalStatus">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="Created" />
+                <s:enumeration value="AwaitingApproval" />
+                <s:enumeration value="Approved" />
+                <s:enumeration value="Escalated" />
+                <s:enumeration value="Rejected" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusChangeUsername" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalDays" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastApprovedPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastApprovedHandlingCharge" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastApprovedStockPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="HandlingCharge" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StockPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Description" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiskCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FactoryQuotationSent" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NonStandard" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISOCountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOMItems" type="tns:ArrayOfBOMItem" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOMPreApproval" type="tns:BOMPreApproval" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrinterAllocationType">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="PrintNotAllocated" />
+                <s:enumeration value="ProductLevel" />
+                <s:enumeration value="ItemLevel" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PrinterAllocationComment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrintedLeadTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MediaLeadTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HandpackLeadTime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiresHandpacking" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UPV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="tns:Currency" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBOMItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BOMItem" type="tns:BOMItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BOMItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BOMItemID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BOMItemTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOMItemType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BOMItemAttributes" type="tns:BOMItemAttributes" />
+          <s:element minOccurs="1" maxOccurs="1" name="Comments" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Description" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BOMItemPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Exclude" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DAGTemplates" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentUPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expiry" type="tns:Expiry" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiresPreApproval" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentUPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfBOMItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrinterAllocations" type="tns:ArrayOfPrinterAllocation" />
+          <s:element minOccurs="0" maxOccurs="1" name="CriticalPrint" type="tns:CriticalPrint" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="tns:Currency" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BOMItemAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DimensionX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DimensionY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Material" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colours" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColourComment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Orientation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoOrdinates" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShrinkWrap" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DAGTemplate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Expiry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DateFrom" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTo" type="s:date" />
+        </s:sequence>
+        <s:attribute name="ExpiryType" use="required">
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="Life of Product" />
+              <s:enumeration value="Initial Only" />
+              <s:enumeration value="Date Range" />
+              <s:enumeration value="3 Months from Release" />
+            </s:restriction>
+          </s:simpleType>
+        </s:attribute>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrinterAllocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrinterAllocation" type="tns:PrinterAllocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrinterAllocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrintSupplier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrinterAllocationComment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrintRevision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrintWhamNetId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CriticalPrint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CriticalCategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Currency">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrencyId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ISOCode" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BOMPreApproval">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="Requested" />
+                <s:enumeration value="Approved" />
+                <s:enumeration value="Rejected" />
+                <s:enumeration value="NotRequested" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Approver" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BillOfMaterials">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BillOfMaterialsCore">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="LocalLanguageBOMs" type="tns:LocalLanguageBOMs" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetBOMDataByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBOMDataByCPRSProductIDResult" type="tns:ProductBillOfMaterials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductBillOfMaterials">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ProductCore">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BillOfMaterials" type="tns:BillOfMaterials" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBOMDataByCPRSProductIDAndCurrencyCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBOMDataByCPRSProductIDAndCurrencyCodeResult" type="tns:ProductBillOfMaterials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCurrencies">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfCurrency">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Currency" nillable="true" type="tns:Currency" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableCurrenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCurrenciesResult" type="tns:ArrayOfCurrency" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetAvailableCurrencies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetAvailableCurrenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetAvailableCurrenciesResult" type="tns:ArrayOfCurrency" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetBOMDataByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetBOMDataByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetBOMDataByCPRSProductIDResult" type="tns:ProductBillOfMaterials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeResult" type="tns:ProductBillOfMaterials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductByCPRSProductIDResult" type="tns:Product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetProductByCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetProductByCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetProductByCPRSProductIDResult" type="tns:Product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductDataByUPC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductDataByUPCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductDataByUPCResult" type="tns:Product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetProductDataByUPC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetProductDataByUPCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetProductDataByUPCResult" type="tns:Product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUPCFromCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUPCFromCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUPCFromCPRSProductIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetUPCFromCPRSProductID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CPRSProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetUPCFromCPRSProductIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetUPCFromCPRSProductIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCPRSProductIDFromUPC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCPRSProductIDFromUPCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCPRSProductIDFromUPCResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetCPRSProductIDFromUPC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UPC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticated_GetCPRSProductIDFromUPCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Authenticated_GetCPRSProductIDFromUPCResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Authenticated_GetPartsTracking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartsRequestObj" type="tns:PartsRequestObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PartsRequestObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BOMTrackedPartResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BOMID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackedParts" type="tns:ArrayOfTrackedPart" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkFlowItems" type="tns:ArrayOfWorkFlowItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Collaborators" type="tns:Collaborators" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalLangugaes" type="tns:LocalLanguages" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTrackedPart">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrackedPart" nillable="true" type="tns:TrackedPart" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrackedPart">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TrackedPartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSummaryItem" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackedPartAudit" type="tns:ArrayOfTrackedPartAudit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTrackedPartAudit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrackedPartAudit" nillable="true" type="tns:TrackedPartAudit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrackedPartAudit">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TrackedPartAuditID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartCarrier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorkFlowItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorkFlowItem" nillable="true" type="tns:WorkFlowItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkFlowItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WorkflowType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaskName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Owner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DueDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date_Updated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Completed_By" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Collaborators">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Product_Manager_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Product_Manager_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Production_Controller_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Production_Controller_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEDAM_Manager_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEDAM_Manager_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEDAM_Controller_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEDAM_Controller_Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Head_Of_Production_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Head_Of_Production_Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocalLanguages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LocalLanguage" type="tns:ArrayOfLocalLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocalLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LocalLanguage" nillable="true" type="tns:LocalLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocalLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Country_ISO_Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BOMID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackedParts" type="tns:ArrayOfTrackedPart" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Authenticated_GetPartsTrackingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Authenticated_GetPartsTrackingResult" type="tns:BOMTrackedPartResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductTerritoryRights" type="tns:ProductTerritoryRights" />
+      <s:element name="ProductDigitalReleases" type="tns:ProductDigitalReleases" />
+      <s:element name="ProductBillOfMaterials" type="tns:ProductBillOfMaterials" />
+      <s:element name="ArrayOfCurrency" nillable="true" type="tns:ArrayOfCurrency" />
+      <s:element name="Product" type="tns:Product" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetTerritorialRightsByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetTerritorialRightsByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTerritorialRightsByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTerritorialRightsByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDigitalReleaseDataByProductID" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDigitalReleaseDataByProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetDigitalReleaseDataByProductID" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetDigitalReleaseDataByProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetDigitalReleaseDataByProductIDList" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetDigitalReleaseDataByProductIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDigitalReleaseDataByProductIDList" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDigitalReleaseDataByProductIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOMDataByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBOMDataByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBOMDataByCPRSProductIDAndCurrencyCode" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCurrenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCurrencies" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCurrenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCurrenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetAvailableCurrencies" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetAvailableCurrenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetBOMDataByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetBOMDataByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetProductByCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetProductByCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductDataByUPC" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductDataByUPCResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetProductDataByUPC" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetProductDataByUPCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUPCFromCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUPCFromCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetUPCFromCPRSProductID" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetUPCFromCPRSProductIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCPRSProductIDFromUPC" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCPRSProductIDFromUPCResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetCPRSProductIDFromUPC" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetCPRSProductIDFromUPCResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetPartsTrackingSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetPartsTracking" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetPartsTrackingSoapOut">
+    <wsdl:part name="parameters" element="tns:Authenticated_GetPartsTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductTerritoryRights" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductTerritoryRights" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDigitalReleases" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductDigitalReleases" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="CurrencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCurrenciesHttpGetIn" />
+  <wsdl:message name="GetAvailableCurrenciesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="CurrencyCode" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCHttpGetIn">
+    <wsdl:part name="UPC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCHttpGetOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCHttpGetIn">
+    <wsdl:part name="UPC" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCHttpGetOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDHttpGetIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCHttpGetIn">
+    <wsdl:part name="UPC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCHttpGetIn">
+    <wsdl:part name="UPC" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpGetOut" />
+  <wsdl:message name="LogoutHttpGetIn" />
+  <wsdl:message name="LogoutHttpGetOut" />
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetTerritorialRightsByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductTerritoryRights" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTerritorialRightsByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductTerritoryRights" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDigitalReleaseDataByProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDigitalReleases" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetDigitalReleaseDataByProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductDigitalReleases" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="CurrencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCurrenciesHttpPostIn" />
+  <wsdl:message name="GetAvailableCurrenciesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetAvailableCurrenciesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCurrency" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="CurrencyCode" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductBillOfMaterials" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductByCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCHttpPostIn">
+    <wsdl:part name="UPC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDataByUPCHttpPostOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCHttpPostIn">
+    <wsdl:part name="UPC" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetProductDataByUPCHttpPostOut">
+    <wsdl:part name="Body" element="tns:Product" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUPCFromCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDHttpPostIn">
+    <wsdl:part name="CPRSProductID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetUPCFromCPRSProductIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCHttpPostIn">
+    <wsdl:part name="UPC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCPRSProductIDFromUPCHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCHttpPostIn">
+    <wsdl:part name="UPC" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Authenticated_GetCPRSProductIDFromUPCHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostOut" />
+  <wsdl:message name="LogoutHttpPostIn" />
+  <wsdl:message name="LogoutHttpPostOut" />
+  <wsdl:portType name="VanillaInterfaceServiceSoap">
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:GetTerritorialRightsByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:GetTerritorialRightsByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:GetDigitalReleaseDataByProductIDSoapIn" />
+      <wsdl:output message="tns:GetDigitalReleaseDataByProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:Authenticated_GetDigitalReleaseDataByProductIDSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetDigitalReleaseDataByProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductIDList">
+      <wsdl:input message="tns:Authenticated_GetDigitalReleaseDataByProductIDListSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetDigitalReleaseDataByProductIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductIDList">
+      <wsdl:input message="tns:GetDigitalReleaseDataByProductIDListSoapIn" />
+      <wsdl:output message="tns:GetDigitalReleaseDataByProductIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeSoapIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <wsdl:input message="tns:GetAvailableCurrenciesSoapIn" />
+      <wsdl:output message="tns:GetAvailableCurrenciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <wsdl:input message="tns:Authenticated_GetAvailableCurrenciesSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetAvailableCurrenciesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <wsdl:input message="tns:GetProductByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:GetProductByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetProductByCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetProductByCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <wsdl:input message="tns:GetProductDataByUPCSoapIn" />
+      <wsdl:output message="tns:GetProductDataByUPCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <wsdl:input message="tns:Authenticated_GetProductDataByUPCSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetProductDataByUPCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:GetUPCFromCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:GetUPCFromCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetUPCFromCPRSProductIDSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetUPCFromCPRSProductIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:GetCPRSProductIDFromUPCSoapIn" />
+      <wsdl:output message="tns:GetCPRSProductIDFromUPCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:Authenticated_GetCPRSProductIDFromUPCSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetCPRSProductIDFromUPCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetPartsTracking">
+      <wsdl:input message="tns:Authenticated_GetPartsTrackingSoapIn" />
+      <wsdl:output message="tns:Authenticated_GetPartsTrackingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VanillaInterfaceServiceHttpGet">
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:GetTerritorialRightsByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:GetTerritorialRightsByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:GetDigitalReleaseDataByProductIDHttpGetIn" />
+      <wsdl:output message="tns:GetDigitalReleaseDataByProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:Authenticated_GetDigitalReleaseDataByProductIDHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetDigitalReleaseDataByProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <wsdl:input message="tns:GetAvailableCurrenciesHttpGetIn" />
+      <wsdl:output message="tns:GetAvailableCurrenciesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <wsdl:input message="tns:Authenticated_GetAvailableCurrenciesHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetAvailableCurrenciesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <wsdl:input message="tns:GetProductByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:GetProductByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetProductByCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetProductByCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <wsdl:input message="tns:GetProductDataByUPCHttpGetIn" />
+      <wsdl:output message="tns:GetProductDataByUPCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <wsdl:input message="tns:Authenticated_GetProductDataByUPCHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetProductDataByUPCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:GetUPCFromCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:GetUPCFromCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetUPCFromCPRSProductIDHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetUPCFromCPRSProductIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:GetCPRSProductIDFromUPCHttpGetIn" />
+      <wsdl:output message="tns:GetCPRSProductIDFromUPCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:Authenticated_GetCPRSProductIDFromUPCHttpGetIn" />
+      <wsdl:output message="tns:Authenticated_GetCPRSProductIDFromUPCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpGetIn" />
+      <wsdl:output message="tns:LoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutHttpGetIn" />
+      <wsdl:output message="tns:LogoutHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="VanillaInterfaceServiceHttpPost">
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetTerritorialRightsByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <wsdl:input message="tns:GetTerritorialRightsByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:GetTerritorialRightsByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:GetDigitalReleaseDataByProductIDHttpPostIn" />
+      <wsdl:output message="tns:GetDigitalReleaseDataByProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <wsdl:input message="tns:Authenticated_GetDigitalReleaseDataByProductIDHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetDigitalReleaseDataByProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostIn" />
+      <wsdl:output message="tns:GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <wsdl:input message="tns:GetAvailableCurrenciesHttpPostIn" />
+      <wsdl:output message="tns:GetAvailableCurrenciesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <wsdl:input message="tns:Authenticated_GetAvailableCurrenciesHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetAvailableCurrenciesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <wsdl:input message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <wsdl:input message="tns:GetProductByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:GetProductByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetProductByCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetProductByCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <wsdl:input message="tns:GetProductDataByUPCHttpPostIn" />
+      <wsdl:output message="tns:GetProductDataByUPCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <wsdl:input message="tns:Authenticated_GetProductDataByUPCHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetProductDataByUPCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:GetUPCFromCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:GetUPCFromCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <wsdl:input message="tns:Authenticated_GetUPCFromCPRSProductIDHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetUPCFromCPRSProductIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:GetCPRSProductIDFromUPCHttpPostIn" />
+      <wsdl:output message="tns:GetCPRSProductIDFromUPCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <wsdl:input message="tns:Authenticated_GetCPRSProductIDFromUPCHttpPostIn" />
+      <wsdl:output message="tns:Authenticated_GetCPRSProductIDFromUPCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpPostIn" />
+      <wsdl:output message="tns:LoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutHttpPostIn" />
+      <wsdl:output message="tns:LogoutHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VanillaInterfaceServiceSoap" type="tns:VanillaInterfaceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetTerritorialRightsByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetTerritorialRightsByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetDigitalReleaseDataByProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetDigitalReleaseDataByProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductIDList">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetDigitalReleaseDataByProductIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductIDList">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetDigitalReleaseDataByProductIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetBOMDataByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetBOMDataByCPRSProductIDAndCurrencyCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetAvailableCurrencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetAvailableCurrencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetBOMDataByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetProductByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetProductByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetProductDataByUPC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetProductDataByUPC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetUPCFromCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetUPCFromCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetCPRSProductIDFromUPC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetCPRSProductIDFromUPC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetPartsTracking">
+      <soap:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetPartsTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VanillaInterfaceServiceSoap12" type="tns:VanillaInterfaceServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetTerritorialRightsByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetTerritorialRightsByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetDigitalReleaseDataByProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetDigitalReleaseDataByProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductIDList">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetDigitalReleaseDataByProductIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductIDList">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetDigitalReleaseDataByProductIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetBOMDataByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetBOMDataByCPRSProductIDAndCurrencyCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetAvailableCurrencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetAvailableCurrencies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetBOMDataByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetProductByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetProductByCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetProductDataByUPC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetProductDataByUPC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetUPCFromCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetUPCFromCPRSProductID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/GetCPRSProductIDFromUPC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetCPRSProductIDFromUPC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetPartsTracking">
+      <soap12:operation soapAction="http://umusic.net/webservices/itdi/vanilla/Authenticated_GetPartsTracking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VanillaInterfaceServiceHttpGet" type="tns:VanillaInterfaceServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <http:operation location="/Authenticated_GetTerritorialRightsByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <http:operation location="/GetTerritorialRightsByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <http:operation location="/GetDigitalReleaseDataByProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <http:operation location="/Authenticated_GetDigitalReleaseDataByProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <http:operation location="/GetBOMDataByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <http:operation location="/GetBOMDataByCPRSProductIDAndCurrencyCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <http:operation location="/GetAvailableCurrencies" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <http:operation location="/Authenticated_GetAvailableCurrencies" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <http:operation location="/Authenticated_GetBOMDataByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <http:operation location="/Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <http:operation location="/GetProductByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <http:operation location="/Authenticated_GetProductByCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <http:operation location="/GetProductDataByUPC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <http:operation location="/Authenticated_GetProductDataByUPC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <http:operation location="/GetUPCFromCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <http:operation location="/Authenticated_GetUPCFromCPRSProductID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <http:operation location="/GetCPRSProductIDFromUPC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <http:operation location="/Authenticated_GetCPRSProductIDFromUPC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <http:operation location="/Logout" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VanillaInterfaceServiceHttpPost" type="tns:VanillaInterfaceServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Authenticated_GetTerritorialRightsByCPRSProductID">
+      <http:operation location="/Authenticated_GetTerritorialRightsByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritorialRightsByCPRSProductID">
+      <http:operation location="/GetTerritorialRightsByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalReleaseDataByProductID">
+      <http:operation location="/GetDigitalReleaseDataByProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetDigitalReleaseDataByProductID">
+      <http:operation location="/Authenticated_GetDigitalReleaseDataByProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductID">
+      <http:operation location="/GetBOMDataByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <http:operation location="/GetBOMDataByCPRSProductIDAndCurrencyCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCurrencies">
+      <http:operation location="/GetAvailableCurrencies" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetAvailableCurrencies">
+      <http:operation location="/Authenticated_GetAvailableCurrencies" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductID">
+      <http:operation location="/Authenticated_GetBOMDataByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode">
+      <http:operation location="/Authenticated_GetBOMDataByCPRSProductIDAndCurrencyCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCPRSProductID">
+      <http:operation location="/GetProductByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductByCPRSProductID">
+      <http:operation location="/Authenticated_GetProductByCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDataByUPC">
+      <http:operation location="/GetProductDataByUPC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetProductDataByUPC">
+      <http:operation location="/Authenticated_GetProductDataByUPC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCFromCPRSProductID">
+      <http:operation location="/GetUPCFromCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetUPCFromCPRSProductID">
+      <http:operation location="/Authenticated_GetUPCFromCPRSProductID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCPRSProductIDFromUPC">
+      <http:operation location="/GetCPRSProductIDFromUPC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticated_GetCPRSProductIDFromUPC">
+      <http:operation location="/Authenticated_GetCPRSProductIDFromUPC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <http:operation location="/Logout" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VanillaInterfaceService">
+    <wsdl:port name="VanillaInterfaceServiceSoap" binding="tns:VanillaInterfaceServiceSoap">
+      <soap:address location="http://167.167.38.58/VanillaInterfacewsv900/VanillaInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VanillaInterfaceServiceSoap12" binding="tns:VanillaInterfaceServiceSoap12">
+      <soap12:address location="http://167.167.38.58/VanillaInterfacewsv900/VanillaInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VanillaInterfaceServiceHttpGet" binding="tns:VanillaInterfaceServiceHttpGet">
+      <http:address location="http://167.167.38.58/VanillaInterfacewsv900/VanillaInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VanillaInterfaceServiceHttpPost" binding="tns:VanillaInterfaceServiceHttpPost">
+      <http:address location="http://167.167.38.58/VanillaInterfacewsv900/VanillaInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

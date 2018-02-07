@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+  <xs:complexType name="ArrayOfDeviationResourceContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviationResourceContract" nillable="true" type="tns:DeviationResourceContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviationResourceContract" nillable="true" type="tns:ArrayOfDeviationResourceContract" />
+  <xs:complexType name="DeviationResourceContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" base="q1:ArtistInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContractId" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ResourceId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeviationResourceContract" nillable="true" type="tns:DeviationResourceContract" />
+</xs:schema>

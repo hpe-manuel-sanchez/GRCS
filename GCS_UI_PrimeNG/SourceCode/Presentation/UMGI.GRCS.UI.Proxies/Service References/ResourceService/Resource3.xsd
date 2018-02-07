@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd10" namespace="http://schemas.umusic.com" />
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="searchCriteria" nillable="true" type="q1:ResourceSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="SearchResult" nillable="true" type="q2:ResourceSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssociatedResource">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" minOccurs="0" name="linkedInfo" nillable="true" type="q3:LinkedInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssociatedResourceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="GetAssociatedResourceResult" nillable="true" type="q4:ResourceSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="resourceIds" nillable="true" type="q5:ArrayOflong" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="GetResourcesResult" nillable="true" type="q6:ResourceSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q7:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetResourcesBasicSearchResult" nillable="true" type="q8:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesTracksBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q9:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesTracksBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetResourcesTracksBasicSearchResult" nillable="true" type="q10:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesTracksSearchReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q11:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesTracksSearchReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetResourcesTracksSearchReleaseParametersResult" nillable="true" type="q12:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionResourcesBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q13:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionResourcesBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionResourcesBasicSearchResult" nillable="true" type="q14:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q15:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsResourcesReleaseParametersResult" nillable="true" type="q16:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsTracksBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q17:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsTracksBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsTracksBasicSearchResult" nillable="true" type="q18:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsTracksSearchReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q19:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsTracksSearchReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsTracksSearchReleaseParametersResult" nillable="true" type="q20:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesAndTracksBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q21:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesAndTracksBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsResourcesAndTracksBasicSearchResult" nillable="true" type="q22:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q23:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParametersResult" nillable="true" type="q24:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsReleases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q25:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalRestrictionsReleasesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetDigitalRestrictionsReleasesResult" nillable="true" type="q26:DigitalRestrictionRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesReleaseParameterSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q27:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesReleaseParameterSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetResourcesReleaseParameterSearchResult" nillable="true" type="q28:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoSearchResourceTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchTerm" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoSearchResourceTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AutoSearchResourceTitleResult" nillable="true" type="q29:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoSearchResourceArtist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchTerm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isExact" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoSearchResourceArtistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AutoSearchResourceArtistResult" nillable="true" type="q30:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" minOccurs="0" name="notificationMessage" nillable="true" type="q31:NotificationMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" minOccurs="0" name="ProcessNotificationResult" nillable="true" type="q32:NotificationProcessingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="searchOption" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetResourceRightsResult" type="tns:ArrayOfResourceRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfResourceRights">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://schemas.umusic.com" minOccurs="0" maxOccurs="unbounded" name="ResourceRights" nillable="true" type="q33:ResourceRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTracksRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="upc" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="isrc" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.umusic.com" minOccurs="0" maxOccurs="1" name="GetTracksRightsResult" type="q34:TrackRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

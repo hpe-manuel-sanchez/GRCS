@@ -1,0 +1,44 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "Delete Workgroup";
+}
+<script type="text/javascript">
+    var pageName = 'Delete';
+</script>
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<div id="deleteWorkgroup" style="margin: 0; padding: 0 15px;">
+    @Html.Partial("SearchWorkgroup", Model)
+</div>
+<div id="ViewWorkgroup" style="margin: 0; padding: 0 15px;">
+</div>
+@section BottomInputs
+{
+    <input class="secbutton" id="btnViewSearchWorkGroup"  type="button" visible="false" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ViewButton" />
+    <input class="secbutton" id="btnDeleteWorkGroup"  type="button" visible="false" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DeleteButton" />
+    <input class="secbutton" id="btnCancelDeleteWorkGroup" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+}
+<script type="text/javascript">
+    var pageName = 'Delete';
+    var divSearchHeader = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchHeaderForDeleteWorkgroup';
+    function applyCustomTheam() {
+
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 35;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+    }
+    applyCustomTheam();
+</script>

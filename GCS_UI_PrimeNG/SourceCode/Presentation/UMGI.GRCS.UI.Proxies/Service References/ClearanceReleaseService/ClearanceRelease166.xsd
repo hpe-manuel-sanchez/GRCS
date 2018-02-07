@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd16" namespace="http://schemas.umusic.com" />
+  <xs:element name="GetReleaseLabelList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q1:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseLabelListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetReleaseLabelListResult" nillable="true" type="q2:ArrayOfClearanceRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseConfigList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfigGroupId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q3:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseConfigListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetReleaseConfigListResult" nillable="true" type="q4:ArrayOfClearanceRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseConfigGroupList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q5:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseConfigGroupListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetReleaseConfigGroupListResult" nillable="true" type="q6:ArrayOfClearanceRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReleaseNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="clearanceRelease" nillable="true" type="q7:ArrayOfClearanceRelease" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q8:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReleaseNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveReleaseNewResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingReleases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UPC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ReleaseTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ArtistID" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q9:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingReleasesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetExistingReleasesResult" nillable="true" type="q10:ClearanceReleaseSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingReleasesSaveMode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q11:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingReleasesSaveModeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetExistingReleasesSaveModeResult" nillable="true" type="q12:ClearanceReleaseSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExistingReleases">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="releaseSearchResult" nillable="true" type="q13:ClearanceReleaseSearchResult" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q14:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExistingReleasesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveExistingReleasesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeDeviatedIclaLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q15:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeDeviatedIclaLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GeDeviatedIclaLevelResult" nillable="true" type="q16:ArrayOfDropDeviatedICLALevel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q17:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetPriceLevelResult" nillable="true" type="q18:ArrayOfDropPriceLevel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BG_ReleaseDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" minOccurs="0" name="releases" nillable="true" type="q19:ArrayOfReleaseInfo" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q20:LeanUserInfo" />
+        <xs:element minOccurs="0" name="clearanceProjectID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BG_ReleaseDetailsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GCSReleaseSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" minOccurs="0" name="searchCriteria" nillable="true" type="q21:ReleaseSearchCriteria" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q22:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GCSReleaseSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" minOccurs="0" name="GCSReleaseSearchResult" nillable="true" type="q23:ReleaseSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="R2GetReleaseAdditionalDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="releaseId" type="xs:long" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q24:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="R2GetReleaseAdditionalDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" minOccurs="0" name="R2GetReleaseAdditionalDetailsResult" nillable="true" type="q25:ArrayOfTrackInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUPCNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="classiceReleaseId" nillable="true" type="q26:ArrayOflong" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nonClassiceReleaseId" nillable="true" type="q27:ArrayOflong" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUPCNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUPCNumberResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpc_Check_Digit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="upcNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q28:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpc_Check_DigitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUpc_Check_DigitResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveUPCNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="projectReleaseId" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveUPCNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveUPCNumberResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseAdditionalDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="releaseId" type="xs:long" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q29:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseAdditionalDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetReleaseAdditionalDetailsResult" nillable="true" type="q30:ClearanceRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseDetailsGCS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="releaseId" type="xs:long" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q31:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseDetailsGCSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="GetReleaseDetailsGCSResult" nillable="true" type="q32:ClearanceRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingR2ReleaseIdFromGcs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="r2ReleaseId" nillable="true" type="q33:ArrayOfNullableOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingR2ReleaseIdFromGcsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetExistingR2ReleaseIdFromGcsResult" nillable="true" type="q34:ArrayOfNullableOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingR2ReleaseIdForPackage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="r2ReleaseId" nillable="true" type="q35:ArrayOflong" />
+        <xs:element minOccurs="0" name="ParentReleaseId" nillable="true" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistingR2ReleaseIdForPackageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetExistingR2ReleaseIdForPackageResult" nillable="true" type="q36:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" minOccurs="0" name="packageInfo" nillable="true" type="q37:ArrayOfPackageInfo" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q38:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePackageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdatePackageResult" nillable="true" type="q39:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageDetailsforProjectRelease">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReleaseId" type="xs:long" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q40:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageDetailsforProjectReleaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" minOccurs="0" name="GetPackageDetailsforProjectReleaseResult" nillable="true" type="q41:ArrayOfPackageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLabelNmForExistingRelease">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LabelId" type="xs:int" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q42:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLabelNmForExistingReleaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getLabelNmForExistingReleaseResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateManualUpc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="releaseId" type="xs:long" />
+        <xs:element minOccurs="0" name="upcNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateManualUpcResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateManualUpcResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseDetailsBasedonR2ReleaseId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="R2ReleaseId" nillable="true" type="q43:ArrayOflong" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="userInfo" nillable="true" type="q44:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReleaseDetailsBasedonR2ReleaseIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" minOccurs="0" name="GetReleaseDetailsBasedonR2ReleaseIdResult" nillable="true" type="q45:ReleaseSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGCSRelease">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ReleaseId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GCSProjectID" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="releaseSearchOption" type="tns:ReleaseSearchOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="ReleaseSearchOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="R2ReleaseId" />
+      <xs:enumeration value="UPC" />
+      <xs:enumeration value="GCSReleaseId" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetGCSReleaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetGCSReleaseResult" type="tns:ArrayOfClrRelease" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfClrRelease">
+    <xs:sequence>
+      <xs:element xmlns:q46="http://schemas.umusic.com" minOccurs="0" maxOccurs="unbounded" name="ClrRelease" nillable="true" type="q46:ClrRelease" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActiveRoster" xml:space="preserve">
+    <value>Active Roster </value>
+  </data>
+  <data name="itemsperpage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ClearanceAdmin" xml:space="preserve">
+    <value>Clearance Admin</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company:</value>
+  </data>
+  <data name="ExportReport" xml:space="preserve">
+    <value>Export Report</value>
+  </data>
+  <data name="GenerateReport" xml:space="preserve">
+    <value>Generate Report</value>
+  </data>
+  <data name="ReportParameters" xml:space="preserve">
+    <value>Report Parameters</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SelectRemoveCompany" xml:space="preserve">
+    <value>Select/Remove Company</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="ClearanceCo" xml:space="preserve">
+    <value>Clearance Admin Co.</value>
+  </data>
+  <data name="ContractCommenceDate" xml:space="preserve">
+    <value>Contract Commence Date</value>
+  </data>
+  <data name="ContractingParties" xml:space="preserve">
+    <value>Contracting Party</value>
+  </data>
+  <data name="LinkedRepertoire" xml:space="preserve">
+    <value>Linked Repertoire</value>
+  </data>
+  <data name="TerritorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="UMGSigningCo" xml:space="preserve">
+    <value>UMG Signing Co.</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ClearanceAdminCompany" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>Contract Description</value>
+  </data>
+  <data name="ContractingParty" xml:space="preserve">
+    <value>Artist / Contracting Party</value>
+  </data>
+  <data name="EndOfTermDate" xml:space="preserve">
+    <value>End of Term Date</value>
+  </data>
+  <data name="IsRepertoireLinked" xml:space="preserve">
+    <value>Only include contracts with Repertoire linked</value>
+  </data>
+  <data name="LinkedReleases" xml:space="preserve">
+    <value>No. of Linked Releases</value>
+  </data>
+  <data name="LinkedResources" xml:space="preserve">
+    <value>No. of Linked Resources</value>
+  </data>
+  <data name="LostRightsDate" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="ReleaseCommitment" xml:space="preserve">
+    <value>Release Commitment &amp; Rights Reversion</value>
+  </data>
+  <data name="RightsExpiryRule" xml:space="preserve">
+    <value>Rights Expiry Rule</value>
+  </data>
+  <data name="RightsPeriod" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="ReleaseCommitmentTitle" xml:space="preserve">
+    <value>Release Commitment</value>
+  </data>
+  <data name="MaxPeriod" xml:space="preserve">
+    <value>Enter max period 18 months</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period (month)</value>
+  </data>
+  <data name="RightsExpiry" xml:space="preserve">
+    <value>Rights Expiry</value>
+  </data>
+  <data name="LocalContractRef" xml:space="preserve">
+    <value>Local Contract Ref.</value>
+  </data>
+  <data name="RightsExpiryToBeDetermined" xml:space="preserve">
+    <value>Rights Expiry To Be Determined</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="LocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref No.</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="MaxReleaseDateRange" xml:space="preserve">
+    <value>Enter Max Period 6 Months</value>
+  </data>
+  <data name="ReleaseDateRange" xml:space="preserve">
+    <value>Release Date Range</value>
+  </data>
+  <data name="SecondaryExploitationSampleTitle" xml:space="preserve">
+    <value>Secondary Exploitation Sample/ Side-Artist Review</value>
+  </data>
+  <data name="ExploitationType" xml:space="preserve">
+    <value>Secondary Exploitation Type</value>
+  </data>
+  <data name="ISRC" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="ResourceType" xml:space="preserve">
+    <value>Resource Type</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="RightsType" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="VersionTitle" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="ExploitationCountry" xml:space="preserve">
+    <value>Exploitation Countries</value>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Resource Genre</value>
+  </data>
+  <data name="PreClearanceType" xml:space="preserve">
+    <value>Pre-Clearance Type</value>
+  </data>
+  <data name="PreClearedResourceTitle" xml:space="preserve">
+    <value>Pre-Cleared Resources</value>
+  </data>
+  <data name="PYear" xml:space="preserve">
+    <value>P-Year</value>
+  </data>
+  <data name="PYearRange" xml:space="preserve">
+    <value>P-Year Range</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="MandatoryFieldvalidation" xml:space="preserve">
+    <value>Please provide values in mandatory fields to generate report</value>
+  </data>
+  <data name="LostRightDateLabel" xml:space="preserve">
+    <value>Lost Rights Date within</value>
+  </data>
+  <data name="CommercialModels" xml:space="preserve">
+    <value>Commercial Models</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>Content Type</value>
+  </data>
+  <data name="DigitalExploitation" xml:space="preserve">
+    <value>Digital Exploitation</value>
+  </data>
+  <data name="DigitalExploitationRestrictions" xml:space="preserve">
+    <value>Digital Exploitation Restrictions</value>
+  </data>
+  <data name="DigitalExploitationRights" xml:space="preserve">
+    <value>Digital Exploitation Rights</value>
+  </data>
+  <data name="DigitalRestrictionCombination" xml:space="preserve">
+    <value>Please select a valid combination for Digital Exploitation</value>
+  </data>
+  <data name="MobileExploitationRights" xml:space="preserve">
+    <value>Mobile Exploitation Rights</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="PhysicalExploitationRights" xml:space="preserve">
+    <value>Physical Exploitation Rights</value>
+  </data>
+  <data name="Release" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="RepertoierType" xml:space="preserve">
+    <value>Repertoire Type</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="SelectRemoveCountries" xml:space="preserve">
+    <value>Select/Remove Countries</value>
+  </data>
+  <data name="UPC" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="UseType" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="SearchCountry" xml:space="preserve">
+    <value>Search for Countries</value>
+  </data>
+  <data name="ContractArtistName" xml:space="preserve">
+    <value>Contract Artist Name</value>
+  </data>
+  <data name="ContractClearanceCo" xml:space="preserve">
+    <value>Contract Clearance Admin Co.</value>
+  </data>
+  <data name="ContractContractingParty" xml:space="preserve">
+    <value>Contract Contracting Party</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>ContractID</value>
+  </data>
+  <data name="ContractPcCo" xml:space="preserve">
+    <value>Contract P/C Notice Co.</value>
+  </data>
+  <data name="ContractPExtension" xml:space="preserve">
+    <value>Contract P/C Notice Co. Extension</value>
+  </data>
+  <data name="ContractRightsType" xml:space="preserve">
+    <value>Contract Rights Type</value>
+  </data>
+  <data name="DataAdminCo" xml:space="preserve">
+    <value>Resource Data Admin Co.</value>
+  </data>
+  <data name="LastRollupDate" xml:space="preserve">
+    <value>Last Roll-Up Date</value>
+  </data>
+  <data name="MonthRange" xml:space="preserve">
+    <value>Month &amp; Year Range</value>
+  </data>
+  <data name="MultiArtistCompilation" xml:space="preserve">
+    <value>Multi-Artist Compilation</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Release Date</value>
+  </data>
+  <data name="ReleaseIssuer" xml:space="preserve">
+    <value>Release Issuer</value>
+  </data>
+  <data name="ResourcePcCo" xml:space="preserve">
+    <value>Resource P/C Notice Co.</value>
+  </data>
+  <data name="ResourcePExtension" xml:space="preserve">
+    <value>Resource P/C Notice Co. Extension</value>
+  </data>
+  <data name="ResourceRightsType" xml:space="preserve">
+    <value>Resource Rights Type</value>
+  </data>
+  <data name="RollupStatus" xml:space="preserve">
+    <value>Roll-Up Status</value>
+  </data>
+  <data name="ExploitType" xml:space="preserve">
+    <value>Exploitation Type</value>
+  </data>
+  <data name="Secondary" xml:space="preserve">
+    <value>Secondary</value>
+  </data>
+  <data name="RollUpStatusTitle" xml:space="preserve">
+    <value>Release Roll-Up Status</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="SelectedCompany" xml:space="preserve">
+    <value>Selected Company(s)</value>
+  </data>
+  <data name="ResourceRightsDiscrepanciesTitle" xml:space="preserve">
+    <value>Resource Rights Data Discrepancies</value>
+  </data>
+  <data name="PreclearanceMandatoryFieldvalidation" xml:space="preserve">
+    <value>Please provide at least one value among the highlighted filters to generate report</value>
+  </data>
+  <data name="R2DataCo" xml:space="preserve">
+    <value>R2 Data Admin Co.</value>
+  </data>
+  <data name="ReleaseTitle" xml:space="preserve">
+    <value>Release Title</value>
+  </data>
+</root>

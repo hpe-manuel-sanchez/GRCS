@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ClearanceRoutedProject">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" base="q1:ClearanceProject">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClearenceAdminCompanyId" nillable="true" type="q2:ArrayOflong" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClearenceAdminCountryId" nillable="true" type="q3:ArrayOflong" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="CompanyGlobalFlagInfo" nillable="true" type="q4:ArrayOfKeyValuePairOflongboolean" />
+          <xs:element minOccurs="0" name="HasResourceWithSensitiveExploitation" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAutoCompleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCompilation" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCrossBorder" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCrossBorderSafeTerritories" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsInternationalWithPriceReduction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNewCountriesAdded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsResubmitted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsThirdPartyCompany" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MultiArtist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RequestingCountryId" type="xs:int" />
+          <xs:element minOccurs="0" name="RoutedParams" nillable="true" type="tns:RoutingParams" />
+          <xs:element minOccurs="0" name="RoutedResources" nillable="true" type="tns:ArrayOfRoutedResource" />
+          <xs:element minOccurs="0" name="RoutingAction" type="tns:RoutingAction" />
+          <xs:element minOccurs="0" name="RoutingCaller" type="tns:RoutingCaller" />
+          <xs:element minOccurs="0" name="RoutingType" type="tns:RoutingType" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SalesChannels" nillable="true" type="q5:ArrayOfshort" />
+          <xs:element minOccurs="0" name="ScopeAndRequestType" nillable="true" type="q1:RequestTypeRegular" />
+          <xs:element minOccurs="0" name="UMGIBudgetPriceReductionType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="UMGICrossBorderRequestType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="UMGIMidPriceReductionType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="UMGISensitiveExploitationType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="UMGIThirdPartyCompanyType" type="xs:unsignedByte" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="UserInfoDetails" nillable="true" type="q6:LeanUserInfo" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorkgroupSalesChannels" nillable="true" type="q7:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceRoutedProject" nillable="true" type="tns:ClearanceRoutedProject" />
+  <xs:complexType name="RoutingParams">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExcludedComapnyIds" nillable="true" type="q8:ArrayOflong" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ExcludedCountryIds" nillable="true" type="q9:ArrayOflong" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ThridPartyCompanyIds" nillable="true" type="q10:ArrayOflong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoutingParams" nillable="true" type="tns:RoutingParams" />
+  <xs:complexType name="ArrayOfRoutedResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoutedResource" nillable="true" type="tns:RoutedResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoutedResource" nillable="true" type="tns:ArrayOfRoutedResource" />
+  <xs:complexType name="RoutedResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminCompanyId" type="xs:long" />
+      <xs:element minOccurs="0" name="AdminCountryId" type="xs:long" />
+      <xs:element minOccurs="0" name="ApprovalStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="ClearanceProjectResourceId" type="xs:long" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClearenceAdminCompanyIdForResource" nillable="true" type="q11:ArrayOflong" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClearenceAdminCountryIdForResource" nillable="true" type="q12:ArrayOflong" />
+      <xs:element minOccurs="0" name="ClrProjectReleaseId" type="xs:long" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractId" type="xs:long" />
+      <xs:element minOccurs="0" name="HasUMGIConditionChanged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsArtistContract" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsGlobalCleared" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSensativeExploitation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSplitDeal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastModifiedDateTime" type="xs:dateTime" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="LinkedContract" nillable="true" type="q13:ArrayOfLeanContractInfo" />
+      <xs:element minOccurs="0" name="PackageId" type="xs:long" />
+      <xs:element minOccurs="0" name="PrimaryArtistId" type="xs:long" />
+      <xs:element minOccurs="0" name="ReasonId" type="xs:int" />
+      <xs:element minOccurs="0" name="Request" nillable="true" type="tns:ArrayOfRoutedRequest" />
+      <xs:element minOccurs="0" name="ResourceComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="ResourceTerritories" nillable="true" type="q14:ArrayOfTerritorialDisplay" />
+      <xs:element minOccurs="0" name="RightSetId" type="xs:long" />
+      <xs:element minOccurs="0" name="RoutedItemId" type="xs:long" />
+      <xs:element minOccurs="0" name="SalesChannelId" type="xs:int" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="contractInfo" nillable="true" type="q15:ArrayOfLeanContractInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoutedResource" nillable="true" type="tns:RoutedResource" />
+  <xs:complexType name="ArrayOfRoutedRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoutedRequest" nillable="true" type="tns:RoutedRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoutedRequest" nillable="true" type="tns:ArrayOfRoutedRequest" />
+  <xs:complexType name="RoutedRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="AssignedToUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssignedToUserId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="AvailableDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestId" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestRead" type="xs:short" />
+      <xs:element minOccurs="0" name="RequestStatus" type="tns:RequestStatus" />
+      <xs:element minOccurs="0" name="ReviewDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoutedItemId" type="xs:long" />
+      <xs:element minOccurs="0" name="SalesChannelId" type="xs:int" />
+      <xs:element minOccurs="0" name="SequenceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoutedRequest" nillable="true" type="tns:RoutedRequest" />
+  <xs:simpleType name="RequestStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Waiting">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Approved">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ConditionallyApproved">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Rejected">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Dispatched">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RoutedToRccAdmin">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Initiated">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IgnoredForRerouting">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ArtistConsent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReInstated">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemCancel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cancel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RoutingStopped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Deleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemReInstated">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoArtistConsent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MoveToResearchFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">76</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MoveToInternalReviewFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">77</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MoveToSideArtistSample">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToResearchFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">79</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToInternalReviewFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToSideArtistSample">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">81</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AssignedTo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">82</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequestStatus" nillable="true" type="tns:RequestStatus" />
+  <xs:simpleType name="RoutingAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approve" />
+      <xs:enumeration value="ConditionallyApprove" />
+      <xs:enumeration value="Reject" />
+      <xs:enumeration value="Dispatch" />
+      <xs:enumeration value="RouteToRccAdmin" />
+      <xs:enumeration value="Route" />
+      <xs:enumeration value="Cancel" />
+      <xs:enumeration value="ReApply" />
+      <xs:enumeration value="ReInstate" />
+      <xs:enumeration value="Include" />
+      <xs:enumeration value="Exclude" />
+      <xs:enumeration value="ArtistConsent" />
+      <xs:enumeration value="SystemCancel" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Reminders" />
+      <xs:enumeration value="SystemReInstate" />
+      <xs:enumeration value="UndoArtistConsent" />
+      <xs:enumeration value="AutomaticCancel" />
+      <xs:enumeration value="MoveToResearchFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">76</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MoveToInternalReviewFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">77</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MoveToSideArtistSample">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToResearchFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">79</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToInternalReviewFolder">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UndoMoveToSideArtistSample">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">81</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AssignedTo">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">82</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoutingAction" nillable="true" type="tns:RoutingAction" />
+  <xs:simpleType name="RoutingCaller">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ReviewerInbox" />
+      <xs:enumeration value="RCCAdminInbox" />
+      <xs:enumeration value="PASubmit" />
+      <xs:enumeration value="PARequestSummary" />
+      <xs:enumeration value="PAResubmit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoutingCaller" nillable="true" type="tns:RoutingCaller" />
+  <xs:simpleType name="RoutingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RoutingSource" />
+      <xs:enumeration value="RoutingAction" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoutingType" nillable="true" type="tns:RoutingType" />
+</xs:schema>

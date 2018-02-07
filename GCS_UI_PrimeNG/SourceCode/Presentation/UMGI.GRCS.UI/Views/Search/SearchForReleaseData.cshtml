@@ -1,0 +1,47 @@
+﻿@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities;
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities;
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities;
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+@model ClearanceProjectModel
+@{
+    var a = ViewBag.id; 
+    ViewBag.Title = "Search For Release";
+     Layout = "";
+}
+
+<table style="width: 100%; background-color:Silver">
+                       <tr>
+                       <th>&nbsp;</th>
+                        <th><b>Sequence</b></th>
+                        <th><b>Resource Title</b></th>                      
+                        <th><b>Version Title</b></th>
+                        <th><b>Artist Name</b></th>
+                        <th><b>Duration</b></th>
+                        <th><b>ISRC</b></th>  
+                        </tr> 
+
+                          @if (Model.ObjResource != null && Model.ObjResource.Count > 0)
+                           {
+                               foreach (ClearanceResource objTracks in Model.ObjResource)
+                               {
+                                    if (Convert.ToString(a) == objTracks.Source_Upc)
+                               {
+                                        <tr style="@(objTracks.RightsType == "3" ? "Background-color:Yellow" : "")">
+                                        <td>&nbsp;</td>                                          
+                                        <td align="left">@objTracks.ClearanceResourceId</td>         
+                                         <td align="left">@objTracks.Title</td>         
+                                         <td align="left">@objTracks.VersionTitle</td>          
+                                         <td align="left">@objTracks.Info.FirstName</td>         
+                                         <td align="left">@objTracks.Duration</td> 
+                                         <td align="left">@objTracks.Isrc</td>           
+                                        </tr> 
+                               }
+                               }
+                            }
+
+
+
+ </table>

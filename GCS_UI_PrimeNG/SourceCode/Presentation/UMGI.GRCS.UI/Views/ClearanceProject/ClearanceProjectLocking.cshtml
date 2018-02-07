@@ -1,0 +1,73 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@using UMGI.GRCS.Resx.Resource.Layout
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceProjectLocking.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var mandatorySearchCriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var jHProjectReferenceNumber = '@ClearanceLayout.MaintainProjProjectReferenceNumberHeader'; //Jtable Header for Project Reference Number
+    var jHProjectTitle = '@ClearanceLayout.MaintainProjProjectTitleHeader'; //Jtable Header for Project Title
+    var jHLockedBy = '@ClearanceLayout.ProjectLockingLockedBy';
+    var jHLockingStatus = '@ClearanceLayout.ProjectLockingStatus';
+</script>
+
+<div id="divErrorMessage"></div>
+<div class="searchContainer">
+    <div class="dwMainContainer">
+        <div id="wrapperDv">
+            <div id="headerScreen">
+                <span><a class="cross">&nbsp;</a>@ClearanceLayout.ProjectLockingHeader</span>
+            </div>
+            <div class="accItem accItemNew">
+                <div class="editor-field">
+                    <div class="inputPlaceHolder">
+                        <label class="madatoryField">*</label>
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectReferenceLabel
+                    </div>
+                    <div class="inputPlaceHolder">
+                        @Html.TextBox("txtProjectRefNumber")
+                    </div>
+
+                    <div class="inputPlaceHolder" style="vertical-align: top;">
+                        <input class="primbutton" id="btnLockedSearch"  type="submit" value="@ClearanceLayout.SearchButton" />
+                        <input id="btnLockReset" type="button" class="secbutton"  value="@ClearanceLayout.ResetButton" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="projectLockingPaging" style="display: none; margin: 5px 15px; width: 98%">
+    <div style="float: left;">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnSearchResult" style="font-weight: bold;"></span></div>
+    <div id="paging" style="float: right;">
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown &nbsp;
+        @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPaging" }) &nbsp;
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+    </div>
+</div>
+<div id="searcProjectLockingList" class="styleClass" style="margin: 5px 15px; width: 98%"></div>
+
+<script type="text/javascript">
+
+    function applyCustomTheam() {
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 45;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+        $("#searcProjectLockingList").css("height", mainContainerHeight - 104 + "px");
+        $("#searcProjectLockingList").css("overflowY", "auto");
+
+    }
+    $(document).ready(function () {
+        applyCustomTheam();
+
+    });
+</script>

@@ -1,0 +1,71 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourcePreClearanceReviewModel
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/PreClearanceBulkEdit.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/PreClearanceBulkEdit.css")"  rel="stylesheet" type="text/css" />
+<div>
+    <div class="reviewStatusStrip">
+        <div class="alignLeft reviewDropDown">
+            @RepertoireSearch.ReviewStatus
+            @Html.DropDownList("ddlreviewStatus", Model.ReviewStatusDropDown)
+        </div>
+        <div class="alignRight applyCancelContainer">
+            <div class="primbutton_left">
+            </div>
+            <div class="alignLeft">
+                <input type="button" id="btnPreClearanceApply" value="Apply Changes" class="primbutton"/>
+            </div>
+            <div class="primbutton_right btnSpaceLocal">
+            </div>
+            <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+                <input type="button" id="btnPreClearanceCancel" value="Cancel" class="secbutton"/>
+            </div>
+            <div class="secbutton_right">
+            </div>
+        </div>
+    </div>
+    <div class="resetBtnStrip">
+        <div class="resetPreClearanceContainer alignRight">
+
+            <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+                <input type="button" id="btnResetPreClearance" value="Reset Selection" class="secbutton"/>
+            </div>
+            <div class="secbutton_right">
+            </div>
+   
+        </div>
+    </div>
+    <div class="dropDownCntrlContainer">
+        <div class="divLeftControl">
+            @RepertoireSearch.TopPriceCompilation</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddltopPriceCompilation", Model.BooleanDropDown)</div>
+        <div class="divLeftControl">
+            @RepertoireSearch.MidPriceCompilation</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddlmidPriceCompilation", Model.BooleanDropDown)</div>
+        <div class="divLeftControl">
+            @RepertoireSearch.BudgetCompilation</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddlbudgetCompilation", Model.BooleanDropDown)</div>
+        <div class="divLeftControl">
+            @RepertoireSearch.DirectMarketing</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddldirectMarketing", Model.BooleanDropDown)</div>
+        <div class="divLeftControl">
+            @RepertoireSearch.Premium</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddlPremium", Model.BooleanDropDown)</div>
+        <div class="divLeftControl">
+            @RepertoireSearch.MasterOrSynchronizationUse</div>
+        <div class="divRightControl">
+            @Html.DropDownList("ddlMasterOrSynchronizationUse", Model.BooleanDropDown)</div>
+    </div>
+    <div class="preClearanceTRContainer">
+        <div class="preClearanceLabel">Pre-Clearance Territory Exclusions</div>
+        <div>@Html.Partial("ClearanceAdminCountryPopup")</div>
+    </div>
+</div>

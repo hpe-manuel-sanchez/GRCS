@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.umusic.com" elementFormDefault="qualified" targetNamespace="http://schemas.umusic.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ClrResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RepertoireDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GCSProjectID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="R2ReleaseID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="R2ResourceID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RequestedCountries" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClearanceDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SuggestedFee" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ExcerptTime" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SensitiveExploitationFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GloballyClearedFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="status" type="tns:ArrayOfClearanceResourceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfClearanceResourceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceResourceStatus" nillable="true" type="tns:ClearanceResourceStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClearanceResourceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Resource_ID" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Sale_Channel_Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Status_Description" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

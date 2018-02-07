@@ -1,0 +1,150 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<indexdata>
+<key name="address books" >
+  <key name="creating" >
+    <topic name="Creating Address Books" url="Creating_Address_Books.htm" />
+  </key>
+  <key name="deleting" >
+    <topic name="Deleting Address Books" url="Deleting_Address_Books.htm" />
+  </key>
+  <key name="editing" >
+    <topic name="Editing Address Books" url="Editing_Address_Books.htm" />
+  </key>
+</key>
+<key name="approving" >
+  <key name="contracts in the work queue" >
+    <topic name="Editing and Approving Contracts in the Work Queue" url="Editing_and_Approving_Contracts_in_the_Work_Queue.htm" />
+  </key>
+</key>
+<key name="child contracts" >
+  <key name="creating" >
+    <topic name="Creating Child Contracts" url="Creating_Child_Contracts.htm" />
+  </key>
+</key>
+<key name="contract templates" >
+  <key name="creating" >
+    <topic name="Creating New Contract Templates" url="Creating_New_Contract_Templates.htm" />
+  </key>
+  <key name="deleting" >
+    <topic name="Deleting Contracts Templates" url="Deleting_Contracts_Templates.htm" />
+  </key>
+  <key name="editing" >
+    <topic name="Editing Contract Templates" url="Editing_Contract_Templates.htm" />
+  </key>
+</key>
+<key name="contracts" >
+  <key name="copying" >
+    <topic name="Copying Contracts" url="Copying_Contracts.htm" />
+  </key>
+  <key name="creating" >
+    <topic name="Creating a New Contract" url="Creating_a_New_Contract.htm" />
+  </key>
+  <key name="creating using templates" >
+    <topic name="Creating Contracts Using Templates" url="Creating_Contracts_Using_Templates.htm" />
+  </key>
+  <key name="deleting" >
+    <topic name="Deleting Contracts" url="Deleting_Contracts.htm" />
+  </key>
+  <key name="editing" >
+    <topic name="Editing Contracts" url="Editing_Contracts.htm" />
+  </key>
+  <key name="searching" >
+    <topic name="Searching for Contracts" url="Searching_for_Contracts.htm" />
+  </key>
+  <key name="viewing" >
+    <topic name="Viewing Contracts" url="Viewing_Contracts.htm" />
+  </key>
+</key>
+<key name="contracts in the work queue" >
+  <key name="approving" >
+    <topic name="Editing and Approving Contracts in the Work Queue" url="Editing_and_Approving_Contracts_in_the_Work_Queue.htm" />
+  </key>
+  <key name="editing" >
+    <topic name="Editing and Approving Contracts in the Work Queue" url="Editing_and_Approving_Contracts_in_the_Work_Queue.htm" />
+  </key>
+  <key name="viewing" >
+    <topic name="Viewing Contracts in the Work Queue" url="Viewing_Contracts_in_the_Work_Queue.htm" />
+  </key>
+</key>
+<key name="copying" >
+  <key name="contracts" >
+    <topic name="Copying Contracts" url="Copying_Contracts.htm" />
+  </key>
+</key>
+<key name="creating" >
+  <key name="address groups" >
+    <topic name="Creating Address Books" url="Creating_Address_Books.htm" />
+  </key>
+  <key name="child contracts" >
+    <topic name="Creating Child Contracts" url="Creating_Child_Contracts.htm" />
+  </key>
+  <key name="contract templates" >
+    <topic name="Creating New Contract Templates" url="Creating_New_Contract_Templates.htm" />
+  </key>
+  <key name="contracts" >
+    <topic name="Creating a New Contract" url="Creating_a_New_Contract.htm" />
+  </key>
+  <key name="contracts using templates" >
+    <topic name="Creating Contracts Using Templates" url="Creating_Contracts_Using_Templates.htm" />
+  </key>
+</key>
+<key name="deleting" >
+  <key name="address books" >
+    <topic name="Deleting Address Books" url="Deleting_Address_Books.htm" />
+  </key>
+  <key name="contract templates" >
+    <topic name="Deleting Contracts Templates" url="Deleting_Contracts_Templates.htm" />
+  </key>
+  <key name="contracts" >
+    <topic name="Deleting Contracts" url="Deleting_Contracts.htm" />
+  </key>
+  <key name="digital restriction templates" >
+    <topic name="Deleting Digital Restrictions Templates" url="Deleting_Digital_Restrictions_Templates.htm" />
+  </key>
+</key>
+<key name="digital restriction template" >
+  <key name="deleting" >
+    <topic name="Deleting Digital Restrictions Templates" url="Deleting_Digital_Restrictions_Templates.htm" />
+  </key>
+  <key name="editing" >
+    <topic name="Editing Digital Restrictions Templates" url="Editing_Digital_Restrictions_Templates.htm" />
+  </key>
+</key>
+<key name="editing" >
+  <key name="address books" >
+    <topic name="Editing Address Books" url="Editing_Address_Books.htm" />
+  </key>
+  <key name="contract templates" >
+    <topic name="Editing Contract Templates" url="Editing_Contract_Templates.htm" />
+  </key>
+  <key name="contracts" >
+    <topic name="Editing Contracts" url="Editing_Contracts.htm" />
+  </key>
+  <key name="contracts in the work queue" >
+    <topic name="Editing and Approving Contracts in the Work Queue" url="Editing_and_Approving_Contracts_in_the_Work_Queue.htm" />
+  </key>
+  <key name="digital restriction templates" >
+    <topic name="Editing Digital Restrictions Templates" url="Editing_Digital_Restrictions_Templates.htm" />
+  </key>
+</key>
+<key name="rights and restrictions" >
+  <topic name="Creating a New Contract#Rights_and_Restrictions" url="Creating_a_New_Contract.htm#Rights_and_Restrictions" />
+</key>
+<key name="searching" >
+  <key name="contracts" >
+    <topic name="Searching for Contracts" url="Searching_for_Contracts.htm" />
+  </key>
+</key>
+<key name="secondary exploitation" >
+  <topic name="Creating a New Contract#Secondary_Exploitation" url="Creating_a_New_Contract.htm#Secondary_Exploitation" />
+</key>
+<key name="viewing" >
+  <key name="contracts" >
+    <topic name="Viewing Contracts" url="Viewing_Contracts.htm" />
+  </key>
+  <key name="contracts in the work queue" >
+    <topic name="Viewing Contracts in the Work Queue" url="Viewing_Contracts_in_the_Work_Queue.htm" />
+  </key>
+</key>
+
+</indexdata>

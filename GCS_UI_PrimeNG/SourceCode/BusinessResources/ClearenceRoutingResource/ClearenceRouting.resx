@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CountryMatchWithMultiContracts" xml:space="preserve">
+    <value>Country match with more than one contract</value>
+    <comment>RCC Admin - Split Territory : If requested Territory/countries overlap between contracts</comment>
+  </data>
+  <data name="CountryMatchWithNoContract" xml:space="preserve">
+    <value>Country(ies) do not match with contract</value>
+    <comment>RCC Admin - Split Territory : When at least one Requested Territory/country is not specified in any of the contracts, and there is more than one contract with no territory available</comment>
+  </data>
+  <data name="GloballyClearedFlag" xml:space="preserve">
+    <value>Globally cleared</value>
+    <comment>Global Clearance - Globally cleared flag set on resource</comment>
+  </data>
+  <data name="LossOfRights" xml:space="preserve">
+    <value>No rights for this resource</value>
+    <comment>Auto Rejected</comment>
+  </data>
+  <data name="MAAutoApprovedFlag_WithNotification" xml:space="preserve">
+    <value>No consent. Marketing will be notified by email; Permission subject to 10-days withholding period for Marketing appeal</value>
+    <comment>No consent and email is sent to marketing workgroup</comment>
+  </data>
+  <data name="MAAutoApprovedFlag_WithoutNotification" xml:space="preserve">
+    <value>No consent</value>
+    <comment>No consent and no email is sent to marketing workgroup</comment>
+  </data>
+  <data name="NoContractAvailable" xml:space="preserve">
+    <value>No contract found</value>
+    <comment>RCC Admin - No resource or artist contract available</comment>
+  </data>
+  <data name="NoDigitalRights" xml:space="preserve">
+    <value>No digital rights</value>
+    <comment>Auto Reject- No digital rights for Resource Contract(GRS)</comment>
+  </data>
+  <data name="NoLegalInternationalWorkgroupAvailable" xml:space="preserve">
+    <value>No International Legal workgroup identified</value>
+    <comment>RCC Admin - No legal workgroup</comment>
+  </data>
+  <data name="NoMasterContract" xml:space="preserve">
+    <value>no synchronization rights</value>
+    <comment>Auto Rejected - master contract not applicable</comment>
+  </data>
+  <data name="NoMatchRequestedAndContractCountry" xml:space="preserve">
+    <value>no rights for all or part of requested country(ies)</value>
+    <comment>Auto Rejected - requested and contract territory/country  do not match</comment>
+  </data>
+  <data name="NoMultiArtistCompilationRights" xml:space="preserve">
+    <value>no multi-artist compilation rights</value>
+    <comment>Auto Rejected - multi artist request but GRS contract does not allow multi artist</comment>
+  </data>
+  <data name="NoPhysicalRights" xml:space="preserve">
+    <value>No physical rights</value>
+    <comment>Auto Reject- No physical rights for Resource Contract(GRS)</comment>
+  </data>
+  <data name="NoTerritoryAndPreclearedMasterOrMultiArtist" xml:space="preserve">
+    <value>Resource is on pre-cleared list. No contractual territories have been defined. Please review territorial rights</value>
+    <comment>Legal - No territory on the identified contract + precleared for master/multi artist</comment>
+  </data>
+  <data name="NoTerritoryOnContracts" xml:space="preserve">
+    <value>Contracts have no countries specified</value>
+    <comment>RCC Admin - No territory on the identified contract(s) when more than one contract is identified</comment>
+  </data>
+  <data name="OneStopFlag" xml:space="preserve">
+    <value>One Stop Request</value>
+    <comment>RCC Admin - One stop request</comment>
+  </data>
+  <data name="PreClearedFlag" xml:space="preserve">
+    <value>Pre-Cleared</value>
+    <comment>Auto Approved - Pre-Cleared Repertoire for master/multi artist + Territory mentioned in the contract</comment>
+  </data>
+  <data name="ProjectRoutingExceptionMsg" xml:space="preserve">
+    <value>There is an exception occured in project level routing</value>
+    <comment>Message for project level exception</comment>
+  </data>
+  <data name="RegularTypeExistingReleaseWithMidOrBudget" xml:space="preserve">
+    <value>Regular request for existing release at mid/budget price</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="RegularTypeNewReleaseWithBudget" xml:space="preserve">
+    <value>Regular request for new release at budget price</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="RegularTypeNewReleaseWithMid" xml:space="preserve">
+    <value>Regular request for new release at mid price</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="ResourceRoutingExceptionMsg" xml:space="preserve">
+    <value>There is an exception occured in resource level routing</value>
+    <comment>Message for resource level exception</comment>
+  </data>
+  <data name="SensitiveExploitationAtProject" xml:space="preserve">
+    <value>Sensitive Exploitation</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="SensitiveExploitationAtResource" xml:space="preserve">
+    <value>Sensitive Exploitation</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="SkipMarketingRuleFourPointOne" xml:space="preserve">
+    <value>Skipped International marketing for Regular compilation; Marketing will be notified by email; Permission subject to 10-days holding period for Marketing appeal</value>
+    <comment>SkipMarketing - Rule 4.1</comment>
+  </data>
+  <data name="SkipMarketingRuleFourPointTwo" xml:space="preserve">
+    <value>Skipped International marketing for Regular price reduction request; Marketing will be notified by email; Permission subject to 10-days holding period for Marketing appeal</value>
+    <comment>SkipMarketing - Rule 4.2</comment>
+  </data>
+  <data name="SplitTerritory" xml:space="preserve">
+    <value>Requested countries do not match with contractual countries</value>
+    <comment>Auto Rejected - If at least one of the requested countries does not match with the countries specified in any of the contracts</comment>
+  </data>
+  <data name="ThirdPartyCompany" xml:space="preserve">
+    <value>3rd party company is Reader's Digest</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+  <data name="XBorder" xml:space="preserve">
+    <value>Cross Border Request</value>
+    <comment>UMGI Marketing Reviewer</comment>
+  </data>
+</root>

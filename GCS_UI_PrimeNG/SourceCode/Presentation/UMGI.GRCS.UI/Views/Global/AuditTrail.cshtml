@@ -1,0 +1,106 @@
+﻿@using Syncfusion.Mvc.Shared;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]><html class="ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Audit History</title>
+
+    @(Html.Syncfusion().StyleManager().Register(component => component.Add(ComponentType.Grid)))
+
+    <link rel="icon" href="/GCS/Images/favicon.ico" type="image/x-icon" />
+    <link href="@Url.Content("/GCS/Content/themes/base/jquery-ui-1.8.21.custom.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/ClearenceSite.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/AuditTrail.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-1.7.2.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-ui-1.8.21.custom.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.unobtrusive-ajax.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")"><\/script>');
+        }
+    </script>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
+    <script>
+        if (!window.Modernizr) {
+            document.write('<script src="@Url.Content("/GCS/Scripts/modernizr-1.7.js")"><\/script>');
+        }
+    </script>
+
+    <script src="@Url.Content("/GCS/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/AuditTrail.js")" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="loadingDv">
+        </div>
+
+        <div class="header">
+
+            <div class="headerLeftPanel">
+
+                <div class="btnViewHistory">
+
+                    <input type="button" class="plbutton" style="margin-left: 10px;" value="View History" onclick="getAuditTrail();" />
+                </div>
+
+                <div class="lnkResetSelection" onclick="resetSelection();">Reset Selection</div>
+            </div>
+
+            <div class="headerRightPanel">
+
+                <div class="title" id="auditHeader"></div>
+
+                <div class="export">
+
+                    <div class="floatL exportToExcel"></div>
+
+                    <div class="floatR exportToExcelText" onclick="exportToExcel();">Export to Excel</div>
+
+                    @using (Html.BeginForm("ExportToExcel", "Global", FormMethod.Post, new { id = "frmExportToExcel" }))
+                    {
+                        <input id="auditObjectType" name="auditObjectType" type="hidden" value="" />
+                        <input id="selectedAuditConfiguration" name="selectedAuditConfiguration" type="hidden" value="" />
+                        <input id="selectedItemId" name="selectedItemId" type="hidden" value="" />
+                        <input id="displayTitle" name="displayTitle" type="hidden" value="" />
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="leftPanel">
+
+            @{Html.RenderPartial("AuditTrailFilters");}
+        </div>
+
+        <div class="rightPanel">
+        </div>
+    </div>
+
+    @{Html.Syncfusion().ScriptManager().Render();}
+</body>
+
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function () { performLayout(); });
+</script>
+</html>

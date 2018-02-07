@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActiveForMarketing" xml:space="preserve">
+    <value>Active for Marketing</value>
+  </data>
+  <data name="AddRestrictionParameterHeading" xml:space="preserve">
+    <value>Add Restriction Parameter</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="BasicSearchHeading" xml:space="preserve">
+    <value>Basic Search</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="DigitalExploitationRights" xml:space="preserve">
+    <value>Digital Exploitation Rights</value>
+  </data>
+  <data name="DigitalRestrictionsHeading" xml:space="preserve">
+    <value>Digital Restrictions</value>
+  </data>
+  <data name="DigitalRestrictionsReleases" xml:space="preserve">
+    <value>DigitalRestrictionsReleases</value>
+  </data>
+  <data name="DigitalRestrictionsReleasesPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesAndTracksBasicSearch" xml:space="preserve">
+    <value>DigitalRestrictionsResourcesAndTracksBasicSearch</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesAndTracksBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Resources &amp; Tracks/</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesAndTracksSearchReleaseParameters" xml:space="preserve">
+    <value>DigitalRestrictionsResourcesAndTracksSearchReleaseParameters</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesAndTracksSearchReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Resources &amp; Tracks/</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesBasicSearch" xml:space="preserve">
+    <value>DigitalRestrictionsResourcesBasicSearch</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Resources/</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesReleaseParameters" xml:space="preserve">
+    <value>DigitalRestrictionsResourcesReleaseParameters</value>
+  </data>
+  <data name="DigitalRestrictionsResourcesReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Resources/</value>
+  </data>
+  <data name="DigitalRestrictionsTracksBasicSearch" xml:space="preserve">
+    <value>DigitalRestrictionsTracksBasicSearch</value>
+  </data>
+  <data name="DigitalRestrictionsTracksBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Tracks/</value>
+  </data>
+  <data name="DigitalRestrictionsTracksSearchReleaseParameters" xml:space="preserve">
+    <value>DigitalRestrictionsTracksSearchReleaseParameters</value>
+  </data>
+  <data name="DigitalRestrictionsTracksSearchReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/Show Tracks/</value>
+  </data>
+  <data name="DigitalUnbundlingAllowed" xml:space="preserve">
+    <value>Digital Unbundling Allowed</value>
+  </data>
+  <data name="ExactSearch" xml:space="preserve">
+    <value>Exact Search</value>
+  </data>
+  <data name="ExportReport" xml:space="preserve">
+    <value>Export Report</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="ISRC" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="ItemsPerPage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="LinkedContactName" xml:space="preserve">
+    <value>Linked Contract Name</value>
+  </data>
+  <data name="LostRightsDate" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="LostRightsIndicator" xml:space="preserve">
+    <value>Lost Rights Indicator</value>
+  </data>
+  <data name="LostRightsReason" xml:space="preserve">
+    <value>Lost Rights Reason</value>
+  </data>
+  <data name="MobileExploitationRights" xml:space="preserve">
+    <value>Mobile Exploitation Rights</value>
+  </data>
+  <data name="PhysicalExploitationRights" xml:space="preserve">
+    <value>Physical Exploitation Rights</value>
+  </data>
+  <data name="PPBRevenueClaim" xml:space="preserve">
+    <value>PPB Revenue Claim</value>
+  </data>
+  <data name="PreClearanceHeading" xml:space="preserve">
+    <value>Pre-Clearance</value>
+  </data>
+  <data name="PreClearedBasicSearch" xml:space="preserve">
+    <value>PreClearedBasicSearch</value>
+  </data>
+  <data name="PreClearedBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Pre-Cleared/</value>
+  </data>
+  <data name="PreClearedReleaseParameters" xml:space="preserve">
+    <value>PreClearedReleaseParameters</value>
+  </data>
+  <data name="PreClearedReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Pre-Cleared/</value>
+  </data>
+  <data name="ReleaseParameters" xml:space="preserve">
+    <value>Release Parameters</value>
+  </data>
+  <data name="Releases" xml:space="preserve">
+    <value>Releases</value>
+  </data>
+  <data name="ReleasesPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/</value>
+  </data>
+  <data name="RepertoireLinkedToMultipleContracts" xml:space="preserve">
+    <value>Repertoire linked to multiple contracts</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResourceParameters" xml:space="preserve">
+    <value>Resource Parameters</value>
+  </data>
+  <data name="ResourcesAndTracksBasicSearch" xml:space="preserve">
+    <value>ResourcesAndTracksBasicSearch</value>
+  </data>
+  <data name="ResourcesAndTracksBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Resources &amp; Track/</value>
+  </data>
+  <data name="ResourcesAndTracksSearchReleaseParameters" xml:space="preserve">
+    <value>ResourcesAndTracksSearchReleaseParameters</value>
+  </data>
+  <data name="ResourcesAndTracksSearchReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Resources &amp; Tracks/</value>
+  </data>
+  <data name="ResourcesBasicSearch" xml:space="preserve">
+    <value>ResourcesBasicSearch</value>
+  </data>
+  <data name="ResourcesBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Resources/</value>
+  </data>
+  <data name="ResourcesReleaseParameters" xml:space="preserve">
+    <value>ResourcesReleaseParameters</value>
+  </data>
+  <data name="ResourcesReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Resources/</value>
+  </data>
+  <data name="ResourcesRightsParameter" xml:space="preserve">
+    <value>Resource's Rights Parameter</value>
+  </data>
+  <data name="ResourcesTracksRightsParameterHeading" xml:space="preserve">
+    <value>Resource's &amp; Track's Rights Parameter</value>
+  </data>
+  <data name="ResourceTitle" xml:space="preserve">
+    <value>Resource Title</value>
+  </data>
+  <data name="ResourceType" xml:space="preserve">
+    <value>Resource Type</value>
+  </data>
+  <data name="ReviewRightsButton" xml:space="preserve">
+    <value>Review Rights</value>
+  </data>
+  <data name="RightsAcquired" xml:space="preserve">
+    <value>Rights Acquired</value>
+  </data>
+  <data name="RightsPeriod" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="RightsReviewStatus" xml:space="preserve">
+    <value>Rights Review Status</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchForContact" xml:space="preserve">
+    <value>Search for Contract</value>
+  </data>
+  <data name="SearchResult" xml:space="preserve">
+    <value>Search Result</value>
+  </data>
+  <data name="SearchusingReleaseParametersHeading" xml:space="preserve">
+    <value>Search using Release Parameters</value>
+  </data>
+  <data name="SecondaryExploitationBasicSearch" xml:space="preserve">
+    <value>SecondaryExploitationBasicSearch</value>
+  </data>
+  <data name="SecondaryExploitationBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Digital Restrictions/</value>
+  </data>
+  <data name="SecondaryExploitationReleaseParameters" xml:space="preserve">
+    <value>SecondaryExploitationReleaseParameters</value>
+  </data>
+  <data name="SecondaryExploitationReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights &amp; Secondary Exploitation</value>
+  </data>
+  <data name="SelectRemoveCountriesLink" xml:space="preserve">
+    <value>Select/Remove Countries</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="TerritorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="TracksBasicSearch" xml:space="preserve">
+    <value>TracksBasicSearch</value>
+  </data>
+  <data name="TracksBasicSearchPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Tracks/</value>
+  </data>
+  <data name="TracksRightsParameter" xml:space="preserve">
+    <value>Track's Rights Parameter</value>
+  </data>
+  <data name="TracksSearchReleaseParameters" xml:space="preserve">
+    <value>TracksSearchReleaseParameters</value>
+  </data>
+  <data name="TracksSearchReleaseParametersPageHeading" xml:space="preserve">
+    <value>Repertoire Rights Search/Rights/Show Tracks/</value>
+  </data>
+  <data name="UPC" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="ReleaseTitle" xml:space="preserve">
+    <value>Release Title</value>
+  </data>
+  <data name="ResourceTrackTitle" xml:space="preserve">
+    <value>Resource/TrackTitle</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="GrcsUtilityService" xml:space="preserve">
+    <value>GrcsUtilityService</value>
+  </data>
+  <data name="PreClearanceTypes" xml:space="preserve">
+    <value>Pre-Clearance Types</value>
+  </data>
+  <data name="PreCleared" xml:space="preserve">
+    <value>Pre-Clearance </value>
+  </data>
+  <data name="SecondaryExploitation" xml:space="preserve">
+    <value>Exploitation Types</value>
+  </data>
+  <data name="SecExploitation" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="SecondaryExploitationTypesNotAvailable" xml:space="preserve">
+    <value>No SecondaryExploitation Types available!</value>
+  </data>
+  <data name="PreClearanceTypesNotAvailable" xml:space="preserve">
+    <value>No Pre-Clearance Types available!</value>
+  </data>
+  <data name="ResourceService" xml:space="preserve">
+    <value>ResourceService</value>
+  </data>
+  <data name="ReleaseService" xml:space="preserve">
+    <value>ReleaseService</value>
+  </data>
+  <data name="ClearAll" xml:space="preserve">
+    <value>Clear Selection</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Reset All</value>
+  </data>
+  <data name="SelectCountries" xml:space="preserve">
+    <value>Select Countries from below list</value>
+  </data>
+  <data name="SelectedCountries" xml:space="preserve">
+    <value>Selected Countries</value>
+  </data>
+  <data name="AdvertRoyaltyBreaks" xml:space="preserve">
+    <value>Advert Royalty Breaks</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="ArtistImage" xml:space="preserve">
+    <value>&lt;div class='sampleArtist' title='Side Artist' /&gt;</value>
+  </data>
+  <data name="Budget" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="BudgetCompilation" xml:space="preserve">
+    <value>Budget Compilation</value>
+  </data>
+  <data name="CdImage" xml:space="preserve">
+    <value>&lt;div class='sampleExists' title='Sample Exists'/&gt;</value>
+  </data>
+  <data name="ClearanceOrDataAdminCompany" xml:space="preserve">
+    <value>Clearance/Data Admin Co.</value>
+  </data>
+  <data name="ClubMailOrder" xml:space="preserve">
+    <value>Club Mail Order</value>
+  </data>
+  <data name="ConfirmReset" xml:space="preserve">
+    <value>Please Confirm to reset the values</value>
+  </data>
+  <data name="DateValidation" xml:space="preserve">
+    <value>Please select a 'To' date later than the 'From' date</value>
+  </data>
+  <data name="DateValidationEqual" xml:space="preserve">
+    <value>To Date should not be Equal to From Date</value>
+  </data>
+  <data name="DirectMarketing" xml:space="preserve">
+    <value>Direct Marketing</value>
+  </data>
+  <data name="fileEmptyMsg" xml:space="preserve">
+    <value>Uploaded file is empty. Please upload a non empty Microsoft Excel 2010/2007/2003 file.</value>
+  </data>
+  <data name="FileUploadMsgTitle" xml:space="preserve">
+    <value>Rights data doesn't exist in system for one/more item(s) uploaded</value>
+  </data>
+  <data name="fileValidation" xml:space="preserve">
+    <value>File format not recognised. Please upload Microsoft Excel 2010/2007/2003 file types only</value>
+  </data>
+  <data name="GreatestHits" xml:space="preserve">
+    <value>Greatest Hits</value>
+  </data>
+  <data name="InsufficientPrivilege" xml:space="preserve">
+    <value>You are not authorised to view Sensitive Rights information. Please select a past date in the ‘To’ date’ field if no search results are displayed</value>
+  </data>
+  <data name="Kiosk" xml:space="preserve">
+    <value>Kiosk</value>
+  </data>
+  <data name="LinkedContract" xml:space="preserve">
+    <value>Linked Contract</value>
+  </data>
+  <data name="LostRights" xml:space="preserve">
+    <value>Lost Rights</value>
+  </data>
+  <data name="MasterOrSynchronizationUse" xml:space="preserve">
+    <value>Master/Synchronization Use</value>
+  </data>
+  <data name="MidPrice" xml:space="preserve">
+    <value>Mid Price</value>
+  </data>
+  <data name="MidPriceCompilation" xml:space="preserve">
+    <value>Mid Price Compilation</value>
+  </data>
+  <data name="MultiArtistCompilation" xml:space="preserve">
+    <value>Multi-Artist Compilation</value>
+  </data>
+  <data name="PreClearanceTerritoryExclusions" xml:space="preserve">
+    <value>Pre-ClearanceTerritory Exclusions</value>
+  </data>
+  <data name="Premium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="Premiums" xml:space="preserve">
+    <value>Premiums</value>
+  </data>
+  <data name="Pyear" xml:space="preserve">
+    <value>P Year</value>
+  </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Release Date</value>
+  </data>
+  <data name="RemixEdits" xml:space="preserve">
+    <value>Remix/Edit</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="Sampleuse" xml:space="preserve">
+    <value>Sample Use</value>
+  </data>
+  <data name="SearchContractTitle" xml:space="preserve">
+    <value>Search For Contract</value>
+  </data>
+  <data name="searchValidation" xml:space="preserve">
+    <value>Please provide search criteria</value>
+  </data>
+  <data name="SelectRemoveCountries" xml:space="preserve">
+    <value>Select/Remove Countries</value>
+  </data>
+  <data name="SenstivePrivilege" xml:space="preserve">
+    <value>You have selected a future Lost Rights 'To’ date, so please be aware that the search results will only include repertoire for which you are authorised to view 'sensitive data'</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Synchronisation" xml:space="preserve">
+    <value>Synchronisation</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TopPriceCompilation" xml:space="preserve">
+    <value>Top Price Compilation</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Traits</value>
+  </data>
+  <data name="VersionTitle" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Upload a File</value>
+  </data>
+  <data name="UploadedFileRecordsExceed" xml:space="preserve">
+    <value>The file uploaded contains more than 500 records, please upload a file containing less than or equal to 500 records.</value>
+  </data>
+  <data name="Commercial" xml:space="preserve">
+    <value>Commercial Models</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digital</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RestrictionsDoesntExists" xml:space="preserve">
+    <value>Restrictions Doesn't Exists</value>
+  </data>
+  <data name="RestrictionsExists" xml:space="preserve">
+    <value>Restrictions Exists</value>
+  </data>
+  <data name="UseType" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="CommercialModels" xml:space="preserve">
+    <value>Commercial Models</value>
+  </data>
+  <data name="ConsentPeriod" xml:space="preserve">
+    <value>Consent/Consult Period</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="TempFilePath" xml:space="preserve">
+    <value>~/TempFiles</value>
+  </data>
+  <data name="ExportToExcel" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="NoChangeRequired" xml:space="preserve">
+    <value>No Change Required</value>
+  </data>
+  <data name="RestrictionReason" xml:space="preserve">
+    <value>Restriction Reason</value>
+  </data>
+  <data name="RestrictionRemoveMessage" xml:space="preserve">
+    <value>Please confirm that you want to remove all matching Digital Restrictions from the selected Repertoire</value>
+  </data>
+  <data name="RestrictionRemoveTitle" xml:space="preserve">
+    <value>Restriction Removal-Confirmation</value>
+  </data>
+  <data name="DigitalExploitation" xml:space="preserve">
+    <value>Digital Exploitation</value>
+  </data>
+  <data name="MobileExploitation" xml:space="preserve">
+    <value>Mobile Exploitation</value>
+  </data>
+  <data name="PhysicalExploitation" xml:space="preserve">
+    <value>Physical Exploitation</value>
+  </data>
+  <data name="TerritorialRightsLabel" xml:space="preserve">
+    <value>Exploitation Countries</value>
+  </data>
+  <data name="RightsAcquiredDisplay" xml:space="preserve">
+    <value>Rights Acquired</value>
+  </data>
+  <data name="TerritorialRightsDisplay" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+</root>

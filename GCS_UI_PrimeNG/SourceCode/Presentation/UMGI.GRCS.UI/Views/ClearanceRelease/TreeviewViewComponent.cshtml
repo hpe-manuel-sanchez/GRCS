@@ -1,0 +1,27 @@
+﻿@model UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.PackageInfo
+<script src="@Url.Content("/GCS/Scripts/Custom/ViewComponent.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Scripts/TreeView/themes/default/style.min.css")" rel="stylesheet" type="text/css" />
+
+@if (Model.packageInfo != null)
+{
+    for (int i = 0; i < Model.packageInfo.Count; i++)
+    {
+    <ul>
+        @if (Model.packageInfo[i] != null)
+        {
+            if (Model.packageInfo[i].ArchiveFlag == "N")
+            {
+            <li><a href="#" class="usr" title="@Model.packageInfo[i].ReleaseId-@Model.packageInfo[i].Upc-@Model.packageInfo[i].IsAddedBySearch" alt="" onclick="GetDetails($(this).attr('title'));">@Model.packageInfo[i].Upc</a>
+                @if (Model.packageInfo[i].packageInfo != null)
+                {
+                    if (Model.packageInfo[i].packageInfo.Count > 0)
+                    {
+                    @Html.Partial("TreeviewViewComponent", Model.packageInfo[i]);
+                    }
+                }
+            </li>
+            }
+        }
+    </ul>
+    }
+}

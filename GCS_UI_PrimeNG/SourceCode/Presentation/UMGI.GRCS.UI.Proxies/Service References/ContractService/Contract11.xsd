@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="ArrayOfWorkQueue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkQueue" nillable="true" type="tns:WorkQueue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkQueue" nillable="true" type="tns:ArrayOfWorkQueue" />
+  <xs:complexType name="WorkQueue">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:RepertoireBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+          <xs:element minOccurs="0" name="ClearanceCompanyCountryId" type="xs:long" />
+          <xs:element minOccurs="0" name="CommencementDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ContractArtistId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ContractArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ContractReviewReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractReviewReasonId" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ContractingParty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GrcsRepertoireId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="IsPackage" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LinkedContractName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MsgDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OwnedReleases" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OwnedResources" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="R2RepertoireId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RepertoireId" type="xs:long" />
+          <xs:element minOccurs="0" name="RepertoireSubType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScopeType" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="TaskId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkQueue" nillable="true" type="tns:WorkQueue" />
+</xs:schema>

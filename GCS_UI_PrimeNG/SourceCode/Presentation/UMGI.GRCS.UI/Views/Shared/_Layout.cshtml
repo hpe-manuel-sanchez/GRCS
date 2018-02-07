@@ -1,0 +1,270 @@
+﻿@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.Resx.Resource.Layout
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <link href="@Url.Content("/GCS/Content/index.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/Site.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/DynamicMenu.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/themes/base/jquery-ui-1.8.21.custom.min.css")" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-1.7.2.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-ui-1.8.21.custom.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.unobtrusive-ajax.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")"><\/script>');
+        }
+    </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-1.7-development-only.js"></script>
+    <script>
+        if (!window.Modernizr) {
+            document.write('<script src="@Url.Content("/GCS/Scripts/modernizr-1.7.js")"><\/script>');
+        }
+    </script>
+    <script src="@Url.Content("/GCS/Scripts/JSLinq/jsLinq.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/JLinq/jLinq-2.2.1.packed.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/tooltip/jquery.bgiframe.js")"  type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/tooltip/jquery.tooltip.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/LayoutRoot.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/DynamicMenu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/AutoCompleteComboBox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/ChooseTemplate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/jquery.idletimeout.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/jquery.idletimer.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Utilities/Utilities.js")" type="text/javascript"></script>
+    
+    @RenderSection("scripts", required: false)
+    <style type="text/css">
+        .logOff {
+            float: left;
+            margin: 0 7px 50px 0;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".first").trigger('mouseover').trigger('mouseout');;
+            $(".last").trigger('mouseover').trigger('mouseout');;
+        });
+    </script>
+</head>
+@{
+    var layoutModel = new UMGI.GRCS.UI.Models.LayoutModel();   
+}
+<body>
+    <div class="gr_pageHeader" title="Header">
+        <div class="headerLayout">
+            <div id="title">
+                <img id="logo" src="/GCS/Images/GRS-Illus_ver2.png" alt="GRS Logo" />
+                <span class="appVersion">V.2.3.1</span>
+            </div>
+            <div class="nav menucolor">
+                <ul id="menu">
+                    <li>
+                        <a href="void(0)">
+                            @LayoutRes.WelcomeHeader
+                            <b>"@layoutModel.UserName"</b>
+                        </a>
+                        <label class="menucolor" style="padding-right: 0;">|</label>
+                    </li>
+
+                    @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.SystemAdministratorPermisson, GrsTasks.LocalAdminPermission }))
+                    {
+                    
+                        <li style="*margin-right: 110px;">
+                            <ul id="navlist" style="*position: absolute;">
+                                <li id="active" style="text-align: left;">
+                                    <a href="" id="adminSettingArrow" class="menucolor">Admin Setting</a>
+                                    <label class="menucolor" style="padding-left: 5px; padding-right: 0px !important;">|</label>
+                                    <ul id="subnavlist" style="*position: relative;">
+                                        @if ((PermissionExtension.HasAnyPermission(new[] { GrsTasks.SystemAdministratorPermisson })))
+                                        {
+                                            <li id="subactive">
+                                                @Html.ActionLink("Manage Auto Linking of Repertoire", "ManageAutoLinkingofRepertoire", "ManageAutoLinking")
+                                            </li>
+                                        }
+                                        <li id="subactive">
+                                            @Html.ActionLink("Manage Rights Expiry Report Parameters", "MaintainRightsExpiry", "RightsExpiryReportWindow")
+                                        </li>
+
+                                        <li id="subactive">
+                                            @Html.ActionLink("Maintain Rights Data Review Conditions", "MaintainRightsDataReview", "RightsDataReview")
+                                        </li>
+                                        <li id="subactive">
+                                            @Html.ActionLink("Maintain WQ Release Date Comparison Parameter", "MaintainWorkQueueRelease", "WorkQueueComparisionParameter")
+                                        </li>
+                                        <li id="subactive">
+                                            @Html.ActionLink("Maintain Rights Defaults for Repertoire", "MaintainRightsRepertoire", "RightsDefaultRepertoire")
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                    }
+                    <!-- li><a href="" class="menucolor">@LayoutRes.UserRolesHeader</a><label class="menucolor">|</label></li -->
+                    <li><a href="" class="menucolor" style="padding-left: 10px;">@LayoutRes.HelpHeader</a><label class="menucolor" style="visibility: hidden;">|</label></li>
+                    <li>
+                        <input type="button" value="@LayoutRes.LogoutButton"  class="primbutton" /></li>
+                </ul>
+            </div>
+        </div>
+        <div id="pageMenu" style="clear: both; position: absolute; z-index: 0; *z-index: -1;">
+            <ul id="jsddm">
+                <li>
+                    <a href='@Url.Action("Index", "Home")'>@LayoutRes.HomeHeader
+                        <!-- img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/ -->
+                    </a></li>
+                <li>
+                    <a href='@Url.Action("Index", "Home")'>@LayoutRes.WorkQueueHeader
+                        <img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/></a></li>
+                <li>
+                    <a>@LayoutRes.ContractAdministrationMenu<img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/></a>
+                    <ul class="nestedMenuHover">
+                        <li>@Html.ActionLinkWithPermission("Search For Contract", "SearchContract", "Contract", "SearchContractMenu")</li>
+
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.CreateNCRContract }))
+                        {
+                            <li>
+                                @Html.ActionLink("Create New Contract", "ContractCreation", "Contract")
+                            </li>
+                        }
+
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.CreateNCRContract }))
+                        {
+                            <li><a id="ChooseTemplate" href="javascript:void(0);">@LayoutRes.CreateNewTemplateMenu</a>      </li>                
+                        }
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.ContractMaintinanceWQ }))
+                        {
+                            <li>@Html.ActionLink("Contract Maintenance WorkQueue", "ContractMaintenanceWorkQueue", "Contract") </li>
+                        }
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkContract, GrsTasks.UnlinkContract, }))
+                        {
+                            <li>@Html.ActionLink("Contract Linking WorkQueue", "ContractLinkingWorkQueue", "WorkQueue")</li>
+
+                        }
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.CreateNCRContract, GrsTasks.EditNCRContract, GrsTasks.ApproveNCRcontract, GrsTasks.EditNCRAppContract }))
+                        {
+                            <li>@Html.ActionLink("Manage Address Book", "ManageAddressBook", "Contract")</li>
+                        }
+                    </ul>
+                </li>
+                <li>
+                    <a href='@Url.Action("Index", "Home")'>
+                        @LayoutRes.RepertoireRightsSearchHeader
+                        <img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/>
+                    </a>
+                </li>
+                @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.ContractTemplateMaintinance, GrsTasks.DigitalRestrictionTemplate }))
+                {
+                    <li>
+                        <a href='@Url.Action("Index", "Home")'>
+                            @LayoutRes.ManageTemplatesHeader
+                            <img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/>
+                        </a>
+                        <!--
+                        3. [UC009 – 0040] Clicking on the template maintenance drop down, the user is presented with the following options.
+                        a. [UC009 – 0045] Contract Template
+                        b. [UC009 – 0050] Digital Restrictions                      
+                        -->
+                        <ul class="nestedMenuHover">
+                            <li class="manageTemplatesMenu">@Html.ActionLink("Contract Templates", "ContractTemplates", "Contract")</li>
+                            <li>@Html.ActionLink("Digital Restrictions Templates", "DigitalRestrictionTemplates", "Contract")</li>
+                        </ul>
+                    </li>
+                }
+                <li>
+                    <a href='@Url.Action("Index", "Home")'>
+                        @LayoutRes.ReportsHeader
+                        <img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="hrMenu">
+        </div>
+    </div>
+    <div id="main">
+        <div class="gr_breadCrumbNav">
+            @*@Html.MvcSiteMap().SiteMapPath()*@
+        </div>
+        <!-- Warning Messages Div -->
+        <div id="warning">
+            <div class="warningContainer">
+                <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+                <div id="AlertMsg"></div>
+                <div id="SearchAlert"></div>
+                <div id="WorkQueueAlerts"></div>
+            </div>
+        </div>
+
+        <div id="success">
+            <div class="successContainer">
+                <img class="sucessImage" src="/GCS/Images/Sucess.png" alt="Success" />
+                <div id="SuccessMsg"></div>
+                <div id="WorkQueueSuccess"></div>
+            </div>
+        </div>
+        <!-- Warning Messages Div -->
+        @RenderBody()
+    </div>
+    <div id="loadingDiv">
+        <img alt="" src="/GCS/images/animated_gcs.gif" class="gr_ajax-loader" />
+    </div>
+    <!-- dialog window markup -->
+    <div id="dialog" title="Your session is about to expire!" class="displayNone">
+        <p>
+            <span class="ui-icon ui-icon-alert logOff"></span>
+            You will be logged off in <span id="dialog-countdown"></span>seconds.
+        </p>
+
+        <p>Do you want to continue your session?</p>
+    </div>
+
+    <div class="footer">
+        <div class="foot" style="margin: 2px 0;">
+            <div id="contentBottom">
+                <div id="footerInfo" onmouseover="document.getElementById('div1').style.display = 'block';" onmouseout="document.getElementById('div1').style.display = 'none';">
+                    <div class="grs_Phone">
+                        <img src="/GCS/Images/phone_White.png" alt="Support" height="16" width="16" />
+                    </div>
+                    <label class="grs_Support">Support</label>
+                </div>
+                @RenderSection("BottomInputs", required: false)
+            </div>
+        </div>
+    </div>
+
+    <div id='div1' onmouseover="document.getElementById('div1').style.display = 'block';" onmouseout="document.getElementById('div1').style.display = 'none';">
+        <div class="grs_SupportTriangleContainer">
+            <div class="grs_SupportTriangle" onmouseover="document.getElementById('div1').style.display = 'block';" onmouseout="document.getElementById('div1').style.display = 'none';">&nbsp;&nbsp;</div>
+        </div>
+        <p>Please contact the Global Service Desk on </p>
+        <table>
+            <tr>
+                <td class="grs_SupportLabel">Global Toll Number: </td>
+                <td class="grs_SupportNumber">+1 (972) 473-1213</td>
+            </tr>
+            <tr>
+                <td class="grs_SupportLabel">North America: </td>
+                <td class="grs_SupportNumber">+1 (818) 286-6200</td>
+            </tr>
+            <tr>
+                <td class="grs_SupportLabel">UK: </td>
+                <td class="grs_SupportNumber">+44 (0)17 0833 3350</td>
+            </tr>
+        </table>
+        <!--p>Global Toll Number: +1 (972) 473-1213</p><p>North America: +1 (818) 286-6200</p><p>UK: +44 (0)17 0833 3350</p-->
+        <p>If you have an Avaya IP phone use the speed dial labeled "Service Desk"</p>
+        <p>Or email <span class="hyperlink"><a>Global.servicedesk@musik.com</a></span></p>
+    </div>
+
+</body>
+</html>

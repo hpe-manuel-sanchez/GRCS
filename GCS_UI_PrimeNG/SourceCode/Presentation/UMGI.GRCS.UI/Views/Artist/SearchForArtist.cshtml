@@ -1,0 +1,127 @@
+﻿@model UMGI.GRCS.UI.Models.ArtistModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.Resx.Resource.Layout
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageArtist.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/resources.min.css")" rel="stylesheet" type="text/css" />
+
+<div class="searchBox">
+    <div id="warningmessageartist" class="error-msg-margin"></div>
+    <table style="width: 100%;">
+        <tr id="trShowMessageArtist" style="display: none;">
+            <td align="left" colspan="4">
+                <div class="error" style="margin-top: 5px;">
+                    @Html.Label(@ClearanceLayout.ArtistDuplicateMessage) <span id="spnIsrcArtist" style="font-weight: bold;"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="search_by" class="sbox-wrap sbox_grey-background sbox-height1 sbox_wrapper-margin">
+        <div class="search_by-column1 floatL text-align-right line-height2 sbox-margin-top1  sbox-pdding-right labelbold">
+            Search by:
+        </div>
+        <div class="search_by-column_pop floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+            @Html.EditorFor(model => model.Artist.FirstName)
+            @Html.ValidationMessageFor(model => model.Artist.FirstName)
+        </div>
+        <div class="search_by-column_pop floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+            @Html.EditorFor(model => model.Artist.Info.Id)
+            @Html.ValidationMessageFor(model => model.Artist.Info.Id)
+        </div>
+
+        <div class="search_by-column_pop_btn floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+
+            <input id="searchForArtist" type="submit" class="primbutton" value="@ContractResource.SearchButton" />
+            <input id="resetButton" type="submit" class="secbutton" value="@ContractResource.ResetButton" />
+            <input type="hidden" id ="hdnRegularResource" value="@ViewData["OpenFrom"].ToString()" />
+        </div>
+    </div>
+</div>
+<div id="ArtistPaging" class="alignRight" style="display: none; padding-bottom: 15px;">
+</div>
+<div class="search-wrapper" id="trShowPagingArtist" style="display: none;">
+    <div class="search-field-criteria" id="searchResultForCompany">
+        <div class="search-show-all1">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel</div>
+        <div class="search-show-all-val1">"<span id="spnSearchResultArtist" style="font-weight: bold;"></span>"</div>
+    </div>
+    <div class="search-paging-wrapper1" id="SearchCompanyPaging">
+        <div id="divSearchCompanyPaging">
+            <div class="search-show-label">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown</div>
+            <div class="search-paging-item">@Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPagingArtist" })</div>
+            <div class="search-item-per-page1">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage</div>
+        </div>
+    </div>
+</div>
+
+<div id="searchArtistResult" class="result-wrapper">
+    <div id="searchArtistList" class="free-hand">
+    </div>
+</div>
+
+<div class="jtable-main-container result-wrapper">
+    <table id="tblExistingArtist" class="jtable" style="width: 100%;">
+        @if (Model.GetArtistList != null)
+        {
+            if (Model.GetArtistList.Count > 0)
+            {
+            <thead>
+                <tr>
+                    <th class="jtable-command-column-header" style="width: 1%;">Select</th>
+                    <th class="jtable-column-header">
+                        <div class="jtable-column-header-container">
+                            <span class="jtable-column-header-text">Artist Name</span>
+                            <div class="jtable-column-resize-handler"></div>
+                        </div>
+                    </th>
+                    <th class="jtable-column-header">
+                        <div class="jtable-column-header-container">
+                            <span class="jtable-column-header-text">Artist Id</span>
+                            <div class="jtable-column-resize-handler"></div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            }
+            for (int i = 0; i < Model.GetArtistList.Count; i++)
+            {
+
+            <tr id="row @i">
+                <td id= "Chk @i">
+                    <input type="checkbox" value="0" name="chkSelect @i" id="chkSelect @i" />@Html.HiddenFor(model => Model.GetArtistList.Count, new { id = "hdnExistingArtistCount" })@Html.HiddenFor(model => model.GetArtistList[i].Info.Id, new { id = "hdnArtistTalentId" }) </td>
+                <td id="artistName @i">@Html.DisplayFor(model => model.GetArtistList[i].FirstName)</td>
+                <td id="aId @i">@Html.DisplayFor(model => model.GetArtistList[i].Info.Id)</td>
+            </tr>
+            }
+            if (Model.GetArtistList.Count > 0)
+            {
+            <tr>
+                <td colspan="3" align="left">
+
+                    <input id="btnRemoveArtist" type="button" class="secbutton" value="Remove" runat="server" />
+                </td>
+            </tr>
+            }
+        }
+    </table>
+</div>
+
+<div class="floatR result-wrapper btn-popup-height" id="trAddProject" style="padding: 15px 0;">
+    <input id="btnAddArtist" type="button" class="primbutton" value="@ContractResource.AddButton" />
+    <input id="btnCancelArtist" type="button" class="primbutton" value="@ContractResource.CancelButton" />
+</div>
+
+<script type="text/javascript">
+    // added by dhruv
+    var atleastsearchcriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var atleastremoveartist = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_atleastremoveartist';
+    var atleastaddartist = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_atleastaddartist';
+    var artistname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistName';
+    var artistid = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId';
+    // ON PAGE LOAD
+    $(document).ready(function () {
+        $('#Artist_FirstName').watermark(artistname);
+        $('#Artist_Info_Id').watermark(artistid);
+    });
+</script>

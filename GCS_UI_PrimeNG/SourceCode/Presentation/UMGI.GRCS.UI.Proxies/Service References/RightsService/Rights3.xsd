@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+  <xs:element name="GetPreClearances">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreClearancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetPreClearancesResult" nillable="true" type="q1:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLostRightsReasons">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLostRightsReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetLostRightsReasonsResult" nillable="true" type="q2:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsReviewStatuses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsReviewStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetRightsReviewStatusesResult" nillable="true" type="q3:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightPeriods">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightPeriodsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetRightPeriodsResult" nillable="true" type="q4:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetResourceTypeResult" nillable="true" type="q5:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReviewedReleaseRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="releaseRights" nillable="true" type="q6:ReleaseRightsSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReviewedReleaseRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveReviewedReleaseRightsResult" nillable="true" type="q7:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReviewedResourceRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="resourceRights" nillable="true" type="q8:ResourceRightsSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReviewedResourceRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveReviewedResourceRightsResult" nillable="true" type="q9:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourceSecondaryRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="updateRights" nillable="true" type="q10:SecondaryRightsSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourceSecondaryRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveResourceSecondaryRightsResult" nillable="true" type="q11:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourcePreClearanceRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="preClearanceSaveInfo" nillable="true" type="q12:PreClearanceSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourcePreClearanceRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveResourcePreClearanceRightsResult" nillable="true" type="q13:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourceDigitalRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="resourceDigitalSaveInfo" nillable="true" type="q14:ResourceDigitalSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResourceDigitalRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveResourceDigitalRightsResult" nillable="true" type="q15:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsAcquiredMasterData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsAcquiredMasterDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="GetRightsAcquiredMasterDataResult" nillable="true" type="q16:ReviewRightsMasterInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadSecondaryRightsMasterData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadSecondaryRightsMasterDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="LoadSecondaryRightsMasterDataResult" nillable="true" type="q17:SecondaryRightsMasterData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPreClearanceMasterData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadPreClearanceMasterDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="LoadPreClearanceMasterDataResult" nillable="true" type="q18:PreClearanceMasterData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDigitalRightsMasterData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDigitalRightsMasterDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="LoadDigitalRightsMasterDataResult" nillable="true" type="q19:DigitalRightsMasterData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReleaseDigitalRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" minOccurs="0" name="rights" nillable="true" type="q20:ReleaseDigitalSaveInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveReleaseDigitalRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SaveReleaseDigitalRightsResult" nillable="true" type="q21:ArrayOflong" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightCountries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="countryInfo" nillable="true" type="q22:RightsCountry" />
+        <xs:element minOccurs="0" name="isCountry" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="GetRightCountriesResult" nillable="true" type="q23:ArrayOfRightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsRoleGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="roleGroup" nillable="true" type="q24:RightsRoleGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsRoleGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="GetRightsRoleGroupsResult" nillable="true" type="q25:ArrayOfRightsRoleGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsExpiryItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsExpiryReportParameter" nillable="true" type="q26:RightsExpiryReportParameter" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsExpiryItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SaveRightsExpiryItemResult" nillable="true" type="q27:RightsExpiryReportParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsExpiryItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="rightsExpiryId" nillable="true" type="q28:ArrayOflong" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsExpiryItemsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerritoryRightsCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="countryDataInfo" nillable="true" type="q29:RightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerritoryRightsCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="GetTerritoryRightsCountryResult" nillable="true" type="q30:ArrayOfRightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="countryDataInfo" nillable="true" type="q31:RightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="GetCountriesResult" nillable="true" type="q32:ArrayOfRightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="companyDataInfo" nillable="true" type="q33:RightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompaniesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="GetCompaniesResult" nillable="true" type="q34:ArrayOfRightsCountry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsExpiryResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsExpiryReportParameter" nillable="true" type="q35:RightsExpiryWindowCriteira" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsExpiryResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SearchRightsExpiryResultsResult" nillable="true" type="q36:ArrayOfRightsExpiryReportParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsDataReviewRules">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRightsDataReviewRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetRightsDataReviewRulesResult" nillable="true" type="q37:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsDataReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsReviewRule" nillable="true" type="q38:RightsReviewRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsDataReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SaveRightsDataReviewResult" nillable="true" type="q39:RightsReviewRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsDataReview">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="countryId" nillable="true" type="q40:ArrayOfNullableOflong" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsDataReviewResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsDataReviewResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsDataReviewCriteria" nillable="true" type="q41:RightsDataReviewCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsDataReviewResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SearchRightsDataReviewResultResult" nillable="true" type="q42:ArrayOfRightsReviewRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsDefaultRepertoireData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsDefaultForRepertoire" nillable="true" type="q43:RightsDefaultForRepertoire" />
+        <xs:element minOccurs="0" name="userLogName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRightsDefaultRepertoireDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SaveRightsDefaultRepertoireDataResult" nillable="true" type="q44:RightsDefaultForRepertoire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsDefaultRepertoireData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="rightsDefaultForRepertoireId" nillable="true" type="q45:ArrayOflong" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRightsDefaultRepertoireDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsDefaultForRepertorieResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsDefaultRepertoireCriteria" nillable="true" type="q46:RightsDefaultRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRightsDefaultForRepertorieResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="SearchRightsDefaultForRepertorieResultsResult" nillable="true" type="q47:ArrayOfRightsDefaultForRepertoire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadTerritoryData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rightSetId" type="xs:long" />
+        <xs:element minOccurs="0" name="isTemplate" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadTerritoryDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="LoadTerritoryDataResult" nillable="true" type="q48:ArrayOfTerritorialDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTerritories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsDefaultForRepertoire" nillable="true" type="q49:RightsDefaultForRepertoire" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="territories" nillable="true" type="q50:ArrayOfTerritorialDisplay" />
+        <xs:element minOccurs="0" name="rightSetId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTerritoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="SaveTerritoriesResult" nillable="true" type="q51:ArrayOfTerritorialDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTerritoriesByContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" minOccurs="0" name="rightsDefaultForRepertoire" nillable="true" type="q52:RightsDefaultForRepertoire" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="territories" nillable="true" type="q53:ArrayOfTerritorialDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTerritoriesByContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="SaveTerritoriesByContractResult" nillable="true" type="q54:ArrayOfTerritorialDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Notify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rightsId" type="xs:long" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" minOccurs="0" name="type" type="q55:RightsType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NotifyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateIsrcFromFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="isrcFromFile" nillable="true" type="q56:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateIsrcFromFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ValidateIsrcFromFileResult" nillable="true" type="q57:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreClearedBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q58:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreClearedBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetPreClearedBasicSearchResult" nillable="true" type="q59:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q60:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetTracksBasicSearchResult" nillable="true" type="q61:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksSearchReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q62:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTracksSearchReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetTracksSearchReleaseParametersResult" nillable="true" type="q63:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitationBasicSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q64:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitationBasicSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetSecondaryExploitationBasicSearchResult" nillable="true" type="q65:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreClearedReleaseParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q66:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreClearedReleaseParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetPreClearedReleaseParametersResult" nillable="true" type="q67:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitationReleaseParameterSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isSensitive" type="xs:boolean" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="searchFilter" nillable="true" type="q68:SearchRepertoireCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitationReleaseParameterSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" minOccurs="0" name="GetSecondaryExploitationReleaseParameterSearchResult" nillable="true" type="q69:ArrayOfRepertoireRightsSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecondaryExploitationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetSecondaryExploitationsResult" nillable="true" type="q70:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReasonsForReview">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReasonsForReviewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="GetReasonsForReviewResult" nillable="true" type="q71:ArrayOfStringIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

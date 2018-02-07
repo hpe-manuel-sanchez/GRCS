@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Contract" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.Templates" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NoticeCompanyEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.GlobalAddressEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Requests" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IContract_SearchContractbyArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContractbyArtist" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchContractbyArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContractbyArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchContractbyResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContractbyResource" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchContractbyResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContractbyResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetResourceContractByContractIdList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceContractByContractIdList" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetResourceContractByContractIdList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceContractByContractIdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsByResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsByResource" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsByResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsByResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetArtistByContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtistByContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetArtistByContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtistByContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsByArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsByArtist" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsByArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsByArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLeanContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeanContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLeanContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeanContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveAutoLinkCdlContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAutoLinkCdlContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveAutoLinkCdlContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAutoLinkCdlContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteCdlContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCdlContracts" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteCdlContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCdlContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedDivisions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedDivisions" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedDivisions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedDivisionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedLabels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedLabels" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedLabels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_FilterCdlMappings_InputMessage">
+    <wsdl:part name="parameters" element="tns:FilterCdlMappings" />
+  </wsdl:message>
+  <wsdl:message name="IContract_FilterCdlMappings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FilterCdlMappingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataSecondaryExploitations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataSecondaryExploitations" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataSecondaryExploitations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataSecondaryExploitationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetTerritoryData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryData" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetTerritoryData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTerritoryDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTerritoryDetails" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTerritoryDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTerritoryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveContractTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveContractTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetMasterDataForContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterDataForContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetMasterDataForContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterDataForContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetSearchContractMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSearchContractMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetSearchContractMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSearchContractMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractMaintenanceWorkQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractMaintenanceWorkQueue" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractMaintenanceWorkQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractMaintenanceWorkQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchParentContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchParentContracts" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SearchParentContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchParentContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataRightsAndRestriction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataRightsAndRestriction" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataRightsAndRestriction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataRightsAndRestrictionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataDigitalRestriction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataDigitalRestriction" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDefaultDataDigitalRestriction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDefaultDataDigitalRestrictionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveDigitalRestrictionTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDigitalRestrictionTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveDigitalRestrictionTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDigitalRestrictionTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_LoadContractTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadContractTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IContract_LoadContractTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadContractTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDigitalTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDigitalTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDigitalTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetDigitalTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetSplitDealContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSplitDealContracts" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetSplitDealContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSplitDealContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_LinkProjectToContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkProjectToContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_LinkProjectToContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkProjectToContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyLinkedContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyLinkedContract" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyLinkedContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyLinkedContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetEmailGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailGroups" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetEmailGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveEmailGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmailGroup" />
+  </wsdl:message>
+  <wsdl:message name="IContract_SaveEmailGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveEmailGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteEmailGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailGroups" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteEmailGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmailGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedProjectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedProjectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedProjectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedProjectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedReleaseDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedReleaseDetails" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedReleaseDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedReleaseDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedResourceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedResourceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedResourceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedResourceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoire_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoire" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoire_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoireResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoireFromWorkQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoireFromWorkQueue" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoireFromWorkQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoireFromWorkQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsForSplitDeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsForSplitDeal" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetContractsForSplitDeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsForSplitDealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetChildContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChildContracts" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetChildContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChildContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoireFromReleaseResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoireFromReleaseResource" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UnlinkRepertoireFromReleaseResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkRepertoireFromReleaseResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyUnlinked_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyUnlinked" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyUnlinked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyUnlinkedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyUnlinkFromWorkQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyUnlinkFromWorkQueue" />
+  </wsdl:message>
+  <wsdl:message name="IContract_IsAlreadyUnlinkFromWorkQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAlreadyUnlinkFromWorkQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedRightSets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedRightSets" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetLinkedRightSets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedRightSetsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IContract">
+    <wsdl:operation name="SearchContractbyArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SearchContractbyArtist" message="tns:IContract_SearchContractbyArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SearchContractbyArtistResponse" message="tns:IContract_SearchContractbyArtist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchContractbyResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SearchContractbyResource" message="tns:IContract_SearchContractbyResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SearchContractbyResourceResponse" message="tns:IContract_SearchContractbyResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceContractByContractIdList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetResourceContractByContractIdList" message="tns:IContract_GetResourceContractByContractIdList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetResourceContractByContractIdListResponse" message="tns:IContract_GetResourceContractByContractIdList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsByResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractsByResource" message="tns:IContract_GetContractsByResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractsByResourceResponse" message="tns:IContract_GetContractsByResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArtistByContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetArtistByContract" message="tns:IContract_GetArtistByContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetArtistByContractResponse" message="tns:IContract_GetArtistByContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsByArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractsByArtist" message="tns:IContract_GetContractsByArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractsByArtistResponse" message="tns:IContract_GetContractsByArtist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeanContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLeanContract" message="tns:IContract_GetLeanContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLeanContractResponse" message="tns:IContract_GetLeanContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAutoLinkCdlContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SaveAutoLinkCdlContract" message="tns:IContract_SaveAutoLinkCdlContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SaveAutoLinkCdlContractResponse" message="tns:IContract_SaveAutoLinkCdlContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCdlContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteCdlContracts" message="tns:IContract_DeleteCdlContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteCdlContractsResponse" message="tns:IContract_DeleteCdlContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedCompanies" message="tns:IContract_GetLinkedCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedCompaniesResponse" message="tns:IContract_GetLinkedCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedDivisions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedDivisions" message="tns:IContract_GetLinkedDivisions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedDivisionsResponse" message="tns:IContract_GetLinkedDivisions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedLabels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedLabels" message="tns:IContract_GetLinkedLabels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedLabelsResponse" message="tns:IContract_GetLinkedLabels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterCdlMappings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/FilterCdlMappings" message="tns:IContract_FilterCdlMappings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/FilterCdlMappingsResponse" message="tns:IContract_FilterCdlMappings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataSecondaryExploitations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetDefaultDataSecondaryExploitations" message="tns:IContract_GetDefaultDataSecondaryExploitations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetDefaultDataSecondaryExploitationsResponse" message="tns:IContract_GetDefaultDataSecondaryExploitations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetTerritoryData" message="tns:IContract_GetTerritoryData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetTerritoryDataResponse" message="tns:IContract_GetTerritoryData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTerritoryDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractTerritoryDetails" message="tns:IContract_GetContractTerritoryDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractTerritoryDetailsResponse" message="tns:IContract_GetContractTerritoryDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SaveContract" message="tns:IContract_SaveContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SaveContractResponse" message="tns:IContract_SaveContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SaveContractTemplate" message="tns:IContract_SaveContractTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SaveContractTemplateResponse" message="tns:IContract_SaveContractTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractTemplates" message="tns:IContract_GetContractTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractTemplatesResponse" message="tns:IContract_GetContractTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractTemplate" message="tns:IContract_GetContractTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractTemplateResponse" message="tns:IContract_GetContractTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterDataForContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetMasterDataForContract" message="tns:IContract_GetMasterDataForContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetMasterDataForContractResponse" message="tns:IContract_GetMasterDataForContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchContractMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetSearchContractMasterData" message="tns:IContract_GetSearchContractMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetSearchContractMasterDataResponse" message="tns:IContract_GetSearchContractMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SearchContract" message="tns:IContract_SearchContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SearchContractResponse" message="tns:IContract_SearchContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractMaintenanceWorkQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractMaintenanceWorkQueue" message="tns:IContract_GetContractMaintenanceWorkQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractMaintenanceWorkQueueResponse" message="tns:IContract_GetContractMaintenanceWorkQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchParentContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SearchParentContracts" message="tns:IContract_SearchParentContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SearchParentContractsResponse" message="tns:IContract_SearchParentContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContract" message="tns:IContract_GetContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractResponse" message="tns:IContract_GetContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteContract" message="tns:IContract_DeleteContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteContractResponse" message="tns:IContract_DeleteContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataRightsAndRestriction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetDefaultDataRightsAndRestriction" message="tns:IContract_GetDefaultDataRightsAndRestriction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetDefaultDataRightsAndRestrictionResponse" message="tns:IContract_GetDefaultDataRightsAndRestriction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataDigitalRestriction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetDefaultDataDigitalRestriction" message="tns:IContract_GetDefaultDataDigitalRestriction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetDefaultDataDigitalRestrictionResponse" message="tns:IContract_GetDefaultDataDigitalRestriction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDigitalRestrictionTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SaveDigitalRestrictionTemplate" message="tns:IContract_SaveDigitalRestrictionTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SaveDigitalRestrictionTemplateResponse" message="tns:IContract_SaveDigitalRestrictionTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadContractTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/LoadContractTemplates" message="tns:IContract_LoadContractTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/LoadContractTemplatesResponse" message="tns:IContract_LoadContractTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetDigitalTemplates" message="tns:IContract_GetDigitalTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetDigitalTemplatesResponse" message="tns:IContract_GetDigitalTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetDigitalTemplate" message="tns:IContract_GetDigitalTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetDigitalTemplateResponse" message="tns:IContract_GetDigitalTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteTemplates" message="tns:IContract_DeleteTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteTemplatesResponse" message="tns:IContract_DeleteTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSplitDealContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetSplitDealContracts" message="tns:IContract_GetSplitDealContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetSplitDealContractsResponse" message="tns:IContract_GetSplitDealContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkProjectToContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/LinkProjectToContract" message="tns:IContract_LinkProjectToContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/LinkProjectToContractResponse" message="tns:IContract_LinkProjectToContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyLinkedContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/IsAlreadyLinkedContract" message="tns:IContract_IsAlreadyLinkedContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/IsAlreadyLinkedContractResponse" message="tns:IContract_IsAlreadyLinkedContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetEmailGroups" message="tns:IContract_GetEmailGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetEmailGroupsResponse" message="tns:IContract_GetEmailGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmailGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/SaveEmailGroup" message="tns:IContract_SaveEmailGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/SaveEmailGroupResponse" message="tns:IContract_SaveEmailGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteEmailGroups" message="tns:IContract_DeleteEmailGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteEmailGroupsResponse" message="tns:IContract_DeleteEmailGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedProjectDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedProjectDetails" message="tns:IContract_GetLinkedProjectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedProjectDetailsResponse" message="tns:IContract_GetLinkedProjectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedReleaseDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedReleaseDetails" message="tns:IContract_GetLinkedReleaseDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedReleaseDetailsResponse" message="tns:IContract_GetLinkedReleaseDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedResourceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedResourceDetails" message="tns:IContract_GetLinkedResourceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedResourceDetailsResponse" message="tns:IContract_GetLinkedResourceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoire">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoire" message="tns:IContract_UnlinkRepertoire_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoireResponse" message="tns:IContract_UnlinkRepertoire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoireFromWorkQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoireFromWorkQueue" message="tns:IContract_UnlinkRepertoireFromWorkQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoireFromWorkQueueResponse" message="tns:IContract_UnlinkRepertoireFromWorkQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsForSplitDeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetContractsForSplitDeal" message="tns:IContract_GetContractsForSplitDeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetContractsForSplitDealResponse" message="tns:IContract_GetContractsForSplitDeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetChildContracts" message="tns:IContract_GetChildContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetChildContractsResponse" message="tns:IContract_GetChildContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoireFromReleaseResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoireFromReleaseResource" message="tns:IContract_UnlinkRepertoireFromReleaseResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UnlinkRepertoireFromReleaseResourceResponse" message="tns:IContract_UnlinkRepertoireFromReleaseResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyUnlinked">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/IsAlreadyUnlinked" message="tns:IContract_IsAlreadyUnlinked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/IsAlreadyUnlinkedResponse" message="tns:IContract_IsAlreadyUnlinked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyUnlinkFromWorkQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/IsAlreadyUnlinkFromWorkQueue" message="tns:IContract_IsAlreadyUnlinkFromWorkQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/IsAlreadyUnlinkFromWorkQueueResponse" message="tns:IContract_IsAlreadyUnlinkFromWorkQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedRightSets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetLinkedRightSets" message="tns:IContract_GetLinkedRightSets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetLinkedRightSetsResponse" message="tns:IContract_GetLinkedRightSets_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IContract" type="tns:IContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchContractbyArtist">
+      <soap:operation soapAction="http://tempuri.org/IContract/SearchContractbyArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchContractbyResource">
+      <soap:operation soapAction="http://tempuri.org/IContract/SearchContractbyResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceContractByContractIdList">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetResourceContractByContractIdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsByResource">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractsByResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArtistByContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetArtistByContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsByArtist">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractsByArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeanContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLeanContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAutoLinkCdlContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/SaveAutoLinkCdlContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCdlContracts">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteCdlContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedCompanies">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedDivisions">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedDivisions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedLabels">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterCdlMappings">
+      <soap:operation soapAction="http://tempuri.org/IContract/FilterCdlMappings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataSecondaryExploitations">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetDefaultDataSecondaryExploitations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryData">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetTerritoryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTerritoryDetails">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractTerritoryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/SaveContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractTemplate">
+      <soap:operation soapAction="http://tempuri.org/IContract/SaveContractTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplates">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractTemplate">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterDataForContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetMasterDataForContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchContractMasterData">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetSearchContractMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/SearchContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractMaintenanceWorkQueue">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractMaintenanceWorkQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchParentContracts">
+      <soap:operation soapAction="http://tempuri.org/IContract/SearchParentContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataRightsAndRestriction">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetDefaultDataRightsAndRestriction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultDataDigitalRestriction">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetDefaultDataDigitalRestriction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDigitalRestrictionTemplate">
+      <soap:operation soapAction="http://tempuri.org/IContract/SaveDigitalRestrictionTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadContractTemplates">
+      <soap:operation soapAction="http://tempuri.org/IContract/LoadContractTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalTemplates">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetDigitalTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalTemplate">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetDigitalTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTemplates">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSplitDealContracts">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetSplitDealContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkProjectToContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/LinkProjectToContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyLinkedContract">
+      <soap:operation soapAction="http://tempuri.org/IContract/IsAlreadyLinkedContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailGroups">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetEmailGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmailGroup">
+      <soap:operation soapAction="http://tempuri.org/IContract/SaveEmailGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailGroups">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteEmailGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedProjectDetails">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedProjectDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedReleaseDetails">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedReleaseDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedResourceDetails">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedResourceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoire">
+      <soap:operation soapAction="http://tempuri.org/IContract/UnlinkRepertoire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoireFromWorkQueue">
+      <soap:operation soapAction="http://tempuri.org/IContract/UnlinkRepertoireFromWorkQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContractsForSplitDeal">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetContractsForSplitDeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildContracts">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetChildContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkRepertoireFromReleaseResource">
+      <soap:operation soapAction="http://tempuri.org/IContract/UnlinkRepertoireFromReleaseResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyUnlinked">
+      <soap:operation soapAction="http://tempuri.org/IContract/IsAlreadyUnlinked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlreadyUnlinkFromWorkQueue">
+      <soap:operation soapAction="http://tempuri.org/IContract/IsAlreadyUnlinkFromWorkQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedRightSets">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetLinkedRightSets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Contract">
+    <wsdl:port name="BasicHttpBinding_IContract" binding="tns:BasicHttpBinding_IContract">
+      <soap:address location="http://localhost:7778/Contract/Contract.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

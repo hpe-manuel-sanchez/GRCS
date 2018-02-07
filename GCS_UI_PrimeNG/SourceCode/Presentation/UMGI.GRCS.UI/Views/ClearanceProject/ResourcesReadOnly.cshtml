@@ -1,0 +1,448 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@using UMGI.GRCS.Resx.Resource.Layout
+
+@{
+    var mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+
+@functions
+{
+    string substringVal(string inputVal, int length)
+    {
+
+        if (inputVal == null || string.IsNullOrEmpty(inputVal))
+        {
+            return string.Empty;
+        }
+        else
+        {
+            if (inputVal.Length > length)
+            {
+                inputVal = inputVal.Substring(0, length);
+                inputVal += "...";
+            }
+        }
+
+        return inputVal;
+    }
+
+}
+<script type="text/javascript" language="javascript">
+    var existingResourceRowId = "";
+    var resourceRowId = "";
+
+    //Set the default button for project search page
+
+    var atleastsearchcriteriaresource = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+
+    $(document).ready(function () {
+        $("#tblResource h5").click(function () {
+            //$(".contentDv").hide();
+            var obj = $(this).closest("div").parent();
+            $(obj).find('.contentDv').toggle();
+            if ($(this)[0].className == 'rightArrow') {
+                $(this).removeClass('rightArrow');
+                $(this).addClass('downArrow');
+            }
+            else {
+                $(this).removeClass('downArrow');
+                $(this).addClass('rightArrow');
+            }
+
+        });
+
+    });
+
+    function OnExpandAllClick(objType) {
+        var resourceCount = $("#hdnResourceListCount").val();
+
+        if (objType == 'c') {
+            $("#resourceTab .contentDv").hide();
+            // $("#resourceTab .mainPanelDvPADSub").find("h5").removeClass('rightArrow');
+            //$("#resourceTab .mainPanelDvPADSub").find("h5").addClass('downArrow');
+            for (var i = 0; i < resourceCount; i++) {
+                $('#Header' + i).removeClass('downArrow');
+                $('#Header' + i).addClass('rightArrow');
+            }
+
+        } else {
+            $("#resourceTab .contentDv").show();
+            for (var i = 0; i < resourceCount; i++) {
+                $('#Header' + i).removeClass('rightArrow');
+                $('#Header' + i).addClass('downArrow');
+            }
+        }
+
+        return false;
+
+    }
+
+    $(".imgHide").live("click", function () {
+
+        var imgSrc = $(this).attr("src");
+        var imgId = $(this).attr("id").substring(8);
+        var tblId = $("#tblChild " + imgId);
+
+        if (imgSrc.indexOf('Left') == -1) {
+            $(this).attr("src", "/Gcs/Images/Left.png");
+            $(this).attr("title", "Expand");
+            $(this).closest('tr').next().hide();
+            $(this).closest('tr').next().next().hide();
+
+        }
+        else {
+
+            $(this).attr("src", "/Gcs/Images/Down.png");
+            $(this).attr("title", "Collapse");
+
+            document.getElementById("tblChild " + imgId).style.display = 'inline';
+            $(this).closest('table').next().show();
+            $(this).closest('tr').next().show();
+            $(this).closest('tr').next().next().show();
+        }
+        return false;
+    });
+
+    function triggerMasterResourceAuditHistory(resourceId) {
+        var AuditTypeId;
+        var SelectedItemIds = [];
+        var displayTitle;
+
+        var ClearanceResourceId = $('#hdnClearanceResourceId' + resourceId).val();
+        var ResourceId = $('#ResourceId' + resourceId).val();
+        var R2ResourceId = $('#hdnR2ResourceId' + resourceId).val();
+
+        if ($("#hdnProjRefId").val().length > 0) {
+            displayTitle = $("#hdnProjRefId").val();
+        }
+
+        if ($('#hdnIsrc' + resourceId).val().length > 0) {
+            displayTitle = displayTitle + ' - ' + $('#hdnIsrc' + resourceId).val();
+        }
+
+        if ($('#hdnResourceTitle' + resourceId).val().length > 0) {
+            displayTitle = displayTitle + ' - ' + $('#hdnResourceTitle' + resourceId).val();
+        }
+
+        if ($('#hdnVersionTitle' + resourceId).val().length > 0) {
+            displayTitle = displayTitle + ' - ' + $('#hdnVersionTitle' + resourceId).val();
+        }
+
+        if (R2ResourceId == 0) {
+            AuditTypeId = AuditObjectType.MasterProjectResourceFreehandAuditHistory; //Free hand resource
+            SelectedItemIds = [];
+            SelectedItemIds.push(ClearanceResourceId);
+            SelectedItemIds.push(ResourceId);
+        }
+        else {
+            AuditTypeId = AuditObjectType.MasterProjectResourceAuditHistory; // R2 Resource
+            SelectedItemIds = [];
+            SelectedItemIds.push(ClearanceResourceId);
+        }
+        displayAuditTrail(AuditTypeId, SelectedItemIds, displayTitle);
+        return false;
+    }
+</script>
+
+<link href="@Url.Content("/GCS/Content/SubPages/resources.min.css")" rel="stylesheet" type="text/css" />
+<div id="SearchDialog" style="padding: 0;">
+</div>
+<div id="ExistingResources" style="display: none;">
+</div>
+<table style="width: 100%;">
+    <tr id="trShowMessageResource" style="display: none;">
+        <td align="left" colspan="4">
+            <div class="error" style="margin-top: 5px;">
+                @Html.Label(@ClearanceLayout.AdvResSearchResourcesAlreadyExistForISRCMsg) <span id="spnIsrcResource"
+                    style="font-weight: bold;"></span>
+            </div>
+        </td>
+    </tr>
+</table>
+<div id="ResourceDialog" style="display: none;">
+    <table>
+        <tr>
+            <td>@Html.Hidden("resourceListFromSearchPopUp", "")
+                @Html.Hidden("hdnselectedResourceID", "")
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Search Box START HERE -->
+<div id="release_expand_collapse" class="sbox-wrap sbox-height sbox_wrapper-margin">
+    <div class="floatL sbox-colum1 text-align-left line-height padding-left3px rqt-bold headFont">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesResourcesLabel </div>
+    <div class="floatL sbox-colum3 text-align-right">&nbsp;</div>
+    <div class="floatL sbox-colum2 text-align-right">@Html.Hidden("hdnClearanceResourceId", "")
+        <ul class="sbox_ul">
+            <li>@Html.ActionLink("Expand All", "", null, new { onclick = "return OnExpandAllClick('e');" })</li>
+            <li>|</li>
+            <li>@Html.ActionLink("Collapse All", "", null, new { onclick = "return OnExpandAllClick('c');" })</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SEARCH BOX ENDS HERE -->
+
+<div id="mainDivResource">
+    <div id="SearchResourceList">
+    </div>
+
+    <div id="tblResource">
+
+        @if (Model.MasterProjectDetails.ClearanceResource == null || Model.MasterProjectDetails.ClearanceResource.Count == 0)
+        {
+            <p>
+                &nbsp;
+            </p>
+
+        }
+        else
+        {
+
+            for (int i = 0; i < Model.MasterProjectDetails.ClearanceResource.Count; i++)
+            {
+@*<tr>*@ //Commented for UC-055
+            <div id="MasterProjectRow @i Hide @Model.MasterProjectDetails.ClearanceResource[i].ReplaceFreeHandFlag">
+                <div id="resourceTab">
+
+                    @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource.Count, new { id = "hdnResourceListCount" })
+                    <div id = "@i"  class="contentPanel sbox_wrapper-margin" style="overflow:hidden; @(Model.MasterProjectDetails.ClearanceResource[i].Rights_TypeId == 3 || Model.MasterProjectDetails.ClearanceResource[i].Rights_TypeId == 5 || Model.MasterProjectDetails.ClearanceResource[i].RightsTypeCode == "NONUMG" || Model.MasterProjectDetails.ClearanceResource[i].RightsTypeCode == "NONEXC" || Model.MasterProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-Exclusive License" || Model.MasterProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-UMG" ? "Border-color:#FF0000" : "")">
+                        <div class="headerDv1" style="height: auto; width: 100%;">
+                            <table style="margin-top: -4px; width: 99%;" id="headerResorucetable">
+                                <tr>
+                                    @if (Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId == 0)
+                                    {
+                                        <td style="width: 10px; padding-top: 3px;" align="left">
+                                            <img class="imgHide" src="@Url.Content("/GCS/Images/project.png")" alt="FreeHand" id ="imgFreeHand" title="Freehand Resource" />
+                                        </td>
+                                    }
+                                    <td style="width: 70px;">
+
+                                        <h5 class="downArrow" id="Header@(i)">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesArtistLabel)</h5>
+                                    </td>
+                                    <td id="Artist @i" style="width:155px" align="left">
+                                        <span>
+
+                                            <span title ='@Model.MasterProjectDetails.ClearanceResource[i].ArtistName'>@{Model.MasterProjectDetails.ClearanceResource[i].ArtistName = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].ArtistName, 25); }@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].ArtistName)</span>
+                                        </span>
+                                    </td>
+                                    <td style="display: none">
+                                        <span>
+                                            @for (int k = 0; k < Model.MasterProjectDetails.ClearanceResource[i].ArtistInfo.Count; k++)
+                                            {
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ArtistInfo[k].Name)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ArtistInfo[k].Id)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ArtistInfo[k].NameId)
+                                            }
+                                        </span>
+                                    </td>
+                                    <td class="rqt-bold headfontcolor" style="width: 35px;">|
+
+        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesTitleLabel)
+                                    </td>
+                                    <td align="left" id="Title @i" style="width:150px;">
+                                        <span>
+                                            @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].Title, new { id = "hdnResourceTitle" + i })
+                                            @if (Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId != 0)
+                                            {
+                                                <span title ='@Model.MasterProjectDetails.ClearanceResource[i].Title'>@{Model.MasterProjectDetails.ClearanceResource[i].Title = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].Title, 25); }@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].Title)</span>
+
+                                            }
+                                            else
+                                            {
+
+                                                if ((Model.MasterProjectDetails.StatusType == 2 || Model.MasterProjectDetails.StatusType == 5 || Model.MasterProjectDetails.StatusType == 6) && (Model.MasterProjectDetails.ClearanceResource[i].FreeHandResourceStatus == "Y"))
+                                                {
+                                                    if ((Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId == 0) && (Model.MasterProjectDetails.ClearanceResource[i].ClearanceResourceId != 0))
+                                                    {
+                                                @Html.ActionLink(Model.MasterProjectDetails.ClearanceResource[i].Title, "", null, new { onclick = "return OpenAdvanceResourceSearchandUpdatePopup(" + i + ");", @Href = "#", @id = (Model.MasterProjectDetails.ClearanceResource[i].ResourceId + "titleval") })
+                                                    }
+                                                    else if ((Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId != 0) && (Model.MasterProjectDetails.ClearanceResource[i].ClearanceResourceId == 0))
+                                                    {
+                                                @Html.ActionLink(Model.MasterProjectDetails.ClearanceResource[i].Title, "", null, new { onclick = "return OpenAdvanceResourceSearchandUpdatePopup(" + i + ");", @Href = "#", @id = (Model.MasterProjectDetails.ClearanceResource[i].ResourceId + "titleval") })
+                                                    }
+                                                    else
+                                                    {
+                                                <span title ='@Model.MasterProjectDetails.ClearanceResource[i].Title'>@{Model.MasterProjectDetails.ClearanceResource[i].Title = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].Title, 25); }@Html.TextBoxFor(model => model.MasterProjectDetails.ClearanceResource[i].Title, new { maxlength = 275 }) </span>
+                                                    }
+                                                }
+                                                else
+                                                {
+
+                                                <span title ='@Model.MasterProjectDetails.ClearanceResource[i].Title'>@{Model.MasterProjectDetails.ClearanceResource[i].Title = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].Title, 25); }@Html.TextBoxFor(model => model.MasterProjectDetails.ClearanceResource[i].Title, new { maxlength = 275 })</span>
+
+                                                }
+                                            }
+                                        </span>
+                                    </td>
+                                    <td class="rqt-bold headfontcolor" style="width: 80px;">|
+
+        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesVersionTitleLabel
+                                    </td>
+                                    <td align="left" id="VTitle @i" style="width:150px;">
+                                        <span>
+                                            @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].VersionTitle, new { id = "hdnVersionTitle" + i })
+                                            @if (Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId != 0)
+                                            {
+
+                                                <span title ='@Model.MasterProjectDetails.ClearanceResource[i].VersionTitle'>@{Model.MasterProjectDetails.ClearanceResource[i].VersionTitle = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].VersionTitle, 25); }@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].VersionTitle)</span>
+
+                                            }
+                                            else
+                                            {
+                                                <span title ='@Model.MasterProjectDetails.ClearanceResource[i].VersionTitle'>@{Model.MasterProjectDetails.ClearanceResource[i].VersionTitle = @substringVal(Model.MasterProjectDetails.ClearanceResource[i].VersionTitle, 25); }@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].VersionTitle)</span>
+                                            }
+                                        </span>
+                                    </td>
+                                    <td class="rqt-bold headfontcolor" style="width: 39px">|
+
+        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesISRCLabel
+                                    </td>
+                                    <td align="left" id="ISRC @i">
+                                        <span>
+                                            @Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].Isrc)
+                                            &nbsp;
+        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].Isrc, new { id = "hdnIsrc" + i })
+                                        </span>
+                                    </td>
+                                    @if (Model.MasterProjectDetails.StatusType == 1)
+                                    {
+                                        <td style="text-decoration: underline;" class="rqt-bold headfontcolor" align="right"></td>
+                                    }
+@* else if (Model.MasterProjectDetails.ClearanceResource[i].ClearanceResourceId == 0 && Model.MasterProjectDetails.StatusType != 1)
+        {
+        <td style="text-decoration:underline;">
+        @Html.ActionLink(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { onclick = "return OnDeleteClick(" + i + ");" })
+        </td>
+        }*@
+                                    else if ((Model.MasterProjectDetails.StatusType == 2) || (Model.MasterProjectDetails.StatusType == 5) || (Model.MasterProjectDetails.StatusType == 6))
+                                    {
+                                        <td style="text-decoration: underline;" class="rqt-bold headfontcolor" align="right">
+                                            @Html.ActionLink(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { onclick = "return false;", disabled = "disabled" })
+                                        </td>
+                                        <td style="text-decoration: underline; color: #fff !important; padding-left: 10px; padding-top: 3px;">
+                                            @Html.ActionLink("History", "", null, new { onclick = "return triggerMasterResourceAuditHistory(" + i + ");" })
+                                        </td>
+                                    }
+
+                                    else
+                                    {
+                                        <td style="text-decoration: underline;" class="rqt-bold headfontcolor" align="right">
+                                            @Html.ActionLink(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { onclick = "return false;", disabled = "disabled" })
+                                        </td>
+                                        <td style="text-decoration: underline; color: #fff !important; padding-left: 10px; padding-top: 3px;">
+                                            @Html.ActionLink("History", "", null, new { onclick = "return triggerMasterResourceAuditHistory(" + i + ");" }) </td>
+                                    }
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="contentDv" style="display: block;@(Model.MasterProjectDetails.ClearanceResource[i].RightsType == "NONUMG" || Model.MasterProjectDetails.ClearanceResource[i].RightsType == "NONEXC" || Model.MasterProjectDetails.ClearanceResource[i].RightsType == "Non-Exclusive License" || Model.MasterProjectDetails.ClearanceResource[i].RightsType == "Non-UMG" ? "border-color:#FF0000" : "")">
+                            <table class="tblChild" id ="tblChild @i">
+                                <tr class="master-resource-tabl-head">
+                                    <td id="RecType @i">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesRecordingTypeLabel)
+                                    </td>
+                                    <td id="ResType @i">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesResourceTypeLabel)
+                                    </td>
+                                    <td id="MusType @i">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesMusicType)
+                                    </td>
+                                    <td>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesDurationLabel)
+                                    </td>
+                                    <td>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjResourcesExcerptTime)
+                                    </td>
+                                    <td>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ReleaseRegSuggestedFeeRadioButton)
+                                    </td>
+                                    <td>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesSensitiveExploitationLabel)
+                                    </td>
+                                    <td>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesCommentsLabel)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    @if (Model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId == 0)
+                                    {
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].RecordingTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].RecordingTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].ResourceTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ResourceTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTime)
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].RecordingTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].RecordingTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].ResourceTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ResourceTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTypeDesc)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTypeDesc)
+                                        </td>
+                                        <td align="left" valign="top">@Html.DisplayFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTime)
+                                        </td>
+                                    }
+                                    @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].MusicTime)
+                                    <td align="left" valign="top">@Html.DisplayTextFor(model => model.MasterProjectDetails.ClearanceResource[i].ExcerptTime)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ExcerptTime)
+                                    </td>
+                                    <td align="left" valign="top">@Html.DisplayTextFor(model => model.MasterProjectDetails.ClearanceResource[i].SuggestedFee)@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].SuggestedFee)
+                                    </td>
+                                    <td align="left" valign="top">@Html.CheckBoxFor(model => model.MasterProjectDetails.ClearanceResource[i].SensitiveExplotation_ClearanceResource, new { @class = "check", @disabled = "disabled" })@Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].SensitiveExplotation_ClearanceResource)
+                                    </td>
+                                    <td id="hdnFields @i"  valign="top">
+                                        @Html.DisplayTextFor(model => model.MasterProjectDetails.ClearanceResource[i].Comments)
+                                        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ClearanceResourceId, new { id = "hdnClearanceResourceId" + i })
+                                        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].ResourceId, new { id = "ResourceId" + i })
+                                        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].R2_ResourceId, new { id = "hdnR2ResourceId" + i })
+                                        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].RightsTypeCode)
+                                        @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceResource[i].Rights_TypeId)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="resource-country-label">
+                                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ReleaseCountriesInclude
+                                        </div>
+                                        <div id="selectedCountries_@(i + 3)" class="resource-country-val resourceleft"></div>
+                                        &nbsp; &nbsp;
+                                        <input id="hdnterritoryDetailsForSave_@(i + 3)"  type="hidden" class="hdnManageTerriCls"  name ="hdnterritoryDetailsForSave_@(i + 3)" />
+                                        <div class="resource-country-label">
+                                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ReleaseCountriesExclude
+                                        </div>
+                                        <div id="UnselectedCountries_@(i + 3)" class="resourceright"></div>
+                                    </td>
+                                    <td align="left" colspan="3">&nbsp;
+                                    </td>
+                                    <td align="left" colspan="3">&nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+        }
+    </div>
+</div>
+
+@if (ViewBag.ProjectTerritories != null)
+{
+    foreach (int index in ViewBag.ProjectTerritories.Keys)
+    {
+
+    <script type="text/javascript">
+        var territorycountryList = @Html.Raw(Json.Encode(ViewBag.ProjectTerritories[index]));
+
+        if (territorycountryList != null)
+        {
+            if( document.getElementById('hdnterritoryDetailsForSave_'+ @Html.Raw(Json.Encode(index))) != null)
+            {
+                document.getElementById('hdnterritoryDetailsForSave_'+ @Html.Raw(Json.Encode(index))).value = JSON.stringify( @Html.Raw(Json.Encode(ViewBag.ProjectTerritories[index])));
+            }
+
+        }
+    </script>
+
+    }
+}

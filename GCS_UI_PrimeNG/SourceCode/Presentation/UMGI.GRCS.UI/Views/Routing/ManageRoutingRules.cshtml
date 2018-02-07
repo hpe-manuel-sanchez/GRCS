@@ -1,0 +1,387 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "Manage Routing Variations";
+}
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/Custom/RoutingVariations.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/AuditTrail.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageTerritoryExtn.js")" type="text/javascript"></script>
+
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("/GCS/Content/SubPages/syncfusion.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@*#RoutingRuleVariationsGrid_Table tr:first-child
+{
+    background-color: #F2F5A9;
+}*@
+#manageArtistPopUp
+{
+    margin-left : 0px !important;
+}
+#createRulePopUp
+{
+    margin-left : 0px !important;
+}
+@*#RoutingRuleVariationsGrid_Table .Syncfusion-Grid-Core .HeaderCellDiv
+{
+        height: auto !important;
+        line-height : 0 !important;
+}*@
+</style>
+<script type="text/javascript">
+
+    var hashTerritory = {};
+    var territoryCollection = [];
+    var territoryList = "";
+    function callbackHandler(territoryList, uniqueKey, includedItems, excludedItems) {
+        if (territoryCollection.length == 0) {
+            hashTerritory = { 'Key': uniqueKey, 'Value': territoryList };
+            territoryCollection.push(hashTerritory);
+        }
+        else {
+            var listAvailable = JSLINQ(territoryCollection).Where(function (dict) { return dict.Key == uniqueKey; });
+            if (listAvailable.items.length == 0) {
+                hashTerritory = { 'Key': uniqueKey, 'Value': territoryList };
+                territoryCollection.push(hashTerritory);
+            }
+            else {
+                territoryCollection.splice($.inArray(listAvailable, territoryCollection), 1);
+                hashTerritory = { 'Key': uniqueKey, 'Value': territoryList };
+                territoryCollection.push(hashTerritory);
+            }
+        }
+        $('#includedTerriString')[0].innerHTML = "";
+        $('#excludedTerriString')[0].innerHTML = "";
+        setTerritoryCountry(territoryCollection, 'includedTerriString', 'excludedTerriString');
+        var incExcCountryString = {
+            IncludedCountries: $('#includedTerriString')[0].textContent || $('#includedTerriString')[0].innerText,
+            ExcludedCountries: $('#excludedTerriString')[0].textContent || $('#excludedTerriString')[0].innerText
+        };
+        setVariationTerritoryCollection(JSON.stringify(territoryList), incExcCountryString);
+    }
+
+    function mngCompanyCallbackHandler(companyList, uniqueKey) {
+        setVariationCompanyCollection(companyList);
+    }
+</script>
+<div id="routingRulesAndVariationsDv">
+    @* Manage Routing Rules Screen - Start*@
+    <div class="headerDiV">
+        <br />
+        <div id="routingVariationErrorMessage" class="warning workgroup-margintopbottom5px"></div>
+        <div id="routingVariationSuccessMessage" style="display: none; margin: 10px" class="success"></div>
+        <div id="mngRoutingRuleMainPanelDv" style="width: 45%;">
+            <div id="headerDv" class="workgroup-searchBoxContainer" style="display: block;">
+                <div style="width: 50%; azimuth: left;" class="workgroup-firstContentDv">
+                    <h5 class="downArrow">@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.Js_ExistingRules</h5>
+                    @*@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_titleForExistingRules*@
+                </div>
+                <div style="width: 49%; padding-right: 5px 0 0;" class="workgroup-secondContentDv">
+                    <input id="btnCreateRule" style="float:right;" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsBtn_NewRule" runat="server" class="primbutton" />
+                </div>
+            </div>
+            <div id="mngRoutingRuleContentDv">
+                <br />
+                @*		@if (ViewBag.PageName == "MangeRules")
+       {*@
+                <div id="mngRoutingVariationGrid" style="azimuth: center;">
+                    @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities.RoutingRule>("RoutingVariationRuleGrid")
+                        .Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities.RoutingRule>)ViewData["routingRules"])
+                        .ActionMode(ActionMode.JSON)
+                        .EnableOnDemand()
+                        .TotalRecordCount(0)
+                        .AutoFormat(Skins.Olive)
+                        .EnableAlternateRowStyling()
+                        .EnableRowHover(true)
+                        .EnableScrolling()
+                            //.EnablePaging()
+                        .EnableSorting()
+                        .Column(column =>
+                        {
+                            column.Add(c => c.RuleNumber).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_RuleNumber).Width(90);
+                            column.Add(c => c.RuleName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_RuleName).Width(100);
+                            column.Add("Update").HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_Update).Width(100);
+                        })
+                        .ClientSideEvents(evt => evt.OnActionBegin("RoutingRulesActionBegin"))
+                        .ClientSideEvents(evt => evt.QueryCellInfo("RoutingRuleRecordBind"))
+                        .ClientSideEvents(evt => evt.OnLoad("RoutingRuleGridLoad"))
+                        .SortSettings(sort =>
+                        {
+                            sort.AllowSorting(true);
+                            sort.AllowMultiSorting(true);
+                        })
+                            //.PageSettings(page =>
+                            //{
+                            //    page.PageSize(10);
+                            //    page.ShowPagerInformation(false);
+                            //    page.PageCount(5);
+                            //    page.PagerPosition(Position.BottomLeft);
+                            //    page.PagerStyle(PagerStyle.Default);
+                            //})
+                        )
+                </div>
+                @*	   //}*@
+            </div>
+        </div>
+    </div>
+    @* Manage Routing Rules Screen - Start*@
+
+    @*Rule Variations Screen - Start*@
+    <div id="RoutingRuleVariationsDv" style="display: none;" class="headerDiV">
+        <div id="mngRoutingRuleVariations">
+            <div id="routingRuleVariationsErrorMsg" class="warning workgroup-margintopbottom5px"></div>
+            <div id="mngRoutingVariationsMainPanelDv">
+                <div id="headerDv" class="workgroup-searchBoxContainer" style="display: block;">
+                    @*dfdf*@
+                    <div id="includedTerriString" style="display: none;"></div>
+                    <div id="excludedTerriString" style="display: none;"></div>
+                    <input id="hdnincludeTerritoryString" name="hdnincludeTerritoryString" type="hidden" value="" />
+                    <input id="hdnCompanyIds" name="hdnCompanyIds" value="" type="hidden" />
+                    <div id="selectedCountries" style="display: none;"></div>
+                    <div id="ruleNoAndNameDv" style="width: 75%; azimuth: left;" class="workgroup-firstContentDv">
+                    </div>
+                    <div style="width: 10%; float: left; padding-top: 3px;" class="workgroup-secondContentDv">
+                        <input id="btnAddVariation" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsBtn_AddVariation" runat="server" class="primbutton" />
+                        &nbsp;&nbsp;
+                    </div>
+                    <div style="width: 15%; float: left; padding-top: 3px;" class="workgroup-secondContentDv">
+                        @using (Html.BeginForm("ExportRoutingVariations", "Routing"))
+                        {
+                            <input id="btnExportVariations" type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsBtn_ExporttoExcel" runat="server" class="secbutton" />
+                            <input id="ExportRuleNumber" name="ExportRuleNumber" value="" type="hidden" />
+                        }
+                    </div>
+                </div>
+                <div id="ruleVariationsContentDv">
+                    <br />
+                    <div id="divRoutingRuleVariations">
+                        @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities.RoutingVariations>("RoutingRuleVariationsGrid")
+                .Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities.RoutingVariations>)ViewData["RoutingRuleVariations"])
+                .Column(column =>
+                            {
+                                column.Add(c => c.ProjectType).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_ProjectType).Width(100);
+                                column.Add(c => c.RvRequestType).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_RequestType).Width(140);
+                                column.Add(c => c.IsSensitiveArtist).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_SensitiveArtist).Width(90);
+                                column.Add(c => c.IsActiveArtist).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_ActiveArtist).Width(90);
+                                column.Add(c => c.IsMultiArtist).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_MultiArtist).Width(90);
+                                column.Add(c => c.IsCompilation).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_Compilation).Width(90);
+                                column.Add("ReleaseTerritory").HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_ReleaseTerritory).Width(100);
+                                column.Add("OwningTerritory").HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_OwningTerritory).Width(100);
+                                column.Add(c => c.OwningCompany).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_OwningCompany).Width(100);
+                                column.Add("RequestingTerritory").HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_RequestingTerritory).Width(100);
+                                column.Add(c => c.RequestingCompany).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_RequestingCompany).Width(100);
+                                column.Add(c => c.ArtistList).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_Talent).Width(100);
+                                column.Add(c => c.IsSkipIntlMarketing).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_SkipInterMarketing).Width(110);
+                                column.Add(c => c.IsSkipNtnlMarketing).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_SkipNatMarketing).Width(110);
+                                column.Add(c => c.IsSkipLocalLabel).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_SkipLocalLabelMarketing).Width(110);
+                                column.Add(c => c.Comments).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_Comments).Width(150);
+                                column.Add(c => c.IsActive).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.jsJtabl_Update).Width(100);
+                                column.Add(c => c.IsParent).Visible(false).ToString();
+                                column.Add(c => c.RoutingVariationId).Visible(false);
+
+                            })
+                                //.ClientSideEvents(evt => evt.OnLoad("RuleVariationGridLoad"))
+                                //.ClientSideEvents(evt => evt.OnActionSuccess("ActionSuccess"))
+                                //.ClientSideEvents(evt => evt.OnActionFailure("ActionFailure"))
+                .ClientSideEvents(evt => evt.OnActionBegin("RuleVariationsActionBegin"))
+                .ClientSideEvents(evt => evt.QueryCellInfo("RuleVariationRecordBind"))
+                                //.PageSettings(page =>
+                                //{
+                                //    page.PageSize(10);
+                                //    page.ShowPagerInformation(false);
+                                //    page.PageCount(5);
+                                //    page.PagerPosition(Position.BottomLeft);
+                                //    page.PagerStyle(PagerStyle.Default);
+                                //})
+                .ActionMode(ActionMode.JSON)
+                .EnableOnDemand()
+                .TotalRecordCount(1)
+                .AutoFormat(Skins.Olive)
+
+                .EnableScrolling()
+                                //.EnablePaging()
+                                //.Editing(edit =>
+                                //{
+                                //    edit.AllowEdit(true);
+                                //    edit.EditMode(GridEditMode.AutoExcel);
+                                //})
+
+                )
+                    </div>
+                </div>
+
+                <div style="float: right;" class="poupBottomBarButton">
+                    <input id="btnSaveVariations"  class="primbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SaveButton" runat="server" />
+                    &nbsp;&nbsp;<input id="btnSaveAsVariations"  class="secbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsBtn_SaveAs" runat="server" />
+                    &nbsp;&nbsp;<input id="btnCancelVariations"  class="secbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" />
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Rule Variations Screen - End*@
+</div>
+@*Create Rule PopUp Screen - Start*@
+<div id="createRulePopUp" class="poupPage">
+    <div style="width: 100%;">
+        <div class="accItem" style="azimuth: center;">
+            <br />
+            <div id="newRoutingRuleErrorMsg" class="warning workgroup-margintopbottom5px" style="display: none;"></div>
+            <div style="border-bottom: 2;">
+                <label class="madatoryField">
+                    @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol</label>
+                @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.NameLabel) &nbsp;
+            @Html.Editor("txtNewRuleName", "", new { @width = "350px", @maxlength = "255", @autocomplete = "off", @class = "workgroup-inputTypeText" })
+
+                <input id="btnCreateNewRule" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CreateButton" runat="server" class="primbutton" />
+                <input id="btnCreateRuleCancel" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@*Create Rule PopUp Screen - End*@
+
+@*Show ManageCompany PopUp Screen - Start*@
+<div style="float: left;">
+    <div id="manageCompanyContainer" style="margin: 0; padding: 0; width: 100%;">
+    </div>
+
+    <input id="territoryDetailsForSave" name="hdnterritoryDetailsForSave" type="hidden"
+        value="" />
+</div>
+@*Show ManageCompany PopUp Screen - Start*@
+
+@*Show ManageArtist PopUp Screen - Start*@
+<div id="manageArtistPopUp" class="poupPage">
+
+    <div id="warningmessageartist" class="error-msg-margin"></div>
+    <div class="error" id="trShowMessageArtist" style="display: none; margin-top: 5px;">
+        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ArtistDuplicateMessage) <span id="spnIsrcArtist" style="font-weight: bold;"></span>
+    </div>
+    <div class="searchContainer">
+        <div id="deleteWorkgroup" style="margin: 0">
+            <div class="dwMainContainer">
+                <div class="accItem accItemNew" style="margin: 0 !important; padding-bottom: 5px !important;">
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder" style="vertical-align: top;">
+                            <label style="margin-top: 3px !important;">@Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)</label>
+                        </div>
+                        <div class="inputPlaceHolderSearchArtist">
+                            @Html.Editor("artistFirstName", "", new { maxlength = "100" })
+                        </div>
+                        <div class="inputPlaceHolderSearchArtist">
+                            @Html.Editor("artistId", "", new { maxlength = "100" })
+                        </div>
+
+                        <div class="inputPlaceHolder">
+                            <input id="searchForArtist" type="submit" class="primbutton" value="@ClearenceResource.SearchButton" />
+                            <input id="resetArtistButton" type="submit" class="secbutton" value="@ClearenceResource.ResetButton" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<br />*@
+    <div class="search-wrapper" id="trShowPagingArtist" style="display: none; margin-left: 0 !imporant; margin-right: 0 !imporant;">
+        <div style="width: 75%; float: left; overflow: auto;" id="searchResultForArtist">
+            <div class="search-show-all1">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel</div>
+            <span id="spnSearchResultArtist" style="font-weight: bold;"></span>
+        </div>
+        <div id="SearchArtistPaging" style="width: 25%; float: right; overflow: auto;">
+            <div id="divSearchCompanyPaging">
+                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+                <select id="ddlPagingArtist">
+                    <option selected="selected" value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+            </div>
+        </div>
+    </div>
+    <div id="searchArtistResult" style="position: relative; *position: static; overflow-y: auto;"></div>
+    <div id="existingArtistResult" class="result-wrapper"></div>
+    <div class="result-wrapper search-wrapper">
+        <div class="floatL" id="trRemoveArtist" style="padding: 15px 0; display: none;">
+            <input id="btnRemoveArtist" type="button" class="secbutton" value="@ClearenceResource.RemoveButton" />
+        </div>
+        <div class="floatR" id="trAddArtist" style="padding: 15px 0; display: none;">
+            <input id="btnAddArtist" type="button" class="primbutton" value="@ClearenceResource.SaveButton" />
+            <input id="btnCancelArtist" type="button" class="secbutton" value="@ClearenceResource.CancelButton" />
+        </div>
+    </div>
+</div>
+@*Show ManageArtist PopUp Screen - Start*@
+<script type="text/javascript">
+    var singleSelectUserMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        selectRow: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert'
+    };
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var watermarkCompanyName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompanyName';
+    var watermarkIsacCode = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkIsacCode';
+    var manageTerritoryTitle = ""; // '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageTerritoryHeader';
+    var mgCompJtableColNames = {
+        CompName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompNameLabel',
+        ISACCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_IsacCodeLabel',
+        CountryName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CountryLabel',
+        Company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        ISACCompCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_ISACCompCodeLabel'
+    };
+    var createWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage'
+    };
+    var noRowsSelected = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert';
+    var atleastsearchcriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var atleastremoveartist = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_atleastremoveartist';
+    var atleastaddartist = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_atleastaddartist';
+    var artistname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistName';
+    var artistid = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId';
+    $('#artistFirstName').watermark(artistname);
+    $('#artistId').watermark(artistid);
+
+    var mngRoutingMessages = {
+        JsMsg_EnterRuleName: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_EnterRuleName',
+        JsMsg_ParentRuleSaved: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_ParentRuleSaved',
+        JsMsg_VariationSaved: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_VariationSaved',
+        JsMsg_VariationsAdded: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_VariationsAdded',
+        JsMsg_ParentRuleDeleteConfirmation: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_ParentRuleDeleteConfirmation',
+        JsMsg_RuleActivatedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_RuleActivatedSuccess',
+        JsMsg_RuleDeactivatedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_RuleDeactivatedSuccess',
+        JsMsg_VariationActivatedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_VariationActivatedSuccess',
+        JsMsg_VariationDeactivatedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_VariationDeactivatedSuccess',
+        JsMsg_RuleRemovedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_RuleRemovedSuccess',
+        JsMsg_VariationRemovedSuccess: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_VariationRemovedSuccess',
+        JsMsg_SelectOneArtist: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_SelectOneArtist',
+        JsMsg_Title_MngRelTerritory: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngRelTerritory',
+        JsMsg_Title_MngOwnTerritory: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngOwnTerritory',
+        JsMsg_Title_MngReqTerritory: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngReqTerritory',
+        JsMsg_Title_MngOwnCompany: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngOwnCompany',
+        JsMsg_Title_MngReqCompany: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngReqCompany',
+        JsMsg_Title_MngArtist: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_MngArtist',
+        JsMsg_Title_CreateRule: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsMsg_Title_CreateRule'
+    }
+
+    var mngRoutingTableColNames = {
+        JsJtabl_Select: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsJtabl_Select',
+        ArtistName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistName',
+        ArtistId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId',
+        JsJtabl_AdditionalInfo: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsJtabl_AdditionalInfo'
+    }
+    var mngRoutingCntrlLabels = {
+        JsCntrlName_Yes: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsCntrlName_Yes',
+       JsCntrlName_No: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsCntrlName_No',
+       JsCntrlName_Master: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsCntrlName_Master',
+       JsCntrlName_Regular: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsCntrlName_Regular'
+       //JsCntrlName_No: '@UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.JsCntrlName_No',
+
+   }
+</script>

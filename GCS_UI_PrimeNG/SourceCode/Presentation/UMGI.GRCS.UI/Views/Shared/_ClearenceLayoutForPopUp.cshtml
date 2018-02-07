@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("/GCS/Content/themes/base/jquery-ui-1.8.21.custom.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/ClearenceSite.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/subpages/contract.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/jquerycssmenu.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-1.7.2.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery-ui-1.8.21.custom.min.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.unobtrusive-ajax.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.js")"><\/script>');
+            document.write('<script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")"><\/script>');
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("jsddm li:first").trigger('mouseover').trigger('mouseout');;
+            $("jsddm li:last").trigger('mouseover').trigger('mouseout');;
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    @*<a name="top"></a>*@
+    <div id="main">
+        @RenderBody()
+    </div>
+    @*<a name="bottom"></a>*@
+    <div class="footer">
+        <div class="foot">
+            <div id="contentBottom">
+                <div id="footerInfo">
+                    <span>
+                        <img src="/Gcs/Images/Footer_Phone.png" alt="Phone" title="Phone" /><label>+1 7588-892-4541</label></span>
+                    <span>
+                        <img src="/Gcs/Images/Mail.png" alt="Email" title="Email" /><label>Support-admin@umg.com</label></span>
+                </div>
+                <div class="rightButtons">
+
+                    @RenderSection("BottomInputs", required: false)
+                    <a href="#" style="margin-left: 23px;">
+                        <img src="/Gcs/Images/i_ar_down.png" id="nav_down" border="0" /></a>
+                    <a href="#">
+                        <img src="/Gcs/Images/i_ar_Up.png" id="nav_up" border="0" /></a>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

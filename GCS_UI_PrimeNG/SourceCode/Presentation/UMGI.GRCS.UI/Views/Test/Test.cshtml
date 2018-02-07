@@ -1,0 +1,332 @@
+﻿@model DynamicControlsCreation.ViewModels.DefaultControlsViewModel 
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+ <style type="text/css">
+.dvWrapper
+{
+    width: 84%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+ 
+.accbg .leftLabelDiv, .accbg .rightLabelDiv
+{
+    width: 14%;
+}
+
+.bgColorContainer 
+{
+    background-color: #DAEEF8;
+    border-bottom: 2px solid #3171BB;
+}
+ </style>
+@using (Html.BeginForm())
+{  
+    <div class="useCaseName">
+
+
+
+            <div id="accordion" class="blueAccordion">
+
+            <div class="bgColorContainer">
+            
+                <div class="head">
+                    
+                        <a class="header alignLeft" href="#">craeate</a>
+                   
+                </div>
+                <div class="accbg">
+
+                  <div class="dvWrapper">
+                  @* 1st row *@
+                   @if (Model.VisibleControls.ContainsKey("ISRC"))
+                   {
+                        <div class="@Model.VisibleControls["ISRC"].ParentClass">
+                            <div class="@Model.VisibleControls["ISRC"].ChildClass1">
+                                @RepertoireRightsSearch.ISRC
+                            </div>
+                            <div class="@Model.VisibleControls["ISRC"].ChildClass2">
+                                 <input value="Submitted" type="file"/>
+                            </div>
+                       </div>
+                   }
+                   
+                    @if (Model.VisibleControls.ContainsKey("UPC"))
+                   {
+                        <div class="@Model.VisibleControls["UPC"].ParentClass">
+                            <div class="@Model.VisibleControls["UPC"].ChildClass1">
+                                @RepertoireRightsSearch.UPC
+                            </div>
+                            <div class="@Model.VisibleControls["UPC"].ChildClass2">
+                                 <input value="Submitted" type="file"/>
+                            </div>
+                       </div>
+                   }
+                   
+                   
+                   
+                    @if (Model.VisibleControls.ContainsKey("ArtistName"))
+                    { 
+                        <div class="@Model.VisibleControls["ArtistName"].ParentClass">
+                            <div class="@Model.VisibleControls["ArtistName"].ChildClass1">
+                                @RepertoireRightsSearch.ArtistName
+                            </div>
+                            <div class="@Model.VisibleControls["ArtistName"].ChildClass2">
+                                 @Html.TextBox("id")
+                            </div>
+                            <div class="@Model.VisibleControls["ArtistName"].ChildClass3">
+                                 @Html.CheckBox("id")
+                            </div>
+                            <div class="@Model.VisibleControls["ArtistName"].ChildClass4">
+                                 @RepertoireRightsSearch.ExactSearch
+                            </div>
+                    </div>
+                    }
+                    @*End 1st row *@
+                    
+                    @* 2nd row *@
+                    @if (Model.VisibleControls.ContainsKey("ResourceTitle"))
+                    { 
+                        <div class="@Model.VisibleControls["ResourceTitle"].ParentClass">
+                            <div class="@Model.VisibleControls["ResourceTitle"].ChildClass1">
+                                @RepertoireRightsSearch.ResourceTitle
+                            </div>
+                            <div class="@Model.VisibleControls["ResourceTitle"].ChildClass2">
+                                 @Html.TextBox("id")
+                            </div>
+                       </div>
+                    }
+                   @if (Model.VisibleControls.ContainsKey("LinkedContractName"))
+                   { 
+                        <div class="@Model.VisibleControls["LinkedContractName"].ParentClass">
+                            <div class="@Model.VisibleControls["LinkedContractName"].ChildClass1">
+                                @RepertoireRightsSearch.LinkedContactName
+                            </div>
+                            <div class="@Model.VisibleControls["LinkedContractName"].ChildClass2">
+                                 @Html.TextArea("id")
+                            </div>
+                            <div class="@Model.VisibleControls["LinkedContractName"].ChildClass3">
+                                 <input type="button" value="Search for Contract" />
+                            </div>
+                        </div>
+                   }
+                   @* End 2nd row *@
+                   @* 3rd row *@
+                   @if (Model.VisibleControls.ContainsKey("ResourceType"))
+                   { 
+                        <div class="@Model.VisibleControls["ResourceType"].ParentClass">
+                            <div class="@Model.VisibleControls["ResourceType"].ChildClass1">
+                                @RepertoireRightsSearch.ResourceType
+                            </div>
+                            <div class="@Model.VisibleControls["ResourceType"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("RepertoireMultipleContracts"))
+                   { 
+                        <div class="@Model.VisibleControls["RepertoireMultipleContracts"].ParentClass">
+                            <div class="@Model.VisibleControls["RepertoireMultipleContracts"].ChildClass1">
+                                @Html.CheckBox("id")
+                            </div>
+                            <div class="@Model.VisibleControls["RepertoireMultipleContracts"].ChildClass2">
+                                @RepertoireRightsSearch.RepertoireLinkedToMultipleContracts
+                            </div>                            
+                        </div>
+                   }
+                   @* End 3rd row *@
+                </div>
+
+               
+                </div> 
+
+             </div>   
+                
+                <div class="head">
+                    
+                        <a class="header alignLeft" href="#">Second Accordian</a>
+                   
+                </div>
+                <div class="accbg">
+
+                  <div class="dvWrapper">
+                   @* 1st row *@
+                   @if (Model.VisibleControls.ContainsKey("TerritorialRights"))
+                   { 
+                        <div class="@Model.VisibleControls["TerritorialRights"].ParentClass">
+                            <div class="@Model.VisibleControls["TerritorialRights"].ChildClass1">
+                                @RepertoireRightsSearch.TerritorialRights
+                            </div>
+                            <div class="@Model.VisibleControls["TerritorialRights"].ChildClass2">
+                                 @Html.TextBox("id")
+                            </div>
+                            <div class="@Model.VisibleControls["TerritorialRights"].ChildClass3">
+                                <a href="#">@RepertoireRightsSearch.SelectRemoveCountriesLink</a>
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("RightsReviewStatus"))
+                   { 
+                        <div class="@Model.VisibleControls["RightsReviewStatus"].ParentClass">
+                            <div class="@Model.VisibleControls["RightsReviewStatus"].ChildClass1">
+                                @RepertoireRightsSearch.RightsReviewStatus
+                            </div>
+                            <div class="@Model.VisibleControls["RightsReviewStatus"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>                            
+                        </div>
+                   }
+                   @* End 1st row *@ 
+                   @* 2nd row *@
+                   @if (Model.VisibleControls.ContainsKey("RightsPeriod"))
+                   { 
+                        <div class="@Model.VisibleControls["RightsPeriod"].ParentClass">
+                            <div class="@Model.VisibleControls["RightsPeriod"].ChildClass1">
+                                @RepertoireRightsSearch.RightsPeriod
+                            </div>
+                            <div class="@Model.VisibleControls["RightsPeriod"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("LostRightsIndicator"))
+                   { 
+                        <div class="@Model.VisibleControls["LostRightsIndicator"].ParentClass">
+                            <div class="@Model.VisibleControls["LostRightsIndicator"].ChildClass1">
+                                @RepertoireRightsSearch.LostRightsIndicator
+                            </div>
+                            <div class="@Model.VisibleControls["LostRightsIndicator"].ChildClass2">
+                                 @Html.DropDownList("LostRightsIndicator", Model.Dropdownlist)
+                            </div>                            
+                        </div>
+                   }
+                   @* End 2nd row *@
+                   
+                    @* 3rd row *@
+                   @if (Model.VisibleControls.ContainsKey("PhysicialExploitationRights"))
+                   { 
+                        <div class="@Model.VisibleControls["PhysicialExploitationRights"].ParentClass">
+                            <div class="@Model.VisibleControls["PhysicialExploitationRights"].ChildClass1">
+                                 @RepertoireRightsSearch.PhysicalExploitationRights
+                            </div>
+                            <div class="@Model.VisibleControls["PhysicialExploitationRights"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("LostRightsReason"))
+                   { 
+                        <div class="@Model.VisibleControls["LostRightsReason"].ParentClass">
+                            <div class="@Model.VisibleControls["LostRightsReason"].ChildClass1">
+                                @RepertoireRightsSearch.LostRightsReason
+                            </div>
+                            <div class="@Model.VisibleControls["LostRightsReason"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>                            
+                        </div>
+                   }
+                   @* End 3rd row *@
+                   
+                    @* 4th row *@
+                   @if (Model.VisibleControls.ContainsKey("DigitalExploitationRights"))
+                   { 
+                        <div class="@Model.VisibleControls["DigitalExploitationRights"].ParentClass">
+                            <div class="@Model.VisibleControls["DigitalExploitationRights"].ChildClass1">
+                                @RepertoireRightsSearch.DigitalExploitationRights
+                            </div>
+                            <div class="@Model.VisibleControls["DigitalExploitationRights"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("DigitalUnbundlingAllowed"))
+                   { 
+                        <div class="@Model.VisibleControls["DigitalUnbundlingAllowed"].ParentClass">
+                            <div class="@Model.VisibleControls["DigitalUnbundlingAllowed"].ChildClass1">
+                                @RepertoireRightsSearch.DigitalUnbundlingAllowed
+                            </div>
+                            <div class="@Model.VisibleControls["DigitalUnbundlingAllowed"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>                            
+                        </div>
+                   }
+                   @* End 4th row *@
+                   
+                    @* 5th row *@
+                   @if (Model.VisibleControls.ContainsKey("MobileExploitationRights"))
+                   { 
+                        <div class="@Model.VisibleControls["MobileExploitationRights"].ParentClass">
+                            <div class="@Model.VisibleControls["MobileExploitationRights"].ChildClass1">
+                                @RepertoireRightsSearch.MobileExploitationRights
+                            </div>
+                            <div class="@Model.VisibleControls["MobileExploitationRights"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("PPBRevenueClaim"))
+                   { 
+                        <div class="@Model.VisibleControls["PPBRevenueClaim"].ParentClass">
+                            <div class="@Model.VisibleControls["PPBRevenueClaim"].ChildClass1">
+                                @RepertoireRightsSearch.PPBRevenueClaim
+                            </div>
+                            <div class="@Model.VisibleControls["PPBRevenueClaim"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>                            
+                        </div>
+                   }
+                   @* End 5th row *@
+                   
+                    @* 6th row *@
+                   @if (Model.VisibleControls.ContainsKey("ActiveforMarketing"))
+                   { 
+                        <div class="@Model.VisibleControls["ActiveforMarketing"].ParentClass">
+                            <div class="@Model.VisibleControls["ActiveforMarketing"].ChildClass1">
+                                @RepertoireRightsSearch.ActiveForMarketing
+                            </div>
+                            <div class="@Model.VisibleControls["ActiveforMarketing"].ChildClass2">
+                                 @Html.DropDownList("ddlShowItems", Model.Dropdownlist)
+                            </div>
+                       </div>
+                   }
+                    
+                   @if (Model.VisibleControls.ContainsKey("LostRightsDate"))
+                   { 
+                        <div class="@Model.VisibleControls["LostRightsDate"].ParentClass">
+                            <div class="@Model.VisibleControls["LostRightsDate"].ChildClass1">
+                                @RepertoireRightsSearch.LostRightsDate
+                            </div>
+                            <div class="@Model.VisibleControls["LostRightsDate"].ChildClass2">
+                                 @RepertoireRightsSearch.From
+                            </div>                            
+                            <div class="@Model.VisibleControls["LostRightsDate"].ChildClass3">
+                                 @Html.Label("from dt ctrl")
+                            </div>                            
+                            <div class="@Model.VisibleControls["LostRightsDate"].ChildClass4">
+                                 @RepertoireRightsSearch.To
+                            </div>                            
+                            <div class="@Model.VisibleControls["LostRightsDate"].ChildClass5">
+                                 @Html.Label("tp dt Ctrl")
+                            </div>                            
+                        </div>
+                   }
+                   @* End 6th row *@    
+                   
+
+                </div>
+
+                </div>
+                
+                    
+            </div>
+          
+    </div>
+      
+}
+    

@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClearanceInbox" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.Templates" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClearanceInbox_SaveInboxFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInboxFilters" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveInboxFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInboxFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxFilters" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRccHandlers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRccHandlers" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRccHandlers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRccHandlersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRequestors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestors" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRequestors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserWorkgroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWorkgroups" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserWorkgroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserWorkgroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxData" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxSearchResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxSearchResult" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxSearchResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxSearchResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ManageInboxFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManageInboxFolders" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ManageInboxFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManageInboxFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ManageInboxProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManageInboxProjects" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ManageInboxProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManageInboxProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateProjectReadStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectReadStatus" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateProjectReadStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectReadStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveInboxFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInboxFolder" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveInboxFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInboxFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_DeleteUnsubmittedProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnsubmittedProjects" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_DeleteUnsubmittedProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUnsubmittedProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserIdFromUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdFromUserName" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserIdFromUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdFromUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFolders" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetFolderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFolderById" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetFolderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFolderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserDispatchWorkgroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDispatchWorkgroups" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetUserDispatchWorkgroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDispatchWorkgroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxProjectDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxProjectDetail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxProjectDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxProjectDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxProjectRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxProjectRequests" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetInboxProjectRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInboxProjectRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestAssignedToUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestAssignedToUser" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestAssignedToUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestAssignedToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestReviewComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestReviewComment" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestReviewComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestReviewCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestAssignedTo_ReviewComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestAssignedTo_ReviewComment" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_UpdateRequestAssignedTo_ReviewComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRequestAssignedTo_ReviewCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_PerformRequestAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerformRequestAction" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_PerformRequestAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerformRequestActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ClearanceContractSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceContractSearch" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_ClearanceContractSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceContractSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceArtistDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceArtistDetail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceArtistDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceArtistDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceArtistDetailSelectedResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceArtistDetailSelectedResources" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceArtistDetailSelectedResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceArtistDetailSelectedResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceHistory" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetResourceHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRejectReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRejectReasons" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GetRejectReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRejectReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_AddRejectReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRejectReason" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_AddRejectReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRejectReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_DeleteRejectReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRejectReason" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_DeleteRejectReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRejectReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SetNotificationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotificationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SetNotificationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotificationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_CreateClearanceContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClearanceContract" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_CreateClearanceContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClearanceContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveContractDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractDetail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveContractDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveContractDetailSelectedRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractDetailSelectedRequests" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveContractDetailSelectedRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveContractDetailSelectedRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveRCCHandler_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRCCHandler" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_SaveRCCHandler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRCCHandlerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GenerateEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateEmail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceInbox_GenerateEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateEmailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClearanceInbox">
+    <wsdl:operation name="SaveInboxFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SaveInboxFilters" message="tns:IClearanceInbox_SaveInboxFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SaveInboxFiltersResponse" message="tns:IClearanceInbox_SaveInboxFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxFilters" message="tns:IClearanceInbox_GetInboxFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxFiltersResponse" message="tns:IClearanceInbox_GetInboxFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRccHandlers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetRccHandlers" message="tns:IClearanceInbox_GetRccHandlers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetRccHandlersResponse" message="tns:IClearanceInbox_GetRccHandlers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetRequestors" message="tns:IClearanceInbox_GetRequestors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetRequestorsResponse" message="tns:IClearanceInbox_GetRequestors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWorkgroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserWorkgroups" message="tns:IClearanceInbox_GetUserWorkgroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserWorkgroupsResponse" message="tns:IClearanceInbox_GetUserWorkgroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxData" message="tns:IClearanceInbox_GetInboxData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxDataResponse" message="tns:IClearanceInbox_GetInboxData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxSearchResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxSearchResult" message="tns:IClearanceInbox_GetInboxSearchResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxSearchResultResponse" message="tns:IClearanceInbox_GetInboxSearchResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageInboxFolders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/ManageInboxFolders" message="tns:IClearanceInbox_ManageInboxFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/ManageInboxFoldersResponse" message="tns:IClearanceInbox_ManageInboxFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageInboxProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/ManageInboxProjects" message="tns:IClearanceInbox_ManageInboxProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/ManageInboxProjectsResponse" message="tns:IClearanceInbox_ManageInboxProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectReadStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateProjectReadStatus" message="tns:IClearanceInbox_UpdateProjectReadStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateProjectReadStatusResponse" message="tns:IClearanceInbox_UpdateProjectReadStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboxFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SaveInboxFolder" message="tns:IClearanceInbox_SaveInboxFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SaveInboxFolderResponse" message="tns:IClearanceInbox_SaveInboxFolder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnsubmittedProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/DeleteUnsubmittedProjects" message="tns:IClearanceInbox_DeleteUnsubmittedProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/DeleteUnsubmittedProjectsResponse" message="tns:IClearanceInbox_DeleteUnsubmittedProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdFromUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserIdFromUserName" message="tns:IClearanceInbox_GetUserIdFromUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserIdFromUserNameResponse" message="tns:IClearanceInbox_GetUserIdFromUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetFolders" message="tns:IClearanceInbox_GetFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetFoldersResponse" message="tns:IClearanceInbox_GetFolders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetFolderById" message="tns:IClearanceInbox_GetFolderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetFolderByIdResponse" message="tns:IClearanceInbox_GetFolderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDispatchWorkgroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserDispatchWorkgroups" message="tns:IClearanceInbox_GetUserDispatchWorkgroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetUserDispatchWorkgroupsResponse" message="tns:IClearanceInbox_GetUserDispatchWorkgroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxProjectDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxProjectDetail" message="tns:IClearanceInbox_GetInboxProjectDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxProjectDetailResponse" message="tns:IClearanceInbox_GetInboxProjectDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxProjectRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxProjectRequests" message="tns:IClearanceInbox_GetInboxProjectRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetInboxProjectRequestsResponse" message="tns:IClearanceInbox_GetInboxProjectRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestAssignedToUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedToUser" message="tns:IClearanceInbox_UpdateRequestAssignedToUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedToUserResponse" message="tns:IClearanceInbox_UpdateRequestAssignedToUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestReviewComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestReviewComment" message="tns:IClearanceInbox_UpdateRequestReviewComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestReviewCommentResponse" message="tns:IClearanceInbox_UpdateRequestReviewComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestAssignedTo_ReviewComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedTo_ReviewComment" message="tns:IClearanceInbox_UpdateRequestAssignedTo_ReviewComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedTo_ReviewCommentResponse" message="tns:IClearanceInbox_UpdateRequestAssignedTo_ReviewComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformRequestAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/PerformRequestAction" message="tns:IClearanceInbox_PerformRequestAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/PerformRequestActionResponse" message="tns:IClearanceInbox_PerformRequestAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceContractSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/ClearanceContractSearch" message="tns:IClearanceInbox_ClearanceContractSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/ClearanceContractSearchResponse" message="tns:IClearanceInbox_ClearanceContractSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceArtistDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceArtistDetail" message="tns:IClearanceInbox_GetResourceArtistDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceArtistDetailResponse" message="tns:IClearanceInbox_GetResourceArtistDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceArtistDetailSelectedResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceArtistDetailSelectedResources" message="tns:IClearanceInbox_GetResourceArtistDetailSelectedResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceArtistDetailSelectedResourcesResponse" message="tns:IClearanceInbox_GetResourceArtistDetailSelectedResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceHistory" message="tns:IClearanceInbox_GetResourceHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetResourceHistoryResponse" message="tns:IClearanceInbox_GetResourceHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GetRejectReasons" message="tns:IClearanceInbox_GetRejectReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GetRejectReasonsResponse" message="tns:IClearanceInbox_GetRejectReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRejectReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/AddRejectReason" message="tns:IClearanceInbox_AddRejectReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/AddRejectReasonResponse" message="tns:IClearanceInbox_AddRejectReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRejectReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/DeleteRejectReason" message="tns:IClearanceInbox_DeleteRejectReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/DeleteRejectReasonResponse" message="tns:IClearanceInbox_DeleteRejectReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotificationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SetNotificationStatus" message="tns:IClearanceInbox_SetNotificationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SetNotificationStatusResponse" message="tns:IClearanceInbox_SetNotificationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClearanceContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/CreateClearanceContract" message="tns:IClearanceInbox_CreateClearanceContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/CreateClearanceContractResponse" message="tns:IClearanceInbox_CreateClearanceContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SaveContractDetail" message="tns:IClearanceInbox_SaveContractDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SaveContractDetailResponse" message="tns:IClearanceInbox_SaveContractDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractDetailSelectedRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SaveContractDetailSelectedRequests" message="tns:IClearanceInbox_SaveContractDetailSelectedRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SaveContractDetailSelectedRequestsResponse" message="tns:IClearanceInbox_SaveContractDetailSelectedRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRCCHandler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/SaveRCCHandler" message="tns:IClearanceInbox_SaveRCCHandler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/SaveRCCHandlerResponse" message="tns:IClearanceInbox_SaveRCCHandler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceInbox/GenerateEmail" message="tns:IClearanceInbox_GenerateEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceInbox/GenerateEmailResponse" message="tns:IClearanceInbox_GenerateEmail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClearanceInbox" type="tns:IClearanceInbox">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveInboxFilters">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SaveInboxFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxFilters">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetInboxFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRccHandlers">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetRccHandlers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestors">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetRequestors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWorkgroups">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetUserWorkgroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxData">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetInboxData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxSearchResult">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetInboxSearchResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageInboxFolders">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/ManageInboxFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageInboxProjects">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/ManageInboxProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectReadStatus">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/UpdateProjectReadStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboxFolder">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SaveInboxFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUnsubmittedProjects">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/DeleteUnsubmittedProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdFromUserName">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetUserIdFromUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolders">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFolderById">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetFolderById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDispatchWorkgroups">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetUserDispatchWorkgroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxProjectDetail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetInboxProjectDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboxProjectRequests">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetInboxProjectRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestAssignedToUser">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestReviewComment">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/UpdateRequestReviewComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestAssignedTo_ReviewComment">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/UpdateRequestAssignedTo_ReviewComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerformRequestAction">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/PerformRequestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceContractSearch">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/ClearanceContractSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceArtistDetail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetResourceArtistDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceArtistDetailSelectedResources">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetResourceArtistDetailSelectedResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceHistory">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetResourceHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectReasons">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GetRejectReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRejectReason">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/AddRejectReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRejectReason">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/DeleteRejectReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotificationStatus">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SetNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClearanceContract">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/CreateClearanceContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractDetail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SaveContractDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContractDetailSelectedRequests">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SaveContractDetailSelectedRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRCCHandler">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/SaveRCCHandler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateEmail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceInbox/GenerateEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClearanceInbox">
+    <wsdl:port name="BasicHttpBinding_IClearanceInbox" binding="tns:BasicHttpBinding_IClearanceInbox">
+      <soap:address location="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

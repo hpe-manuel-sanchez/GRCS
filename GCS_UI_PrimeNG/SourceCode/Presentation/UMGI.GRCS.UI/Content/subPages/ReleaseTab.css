@@ -1,0 +1,93 @@
+﻿.middleField {
+    padding-top: 10px;
+    width: 50%;
+}
+
+#releaseaccordion {
+    border: 0px;
+}
+
+    #releaseaccordion .head {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/Acc_White.png') repeat-x top;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+        border: 1px solid #dcdcdc;
+        height: 22px;
+        width: 100%;
+    }
+
+    #releaseaccordion .iconBottom {
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 8px;
+    }
+
+    #releaseaccordion a.header {
+        margin-left: 5px;
+        text-decoration: none;
+        border: none;
+        font-size: 12px;
+        background: #f0f0f0 url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 5px;
+    }
+
+    #releaseaccordion a.alignRight {
+        background: none !important;
+    }
+
+    #releaseaccordion a.iconBottom {
+        background: url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat transparent 0px 4px;
+    }
+
+    #releaseaccordion .selected {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 0px;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        margin-top: -2px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+    }
+
+    #releaseaccordion a.current {
+        background-color: #cccccc;
+    }
+
+.accItem {
+    float: left;
+    width: 100%;
+}
+
+#checkBoxField {
+    width: 26%;
+    float: left;
+}
+
+.topField {
+    float: left;
+    position: relative;
+    width: 30%;
+}
+
+#divTop {
+    width: 100%;
+    padding-bottom: 3em;
+}
+
+.secondFIeld {
+    float: left;
+    position: relative;
+    width: 33.3%;
+}
+
+.rightField {
+    float: right;
+}
+
+#divReleaseTab {
+    padding: 15px !important;
+}

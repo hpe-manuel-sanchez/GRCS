@@ -1,0 +1,105 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+            
+@(Html.Syncfusion().Grid<RepertoireRightsSearchResult>("DigitalRestrictionsTracksBasicSearch")
+
+.Datasource((IEnumerable<RepertoireRightsSearchResult>)ViewData["data"])
+.ActionMode(ActionMode.JSON)
+.EnableOnDemand()
+.EnableAlternateRowStyling()
+.AllowDragAndDrop(true)
+.AllowResizing(true)
+.AllowAutoWrap(true)
+.CustomCss("Syncfusion-Grid-Greenish")
+.PageSettings(page => { page.PageSize(25); page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced); })
+.TotalRecordCount(0)
+.EnablePaging()
+.EnableScrolling()
+    .AllowMergeCells(true)
+     .ClientSideEvents(evt => evt.MergeCellInfo("MergeRows"))
+    .ClientSideEvents(evt => evt.RowDataBound("DigRestRowDataBound"))
+.ClientSideEvents(evt => evt.OnLoad("onLoad"))
+.ClientSideEvents(evt => evt.OnActionBegin("GridBegin"))
+.ClientSideEvents(evt => evt.OnActionSuccess("ActionSuccess"))
+    .ClientSideEvents(evt => evt.OnActionFailure("ActionFailure"))
+.EnableSorting()
+.AllowSelection(true)
+.SelectionMode(SelectionMode.Multiple)
+.Column(column =>
+{
+    column.Add("").Format("<input type=\"checkBox\" id=\"chkChild\" class=\"chkChildClass\">").Width(60).AllowFilter(false);
+    column.Add(p => p.RightsSetId).Width(0).Visible(false);
+    column.Add(p => p.ResourceId).Width(0).Visible(false);
+    column.Add(p => p.R2ResourceId).Width(0).Visible(false);
+    column.Add(p => p.ReleaseId).Width(0).Visible(false);
+    column.Add(p => p.R2ReleaseId).Width(0).Visible(false);
+    column.Add(p => p.ContractId).Width(0).Visible(false);
+    column.Add(p => p.DigitalRestriction.MergeCount).Width(0).Visible(false);
+    column.Add(p => p.ResourceType).Width(40).HeaderText(@RepertoireSearch.Type).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.Isrc).Width(110).HeaderText(@RepertoireSearch.ISRC);
+    column.Add(p => p.Upc).Width(110).HeaderText(@RepertoireSearch.UPC);
+    column.Add(p => p.Artist).Width(180).HeaderText(@RepertoireSearch.Artist);
+    column.Add(p => p.Title).Width(180).HeaderText(@RepertoireSearch.Title);
+    column.Add(p => p.VersionTitle).Width(180).HeaderText(@RepertoireSearch.VersionTitle);
+    column.Add(p => p.ReleaseDate).Width(70).HeaderText(@RepertoireSearch.ReleaseDate);
+    column.Add(p => p.ClearanceDataAdminCompany).Width(250).HeaderText(@RepertoireSearch.ClearanceOrDataAdminCompany).TextAlign(TextAlignment.Center);
+    column.Add(p => p.IsArtist).Width(25).HeaderText(@RepertoireSearch.ArtistImage).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.IsSample).Width(25).HeaderText(@RepertoireSearch.CdImage).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.PYear).Width(50).HeaderText(@RepertoireSearch.Pyear);
+    column.Add(p => p.ReviewStatus).Width(50).HeaderText(@RepertoireSearch.ReviewStatus).TextAlign(TextAlignment.Center).AllowSorting(false);
+                                 
+    column.Add(p => p.TerritorialRights).Width(200).HeaderText(@RepertoireSearch.TerritorialRights);
+    column.Add(p => p.IsPhysicalExploitationRights).Width(80).HeaderText(@RepertoireSearch.PhysicalExploitationRights).TextAlign(TextAlignment.Center);
+    column.Add(p => p.IsDigitalExploitationRights).Width(80).HeaderText(@RepertoireSearch.DigitalExploitationRights).TextAlign(TextAlignment.Center);
+    column.Add(p => p.IsDigitalUnbundlingAllowed).Width(80).HeaderText(@RepertoireSearch.DigitalUnbundlingAllowed).TextAlign(TextAlignment.Center);
+
+    column.Add(p => p.DigitalRestriction.UseType).Width(100).HeaderText(@RepertoireSearch.UseType).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.DigitalRestriction.CommercialModel).Width(90).HeaderText(@RepertoireSearch.CommercialModels).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.DigitalRestriction.Restrictions).Width(100).HeaderText(@RepertoireSearch.Restrictions).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.DigitalRestriction.ConsentPeriod).Width(130).HeaderText(@RepertoireSearch.ConsentPeriod).TextAlign(TextAlignment.Center).AllowSorting(false);
+    column.Add(p => p.DigitalRestriction.Notes).Width(140).HeaderText(@RepertoireSearch.Notes).TextAlign(TextAlignment.Center).AllowSorting(false);
+
+})
+
+ .MergeCells(new List<string>(@ViewBag.merge))    
+.StackedHeader(sh => sh.StackedRows("StackedRow", sr2 =>
+{
+    sr2.StackedColumn("", column =>
+    {
+        column.Add(p => p.ResourceType);
+        column.Add(p => p.ResourceType);
+        column.Add(p => p.RightsSetId);
+        column.Add(p => p.ResourceId);
+        column.Add(p => p.ReleaseId);
+        column.Add(p => p.ContractId);
+        column.Add(p => p.Isrc);
+        column.Add(p => p.Upc);
+        column.Add(p => p.Artist);
+        column.Add(p => p.Title);
+        column.Add(p => p.VersionTitle);
+        column.Add(p => p.ReleaseDate);
+        column.Add(p => p.ClearanceDataAdminCompany);
+        column.Add(p => p.IsArtist);
+        column.Add(p => p.IsSample);
+        column.Add(p => p.PYear);
+        column.Add(p => p.ReviewStatus);
+    });
+    sr2.StackedColumn("Rights Acquired", column =>
+    {
+        column.Add(p => p.TerritorialRights);
+        column.Add(p => p.IsPhysicalExploitationRights);
+        column.Add(p => p.IsDigitalExploitationRights);
+        column.Add(p => p.IsDigitalUnbundlingAllowed);
+    });
+    sr2.StackedColumn("Digital Restrictions", column =>
+    {
+        column.Add(p => p.DigitalRestriction.UseType);
+        column.Add(p => p.DigitalRestriction.CommercialModel);
+        column.Add(p => p.DigitalRestriction.Restrictions);
+        column.Add(p => p.DigitalRestriction.ConsentPeriod);
+        column.Add(p => p.DigitalRestriction.Notes);
+    });
+}))
+.ShowStackedHeader(true)
+)

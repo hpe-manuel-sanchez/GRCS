@@ -1,0 +1,157 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchWorkgroup.js")" type="text/javascript"></script>
+<style type="text/css">
+    #txtSearchName, #txtSearchCompany, #txtSearchUser, #txtSearchCountry
+    {
+        padding-left: 2em;
+    }
+    .ui-autocomplete-loading
+    {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") left center no-repeat;
+    }
+    #searchList
+    {
+        position: static !important;
+    }
+    .jtable-column-header-container
+    {
+        margin-top: 0px !important;
+        margin-bottom: 7px !important;
+    }
+    
+</style>
+<div id="mgSearchSelectedWorkgroupErrorMessage" class="warning" style="margin: 10px 0 0 0;">
+</div>
+<div id="deleteWgSuccessMessage" class="success" style="margin: 10px 0 0 0; display: none;">
+</div>
+<div id="deleteWgInfoMessage" class="info" style="margin: 10px 0 0 0; display: none;">
+</div>
+<br />
+<div id="SearchSelectedWorkgroup">
+    <div class="searchContainer">
+        <div class="dwMainContainer">
+            <div id="wrapperDv">
+                <div id="headerWGScreen" class="headerTitleScreen">
+                    <span><a class="cross">&nbsp;</a><div id="divSearchHeader">
+                    </div>
+                    </span>
+                </div>
+                <div class="accItem accItemNew">
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder">
+                            <label class="madatoryField">
+                                *</label>
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtSearchName", "", new { maxlength = "510"})
+                            @* @Html.TextBoxFor(model => Model.Workgroup.Name, new { data_autocomplete_source_manual = @Url.Action("SuggestiveSearchForWorkgroup", "Workgroup", new { workgroupElement = "WorkgroupName" }) })*@
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.DropDownListFor(model => model.RolesList, new SelectList(Model.RolesList, "value", "text", Model.RolesList), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectRoleLabel, new { id = "ddlPartialRolesList", @style = "width: 188px;!important" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtSearchCompany", "", new { maxlength = "120" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtSearchUser", "", new { maxlength = "100" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtSearchCountry", "", new { maxlength = "40" })
+                        </div>
+                        <div class="inputPlaceHolder" style="vertical-align: top; margin-top:1px;*margin-top:0px;">
+                            <input class="primbutton" id="btnSearchWorkGroup"   type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton"/>
+                            <input id="btnSearchReset" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SearchWorkgroupPartialPaging" style="display: none;">
+        <div class="searchParameter">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnSearchPartialResult"
+                style="font-weight: bold;"></span>
+        </div>
+        <div id="paging" style="float: right;">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlPartialSearchPaging" })
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+        </div>
+    </div>
+    @*   <br />*@
+    <div id="searchList">
+    </div>
+    <div id="SelectedWorkgroupRowList">
+    </div>
+    <div id="searchReassignPanel" style="float: right;">
+        <table class="withoutborder">
+            <tr>
+                <td>
+                    <input class="secbutton" id="btnLinkToContract"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LinkToContract" />
+                    <input class="secbutton" id="btnRedirectWorkGroup"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RidirectButton" />
+                </td>
+                <td>
+                    <input class="secbutton" id="btnCancelSearchWorkGroup" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    if (!$.browser.msie) {
+        $('input').keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#btnSearchWorkGroup").trigger('click');
+            }
+        });
+    }
+    var searchWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        noRowsSelected: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_noRowsSelectedworkgroupMessage',
+        pendingworkgroupRequestMessage: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_pendingworkgroupRequestMessage',
+        deactivateworkgroupSuccessfulMessage: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deactivateworkgroupSuccessfulMessage',
+        deleteworkgroupSuccessfulMessage: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deleteworkgroupSuccessfulMessage',
+        deleteworkgroupPendingrequestMessage: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deleteworkgroupPendingrequestMessage',
+        deleteworkgroupstatuspopupTitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deleteworkgroupstatuspopupTitle',
+        viewworkgrouppopuptitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_viewworkgrouppopuptitle',
+        deactivateworkgrouppopuptitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deactivateworkgroupstatuspopupTitle',
+        linkWorkgroupToContractpopuptitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_linkContractToWorkgroupstatuspopupTitle',
+        contractlinktoWGsucessfulMsg: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_contractlinktoWGsucessfulMsg',
+        uniquenessMsg: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.UniquenessMsg',
+        uniquenessContractIdsMsg: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.UniquenessContractIdsMsg'
+    };
+    var watermarkname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkWorkgroupName';
+    var watermarkcompany = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompany';
+    var watermarkuser = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser';
+    var watermarkcountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountry';
+
+    var wgSearchJtableColNames = {
+        wgName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpNameLabel',
+        wgType: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpTypeLabel',
+        wgRole: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_RoleLabel',
+        wgStatus: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpStatusLabel',
+        company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        user: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser',
+        territoryCountry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_TerritoryCountryLabel'
+    };
+
+    function applyCustomTheam() {
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 35;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+        $("#main").scroll(function () {
+            $(".ui-autocomplete").hide();
+        });
+    }
+</script>

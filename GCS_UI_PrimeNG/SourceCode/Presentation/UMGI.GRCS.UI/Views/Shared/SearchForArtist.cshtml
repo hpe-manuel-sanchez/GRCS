@@ -1,0 +1,102 @@
+﻿@model UMGI.GRCS.UI.Models.ContractTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title=@ContractResource.SearchForArtistTitle</title>
+    <style>
+        .jtable-main-container {
+            overflow-y: scroll;
+        }
+    </style>
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/SearchForArtist.min.css")"  rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SearchForArtist.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="splitWarning">
+        <div class="warningContainer">
+            <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+        </div>
+        <div id="SplitAlert"></div>
+    </div>
+    <div class="searchArtistContainer">
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.Info.Name):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.Info.Name)
+                @Html.ValidationMessageFor(model => model.Artist.Info.Name)
+                @Html.CheckBoxFor(model => model.Artist.IsSearchNameInAllNameFields) Search all
+                Name Fields
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.FirstName):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.FirstName)
+                @Html.ValidationMessageFor(model => model.Artist.FirstName)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label alignLeft">
+                @Html.LabelFor(model => model.Artist.LastName):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.LastName)
+                @Html.ValidationMessageFor(model => model.Artist.LastName)
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.Info.Id):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.Info.Id)
+                @Html.ValidationMessageFor(model => model.Artist.Info.Id)
+                <input id="searchForArtist" type="submit" class="primbutton" value="@ContractResource.SearchButton" runat="server" />
+                <input id="resetButton" type="submit" class="secbutton btnSpacing" value="@ContractResource.ResetButton" runat="server" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="Clear">
+            <div style="margin-top: 8px; margin-bottom: 8px;">
+                <div class="alignLeft">
+
+                    <div class="alignLeft">
+                        <h2 class="searchArtistResult alignLeft" style="color: #143489; margin-left: 15px;">
+
+                            <span id="searchArtistResultCount" style="float: left; display: inline-block;">Search Result (0)</span>
+                        </h2>
+                    </div>
+
+                    <div class="ui-jtable-loading" style="float: left; display: none; margin-top: 2px;"></div>
+                </div>
+
+                <div id="ArtistPaging" class="alignRight artistPopUpDropDown displayNone" style="margin-right: 15px;">
+                    @ContractResource.ShowDropDown
+                    @Html.DropDownListFor(model => model.ItemsPerPage, new SelectList(Model.ItemsPerPage, "value", "text", Model.ItemsPerPage))
+                    @ContractResource.itemsperpage
+                </div>
+            </div>
+        </div>
+        <div id="searchArtistResult" class="popupTable clearBoth">
+            <div id="ArtistTitle">
+            </div>
+            <div id="ArtistFname">
+            </div>
+            <div id="ArtistPrefix">
+            </div>
+            <div id="ArtistLastname">
+            </div>
+            <div id="ArtistId">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

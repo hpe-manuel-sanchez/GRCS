@@ -1,0 +1,85 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.BusinessEntities.Entities.ContractEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@model List<ContractInfo>
+           
+<div>
+     <input type="hidden" id="splitCount" value="@Model.Count"/>
+    <table class="sample">
+      @if (Model.Count > 0)
+      {
+          <thead>
+              <tr>
+                  <th width="13%">
+                      @ContractResource.artist
+                  </th>
+                  <th width="12%">
+                      @ContractResource.ContractingParty
+                  </th>
+                  <th width="14%">
+                      @ContractResource.ContractDescription
+                  </th>
+                  <th width="13%">
+                      @ContractResource.ClearanceCompanyParent
+                  </th>
+                  <th width="14%">
+                      @ContractResource.ParentLocalRefNo
+                  </th>
+                  <th width="10%">
+                      @ContractResource.ContractStatusColumn
+                  </th>
+                  <th width="11%">
+                      @ContractResource.workflowStatus
+                  </th>
+                  <th width="8%">
+                      @ContractResource.ContractId
+                  </th>
+                  @if (PermissionExtension.HasAnyPermission(GrsTasks.UnlinkSplitContractToContract))
+                  {
+                      <th width="5%">
+                          @ContractResource.ActionColumn
+                      </th>
+                  }
+              </tr>
+          </thead>
+      }
+        <tbody>
+            @foreach (ContractInfo t in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => t.ArtistName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.ContractingParty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.ContractDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.ClearanceCompanyCountry)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.LocalContractRefNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.ContractStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.WorkflowStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => t.ContractId)
+                    </td>
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.UnlinkSplitContractToContract))
+                    {
+                        <td>
+                            <span class="hyperlink"><a href="javascript:void(0);"  id = "@t.ContractId" class ="UnlinkSplit" >@ContractResource.UnlinkParent</a></span>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

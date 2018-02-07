@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClearanceResource" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.Templates" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd13" namespace="http://schemas.umusic.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClearanceResource_SearchR2Resource_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchR2Resource" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_SearchR2Resource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchR2ResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_BG_ResourceArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:BG_ResourceArtist" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_BG_ResourceArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BG_ResourceArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_RemoveResourceProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResourceProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_RemoveResourceProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResourceProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_GetResourceRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceRights" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResource_GetResourceRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResourceDataProvider_GetGCSResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSResource" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceResourceDataProvider_GetGCSResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSResourceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClearanceResource">
+    <wsdl:operation name="SearchR2Resource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceResource/SearchR2Resource" message="tns:IClearanceResource_SearchR2Resource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceResource/SearchR2ResourceResponse" message="tns:IClearanceResource_SearchR2Resource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BG_ResourceArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceResource/BG_ResourceArtist" message="tns:IClearanceResource_BG_ResourceArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceResource/BG_ResourceArtistResponse" message="tns:IClearanceResource_BG_ResourceArtist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveResourceProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceResource/RemoveResourceProject" message="tns:IClearanceResource_RemoveResourceProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceResource/RemoveResourceProjectResponse" message="tns:IClearanceResource_RemoveResourceProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceResource/GetResourceRights" message="tns:IClearanceResource_GetResourceRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceResource/GetResourceRightsResponse" message="tns:IClearanceResource_GetResourceRights_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IClearanceResourceDataProvider">
+    <wsdl:operation name="GetGCSResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceResourceDataProvider/GetGCSResource" message="tns:IClearanceResourceDataProvider_GetGCSResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceResourceDataProvider/GetGCSResourceResponse" message="tns:IClearanceResourceDataProvider_GetGCSResource_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClearanceResource" type="tns:IClearanceResource">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchR2Resource">
+      <soap:operation soapAction="http://tempuri.org/IClearanceResource/SearchR2Resource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BG_ResourceArtist">
+      <soap:operation soapAction="http://tempuri.org/IClearanceResource/BG_ResourceArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveResourceProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceResource/RemoveResourceProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceRights">
+      <soap:operation soapAction="http://tempuri.org/IClearanceResource/GetResourceRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IClearanceResourceDataProvider" type="tns:IClearanceResourceDataProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGCSResource">
+      <soap:operation soapAction="http://tempuri.org/IClearanceResourceDataProvider/GetGCSResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClearanceResource">
+    <wsdl:port name="BasicHttpBinding_IClearanceResource" binding="tns:BasicHttpBinding_IClearanceResource">
+      <soap:address location="http://localhost:7778/ClearanceResource/ClearanceResource.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IClearanceResourceDataProvider" binding="tns:BasicHttpBinding_IClearanceResourceDataProvider">
+      <soap:address location="http://localhost:7778/ClearanceResource/ClearanceResource.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

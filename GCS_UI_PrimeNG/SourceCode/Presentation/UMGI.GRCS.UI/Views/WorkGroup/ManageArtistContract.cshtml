@@ -1,0 +1,137 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    var partialViewName = '@ViewBag.pageName';
+</script>
+<style type="text/css">
+    .jtableDvhightDrop {
+        min-height: 85px;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .txtAlign {
+        text-align: center;
+    }
+</style>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageArtistContract.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+<div id="mgArtisterrorMessage" class="warning" style="margin: 10px 0;"></div>
+<div class="searchContainer">
+    <div id="deleteWorkgroup" style="margin: 0">
+        <div class="dwMainContainer">
+            <div id="wrapperDv">
+                <div id="headerArtistScreen" class="headerTitleScreen">
+                    <span><a class="cross">&nbsp;</a>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SearchforArtistContract</span>
+                </div>
+                <div class="accItem accItemNew" style="margin: 0 !important;">
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder">
+                            <label class="madatoryField">*</label>
+                            <label>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel</label>
+                        </div>
+                        <div class="inputPlaceHolderSearchArtist">
+                            @Html.TextBox("txtMngArtist", "", new { maxlength = "520" })
+                        </div>
+                        <div class="inputPlaceHolderSearchArtist">
+                            @Html.TextBox("txtMngArtistId", "", new { maxlength = "19" })
+                        </div>
+                        <div class="inputPlaceHolderSearchArtist">
+                            @Html.TextBox("txtMngClearanceCompany", "", new { maxlength = "120" })
+                        </div>
+
+                        <div class="inputPlaceHolder">
+                            <input class="primbutton" id="btnSearchArtistContract"   type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" />
+                            <input id="btnSearchArtistReset" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span id="spnArtistAddedResultLabel" style="font-weight: bold; height: 1px; display: none; margin: 0 5px"></span>
+<div style="margin: 5px 0; display: none;" id="divSearchResults">
+    <div style="float: left;">
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel  <span id="spnSearchAtistPartialResult" style="font-weight: bold;"></span>
+        <span style="margin: 0 15px;"><a id="ancArtistContractExpandall" href="#" style="text-decoration: underline;">Expand All</a> |
+                <a id="ancArtistContractSelectall" href="#" style="text-decoration: underline;">Select All</a> |
+                 <a id="ancArtistContractDeselectall" href="#" style="text-decoration: underline;">De-Select All</a>
+        </span>
+    </div>
+    <div style="float: right;">
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlPartialArtistSearchPaging" })
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div id="divLinkToWorkgroup" style="position: relative;"></div>
+<div id="divArtist" class="jtableDvwithDrop" style="margin: 0; padding: 0; position: static;"></div>
+<br />
+<div id="divAddedArtistContract" class="jtableDvwithDrop" style="margin: 0; padding: 0; position: static;"></div>
+<br />
+<div id="divAdd" style="display: none; float: right; margin-top: 5px; margin-bottom: 10px;">
+    <input id="btnAddArtistContract" type="button" class="secbutton" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" />
+    <input id="btnCancelArtistContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+</div>
+<div id="divSave" style="display: none; margin-top: 5px; margin-bottom: 10px;">
+    <div style="float: left;" class="poupBottomBarButton">
+        <input id="btnRemoveArtistContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveButton" />
+    </div>
+    <div style="float: right; margin-top: 5px; margin-bottom: 10px;" class="poupBottomBarButton">
+        <input id="btnSaveArtistContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SaveButton" />
+        <input id="btnACsaveCancel" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+    </div>
+    <div>
+        <input type="hidden" id="hdnAddedValues" value="" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    //var pageName = 'ManageArtistContract';
+    var artistNotLinkedInfo = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.artistNotLinkedInfo';
+    var listOfArtistContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_listOfArtistContract';
+    var mgArtistContractJtableColNames = {
+        ArtistId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId',
+        Artist: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ArtistLabel',
+        Contract: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ContractLabel',
+        AddtionalInfo: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_AddtionInfoLabel',
+        ContractId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ContractId',
+        ClrAdminCompName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ClrAdmCompNameLabel',
+        ClrAdminCompId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ClrAdminCompanyId'
+
+    };
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // $('#divSearchResourceContract').css("height", "375px")
+        $('.poupPage').css("margin-left", "0");
+        //$('.jtable-main-container').css("margin-top", "0 !imporant");
+        $('#main', window.parent.document).css('overflow-y', 'auto');
+        $('.jtable-main-container').css("padding", "0");
+
+    });
+    function applyCustomTheam() {
+
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 35;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+    }
+    applyCustomTheam();
+</script>

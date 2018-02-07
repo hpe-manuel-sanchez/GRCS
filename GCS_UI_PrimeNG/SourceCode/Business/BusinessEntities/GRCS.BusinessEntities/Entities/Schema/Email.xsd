@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Email" targetNamespace="UMGI.GRCS.Notification"
+    elementFormDefault="qualified"
+    xmlns="UMGI.GRCS.Notification"
+    xmlns:mstns="UMGI.GRCS.Notification"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="Email">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ToAddress" type="xs:string" ></xs:element>
+        <xs:element name="Subject" type="xs:string" >
+        </xs:element>
+        <xs:element name="Body" type="xs:string" ></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:element>
+</xs:schema>

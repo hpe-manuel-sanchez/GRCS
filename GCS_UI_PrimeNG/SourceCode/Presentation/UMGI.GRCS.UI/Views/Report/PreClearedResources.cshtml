@@ -1,0 +1,161 @@
+﻿@model UMGI.GRCS.UI.Models.Report.PreClearedResourcesModel
+@using UMGI.GRCS.Resx.Resource.UIResources;
+@using UMGI.GRCS.BusinessEntities.Entities.ReportEntities;
+@using UMGI.GRCS.UI.Extensions
+@using Syncfusion.Core;
+@{
+    ViewBag.Title = @ReportResource.PreClearedResourceTitle;
+    //Layout = "/GCS/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/PreClearedResourcesReport.css")"  rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/themes/base/jquery-ui-1.8.21.custom.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/ColumnFilter/jquery.columnfilters.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/PreClearedResourcesReport.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/date.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var PreClearedMessage = {
+            MandatoryFieldvalidation: '@ReportResource.PreclearanceMandatoryFieldvalidation'
+        };
+    </script>
+}
+@using (Html.BeginForm("PreClearedResources", "Report", FormMethod.Post, new { Id = "PreClearedResources" }))
+{ 
+    <div class="backgroundForHeader" style="padding-bottom: 10px;">
+         <div id="search">
+          <div class="report_parameter_header">
+            <a href="#" class="down">@ReportResource.ReportParameters</a>
+        </div></div>
+           <div class="report_parameter_panel_Without_b_padding">
+           <div class="leftdivP">
+                <div class="dv"><span class="colname" > 
+                @ReportResource.ResourceType:</span>@Html.DropDownListFor(model => model.ResourceType, Model.ResourceTypeList, new { @id = "ResourceType", @style = "width:72%" })</div>
+                <div class="dv"><span class="colname" > @ReportResource.ArtistName: </span>
+                        @Html.TextBoxFor(model => model.ArtistSearch.Info.Name, new { data_autocomplete_source_manual = @Url.Action("AutoSearchArtistList", "Report"), @style ="width:70.3%"  })
+                        @Html.HiddenFor(model => model.ArtistSearch.Info.Id, new { @id = "ArtistSearch_Info_Id" })
+                 </div>
+                        <div class="dv"><span class="colname" > 
+                            @ReportResource.Title:</span> @Html.TextBoxFor(model => model.Title, new { @id = "Title", @style ="width:70.3%" })</div>
+                        <div class="dv"><span class="colname" > 
+                            @ReportResource.ClearanceAdmin<br />@ReportResource.Company</span>
+                        <div id="AdminCompanyNames" style="width: 71.3%; height: 35px;">
+                        </div>
+                        @Html.HiddenFor(model => model.ClearanceCompanyId, new { @id = "AdminCompany" })
+                        @* @Html.HiddenFor(model => model.ClearanceCompanyName, new { @id = "CompanyNames" })*@
+                        @Html.HiddenFor(model => model.ExportType, new { @id = "ExportType" })</div>
+                       <div class="selectOuter">
+                           <div class="editSelectIconParent">
+                               <div class="editSelectIcon">
+                                   &nbsp;
+                               </div>
+                               <a href="" id="SelectRemoveCompany" class="alignRight hyperlink">@ReportResource.SelectRemoveCompany</a>
+                           </div>
+                       </div>
+                          <div  ><span class="colname" > 
+     @ReportResource.PreClearanceType:</span> @Html.DropDownListFor(model => model.PreClearanceType, Model.PreClearanceTypeList, new { @id = "PreClearanceType", @style = "width:72%" })</div>
+       <div class="clear">
+                </div>
+   </div>
+    
+           <div class="rightdivP">
+    <div  class="blank">
+                        </div>
+     <div class="dv"><span class="colname" >  @ReportResource.Genre:</span> @Html.DropDownListFor(model => model.ResourceGenre, Model.ResourceGenreList, new { @id = "ResourceGenre", @style = "width:73%;" }) </div>
+     <div class="dv"><span class="colname" > @ReportResource.PYearRange:</span> 
+      @Html.DropDownListFor(model => model.YearFrom, Enumerable.Range(1900, 201).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() }), "From", new { @id = "yearFrom", @style = "width:25%;" })
+      &nbsp;&nbsp;
+      @Html.DropDownListFor(model => model.YearTo, Enumerable.Range(1900, 201).Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() }), "To", new { @id = "yearTo", @style = "width:25%;" })
+      </div>
+     <div class="dv"><span class="colname" > @ReportResource.ExploitationCountry:</span>
+        <div id="countryNames" >
+                        </div> @Html.HiddenFor(model => model.ExploitationCountryId, new { @maxlength = "1000", @id = "country", @autocomplete = "off", @style = "width:300px;height:50px" })
+        </div>
+           <div  class="selectRemoveCountry">
+                      <span ><a href="" id="SelectRemovecountry" class="alignRight hyperlink"><img src="/GCS/Images/select.png" alt="Select/Remove Country" class="addImage" title="Select/Remove Country" />@ReportResource.SelectRemoveCountries</a></span>  </div>
+                      <div class="primebtn" >
+                    <div class="primbutton_left">
+                    </div>
+                    <input type="button" id="btnGenerateReport" name="btnGenerateReport" value="Generate Report"
+                        class="primbutton floatL" />
+                    @Html.Hidden("generateReport")
+                    <div class="primbutton_right" style="margin-right: 10px;">
+                    </div>
+                    <div class="secbutton_left">
+                    </div>
+                    <input type="reset" id="btnreset" value="Reset" class="secbutton floatL" />
+                    <div class="secbutton_right">
+                    </div>
+                    @*@Html.HiddenFor(model => model.recordCount, new { id = "recordCount" })*@
+                    @Html.HiddenFor(model => model.SortField, new { id = "SortField" })
+                    @Html.HiddenFor(model => model.IsAscending, new { id = "IsAscending" })
+      </div>
+       <div  style="width: 400px; height: 5px; float: left;">
+                        </div>
+    </div>
+        <div>
+       
+            
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ReportTemplates">
+        <div id="activeRosterTableHeader">
+            <div class="floatR">
+                <a class="excelExport" onclick="ExportExcel()" style="cursor: pointer">@ReportResource.ExportReport</a>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <!--PreCleared Resource Report Header ends -->
+        <div class="clear">
+        </div>
+        <div style="margin-top: 10px;">
+            @(Html.Syncfusion().Grid<PreClearedResources>("grdPreClearedResource")
+    .Caption("PreCleared Resources")
+         .PageSettings(page =>
+         {
+             page.PageSize(25);
+             page.PageCount(5);
+             page.PagerPosition(Position.TopRight);
+             page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+         })
+ .EnableSorting()
+    .AllowResizing(true)
+    .AllowDragAndDrop(true)
+    .EnableScrolling()
+    .EnablePaging()
+    .EnableAlternateRowStyling()
+    .EnableOnDemand(true)
+    .EnableRowHover(true)
+    .ActionMode(ActionMode.JSON)
+   // .TotalRecordCount(Convert.ToInt32(ViewData["totaldata"]))
+    .CustomCss("Syncfusion-Grid-Greenish")
+    .AllowAutoWrap(true)
+    .ClientSideEvents(evt => evt.OnLoad("GridLoad"))
+    .ClientSideEvents(evt => evt.OnActionBegin("GridBegin"))
+    .ClientSideEvents(evt => evt.OnActionSuccess("ActionSuccess"))
+.ClientSideEvents(events => events.QueryCellInfo("ImageForResourceType"))
+        .Column(cols =>
+        {
+            cols.Add(c => c.ResourceType).Width(40).HeaderText(@ReportResource.Type).TextAlign(TextAlignment.Center);
+            cols.Add(c => c.ISRC).Width(85).HeaderText(@ReportResource.ISRC);
+            cols.Add(c => c.Title).HeaderText(@ReportResource.Title);
+            cols.Add(c => c.Version_Title).HeaderText(@ReportResource.VersionTitle);
+            cols.Add(c => c.RightsType).HeaderText(@ReportResource.RightsType);
+            cols.Add(c => c.Artist).HeaderText(@ReportResource.Artist);
+            cols.Add(c => c.ClearanceAdminCompany).HeaderText(@ReportResource.ClearanceCo);
+            cols.Add(c => c.ResourceGenre).HeaderText(@ReportResource.Genre);
+            cols.Add(c => c.PYear).Width(50).HeaderText(@ReportResource.PYear);
+            cols.Add(c => c.TerritorialRight).Width(150).HeaderText(@ReportResource.TerritorialRights);
+            cols.Add(c => c.PreClearanceType).HeaderText(@ReportResource.PreClearanceType);
+        })
+ )
+        </div>
+    </div>
+    
+
+}

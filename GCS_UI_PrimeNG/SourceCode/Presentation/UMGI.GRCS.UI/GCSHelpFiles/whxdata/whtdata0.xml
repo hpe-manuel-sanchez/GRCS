@@ -1,0 +1,64 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<tocdata>
+<item name="Welcome" url="Welcome.htm" />
+<book name="User Group Administration" >
+  <book name="Managing Workgroup" url="Managing_Workgroup.htm" >
+    <item name="Creating Parent Workgroup" url="Creating_Workgroup.htm" />
+    <item name="Creating Child Workgroups" url="Creating_Child_Workgroups.htm" />
+    <item name="Amending Parent Workgroups" url="Amending_Workgroups.htm" />
+    <item name="Amending Child Workgroups" url="Amending_Child_Workgroups.htm" />
+  </book>
+  <item name="Managing Users" url="Managing_Users.htm" />
+  <book name="Managing Deviations" url="Managing_Deviations.htm" >
+    <item name="Managing Artist Contracts" url="Managing_Artist_Contracts.htm" />
+    <item name="Managing Resource Contracts" url="Managing_Resource_Contracts.htm" />
+  </book>
+  <item name="Deactivating Workgroups" url="Deactivating_Workgroups.htm" />
+  <item name="Deleting Workgroups" url="Deleting_Workgroups.htm" />
+</book>
+<book name="Project Administration" >
+  <book name="Creating Projects" url="Creating_Projects.htm" >
+    <item name="Creating Master Projects" url="Creating_Master_Projects.htm" />
+    <item name="Creating Regular/Non-Traditional Projects" url="Creating_Regular_Non_Traditional_Projects.htm" />
+    <item name="Creating Project from Existing Projects" url="Creating_Project_from_Existing_Projects.htm" />
+  </book>
+  <book name="Maintaining Projects " url="Maintaining_Projects_at_Project_Level.htm" >
+    <item name="Modifying Clearance Projects" url="Modifying_Clearance_Projects.htm" />
+    <item name="Re-Submitting Clearance Projects" url="Re-Submitting_Clearance_Projects.htm" />
+    <item name="Cancelling the Clearance Project " url="Cancelling_the_Clearance_Project(s).htm" />
+    <item name="Re-Instating Clearance Projects" url="Re-Instating_Clearance_Projects.htm" />
+    <item name="Completing Clearance Projects" url="Completing_Clearance_Projects.htm" />
+    <item name="Re-Opening Clearance Projects" url="Re-Opening_the_Clearance_Projects.htm" />
+    <item name="Deleting Projects" url="Deleting_the_Projects.htm" />
+    <item name="Clearance Project Inquiry" url="Clearance_Project_Inquiry.htm" />
+    <item name="Allocating UPC for New Release (s)" url="Allocating_UPC_for_New_Release_(s).htm" />
+    <item name="Push New Release (s) to R2" url="Push_New_Release_(s)_to_R2.htm" />
+    <item name="Free Hand Company Management" url="Free_Hand_Company_Management.htm" />
+    <item name="Free Hand Resource Management" url="Free_Hand_Resource_Management.htm" />
+    <item name="Cancelling the Resource on Clearance Project (s)" url="Cancelling_the_Resource_on_Clearance_Project_(s).htm" />
+    <item name="Re-instate the Resource (s)" url="Re-instate_the_Resource(s).htm" />
+    <item name="Re- Apply Track (s)" url="Re-_Apply_Track_(s).htm" />
+    <item name="Re-Submit Resource (s)" url="Re-Submit_Resource_(s).htm" />
+    <item name="Exclude Resource (s)" url="Exclude_Resource_(s).htm" />
+    <item name="Include Resource (s)" url="Include_Resource_(s).htm" />
+    <item name="Reminder" url="Reminder.htm" />
+    <item name="User Transfer" url="User_Transfer.htm" />
+  </book>
+</book>
+<book name="Inbox Management" >
+  <item name="Requestor Inbox" url="Requestor_Inbox.htm" />
+  <item name="Reviewer Inbox" url="Reviewer_Inbox.htm" />
+  <item name="RCC Admin Inbox" url="RCC_Admin_Inbox.htm" />
+</book>
+<book name="Common Services" >
+  <item name="Mimic User" url="Mimic_User.htm" />
+  <item name="Un Lock Project (s)" url="Un_Lock_Project_(s).htm" />
+  <item name="Managing Pre-defined Rejection Reasons" url="Managing_Pre-defined_Rejection_Reasons.htm" />
+  <item name="Managing Routing Variations" url="Managing_Routing_Variations.htm" />
+  <item name="Managing Safe Territories" url="Managing_Safe_Territories1.htm" />
+  <item name="User Preferences" url="User_Preferences.htm" />
+  <item name="Audit Trails and History" url="Audit_Trails_and_History.htm" />
+  <item name="Managing Emails" url="Managing_Emails.htm" />
+</book>
+
+</tocdata>

@@ -1,0 +1,29 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@using UMGI.GRCS.Resx.Resource.Layout
+@{
+    ViewBag.Title = "Push To R2";
+    Layout = "";
+}
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="/Gcs/Content/ClearenceSite.min.css" rel="stylesheet" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<div id="pushReleaseTab" style="margin: 0 auto; width: 100%;">
+
+    <!-- START BTN LINK TO PROJECT -->
+    <div class="clrR2Project-researchResultWrapper">
+        <div id="PushOptions">
+            <div class="alignLeft width40PER text-align-left">
+                <b>@Html.RadioButton("rdoPushToR2", "Search Existing Project in R2", new { id = "rdoExistPrj", @class = "rdoPushToR2" }) Search Existing Project in R2 </b>
+            </div>
+            <div class="alignRight width50PER text-align-right">
+                <b>@Html.RadioButton("rdoPushToR2", "Create New Project in R2", new { id = "rdoNewPrj", @class = "rdoPushToR2" })Create New Project in R2 </b>
+            </div>
+            <div id="footerbuttons" class="text-align-right clear">
+                <input type="button" id="SubmitPush" name="SubmitPush" value="Submit" class="primbutton" />
+                <input type="button" id="CancelPush" name="CancelPush" value="Cancel" class="primbutton" />
+            </div>
+        </div>
+    </div>
+</div>

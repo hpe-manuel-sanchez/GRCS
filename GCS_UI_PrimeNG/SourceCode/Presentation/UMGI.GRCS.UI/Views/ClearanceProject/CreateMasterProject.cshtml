@@ -1,0 +1,390 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.BusinessEntities.Lookups
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    if (Model.ReadOnlyMode == 1)
+    {
+        ViewBag.Title = Model.MasterProjectDetails.ProjectReferenceId;
+    }
+    else
+        if (Model.MasterProjectDetails.ClearanceProjectID > 0)
+        {
+            ViewBag.Title = "Master Project";
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        }
+        else
+        {
+            ViewBag.Title = "Create Master Project";
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        }
+
+    if (Model.isInMaintainMode == 1)
+    {
+        ViewBag.Title = Model.MasterProjectDetails.ProjectReferenceId;
+        Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    <script type="text/javascript">
+        $("#myjquerymenu").hide();
+        $("#lnkUserPreferencesMenu").hide();
+        $("#lblMenuUserPreference").hide();
+        $("#MimicUserExitListItem").hide();             
+    </script>
+    }
+
+
+    string projectStatus = @ViewBag.ProjectStatus;
+    var RCCAdminHandller = @ViewBag.RCCAllocateUpc;
+
+    if (Model.MasterProjectDetails.StatusType == 1)
+    {
+    <script type="text/javascript">
+        $(function () { $("#tabs").tabs({ disabled: [2] }) });
+    </script>
+    }
+    if (RCCAdminHandller != null && RCCAdminHandller == true)
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var selectControlId = '#rcc_handler';
+            $(function () { 
+                $('input:not(#btnEmail, #btnPrint), textarea, .ui-datepicker-trigger, select:not(' + selectControlId + ')').prop('disabled', true); 
+            });
+            $(function () {
+                $('input:not(#btnEmail, #btnPrint), textarea, .ui-datepicker-trigger, select:not(' + selectControlId + ')').prop('title', ''); 
+            });
+                          
+
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').hide();
+            $('#btnCancelProject').hide();
+            $('#btnComplete').hide();
+            $('#btnPushToR2').hide();
+            $('#rcc_handler').prop('disabled', false);             
+
+        });
+    </script>
+        
+
+    }
+    else if (projectStatus == Constants.StatusType.Cancelled.ToString())
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () { $('input:not(#btnReinstate, #btnReInstate1,#btnPrint,#btnEmail), textarea, select, .ui-datepicker-trigger').attr('disabled', 'disabled'); });
+
+            $('#btnReinstate').show();
+            $('#btnReinstate').removeClass();
+            $('#btnReinstate').addClass('primbutton');
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').hide();
+            $('#btnCancelProject').hide();
+            $('#btnComplete').hide();
+
+        });
+    </script>
+    }
+    else if (projectStatus == Constants.StatusType.ReOpened.ToString())
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnReinstate').hide();
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').show();
+            $('#btnSave').removeClass();
+            $('#btnSave').addClass('primbutton');
+            $('#btnCancelProject').show();
+            $('#btnComplete').show();
+        });
+    </script>
+    }
+    else if (projectStatus == Constants.StatusType.Submitted.ToString())
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnReinstate').hide();
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').show();
+            $('#btnSave').removeClass();
+            $('#btnSave').addClass('primbutton');
+            $('#btnCancelProject').show();
+            $('#btnComplete').show();
+        });
+    </script>
+    }
+    else if (projectStatus == Constants.StatusType.ReSubmitted.ToString())
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnReinstate').hide();
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').show();
+            $('#btnSave').removeClass();
+            $('#btnSave').addClass('primbutton');
+            $('#btnCancelProject').show();
+            $('#btnComplete').show();
+        });
+    </script>
+    }
+    else if (projectStatus == Constants.StatusType.Completed.ToString())
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () { $('input:not(#btnReOpen,#btnReOpen1,#btnPrint,#btnEmail), textarea, select, .ui-datepicker-trigger').attr('disabled', 'disabled'); });
+
+            $('#btnReinstate').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').hide();
+            $('#btnCancelProject').hide();
+            $('#btnComplete').hide();
+            $('#btnReOpen').show();
+            $('#btnReOpen').removeClass();
+            $('#btnReOpen').addClass('primbutton');
+        });
+    </script>
+    }
+    else
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnReinstate').hide();
+            $('#btnReOpen').hide();
+            $('#btnSubmit').hide();
+            $('#btnSave').show();
+            $('#btnSave').removeClass();
+            $('#btnSave').addClass('secbutton');
+            $('#btnSubmit').show();
+            $('#btnComplete').hide();
+            $('#btnCancelProject').hide();
+        });
+    </script>
+    };
+}
+<script type="text/javascript">
+
+    var showTabIndex = '@ViewBag.DefaultTab';
+
+    if (showTabIndex == null)
+        showTabIndex = 0;
+    if (showTabIndex == '1,')
+        showTabIndex = 1;
+    showTabIndex = parseInt(showTabIndex);
+    $(function () { $("#tabs").tabs({ selected: showTabIndex }) 
+        $('#tabs').show();
+    });
+
+    var mandatoryFields = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_MandatoryFields';
+    var mandatoryResourceFields = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_MandatoryResourceField';
+     
+    var MasterControlsList = @Html.Raw(Json.Encode(ViewBag.ControlsList)); //For UC-011A
+    var ResubmissionTooltipMsg='@ClearanceLayout.ResubmissionTooltipMsg'; //For UC-011A
+    var ResubmissionFieldsEditMsg='@ClearanceLayout.ResubmissionFieldsEditMsg';//For UC-011A
+    var ResubmissionResourceEditmsg='@ClearanceLayout.ResubmissionResourceEditmsg';//For UC-011A
+    var ResubmissionResourceOtherFieldEditmsg='@ClearanceLayout.ResubmissionResourceOtherFieldEditmsg';//For UC-011A
+    var msgConfirmNewResourceAdd='@ClearanceLayout.msgConfirmNewResourceAdd';
+    var ResubmissionCancelledResourceEditmsg='@ClearanceLayout.ResubmissionCancelledResourceEditmsg';
+    var ConfirmRoutingForNotRoutedPResource='Additional resources have been saved to the project. Do you wish to submit?';
+</script>
+@section scripts{
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/AuditTrail.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/ManageTerritoryExtn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/MasterProjectInformation.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/CreateMasterProject.js")" type="text/javascript"></script>
+}
+
+@using (Html.BeginForm("SaveProjectDetails", "ClearanceProject", FormMethod.Post, new { encType = "multipart/form-data", id = "CreateMasterProject" }))
+{
+    
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <div style="width: 95% !important; float: left;">
+                    <h2 class="pageTitle">@(Model.MasterProjectDetails.ClearanceProjectID > 0 ? "Master Project" : "Create Master Project")</h2>
+                </div>
+                @if (Model.MasterProjectDetails.StatusType != 1)
+                {  
+                    <div style="width: 5% !important; float: right; margin-top: 5px;"><a style="text-decoration: underline;" href="#" id="masterProjInfoHistoryLink" onclick="return getMasterProjInfoAuditHistory(AuditObjectType.MasterProjectProjectAuditHistory)">History</a></div>
+                }
+                <div style="clear: both;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="left">
+
+                @if (ViewBag.ValidationMsg != null)
+                {
+                    <div id="divMessage" class="success  msg-margin">
+                        @ViewBag.ValidationMsg
+                    </div>
+                }
+
+@*tabs code starts here *@
+                <div id="divErrorMessage" class="warning msg-margin"></div>
+                <div id="divErrorMsg" class="error msg-margin" style="display: none;"></div>
+
+                @if (ViewBag.ValidationWarningMsg != null)
+                {
+                    <div id="divErrorMessage1" class="error msg-margin">
+                        @ViewBag.ValidationWarningMsg
+                    </div>
+                }
+                @if (ViewBag.ConcurrencyWarningMsg != null)
+                {
+                    string msg = ViewBag.ConcurrencyWarningMsg;
+                    @Html.Hidden("divConcurrency", msg, new { Id = "divConcurrency" })
+                }
+                <div id="tabs" style="display: none !important;">
+                    <ul id="screenTabs" style="margin-left: 0 !important; border: 0;">
+                        <li class="FirsttabGap"><a href="#tabs-1">@Html.Hidden("hdnDefaultTab")@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInformationHeader)</a></li>
+                        <li class="tabGap"><a href="#tabs-2">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectResourcesHeader)</a></li>
+                        <li class="tabGap"><a href="#tabs-3">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectRequestSummaryHeader)</a></li>
+                        @if (ViewBag.RoleGroup != null)
+                        {   
+                            <li style="margin-top: 6px !important; float: right; width: 290px; margin-right: 120px;">
+                                @Html.HiddenFor(model => model.roleGroupName, new { id = "hdnRoleGroup" })
+                                @Html.HiddenFor(model => model.MasterProjectDetails.StatusType, new { id = "hdnstatusType" })
+                                @if (ViewBag.RoleGroup == RoleGroup.RCCAdmin)
+                                {
+                                    <span class="currencypadding">
+                                        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectRCCHandler)
+                                    </span>                            
+                                    if (Model.MasterProjectDetails.Rcc_User == "")
+                                    {
+                                        Model.MasterProjectDetails.Rcc_User = "0";
+                                    }
+                                    if (ViewBag.RoleGroup == RoleGroup.RCCAdmin && Model.ReadOnlyMode != 1)
+                                    {
+                                    @Html.DropDownList(Model.MasterProjectDetails.Rcc_User, new SelectList(Model.RccHandler.Select(r => new { r.Text, r.Value }), "value", "text", Model.MasterProjectDetails.Rcc_User), "--Select--", new { id = "rcc_handler", style = "width:100px;", onchange = "SaveRCCHandler();" })    
+                                    }
+                                    else
+                                    {
+                                        if (ViewBag.RoleGroup == RoleGroup.RCCAdmin)
+                                        {
+                                    @Html.DropDownList(Model.MasterProjectDetails.Rcc_User, new SelectList(Model.RccHandler.Select(r => new { r.Text, r.Value }), "value", "text", Model.MasterProjectDetails.Rcc_User), "--Select--", new { id = "rcc_handler", style = "width:100px;", disabled = "disabled", onchange = "SaveRCCHandler();" })
+                                        }
+                                    }
+                                }
+                            </li>
+                        }
+                        <li class="rightMostLi" style="margin-top: 6px !important"><span class="currencypadding">
+                            @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceProjectCurrency)</span>
+                            @if (Model.ReadOnlyMode == 1)
+                            { 
+                                <label style="margin-top: 4px;">@Model.MasterProjectDetails.Currency</label>
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(model => Model.MasterProjectDetails.Currency, new SelectList(Model.CurrencyList, "Text", "Text"), new { onfocus = "currencyFocus();", onblur = "currencyBlur();" })
+                            }
+                        </li>
+                    </ul>
+                    <div id="wrapper" style="background-color: #FFF;">
+                        @if (Model.ReadOnlyMode == 1)
+                        {
+                            <div id="tabs-1">@Html.Partial("MasterProjectInformationReadOnly", Model)</div>
+                            <div id="tabs-2">@Html.Partial("ResourcesReadOnly", Model)</div>
+                            if (Model.MasterProjectDetails.StatusType != 1)
+                            {
+                            <div id="tabs-3">@Html.Partial("RequestSummary", Model)</div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div id="tabs-1">@Html.Partial("MasterProjectInformation", Model)</div>
+                            <div id="tabs-2">@Html.Partial("Resources", Model)</div>
+                            if (Model.MasterProjectDetails.StatusType != 1)
+                            {
+                            <div id="tabs-3">@Html.Partial("RequestSummary", Model)</div>
+                            }
+
+                        }
+                    </div>
+                </div>
+
+                <table width="100%">
+                    <tr>
+                        <td align="right">@Html.Hidden("hdnDefaultTab")
+                            <table style="width: 15%;">
+                                <tr id="tblSaveSubmit">
+                                    <td align="right" style="width: 20%;">
+                                        <input type="submit" id="btnSave1" style="display:none" name="command" value="@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSaveButton" />
+                                    </td>
+                                    <td align="center" style="width: 20%;">
+                                        <input type="submit" id="btnSubmit1" style="display:none" name="command" value="@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSubmitButton" />
+                                    </td>
+                                    <td align="center" style="width: 40%;">
+                                        @if (Model.MasterProjectDetails.StatusType == 2 || Model.MasterProjectDetails.StatusType == 5 || Model.MasterProjectDetails.StatusType == 6)
+                                        {  
+                                            @Html.Hidden("hdntempProjectId")  <input type="submit" style="display: none" id="btnCancelProject1"
+                                                name="command" value="Cancel" />                                     
+                                     
+                                        }
+                                    </td>
+                                    <td align="center" style="width: 20%;">
+                                        @if (Model.MasterProjectDetails.StatusType == 2 || Model.MasterProjectDetails.StatusType == 5 || Model.MasterProjectDetails.StatusType == 6)
+                                        {  
+                                            <input type="submit" id="btnComplete1" style="display: none" name="command" value="Complete" />
+                                     
+                                        }
+                                    </td>
+                                    <td align="right">@Html.Hidden("hdnCancelledProjectId")<input type="submit" id="btnReInstate1" name="command" style="display:none" value="@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ReInstateProjectButton" />
+                                    </td>
+                                    <td align="right">@Html.Hidden("hdnReopenProjectId")<input type="submit" id="btnReOpen1" name="command" style="display: none" value="ReOpen" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+          
+@*tabs code starts here *@
+            
+           
+               
+}
+@section BottomInputs{
+    @if (Model.ReadOnlyMode != 1)
+    {
+        <input type="submit" class="primbutton" id="btnSave" style="display:none" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSaveButton />
+        <input type="submit" class="primbutton" id="btnSubmit" style="display:none" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSubmitButton /> 
+        <input type="submit" class="secbutton" id="btnCancelProject" style="display:none" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.CancelButton />        
+        <input type="submit" class="secbutton" id="btnComplete" style="display: none" name="command" value="Complete" />
+        <input type="submit" class="secbutton" id="btnReinstate" style="display:none" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ReInstateProjectButton />
+        <input type="submit" class="secbutton" id="btnReOpen" style="display: none" name="command" value="ReOpen" />
+    }
+}
+<script type="text/javascript">
+    /*for removing outer scroll bar--*/
+    jQuery(document).ready(function ($) { //ajax menu?
+        $('#main').css("overflow-y", "hidden");
+        $(window).resize(function () {
+            applyCustomTheam();
+        });
+        $("#rcc_handler").each(function () {
+            var s = this;
+            for (i = 0; i < s.length; i++)
+                s.options[i].title = s.options[i].text;
+            if (s.selectedIndex > -1)
+                s.onmousemove = function () { s.title = s.options[s.selectedIndex].text; };
+        });
+    })
+
+</script>

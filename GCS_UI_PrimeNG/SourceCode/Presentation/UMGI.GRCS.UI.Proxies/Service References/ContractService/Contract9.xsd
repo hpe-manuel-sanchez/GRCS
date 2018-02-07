@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfLinkedReleaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedReleaseInfo" nillable="true" type="tns:LinkedReleaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedReleaseInfo" nillable="true" type="tns:ArrayOfLinkedReleaseInfo" />
+  <xs:complexType name="LinkedReleaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminCompanyId" type="xs:long" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentCount" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ReleaseId" type="xs:long" />
+      <xs:element minOccurs="0" name="ReleaseTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseType" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+      <xs:element minOccurs="0" name="Upc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedReleaseInfo" nillable="true" type="tns:LinkedReleaseInfo" />
+</xs:schema>

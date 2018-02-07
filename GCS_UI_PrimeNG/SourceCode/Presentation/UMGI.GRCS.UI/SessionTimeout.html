@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Session Time Out</title>
+    <link type="text/css" href="/GCS/Content/Site.css" rel="stylesheet"/>
+    <link type="text/css" href="/GCS/Content/index.css" rel="stylesheet"/>
+</head>
+
+
+
+<body id="errorOnPage">
+
+    <div id="errorContainer">
+
+    <div id="errorTitle">Time Out</div>
+
+     <div class="timerIcon"></div>
+     <div id="logo" class="posLogo"></div>
+
+            <ul>
+                <li><h3><span class="errorHeader">Session Timed out</span></h3></li>
+                <li>Sorry, Your Session has been Timed out</li>
+                <br />
+                <li>Please Login Again <a href="/GCS/Home/Index" class="supportAdmin">"Login"</a></li>
+                
+            </ul>
+    </div>
+</body>
+
+ <script src="/GCS/Scripts/jquery-1.6.3.min.js" type="text/javascript"></script>
+
+   
+ 
+
+<script type="text/javascript">
+
+    $(document).ready(function ($) {
+
+
+
+        $(window).bind("resize", resetErrorPage);
+
+
+
+
+        function resetErrorPage() {
+            $("#errorContainer").css("marginLeft", ($(window).width() - $("#errorContainer").width()) / 2);
+
+        }
+
+        resetErrorPage();
+
+    });
+
+</script>
+
+</html>

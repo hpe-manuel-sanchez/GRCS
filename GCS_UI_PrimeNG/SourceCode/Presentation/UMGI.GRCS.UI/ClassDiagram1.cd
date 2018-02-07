@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="UMGI.GRCS.UI.Rights.Controllers.BaseController">
+    <Position X="1.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Controllers.ContractController">
+    <Position X="0.5" Y="2.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAUAAAAAAEEABAQAQAAAAAAAAAABAAgIACAAAAA=</HashCode>
+      <FileName>Controllers\ContractController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Controllers.HomeController">
+    <Position X="5.25" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Extensions.CustomExtensions">
+    <Position X="5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\CustomExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.MvcApplication">
+    <Position X="8.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIQAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

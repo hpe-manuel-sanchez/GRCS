@@ -1,0 +1,78 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "Add / Remove Users from Workgroup(s)";
+}
+
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<br/>
+<div id="userAddAndRemoveFromWorkgroup" style="margin: 0; padding: 0 15px;">
+  @* @Html.Partial("SelectSingleUser", Model)*@
+</div>
+
+    <div id="btnDivSearchWorkgroupForUser"   style="display:none;">
+    @section BottomInputs
+{
+    <input class="secbutton" id="btnAddUsersInWorkgroup"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" />
+    <input class="secbutton" id="btnRemoveUsersFromWorkgroup" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveButton" />
+    <input class="secbutton" id="btnCancelUsersInWorkgroup" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+    }
+    </div>
+
+<script type="text/javascript">
+    var pageName = '@ViewBag.PageName';
+    $.ajax({
+        url: '/GCS/Workgroup/SelectSingleUserPopup/',
+        contentType: 'application/html; charset=utf-8',
+        type: 'GET',
+        dataType: 'html'
+    })
+        .success(function (result) {
+            // Display the section contents.
+            $('#userAddAndRemoveFromWorkgroup').html(result);
+            pageName = "SearchWorkGroupToAddRemoveUsers";
+        })
+        .error(function (xhr, status) {
+            alert(xhr.responseText);
+        });
+
+    var watermarkname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkWorkgroupName';
+    var watermarkcompany = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompany';
+    var watermarkuser = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser';
+    var watermarkcountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountry';
+
+    var rights_ManageWorkgroup = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_ManageWorkgroup';
+    var rights_R2Authorized = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_R2Authorized';
+    var rights_Requestor = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Requestor';
+    var rights_Reviewer = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Reviewer';
+    var rights_UPCAllocation = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_UPCAllocation';
+    var rights_Inquiry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Inquiry';
+
+    var addUsersuccessfulMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_addUsersuccessfulMsg';
+    var removeUsersuccessfulMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_removeUsersuccessfulMsg';
+    var addremoveUserWarninglMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_addremoveUserWarninglMsg';
+    var removeUserWarninglMsgFirst = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_removeUserWarninglMsgFirst';
+    var removeUserWarninglMsgSecond = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_removeUserWarninglMsgSecond';
+    var ExistingUsersMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_AddAndRemoveUserExistingMsg';
+    
+    function applyCustomTheam() {
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 35;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+    }
+    applyCustomTheam();
+</script>

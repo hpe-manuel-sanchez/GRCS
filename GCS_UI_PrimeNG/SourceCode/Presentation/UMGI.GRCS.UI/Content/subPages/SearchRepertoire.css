@@ -1,0 +1,83 @@
+﻿.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+    margin-left: 0.5em;
+}
+
+#repertoireaccordion {
+    border: 0px;
+}
+
+    #repertoireaccordion .head {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/blueAccordionHeaderBg.png') repeat-x top;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+        border: 1px solid #dcdcdc;
+        height: 22px;
+    }
+
+    #repertoireaccordion .iconBottom {
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 3px;
+    }
+
+    #repertoireaccordion a.header {
+        margin-left: 5px;
+        text-decoration: none;
+        border: none;
+        font-size: 12px;
+        background: #89C3F8 url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 3px;
+        color: #143489;
+    }
+
+    #repertoireaccordion a.alignRight {
+        background: none !important;
+    }
+
+    #repertoireaccordion a.iconBottom {
+        background: url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat transparent 0px 3px;
+        color: #143489;
+    }
+
+    #repertoireaccordion .selected {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 3px;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        margin-top: -2px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+    }
+
+    #repertoireaccordion a.current {
+        background-color: #cccccc;
+    }
+
+.search-button input[type="text"] {
+    padding-left: 1.5em;
+}
+
+.rightMainDiv {
+    *clear: both;
+    *width: 49% !important;
+}
+
+.leftMainDiv {
+    *width: 49% !important;
+}
+
+.selectedContract {
+    font-weight: bold;
+    color: #143489;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.tab-outer {
+    border-bottom: none;
+}

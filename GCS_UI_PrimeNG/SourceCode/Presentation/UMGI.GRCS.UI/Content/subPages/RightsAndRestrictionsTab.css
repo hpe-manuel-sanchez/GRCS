@@ -1,0 +1,21 @@
+﻿.headMargin {
+    margin-bottom: 10px;
+}
+
+.chooseRestrictionTemplate {
+    margin-bottom: 15px;
+    width: 70%;
+}
+
+#DigitalTemplate {
+    width: 60%;
+}
+
+TABLE.sample {
+    *width: 98%;
+}
+
+.rightsAndRestriction {
+    margin-right: 15px;
+    padding-bottom: 20px;
+}

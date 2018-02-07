@@ -1,0 +1,77 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceRightsWorkQueueModel
+<link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEdit.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/RightsAcquiredBulkEdit.js")" type="text/javascript"></script>
+
+<div>
+    <div id="splitWarning">
+        <div class="warningContainer">
+            <span class="alertImage"></span></div>
+        <div id="SplitAlert">
+        </div>
+    </div>
+    <div class="rightsAcquiredBulkEditBody">
+        <div class="bulkEditReviewStatusHeader">
+            <div class="reviewStatusDdlContainer resourceCtrls">
+                @RepertoireSearch.ReviewStatus                
+                @Html.DropDownList("ddlreviewStatus", Model.ReviewStatusDropDown)
+            </div>
+            <div class="applyCancelContainer">
+                <div class="primbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnApply" value="Apply Changes" class="primbutton" />
+                </div>
+                <div class="primbutton_right btnSpaceLocal">
+                </div>
+                <div class="secbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnCancel" value="Cancel" class="secbutton" /></div>
+            
+                <div class="secbutton_right">
+                </div>
+            </div>           
+            
+        </div>
+        <div class="clearBoth">
+        </div>
+        <div id="rightsAcquiredBulkEditTab">
+            <div id="menuTab">
+                <div class="alignLefte">
+                    <ul class="tabul" id="popUpTabs">
+                        <li><a href="#divRightsAcquiredPopupTab">@RepertoireSearch.RightsAcquiredDisplay</a></li>
+                        <li><a href="#divTerritorialRightsPopupTab">@RepertoireSearch.TerritorialRightsDisplay</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="divRightsAcquiredPopupTab" class="clearFloat">
+                @Html.Partial("RightsAcquiredBulkEditTab")
+            </div>
+            <div id="divTerritorialRightsPopupTab" class="clearFloat">
+                <div class="resetSelectionStrip">
+                    <div class="resetContainer">
+                        <div class="secbutton_left">
+                        </div>
+                        <div class="alignLeft">
+                            <input type="button" id="btnResetTerritorialRights" value="Reset Selection" class="secbutton" />
+                        </div>
+                        <div class="secbutton_right">
+                        </div>
+            
+                    </div>
+            
+          
+                
+                
+                
+                
+                </div>
+            
+            </div>
+            <div id="divTerritorialRightsPopupTabContent">
+            </div>
+        </div>
+    </div>
+</div>

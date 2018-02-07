@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="CompanyInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryId" type="xs:long" />
+          <xs:element minOccurs="0" name="CountryIsoCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GtaStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISACCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PageDetails" nillable="true" type="tns:FilterFields" />
+          <xs:element minOccurs="0" name="R2AccountId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="UniversalLicenseeIndicator" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompanyInfo" nillable="true" type="tns:CompanyInfo" />
+  <xs:complexType name="FilterFields">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:Page">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+          <xs:element minOccurs="0" name="ColumnIdentifier" type="xs:long" />
+          <xs:element minOccurs="0" name="FilterName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QualificationCriteria" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RowIndex" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FilterFields" nillable="true" type="tns:FilterFields" />
+  <xs:complexType name="ArrayOfTerritorialDisplay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TerritorialDisplay" nillable="true" type="tns:TerritorialDisplay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTerritorialDisplay" nillable="true" type="tns:ArrayOfTerritorialDisplay" />
+  <xs:complexType name="TerritorialDisplay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="IsExcluded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsIncluded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNotApplicable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSafeTerritory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTerritory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" type="xs:long" />
+      <xs:element minOccurs="0" name="Status" type="tns:TerritoryScope" />
+      <xs:element minOccurs="0" name="TerritoryComments" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TerritorialDisplay" nillable="true" type="tns:TerritorialDisplay" />
+  <xs:simpleType name="TerritoryScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotApplicable" />
+      <xs:enumeration value="Included" />
+      <xs:enumeration value="Excluded" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TerritoryScope" nillable="true" type="tns:TerritoryScope" />
+  <xs:complexType name="CountryInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q3:BaseSearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryId" type="xs:long" />
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountryInfo" nillable="true" type="tns:CountryInfo" />
+  <xs:complexType name="ArrayOfCountryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryInfo" nillable="true" type="tns:CountryInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryInfo" nillable="true" type="tns:ArrayOfCountryInfo" />
+  <xs:complexType name="ArrayOfCompanyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompanyInfo" nillable="true" type="tns:CompanyInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompanyInfo" nillable="true" type="tns:ArrayOfCompanyInfo" />
+</xs:schema>

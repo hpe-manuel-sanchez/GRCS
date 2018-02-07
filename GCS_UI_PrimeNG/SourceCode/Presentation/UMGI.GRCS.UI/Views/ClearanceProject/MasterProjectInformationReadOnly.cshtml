@@ -1,0 +1,1091 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@using UMGI.GRCS.BusinessEntities.Lookups
+@{
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+
+@functions
+{
+
+    string getRCCHandler()
+    {
+        var RCChandlerUserName = string.Empty;
+        if (Model.RccHandler.Any(x => x.Value == Model.MasterProjectDetails.Rcc_User))
+        {
+            for (var i = 0; i < Model.RccHandler.Count; i++)
+            {
+                if (Model.RccHandler[i].Value == Model.MasterProjectDetails.Rcc_User)
+                {
+                    RCChandlerUserName = Model.RccHandler[i].Text;
+                    break;
+                }
+            }
+        }
+        return RCChandlerUserName;
+    }
+
+}
+<link href="@Url.Content("/GCS/Content/SubPages/pi-regular.min.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('input:button').css('visibility', 'hidden');
+            $('#btnEmail').css('visibility', 'visible');
+            $('#btnPrint').css('visibility', 'visible');
+            $('#refreshBtn').css('visibility', 'visible');
+        });
+
+        ParentCall();
+
+        $(".projectInformationSection h5").click(function () {
+            //$(".contentDv").hide();
+            var obj = $(this).closest("div").parent();
+            $(obj).find('.contentDv').toggle();
+            $(this).toggleClass('rightArrow');
+        });
+    });
+</script>
+<style>
+    #wrapper {
+        position: relative;
+    }
+
+    .headerInput input[type="text"] {
+        width: 85px !important;
+    }
+
+    .mpi-wrapper {
+        width: 100%;
+        margin: 5px auto;
+        clear: both;
+        overflow: hidden;
+    }
+
+    .mpi-column {
+        width: 100%;
+    }
+
+    .mpi-column1 {
+        width: 33%;
+    }
+
+    .mpi-column6 {
+        width: 86%;
+        margin: 0;
+    }
+
+    .mpi-column7 {
+        width: 13%;
+        margin: 2px;
+    }
+
+    .mpi-fl {
+        float: left;
+    }
+
+    .mpi-fr {
+        float: right;
+    }
+
+    .mpi-label {
+        width: 35%;
+    }
+
+    .mpi-label-1 {
+        width: 45%;
+    }
+
+    .mpi-field {
+        width: 64%;
+    }
+
+    .mpi-field-1 {
+        width: 54%;
+    }
+
+    .mpi-tar {
+        text-align: right;
+    }
+
+    .mpi-tal {
+        text-align: left;
+    }
+
+    .mpi-bold {
+        font-weight: bold;
+    }
+
+    .mpi-clear-right {
+        clear: right;
+    }
+
+    .mpi-ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .mpi-ul li {
+            list-style: none;
+            float: left;
+            display: inline;
+            width: 18%;
+            font-weight: normal;
+        }
+
+    .mpi-ul1 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+        .mpi-ul1 li {
+            list-style: none;
+            float: left;
+            display: inline;
+            width: 14%;
+            font-weight: normal;
+        }
+
+    .li-last {
+        padding-left: 4.9%;
+        margin: 0;
+        *margin: 0 0 0 -4px;
+    }
+
+    .li-first {
+        margin: 0;
+        *margin: 0 0 0 -4px;
+    }
+    /*.mpi-ul li:nth-child(even) {width:10px;} */
+
+    .mpi-width-50px {
+        width: 10%;
+    }
+
+    .lastli-padding {
+        padding-left: 27px;
+    }
+
+    .manu-umg {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .manu-umg li {
+            padding: 0 !important;
+        }
+
+    .sensitive_exploitation {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .sensitive_exploitation li {
+            padding: 0 !important;
+        }
+
+    .width-small {
+        width: 50px !important;
+    }
+
+    .width-medium {
+        width: 97px !important;
+    }
+
+    .width-medium2 {
+        width: 161px !important;
+    }
+
+    .width-large {
+        width: 200px !important;
+        height: 19px !important;
+    }
+
+    .txt-width-large {
+        width: 200px !important;
+        height: 38px !important;
+    }
+
+    .txt-width-small {
+        width: 160px !important;
+        height: 46px !important;
+    }
+
+    .width-file {
+        width: 180px;
+        height: 24px;
+    }
+
+    .select-width-medium {
+        width: 125px !important;
+        height: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .txtarea-width {
+        width: 162px !important;
+        height: 33px;
+    }
+
+    .pddtop {
+        padding: 4px 0 0 0;
+    }
+
+    .contentDv {
+        padding: 5px 0 10px 0;
+    }
+
+    .pddlef {
+        padding: 0 0 0 1.1%;
+    }
+
+    #tdTxtboxOneStop {
+        display: none;
+    }
+
+    /*New CSS*/
+
+    /*.mpi-ul li:nth-child(even) {width:10px;} */
+
+    .mpi-width-50px {
+        width: 10%;
+    }
+
+    .lastli-padding {
+        padding-left: 27px;
+    }
+
+    .manu-umg {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .manu-umg li {
+            padding: 0 !important;
+        }
+
+    .sensitive_exploitation {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .sensitive_exploitation li {
+            padding: 0 !important;
+        }
+
+    .contentDv {
+        display: block;
+        overflow: hidden;
+    }
+
+    .txt-width-xsmall {
+        width: 124px !important;
+        height: 53px !important;
+    }
+
+    .frameDv {
+        height: 75px;
+        position: absolute;
+        z-index: 999;
+        left: 0px;
+    }
+
+    .frameDv1 {
+        width: 26%;
+    }
+
+    .frameDv2 {
+        width: 56%;
+    }
+
+    .mpi-new-header {
+        color: #fff;
+        background-color: #485472;
+        border: 1px solid #d7d7d7;
+        height: 21px !important;
+        margin: 2px 0px;
+        line-height: 18px;
+        padding: 0px;
+        clear: both;
+    }
+
+    .adv-colum1 {
+        width: 49%;
+        margin-top: 5px;
+    }
+
+    .adv-colum2 {
+        width: 49%;
+        margin-top: 5px;
+    }
+
+    .mpi-margin-rght {
+        margin-right: 74px;
+    }
+
+    .brder-red {
+        border: 1px solid red;
+    }
+
+    .clearwidth {
+        width: 96%;
+        height: 21px;
+        margin: 15px auto;
+    }
+
+    .trailer-wrapper-section {
+        margin-left: 50%;
+        margin-top: -2%;
+    }
+
+    .film-wrapper-section {
+        margin-top: -15%;
+        margin-top: -2%\0;
+        *margin-top: -16.8%;
+    }
+
+    .other-wrapper-section {
+        margin: -2% 0 0 0;
+    }
+
+    .adv-margin-top {
+        margin-top: 10px !important;
+    }
+
+    .adv-margin-top1 {
+        margin-top: -30px !important;
+    }
+
+    .adv-margin-top2 {
+        margin-top: -20px !important;
+    }
+
+    .adv-margin-top-check {
+        margin-top: -10px !important;
+    }
+
+    .adv-margin-top-check1 {
+        margin-top: -19px !important;
+    }
+
+    .adv-margin-bottom-check1 {
+        margin-bottom: 5px !important;
+    }
+
+    .rightArrow {
+        padding-left: 14px;
+        background: url(/Images/menu_arrow_white_trns_header.png) no-repeat left 10px;
+        margin: 0 0 5px 10px;
+        padding-top: 3px;
+        color: #fff;
+    }
+</style>
+<input id="hdnterritoryDetailsForSave_1" name="hdnterritoryDetailsForSave_1" type="hidden" class="hdnManageTerriCls" />
+<div class="contentPanel projectInformationSection">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">
+            <ul class="upper_header">
+                <li class="first">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MastertProjectInformationDetailsLabel</li>
+                <li class="bar_header">|</li>
+                <li class="label_header1">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectCreatedByLabel</li>
+                <li class="field_header">@Html.DisplayTextFor(model => model.MasterProjectDetails.CreatedByUser)</li>
+                <li class="bar_header">|</li>
+                <li class="label_header2">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectReferenceLabel</li>
+                <li class="field_header">@Html.DisplayTextFor(model => model.MasterProjectDetails.ProjectReferenceId)</li>
+                @*<li class="bar_header">|</li>
+            <li class="label_header3">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInformationStatus</li>*@
+                <li class="bar_header">|</li>
+                <li class="label_header" style="width: 85px !important;">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectCreatedDateLabel</li>
+                <li>@Html.DisplayTextFor(model => model.MasterProjectDetails.CreatedDate)</li>
+                @if (Model.MasterProjectDetails.StatusType != 1)
+                {
+                    if (ViewBag.RoleGroup != RoleGroup.RCCAdmin)
+                    {
+                    <li class="createdDate text-align-left">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.lblRccHandler</li>
+                        if (Model.RccHandler != null && Model.MasterProjectDetails.Rcc_User != null && Model.MasterProjectDetails.Rcc_User != "0")
+                        {
+                    <li class="text-align-left" style="width: auto !important;">
+                        @getRCCHandler()
+                    </li>
+                        }
+                    }
+                }
+            </ul>
+        </h5>
+    </div>
+
+    <div class="contentDv">
+        <!-- first row Start -->
+
+        <div class="mpi-wrapper">
+            <!-- Project Title Start Here -->
+            <div class="mpi-column1 mpi-fl  ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                    @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTitleLabel
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    @Html.DisplayTextFor(model => model.MasterProjectDetails.ProjectTitle)
+                </div>
+            </div>
+            <!-- Project Title End Here -->
+            <!-- Requesting Company Start -->
+            <div class="mpi-column1 mpi-fl ">
+                <div class="mpi-label-1 mpi-fl mpi-tar mpi-bold">
+                    @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectRequestingCompanyLabel
+                </div>
+                <div class="mpi-field-1 mpi-fr mpi-tal">
+                    @Html.DisplayTextFor(model => model.MasterProjectDetails.RequestCompanyName)
+                </div>
+            </div>
+            <!-- Requesting Company End -->
+            <div class="mpi-column1 mpi-fr ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                    @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectStatusLabel
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    @Html.DisplayTextFor(model => model.MasterProjectDetails.StatusTypeDesc)
+                </div>
+            </div>
+        </div>
+        <!--first row  Ends -->
+
+        <!-- second row Start -->
+        <div class="mpi-wrapper">
+
+            <div class="mpi-column1 mpi-fl  ">
+                <ul class="master-onestop">
+                    <li>
+                        <!-- Local Reference Start -->
+                        <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectLocalReferenceLabel
+                        </div>
+                        <div class="mpi-field mpi-fr mpi-tal">
+                            @Html.DisplayTextFor(model => model.MasterProjectDetails.LocalReference)
+                        </div>
+                        <!-- Local Reference End -->
+                    </li>
+                    <li>
+                        <!-- Details start Here -->
+                        <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectDetailsLabel
+                        </div>
+                        <div class="mpi-field mpi-fr mpi-tal">
+                            @Html.DisplayTextFor(model => model.MasterProjectDetails.Details)
+                        </div>
+                        <!-- Details End Here -->
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mpi-column1 mpi-fl ">
+                <div class="mpi-label-1 mpi-fl mpi-tar mpi-bold">
+                    @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectUploadProjectDocumentsLabel
+                </div>
+                <div class="mpi-field-1 mpi-fr mpi-tal">
+
+                    <table class="file-upload-scroll" border="1">
+
+                        @if (Model.MasterProjectDetails.listUploadDocument.Any())
+                        {
+
+                            for (int i = 0; i < Model.MasterProjectDetails.listUploadDocument.Count; i++)
+                            {
+                            <tr>
+
+                                <td style="white-space: nowrap;">
+
+                                    @Html.ActionLink(Model.MasterProjectDetails.listUploadDocument[i].Name, "ReadFile/" + Model.MasterProjectDetails.listUploadDocument[i].Name + "~" + Model.MasterProjectDetails.listUploadDocument[i].Id + "~" + Model.MasterProjectDetails.ClearanceProjectID, "ClearanceProject")
+                                </td>
+                            </tr>
+                            }
+
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- SensitiveExplotation Start -->
+        <div class="mpi-column1 mpi-fr ">
+
+            <ul class="master-onestop">
+                <li>
+                    <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-field mpi-fr mpi-tal">
+                        @Html.CheckBoxFor(model => model.MasterProjectDetails.SensitiveExplotation, new { id = "chkSE", disabled = "disabled", @class = "onestopMargin" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectSensitiveExploitationLabel
+                    </div>
+                </li>
+                <li>
+                    <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-field mpi-fr mpi-tal">
+                        @Html.CheckBoxFor(model => model.MasterProjectDetails.OneStop, new { id = "chkOS", disabled = "disabled", @class = "onestopMargin" }) One Stop
+                    </div>
+                </li>
+                <li id="tdTxtboxOneStop">
+
+                    <div class="mpi-label mpi-fl mpi-tar mpi-bold madatoryField">
+                    </div>
+                    <div class="mpi-field mpi-fr mpi-tal">
+                        @Html.DisplayTextFor(model => model.MasterProjectDetails.OneStopReason)
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- SensitiveExplotation End -->
+
+        <div class="mpi-wrapper">
+
+            <div class="mpi-column1 mpi-fl  ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="mpi-column1 mpi-fl ">
+                <div class="mpi-label-1 mpi-fl mpi-tar mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-field-1 mpi-fr mpi-tal">
+                    &nbsp;
+                </div>
+            </div>
+            <!-- SensitiveExplotation Start -->
+            <div class="mpi-column1 mpi-fr ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    &nbsp;
+                </div>
+            </div>
+            <!-- SensitiveExplotation End -->
+        </div>
+        <!--third row  Ends -->
+        <!-- fifth row Start -->
+        <div class="mpi-wrapper">
+            <!-- Local Reference Start -->
+            <div class="mpi-column1 mpi-fl  ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold">
+                    <span class="madatoryField">@mandatory</span>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.TerritoryCountryLabel
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    <ul class="manu-umg-pi">
+                        <li id="tdcountryList" class="mpi-bold">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.IncludedLabel</li>
+                        <li>
+                            <div id="selectedCountries_1" class="wrapText"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Local Reference End -->
+            <div class="mpi-column1 mpi-fl ">
+                <div class="mpi-label-1 mpi-fl mpi-tar mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-field-1 mpi-fr mpi-tal mpi-bold">
+                    @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ExcludedLabel
+                    <div id="UnselectedCountries_1" class="wrapText"></div>
+                </div>
+            </div>
+            <!-- SensitiveExplotation Start -->
+            <div class="mpi-column1 mpi-fr ">
+                <div class="mpi-label mpi-fl mpi-tar mpi-bold madatoryField">
+                    &nbsp;
+                </div>
+                <div class="mpi-field mpi-fr mpi-tal">
+                    &nbsp;
+                </div>
+            </div>
+            <!-- SensitiveExplotation End -->
+        </div>
+    </div>
+</div>
+
+<!-- Code End Here -->
+
+<!-- REQUEST TYPE START -->
+<div class="contentPanel projectInformationSection">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">
+            <ul class="upper_header">
+                <li class="first">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectRequestTypeLabel</li>
+                <li class="bar_header">|</li>
+                <li class="label_header1">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectClientNameLabel</li>
+                <li class="field_header ">@Html.DisplayTextFor(model => model.MasterProjectDetails.ClientName)</li>
+                <li class="bar_header">|</li>
+                <li class="label_header4">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectClientWebsiteLabel</li>
+                <li class="field_header ">@Html.DisplayTextFor(model => model.MasterProjectDetails.ClientWebsite)</li>
+                <li class="bar_header">|</li>
+                <li class="label_header4">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectLicenseTermLabel</li>
+                <li class="field_header ">@Html.DisplayTextFor(model => model.MasterProjectDetails.LicenseTerm)</li>
+            </ul>
+        </h5>
+    </div>
+    <div class="contentDv">
+        <div style="margin-left: -0.69%; *margin-left: -9px;">
+
+            <div class="mpi-wrapper">
+                <div class="mpi-column7 mpi-fl  ">
+                    &nbsp;
+                </div>
+                <div class="mpi-column6 mpi-fl " id="tdRequestType">
+                    <!-- Advertising Header -->
+                    <div class="mpi-new-header mpi-bold RequestSummaryTDHeadColor" id="divRequestType">
+                        @Html.CheckBoxFor(model => model.MasterProjectDetails.IsAdvertisingRequest, new { id = "chkAdvertising", disabled = "disabled" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingChkbox
+                        @* @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingHeader)   *@
+                    </div>
+                    <!-- Advertising Header -->
+                </div>
+            </div>
+            <div id="trAdvertising" style="display: none">
+                <div class="mpi-wrapper" style="margin-top: -9px; *margin-top: -8px;">
+                    <div class="mpi-column7 mpi-fl  mpi-bold text-align-right" style="white-space: nowrap">
+                        <span class="madatoryField">@mandatory</span>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingAdvertisedProductsLabel
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            @Html.DisplayTextFor(model => model.MasterProjectDetails.Advertising.AdvertisedProducts)
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold text-align-right">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingNoOfSpotsLabel)</div>
+                            <div class="mpi-field mpi-fr mpi-tal">@Html.DisplayTextFor(model => model.MasterProjectDetails.Advertising.NoOfSpots) </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl " style="position: relative;">
+                        <div class="frameDv frameDv1" id="Advertising_Frame"></div>
+                        <div class="adv-colum2 mpi-fl " id="chkAdver_TV_Radio">
+                            <div class="mpi-label mpi-fl mpi-bold " style="padding-bottom: 16px;">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.TV, new { id = "chkAdvertisingTV", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingTVChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.Radio, new { id = "chkAdvertisingRadio", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingRadioChkbox) </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold text-align-right">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingDurationFromLabel)</div>
+                            @{
+                                string deliveryDate =
+                                    (Model.MasterProjectDetails.Advertising.DurationFrom != null)
+                                        ?
+                                    Convert.ToDateTime(Model.MasterProjectDetails.Advertising.DurationFrom).ToShortDateString()
+                                    :
+                                    string.Empty;
+                            }
+                            <div class="mpi-field mpi-fr mpi-tal">@deliveryDate</div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl">
+                        <div class="adv-colum2 mpi-fl  adv-margin-top-check" style="padding-bottom: 25px;" id="chkAdver_Cinema_Internet">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.Cinema, new { id = "chkAdvertisingCinema", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingCinemaChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.Internet, new { id = "chkAdvertisingInternet", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingInternetChkbox) </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl" style="margin-top: -9px; *margin-top: -5px; margin-top: -4px\0;">
+                            <div class="mpi-label mpi-fl mpi-bold text-align-right">@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingDurationToLabel) </div>
+                            @{
+                                string deliveryDateTo =
+                                    (Model.MasterProjectDetails.Advertising.DurationTo != null)
+                                        ?
+                                    Convert.ToDateTime(Model.MasterProjectDetails.Advertising.DurationTo).ToShortDateString()
+                                    :
+                                    string.Empty;
+                            }
+                            <div class="mpi-field mpi-fr mpi-tal">@deliveryDateTo</div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold ">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl">
+                        <div class="adv-colum2 mpi-fl  adv-margin-top-check1" id="chkAdver_Video_Other">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.Video, new { id = "chkAdvertisingVideo", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingVideoChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Advertising.Other, new { id = "chkAdvertisingOther", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingOtherChkbox) </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl  ">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpi-wrapper" style="margin-top: -26px; display: none;" id="adv-video-audio">
+                    <div class="mpi-column7 mpi-fl  mpi-bold text-align-right" id="divLblAdvertisingVideo" style="visibility: hidden; margin-top: 17px;">
+                        <label class="madatoryField">@mandatory</label>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingInitialNoOfVideosLabel
+                    </div>
+                    <div class="mpi-column6 mpi-fl " style="margin-top: 15px;">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold" id="divAdvertisingVideo" style="visibility: hidden;">@Html.DisplayTextFor(model => model.MasterProjectDetails.Advertising.InitialNoOfVideos)</div>
+                            <div class="mpi-field mpi-fr mpi-tal" id="divAdvertisingother" style="visibility: hidden;">
+                                <label class="madatoryField">@mandatory</label>@Html.TextAreaFor(model => model.MasterProjectDetails.Advertising.OtherComments, new { id = "txtAdvertiseOtherComments", @class = "txt-width-small" })
+                            </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpi-wrapper adv-margin-top">
+                    <div class="mpi-column7 mpi-fl  mpi-bold mpi-tar">
+                        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectAdvertisingOptionalAdditionalRightsLabel)
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl ">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.DisplayTextFor(model => model.MasterProjectDetails.Advertising.OptionalAdditionalRights)</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp;</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpi-wrapper ">
+                    <div class="mpi-column7 mpi-fl  ">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+            <div class="mpi-wrapper">
+                <div class="mpi-column7 mpi-fl  mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-column6 mpi-fl " id="tdRequestType2">
+                    <div class="adv-colum2 mpi-fl">
+                        <div class="mpi-new-header mpi-bold mpi-margin-rght" id="divRequestType1">
+                            @Html.CheckBoxFor(model => model.MasterProjectDetails.IsFilmRequest, new { id = "chkFilm", disabled = "disabled" })
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmChkbox&nbsp;
+                        </div>
+                    </div>
+                    <div class="adv-colum1 mpi-fl">
+                        <div class="mpi-new-header mpi-bold mpi-margin-rght" id="divRequestType2">
+                            @Html.CheckBoxFor(model => model.MasterProjectDetails.IsTrailerRequest, new { id = "chkTrailer", disabled = "disabled" })
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailerChkbox&nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpi-column7 mpi-fl  mpi-bold">
+                    &nbsp;
+                </div>
+            </div>
+            <!-- Trailer SECTION STARTED -->
+            <div class="mpi-wrapper trailer-wrapper-section" id="trTrailers" style="display: none; overflow: visible;">
+                <div class="mpi-wrapper" style="margin-top: -5px; *margin-top: -27px; margin-top: -5px\0; margin-left: -7.5%; *margin-left: 0px;">
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+              @* @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersHeader)*@
+                    </div>
+                    <!-- id="tblTrailerOptions"-->
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="ChkTrailersTV_Internet" style="position: relative;">
+                            <div class="frameDv frameDv2" id="Trailers_Frame"></div>
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Trailer.TV, new { id = "chkTrailersTV", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersTVChxbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Trailer.Internet, new { id = "chkTrailersInternet", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersInternetChxbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp;</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="ChkTrailersCinema_Video">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Trailer.Cinema, new { id = "chkTrailersCinema", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersCinemaChxbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Trailer.Video, new { id = "chkTrailersVideo", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersVideoChxbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp; </div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="ChkTrailersOther">
+                            <div class="mpi-label mpi-fl mpi-bold" style="padding-bottom: 16px;">@Html.CheckBoxFor(model => model.MasterProjectDetails.Trailer.Other, new { id = "chkTrailersOther", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersOtherChxbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">&nbsp;</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="mpi-wrapper" id="Trailer-video-audio">
+                    <div class="mpi-column7 mpi-fl mpi-tar  mpi-bold" id="divLblTrailersVideo" style="visibility: hidden;">
+                        <label class="madatoryField">@mandatory</label>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersInitialNoOfVideosLabel
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold" id="txtTrailersVideo" style="visibility: hidden;">@Html.DisplayTextFor(model => model.MasterProjectDetails.Trailer.InitialNoOfVideos)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold" id="txtTrailersOther" style="visibility: hidden;">
+                                <label class="madatoryField">@mandatory</label>@Html.TextAreaFor(model => model.MasterProjectDetails.Trailer.OtherComments, new { id = "TrailerOtherComments", style = "width:150px !important;", @class = "txt-width-xsmall" })
+                            </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mpi-wrapper adv-margin-top" style="margin-left: -7.5%; *margin-left: 0px;">
+                    <div class="mpi-column7 mpi-fl  mpi-bold mpi-tar">
+                        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectTrailersOptionalAdditionalRightsLabel)
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.DisplayTextFor(model => model.MasterProjectDetails.Trailer.OptionalAdditionalRights)</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp;</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trailer SECTION ENDED -->
+
+            <!-- Film SECTION STARTED -->
+            <div class="mpi-wrapper film-wrapper-section" id="trFilm" style="display: none">
+                <div class="mpi-wrapper" style="margin-top: 12.7%; *margin-top: -27px; margin-top: -0.4%\0;">
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+               @*@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmHeader)*@
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <!--id="tblFilmOptions"-->
+                        <div class="adv-colum2 mpi-fl" id="chkFilmTV_Internet" style="position: relative;">
+                            <div class="frameDv frameDv2" id="Film_Frame"></div>
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.TV, new { id = "chkFilmTV", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmTVChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.Internet, new { id = "chkFilmInternet", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmInternetChkbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp;</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="chkFilmCinema_Trailor">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.Cinema, new { id = "chkFilmCinema", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmCinemaChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.TrailerInContext, new { id = "chkFilmTrailer", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmTrailerChkbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp; </div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="chkFilmVideo_Other">
+                            <div class="mpi-label mpi-fl mpi-bold" style="padding-bottom: 16px;">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.Video, new { id = "chkFilmVideo", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmVideoChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Film.Other, new { id = "chkFilmOther", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmOtherChkbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="mpi-wrapper" id="Film-video-Other">
+                    <div class="mpi-column7 mpi-fl  mpi-tar mpi-bold" id="divlblFilmVideo" style="visibility: hidden;">
+                        <label class="madatoryField">@mandatory</label>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmInitialNoOfVideosLabel
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold" id="divtxtFilmVideo" style="visibility: hidden;">@Html.DisplayTextFor(model => model.MasterProjectDetails.Film.InitialNoOfVideos)</div>
+                            <div class="mpi-field mpi-fr mpi-tal" id="divtxtFilmOther" style="visibility: hidden;">
+                                <label class="madatoryField">@mandatory</label>@Html.TextAreaFor(model => model.MasterProjectDetails.Film.OtherComments, new { id = "txtFilmOtherComments", style = "width:150px !important;", @class = "txt-width-xsmall" })
+                            </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="mpi-wrapper adv-margin-top">
+                    <div class="mpi-column7 mpi-fl  mpi-bold mpi-tar">
+                        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectFilmOptionalAdditionalRightsLabel)
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-tar mpi-fl mpi-bold">@Html.DisplayTextFor(model => model.MasterProjectDetails.Film.OptionalAdditionalRights)</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp;</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FILM SECTION ENDED -->
+            <div class="mpi-wrapper">
+                <div class="mpi-column7 mpi-fl  ">
+                    &nbsp;
+                </div>
+                <div class="mpi-column6 mpi-fl ">
+                    <hr />
+                </div>
+            </div>
+            <!-- Other SECTION STARTED -->
+            <div class="mpi-wrapper">
+                <div class="mpi-column7 mpi-fl  mpi-bold">
+                    &nbsp;
+                </div>
+                <div class="mpi-column6 mpi-fl ">
+                    <div class="adv-colum2 mpi-fl" id="tdRequestType3">
+                        <div class="frameDv frameDv1"></div>
+                        <div class="mpi-new-header mpi-bold mpi-margin-rght" id="divRequestType3">
+                            @Html.CheckBoxFor(model => model.MasterProjectDetails.IsOtherRequest, new { id = "chkOther", disabled = "disabled" })
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOtherChkbox
+                        </div>
+                    </div>
+                    <div class="adv-colum1 mpi-fl">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="mpi-column7 mpi-fl  mpi-bold">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="mpi-wrapper other-wrapper-section" id="trOthers" style="display: none">
+                <div class="mpi-wrapper" style="margin-top: -0.5%; *margin-top: -27px; margin-top: -0.5%\0;">
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+               @*  @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersHeader)*@
+                    </div>
+                    <div class="mpi-column6 mpi-fl " style="position: relative;">
+                        <!--id="tblOtherOptions"-->
+                        <div class="frameDv frameDv1" id="Other_Frame"></div>
+                        <div class="adv-colum2 mpi-fl" id="chkOthersTV_Radio">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.TV, new { id = "chkOthersTV", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersTVChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.Radio, new { id = "chkOthersRadio", disabled = "disabled" })@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersRadioChkbox) </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp;</div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="chkOthersCinema_Internet">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.Cinema, new { id = "chkOthersCinema", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersCinemaChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.Internet, new { id = "chkOthersInternet", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersInternetChkbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">&nbsp; </div>
+                            <div class="mpi-field mpi-fr mpi-tal">&nbsp; </div>
+                        </div>
+                    </div>
+
+                    <div class="mpi-column7 mpi-fl  mpi-bold">
+                        &nbsp;
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl" id="chkOthersVideo_Other">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.Video, new { id = "chkOthersVideo", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersVideoChkbox)</div>
+                            <div class="mpi-field mpi-fr mpi-tal mpi-bold" style="padding-bottom: 15px;">@Html.CheckBoxFor(model => model.MasterProjectDetails.Others.Other, new { id = "chkOthersOther", disabled = "disabled" }) @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersOtherChkbox)</div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="mpi-wrapper" id="Others-video-Other">
+                    <div class="mpi-column7 mpi-fl  mpi-bold mpi-tar" id="divLblOtherVideo" style="visibility: hidden;">
+                        <label class="madatoryField">@mandatory</label>@Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersInitialNoOfVideosLabel)
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold " id="txtOtherVideo" style="visibility: hidden;">@Html.DisplayTextFor(model => model.MasterProjectDetails.Others.InitialNoOfVideos)</div>
+                            <div class="mpi-field mpi-fr mpi-tal" style="visibility: hidden;" id="txtOtherOther">
+                                <label class="madatoryField">@mandatory</label>@Html.TextAreaFor(model => model.MasterProjectDetails.Others.OtherComments, new { id = "OthersOtherComments", style = "width:150px !important;", @class = "txt-width-small" })
+                            </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="mpi-wrapper adv-margin-top">
+                    <div class="mpi-column7 mpi-fl mpi-tar  mpi-bold ">
+                        @Html.Label(@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectOthersOptionalAdditionalRightsLabel)
+                    </div>
+                    <div class="mpi-column6 mpi-fl ">
+                        <div class="adv-colum2 mpi-fl">
+                            <div class="mpi-label mpi-fl mpi-bold">@Html.DisplayTextFor(model => model.MasterProjectDetails.Others.OptionalAdditionalRights)</div>
+                            <div class="mpi-field mpi-fr mpi-tal">
+                                &nbsp;@Html.HiddenFor(model => model.MasterProjectDetails.CreatedBy)@Html.HiddenFor(model => model.MasterProjectDetails.CreatedByUser)
+                                @Html.HiddenFor(model => model.MasterProjectDetails.CreatedDate)
+                                @Html.HiddenFor(model => model.MasterProjectDetails.StatusTypeDesc)
+                                @Html.HiddenFor(model => model.MasterProjectDetails.StatusType)
+                                @Html.HiddenFor(model => model.MasterProjectDetails.ProjectReferenceId, new { id = "hdnProjRefId" })
+                                @Html.HiddenFor(model => model.MasterProjectDetails.ClrProjectId)
+                                @Html.HiddenFor(model => model.MasterProjectDetails.ClearanceProjectID, new { id = "hdnclrProjectId" })
+                            </div>
+                        </div>
+                        <div class="adv-colum1 mpi-fl">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Other SECTION ENDED -->
+        </div>
+    </div>
+</div>
+<!-- REQUEST TYPE ENDS  -->
+
+<p>
+    <br />
+    <br />
+</p>
+
+<script type="text/javascript">
+    function applyCustomTheam() {
+
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 45;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+        $(".mainContainer").css("height", mainContainerHeight + "px");
+        $(".mainContainer").css("overflow", "visible");
+        $("#wrapper").css("height", mainContainerHeight - 89 + "px");
+
+    }
+</script>

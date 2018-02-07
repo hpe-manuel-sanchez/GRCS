@@ -1,0 +1,180 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SelectSingleUser.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/Syncfusion.min.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var pageName = '@ViewBag.PageName';
+</script>
+<style type="text/css">
+.ui-dialog .ui-dialog-content 
+{
+    padding:0;
+}
+.poupPage
+{
+    margin-left:0;
+}
+.Syncfusion-Grid-Core
+{
+	height:auto !important;
+	width:99.9% !important;
+}
+.Syncfusion-Grid-Core .HeaderCell, HeaderCellDiv
+{
+	height:20px !important; 
+ 
+}
+.Syncfusion-Grid-Core .HeaderCell, .RowCell
+{
+ padding-top:0.2em !important;
+ padding-bottom:0.2em !important;
+}
+.Syncfusion-Grid-Core .GridPager .RefreshPager
+{
+	display:none !important;
+}
+.accItemNew
+{
+    padding:5px 0 !important;
+}
+</style>
+<div id="selectSingleUserErrorMessage" class="warning workgroup-margintopbottom5px">
+        </div>
+        <div id="UserSuccessMessage" style="display:none !important;" class="success">
+        </div>
+<!-- Mimic User dialog window markup -->
+  <div id="selectSingleUserDialog">
+		 <div class="dwMainContainer">
+             <div id="wrapperDv">
+                   <div id="headerScreenTitleForAddUser"  class="headerTitleScreen">
+                    <span><a class="cross">&nbsp;</a>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_titleForAddAndRemoveUser
+                    </span>
+                </div>
+                 <div class="accItem accItemNew">
+                     <div class="editor-field"  id ="selectSinglemainsearch" >
+                         @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)
+                         @Html.TextBox("txtselectSingleUserName", "", new { maxlength = "100" })
+                         @Html.TextBox("txtselectSingleUserId", "", new { maxlength = "100" })
+                         @Html.TextBox("txtselectSingleUserCountry", "", new { maxlength = "40" })
+                         <input id="btnselectSingleSearchUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" runat="server" class="primbutton" />
+                         <input id="btnselectSingleUserReset" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+                     </div>
+                 </div>
+             </div>
+        </div>
+		<div id="mimicUserSearchResultsGrid" >
+	@*	<table id="mimicUserSearchResults" class="popupTableResult" style="display:none;" >
+			<tr>
+				<td id="mimicUserSearchResultLabel" align="left">
+				<p style="margin-left:15px;">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel&nbsp;<b><span id="mimicUserSearchResultCount"/></b></p>
+				</td>
+				<td id="mimicUserSearchPaging" align="right">
+					<div id="divSearchMimicUserPaging" style="margin-right:15px;width:200px;">
+						@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown 
+						@Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlMimicUserPaging" })
+						@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+					</div>
+				</td>
+        </tr>
+    </table>*@
+	<div style="margin:5px 0 0 0px; display:none;" id ="selectSingleUserSearchResults">
+            <div style="float:left;" id="mimicUserSearchResultLabel">
+                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel&nbsp;<b><span id="selectSingleUserSearchResultCount"/></b> 
+            </div>
+            <div style="float:right; display:none; " id="selectSingleUserSearchPaging">                
+                      <div id="divSearchselectSingleUserPaging" style="margin-right:15px;">
+                             @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown 
+                             @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlselectSingleUserPaging" })
+                             @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                      </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+
+		<div id="selectSingleUserSearchGrid" style="display:none;azimuth:center;width:100%">
+	   @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkGroupUser>("SelectSingleUserGrid")
+                                   .Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkGroupUser>)ViewData["searchSingleUsers"])
+						.ActionMode(ActionMode.JSON)
+						.EnableOnDemand()
+						.TotalRecordCount(0)
+						.AutoFormat(Skins.Olive)
+						.EnableAlternateRowStyling()
+						.EnableRowHover(true)
+						//.CustomCss("Syncfusion-Grid-Greenish")
+						.EnableScrolling()
+						.EnablePaging()
+						.EnableSorting()
+                        //.Scrolling(scroll =>
+                        //{
+                        //    scroll.AllowScrolling(true);
+                        //    scroll.Height(250);
+                        //})
+						.Column(column =>
+						{
+							column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel).Width(47);
+							column.Add(c => c.Name).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserNameLabel);
+							column.Add(c => c.LoginName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_LoginNameLabel);
+							column.Add(c => c.CountryName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_CountryNameLabel);
+							column.Add(c => c.Email).HeaderText("Eamil").Visible(false);
+						})
+						.ClientSideEvents(evt => evt.OnActionBegin("ActionStart"))
+                        .ClientSideEvents(evt => evt.OnActionComplete("ActionComplete"))
+						.ClientSideEvents(evt => evt.OnActionSuccess("ShowResultCount"))
+						.ClientSideEvents(evt => evt.QueryCellInfo("AddRecordCheckBox"))
+						.SortSettings(sort => 
+						{ 
+							sort.AllowSorting(true); 
+							sort.AllowMultiSorting(true);
+						})
+                        //.PageSettings(page =>
+                        //{
+                        //    page.PageSize(10);
+                        //    page.ShowPagerInformation(false);
+                        //    page.PageCount(5);
+                        //    page.PagerPosition(Position.BottomLeft);
+                        //    page.PagerStyle(PagerStyle.Default);
+                        //})
+                                    .PageSettings(page =>
+                                    {
+                                        page.PageSize(10);
+                                        page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+                                    }) 
+                        
+                        )
+	</div>
+                <input id="hdnSelectedMimicUserName" type="hidden" value="" runat="server" /> 
+                     <input id="hdnSelectedUserDetails" type="hidden" value="" runat="server" /> 
+ 		</div>
+  </div>
+
+<script type="text/javascript">
+    var singleSelectUserMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        selectRow: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert',
+		userNotMappedToWorkgroup: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_mimicUser_userNotmappedtoWkgMessage'
+    }
+    var watermarkUserName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserName';
+    var watermarkUserId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserId';
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var addUserToWorkgroupTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_addUserToWorkgroupForTitle';
+    var removeUserFromWorkgroupTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_RemoveUserFromWorkgroupTitle';
+    var selectColumnName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel';
+//    function applyCustomTheam() {
+
+//        var docHeight = $(window).height();
+//        var headerHeight = 95;
+//        var footerHeight = 35;
+
+//        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+//        $("#main").css({
+//            "height": mainContainerHeight + "px",
+//            "overflow": "auto",
+//            "overflowX": "hidden",
+//            "position": "relative"
+//        });
+
+//    }
+//    applyCustomTheam();
+</script>

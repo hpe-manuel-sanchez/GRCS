@@ -1,0 +1,119 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageCompany.js")" type="text/javascript"></script>
+<style type="text/css">
+    #CompanyDetails_Name {
+        padding-left: 2em;
+    }
+
+    .ui-dialog .ui-dialog-content {
+        padding: 0;
+    }
+
+    #partialViewContainer {
+        padding: 0;
+        margin: 0;
+        width: 1000px;
+    }
+
+    #manageCompanyContainer {
+        padding: 0;
+    }
+
+    .ui-autocomplete-loading {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") left center no-repeat;
+    }
+
+    .jtable {
+        margin-top: 0px !important;
+    }
+</style>
+<div id="popupMgCompanyerrorMessage" class="warning" style="margin: 5px 0;">
+</div>
+<div id="partialViewContainer">
+    <div class="dwMainContainer">
+        <div id="wrapperDv">
+            <div class="accItem " id="searchCriteriaContainer">
+                <!-- not used ID-->
+                <div class="editor-field">
+                    <label class="madatoryField" style="margin-left: 10px;">
+                        *</label>
+                    @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)
+                    @*@Html.Editor("name")*@ @*@Html.Editor("name", new { data_autocomplete_source_manual = @Url.Action("SuggestiveSearchCompany", "Workgroup") })*@
+                    @*@Html.TextBoxFor(model => Model.CompanyDetails.Name, new { data_autocomplete_source_manual = @Url.Action("SuggestiveSearchCompany", "Workgroup", new { id = "CompanyDetails_Name", page = @ViewBag.parentPage, parentWorkgroupId = @ViewBag.parentWorkgroupId }) })*@
+                    @Html.TextBoxFor(m => m.CompanyDetails.Name, new { id = "CompanyDetails_Name", @maxlength = "120" })
+                    @Html.TextBox("isaccode", "", new { maxlength = "20" })
+                    @Html.TextBox("country", "", new { maxlength = "40" })
+                    @Html.Hidden("companyValues")
+                    <input id="btnOpenSearchComp"  style=" vertical-align:top"   type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" runat="server" class="primbutton" />
+                    <input id="btnReset"   style=" vertical-align:top"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="managecompany" style="position: relative; display:none;">
+        <span id="spnMgCompanyAddedResultLabel" style="font-weight: bold; display: none;padding: 10px 0"></span>
+        <div id="addedManageCompanyResults" class="jtableDvwithDrop" style="position: static"></div>
+        <div style="float: left; margin-left: -2px !important;" class="poupBottomBarButton">
+            <input id="btnRemove" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveButton" runat="server" class="secbutton" />
+        </div>
+        <div style="float: right; margin-right: -5px !important;" class="poupBottomBarButton">
+            <input id="btnSave" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SaveButton" runat="server" class="primbutton" />
+            <input id="btnCancel" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton"/>
+        </div>
+    </div>
+    <div id="searchCompanyPopup" style="display:none"; >
+        <table class="popupTableResult">
+            <tr>
+                <td id="searchResultForCompany" style="text-align: left;">
+                </td>
+                <td id="SearchCompanyPaging" style="text-align: right;">
+                    <div id="divSearchCompanyPaging" style="display:none;">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlCompanyPaging" })
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="searchCompanyResults" class="jtableDvwithDrop" style="position: static">
+        </div>
+        <div style="float: right;" class="poupBottomBarButton">
+            <input id="btnAdd" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" runat="server" class="primbutton" />
+            <input id="btnCancel1" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+            <input id="hdnAddedValues" type="hidden" value="" />
+            <input id="hdnSavedCompanyValues" name="hdnSavedCompanyValues" value="" type="hidden" />
+        </div>
+    </div>
+</div>
+<div style="clear: both;">
+</div>
+<script type="text/javascript">
+    //             var divSearchHeader = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchHeaderForManageWorgroup';
+    //             var manageTerritoryTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageTerritoryHeader';
+    //             var noRowsSelected = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert';
+    //             var searchresultForLabel = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel';
+    //             var createWorkgroupMessages = {
+    //                 searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+    //                 SelectDefaultUser: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectDefaultUser',
+    //                 manageCompany: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageCompanyButton',
+    //                 manageUser: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageUsersButton'
+    //             };
+    // var watermarkUserName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserName';
+    //var watermarkUserId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserId';
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var watermarkCompanyName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompanyName';
+    var watermarkIsacCode = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkIsacCode';
+    //             var mandatoryFields = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_MandatoryFields';
+    //             var validEmailId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_ValidEmailId';
+    //             var pageTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchHeaderForManageWorgroup';
+    var mgCompJtableColNames = {
+        CompName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompNameLabel',
+        ISACCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_IsacCodeLabel',
+        CountryName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CountryLabel',
+        Company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        ISACCompCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_ISACCompCodeLabel'
+    };
+    var listOfMgCompaniess = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_listOfAddedCompanies';
+    var pageName = '@ViewBag.parentPage';
+    var parentWorkgroupId = '@ViewBag.parentWorkgroupId';
+</script>

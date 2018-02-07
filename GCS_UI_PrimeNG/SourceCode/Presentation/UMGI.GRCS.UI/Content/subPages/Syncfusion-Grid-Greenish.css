@@ -1,0 +1,570 @@
+﻿.Syncfusion-Grid-Greenish {
+    border-color: #ffffff;
+    color: #000000;
+}
+
+    .Syncfusion-Grid-Greenish .grid-icon {
+        background: url('/Gcs/Images/Greenish_sprite.png');
+    }
+
+    .Syncfusion-Grid-Greenish .GridContent .Table {
+        border-top-color: #A0B345;
+        border-bottom-color: #A0B345;
+    }
+
+    .Syncfusion-Grid-Greenish .GridContent {
+        background-color: #FFFFFF;
+    }
+
+    .Syncfusion-Grid-Greenish .GridHeader {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .GroupDropArea {
+        background-color: #8DA046;
+        border-color: #A0B345;
+        color: #FFFFFF;
+    }
+
+    .Syncfusion-Grid-Greenish.cloneProperties {
+        color: #323232;
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: #F2D9D9;
+        border-color: #C2D07E;
+    }
+
+    .Syncfusion-Grid-Greenish .GroupTopLeftCell, .Syncfusion-Grid-Greenish .TopRightCell, .Syncfusion-Grid-Greenish .TopLeftCell {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+        border-color: #A0B345;
+    }
+
+    .Syncfusion-Grid-Greenish .CaptionRow {
+        border-color: #E4FDD5;
+        background-color: #8DA046;
+    }
+    /*Added for pager*/
+    .Syncfusion-Grid-Greenish .PagerCaptionRow { /*change*/
+        border-top-color: #EACDCC;
+    }
+
+    .Syncfusion-Grid-Greenish .PagerGroupDropArea { /*change*/
+        border-top-color: #EACDCC;
+        background-color: #F3E2E2;
+    }
+
+    .Syncfusion-Grid-Greenish .GroupCaption {
+        background-color: #6F8227;
+        border-color: #A0B345;
+        color: #FDF4DC;
+    }
+
+    .Syncfusion-Grid-Greenish .Spacing {
+        color: #FFFFFF;
+    }
+
+    .Syncfusion-Grid-Greenish .HeaderCell, .Syncfusion-Grid-Greenish .grid-icon, .Syncfusion-Grid-Greenish .GroupTopLeftCell, .Syncfusion-Grid-Greenish .TopRightCell, .Syncfusion-Grid-Greenish th.MasterHeaderLeftCell, .Syncfusion-Grid-Greenish .TopLeftCell, .Syncfusion-Grid-Greenish.cloneProperties, .Syncfusion-Grid-Greenish .ExternalForm-Header, .Syncfusion-Grid-Greenish .ToggleContainer {
+        background-image: url('/Gcs/Images/header-bg.jpg');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .HeaderCell, .Syncfusion-Grid-Greenish .HeaderCellHover {
+        border-color: #b3c2d2;
+    }
+
+    .Syncfusion-Grid-Greenish .HeaderCellHover, .Syncfusion-Grid-Greenish .GroupHeaderCell:hover {
+        background: #b8d0e9 !important;
+    }
+
+    .Syncfusion-Grid-Greenish .GroupHeaderCell, .Syncfusion-Grid-Greenish .GroupHeaderCell:hover, .Syncfusion-Grid-Greenish .GrpHdrUnboundColumn {
+        border-color: #A0B345;
+        color: Black;
+    }
+
+    .Syncfusion-Grid-Greenish .SelectedHeaderCell {
+        border-color: #A0B345;
+        background-color: #E7CFCD; /*check*/
+        background-image: url('/Gcs/Images/active-bg.png');
+    }
+
+    .Syncfusion-Grid-Greenish .RowHeader {
+        border-color: #A0B345;
+        background-color: #C2D07E;
+    }
+
+    .Syncfusion-Grid-Greenish .TemplateCell {
+        color: #81c909;
+    }
+
+    .Syncfusion-Grid-Greenish .SelectedRowHeaderCell, .Syncfusion-Grid-Greenish .HovedRowHeaderCell {
+        border-color: #A0B345;
+        background-color: #586E05;
+    }
+
+    .Syncfusion-Grid-Greenish .HeaderIcon {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .RowCell, .Syncfusion-Grid-Greenish .EmptyCell, .Syncfusion-Grid-Greenish tr[class*=ChildRow] > .ChildGrid {
+        border-color: #A0B345;
+    }
+
+    .Syncfusion-Grid-Greenish .Alt_Row {
+        background-color: #DAE093;
+    }
+
+    .Syncfusion-Grid-Greenish .RowHover {
+        background-color: #FFE59B;
+        background-image: url("/GCS/Images/Greenish_sprite.png");
+    }
+
+    .Syncfusion-Grid-Greenish .IndentCell {
+        border-color: #A0B345;
+        background-color: #8DA046;
+    }
+
+    .Syncfusion-Grid-Greenish .Summary {
+        color: #000000;
+        background-color: #8DA046;
+        border-color: #A0B345;
+    }
+
+    .Syncfusion-Grid-Greenish .GridSummary {
+        border-color: #E2BABA; /*check*/
+    }
+
+    .Syncfusion-Grid-Greenish .RecordPlusCollapse, .Syncfusion-Grid-Greenish .MasterCellCollapse {
+        background-color: #8DA046;
+        border-color: #A0B345;
+    }
+
+        .Syncfusion-Grid-Greenish .RecordPlusCollapse > div, .Syncfusion-Grid-Greenish .MasterCellCollapse > div {
+            background-image: url('/Gcs/Images/ui-icons_222222_256x240.png');
+            background-color: #8DA046;
+        }
+
+    .Syncfusion-Grid-Greenish .RecordPlusExpand, .Syncfusion-Grid-Greenish .MasterCellExpand {
+        background-color: #8DA046;
+    }
+
+        .Syncfusion-Grid-Greenish .RecordPlusExpand > div, .Syncfusion-Grid-Greenish .MasterCellExpand > div {
+            background-image: url('/Gcs/Images/ui-icons_222222_256x240.png');
+            background-color: #8DA046;
+        }
+
+    .Syncfusion-Grid-Greenish .MasterCellCollapse, .Syncfusion-Grid-Greenish .MasterCellExpand, .Syncfusion-Grid-Greenish td[class*=MasterCell] > div {
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .PlusMinusSelection {
+        background-color: #fcc467;
+    }
+
+    .Syncfusion-Grid-Greenish .Ascending {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .Descending {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .reSizeColbg {
+        background-color: #B95252; /*check*/
+    }
+
+    .Syncfusion-Grid-Greenish .SelectedColumn {
+        background-color: #A0B345;
+    }
+
+    .Syncfusion-Grid-Greenish .SelectionBackground {
+        background-color: #3171bb;
+        color: #FFFFFF; /*check*/
+    }
+
+    .Syncfusion-Grid-Greenish .CurrentCell {
+        background-color: #C2D07E;
+        color: #323232;
+    }
+
+    .Syncfusion-Grid-Greenish .GridPager {
+        /*background-color: #8DA046;
+    border-color: #A0B345;*/
+    }
+
+        .Syncfusion-Grid-Greenish .GridPager, .Syncfusion-Grid-Greenish .GridPager .NumericItem {
+            color: #143489;
+        }
+
+    .Syncfusion-Grid-Greenish .NumericItem:Hover {
+        /* background-color: #D8E096;*/
+    }
+
+    .Syncfusion-Grid-Greenish .FirstPage {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .PrevPage {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .FirstPageDisabled {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .PrevPageDisabled {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .NextPage {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .LastPage {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .NextPageDisabled {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .LastPageDisabled {
+        background-image: url('/Gcs/Images/Greenish_sprite.png');
+        background-color: transparent;
+    }
+
+    .Syncfusion-Grid-Greenish .CurrentItem {
+        /*border-color: #E4FDD5;*/
+        background-color: #143489;
+        color: White !important;
+    }
+
+.ColumnDropIndicator {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .ToolbarItems {
+    color: #BE5A5C;
+}
+
+.Syncfusion-Grid-Greenish .AddNewItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .EditItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .ExcelItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .WordItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .PdfItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .DeleteItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .SaveItem {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .Cancel {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .EditFormCaptionCell {
+    color: #231F20;
+}
+
+.Syncfusion-Grid-Greenish .FilterIcon {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .FilterIconTick {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .FilterCellHover {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent;
+}
+
+.Syncfusion-Grid-Greenish .StringFilter, .Syncfusion-Grid-Greenish .DateFilter, .Syncfusion-Grid-Greenish .NumericFilter {
+    background-color: #BFDBFF;
+    border-color: #6593CF;
+}
+
+.Syncfusion-Grid-Greenish .EditForm {
+    background-color: #EBD7D6;
+    border-color: #B95252;
+}
+
+.Syncfusion-Grid-Greenish .RecordCaption {
+    color: #000000;
+}
+
+.Syncfusion-Grid-Greenish .EditForm legend {
+    color: #BE5A5C;
+}
+
+.Syncfusion-Grid-Greenish .EditCell .field-validation-error, .Syncfusion-Grid-Greenish .EditForm .field-validation-error {
+    color: Red;
+}
+
+.Syncfusion-Grid-Greenish .EditForm fieldset {
+    border-color: #EBD7D6;
+}
+
+.Syncfusion-Grid-Greenish .Gridtoolbar .customToolItem { /*check*/
+    background-color: transparent;
+    color: #BE5A5C;
+}
+
+.reSizeColbg {
+    background-color: #B95252;
+}
+
+.ui-selectable-helper {
+    background-color: #D18F8F;
+    border-color: #BB964C !important;
+}
+
+.Syncfusion-Grid-Greenish.DragElementtext {
+    background-color: #B36D6D;
+    color: #FFFFFF;
+    border-color: #B95252 !important;
+}
+
+.DragTable {
+    border-color: black;
+    background-color: Gray;
+}
+
+.Syncfusion-Grid-Greenish .SelectionBackground.SelectedRowHighlight {
+    background-color: #FFD6A4;
+}
+
+.Syncfusion-Grid-Greenish .GridEditors {
+    border-color: #C0C0C0 !important;
+    color: black !important;
+}
+
+.Syncfusion-Grid-Greenish .button {
+    border-color: #C0C0C0 !important;
+}
+
+.Syncfusion-Grid-Greenish .sfInputText {
+    color: Black !important;
+}
+
+.Syncfusion-Grid-Greenish .Table td.FrozenX, .Syncfusion-Grid-Greenish .Table th.FrozenX {
+    border-right-color: #E29C9C;
+}
+
+.Syncfusion-Grid-Greenish .Table td.FrozenY {
+    border-top-color: #E29C9C;
+}
+
+.Syncfusion-Grid-Greenish .sfAlmond .ui-state-default, .Syncfusion-Grid-Greenish .sfAlmond .ui-widget-content .ui-state-default {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-color: transparent !important;
+}
+
+.Syncfusion-Grid-Greenish .sfAlmond .ui-slider .ui-state-hover {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+}
+
+.Syncfusion-Grid-Greenish .sfAlmond .ui-slider .ui-slider-range {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+}
+
+.Syncfusion-Grid-Greenish .sfAlmond .ui-widget-content {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+}
+
+.Syncfusion-Grid-Greenish-Tooltip .tooltipTopDiv {
+    background-color: #D18F8F;
+    color: #ffffff;
+}
+
+.Syncfusion-Grid-Greenish-Tooltip .tooltipBottomDiv {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+}
+
+.Syncfusion-Grid-Greenish .NextPage:Hover, .Syncfusion-Grid-Greenish .LastPage:Hover, .Syncfusion-Grid-Greenish .FirstPage:Hover, .Syncfusion-Grid-Greenish .PrevPage:Hover, .Syncfusion-Grid-Greenish .GridPager .RefreshPager:Hover {
+    background-color: #cccccc;
+}
+
+.Syncfusion-Grid-Greenish .GridPager .RefreshPager {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+}
+
+.Syncfusion-Grid-Greenish .FilterBarCell {
+    border-color: #EACDCC;
+    background-color: #F3E2E2;
+}
+
+    .Syncfusion-Grid-Greenish .FilterBarCell input {
+        border-color: #D4B9B8;
+    }
+
+.Syncfusion-Grid-Greenish .Syncfusion-Grid-FilterStatusBar, .Syncfusion-Grid-Greenish .Syncfusion-Grid-FilterStatusBarBottom {
+    background-color: #F9F2F1;
+    border-color: #D4B9B8;
+}
+
+.Syncfusion-Grid-FilterStatusBar .MsgDiv, .Syncfusion-Grid-FilterStatusBarBottom .MsgDiv {
+    color: #BE5A5C;
+}
+
+.Syncfusion-Grid-Greenish .FilterBarCellDisabled {
+    background-image: none;
+    background-color: White;
+    border-color: #EACDCC;
+}
+
+ul[name=syncfusion-grid] {
+    background-image: url('/Gcs/Images/Greenish_sprite.png') !important;
+}
+
+.Syncfusion-Grid-Core .MsgBar {
+    padding-left: 0 !important;
+    color: #143489;
+    white-space: normal;
+}
+
+.Syncfusion-Grid-Greenish .HeaderCell, .Syncfusion-Grid-Greenish .grid-icon, .Syncfusion-Grid-Greenish .GroupTopLeftCell, .Syncfusion-Grid-Greenish .TopRightCell, .Syncfusion-Grid-Greenish th.MasterHeaderLeftCell, .Syncfusion-Grid-Greenish .TopLeftCell, .Syncfusion-Grid-Greenish.cloneProperties, .Syncfusion-Grid-Greenish .ExternalForm-Header, .Syncfusion-Grid-Greenish .ToggleContainer {
+    background: #b8d0e9 !important;
+}
+
+.Syncfusion-Grid-Core {
+    font-family: Arial;
+}
+
+.Syncfusion-Grid-Greenish .RowCell, .Syncfusion-Grid-Greenish .EmptyCell, .Syncfusion-Grid-Greenish tr[class*="ChildRow"] > .ChildGrid {
+    border-color: #b3c2d2 !important;
+}
+
+.Syncfusion-Grid-Core .GridPagerTop {
+    border-bottom: none !important;
+}
+
+.Syncfusion-Grid-Greenish .Alt_Row {
+    background-color: #F9F9F9;
+}
+
+.Syncfusion-Grid-Core .MsgBar {
+    font-weight: bold;
+}
+
+.sf-sp-hwrapper, .sf-sp-vscroller {
+    background-color: #A4B7C9;
+}
+
+.sf-sp-Hhandle, .sf-sp-Vhandle {
+    background-color: #3171BB;
+    z-index: 0 !important;
+}
+
+    .sf-sp-Hhandle:hover, .sf-sp-Vhandle:hover {
+        background-color: #3171BB !important;
+    }
+
+.Syncfusion-Grid-Core {
+    border-bottom: 1px solid #B3C2D2;
+}
+
+.GridHeader {
+    border-top: 1px solid #B3C2D2;
+    border-left: 1px solid #B3C2D2;
+    border-right: 1px solid #B3C2D2;
+}
+
+.GridContent {
+    border-left: 1px solid #B3C2D2;
+    border-right: 1px solid #B3C2D2;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-bl {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-position: -3px -731px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-bl, .Syncfusion-Grid-Greenish .sf-sp-br {
+    height: 12px;
+    width: 7px;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-br {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-position: -6px -756px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-bl, .Syncfusion-Grid-Greenish .sf-sp-br {
+    height: 12px;
+    width: 7px;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-tr {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-position: center -784px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-tb, .Syncfusion-Grid-Greenish .sf-sp-tr {
+    height: 11px;
+    width: 12px;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-tb {
+    background-image: url('/Gcs/Images/Greenish_sprite.png');
+    background-position: center -804px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.Syncfusion-Grid-Greenish .sf-sp-tb, .Syncfusion-Grid-Greenish .sf-sp-tr {
+    height: 11px;
+    width: 12px;
+}
+
+.Syncfusion-Grid-Core .RowCell, .Syncfusion-Grid-Core .EmptyCell, .Syncfusion-Grid-Core tr[class*="ChildRow"] > .ChildGrid {
+    line-height: 1.2em !important;
+}
+
+.Syncfusion-Grid-Core .AutoWrap .RowCell {
+    white-space: nowrap !important;
+}

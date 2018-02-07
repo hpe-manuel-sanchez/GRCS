@@ -1,0 +1,163 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    var partialViewName = '@ViewBag.pageName';
+</script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageResourceContract.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+<style type="text/css">
+    .Expandable {
+        src: url(/Gcs/images/Acc_Arrow_RIght.png);
+    }
+
+    .Collapse {
+        src: url(/Gcs/images/Acc_Arrow_Down.png);
+    }
+
+    .txtAlign {
+        text-align: center;
+    }
+</style>
+<div id="mgResourcErrorMessage" class="warning" style="margin: 15px 0;">
+</div>
+<div id="divMainsearch">
+    <div class="searchContainer">
+        <div id="deleteWorkgroup" style="margin: 10px 0 0 0;">
+            <div class="dwMainContainer">
+                <div id="wrapperDv">
+                    <div id="headerResourceScreen" class="headerTitleScreen">
+                        <span><a class="cross">&nbsp;</a>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SearchforResourceContract</span>
+                    </div>
+                    <div style="width: 100%;">
+                        <div class="accItem">
+                            <div class="editor-field">
+                                <div class="column column1">
+                                    <ul>
+                                        <li>
+                                            <label class="labelbold">
+                                                Artist :</label>
+                                            @Html.TextBox("txtArtist", "", new { maxlength = "520" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                                Artist ID:</label>
+                                            @Html.TextBox("txtArtistId", "", new { maxlength = "19" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                                Clearance Admin Company:</label>
+                                            @Html.TextBox("txtClearanceCompany", "", new { maxlength = "120" })</li>
+                                    </ul>
+                                </div>
+                                <div class="column column2">
+                                    <ul>
+                                        <li>
+                                            <label class="labelbold">
+                                                Title:</label>@Html.TextBox("txtTitle", "", new { maxlength = "250" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                                Version Title:</label>@Html.TextBox("txtVersionTitle", "", new { maxlength = "250" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="column column3">
+                                    <ul>
+                                        <li>
+                                            <label class="labelbold">
+                                                ISRC:</label>
+                                            @Html.TextBox("txtISRC", "", new { maxlength = "20" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                                Resource Type:</label>@Html.DropDownListFor(model => model.ResourceTypeList, new SelectList(Model.ResourceTypeList, "value", "text", Model.ResourceTypeList), new { id = "ddlResourceType" })</li>
+                                        <li>
+                                            <label class="labelbold">
+                                                &nbsp;</label>
+                                            <input class="primbutton" id="btnSearchResourceContract"   type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" style="margin:0;"/>
+                                            <input id="btnSearchResourceReset" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span id="spnResourceAddedResultLabel" style="font-weight: bold; height: 1px; display: none; margin: 0 5px"></span>
+    <div id="divResourceSearchResults" style="display: none; margin: 5px 0;">
+        <div style="float: left;">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnSearchResourcePartialResult"
+                style="font-weight: bold;"></span><span style="padding-left: 20px;"><a id="ancResourceContractExpandAll"
+                    href="#" style="text-decoration: underline;">Expand All</a> | <a id="ancResourceContractSelectAll"
+                        href="#" style="text-decoration: underline;">Select All</a> | 
+                          <a id="ancResourceContractDeselectall" href="#" style="text-decoration: underline;">De-Select All</a>
+                </span>
+
+        </div>
+        <div style="float: right;" id="SearchCountryPaging">
+            <span style="width: 15px; display: inline-block;"></span>
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlPartialResourceSearchPaging" })
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+        </div>
+        <div style="clear: both;">
+        </div>
+    </div>
+</div>
+<div id="divLinkToWorkgroup">
+</div>
+<div id="divAddedResourceContract" class="jtableDvhightDrop" style="margin: 0; padding: 0; position: relative;">
+</div>
+<div id="divSearchResourceContract" class="jtableDvhightDrop" style="margin: 0; padding: 0; position: relative">
+</div>
+<div id="divAddResourceContractButtons" style="display: none; float: right; margin-top: 5px; margin-bottom: 10px;">
+    <input id="btnAddResourceContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton"/>
+    <input id="btnCancelResourceContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton"/>
+</div>
+<div id="divSaveResourceContractButtons" style="display: none; margin-top: 5px; margin-bottom: 10px;">
+    <div style="float: left;" class="poupBottomBarButton">
+        <input id="btnRemoveResourceContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveButton"/>
+    </div>
+    <div style="float: right; margin-top: 5px; margin-bottom: 10px;" class="poupBottomBarButton">
+        <input id="btnSaveResourceContract" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SaveButton"/>
+        <input id="btnRCsaveCancel" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton"/>
+    </div>
+    <div>
+        <div>
+            <input type="hidden" id="hdnAddedValues" value="" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var resourceNotLinkedInfo = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.resourceNotLinkedInfo';
+    var listOfResourceContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_listOfResourceContract';
+    var mgResourceContractJtableColNames = {
+        Type: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgResource_TypeLabel',
+        ISRC: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.Isrc',
+        Title: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgResource_TitleLabel',
+        VersionTitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgResource_VersionTitleLabel',
+        Artist: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ArtistLabel',
+        ResourceId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_ResourceIdLabel',
+        Contract: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ContractLabel',
+        AddtionalInfo: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_AddtionInfoLabel',
+        DataAdmbyComp: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgResource_DataAdminCompLabel',
+        ArtistId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId',
+        ContractId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ContractId',
+        ClrAdminCompName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgArtist_ClrAdmCompNameLabel',
+        ClrAdminCompId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ClrAdminCompanyId'
+    };
+
+    $(document).ready(function () {
+        $('.poupPage').css("margin-left", "0");
+        //$('.jtable-main-container').css("margin-top", "0 !imporant");
+        $('#main', window.parent.document).css('overflow-y', 'auto');
+        $('#divSearchResourceContract').css("margin-top", "10px !imporant");
+        $('#divSearchResourceContract').css('overflow', 'auto');
+        $('#divSearchResourceContract').css('overflow-x', 'hidden');
+        $('.jtable').css('margin-right', '18px');
+
+    });
+</script>

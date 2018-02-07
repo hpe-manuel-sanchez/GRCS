@@ -1,0 +1,16 @@
+﻿@model UMGI.GRCS.UI.ViewModels.ClearanceInbox.InboxViewModel
+@using UMGI.GRCS.BusinessEntities.Lookups
+
+<div id="inboxWrapper">
+    <div id="divMessage" class="displayNone"/>
+    <div id="inboxRightWrapperPanel" class="inboxRightWrapperPanel light-grey-background">
+        @{Html.RenderPartial("Header", Model);}
+        <div class="MySplitter">
+            <div id="divLeftPanel" class="ui-layout-west light-grey-background">             
+                @{Html.RenderPartial("FolderProjects", Model);}
+            </div>
+            <div id="RightPane" class="ui-layout-center light-grey-background">
+            </div>
+        </div>
+    </div>
+</div>

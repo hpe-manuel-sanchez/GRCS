@@ -1,0 +1,119 @@
+﻿@model UMGI.GRCS.UI.Models.ContractTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ContractSearchPopup.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchContractPopup.js")" type="text/javascript"></script>
+@*style is in site.css*@
+<div id="searchwarning">
+    <div class="warningContainers">
+        <img class="alertImages" src="/GCS/Images/Alert_16x16.png" alt="Warning" />
+    </div>
+    <div id="SearchMsgAlert"></div>
+</div>
+<input type="hidden" id="AssociatedRel" value="@ViewBag.displaymessage" />
+<div id="searchPopup">
+    <div class="accbg clearanceContractPopup">
+        <div class="paddingspace">
+            <div class="leftMainDiv">
+                <div class="leftLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Artist.Info.Name):
+                </div>
+
+                <div class="leftFieldDiv search-button">
+                    <div class="alignLeftWidth">
+                        @Html.TextBoxFor(model => model.Artist.Info.Name, new { data_autocomplete_source_manual = @Url.Action("AutoSearchArtistList", "Contract") })
+
+                        @Html.ValidationMessageFor(model => model.Artist.Info.Name)
+                    </div>
+
+                    <span class="alignLeftSpan">
+                        @Html.CheckBoxFor(model => model.Contract.IsExactArtistSearch)
+                        @Html.LabelFor(model => model.Contract.IsExactArtistSearch)
+                    </span>
+                </div>
+            </div>
+            <div class="rightMainDiv">
+                <div class="rightLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.LocalContractRefNumber):
+                </div>
+                <div class="rightFieldDiv">
+                    @Html.Editor("searchLocalContract", Model.Contract.LocalContractRefNumber)
+                    @Html.ValidationMessageFor(model => model.Contract.LocalContractRefNumber)
+                </div>
+            </div>
+            <br class="clear" />
+
+            <div class="leftMainDiv">
+                <div class="leftLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ContractingParty):
+                </div>
+                <div class="leftFieldDiv">
+                    @Html.EditorFor(model => model.Contract.ContractingParty)
+                    @Html.ValidationMessageFor(model => model.Contract.ContractingParty)
+                </div>
+            </div>
+            <div class="rightMainDiv">
+                <div class="rightLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ContractId):
+                </div>
+                <div class="rightFieldDiv">
+                    @Html.Editor("contractPopupId", Model.Contract.ContractId)
+                    @Html.ValidationMessageFor(model => model.Contract.ContractId)
+                </div>
+            </div>
+            <br class="clear" />
+            <div class="leftMainDiv">
+                <div class="leftLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ClearanceCompanyCountry):
+                </div>
+                <div class="leftFieldDiv search-button">
+                    @Html.TextBox("clearanceCompSearchPopup", Model.Contract.ClearanceCompanyCountry, new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global") })
+                    @Html.ValidationMessageFor(model => model.Contract.ClearanceCompanyCountry)
+                    @Html.Hidden("clearanceCompSearchId", Model.Contract.ClearanceCompanyCountryId) @*Need to pass ClearanceCompanyCountryId while search Contract*@
+                    @Html.Hidden("clearanceCountrySearchId", Model.Contract.ClearanceCountryId) @*Need to pass ClearanceCountryId while search Contract*@
+                </div>
+            </div>
+
+            <div class="alignRight marginRightAlign">
+                <input class="primbutton" id="searchcontractPopup" runat="server" type="submit" value="@ContractResource.SearchButton" />
+                <input class="secbutton btnSpacing" id="resetContract" runat="server" type="submit" value="@ContractResource.ResetButton" />
+            </div>
+        </div>
+        <br class="clear" />
+    </div>
+    <div>
+        <h2 class="SearchContractResults alignLeft clear" title="Search Results (0)">
+            <span id="SearchCount">Search Results (0)</span>
+        </h2>
+    </div>
+    <div class="ui-jtable-loading" style="float: left;"></div>
+    <div id="SearchContractPaging" class="alignRight">
+        @ContractResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage)
+        @ContractResource.itemsperpage
+    </div>
+
+    <br class="clear" />
+
+    <div id="contractgrid">
+        <div id="searchContractGrid">
+        </div>
+    </div>
+
+    <br class="clear" />
+
+    <div class="cntrctSearchPopupButtons">
+        <input type="submit" class="primbutton" id="btnOk" value="@ContractResource.OKButton" />
+        <input type="button" class="secbutton" id="btnCancel"  value="@ContractResource.CancelButton" />
+    </div>
+    <div class="splitCntrctSearchPopupButtons">
+        <input type="submit" class="primbutton" id="btnOkSplit" value="@ContractResource.OKButton" />
+        <input type="button" class="secbutton" id="btnCancelSplit"  value="@ContractResource.CancelButton" />
+    </div>
+    <div class="AutolinkRepertoirePopupButtons" style="display: none">
+        <input type="submit" class="primbutton" id="btnOkAutoLink" value="@ContractResource.OKButton" />
+        <input type="button" class="secbutton" id="btnCancelAutoLink"  value="@ContractResource.CancelButton" />
+    </div>
+</div>

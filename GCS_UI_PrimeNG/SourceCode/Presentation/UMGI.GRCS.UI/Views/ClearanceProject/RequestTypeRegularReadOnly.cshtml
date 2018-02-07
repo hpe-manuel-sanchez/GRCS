@@ -1,0 +1,649 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+@using UMGI.GRCS.Resx.Resource.Layout
+<title>@ViewBag.Title=@Html.Label(@ClearanceLayout.CreateProjectHeader)</title>
+<script src="@Url.Content("/GCS/Scripts/Custom/RequestTypeRegular.js")" type="text/javascript">
+</script>
+@Html.HiddenFor(model => model.RegularProjectDetails.ObjRelease.Count, new { id = "SalesChannelsCount" })
+
+@if (Model.RegularProjectDetails.ScopeAndRequestType != null)
+{
+    if (Model.RegularProjectDetails.ScopeAndRequestType.newlyAddedSalesChannelsAfterSubmit != null)
+    {
+        for (int k = 0; k < Model.RegularProjectDetails.ScopeAndRequestType.newlyAddedSalesChannelsAfterSubmit.Count; k++)
+        {
+    @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.newlyAddedSalesChannelsAfterSubmit[k], new { id = "newlyAddedSalesChannelsAfterSubmit" + k })
+        }
+    }
+}
+
+<div id="mainPanelDvPAD1" class="contentPanel reqty-gry-brder">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.RegularProjReqTypeScopeAndRequestTypeHeader)</h5>
+    </div>
+    <div id="trScope" class="contentDv">
+        <!-- Scope and Request Type Start -->
+        <div class="rqt-wrapper">
+            <div class="rqt-column rqt-fl rqt-margin-5">
+                <div class="rqt-label rqt-fl rqt-tar rqt-bold pdd5px">
+                    <span class="madatoryField">@mandatory</span> @ClearanceLayout.RegularProjReqTypeScopeLabel
+                </div>
+                <div class="rqt-field rqt-fr rqt-tal">
+                    <ul class="rqt-ul">
+                        <li id="tdChkPhysical">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Physical, new { id = "chkPhysical", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.PhysicalChkbox</li>
+
+                        <li id="tdChkDigital">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Digital, new { id = "chkDigital", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeDigitalChkbox</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rqt-column rqt-fl rqt-margin-5">
+                <div class="rqt-label rqt-fl rqt-tar rqt-bold pdd5px">
+                    <span class="madatoryField">@mandatory</span> @ClearanceLayout.RegularProjReqTypeRequestTypeLabel
+                </div>
+                <div class="rqt-field rqt-fr rqt-tal rqt-clear-right">
+                    <ul class="rqt-ul">
+                        <li id="tdChkReg">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.RegularRetail, new { id = "chkRegularRetail", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeRegularRetailChkbox</li>
+                        <li id="tdChkClub">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Club, new { id = "chkClub", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeClubChkbox</li>
+
+                        <li id="tdChkNonTrad">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.NonTraditional, new { id = "chkNonTrditional", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeNonTrditionalChkbox</li>
+
+                        <li id="tdChkPromo">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Promotional, new { id = "chkPromotional", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypePromotionalChkbox</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rqt-column rqt-fl rqt-margin-5">
+                <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                    &nbsp;
+                </div>
+                <div class="rqt-field rqt-fr rqt-tal rqt-clear-right">
+                    <ul class="rqt-ul" id="trTVPrice">
+                        <li id="tdChkTVRadio">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.TVRadioBreakICLA, new { id = "chkTVRadioBreakICLA", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeTVRadioBreakICLAChkbox</li>
+                        @if (!((string.IsNullOrEmpty(Model.RegularProjectDetails.ReleaseNewOrExisting)) || (Model.RegularProjectDetails.ReleaseNewOrExisting.Equals("New"))))
+                        {
+                            <li id="tdChkPriceREd">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.PriceReduction, new { id = "chkPriceReduction", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypePriceReductionChkbox</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Scope and Request Type Ends -->
+    </div>
+</div>
+<div id="trTVRadioHeader" class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.RegularProjReqTypeTVRadioBreakICLAHeader)</h5>
+    </div>
+    <div class="contentDv">
+        <!-- TV/Radio Break Starts -->
+        <div id="trTVRadio" class="rqt-wrapper">
+            <div class="rqt-column rqt-fl rqt-margin-2">
+                <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                    <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDurationToLabel)
+                </div>
+                <div class="rqt-field rqt-fr rqt-tal">
+                    @Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DurationTo, new { id = "txtDurationTo", @class = "width-medium" })
+                </div>
+            </div>
+            <div class="rqt-column rqt-fl rqt-margin-2">
+                <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                    <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDurationFromLabel)
+                </div>
+                <div class="rqt-field rqt-fr rqt-tal">
+                    @Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DurationFrom, new { id = "txtDurationFrom", @class = "width-medium" })
+                </div>
+            </div>
+            <div id="tblTVRadio" class="rqt-column rqt-fl rqt-margin-5">
+                <div id="tvRadioOtherGroup" class="rqt-column rqt-fl rqt-margin-5">
+                    <!-- TV START HERE  -->
+                    <div class="rqt-column1 rqt-fl">
+                        <div class="rqt-column5 rqt-fl grey-background" id="tdChkTV">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.TV.IsTV, new { id = "chkTV", @disabled = "disabled" })</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeTVChkbox</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trTVBudget">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeTVBudgetLabel)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.TV.Budget, new { id = "txtTVBudget", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trTVBudgetUSD">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTVBudgetInUSDLabel) </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.TV.BudgetInUSD, new { id = "txtTVBudgetUSD", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trTVProdCost">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTVProductionCostOfCommercialLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.TV.ProductionCostOfCommercial, new { id = "txtTVProdCost", @class = "width-small" })</div>
+                        </div>
+                    </div>
+                    <!-- TV ENDS HERE  -->
+
+                    <!-- RADIO START HERE  -->
+                    <div class="rqt-column2 rqt-fl">
+                        <div class="rqt-column5 rqt-fl grey-background" id="tdChkRadio">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Radio.IsRadio, new { id = "chkRadio", @disabled = "disabled" })</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeRadioChkbox)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trRdBudget">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeRadioBudgetLabel)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.Radio.Budget, new { id = "txtRdoBudget", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trRdBudgetUSD">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeRadioBudgetInUSDLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.Radio.BudgetInUSD, new { id = "txtRdoBudgetUSD", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trRdProdCost">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeProductionCostOfCommercialLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.Radio.ProductionCostOfCommercial, new { id = "txtRdoProdCost", @class = "width-small" })</div>
+                        </div>
+                    </div>
+
+                    <!-- RADIO ENDS HERE  -->
+
+                    <!-- OTHERS START HERE-->
+                    <div class="rqt-column3 rqt-fr">
+                        <div class="rqt-column5 rqt-fl grey-background" id="tdChkOther">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.OthersICLA.IsOthers, new { id = "chkOthers", @disabled = "disabled" })</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeOtherChkbox)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trOthBudget">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeOthersBudgetLabel)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.OthersICLA.Budget, new { id = "txtOthrBudget", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trOthBudgetUSD">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeOthersBudgetInUSDLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.OthersICLA.BudgetInUSD, new { id = "txtOthrBudgetUSD", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trOthProdCost">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeOthersProductionCostOfCommercialLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.OthersICLA.ProductionCostOfCommercial, new { id = "txtOthrProdCost", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2" id="trOthMedDetail">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeOthersOtherMediaDetailsLabel)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.TextAreaFor(model => model.RegularProjectDetails.ScopeAndRequestType.OthersICLA.OtherMediaDetails, new { id = "txtOthrMedDetails", @class = "width-medium" })</div>
+                        </div>
+                    </div>
+                    <!-- OTHERS ENDS HERE-->
+                </div>
+                <div class="rqt-div-hr">
+                    <hr />
+                </div>
+
+                <!-- Sales Channel START HERE  -->
+                <div class="rqt-column1 rqt-fl">
+                    <div class="rqt-column5 rqt-fl grey-background">
+                        <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp;</div>
+                        <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeSalesChannelHeader)</div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2" id="tblSaleChannel">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp; </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <ul class="manu-umg sales_channel">
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.SalesChannelPhysical, new { id = "chkPhysicals", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypePhysicalChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.SalesChannelAlaCarteDownload, new { id = "chkALaCarteDownload", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeAlaCarteDownloadChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.SalesChannelSubscriptionDownload, new { id = "chkSubscriptionDownload", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeSubscriptionDownloadChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.SalesChannelMobileRealTones, new { id = "chkMobileRealTonesDownload", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeMobileRealTonesMastersDownload</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.SalesChannelMobileRingBackTones, new { id = "chkMobileRingBackDownload", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeMobileRingBackDownloadChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Streaming, new { id = "chkStreaming", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeStreamingChkbox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sales Channel ENDS HERE  -->
+                <!-- Campaign Countries START HERE  -->
+                <div class="rqt-column2 rqt-fl rqt-margin-2">
+
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeCampaignCountriesLabel)</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <ul class="manu-umg-pi1">
+                                <li id="tdcountryList" class="rpi-bold">
+                                    @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.IncludedLabel
+                                </li>
+                                <li class="wrapText">
+                                    <div id="selectedCountries_2"></div>
+                                </li>
+                                <li>
+                                    <input type="button" id="btnManageTerritories_1" class="plbutton" value="@ClearanceLayout.RegularProjReqTypeManageCountriesButton" onclick="ParentLoadTerritories('2');" /><input id="hdnterritoryDetailsForSave_2" name="hdnterritoryDetailsForSave_2" type="hidden" class="hdnManageTerriCls" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold"></div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right"></div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right"></div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right">&nbsp;</div>
+                    </div>
+                </div>
+                <!-- Campaign Countries ENDS HERE  -->
+                <!-- Excluded START HERE-->
+                <div class="rqt-column3 rqt-fr rqt-margin-2">
+
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label-exclude rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjectInfoExcludedLabel)</div>
+                        <div class="rqt-field-exclude rqt-fr rqt-clear-right rqt-tal" id="UnselectedCountries_2"></div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right">&nbsp;</div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp; </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right">&nbsp;</div>
+                    </div>
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right">&nbsp;</div>
+                    </div>
+                </div>
+                <!-- Excluded ENDS HERE-->
+                <div class="rqt-div-hr"></div>
+                <!-- Physical Sales Split START HERE  -->
+                <div class="rqt-column1 rqt-fl" id="tdTVPhysicalSales">
+                    <div id="tblTVPhysicalSales">
+                        <div class="rqt-column5 rqt-fl grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp;</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypePhysicalSalesSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold ">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypePSSSalesToDateTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesToDate) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesToDate, new { id = "txtPSaleDate", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypePSSSalesWithTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesWith) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesWith, new { id = "txtPSaleWith", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeTSSSalesWithoutTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesWithout) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalSalesSplitSalesWithout, new { id = "txtPSaleWithout", @class = "width-small" })</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Physical Sales Split ENDS HERE  -->
+                <div class="plus" id="tdPSAdd">+</div>
+                <!--  Digital Sales Split START HERE  -->
+                <div class="rqt-column2 rqt-fl" id="tdTVDigitalSales">
+                    <div id="tblTVDigitalSales">
+                        <div class="rqt-column5 rqt-fl grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp;</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeDigitalSalesSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDSSSalesToDateTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesToDate) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesToDate, new { id = "txtDSaleDate", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDSSSalesWithTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesWith) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesWith, new { id = "txtDSaleWith", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDSSSalesWithoutTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesWithout) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalSalesSplitSalesWithout, new { id = "txtDSaleWithout", @class = "width-small" })</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Digital Sales Split ENDS HERE  -->
+                <div id="tdPSEqual" class="equal">=</div>
+                <!-- Total Sales Split START HERE-->
+                <div class="rqt-column3 rqt-fr" id="tdTVTotalSales">
+                    <div id="tblTVTotalSales">
+                        <div class="rqt-column5 rqt-fl grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp; </div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeTotalSalesSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTSSSalesToDateTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right " id="divTSaleDate"></div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTSSSalesWithDateTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right" id="divTSaleWith"></div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTSSSalesWithoutTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right" id="divTSaleWithout"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Total Sales Split ENDS HERE-->
+                <div class="rqt-div-hr">
+                    <hr />
+                </div>
+                <!-- Physical Revenue Split START HERE  -->
+                <div class="rqt-column1 rqt-fl" id="tdTVPhysicalRev">
+                    <div id="tblTVPhysicalRev">
+                        <div class="rqt-column5 rqt-fl rqt-marginb-2 grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp;</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypePhysicalRevenueSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypePRSRevenueToDateTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueToDate) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueToDate, new { id = "txtPRevDate", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypePRSRevenueWithTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueWith)@Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueWith, new { id = "txtPRevWith", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypePRSRevenueWithoutTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueWithout, new { id = "txtPRevWithout", @class = "width-small" })@Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.PhysicalRevenueWithout, new { id = "txtPRevWithout", @class = "width-small" })</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Physical Revenue Split ENDS HERE  -->
+                <div class="plus" id="tdPRAdd">+</div>
+                <!--  Digital Revenue Split START HERE  -->
+                <div class="rqt-column2 rqt-fl rqt-margin-2" id="tdTVDigitalRev">
+                    <div id="tblTVDigitalRev">
+                        <div class="rqt-column5 rqt-fl rqt-marginb-2 grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp;</div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeDigitalRevenueSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDRSRevenueToDateTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueToDate) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueToDate, new { id = "txtDRevDate", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDRSRevenueWithTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueWith) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueWith, new { id = "txtDRevWith", @class = "width-small" })</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                                <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDRSRevenueWithoutTxtbox)
+                            </div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueWithout) @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.DigitalRevenueWithout, new { id = "txtDRevWithout", @class = "width-small" })</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Digital Revenue Split ENDS HERE  -->
+                <div id="tdPREqual" class="equal">=</div>
+                <!-- Total Revenue Split START HERE-->
+                <div class="rqt-column3 rqt-fr rqt-margin-2" id="tdTVTotalRev">
+                    <div id="tblTVTotalRev">
+                        <div class="rqt-column5 rqt-fl rqt-marginb-2 grey-background">
+                            <div class="rqt-label2 rqt-fl rqt-tar ">&nbsp; </div>
+                            <div class="rqt-field2 rqt-fl rqt-clear-right rqt-bold pdd2px">@Html.Label(@ClearanceLayout.RegularProjReqTypeTotalRevenueSplitHeader)</div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTRSRevenueToDateTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right " id="divTRevDate"></div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTRSRevenueWithTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right" id="divTRevWith"></div>
+                        </div>
+                        <div class="rqt-column rqt-fl rqt-margin-2">
+                            <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeTRSRevenueWithOutTxtbox)</div>
+                            <div class="rqt-field1 rqt-fr rqt-clear-right" id="divTRevWithoute"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Total Revenue Split ENDS HERE-->
+            </div>
+        </div>
+        <!-- TV/Radio Break Ends -->
+    </div>
+</div>
+<div id="trPriceRedHeader" class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.ReleaseRegDataPriceReductionHeader)</h5>
+    </div>
+    <div class="contentDv">
+        <!-- Price Reduction Starts -->
+        <div class="rqt-wrapper" id="trPriceRed">
+            <div class="rqt-wrapper" id="tblPriceRed">
+                <!-- Current Price Level START HERE  -->
+                <div class="rqt-column1 rqt-fl">
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold pdd2px">
+                            <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeCurrentPriceLevelDrpdwn)
+                        </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.CurrentPriceLevel_Name, new { id = "cboCurrentPriceList", @class = "select-width-small" })</div>
+                    </div>
+                </div>
+                <!-- Current Price Level ENDS HERE  -->
+                <!--  Requested Price Level START HERE  -->
+                <div class="rqt-column2 rqt-fl rqt-margin-2">
+
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold pdd2px">
+                            <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeRequestedPriceLevelDrpdwn)
+                        </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.RequestedPriceLevel, new { @class = "select-width-small" })
+                            @Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.RequestedPriceLevel, new { id = "cboRequestPriceList" })
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requested Price Level ENDS HERE  -->
+                <!-- Blank START HERE-->
+                <div class="rqt-column3 rqt-fr rqt-margin-2">
+                    &nbsp;
+                </div>
+                <!-- Blank ENDS HERE-->
+            </div>
+        </div>
+        <!-- Price Reduction Ends -->
+    </div>
+</div>
+<div id="trClubHeader" class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.RegularProjReqTypeClubHeader)</h5>
+    </div>
+    <div class="contentDv">
+        <!--  Club Starts Here-->
+        <div class="rqt-wrapper" id="trClub">
+            <div class="rqt-wrapper" id="tblClub">
+                <!-- Additional Mail Order Start Here -->
+                <div class="rqt-column rqt-fl rqt-margin-5 margin-club-check">
+                    <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                        &nbsp;
+                    </div>
+                    <div class="rqt-field rqt-fr rqt-tal">
+                        @Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.AdditionalMailOrder, new { id = "chkAdditionalMailOrder", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeAdditionalMailOrderChkbox
+                    </div>
+                </div>
+                <!-- Additional Mail Order Ends Here -->
+                <!-- Introductory Use Start Here -->
+                <div class="rqt-column rqt-fl rqt-margin-5 margin-club-check">
+                    <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                        &nbsp;
+                    </div>
+                    <div class="rqt-field rqt-fr rqt-tal">
+                        ,
+         @Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.IntroductoryUse, new { id = "chkIntroductoryUse", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeIntroductoryUseChkbox
+                    </div>
+                </div>
+                <!-- Introductory Use Ends Here -->
+            </div>
+        </div>
+        <!-- Club Ends Here -->
+    </div>
+</div>
+<div id="trPromoHeader" class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.RegularProjReqTypePromotionalHeader)</h5>
+    </div>
+    <div class="contentDv">
+        <!-- Promotional Start Here -->
+        <div class="rqt-wrapper" id="trPromo">
+            <div class="rqt-wrapper" id="tblPromo">
+                <!-- Distrubution To start here -->
+                <div class="rqt-column rqt-fl rqt-margin-2">
+                    <div class="rqt-label rqt-fl rqt-tar rqt-bold">
+                        <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeDistributionToTxtbox)
+                    </div>
+                    <div class="rqt-field rqt-fr rqt-tal">
+                        @Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.DistributionTo, new { id = "txtDistTo", @class = "width-medium116" })
+                    </div>
+                </div>
+                <!-- Distrubution To End here -->
+            </div>
+        </div>
+        <!-- Promotional End Here -->
+    </div>
+</div>
+<div id="trNonTradHeader" class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(@ClearanceLayout.RegularProjReqTypeNonTraditionalHeader)</h5>
+    </div>
+    <div class="contentDv">
+        <!-- Non-Traditional Start Here -->
+        <div class="rqt-wrapper" id="trNonTrad">
+            <div class="rqt-wrapper" id="tblNonTrad">
+
+                <div class="rqt-column1 rqt-fl rqt-margin-2">
+                    <!-- Client Name Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                            <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeClientNameTxtbox)
+                        </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.ClientName, new { id = "txtClientName", @class = "width-large" })</div>
+                    </div>
+                    <!-- Client Name End Here -->
+                    <!-- Media Promo Spend Comment Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeMediaPromoSpendCommentTxtArea) </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.TextAreaFor(model => model.RegularProjectDetails.ScopeAndRequestType.MediaPromoSpendComment, new { id = "txtAMedPromoComment", @class = "txtarea-width" })</div>
+                    </div>
+                    <!-- Media Promo Spend Comment End Here -->
+                    <!-- Manufactured by Umg Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">
+                            <label class="madatoryField">@mandatory</label>@Html.Label(@ClearanceLayout.RegularProjReqTypeManufacturedByUMGDrpdwn)
+                        </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <select id="cmbManByUMG" runat="server" class="select-width-small" disabled="disabled">
+                                <option>-Select-</option>
+                                <option id="1" value="Yes">Yes</option>
+                                <option id="2" value="No">No</option>
+                            </select>@Html.HiddenFor(model => model.RegularProjectDetails.ScopeAndRequestType.ManufacturedByUMG, new { id = "ManufacturedByUMG" })
+                        </div>
+                    </div>
+                    <!-- Manufactured by Umg End Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp; </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <ul class="manu-umg">
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Partwork, new { id = "chkPartwork", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypePartworkChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Kiosk, new { id = "chkKiosk", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeKioskChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.MailOrder, new { id = "chkMailOrder", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeMailOrderChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Internet, new { id = "chkInternet", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeInternetChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.DirectResponse, new { id = "chkDirectResponse", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeDirectResponseChkbox</li>
+
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Educational, new { id = "chkEducational", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeEducationalChkbox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rqt-column2 rqt-fl rqt-margin-2">
+                    <!-- Client Website Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">@Html.Label(@ClearanceLayout.RegularProjReqTypeClientWebsiteTxtbox)</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">@Html.DisplayFor(model => model.RegularProjectDetails.ScopeAndRequestType.ClientWebsite, new { id = "txtClientWebsite", @class = "width-large" })</div>
+                    </div>
+                    <!--Client Website End Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp; </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <textarea class="vsblityhdn txtarea-width"></textarea>
+                        </div>
+                    </div>
+                    <!-- Client Name Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <ul class="manu-umg margin-top-umg">
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Premium, new { id = "chkPremium", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypePremiumChkbox</li>
+                                <li class="rqt-width-10px pdg-20"></li>
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.GiveAwayFreeCharge, new { id = "chkGiveAwayFreeOfCharge", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeGiveAwayFreeOfChargeChkbox</li>
+                                <li class="rqt-width-10px pdg-20"></li>
+                                <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.ScopeAndRequestType.Other, new { id = "chkOther", @disabled = "disabled" })@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjReqTypeOtherChkbox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rqt-column3 rqt-fr rqt-margin-2">
+                    <!-- Client Name Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp;</div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">&nbsp;</div>
+                    </div>
+                    <!-- Client Name Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+                        <div class="rqt-label1 rqt-fl rqt-tar rqt-bold">&nbsp; </div>
+                        <div class="rqt-field1 rqt-fr rqt-clear-right ">
+                            <textarea class="vsblityhdn txtarea-width"></textarea>
+                        </div>
+                    </div>
+                    <!-- Client Name Start Here -->
+                    <div class="rqt-column rqt-fl rqt-margin-2">
+
+                        <ul class="manu-umg margin-top-umg-txtbox">
+                            <li id="trPremuimCommnts">
+                                <label class="madatoryField">@mandatory</label>@Html.TextAreaFor(model => model.RegularProjectDetails.ScopeAndRequestType.PremiumComments, new { id = "txtAPremiumComments", @class = "txtarea-width" })</li>
+                            <li class="rqt-width-10px pdg-28"></li>
+                            <li id="trGivAwayCommnts">
+                                <label class="madatoryField margin-top-umg-txt-fee-of-charge">@mandatory</label>@Html.TextAreaFor(model => model.RegularProjectDetails.ScopeAndRequestType.GiveAwayComments, new { id = "txtAGiveAwayComments", @class = "txtarea-width margin-top-umg-txt-fee-of-charge" })</li>
+                            <li class="rqt-width-10px pdg-28"></li>
+                            <li id="trOtherCommnts">
+                                <label class="madatoryField margin-top-umg-txt-fee-of-charge">@mandatory</label>@Html.TextAreaFor(model => model.RegularProjectDetails.ScopeAndRequestType.OtherComments, new { id = "txtAOtherComments", @class = "txtarea-width margin-top-umg-txt-fee-of-charge" })</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Non-Traditional End Here -->
+    </div>
+</div>
+<p>
+    <br />
+    <br />
+</p>

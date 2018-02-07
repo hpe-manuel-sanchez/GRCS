@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd10" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd13" namespace="http://schemas.umusic.com" />
+  <xs:element name="SearchR2Resource">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="resourceSearch" nillable="true" type="q1:ResourceSearchCriteria" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="user" nillable="true" type="q2:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchR2ResourceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" minOccurs="0" name="SearchR2ResourceResult" nillable="true" type="q3:ClearanceResourceSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BG_ResourceArtist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="resources" nillable="true" type="q4:ArrayOfResourceInfo" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="user" nillable="true" type="q5:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BG_ResourceArtistResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveResourceProject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="archiveFlag" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listclrResourceId" nillable="true" type="q6:ArrayOflong" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="user" nillable="true" type="q7:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveResourceProjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveResourceProjectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="r2resourceId" type="xs:long" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="user" nillable="true" type="q8:LeanUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourceRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="GetResourceRightsResult" nillable="true" type="q9:ArrayOfContractDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGCSResource">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ResourceId" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="GCSProjectID" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="resourceSearchOption" type="tns:ResourceSearchOption" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="ResourceSearchOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="R2ResourceId" />
+      <xs:enumeration value="ISRC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetGCSResourceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetGCSResourceResult" type="tns:ArrayOfClrResource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfClrResource">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.umusic.com" minOccurs="0" maxOccurs="unbounded" name="ClrResource" nillable="true" type="q10:ClrResource" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

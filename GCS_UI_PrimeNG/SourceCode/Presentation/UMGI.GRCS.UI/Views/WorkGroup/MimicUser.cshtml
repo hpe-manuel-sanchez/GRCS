@@ -1,0 +1,148 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/MimicUser.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/Syncfusion.min.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var pageName = '@ViewBag.PageName';
+</script>
+<style type="text/css">
+.ui-dialog .ui-dialog-content 
+{
+    padding:0;
+}
+.poupPage
+{
+    margin-left:0;
+}
+.Syncfusion-Grid-Core
+{
+	height:auto !important;
+	width:100% !important;
+}
+.Syncfusion-Grid-Core .HeaderCell, HeaderCellDiv
+{
+	height:20px !important; 
+ 
+}
+.Syncfusion-Grid-Core .HeaderCell, .RowCell
+{
+ padding-top:0.2em !important;
+ padding-bottom:0.2em !important;
+}
+.Syncfusion-Grid-Core .GridPager .RefreshPager
+{
+	display:none !important;
+}
+.poupBottomBarButton
+{
+    padding:10px 0 !important;
+}
+</style>
+<div id="mimicUserErrorMessage" class="warning workgroup-margintopbottom5px">
+        </div>
+
+<!-- Mimic User dialog window markup -->
+  <div id="mimicUserDialogDiv">
+		 <div class="dwMainContainer">
+             <div id="wrapperDv">
+                 <div class="accItem">
+                     <div class="editor-field"  id ="mainsearch" >
+                         @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)
+                         @Html.TextBox("txtMimicUserName", "", new { maxlength = "100" })
+                         @Html.TextBox("txtMimicUserId", "", new { maxlength = "100" })
+                         @Html.TextBox("txtMimicUserCountry", "", new { maxlength = "40" })
+                         <input id="btnMimicSearchUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" runat="server" class="primbutton" />
+                         <input id="btnMimicUserReset" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+                     </div>
+                 </div>
+             </div>
+        </div>
+		<div id="mimicUserSearchResultsGrid" style="margin:0 15px;" >
+	        <div style="display:none;margin:5px 0;" id ="mimicUserSearchResults" >
+                <div style="float:left;" id="mimicUserSearchResultLabel">
+                    @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel&nbsp;<b><span id="mimicUserSearchResultCount"/></b> 
+                </div>
+                <div style="float:right; display:none; " id="mimicUserSearchPaging">                
+                          <div id="divSearchMimicUserPaging" >
+                                 @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown 
+                                 @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlMimicUserPaging" })
+                                 @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                          </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+
+		<div id="mimicUserSearchGrid" style="display:none;azimuth:center; ">
+	   @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkGroupUser>("MimicUserGrid")
+						.Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkGroupUser>)ViewData["searchUsers"])
+						.ActionMode(ActionMode.JSON)
+						.EnableOnDemand()
+						.TotalRecordCount(0)
+						.AutoFormat(Skins.Olive)
+						.EnableAlternateRowStyling()
+						.EnableRowHover(true)
+						//.CustomCss("Syncfusion-Grid-Greenish")
+						.EnableScrolling()
+						.EnablePaging()
+						.EnableSorting()
+						.Scrolling(scroll =>
+						{
+							scroll.AllowScrolling(true);
+							scroll.Height(250);
+						})
+						.Column(column =>
+						{
+							column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel).Width(47);
+							column.Add(c => c.Name).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserNameLabel);
+							column.Add(c => c.LoginName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_LoginNameLabel);
+							column.Add(c => c.CountryName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_CountryNameLabel);
+							column.Add(c => c.Email).HeaderText("Eamil").Visible(false);
+						})
+						.ClientSideEvents(evt => evt.OnActionBegin("ActionBegin"))
+                        .ClientSideEvents(evt => evt.OnActionComplete("ActionComplete"))
+						.ClientSideEvents(evt => evt.OnActionSuccess("ShowResultCount"))
+						.ClientSideEvents(evt => evt.QueryCellInfo("AddRecordCheckBox"))
+						.SortSettings(sort => 
+						{ 
+							sort.AllowSorting(true); 
+							sort.AllowMultiSorting(true);
+						})
+                        //.PageSettings(page =>
+                        //{
+                        //    page.PageSize(10);
+                        //    page.ShowPagerInformation(false);
+                        //    page.PageCount(5);
+                        //    page.PagerPosition(Position.BottomLeft);
+                        //    page.PagerStyle(PagerStyle.Default);
+                        //}) 
+                                     .PageSettings(page =>
+                                     {
+                                         page.PageSize(10);
+                                         page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+                                     }) 
+                        )
+	</div>
+            <div style="float: right;display:none;" class="poupBottomBarButton" id="mimicUserBottomBarButton">
+                <input id="btnMimicUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MimicUserButton" runat="server" class="primbutton" />
+                <input id="btnMimicCancel" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+                <input id="hdnSelectedMimicUserName" type="hidden" value="" runat="server" /> 
+            </div>
+                     <input id="hdnSelectedUserDetails" type="hidden" value="" runat="server" /> 
+ 		</div>
+  </div>
+
+<script type="text/javascript">
+    var singleSelectUserMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        selectRow: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert',
+        userNotMappedToWorkgroup: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_mimicUser_userNotmappedtoWkgMessage'
+    }
+    var watermarkUserName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserName';
+    var watermarkUserId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserId';
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var addUserToWorkgroupTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_addUserToWorkgroupForTitle';
+    var removeUserFromWorkgroupTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_RemoveUserFromWorkgroupTitle';
+    var selectColumnName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel';
+
+</script>

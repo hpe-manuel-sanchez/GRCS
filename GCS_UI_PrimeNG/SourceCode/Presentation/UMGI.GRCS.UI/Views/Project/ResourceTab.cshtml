@@ -1,0 +1,101 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.ResourceModel
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ResourceTab.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ResourceTab.js")" type="text/javascript"></script>
+<div id="resourceaccordion">
+    <div class="head">
+        <div class="leftRight">
+            <a href="#" class="header alignLeft iconBottom">@ContractResource.SearchResourcesHeader
+            </a>
+        </div>
+    </div>
+    <div class="accItem accbg">
+        <div class="dvWrapper">
+
+            <input type="hidden" id="hiddenCount" value="@ViewBag.displayMessage" />
+            <input type="hidden"  value="@Model.TotalRows" id="hiddeCounValidation" />
+            <div class="releaseLeftDiv">
+                <div class="releaseLeftDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.Isrc):</div>
+                <div class="releaseLeftDivField">
+                    @Html.TextBoxFor(model => model.ResourceSearch.Isrc)
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.Isrc)
+                </div>
+            </div>
+            <div class="releaseCenterDiv">
+                <div class="releaseCenterDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.ArtistName):</div>
+                <div class="releaseCenterDivField" style="width: 47%;">
+                    @Html.TextBoxFor(model => model.ResourceSearch.ArtistName)
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.ArtistName)
+                </div>
+                <span class="alignLeft">@Html.ValidationMessageFor(model => model.ResourceSearch.IsArtistExactSearch)
+                    @Html.CheckBoxFor(model => model.ResourceSearch.IsArtistExactSearch)
+                    @Html.LabelFor(model => model.ResourceSearch.IsArtistExactSearch)</span>
+            </div>
+            <div class="releaseRightDiv">
+                <div class="releaseRightDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.ArtistId):</div>
+                <div class="releaseRightDivField">
+                    @Html.TextBoxFor(model => model.ResourceSearch.ArtistId)
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.ArtistId)
+                </div>
+            </div>
+
+            <div class="releaseLeftDiv" style="clear: both;">
+                <div class="releaseLeftDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.ResourceType):</div>
+                <div class="releaseLeftDivField">
+                    @Html.DropDownListFor(model => model.ResourceSearch, new SelectList(Model.ResourceType, "value", "text", Model.ResourceSearch))
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.ResourceType)
+                </div>
+            </div>
+            <div class="releaseCenterDiv">
+                <div class="releaseCenterDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.ResourceTitle):</div>
+                <div class="releaseCenterDivField">
+                    @Html.TextBoxFor(model => model.ResourceSearch.ResourceTitle)
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.ResourceTitle)
+                </div>
+            </div>
+            <div class="releaseRightDiv">
+                <div class="releaseRightDivLabel allignLabel">@Html.LabelFor(model => model.ResourceSearch.VersionTitle):</div>
+                <div class="releaseRightDivField">
+                    @Html.TextBoxFor(model => model.ResourceSearch.VersionTitle)
+                    @Html.ValidationMessageFor(model => model.ResourceSearch.VersionTitle)
+                </div>
+            </div>
+
+            <div id="searchContractBtnContainer" style="margin-right: 15px;">
+                <input class="primbutton" id="searchresource" type="submit" value="@ContractResource.SearchButton" />
+                <input class="secbutton btnSpacing" id="resetResource" type="submit" value="@ContractResource.ResetButton" />
+            </div>
+        </div>
+    </div>
+
+    <div id="resourcehide" style="display: none;">
+        <div class="alignLeft">
+            <h2 style="color: #143489; margin: 15px 0; padding: 0;">
+                <span id="resourceResultCount" style="float: left;">@ContractResource.SearchResultsHeader<label>&nbsp;(0)</label></span>
+                <span class="ui-jtable-loading" style="float: left; margin-top: -1px;"></span>
+            </h2>
+        </div>
+        <div class="alignRight" style="margin: 15px;">
+            <span id="resourcePager">
+                @ContractResource.ShowDropDown
+                @Html.DropDownListFor(model => model.ShowItemsPerPage, Model.ShowItemsPerPage)
+                @ContractResource.itemsperpage
+            </span>
+        </div>
+
+        <!-- div id="resourcehide" style="display: none">
+   <h2 style="color: #143489;margin: 15px 0;padding: 0;"><label> <span id="resourceResultCount">@ContractResource.SearchResultsHeader<label>&nbsp;(0)</label></span></label></h2><span class="ui-jtable-loading"></span>
+    <div class="rightField"> <span id="resourcePager">
+        @ContractResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ResourceSearch, Model.ShowItemsPerPage)
+        @ContractResource.itemsperpage
+        </span>
+    </div -->
+        <div id="gridContainer" style="clear: both;">
+            <div id="resouceGrid">
+            </div>
+        </div>
+        @*<input class="primbutton"  type="submit" value="@ContractResource.LinkToContractButton" style="float:right;" />*@
+    </div>

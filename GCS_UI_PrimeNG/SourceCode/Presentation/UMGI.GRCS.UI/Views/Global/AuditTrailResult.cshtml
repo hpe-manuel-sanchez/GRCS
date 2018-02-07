@@ -1,0 +1,29 @@
+﻿@using System.Data
+@model DataSet
+           
+@{
+    foreach (long auditConfigId in ViewBag.SelectedAuditConfiguration)
+    {
+        var auditTrail = Model.Tables[auditConfigId.ToString()];
+
+        <div class="auditTrail">
+            
+            <div class= "auditTrailHeader">
+
+                <span class="auditTrailTitle">@auditTrail.ExtendedProperties["ATTRIBUTE_NAME"]</span>
+
+            </div>
+            
+            @{
+                Html.Syncfusion().Grid<DataRow>(auditConfigId.ToString())
+                .Datasource(auditTrail.AsEnumerable())
+                .EnableAlternateRowStyling()
+                .AllowResizing(true)
+                .ShowRowHeader(false)
+                .EnableRowHover(false)
+                .Render();
+            }
+
+        </div>
+    }
+}

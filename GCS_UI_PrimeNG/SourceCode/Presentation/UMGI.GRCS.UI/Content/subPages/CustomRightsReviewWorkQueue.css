@@ -1,0 +1,15 @@
+﻿
+    .tab-outer
+    {
+        border-bottom: none;
+        width: 98%;
+    }
+    .divRightsPriorityWorkQTab #jqgrid
+    {
+        padding-left: 15px;
+    }
+    #divCustomWorkQueueRelease #jqgrid
+    {
+        padding-left: 0px;
+    }
+   

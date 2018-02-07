@@ -1,0 +1,2763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RoutingDevEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RoutingDevEntitiesStoreContainer">
+          <EntitySet Name="Artist" EntityType="RoutingDevEntities.Store.Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Background_Status" EntityType="RoutingDevEntities.Store.Clr_Background_Status" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Manage_Contract" EntityType="RoutingDevEntities.Store.Clr_Manage_Contract" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Notification" EntityType="RoutingDevEntities.Store.Clr_Notification" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Project" EntityType="RoutingDevEntities.Store.Clr_Project" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Project_Country" EntityType="RoutingDevEntities.Store.Clr_Project_Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Routing_Queue" EntityType="RoutingDevEntities.Store.Clr_Routing_Queue" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Company" EntityType="RoutingDevEntities.Store.Company" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Country" EntityType="RoutingDevEntities.Store.Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Request" EntityType="RoutingDevEntities.Store.Request" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routed_Item" EntityType="RoutingDevEntities.Store.Routed_Item" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Exception" EntityType="RoutingDevEntities.Store.Routing_Exception" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Log" EntityType="RoutingDevEntities.Store.Routing_Log" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Rule" EntityType="RoutingDevEntities.Store.Routing_Rule" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Variation" EntityType="RoutingDevEntities.Store.Routing_Variation" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Variation_Artist" EntityType="RoutingDevEntities.Store.Routing_Variation_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Variation_Company" EntityType="RoutingDevEntities.Store.Routing_Variation_Company" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Variation_Country" EntityType="RoutingDevEntities.Store.Routing_Variation_Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Routing_Variation_Territory" EntityType="RoutingDevEntities.Store.Routing_Variation_Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Safe_Area_Territory" EntityType="RoutingDevEntities.Store.Safe_Area_Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Territory" EntityType="RoutingDevEntities.Store.Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="User" EntityType="RoutingDevEntities.Store.User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Workgroup" EntityType="RoutingDevEntities.Store.Workgroup" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Workgroup_User" EntityType="RoutingDevEntities.Store.Workgroup_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Background_Status" EntitySet="Clr_Background_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Manage_Contract" EntitySet="Clr_Manage_Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_NOTIFICATION_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_CLR_NOTIFICATION_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID" Association="RoutingDevEntities.Store.FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroup" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_NOTIFICATION_REQUEST_ID" Association="RoutingDevEntities.Store.FK_CLR_NOTIFICATION_REQUEST_ID">
+            <End Role="Request" EntitySet="Request" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_NOTIFICATION_TO_WORKGROUP_ID" Association="RoutingDevEntities.Store.FK_CLR_NOTIFICATION_TO_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroup" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Project_Country" EntitySet="Clr_Project_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_PROJECT_COUNTRY_COUNTRY_ID" Association="RoutingDevEntities.Store.FK_CLR_PROJECT_COUNTRY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Clr_Project_Country" EntitySet="Clr_Project_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Routing_Queue" EntitySet="Clr_Routing_Queue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="RoutingDevEntities.Store.FK_COMPANY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_ROUTED_ITEM_ID" Association="RoutingDevEntities.Store.FK_REQUEST_ROUTED_ITEM_ID">
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_WORKGROUP_ID" Association="RoutingDevEntities.Store.FK_REQUEST_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroup" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID" Association="RoutingDevEntities.Store.FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTED_ITEM_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_ROUTED_ITEM_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_LOG_CLR_PROJECT_ID" Association="RoutingDevEntities.Store.FK_ROUTING_LOG_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_LOG_ROUTED_ITEM_ID" Association="RoutingDevEntities.Store.FK_ROUTING_LOG_ROUTED_ITEM_ID">
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_LOG_WORKGROUP_ID" Association="RoutingDevEntities.Store.FK_ROUTING_LOG_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroup" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_ARTIST_ARTIST_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_ARTIST_ARTIST_ID">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Routing_Variation_Artist" EntitySet="Routing_Variation_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Artist" EntitySet="Routing_Variation_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COMPANY_COMPANY_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_COMPANY_COMPANY_ID">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Routing_Variation_Company" EntitySet="Routing_Variation_Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Company" EntitySet="Routing_Variation_Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Routing_Variation_Country" EntitySet="Routing_Variation_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Country" EntitySet="Routing_Variation_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID">
+            <End Role="Routing_Rule" EntitySet="Routing_Rule" />
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Territory" EntitySet="Routing_Variation_Territory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID" Association="RoutingDevEntities.Store.FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID">
+            <End Role="Territory" EntitySet="Territory" />
+            <End Role="Routing_Variation_Territory" EntitySet="Routing_Variation_Territory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SAFE_AREA_TERRITORY_TERRITORY_ID" Association="RoutingDevEntities.Store.FK_SAFE_AREA_TERRITORY_TERRITORY_ID">
+            <End Role="Territory" EntitySet="Territory" />
+            <End Role="Safe_Area_Territory" EntitySet="Safe_Area_Territory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_WORKGROUP_USER_ID" Association="RoutingDevEntities.Store.FK_USER_WORKGROUP_USER_ID">
+            <End Role="User" EntitySet="User" />
+            <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_WORKGROUP_WORKGROUP_ID" Association="RoutingDevEntities.Store.FK_USER_WORKGROUP_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroup" />
+            <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Artist_Id" />
+          </Key>
+          <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+          <Property Name="Talent_Id" Type="bigint" Nullable="false" />
+          <Property Name="Account_Id" Type="bigint" Nullable="false" />
+          <Property Name="Artist_Name" Type="nvarchar" Nullable="false" MaxLength="520" />
+          <Property Name="Contributor_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Clr_Background_Status">
+          <Key>
+            <PropertyRef Name="Clr_Background_Status_Id" />
+          </Key>
+          <Property Name="Clr_Background_Status_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Clr_Project_Id" Type="bigint" />
+          <Property Name="Status_Type" Type="tinyint" />
+          <Property Name="Retry" Type="int" />
+          <Property Name="Error" Type="varchar(max)" />
+          <Property Name="Object" Type="varbinary(max)" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Action_Type" Type="int" />
+        </EntityType>
+        <EntityType Name="Clr_Manage_Contract">
+          <Key>
+            <PropertyRef Name="Clr_Manage_Contract_Id" />
+          </Key>
+          <Property Name="Clr_Manage_Contract_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Contract_Id" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Is_Routed" Type="bit" />
+          <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+          <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clr_Notification">
+          <Key>
+            <PropertyRef Name="Clr_Notification_Id" />
+          </Key>
+          <Property Name="Clr_Notification_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Notification_Type" Type="tinyint" />
+          <Property Name="Request_Id" Type="bigint" Nullable="false" />
+          <Property Name="Clr_Project_Id" Type="bigint" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Is_New" Type="bit" />
+          <Property Name="From_Workgroup_Id" Type="bigint" />
+          <Property Name="To_Workgroup_Id" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Clr_Project">
+          <Key>
+            <PropertyRef Name="Clr_Project_Id" />
+          </Key>
+          <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Project_Id" Type="bigint" />
+          <Property Name="Project_Code" Type="varchar" MaxLength="20" />
+          <Property Name="Project_Type" Type="tinyint" />
+          <Property Name="Title" Type="nvarchar" MaxLength="275" />
+          <Property Name="Local_Reference" Type="nvarchar" MaxLength="50" />
+          <Property Name="Scope_Type" Type="tinyint" />
+          <Property Name="Estimated_Sales_Units" Type="bigint" />
+          <Property Name="Release_Dt" Type="date" />
+          <Property Name="Currency_Code" Type="varchar" MaxLength="3" />
+          <Property Name="Is_Sensitive" Type="bit" />
+          <Property Name="Is_One_Stop" Type="bit" />
+          <Property Name="Is_High_Priority" Type="bit" />
+          <Property Name="Status_Type" Type="tinyint" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="One_Stop_Reason" Type="nvarchar(max)" />
+          <Property Name="Third_Party_Repertoire" Type="nvarchar(max)" />
+          <Property Name="Requester_Workgroup_Id" Type="bigint" Nullable="false" />
+          <Property Name="Requester_Company_Id" Type="bigint" Nullable="false" />
+          <Property Name="Requester_User_Id" Type="bigint" Nullable="false" />
+          <Property Name="Locked_User_Id" Type="bigint" />
+          <Property Name="Is_Master" Type="bit" />
+          <Property Name="Is_Tv" Type="bit" />
+          <Property Name="Is_Non_Traditional" Type="bit" />
+          <Property Name="Is_Club" Type="bit" />
+          <Property Name="Is_Promotional" Type="bit" />
+          <Property Name="Is_Price_Reduction" Type="bit" />
+          <Property Name="Is_Multi_Artist" Type="bit" />
+          <Property Name="Is_Compilation" Type="bit" />
+          <Property Name="Is_Third_Party" Type="bit" />
+          <Property Name="Is_Regular_Retail" Type="bit" />
+          <Property Name="Is_Resubmitted" Type="bit" />
+          <Property Name="Territorial_Right" Type="varchar(max)" />
+          <Property Name="Rcc_User_Id" Type="bigint" Nullable="false" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Creates_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Included_Territories" Type="varchar(max)" />
+          <Property Name="Excluded_Territories" Type="varchar(max)" />
+          <Property Name="Is_Existing" Type="bit" />
+          <Property Name="R2_Project_Code" Type="varchar" MaxLength="50" />
+          <Property Name="UMGI_Cross_Border_Request_Type" Type="tinyint" />
+          <Property Name="UMGI_Third_Party_Company_Type" Type="tinyint" />
+          <Property Name="UMGI_Mid_Price_Reduction_Type" Type="tinyint" />
+          <Property Name="UMGI_Budget_Price_Reduction_Type" Type="tinyint" />
+          <Property Name="UMGI_Sensitive_Exploitation_Type" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Clr_Project_Country">
+          <Key>
+            <PropertyRef Name="Clr_Project_Country_Id" />
+          </Key>
+          <Property Name="Clr_Project_Country_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Country_Id" Type="bigint" Nullable="false" />
+          <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+          <Property Name="Included_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Clr_Routing_Queue">
+          <Key>
+            <PropertyRef Name="Clr_Routing_Queue_Id" />
+          </Key>
+          <Property Name="Clr_Routing_Queue_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Clr_Project_Id" Type="bigint" />
+          <Property Name="Status_Type" Type="tinyint" />
+          <Property Name="Error_Description" Type="varchar(max)" />
+          <Property Name="Object" Type="varbinary(max)" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="bigint" Nullable="false" />
+          <Property Name="Country_Id" Type="bigint" />
+          <Property Name="Company_Account_Id" Type="bigint" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="120" />
+          <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Is_Grc" Type="bit" />
+          <Property Name="Isac_Code" Type="varchar" MaxLength="6" />
+          <Property Name="Company_Type_Code" Type="varchar" MaxLength="2" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Universal_Licensee_Ind" Type="bit" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="bigint" Nullable="false" />
+          <Property Name="Country_Name" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="Iso_Code_2" Type="varchar" MaxLength="5" />
+          <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Request_Id" />
+          </Key>
+          <Property Name="Request_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routed_Item_Id" Type="bigint" Nullable="false" />
+          <Property Name="Workgroup_Id" Type="bigint" />
+          <Property Name="Review_Dt" Type="date" />
+          <Property Name="Is_Open" Type="bit" />
+          <Property Name="Available_Dt" Type="date" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Request_Status_Type" Type="tinyint" />
+          <Property Name="Sequence_No" Type="int" />
+          <Property Name="Assigned_To" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Is_UMGI_Workgroup" Type="bit" />
+        </EntityType>
+        <EntityType Name="Routed_Item">
+          <Key>
+            <PropertyRef Name="Routed_Item_Id" />
+          </Key>
+          <Property Name="Routed_Item_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Resource_Id" Type="bigint" />
+          <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+          <Property Name="Release_Id" Type="bigint" />
+          <Property Name="Package_Id" Type="bigint" />
+          <Property Name="Admin_Company_Id" Type="bigint" />
+          <Property Name="Approval_Status_Type" Type="tinyint" />
+          <Property Name="Routed_Channel_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Contract_Id" Type="bigint" />
+          <Property Name="Right_Set_Id" Type="bigint" />
+          <Property Name="Is_Split_Deal" Type="bit" />
+        </EntityType>
+        <EntityType Name="Routing_Exception">
+          <Key>
+            <PropertyRef Name="Routing_Exception_Id" />
+          </Key>
+          <Property Name="Routing_Exception_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rule_Type" Type="tinyint" />
+          <Property Name="Role_Type" Type="tinyint" />
+          <Property Name="Project_Type" Type="tinyint" />
+          <Property Name="Requester" Type="varchar" MaxLength="50" />
+          <Property Name="Owner" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+          <Property Name="Skip_Step" Type="int" />
+          <Property Name="Rule_Level" Type="int" />
+          <Property Name="Project_Subtype" Type="tinyint" />
+          <Property Name="Is_Active_Artist" Type="bit" />
+          <Property Name="Is_Third_Party" Type="bit" />
+          <Property Name="Rule_Description" Type="varchar" MaxLength="100" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Log">
+          <Key>
+            <PropertyRef Name="Routing_Log_Id" />
+          </Key>
+          <Property Name="Routing_Log_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routed_Item_Id" Type="bigint" Nullable="false" />
+          <Property Name="Action_Type" Type="tinyint" Nullable="false" />
+          <Property Name="Workgroup_Id" Type="bigint" />
+          <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+          <Property Name="Comment_Table_Id" Type="bigint" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Rule">
+          <Key>
+            <PropertyRef Name="Routing_Rule_Id" />
+          </Key>
+          <Property Name="Routing_Rule_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rule_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Variation">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Id" />
+          </Key>
+          <Property Name="Routing_Variation_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routing_Rule_Id" Type="bigint" />
+          <Property Name="Project_Type" Type="tinyint" />
+          <Property Name="Request_Type" Type="tinyint" />
+          <Property Name="Is_Sensitive_Artist" Type="bit" />
+          <Property Name="Is_Active_Artist" Type="bit" />
+          <Property Name="Is_Multi_Artist" Type="bit" />
+          <Property Name="Is_Compilation" Type="bit" />
+          <Property Name="Is_Skip_International" Type="bit" />
+          <Property Name="Is_Skip_National" Type="bit" />
+          <Property Name="Is_Parent" Type="bit" />
+          <Property Name="Is_Skip_Locallabel" Type="bit" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Included_Release_Territories" Type="varchar(max)" />
+          <Property Name="Excluded_Release_Territories" Type="varchar(max)" />
+          <Property Name="Included_Owning_Territories" Type="varchar(max)" />
+          <Property Name="Excluded_Owning_Territories" Type="varchar(max)" />
+          <Property Name="Included_Requesting_Territories" Type="varchar(max)" />
+          <Property Name="Excluded_Requesting_Territories" Type="varchar(max)" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Artist">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Artist_Id" />
+          </Key>
+          <Property Name="Routing_Variation_Artist_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_Id" Type="bigint" />
+          <Property Name="Routing_Variation_Id" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Company">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Company_Id" />
+          </Key>
+          <Property Name="Routing_Variation_Company_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routing_Variation_Id" Type="bigint" />
+          <Property Name="Company_Id" Type="bigint" />
+          <Property Name="Company_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Country">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Country_Id" />
+          </Key>
+          <Property Name="Routing_Variation_Country_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routing_Variation_Id" Type="bigint" />
+          <Property Name="Country_Id" Type="bigint" />
+          <Property Name="Applied_Rule_Type" Type="tinyint" />
+          <Property Name="Included_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Territory">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Territory_Id" />
+          </Key>
+          <Property Name="Routing_Variation_Territory_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Routing_Variation_Id" Type="bigint" />
+          <Property Name="Territory_Id" Type="bigint" />
+          <Property Name="Applied_Rule_Type" Type="tinyint" />
+          <Property Name="Included_Type" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Safe_Area_Territory">
+          <Key>
+            <PropertyRef Name="Safe_Area_Territory_Id" />
+          </Key>
+          <Property Name="Safe_Area_Territory_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Territory_Id" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Territory">
+          <Key>
+            <PropertyRef Name="Territory_Id" />
+          </Key>
+          <Property Name="Territory_Id" Type="bigint" Nullable="false" />
+          <Property Name="Territory_Name" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Name="User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Login_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Hashcode" Type="varchar" MaxLength="50" />
+          <Property Name="Security_Object" Type="xml" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Source_Id" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Workgroup">
+          <Key>
+            <PropertyRef Name="Workgroup_Id" />
+          </Key>
+          <Property Name="Workgroup_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Parent_Id" Type="bigint" />
+          <Property Name="Workgroup_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status_Type" Type="tinyint" />
+          <Property Name="R2_Contact_Email" Type="varchar" MaxLength="500" />
+          <Property Name="Role_Type" Type="tinyint" />
+          <Property Name="Country_Id" Type="bigint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Source_Id" Type="bigint" />
+          <Property Name="Included_Territories" Type="varchar(max)" />
+          <Property Name="Excluded_Territories" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Workgroup_User">
+          <Key>
+            <PropertyRef Name="Workgroup_User_Id" />
+          </Key>
+          <Property Name="Workgroup_User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Workgroup_Id" Type="bigint" Nullable="false" />
+          <Property Name="User_Id" Type="bigint" Nullable="false" />
+          <Property Name="Is_Default" Type="bit" />
+          <Property Name="Is_In_Role" Type="bit" />
+          <Property Name="Is_Manage_Workgroup" Type="bit" />
+          <Property Name="Is_R2_Authorized" Type="bit" />
+          <Property Name="Is_Upc_Allocation" Type="bit" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Source_Id" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="0..1" />
+          <End Role="Clr_Background_Status" Type="RoutingDevEntities.Store.Clr_Background_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Background_Status">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="1" />
+          <End Role="Clr_Manage_Contract" Type="RoutingDevEntities.Store.Clr_Manage_Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Manage_Contract">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_NOTIFICATION_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="0..1" />
+          <End Role="Clr_Notification" Type="RoutingDevEntities.Store.Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID">
+          <End Role="Workgroup" Type="RoutingDevEntities.Store.Workgroup" Multiplicity="0..1" />
+          <End Role="Clr_Notification" Type="RoutingDevEntities.Store.Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="From_Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_NOTIFICATION_REQUEST_ID">
+          <End Role="Request" Type="RoutingDevEntities.Store.Request" Multiplicity="1" />
+          <End Role="Clr_Notification" Type="RoutingDevEntities.Store.Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="Request_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="Request_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_NOTIFICATION_TO_WORKGROUP_ID">
+          <End Role="Workgroup" Type="RoutingDevEntities.Store.Workgroup" Multiplicity="0..1" />
+          <End Role="Clr_Notification" Type="RoutingDevEntities.Store.Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="To_Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="1" />
+          <End Role="Clr_Project_Country" Type="RoutingDevEntities.Store.Clr_Project_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Project_Country">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_PROJECT_COUNTRY_COUNTRY_ID">
+          <End Role="Country" Type="RoutingDevEntities.Store.Country" Multiplicity="1" />
+          <End Role="Clr_Project_Country" Type="RoutingDevEntities.Store.Clr_Project_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Clr_Project_Country">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="0..1" />
+          <End Role="Clr_Routing_Queue" Type="RoutingDevEntities.Store.Clr_Routing_Queue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Routing_Queue">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_COUNTRY_ID">
+          <End Role="Country" Type="RoutingDevEntities.Store.Country" Multiplicity="0..1" />
+          <End Role="Company" Type="RoutingDevEntities.Store.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_ROUTED_ITEM_ID">
+          <End Role="Routed_Item" Type="RoutingDevEntities.Store.Routed_Item" Multiplicity="1" />
+          <End Role="Request" Type="RoutingDevEntities.Store.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routed_Item">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_WORKGROUP_ID">
+          <End Role="Workgroup" Type="RoutingDevEntities.Store.Workgroup" Multiplicity="0..1" />
+          <End Role="Request" Type="RoutingDevEntities.Store.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+          <End Role="Company" Type="RoutingDevEntities.Store.Company" Multiplicity="0..1" />
+          <End Role="Routed_Item" Type="RoutingDevEntities.Store.Routed_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Routed_Item">
+              <PropertyRef Name="Admin_Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTED_ITEM_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="1" />
+          <End Role="Routed_Item" Type="RoutingDevEntities.Store.Routed_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Routed_Item">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_LOG_CLR_PROJECT_ID">
+          <End Role="Clr_Project" Type="RoutingDevEntities.Store.Clr_Project" Multiplicity="1" />
+          <End Role="Routing_Log" Type="RoutingDevEntities.Store.Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_LOG_ROUTED_ITEM_ID">
+          <End Role="Routed_Item" Type="RoutingDevEntities.Store.Routed_Item" Multiplicity="1" />
+          <End Role="Routing_Log" Type="RoutingDevEntities.Store.Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routed_Item">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_LOG_WORKGROUP_ID">
+          <End Role="Workgroup" Type="RoutingDevEntities.Store.Workgroup" Multiplicity="0..1" />
+          <End Role="Routing_Log" Type="RoutingDevEntities.Store.Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_ARTIST_ARTIST_ID">
+          <End Role="Artist" Type="RoutingDevEntities.Store.Artist" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Artist" Type="RoutingDevEntities.Store.Routing_Variation_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="Artist_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Artist">
+              <PropertyRef Name="Artist_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID">
+          <End Role="Routing_Variation" Type="RoutingDevEntities.Store.Routing_Variation" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Artist" Type="RoutingDevEntities.Store.Routing_Variation_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Artist">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COMPANY_COMPANY_ID">
+          <End Role="Company" Type="RoutingDevEntities.Store.Company" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Company" Type="RoutingDevEntities.Store.Routing_Variation_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Company">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID">
+          <End Role="Routing_Variation" Type="RoutingDevEntities.Store.Routing_Variation" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Company" Type="RoutingDevEntities.Store.Routing_Variation_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Company">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID">
+          <End Role="Country" Type="RoutingDevEntities.Store.Country" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Country" Type="RoutingDevEntities.Store.Routing_Variation_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Country">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID">
+          <End Role="Routing_Variation" Type="RoutingDevEntities.Store.Routing_Variation" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Country" Type="RoutingDevEntities.Store.Routing_Variation_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Country">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID">
+          <End Role="Routing_Rule" Type="RoutingDevEntities.Store.Routing_Rule" Multiplicity="0..1" />
+          <End Role="Routing_Variation" Type="RoutingDevEntities.Store.Routing_Variation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Rule">
+              <PropertyRef Name="Routing_Rule_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation">
+              <PropertyRef Name="Routing_Rule_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID">
+          <End Role="Routing_Variation" Type="RoutingDevEntities.Store.Routing_Variation" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Territory" Type="RoutingDevEntities.Store.Routing_Variation_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Territory">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID">
+          <End Role="Territory" Type="RoutingDevEntities.Store.Territory" Multiplicity="0..1" />
+          <End Role="Routing_Variation_Territory" Type="RoutingDevEntities.Store.Routing_Variation_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SAFE_AREA_TERRITORY_TERRITORY_ID">
+          <End Role="Territory" Type="RoutingDevEntities.Store.Territory" Multiplicity="0..1" />
+          <End Role="Safe_Area_Territory" Type="RoutingDevEntities.Store.Safe_Area_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Principal>
+            <Dependent Role="Safe_Area_Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_WORKGROUP_USER_ID">
+          <End Role="User" Type="RoutingDevEntities.Store.User" Multiplicity="1" />
+          <End Role="Workgroup_User" Type="RoutingDevEntities.Store.Workgroup_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_Id" />
+            </Principal>
+            <Dependent Role="Workgroup_User">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_WORKGROUP_WORKGROUP_ID">
+          <End Role="Workgroup" Type="RoutingDevEntities.Store.Workgroup" Multiplicity="1" />
+          <End Role="Workgroup_User" Type="RoutingDevEntities.Store.Workgroup_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Workgroup_User">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="USP_GetRoutingVariation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CLR_PROJECT_ID" Type="bigint" Mode="In" />
+          <Parameter Name="RESOURCE_ID" Type="bigint" Mode="In" />
+          <Parameter Name="REQUEST_TYPE_ID" Type="smallint" Mode="In" />
+          <Parameter Name="CONTRACT_ID" Type="bigint" Mode="In" />
+          <Parameter Name="RIGHT_SET_ID" Type="bigint" Mode="In" />
+          <Parameter Name="IS_NATIONAL" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="USP_IsDuplicateRoutingVariation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="routing_variation_id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_Routing_IdentifyWorkGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ClrProjectId" Type="bigint" Mode="In" />
+          <Parameter Name="ResourceId" Type="bigint" Mode="In" />
+          <Parameter Name="ContractId" Type="bigint" Mode="In" />
+          <Parameter Name="RightSetId" Type="bigint" Mode="In" />
+          <Parameter Name="CACId" Type="bigint" Mode="In" />
+          <Parameter Name="RequestingCountryId" Type="bigint" Mode="In" />
+          <Parameter Name="RequestType" Type="tinyint" Mode="In" />
+          <Parameter Name="ProjectRequestTypes" Type="varchar" Mode="In" />
+          <Parameter Name="IsNationalRouting" Type="bit" Mode="In" />
+          <Parameter Name="IsArtistContract" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="USP_SafeTerritoryCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clr_project_id" Type="bigint" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RoutingDevEntities" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="RoutingDataEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Routing_Exception" EntityType="RoutingDevEntities.Routing_Exception" />
+          <EntitySet Name="Workgroups" EntityType="RoutingDevEntities.Workgroup" />
+          <EntitySet Name="Routed_Item" EntityType="RoutingDevEntities.Routed_Item" />
+          <EntitySet Name="Clr_Notification" EntityType="RoutingDevEntities.Clr_Notification" />
+          <AssociationSet Name="FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID" Association="RoutingDevEntities.FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroups" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_NOTIFICATION_TO_WORKGROUP_ID" Association="RoutingDevEntities.FK_CLR_NOTIFICATION_TO_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroups" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <EntitySet Name="Workgroup_User" EntityType="RoutingDevEntities.Workgroup_User" />
+          <AssociationSet Name="FK_USER_WORKGROUP_WORKGROUP_ID" Association="RoutingDevEntities.FK_USER_WORKGROUP_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroups" />
+            <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+          </AssociationSet>
+          <EntitySet Name="Requests" EntityType="RoutingDevEntities.Request" />
+          <AssociationSet Name="FK_CLR_NOTIFICATION_REQUEST_ID" Association="RoutingDevEntities.FK_CLR_NOTIFICATION_REQUEST_ID">
+            <End Role="Request" EntitySet="Requests" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_ROUTED_ITEM_ID" Association="RoutingDevEntities.FK_REQUEST_ROUTED_ITEM_ID">
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQUEST_WORKGROUP_ID" Association="RoutingDevEntities.FK_REQUEST_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroups" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <EntitySet Name="Clr_Routing_Queue" EntityType="RoutingDevEntities.Clr_Routing_Queue" />
+          <EntitySet Name="Safe_Area_Territory" EntityType="RoutingDevEntities.Safe_Area_Territory" />
+          <EntitySet Name="Territories" EntityType="RoutingDevEntities.Territory" />
+          <AssociationSet Name="FK_SAFE_AREA_TERRITORY_TERRITORY_ID" Association="RoutingDevEntities.FK_SAFE_AREA_TERRITORY_TERRITORY_ID">
+            <End Role="Territory" EntitySet="Territories" />
+            <End Role="Safe_Area_Territory" EntitySet="Safe_Area_Territory" />
+          </AssociationSet>
+          <EntitySet Name="Clr_Project_Country" EntityType="RoutingDevEntities.Clr_Project_Country" />
+          <FunctionImport Name="USP_SafeTerritoryCheck" ReturnType="Collection(RoutingDevEntities.USP_SafeTerritoryCheck_Result)">
+          <Parameter Name="clr_project_id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="Routing_Log" EntityType="RoutingDevEntities.Routing_Log" />
+          <AssociationSet Name="FK_ROUTING_LOG_ROUTED_ITEM_ID" Association="RoutingDevEntities.FK_ROUTING_LOG_ROUTED_ITEM_ID">
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_LOG_WORKGROUP_ID" Association="RoutingDevEntities.FK_ROUTING_LOG_WORKGROUP_ID">
+            <End Role="Workgroup" EntitySet="Workgroups" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <EntitySet Name="Routing_Rule" EntityType="RoutingDevEntities.Routing_Rule" />
+          <EntitySet Name="Routing_Variation" EntityType="RoutingDevEntities.Routing_Variation" />
+          <EntitySet Name="Routing_Variation_Artist" EntityType="RoutingDevEntities.Routing_Variation_Artist" />
+          <EntitySet Name="Routing_Variation_Company" EntityType="RoutingDevEntities.Routing_Variation_Company" />
+          <EntitySet Name="Routing_Variation_Country" EntityType="RoutingDevEntities.Routing_Variation_Country" />
+          <EntitySet Name="Routing_Variation_Territory" EntityType="RoutingDevEntities.Routing_Variation_Territory" />
+          <AssociationSet Name="FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID">
+            <End Role="Routing_Rule" EntitySet="Routing_Rule" />
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Artist" EntitySet="Routing_Variation_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Company" EntitySet="Routing_Variation_Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Country" EntitySet="Routing_Variation_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID">
+            <End Role="Routing_Variation" EntitySet="Routing_Variation" />
+            <End Role="Routing_Variation_Territory" EntitySet="Routing_Variation_Territory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID">
+            <End Role="Territory" EntitySet="Territories" />
+            <End Role="Routing_Variation_Territory" EntitySet="Routing_Variation_Territory" />
+          </AssociationSet>
+          <EntitySet Name="Artists" EntityType="RoutingDevEntities.Artist" />
+          <EntitySet Name="Companies" EntityType="RoutingDevEntities.Company" />
+          <AssociationSet Name="FK_ROUTING_VARIATION_ARTIST_ARTIST_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ARTIST_ID">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Routing_Variation_Artist" EntitySet="Routing_Variation_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID" Association="RoutingDevEntities.FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COMPANY_COMPANY_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_COMPANY_ID">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Routing_Variation_Company" EntitySet="Routing_Variation_Company" />
+          </AssociationSet>
+          <EntitySet Name="Countries" EntityType="RoutingDevEntities.Country" />
+          <AssociationSet Name="FK_CLR_PROJECT_COUNTRY_COUNTRY_ID" Association="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Clr_Project_Country" EntitySet="Clr_Project_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="RoutingDevEntities.FK_COMPANY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID" Association="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Routing_Variation_Country" EntitySet="Routing_Variation_Country" />
+          </AssociationSet>
+          <EntitySet Name="Clr_Project" EntityType="RoutingDevEntities.Clr_Project" />
+          <AssociationSet Name="FK_CLR_NOTIFICATION_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_CLR_NOTIFICATION_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Notification" EntitySet="Clr_Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Project_Country" EntitySet="Clr_Project_Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Routing_Queue" EntitySet="Clr_Routing_Queue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTED_ITEM_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_ROUTED_ITEM_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Routed_Item" EntitySet="Routed_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROUTING_LOG_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_ROUTING_LOG_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Routing_Log" EntitySet="Routing_Log" />
+          </AssociationSet>
+          <FunctionImport Name="USP_GetRoutingVariation" ReturnType="Collection(RoutingDevEntities.USP_GetRoutingVariation_Result)">
+            <Parameter Name="CLR_PROJECT_ID" Mode="In" Type="Int64" />
+            <Parameter Name="RESOURCE_ID" Mode="In" Type="Int64" />
+            <Parameter Name="REQUEST_TYPE_ID" Mode="In" Type="Int16" />
+            <Parameter Name="CONTRACT_ID" Mode="In" Type="Int64" />
+            <Parameter Name="RIGHT_SET_ID" Mode="In" Type="Int64" />
+            <Parameter Name="IS_NATIONAL" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="USP_IsDuplicateRoutingVariation" ReturnType="Collection(RoutingDevEntities.USP_IsDuplicateRoutingVariation_Result)">
+          <Parameter Name="routing_variation_id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="Clr_Manage_Contract" EntityType="RoutingDevEntities.Clr_Manage_Contract" />
+          <AssociationSet Name="FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Manage_Contract" EntitySet="Clr_Manage_Contract" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="RoutingDevEntities.User" />
+          <AssociationSet Name="FK_USER_WORKGROUP_USER_ID" Association="RoutingDevEntities.FK_USER_WORKGROUP_USER_ID">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+          </AssociationSet>
+          <FunctionImport Name="USP_Routing_IdentifyWorkGroups" ReturnType="Collection(RoutingDevEntities.USP_Routing_IdentifyWorkGroups_Result)">
+            <Parameter Name="ClrProjectId" Mode="In" Type="Int64" />
+            <Parameter Name="ResourceId" Mode="In" Type="Int64" />
+            <Parameter Name="ContractId" Mode="In" Type="Int64" />
+            <Parameter Name="RightSetId" Mode="In" Type="Int64" />
+            <Parameter Name="CACId" Mode="In" Type="Int64" />
+            <Parameter Name="RequestingCountryId" Mode="In" Type="Int64" />
+            <Parameter Name="RequestType" Mode="In" Type="Byte" />
+            <Parameter Name="ProjectRequestTypes" Mode="In" Type="String" />
+            <Parameter Name="IsNationalRouting" Mode="In" Type="Boolean" />
+            <Parameter Name="IsArtistContract" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="Clr_Background_Status" EntityType="RoutingDevEntities.Clr_Background_Status" />
+          <AssociationSet Name="FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID" Association="RoutingDevEntities.FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID">
+            <End Role="Clr_Project" EntitySet="Clr_Project" />
+            <End Role="Clr_Background_Status" EntitySet="Clr_Background_Status" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Routing_Exception">
+          <Key>
+            <PropertyRef Name="Routing_Exception_Id" />
+          </Key>
+          <Property Name="Routing_Exception_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Rule_Type" Type="Byte" />
+          <Property Name="Role_Type" Type="Byte" />
+          <Property Name="Project_Type" Type="Byte" />
+          <Property Name="Requester" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Owner" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Artist_Id" Type="Int64" Nullable="false" />
+          <Property Name="Skip_Step" Type="Int32" />
+          <Property Name="Rule_Level" Type="Int32" />
+          <Property Name="Project_Subtype" Type="Byte" />
+          <Property Name="Is_Active_Artist" Type="Boolean" />
+          <Property Name="Is_Third_Party" Type="Boolean" />
+          <Property Name="Rule_Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Created_User" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Created_Dttm" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_User" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Modified_Dttm" Type="DateTime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Workgroup">
+          <Key>
+            <PropertyRef Name="Workgroup_Id" />
+          </Key>
+          <Property Type="Int64" Name="Workgroup_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Parent_Id" />
+          <Property Type="String" Name="Workgroup_Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Status_Type" />
+          <Property Type="String" Name="R2_Contact_Email" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Role_Type" />
+          <Property Type="Int64" Name="Country_Id" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Notification" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID" FromRole="Workgroup" ToRole="Clr_Notification" />
+          <NavigationProperty Name="Clr_Notification1" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_TO_WORKGROUP_ID" FromRole="Workgroup" ToRole="Clr_Notification" />
+          <NavigationProperty Name="Workgroup_User" Relationship="RoutingDevEntities.FK_USER_WORKGROUP_WORKGROUP_ID" FromRole="Workgroup" ToRole="Workgroup_User" />
+          <NavigationProperty Name="Requests" Relationship="RoutingDevEntities.FK_REQUEST_WORKGROUP_ID" FromRole="Workgroup" ToRole="Request" />
+          <Property Type="Int64" Name="Source_Id" />
+          <NavigationProperty Name="Routing_Log" Relationship="RoutingDevEntities.FK_ROUTING_LOG_WORKGROUP_ID" FromRole="Workgroup" ToRole="Routing_Log" />
+          <Property Type="String" Name="Included_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Excluded_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <EntityType Name="Routed_Item">
+          <Key>
+            <PropertyRef Name="Routed_Item_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routed_Item_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+          <Property Type="Int64" Name="Release_Id" />
+          <Property Type="Int64" Name="Package_Id" />
+          <Property Type="Int64" Name="Admin_Company_Id" />
+          <Property Type="Byte" Name="Approval_Status_Type" />
+          <Property Type="Int64" Name="Right_Set_Id" />
+          <Property Type="Int64" Name="Contract_Id" />
+          <Property Type="Byte" Name="Routed_Channel_Type" Nullable="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" ConcurrencyMode="Fixed" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Requests" Relationship="RoutingDevEntities.FK_REQUEST_ROUTED_ITEM_ID" FromRole="Routed_Item" ToRole="Request" />
+          <NavigationProperty Name="Routing_Log" Relationship="RoutingDevEntities.FK_ROUTING_LOG_ROUTED_ITEM_ID" FromRole="Routed_Item" ToRole="Routing_Log" />
+          <NavigationProperty Name="Company" Relationship="RoutingDevEntities.FK_ROUTED_ITEM_ADMIN_COMPANY_ID" FromRole="Routed_Item" ToRole="Company" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_ROUTED_ITEM_CLR_PROJECT_ID" FromRole="Routed_Item" ToRole="Clr_Project" />
+          <Property Type="Boolean" Name="Is_Split_Deal" />
+        </EntityType>
+        <EntityType Name="Clr_Notification">
+          <Key>
+            <PropertyRef Name="Clr_Notification_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Notification_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Byte" Name="Notification_Type" />
+          <Property Type="Int64" Name="Request_Id" Nullable="false" />
+          <Property Type="Int64" Name="Clr_Project_Id" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Is_New" />
+          <Property Type="Int64" Name="From_Workgroup_Id" />
+          <Property Type="Int64" Name="To_Workgroup_Id" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Workgroup" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID" FromRole="Clr_Notification" ToRole="Workgroup" />
+          <NavigationProperty Name="Workgroup1" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_TO_WORKGROUP_ID" FromRole="Clr_Notification" ToRole="Workgroup" />
+          <NavigationProperty Name="Request" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_REQUEST_ID" FromRole="Clr_Notification" ToRole="Request" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_CLR_PROJECT_ID" FromRole="Clr_Notification" ToRole="Clr_Project" />
+        </EntityType>
+        <Association Name="FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID">
+          <End Type="RoutingDevEntities.Workgroup" Role="Workgroup" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Clr_Notification" Role="Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="From_Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_NOTIFICATION_TO_WORKGROUP_ID">
+          <End Type="RoutingDevEntities.Workgroup" Role="Workgroup" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Clr_Notification" Role="Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="To_Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Workgroup_User">
+          <Key>
+            <PropertyRef Name="Workgroup_User_Id" />
+          </Key>
+          <Property Type="Int64" Name="Workgroup_User_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Workgroup_Id" Nullable="false" />
+          <Property Type="Int64" Name="User_Id" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Default" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Workgroup" Relationship="RoutingDevEntities.FK_USER_WORKGROUP_WORKGROUP_ID" FromRole="Workgroup_User" ToRole="Workgroup" />
+          <Property Type="Boolean" Name="Is_In_Role" />
+          <Property Type="Boolean" Name="Is_Manage_Workgroup" />
+          <Property Type="Boolean" Name="Is_R2_Authorized" />
+          <Property Type="Boolean" Name="Is_Upc_Allocation" />
+          <Property Type="Int64" Name="Source_Id" />
+          <NavigationProperty Name="User" Relationship="RoutingDevEntities.FK_USER_WORKGROUP_USER_ID" FromRole="Workgroup_User" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_USER_WORKGROUP_WORKGROUP_ID">
+          <End Type="RoutingDevEntities.Workgroup" Role="Workgroup" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Workgroup_User" Role="Workgroup_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Workgroup_User">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Request_Id" />
+          </Key>
+          <Property Type="Int64" Name="Request_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Routed_Item_Id" Nullable="false" />
+          <Property Type="Int64" Name="Workgroup_Id" />
+          <Property Type="DateTime" Name="Review_Dt" />
+          <Property Type="Boolean" Name="Is_Open" />
+          <Property Type="DateTime" Name="Available_Dt" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Request_Status_Type" />
+          <Property Type="Int32" Name="Sequence_No" />
+          <Property Type="Int64" Name="Assigned_To" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" ConcurrencyMode="Fixed" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Notification" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_REQUEST_ID" FromRole="Request" ToRole="Clr_Notification" />
+          <NavigationProperty Name="Routed_Item" Relationship="RoutingDevEntities.FK_REQUEST_ROUTED_ITEM_ID" FromRole="Request" ToRole="Routed_Item" />
+          <NavigationProperty Name="Workgroup" Relationship="RoutingDevEntities.FK_REQUEST_WORKGROUP_ID" FromRole="Request" ToRole="Workgroup" />
+          <Property Type="Boolean" Name="Is_UMGI_Workgroup" />
+        </EntityType>
+        <Association Name="FK_CLR_NOTIFICATION_REQUEST_ID">
+          <End Type="RoutingDevEntities.Request" Role="Request" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Clr_Notification" Role="Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Request">
+              <PropertyRef Name="Request_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="Request_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_ROUTED_ITEM_ID">
+          <End Type="RoutingDevEntities.Routed_Item" Role="Routed_Item" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routed_Item">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQUEST_WORKGROUP_ID">
+          <End Type="RoutingDevEntities.Workgroup" Role="Workgroup" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Clr_Routing_Queue">
+          <Key>
+            <PropertyRef Name="Clr_Routing_Queue_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Routing_Queue_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Clr_Project_Id" />
+          <Property Type="Byte" Name="Status_Type" />
+          <Property Type="String" Name="Error_Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="Object" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID" FromRole="Clr_Routing_Queue" ToRole="Clr_Project" />
+        </EntityType>
+        <EntityType Name="Safe_Area_Territory">
+          <Key>
+            <PropertyRef Name="Safe_Area_Territory_Id" />
+          </Key>
+          <Property Type="Int64" Name="Safe_Area_Territory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Territory_Id" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Territory" Relationship="RoutingDevEntities.FK_SAFE_AREA_TERRITORY_TERRITORY_ID" FromRole="Safe_Area_Territory" ToRole="Territory" />
+        </EntityType>
+        <EntityType Name="Territory">
+          <Key>
+            <PropertyRef Name="Territory_Id" />
+          </Key>
+          <Property Type="Int64" Name="Territory_Id" Nullable="false" />
+          <Property Type="String" Name="Territory_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Safe_Area_Territory" Relationship="RoutingDevEntities.FK_SAFE_AREA_TERRITORY_TERRITORY_ID" FromRole="Territory" ToRole="Safe_Area_Territory" />
+          <NavigationProperty Name="Routing_Variation_Territory" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID" FromRole="Territory" ToRole="Routing_Variation_Territory" />
+        </EntityType>
+        <Association Name="FK_SAFE_AREA_TERRITORY_TERRITORY_ID">
+          <End Type="RoutingDevEntities.Territory" Role="Territory" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Safe_Area_Territory" Role="Safe_Area_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Principal>
+            <Dependent Role="Safe_Area_Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_GetRoutingVariation_Result">
+          <Property Name="Routing_Variation_Id" Nullable="false" Type="Int64" />
+          <Property Name="Project_Type" Nullable="false" Type="Int64" />
+          <Property Name="Is_Skip_International" Nullable="false" Type="Boolean" />
+          <Property Name="Is_Skip_National" Nullable="false" Type="Boolean" />
+          <Property Name="Is_Skip_Locallabel" Nullable="false" Type="Boolean" />
+          <Property Name="Is_Parent" Nullable="false" Type="Boolean" />
+          <Property Name="Routing_Rule_Id" Nullable="false" Type="Int64" />
+          <Property Name="Rule_Name" Nullable="false" Type="String" />
+          <Property Type="Boolean" Name="Is_Send_Email" Nullable="false" />
+        </ComplexType>        
+        <EntityType Name="Clr_Project_Country">
+          <Key>
+            <PropertyRef Name="Clr_Project_Country_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Project_Country_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Country_Id" Nullable="false" />
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+          <Property Type="Byte" Name="Included_Type" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Country" Relationship="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_COUNTRY_ID" FromRole="Clr_Project_Country" ToRole="Country" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID" FromRole="Clr_Project_Country" ToRole="Clr_Project" />
+        </EntityType>
+        <ComplexType Name="USP_SafeTerritoryCheck_Result">
+          <Property Type="Boolean" Name="Is_SafeTerritory" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Routing_Log">
+          <Key>
+            <PropertyRef Name="Routing_Log_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Log_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Routed_Item_Id" Nullable="false" />
+          <Property Type="Byte" Name="Action_Type" Nullable="false" />
+          <Property Type="Int64" Name="Workgroup_Id" />
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+          <Property Type="Int64" Name="Comment_Table_Id" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routed_Item" Relationship="RoutingDevEntities.FK_ROUTING_LOG_ROUTED_ITEM_ID" FromRole="Routing_Log" ToRole="Routed_Item" />
+          <NavigationProperty Name="Workgroup" Relationship="RoutingDevEntities.FK_ROUTING_LOG_WORKGROUP_ID" FromRole="Routing_Log" ToRole="Workgroup" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_ROUTING_LOG_CLR_PROJECT_ID" FromRole="Routing_Log" ToRole="Clr_Project" />
+        </EntityType>
+        <Association Name="FK_ROUTING_LOG_ROUTED_ITEM_ID">
+          <End Type="RoutingDevEntities.Routed_Item" Role="Routed_Item" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Routing_Log" Role="Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routed_Item">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Routed_Item_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_LOG_WORKGROUP_ID">
+          <End Type="RoutingDevEntities.Workgroup" Role="Workgroup" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Log" Role="Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workgroup">
+              <PropertyRef Name="Workgroup_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Workgroup_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Routing_Rule">
+          <Key>
+            <PropertyRef Name="Routing_Rule_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Rule_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Rule_Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID" FromRole="Routing_Rule" ToRole="Routing_Variation" />
+        </EntityType>
+        <EntityType Name="Routing_Variation">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Variation_Id" Nullable="false" />
+          <Property Type="Int64" Name="Routing_Rule_Id" />
+          <Property Type="Byte" Name="Project_Type" />
+          <Property Type="Byte" Name="Request_Type" />
+          <Property Type="Boolean" Name="Is_Sensitive_Artist" />
+          <Property Type="Boolean" Name="Is_Active_Artist" />
+          <Property Type="Boolean" Name="Is_Multi_Artist" />
+          <Property Type="Boolean" Name="Is_Compilation" />
+          <Property Type="Boolean" Name="Is_Skip_International" />
+          <Property Type="Boolean" Name="Is_Skip_National" />
+          <Property Type="Boolean" Name="Is_Parent" />
+          <Property Type="Boolean" Name="Is_Skip_Locallabel" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="Is_Active" />
+          <NavigationProperty Name="Routing_Rule" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID" FromRole="Routing_Variation" ToRole="Routing_Rule" />
+          <NavigationProperty Name="Routing_Variation_Artist" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID" FromRole="Routing_Variation" ToRole="Routing_Variation_Artist" />
+          <NavigationProperty Name="Routing_Variation_Company" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID" FromRole="Routing_Variation" ToRole="Routing_Variation_Company" />
+          <NavigationProperty Name="Routing_Variation_Country" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID" FromRole="Routing_Variation" ToRole="Routing_Variation_Country" />
+          <NavigationProperty Name="Routing_Variation_Territory" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID" FromRole="Routing_Variation" ToRole="Routing_Variation_Territory" />
+          <Property Type="String" Name="Included_Release_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Excluded_Release_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Included_Owning_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Excluded_Owning_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Included_Requesting_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Excluded_Requesting_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Artist">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Artist_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Variation_Artist_Id" Nullable="false" />
+          <Property Type="Int64" Name="Artist_Id" />
+          <Property Type="Int64" Name="Routing_Variation_Id" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID" FromRole="Routing_Variation_Artist" ToRole="Routing_Variation" />
+          <NavigationProperty Name="Artist" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ARTIST_ID" FromRole="Routing_Variation_Artist" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Company">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Company_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Variation_Company_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Routing_Variation_Id" />
+          <Property Type="Int64" Name="Company_Id" />
+          <Property Type="Byte" Name="Company_Type" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID" FromRole="Routing_Variation_Company" ToRole="Routing_Variation" />
+          <NavigationProperty Name="Company" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_COMPANY_ID" FromRole="Routing_Variation_Company" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Country">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Country_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Variation_Country_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Routing_Variation_Id" />
+          <Property Type="Int64" Name="Country_Id" />
+          <Property Type="Byte" Name="Applied_Rule_Type" />
+          <Property Type="Byte" Name="Included_Type" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID" FromRole="Routing_Variation_Country" ToRole="Routing_Variation" />
+          <NavigationProperty Name="Country" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID" FromRole="Routing_Variation_Country" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="Routing_Variation_Territory">
+          <Key>
+            <PropertyRef Name="Routing_Variation_Territory_Id" />
+          </Key>
+          <Property Type="Int64" Name="Routing_Variation_Territory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Routing_Variation_Id" />
+          <Property Type="Int64" Name="Territory_Id" />
+          <Property Type="Byte" Name="Applied_Rule_Type" />
+          <Property Type="Byte" Name="Included_Type" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID" FromRole="Routing_Variation_Territory" ToRole="Routing_Variation" />
+          <NavigationProperty Name="Territory" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID" FromRole="Routing_Variation_Territory" ToRole="Territory" />
+        </EntityType>
+        <Association Name="FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID">
+          <End Type="RoutingDevEntities.Routing_Rule" Role="Routing_Rule" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation" Role="Routing_Variation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Rule">
+              <PropertyRef Name="Routing_Rule_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation">
+              <PropertyRef Name="Routing_Rule_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID">
+          <End Type="RoutingDevEntities.Routing_Variation" Role="Routing_Variation" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Artist" Role="Routing_Variation_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Artist">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID">
+          <End Type="RoutingDevEntities.Routing_Variation" Role="Routing_Variation" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Company" Role="Routing_Variation_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Company">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID">
+          <End Type="RoutingDevEntities.Routing_Variation" Role="Routing_Variation" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Country" Role="Routing_Variation_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Country">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID">
+          <End Type="RoutingDevEntities.Routing_Variation" Role="Routing_Variation" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Territory" Role="Routing_Variation_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routing_Variation">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Territory">
+              <PropertyRef Name="Routing_Variation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID">
+          <End Type="RoutingDevEntities.Territory" Role="Territory" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Territory" Role="Routing_Variation_Territory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Territory">
+              <PropertyRef Name="Territory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Artist_Id" />
+          </Key>
+          <Property Type="Int64" Name="Artist_Id" Nullable="false" />
+          <Property Type="Int64" Name="Talent_Id" Nullable="false" />
+          <Property Type="Int64" Name="Account_Id" Nullable="false" />
+          <Property Type="String" Name="Artist_Name" Nullable="false" MaxLength="520" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Contributor_Type" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routing_Variation_Artist" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ARTIST_ID" FromRole="Artist" ToRole="Routing_Variation_Artist" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Type="Int64" Name="Company_Id" Nullable="false" />
+          <Property Type="Int64" Name="Country_Id" />
+          <Property Type="Int64" Name="Company_Account_Id" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="Is_Grc" />
+          <Property Type="String" Name="Isac_Code" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Company_Type_Code" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Routed_Item" Relationship="RoutingDevEntities.FK_ROUTED_ITEM_ADMIN_COMPANY_ID" FromRole="Company" ToRole="Routed_Item" />
+          <NavigationProperty Name="Routing_Variation_Company" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_COMPANY_ID" FromRole="Company" ToRole="Routing_Variation_Company" />
+          <NavigationProperty Name="Country" Relationship="RoutingDevEntities.FK_COMPANY_COUNTRY_ID" FromRole="Company" ToRole="Country" />
+          <Property Type="Boolean" Name="Universal_Licensee_Ind" />
+        </EntityType>
+        <Association Name="FK_ROUTING_VARIATION_ARTIST_ARTIST_ID">
+          <End Type="RoutingDevEntities.Artist" Role="Artist" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Artist" Role="Routing_Variation_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="Artist_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Artist">
+              <PropertyRef Name="Artist_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+          <End Type="RoutingDevEntities.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routed_Item" Role="Routed_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Routed_Item">
+              <PropertyRef Name="Admin_Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COMPANY_COMPANY_ID">
+          <End Type="RoutingDevEntities.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Company" Role="Routing_Variation_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Company">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Type="Int64" Name="Country_Id" Nullable="false" />
+          <Property Type="String" Name="Country_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Iso_Code_2" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Project_Country" Relationship="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_COUNTRY_ID" FromRole="Country" ToRole="Clr_Project_Country" />
+          <NavigationProperty Name="Companies" Relationship="RoutingDevEntities.FK_COMPANY_COUNTRY_ID" FromRole="Country" ToRole="Company" />
+          <NavigationProperty Name="Routing_Variation_Country" Relationship="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID" FromRole="Country" ToRole="Routing_Variation_Country" />
+        </EntityType>
+        <Association Name="FK_CLR_PROJECT_COUNTRY_COUNTRY_ID">
+          <End Type="RoutingDevEntities.Country" Role="Country" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Clr_Project_Country" Role="Clr_Project_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Clr_Project_Country">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_COUNTRY_ID">
+          <End Type="RoutingDevEntities.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID">
+          <End Type="RoutingDevEntities.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Routing_Variation_Country" Role="Routing_Variation_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Country_Id" />
+            </Principal>
+            <Dependent Role="Routing_Variation_Country">
+              <PropertyRef Name="Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Clr_Project">
+          <Key>
+            <PropertyRef Name="Clr_Project_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Project_Id" />
+          <Property Type="String" Name="Project_Code" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Project_Type" />
+          <Property Type="String" Name="Title" MaxLength="275" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Local_Reference" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Scope_Type" />
+          <Property Type="Int64" Name="Estimated_Sales_Units" />
+          <Property Type="DateTime" Name="Release_Dt" />
+          <Property Type="String" Name="Currency_Code" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Is_Sensitive" />
+          <Property Type="Boolean" Name="Is_One_Stop" />
+          <Property Type="Boolean" Name="Is_High_Priority" />
+          <Property Type="Byte" Name="Status_Type" />
+          <Property Type="String" Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="One_Stop_Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Third_Party_Repertoire" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Requester_Workgroup_Id" Nullable="false" />
+          <Property Type="Int64" Name="Requester_Company_Id" Nullable="false" />
+          <Property Type="Int64" Name="Requester_User_Id" Nullable="false" />
+          <Property Type="Int64" Name="Locked_User_Id" />
+          <Property Type="Boolean" Name="Is_Master" />
+          <Property Type="Boolean" Name="Is_Tv" />
+          <Property Type="Boolean" Name="Is_Non_Traditional" />
+          <Property Type="Boolean" Name="Is_Club" />
+          <Property Type="Boolean" Name="Is_Promotional" />
+          <Property Type="Boolean" Name="Is_Price_Reduction" />
+          <Property Type="Boolean" Name="Is_Multi_Artist" />
+          <Property Type="Boolean" Name="Is_Compilation" />
+          <Property Type="Boolean" Name="Is_Third_Party" />
+          <Property Type="Boolean" Name="Is_Regular_Retail" />
+          <Property Type="Boolean" Name="Is_Resubmitted" />
+          <Property Type="String" Name="Territorial_Right" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="Rcc_User_Id" Nullable="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Creates_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Included_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Excluded_Territories" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clr_Notification" Relationship="RoutingDevEntities.FK_CLR_NOTIFICATION_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Clr_Notification" />
+          <NavigationProperty Name="Clr_Project_Country" Relationship="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Clr_Project_Country" />
+          <NavigationProperty Name="Clr_Routing_Queue" Relationship="RoutingDevEntities.FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Clr_Routing_Queue" />
+          <NavigationProperty Name="Routed_Item" Relationship="RoutingDevEntities.FK_ROUTED_ITEM_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Routed_Item" />
+          <NavigationProperty Name="Routing_Log" Relationship="RoutingDevEntities.FK_ROUTING_LOG_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Routing_Log" />
+          <Property Type="Boolean" Name="Is_Existing" />
+          <Property Type="String" Name="R2_Project_Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="UMGI_Cross_Border_Request_Type" />
+          <Property Type="Byte" Name="UMGI_Third_Party_Company_Type" />
+          <Property Type="Byte" Name="UMGI_Mid_Price_Reduction_Type" />
+          <Property Type="Byte" Name="UMGI_Budget_Price_Reduction_Type" />
+          <Property Type="Byte" Name="UMGI_Sensitive_Exploitation_Type" />
+          <NavigationProperty Name="Clr_Manage_Contract" Relationship="RoutingDevEntities.FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Clr_Manage_Contract" />
+          <NavigationProperty Name="Clr_Background_Status" Relationship="RoutingDevEntities.FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID" FromRole="Clr_Project" ToRole="Clr_Background_Status" />
+        </EntityType>
+        <Association Name="FK_CLR_NOTIFICATION_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Clr_Notification" Role="Clr_Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Notification">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Clr_Project_Country" Role="Clr_Project_Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Project_Country">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Clr_Routing_Queue" Role="Clr_Routing_Queue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Routing_Queue">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTED_ITEM_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Routed_Item" Role="Routed_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Routed_Item">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROUTING_LOG_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Routing_Log" Role="Routing_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Routing_Log">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_IsDuplicateRoutingVariation_Result">
+          <Property Type="Int32" Name="Is_Duplicate" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Clr_Manage_Contract">
+          <Key>
+            <PropertyRef Name="Clr_Manage_Contract_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Manage_Contract_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Contract_Id" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="Is_Routed" />
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+          <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID" FromRole="Clr_Manage_Contract" ToRole="Clr_Project" />
+        </EntityType>
+        <Association Name="FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Clr_Manage_Contract" Role="Clr_Manage_Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Manage_Contract">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_Id" />
+          </Key>
+          <Property Type="Int64" Name="User_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="User_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Login_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Hashcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Security_Object" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int64" Name="Source_Id" />
+          <NavigationProperty Name="Workgroup_User" Relationship="RoutingDevEntities.FK_USER_WORKGROUP_USER_ID" FromRole="User" ToRole="Workgroup_User" />
+        </EntityType>
+        <Association Name="FK_USER_WORKGROUP_USER_ID">
+          <End Type="RoutingDevEntities.User" Role="User" Multiplicity="1" />
+          <End Type="RoutingDevEntities.Workgroup_User" Role="Workgroup_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_Id" />
+            </Principal>
+            <Dependent Role="Workgroup_User">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_Routing_IdentifyWorkGroups_Result">
+          <Property Type="Int64" Name="Local_Label_WGId" Nullable="true" />
+          <Property Type="Int64" Name="Marketing_WGId" Nullable="true" />
+          <Property Type="Int64" Name="Legal_WGId" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Skip_National" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Skip_International" Nullable="true" />
+          <Property Type="Boolean" Name="Is_Skip_LocalLabel" Nullable="true" />
+          <Property Type="Int64" Name="Routing_Rule_Id" Nullable="true" />
+          <Property Type="Int64" Name="Routing_Variation_Id" Nullable="true" />
+          <Property Type="String" Name="Rule_Name" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="Is_Send_Email" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Clr_Background_Status">
+          <Key>
+            <PropertyRef Name="Clr_Background_Status_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Background_Status_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Clr_Project_Id" />
+          <Property Type="Byte" Name="Status_Type" />
+          <Property Type="Int32" Name="Retry" />
+          <Property Type="String" Name="Error" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="Object" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="Action_Type" />
+          <NavigationProperty Name="Clr_Project" Relationship="RoutingDevEntities.FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID" FromRole="Clr_Background_Status" ToRole="Clr_Project" />
+        </EntityType>
+        <Association Name="FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID">
+          <End Type="RoutingDevEntities.Clr_Project" Role="Clr_Project" Multiplicity="0..1" />
+          <End Type="RoutingDevEntities.Clr_Background_Status" Role="Clr_Background_Status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Project">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Principal>
+            <Dependent Role="Clr_Background_Status">
+              <PropertyRef Name="Clr_Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RoutingDevEntitiesStoreContainer" CdmEntityContainer="RoutingDataEntities">
+          <EntitySetMapping Name="Routing_Exception"><EntityTypeMapping TypeName="RoutingDevEntities.Routing_Exception"><MappingFragment StoreEntitySet="Routing_Exception">
+            <ScalarProperty Name="Routing_Exception_Id" ColumnName="Routing_Exception_Id" />
+            <ScalarProperty Name="Rule_Type" ColumnName="Rule_Type" />
+            <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+            <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+            <ScalarProperty Name="Requester" ColumnName="Requester" />
+            <ScalarProperty Name="Owner" ColumnName="Owner" />
+            <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+            <ScalarProperty Name="Skip_Step" ColumnName="Skip_Step" />
+            <ScalarProperty Name="Rule_Level" ColumnName="Rule_Level" />
+            <ScalarProperty Name="Project_Subtype" ColumnName="Project_Subtype" />
+            <ScalarProperty Name="Is_Active_Artist" ColumnName="Is_Active_Artist" />
+            <ScalarProperty Name="Is_Third_Party" ColumnName="Is_Third_Party" />
+            <ScalarProperty Name="Rule_Description" ColumnName="Rule_Description" />
+            <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+            <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+            <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+            <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+            <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Workgroups">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Workgroup">
+              <MappingFragment StoreEntitySet="Workgroup">
+                <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+                <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+                <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+                <ScalarProperty Name="R2_Contact_Email" ColumnName="R2_Contact_Email" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Workgroup_Name" ColumnName="Workgroup_Name" />
+                <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+                <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routed_Item">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routed_Item">
+              <MappingFragment StoreEntitySet="Routed_Item">
+                <ScalarProperty Name="Is_Split_Deal" ColumnName="Is_Split_Deal" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+                <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+                <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+                <ScalarProperty Name="Approval_Status_Type" ColumnName="Approval_Status_Type" />
+                <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+                <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+                <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+                <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Notification">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Notification">
+              <MappingFragment StoreEntitySet="Clr_Notification">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="To_Workgroup_Id" ColumnName="To_Workgroup_Id" />
+                <ScalarProperty Name="From_Workgroup_Id" ColumnName="From_Workgroup_Id" />
+                <ScalarProperty Name="Is_New" ColumnName="Is_New" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+                <ScalarProperty Name="Notification_Type" ColumnName="Notification_Type" />
+                <ScalarProperty Name="Clr_Notification_Id" ColumnName="Clr_Notification_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workgroup_User">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Workgroup_User">
+              <MappingFragment StoreEntitySet="Workgroup_User">
+                <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+                <ScalarProperty Name="Is_Upc_Allocation" ColumnName="Is_Upc_Allocation" />
+                <ScalarProperty Name="Is_R2_Authorized" ColumnName="Is_R2_Authorized" />
+                <ScalarProperty Name="Is_Manage_Workgroup" ColumnName="Is_Manage_Workgroup" />
+                <ScalarProperty Name="Is_In_Role" ColumnName="Is_In_Role" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+                <ScalarProperty Name="Workgroup_User_Id" ColumnName="Workgroup_User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="Is_UMGI_Workgroup" ColumnName="Is_UMGI_Workgroup" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Assigned_To" ColumnName="Assigned_To" />
+                <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+                <ScalarProperty Name="Request_Status_Type" ColumnName="Request_Status_Type" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Available_Dt" ColumnName="Available_Dt" />
+                <ScalarProperty Name="Is_Open" ColumnName="Is_Open" />
+                <ScalarProperty Name="Review_Dt" ColumnName="Review_Dt" />
+                <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+                <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+                <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Routing_Queue">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Routing_Queue">
+              <MappingFragment StoreEntitySet="Clr_Routing_Queue">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Object" ColumnName="Object" />
+                <ScalarProperty Name="Error_Description" ColumnName="Error_Description" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Clr_Routing_Queue_Id" ColumnName="Clr_Routing_Queue_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Safe_Area_Territory">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Safe_Area_Territory">
+              <MappingFragment StoreEntitySet="Safe_Area_Territory">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+                <ScalarProperty Name="Safe_Area_Territory_Id" ColumnName="Safe_Area_Territory_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Territories">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Territory">
+              <MappingFragment StoreEntitySet="Territory">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+                <ScalarProperty Name="Territory_Name" ColumnName="Territory_Name" />
+                <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Project_Country">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Project_Country">
+              <MappingFragment StoreEntitySet="Clr_Project_Country">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="Clr_Project_Country_Id" ColumnName="Clr_Project_Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Log">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Log">
+              <MappingFragment StoreEntitySet="Routing_Log">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Comment_Table_Id" ColumnName="Comment_Table_Id" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+                <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+                <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+                <ScalarProperty Name="Routing_Log_Id" ColumnName="Routing_Log_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_SafeTerritoryCheck" FunctionName="RoutingDevEntities.Store.USP_SafeTerritoryCheck">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RoutingDevEntities.USP_SafeTerritoryCheck_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Routing_Rule">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Rule">
+              <MappingFragment StoreEntitySet="Routing_Rule">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+                <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Variation">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation">
+              <MappingFragment StoreEntitySet="Routing_Variation">
+                <ScalarProperty Name="Excluded_Requesting_Territories" ColumnName="Excluded_Requesting_Territories" />
+                <ScalarProperty Name="Included_Requesting_Territories" ColumnName="Included_Requesting_Territories" />
+                <ScalarProperty Name="Excluded_Owning_Territories" ColumnName="Excluded_Owning_Territories" />
+                <ScalarProperty Name="Included_Owning_Territories" ColumnName="Included_Owning_Territories" />
+                <ScalarProperty Name="Excluded_Release_Territories" ColumnName="Excluded_Release_Territories" />
+                <ScalarProperty Name="Included_Release_Territories" ColumnName="Included_Release_Territories" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Is_Skip_Locallabel" ColumnName="Is_Skip_Locallabel" />
+                <ScalarProperty Name="Is_Parent" ColumnName="Is_Parent" />
+                <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+                <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+                <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+                <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+                <ScalarProperty Name="Is_Active_Artist" ColumnName="Is_Active_Artist" />
+                <ScalarProperty Name="Is_Sensitive_Artist" ColumnName="Is_Sensitive_Artist" />
+                <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+                <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+                <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Variation_Artist">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Artist">
+              <MappingFragment StoreEntitySet="Routing_Variation_Artist">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+                <ScalarProperty Name="Routing_Variation_Artist_Id" ColumnName="Routing_Variation_Artist_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Variation_Company">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Company">
+              <MappingFragment StoreEntitySet="Routing_Variation_Company">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Company_Type" ColumnName="Company_Type" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Routing_Variation_Company_Id" ColumnName="Routing_Variation_Company_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Variation_Country">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Country">
+              <MappingFragment StoreEntitySet="Routing_Variation_Country">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+                <ScalarProperty Name="Applied_Rule_Type" ColumnName="Applied_Rule_Type" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Routing_Variation_Country_Id" ColumnName="Routing_Variation_Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routing_Variation_Territory">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Territory">
+              <MappingFragment StoreEntitySet="Routing_Variation_Territory">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+                <ScalarProperty Name="Applied_Rule_Type" ColumnName="Applied_Rule_Type" />
+                <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Routing_Variation_Territory_Id" ColumnName="Routing_Variation_Territory_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Contributor_Type" ColumnName="Contributor_Type" />
+                <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+                <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+                <ScalarProperty Name="Talent_Id" ColumnName="Talent_Id" />
+                <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Universal_Licensee_Ind" ColumnName="Universal_Licensee_Ind" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Company_Type_Code" ColumnName="Company_Type_Code" />
+                <ScalarProperty Name="Isac_Code" ColumnName="Isac_Code" />
+                <ScalarProperty Name="Is_Grc" ColumnName="Is_Grc" />
+                <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Company_Account_Id" ColumnName="Company_Account_Id" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+                <ScalarProperty Name="Iso_Code_2" ColumnName="Iso_Code_2" />
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Project">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Project">
+              <MappingFragment StoreEntitySet="Clr_Project">
+                <ScalarProperty Name="UMGI_Sensitive_Exploitation_Type" ColumnName="UMGI_Sensitive_Exploitation_Type" />
+                <ScalarProperty Name="UMGI_Budget_Price_Reduction_Type" ColumnName="UMGI_Budget_Price_Reduction_Type" />
+                <ScalarProperty Name="UMGI_Mid_Price_Reduction_Type" ColumnName="UMGI_Mid_Price_Reduction_Type" />
+                <ScalarProperty Name="UMGI_Third_Party_Company_Type" ColumnName="UMGI_Third_Party_Company_Type" />
+                <ScalarProperty Name="UMGI_Cross_Border_Request_Type" ColumnName="UMGI_Cross_Border_Request_Type" />
+                <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+                <ScalarProperty Name="Is_Existing" ColumnName="Is_Existing" />
+                <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+                <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Creates_Dttm" ColumnName="Creates_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Rcc_User_Id" ColumnName="Rcc_User_Id" />
+                <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+                <ScalarProperty Name="Is_Resubmitted" ColumnName="Is_Resubmitted" />
+                <ScalarProperty Name="Is_Regular_Retail" ColumnName="Is_Regular_Retail" />
+                <ScalarProperty Name="Is_Third_Party" ColumnName="Is_Third_Party" />
+                <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+                <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+                <ScalarProperty Name="Is_Price_Reduction" ColumnName="Is_Price_Reduction" />
+                <ScalarProperty Name="Is_Promotional" ColumnName="Is_Promotional" />
+                <ScalarProperty Name="Is_Club" ColumnName="Is_Club" />
+                <ScalarProperty Name="Is_Non_Traditional" ColumnName="Is_Non_Traditional" />
+                <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+                <ScalarProperty Name="Is_Master" ColumnName="Is_Master" />
+                <ScalarProperty Name="Locked_User_Id" ColumnName="Locked_User_Id" />
+                <ScalarProperty Name="Requester_User_Id" ColumnName="Requester_User_Id" />
+                <ScalarProperty Name="Requester_Company_Id" ColumnName="Requester_Company_Id" />
+                <ScalarProperty Name="Requester_Workgroup_Id" ColumnName="Requester_Workgroup_Id" />
+                <ScalarProperty Name="Third_Party_Repertoire" ColumnName="Third_Party_Repertoire" />
+                <ScalarProperty Name="One_Stop_Reason" ColumnName="One_Stop_Reason" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Is_High_Priority" ColumnName="Is_High_Priority" />
+                <ScalarProperty Name="Is_One_Stop" ColumnName="Is_One_Stop" />
+                <ScalarProperty Name="Is_Sensitive" ColumnName="Is_Sensitive" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+                <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+                <ScalarProperty Name="Scope_Type" ColumnName="Scope_Type" />
+                <ScalarProperty Name="Local_Reference" ColumnName="Local_Reference" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+                <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+                <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetRoutingVariation" FunctionName="RoutingDevEntities.Store.USP_GetRoutingVariation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RoutingDevEntities.USP_GetRoutingVariation_Result">
+                <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+                <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+                <ScalarProperty Name="Is_Parent" ColumnName="Is_Parent" />
+                <ScalarProperty Name="Is_Skip_Locallabel" ColumnName="Is_Skip_Locallabel" />
+                <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+                <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+                <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Is_Send_Email" ColumnName="Is_Send_Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_IsDuplicateRoutingVariation" FunctionName="RoutingDevEntities.Store.USP_IsDuplicateRoutingVariation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RoutingDevEntities.USP_IsDuplicateRoutingVariation_Result">
+                <ScalarProperty Name="Is_Duplicate" ColumnName="Is_Duplicate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Clr_Manage_Contract">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Manage_Contract">
+              <MappingFragment StoreEntitySet="Clr_Manage_Contract">
+                <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Is_Routed" ColumnName="Is_Routed" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+                <ScalarProperty Name="Clr_Manage_Contract_Id" ColumnName="Clr_Manage_Contract_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RoutingDevEntities.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Security_Object" ColumnName="Security_Object" />
+                <ScalarProperty Name="Hashcode" ColumnName="Hashcode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_Routing_IdentifyWorkGroups" FunctionName="RoutingDevEntities.Store.USP_Routing_IdentifyWorkGroups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RoutingDevEntities.USP_Routing_IdentifyWorkGroups_Result">
+                <ScalarProperty Name="Local_Label_WGId" ColumnName="Local_Label_WGId" />
+                <ScalarProperty Name="Marketing_WGId" ColumnName="Marketing_WGId" />
+                <ScalarProperty Name="Legal_WGId" ColumnName="Legal_WGId" />
+                <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+                <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+                <ScalarProperty Name="Is_Skip_LocalLabel" ColumnName="Is_Skip_LocalLabel" />
+                <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+                <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+                <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+                <ScalarProperty Name="Is_Send_Email" ColumnName="Is_Send_Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Clr_Background_Status">
+            <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Background_Status">
+              <MappingFragment StoreEntitySet="Clr_Background_Status">
+                <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Object" ColumnName="Object" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="Retry" ColumnName="Retry" />
+                <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Clr_Background_Status_Id" ColumnName="Clr_Background_Status_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RoutingDataEntities" ZoomLevel="63">
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Exception" Width="1.5" PointX="4" PointY="1" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Workgroup" Width="1.5" PointX="8.375" PointY="1" Height="4.480205078125" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routed_Item" Width="1.5" PointX="5.875" PointY="0.625" Height="4.2879036458333353" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Notification" Width="1.5" PointX="6.875" PointY="5.75" Height="3.9033007812499996" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_NOTIFICATION_FROM_WORKGROUP_ID">
+          <ConnectorPoint PointX="9" PointY="5.8648079427083326" />
+          <ConnectorPoint PointX="9" PointY="7.9513562942708322" />
+          <ConnectorPoint PointX="8.375" PointY="7.9513562942708322" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_NOTIFICATION_TO_WORKGROUP_ID">
+          <ConnectorPoint PointX="8.375" PointY="3.3749994999999995" />
+          <ConnectorPoint PointX="7.8750000000000009" PointY="3.3749994999999995" />
+          <ConnectorPoint PointX="7.8750000000000009" PointY="5.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Workgroup_User" Width="1.5" PointX="13.625" PointY="1.375" Height="3.1340950520833388" />
+        <AssociationConnector Association="RoutingDevEntities.FK_USER_WORKGROUP_WORKGROUP_ID">
+          <ConnectorPoint PointX="9.875" PointY="5.8636530965544855" />
+          <ConnectorPoint PointX="10.25" PointY="6.2386530965544855" />
+          <ConnectorPoint PointX="10.25" PointY="5.8456022135416656" />
+          <ConnectorPoint PointX="10.885416666666666" PointY="5.8456022135416648" />
+          <ConnectorPoint PointX="11.052083333333334" PointY="5.8456022135416656" />
+          <ConnectorPoint PointX="13.250000000000002" PointY="5.8456022135416656" />
+          <ConnectorPoint PointX="13.625" PointY="5.4706022135416656" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Request" Width="1.5" PointX="10.625" PointY="0.75" Height="4.4802050781250067" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_NOTIFICATION_REQUEST_ID">
+          <ConnectorPoint PointX="10.96875" PointY="5.4225065104166656" />
+          <ConnectorPoint PointX="10.96875" PointY="6.4324039713541659" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="6.432403971354165" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="6.4324039713541659" />
+          <ConnectorPoint PointX="8.375" PointY="6.4324039713541659" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_REQUEST_ROUTED_ITEM_ID">
+          <ConnectorPoint PointX="7.375" PointY="0.84375" />
+          <ConnectorPoint PointX="10.625" PointY="0.84375" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_REQUEST_WORKGROUP_ID">
+          <ConnectorPoint PointX="9.875" PointY="3.1151025390625033" />
+          <ConnectorPoint PointX="10.625" PointY="3.1151025390625033" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Routing_Queue" Width="1.5" PointX="2.125" PointY="1" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Safe_Area_Territory" Width="1.5" PointX="3" PointY="10" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Territory" Width="1.5" PointX="0.75" PointY="10" Height="2.7494921875000031" />
+        <AssociationConnector Association="RoutingDevEntities.FK_SAFE_AREA_TERRITORY_TERRITORY_ID">
+          <ConnectorPoint PointX="2.25" PointY="11.00822324934896" />
+          <ConnectorPoint PointX="2.4666666666666663" PointY="11.00822324934896" />
+          <ConnectorPoint PointX="2.6333333333333333" PointY="11.00822324934896" />
+          <ConnectorPoint PointX="3" PointY="11.00822324934896" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Project_Country" Width="1.5" PointX="5.375" PointY="10.75" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Log" Width="1.5" PointX="3.5" PointY="6.125" Height="3.2357796223958388" />
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_LOG_ROUTED_ITEM_ID">
+          <ConnectorPoint PointX="5.875" PointY="0.794597329055531" />
+          <ConnectorPoint PointX="3.73437375" PointY="0.794597329055531" />
+          <ConnectorPoint PointX="3.73437375" PointY="6.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_LOG_WORKGROUP_ID">
+          <ConnectorPoint PointX="8.375" PointY="5.6199039713541659" />
+          <ConnectorPoint PointX="5.8282373046874989" PointY="5.619903971354165" />
+          <ConnectorPoint PointX="5.6615706380208328" PointY="5.6199039713541659" />
+          <ConnectorPoint PointX="3.8671893749999997" PointY="5.6199039713541659" />
+          <ConnectorPoint PointX="3.8671893749999997" PointY="6.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Rule" Width="1.5" PointX="7.375" PointY="17.5" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Variation" Width="1.5" PointX="9.625" PointY="15.875" Height="5.634013671874996" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Variation_Artist" Width="1.5" PointX="11.875" PointY="13.625" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Variation_Company" Width="1.5" PointX="11.875" PointY="17.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Variation_Country" Width="1.5" PointX="11.875" PointY="20.75" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Routing_Variation_Territory" Width="1.5" PointX="14.875" PointY="14.125" Height="3.326396484374996" />
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_ROUTING_VARIATION_RULE_ID">
+          <ConnectorPoint PointX="8.875" PointY="18.778595377604169" />
+          <ConnectorPoint PointX="9.625" PointY="18.778595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ROUTING_VARIATION_ID">
+          <ConnectorPoint PointX="11.125" PointY="16.111198424676608" />
+          <ConnectorPoint PointX="11.591666666666667" PointY="16.111198424676608" />
+          <ConnectorPoint PointX="11.758333333333335" PointY="16.111198424676608" />
+          <ConnectorPoint PointX="11.875" PointY="16.111198424676608" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_ROUTING_VARIATION_ID">
+          <ConnectorPoint PointX="11.125" PointY="19.075948089632941" />
+          <ConnectorPoint PointX="11.875" PointY="19.075948089632941" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_ROUTING_VARIATION_ID">
+          <ConnectorPoint PointX="11.125" PointY="21.129506835937498" />
+          <ConnectorPoint PointX="11.875" PointY="21.129506835937498" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_ROUTING_VARIATION_ID">
+          <ConnectorPoint PointX="11.125" PointY="16.797818951822922" />
+          <ConnectorPoint PointX="12.541666666666666" PointY="16.797818951822922" />
+          <ConnectorPoint PointX="12.708333333333334" PointY="16.797818951822922" />
+          <ConnectorPoint PointX="14.875" PointY="16.797818951822922" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_TERRITORY_TERRITORY_ID">
+          <ConnectorPoint PointX="2.25" PointY="12.006260434570315" />
+          <ConnectorPoint PointX="2.4666666666666663" PointY="12.006260434570315" />
+          <ConnectorPoint PointX="2.6333333333333333" PointY="12.006260434570315" />
+          <ConnectorPoint PointX="2.75" PointY="12.006260434570315" />
+          <ConnectorPoint PointX="2.75" PointY="12.807190755208339" />
+          <ConnectorPoint PointX="5.125" PointY="12.807190755208339" />
+          <ConnectorPoint PointX="5.125" PointY="14.384095052083339" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="14.384095052083339" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="14.384095052083339" />
+          <ConnectorPoint PointX="11.625" PointY="14.384095052083339" />
+          <ConnectorPoint PointX="11.625" PointY="13.375" />
+          <ConnectorPoint PointX="15.625" PointY="13.375" />
+          <ConnectorPoint PointX="15.625" PointY="14.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Artist" Width="1.5" PointX="8.5" PointY="11" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="RoutingDevEntities.Company" Width="1.5" PointX="0.75" PointY="4.5" Height="3.9033007812500031" />
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_ARTIST_ARTIST_ID">
+          <ConnectorPoint PointX="10" PointY="13.879547526041669" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="13.879547526041669" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="13.879547526041669" />
+          <ConnectorPoint PointX="11.875" PointY="13.879547526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+          <ConnectorPoint PointX="2.2499999999999996" PointY="8.7879036458333335" />
+          <ConnectorPoint PointX="2.4910744349011211" PointY="9.0289780807344542" />
+          <ConnectorPoint PointX="2.608925565098879" PointY="9.1468292109322125" />
+          <ConnectorPoint PointX="2.625" PointY="9.1629036458333335" />
+          <ConnectorPoint PointX="2.625" PointY="5.8648079427083317" />
+          <ConnectorPoint PointX="3.6510404166666666" PointY="5.8648079427083308" />
+          <ConnectorPoint PointX="3.9505227083333336" PointY="5.8648079427083317" />
+          <ConnectorPoint PointX="5.5" PointY="5.8648079427083317" />
+          <ConnectorPoint PointX="5.875" PointY="5.4898079427083317" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_COMPANY_COMPANY_ID">
+          <ConnectorPoint PointX="2.25" PointY="6.9221931209123309" />
+          <ConnectorPoint PointX="2.55" PointY="6.9221931209123309" />
+          <ConnectorPoint PointX="2.55" PointY="16.834095052083352" />
+          <ConnectorPoint PointX="6.041666666666667" PointY="16.834095052083352" />
+          <ConnectorPoint PointX="6.208333333333333" PointY="16.834095052083352" />
+          <ConnectorPoint PointX="9.425" PointY="16.834095052083352" />
+          <ConnectorPoint PointX="9.425" PointY="15.675" />
+          <ConnectorPoint PointX="11.675" PointY="15.675" />
+          <ConnectorPoint PointX="11.675" PointY="16.704293619791667" />
+          <ConnectorPoint PointX="12.625" PointY="16.704293619791667" />
+          <ConnectorPoint PointX="12.625" PointY="17.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Country" Width="1.5" PointX="0.625" PointY="14.5" Height="3.3263964843750031" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_COUNTRY_ID">
+          <ConnectorPoint PointX="2.125" PointY="17.073297526041678" />
+          <ConnectorPoint PointX="2.1354166666666665" PointY="17.073297526041678" />
+          <ConnectorPoint PointX="2.3020833333333335" PointY="17.073297526041678" />
+          <ConnectorPoint PointX="6.125" PointY="17.073297526041678" />
+          <ConnectorPoint PointX="6.125" PointY="13.884095052083334" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_COMPANY_COUNTRY_ID">
+          <ConnectorPoint PointX="0.62615284615384614" PointY="14.5" />
+          <ConnectorPoint PointX="0.25115284615384681" PointY="14.125" />
+          <ConnectorPoint PointX="0.375" PointY="14.125" />
+          <ConnectorPoint PointX="0.375" PointY="9.16405649198718" />
+          <ConnectorPoint PointX="0.75115284615384592" PointY="8.7879036458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_VARIATION_COUNTRY_COUNTRY_ID">
+          <ConnectorPoint PointX="1.375" PointY="17.826396484375003" />
+          <ConnectorPoint PointX="1.375" PointY="23.400859374999996" />
+          <ConnectorPoint PointX="11.875" PointY="23.400859374999996" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Project" Width="1.5" PointX="0.75" PointY="2.375" Height="9.8646451822916674" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_NOTIFICATION_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.25" PointY="6.0261539713541659" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.026153971354165" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="6.0261539713541659" />
+          <ConnectorPoint PointX="3.6510404166666666" PointY="6.026153971354165" />
+          <ConnectorPoint PointX="3.9505227083333336" PointY="6.0261539713541659" />
+          <ConnectorPoint PointX="6.875" PointY="6.0261539713541659" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_PROJECT_COUNTRY_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.25" PointY="13.184845377604169" />
+          <ConnectorPoint PointX="2.4666666666666663" PointY="13.184845377604169" />
+          <ConnectorPoint PointX="2.6333333333333333" PointY="13.184845377604169" />
+          <ConnectorPoint PointX="5.041666666666667" PointY="13.184845377604169" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="13.184845377604169" />
+          <ConnectorPoint PointX="5.375" PointY="13.184845377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_ROUTING_QUEUE_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.25" PointY="4.9994519973958322" />
+          <ConnectorPoint PointX="2.84375" PointY="4.9994519973958322" />
+          <ConnectorPoint PointX="2.84375" PointY="4.1340950520833326" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTED_ITEM_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="1.40625" PointY="2.375" />
+          <ConnectorPoint PointX="1.40625" PointY="0.67854616452776473" />
+          <ConnectorPoint PointX="5.875" PointY="0.67854616452776473" />
+        </AssociationConnector>
+        <AssociationConnector Association="RoutingDevEntities.FK_ROUTING_LOG_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.25" PointY="7.8862958833728385" />
+          <ConnectorPoint PointX="2.4666666666666663" PointY="7.8862958833728376" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="7.8862958833728385" />
+          <ConnectorPoint PointX="3.5" PointY="7.8862958833728385" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Manage_Contract" Width="1.5" PointX="3.375" PointY="13.5" Height="3.1340950520833513" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_MANAGAE_CONTRACT_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.25" PointY="13.735179036458334" />
+          <ConnectorPoint PointX="2.4666666666666663" PointY="13.735179036458334" />
+          <ConnectorPoint PointX="2.6333333333333333" PointY="13.735179036458334" />
+          <ConnectorPoint PointX="3.375" PointY="13.735179036458334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.User" Width="1.5" PointX="11.375" PointY="7" Height="3.5186979166666106" />
+        <AssociationConnector Association="RoutingDevEntities.FK_USER_WORKGROUP_USER_ID">
+          <ConnectorPoint PointX="12.875" PointY="8.7593489583333053" />
+          <ConnectorPoint PointX="14.4062525" PointY="8.7593489583333053" />
+          <ConnectorPoint PointX="14.4062525" PointY="5.4706022135416656" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RoutingDevEntities.Clr_Background_Status" Width="1.5" PointX="3" PointY="17.375" Height="3.5186979166666674" />
+        <AssociationConnector Association="RoutingDevEntities.FK_CLR_BACKGROUND_STATUS_CLR_PROJECT_ID">
+          <ConnectorPoint PointX="2.21875" PointY="13.970358072916666" />
+          <ConnectorPoint PointX="2.21875" PointY="19.391297200520835" />
+          <ConnectorPoint PointX="3" PointY="19.391297200520835" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

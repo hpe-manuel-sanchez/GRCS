@@ -1,0 +1,118 @@
+﻿    @{ Layout = "";
+       var a = ViewBag.id;
+       }
+    
+    <table id="tblProject" bgcolor="silver">
+        <tr>
+            <td width="20%" align="right">@a Clearance Admin Company :</td>
+            <td width="20%" align="left">@Html.Label("UMG")</td>
+            <td width="20%" align="center">Clearance Notes :</td> 
+            <td width="20%" align="right">Physical Rights :</td> 
+            <td width="20%" align="left">@Html.Label("Yes")</td> 
+        </tr>
+        <tr>
+            <td align="right">Loss of Rights Indicator :</td>
+            <td align="left">@Html.Label("Yes")</td>
+            <td align="left" valign="top" rowspan="3">@Html.Label("some comments goes here for this resource")</td>
+            <td align="right">Digital Rights :</td> 
+            <td align="left">@Html.Label("Yes")</td> 
+        </tr>
+        <tr>
+            <td align="right">Active for Marketing :</td>
+            <td align="left">@Html.Label("Yes")</td>
+                                            
+            <td align="right">Digital Unbundling Allowed :</td> 
+            <td align="left">@Html.Label("Yes")</td> 
+        </tr>
+        <tr>
+            <td align="right">Sensitive :</td>
+            <td align="left">@Html.Label("Yes")</td>
+                                            
+            <td align="right">Territorial Rights :</td> 
+            <td align="left">@Html.Label("Worldwide excluding France")</td> 
+        </tr>
+        <tr>
+            <td align="left" colspan="2"><b>Digital Restrictions</b></td>
+            <td align="right">&nbsp;</td>
+            <td align="right">&nbsp;</td> 
+            <td align="left">&nbsp;</td> 
+        </tr>
+        <tr>
+            <td align="left" colspan="5">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>Content Type</td>
+                        <td>UseType</td>
+                        <td>Commercial Models Type</td>  
+                        <td>Restrictions</td>
+                        <td>Consent Period</td> 
+                        <td>Notes</td> 
+                                                         
+                    </tr>
+                    <tr>
+                        <td align="left">@Html.Label("Audio")</td>
+                        <td align="left">@Html.Label("Streaming")</td>
+                        <td align="left">@Html.Label("All")</td>
+                        <td align="left">@Html.Label("Refer to legal")</td>
+                        <td align="left">@Html.Label("During")</td>
+                        <td align="left">@Html.Label("-------")</td>
+                                                        
+                    </tr>
+                    </table>
+            </td>
+        </tr>
+            <tr>
+            <td align="left" colspan="2"><b>Pre Clearance Information</b></td>
+            <td align="right">&nbsp;</td>
+            <td align="right">&nbsp;</td> 
+            <td align="left">&nbsp;</td> 
+        </tr>
+        <tr>
+            <td align="left" colspan="5">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>Pre Clearance Type</td>
+                        <td>Precleared</td>
+                        <td>Pre Clearance Territory Exclusions</td>  
+                                                        
+                    </tr>
+                    <tr>
+                        <td align="left">@Html.Label("Budget Compilation")</td>
+                        <td align="left">@Html.Label("Yes")</td>
+                        <td align="left">@Html.Label("01243,01245")</td>
+                                                        
+                    </tr>
+                    </table>
+            </td>
+        </tr>
+            <tr>
+            <td align="left" colspan="2"><b>Secondary Exploitation Rights</b></td>
+            <td align="right">&nbsp;</td>
+            <td align="right">&nbsp;</td> 
+            <td align="left">&nbsp;</td> 
+        </tr>
+        <tr>
+            <td align="left" colspan="5">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>Exploitation Type</td>
+                        <td>Restricted</td>
+                        <td>Restriction</td>  
+                        <td>Consent Period</td>
+                        <td>Holdback Period</td> 
+                        <td>Notes</td> 
+                                                         
+                    </tr>
+                    <tr>
+                        <td align="left">@Html.Label("Synchronisation")</td>
+                        <td align="left">@Html.Label("Yes")</td>
+                        <td align="left">@Html.Label("Refer to legal")</td>
+                        <td align="left">@Html.Label("During Term")</td>
+                        <td align="left">@Html.Label("")</td>
+                        <td align="left">@Html.Label("-------")</td>
+                                                        
+                    </tr>
+                    </table>
+            </td>
+        </tr>
+    </table>

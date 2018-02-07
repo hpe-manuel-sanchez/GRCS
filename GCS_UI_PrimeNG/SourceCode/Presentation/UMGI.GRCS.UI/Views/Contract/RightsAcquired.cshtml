@@ -1,0 +1,88 @@
+﻿@model UMGI.GRCS.UI.Models.RightsRestrictionTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+<table class="sample">
+    <thead>
+        <tr>
+            <th class="rightsAquistion">
+                @ContractResource.AvailableRightsAcquistionHeader
+
+            </th>
+            <th class="restrictedColumn"> 
+                 @ContractResource.RestrictedColumn
+            </th>
+            <th class="notesColumn">
+                @ContractResource.NotesColumn
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int index = 0; index < Model.RightsAcquired.Count; index++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => model.RightsAcquired[index].RightAcquiredType)
+                    @Html.HiddenFor(model => model.RightsAcquired[index].RightAcquiredType) @*Need to pass RightAcquireType while save Contract*@
+                     @Html.HiddenFor(model => model.RightsAcquired[index].RightAcquiredTypeId) @*Need to pass RightAcquiredTypeId while save Contract*@
+                  </td>
+                <td>
+                    @if (( index + 1) != Model.RightsAcquired.Count)
+                    {
+                        @Html.DropDownListFor(model => model.RightsAcquired[index].RightAcquiredId, new SelectList(Model.IsAcquiredList, "value", "text", Model.RightsAcquired[index].RightAcquiredId), new {@class = "RightsAcquiredrestrictedList"})
+                        @Html.ValidationMessageFor(model => model.RightsAcquired[index].RightAcquiredId)
+                    }
+                </td>
+                <td class="bigTextbox">
+                    @Html.EditorFor(model => model.RightsAcquired[index].Notes)
+                    @Html.ValidationMessageFor(model => model.RightsAcquired[index].Notes)
+                </td>
+            </tr>  
+
+        }
+    </tbody>
+</table>
+<p>
+</p>
+<table class="sample">
+    <thead>
+        <tr>
+            <th class="360Deal" style="width:25%;">
+               @ContractResource.Header360Deal
+
+            </th>
+            <th class="restrictedColumn">
+                @ContractResource.RestrictedColumn
+            </th>
+            <th class="restrictedColumnNew">
+              
+            </th>
+            <th class="finalNotesColumn">
+                @ContractResource.NotesColumn
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int index = 0; index < Model.RightsDeal.Count; index++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => model.RightsDeal[index].RightAcquiredType)
+                    @Html.HiddenFor(model => model.RightsDeal[index].RightAcquiredType)  @*Need to pass RightAcquiredTypeId while save Contract*@
+                    @Html.HiddenFor(model => model.RightsDeal[index].RightAcquiredTypeId)  @*Need to pass RightAcquiredTypeId while save Contract*@
+                </td>
+            
+                <td>                   
+                   @Html.DropDownListFor(model => model.RightsDeal[index].RightAcquiredId, new SelectList(Model.IsAcquiredList, "value", "text", Model.RightsDeal[index].RightAcquiredId), new { @class = "RightsDealrestrictedList" })
+                   @Html.ValidationMessageFor(model => model.RightsDeal[index].RightAcquiredId)
+                </td>
+                <td>                    
+                     @Html.DropDownListFor(model => model.RightsDeal[index].AcquiredStatus, new SelectList(Model.DealRestrictOption, "value", "text", Model.RightsDeal[index].AcquiredStatus), new { @class = "DealrestrictionList" })
+                    @Html.ValidationMessageFor(model => model.RightsDeal[index].AcquiredStatus)
+                </td>
+                <td class="bigTextbox">
+                    @Html.EditorFor(model => model.RightsDeal[index].Notes)
+                    @Html.ValidationMessageFor(model => model.RightsDeal[index].Notes)
+                </td>
+            </tr>  
+
+        }
+    </tbody>
+</table>

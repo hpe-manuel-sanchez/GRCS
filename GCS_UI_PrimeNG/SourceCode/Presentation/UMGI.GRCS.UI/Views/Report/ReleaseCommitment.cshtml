@@ -1,0 +1,160 @@
+﻿@model UMGI.GRCS.UI.Models.Report.ReleaseCommitmentModel
+@using UMGI.GRCS.Resx.Resource.UIResources;
+@using UMGI.GRCS.BusinessEntities.Entities.ReportEntities;
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.UI.Extensions
+@using Syncfusion.Core;
+@{
+    ViewBag.Title = @ReportResource.ReleaseCommitment;
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+@section scripts{
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+    <link href="@Url.Content("/GCS/Content/SubPages/ReleaseCommitment.css")"  rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/ColumnFilter/jquery.columnfilters.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/ReleaseCommitmentReport.js")" type="text/javascript"></script>
+}
+@using (Html.BeginForm("ReleaseCommitment", "Report", FormMethod.Post, new { Id = "ReleaseCommitment" }))
+{  
+  
+    <div class="backgroundForHeader">
+        <div id="search">
+            <div class="report_parameter_header">
+                <a href="#" class="down">@ReportResource.ReportParameters</a>
+            </div>
+        </div>
+        <div class="report_parameter_panel_Without_b_padding">
+            <div class="floatL">
+                <div class="floatL countryCont">
+                    <span class="span">@ReportResource.ArtistName:&nbsp;</span>
+                </div>
+                <div class="floatL ">
+                    @Html.TextBoxFor(model => model.ArtistSearch.Info.Name, new { data_autocomplete_source_manual = @Url.Action("AutoSearchArtistList", "Report"), @style = "width: 343px;margin-bottom:10px" })
+                    @Html.HiddenFor(model => model.ArtistSearch.Info.Id, new { @id = "ArtistSearch_Info_Id" })
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="floatL">
+                <div class="floatL countryCont">
+                    <span id="countryLabel">@ReportResource.ClearanceAdmin<br />@ReportResource.Company</span>
+                </div>
+                <div class="floatL">
+                    <div id="AdminCompanyNames">
+                    </div>
+                    @Html.HiddenFor(model => model.ClearanceCompanyId, new {@id = "AdminCompany"})
+                    @Html.HiddenFor(model => model.ClearanceCompanyName, new { @id = "CompanyNames" })
+                    @Html.HiddenFor(model => model.ExportType, new { @id = "ExportType" })
+                </div>
+                <div class="clear">
+                </div>
+                <div class="editSelectIconParent">
+                    <div class="editSelectIcon">
+                        &nbsp;</div>
+                    <a href="" id="SelectRemoveCompany" class="alignRight hyperlink">
+                        @ReportResource.SelectRemoveCompany</a>
+                </div>
+            </div>
+            <div class="floatR">
+                <div class="lblworkflowstatus">
+                    @ReportResource.WorkflowStatus:
+                </div>
+                <div class="workflow">
+                    @foreach (var workflow in Model.WorkflowStatuses)
+                    { 
+                        <input type="checkbox" id="@workflow.Value" name="MyOptions" value="@workflow.Value" />
+                        <label class="workflowWidth">@workflow.Description</label>
+                    }
+                    @Html.HiddenFor(model => model.WorkFlowStatus, new { @id = "WorkFlowStatus" })
+                </div>
+            </div>
+            <div class="floatR">
+                <div class="RepertoireLinked">
+                    @ReportResource.IsRepertoireLinked:<input type="radio" id="repertoirelinkedY" name="repertoirelinked"
+                        value="1" checked="checked" />@AdminResource.Yes
+                    <input type="radio" id="repertoirelinkedN" name="repertoirelinked" value="0" />@AdminResource.No
+                </div>
+                @Html.HiddenFor(model => model.LinkedRepertoire, new { @id = "LinkedRepertoire" })
+            </div>
+            <div class="btnHolder">
+                <div class="primbutton_left">
+                </div>
+                <input type="button" id="btnGenerateReport" name="btnGenerateReport" value="Generate Report"
+                    class="primbutton floatL" />@Html.Hidden("generateReport")
+                <div class="primbutton_right">
+                </div>
+                <div class="secbutton_left">
+                </div>
+                <input type="reset" id="btnreset" value="Reset" class="secbutton floatL" />
+                <div class="secbutton_right">
+                </div>
+                @*@Html.HiddenFor(model => model.recordCount, new { id = "recordCount" })*@
+                @Html.HiddenFor(model => model.SortField, new { id = "SortField" })
+                @Html.HiddenFor(model => model.IsAscending, new { id = "IsAscending" })
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div class="ReportTemplates">
+        <div id="activeRosterTableHeader">
+            <div class="floatR">
+                <a class="excelExport" onclick="ExportExcel()" style="cursor: pointer">@ReportResource.ExportReport</a>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <!-- Report Header ends -->
+        <div class="clear">
+        </div>
+        <div style="margin-top: 10px;">
+            @(Html.Syncfusion().Grid<ReleaseCommitment>("TblReleaseCommitment")
+      .Caption("Release Commitment")
+       .PageSettings(page =>
+       {
+           page.PageSize(25);
+           page.PageCount(5);
+           page.PagerPosition(Position.TopRight);
+           page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+       })
+        .EnableSorting()
+        .AllowResizing(true)
+        .EnableScrolling()
+        .EnablePaging()
+        .EnableAlternateRowStyling()
+        .EnableRowHover(true)
+        .ActionMode(ActionMode.JSON)
+        .EnableOnDemand(true)
+        //.TotalRecordCount(Convert.ToInt32(ViewData["totaldata"]))
+        .CustomCss("Syncfusion-Grid-Greenish")
+        .AllowAutoWrap(true)
+        .ClientSideEvents(evt => evt.OnLoad("GridLoad"))
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBegin"))
+        .ClientSideEvents(evt => evt.OnActionSuccess("ActionSuccess"))
+        .ClientSideEvents(events => events.QueryCellInfo("ImageForLinkedRepertoire"))
+        .Column(cols =>
+        {
+            cols.Add(c => c.Artist).HeaderText(@ReportResource.ContractingParty);
+            cols.Add(c => c.CLEARANCECO).HeaderText(@ReportResource.ClearanceCo);
+            cols.Add(c => c.CommencementDate).HeaderText(@ReportResource.ContractCommenceDate).Format(Html.GetRequestDateFormat());
+            if (PermissionExtension.HasAnyPermission(GrsTasks.ViewContractSenstiveData))
+            {
+                cols.Add(c => c.ContractDescription).HeaderText(@ReportResource.ContractDescription);
+                cols.Add(c => c.EndOfTermDate).HeaderText(@ReportResource.EndOfTermDate).Format(Html.GetRequestDateFormat());
+            }
+            cols.Add(c => c.RightsPeriod).HeaderText(@ReportResource.RightsPeriod);
+            if (PermissionExtension.HasAnyPermission(GrsTasks.ViewContractSenstiveData))
+            {
+                cols.Add(c => c.RightsExpiryRule).HeaderText(@ReportResource.RightsExpiryRule);
+                cols.Add(c => c.LostRightsDate).HeaderText(@ReportResource.LostRightsDate).Format(Html.GetRequestDateFormat());
+            }
+            cols.Add(c => c.TerritorialRight).HeaderText(@ReportResource.TerritorialRights);
+            cols.Add(c => c.ReleaseCommitmentAndRightsReversion).HeaderText(@ReportResource.ReleaseCommitment);
+            cols.Add(c => c.NoOfLinkedReleases).HeaderText(@ReportResource.LinkedReleases);
+            cols.Add(c => c.NoOfLinkedResources).HeaderText(@ReportResource.LinkedResources);
+        })
+ )
+        </div>
+    </div>
+      
+}

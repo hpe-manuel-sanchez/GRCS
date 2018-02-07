@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:complexType name="RightsAndRestrictions">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AcquiredOption" nillable="true" type="q1:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AcquiredStatus" nillable="true" type="q2:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" name="AcquisitableRights" nillable="true" type="q3:ArrayOfContractRightsAcquired" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="DigitalRestrictionTemplates" nillable="true" type="q4:ArrayOfTemplateDetails" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="DigitalRestrictions" nillable="true" type="q5:ArrayOfContractDigitalRestrictions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RightsAndRestrictions" nillable="true" type="tns:RightsAndRestrictions" />
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1234/Release/Release.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="NotificationMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExternalUniqueId" type="xs:long" />
+          <xs:element minOccurs="0" name="NotificationType" type="tns:NotificationType" />
+          <xs:element minOccurs="0" name="NotificationXml" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceivedTimeStamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UniqueId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NotificationMessage" nillable="true" type="tns:NotificationMessage" />
+  <xs:simpleType name="NotificationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Invalid" />
+      <xs:enumeration value="R2Project" />
+      <xs:enumeration value="R2Release" />
+      <xs:enumeration value="R2ReleaseLocal" />
+      <xs:enumeration value="R2Resource" />
+      <xs:enumeration value="R2ResourceLocal" />
+      <xs:enumeration value="R2PcNoticeCompany" />
+      <xs:enumeration value="Gta" />
+      <xs:enumeration value="R2Artist" />
+      <xs:enumeration value="Cprs" />
+      <xs:enumeration value="Gdrs" />
+      <xs:enumeration value="MediaPortal" />
+      <xs:enumeration value="CprsPhysicalRelease" />
+      <xs:enumeration value="DSchedDigitalRelease" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationType" nillable="true" type="tns:NotificationType" />
+  <xs:complexType name="NotificationProcessingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="tns:NotificationResultCode" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationProcessingResult" nillable="true" type="tns:NotificationProcessingResult" />
+  <xs:simpleType name="NotificationResultCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="SeriveUnAvailable" />
+      <xs:enumeration value="DatabaseUnAvailable" />
+      <xs:enumeration value="DatabaseIntegrityError" />
+      <xs:enumeration value="XmlSerializationError" />
+      <xs:enumeration value="OtherFailures" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationResultCode" nillable="true" type="tns:NotificationResultCode" />
+</xs:schema>

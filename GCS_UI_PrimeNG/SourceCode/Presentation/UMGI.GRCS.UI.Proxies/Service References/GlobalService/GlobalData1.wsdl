@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GlobalData" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Requests" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" />
+      <xsd:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd10" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGlobal_GetLabelInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelInfo" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetLabelInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompaniesForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesForUser" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompaniesForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountriesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesList" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountriesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetDivisionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisionList" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetDivisionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetLabelList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelList" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetLabelList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetTerritories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritories" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetTerritories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_SearchUserCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserCountries" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_SearchUserCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_CompanySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompanySearch" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_CompanySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompanySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetAuditTrailFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrailFilters" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetAuditTrailFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrailFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetAuditTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrail" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetAuditTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetGCSAuditTrailFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSAuditTrailFilters" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetGCSAuditTrailFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSAuditTrailFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetGCSAuditTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSAuditTrail" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetGCSAuditTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSAuditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompaniesForAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesForAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCompaniesForAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesForAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountriesForAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesForAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IGlobal_GetCountriesForAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesForAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGlobal">
+    <wsdl:operation name="GetLabelInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetLabelInfo" message="tns:IGlobal_GetLabelInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetLabelInfoResponse" message="tns:IGlobal_GetLabelInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCompaniesForUser" message="tns:IGlobal_GetCompaniesForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCompaniesForUserResponse" message="tns:IGlobal_GetCompaniesForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCountriesList" message="tns:IGlobal_GetCountriesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCountriesListResponse" message="tns:IGlobal_GetCountriesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCompanies" message="tns:IGlobal_GetCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCompaniesResponse" message="tns:IGlobal_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetDivisionList" message="tns:IGlobal_GetDivisionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetDivisionListResponse" message="tns:IGlobal_GetDivisionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetLabelList" message="tns:IGlobal_GetLabelList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetLabelListResponse" message="tns:IGlobal_GetLabelList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCountries" message="tns:IGlobal_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCountriesResponse" message="tns:IGlobal_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetTerritories" message="tns:IGlobal_GetTerritories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetTerritoriesResponse" message="tns:IGlobal_GetTerritories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUserCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/SearchUserCountries" message="tns:IGlobal_SearchUserCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/SearchUserCountriesResponse" message="tns:IGlobal_SearchUserCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompanySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/CompanySearch" message="tns:IGlobal_CompanySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/CompanySearchResponse" message="tns:IGlobal_CompanySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrailFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetAuditTrailFilters" message="tns:IGlobal_GetAuditTrailFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetAuditTrailFiltersResponse" message="tns:IGlobal_GetAuditTrailFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetAuditTrail" message="tns:IGlobal_GetAuditTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetAuditTrailResponse" message="tns:IGlobal_GetAuditTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSAuditTrailFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetGCSAuditTrailFilters" message="tns:IGlobal_GetGCSAuditTrailFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetGCSAuditTrailFiltersResponse" message="tns:IGlobal_GetGCSAuditTrailFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSAuditTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetGCSAuditTrail" message="tns:IGlobal_GetGCSAuditTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetGCSAuditTrailResponse" message="tns:IGlobal_GetGCSAuditTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesForAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCompaniesForAutoComplete" message="tns:IGlobal_GetCompaniesForAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCompaniesForAutoCompleteResponse" message="tns:IGlobal_GetCompaniesForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesForAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGlobal/GetCountriesForAutoComplete" message="tns:IGlobal_GetCountriesForAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGlobal/GetCountriesForAutoCompleteResponse" message="tns:IGlobal_GetCountriesForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGlobal" type="tns:IGlobal">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLabelInfo">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetLabelInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesForUser">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCompaniesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesList">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCountriesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionList">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetDivisionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelList">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetLabelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritories">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetTerritories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUserCountries">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/SearchUserCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompanySearch">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/CompanySearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrailFilters">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetAuditTrailFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditTrail">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetAuditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSAuditTrailFilters">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetGCSAuditTrailFilters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSAuditTrail">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetGCSAuditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCompaniesForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountriesForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IGlobal/GetCountriesForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GlobalData">
+    <wsdl:port name="BasicHttpBinding_IGlobal" binding="tns:BasicHttpBinding_IGlobal">
+      <soap:address location="http://localhost:7778/Global/Global.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,256 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchWorkGroupForUsersChange.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/Syncfusion.min.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var pageName = '@ViewBag.PageName';
+</script>
+
+
+<style type="text/css">
+    #txtUserWgName, #txtUserWgCompany, #txtWgUser, #txtUserWgCountry
+    {
+        padding-left: 2em;
+    }
+    .ui-autocomplete-loading
+    {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") left center no-repeat;
+    }
+    .custom {
+        
+    }
+.ui-dialog .ui-dialog-content 
+{
+    padding:0;
+}
+.poupPage
+{
+    margin-left:0;
+}
+.Syncfusion-Grid-Core
+{
+    height:auto !important;
+    width:100% !important;
+}
+.Syncfusion-Grid-Core .HeaderCell, HeaderCellDiv
+{
+    height:20px !important; 
+ 
+}
+.Syncfusion-Grid-Core .HeaderCell, .RowCell
+{
+ padding-top:0.2em !important;
+ padding-bottom:0.2em !important;
+}
+.Syncfusion-Grid-Core .GridPager .RefreshPager
+{
+    display:none !important;
+}
+.inputPlaceHolder INPUT[type='text']
+{
+    margin-top:0 !important;
+    width:110px !important;
+}
+.accItemNew
+{
+    padding:5px 0 !important;
+}
+</style>
+
+<div id="SearchAddAndRemoveUserinWorkgroup">
+<div id="msgUserWgErrorMessage" class="warning" style="margin: 10px 15px;"></div>
+<div id="msgUserWgSuccessMessage" class="success" style="margin: 10px 0 0 0; display: none;">
+</div>
+<div class="searchContainer" id="searchContainerForUser">
+    <div id="userWorkgroup">
+        <div class="dwMainContainer">
+            <div id="wrapperDv">
+                @* <div id="headerScreen">
+                    <span><a class="cross">&nbsp;</a>Add User to Workgroup
+                    </span>
+                </div>*@
+                <div class="accItem accItemNew">
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder">
+                            <label class="madatoryField">
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol</label>
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtUserWgName", "", new { maxlength = "510" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.DropDownListFor(model => model.RolesList, new SelectList(Model.RolesList, "value", "text", Model.RolesList), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectRoleLabel, new { @style = "width: 188px;!important" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtUserWgCompany", "", new { maxlength = "120" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtWgUser", "", new { maxlength = "100" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtUserWgCountry", "", new { maxlength = "40" })
+                        </div>
+                        <div class="inputPlaceHolder" style="vertical-align: top;">
+                            <input class="primbutton" id="btnUserGetWorkGrouplist"  type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton"/>
+                            <input id="btnUserGetWorkGroupReset" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br />
+    <div id="SearchUserWorkgroupPaging" style="margin: 5px 15px;">
+        <div id="searchLableDiv" style="float: left;">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnUserSearchWgResult" style="font-weight: bold;"></span>
+        </div>
+        <div id="paging" style="float: right; display:none; ">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlSearchUserWgPaging" })
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+        </div>
+    </div>
+    <div id="selectAddressList"></div>
+    <br />
+    <br />
+    @if (ViewBag.PageName == "Add")
+    {
+        <div id="divAddWGUser"  style="display:none;azimuth:center; padding-left:15px; padding-right:15px;">
+            @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupSearch>("SearchWgForUser")
+                .Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupSearch>)ViewData["workgroupList"])
+                .ActionMode(ActionMode.JSON)
+                .EnableOnDemand()
+                .AutoFormat(Skins.Olive)
+                 .EnableAlternateRowStyling()
+                .AllowAutoWrap(true)
+                .TotalRecordCount(0)
+                .EnableRowHover(true)
+                .EnableScrolling()
+                .EnablePaging()
+                
+                .AllowSelection(true)
+                .SelectionMode(SelectionMode.Multiple)
+                .Scrolling(scroll =>
+                {
+                    scroll.AllowScrolling(true);
+                    scroll.Height(300);
+                })
+                  .Column(column =>
+                              {
+                                  column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel).Width(55);
+                                  column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserDefaultLabel).Width(58);
+                                  //column.Add("Default").Format("<img id='imgDefault' src='/Gcs/images/i_flag_grey.png' title='Select Default Users' onclick='javascript:return Imageclick(this)' />").Visible(true);
+                                  //column.Add("Right").Format("<input id='chkIsRole' type='checkbox' />Requestor<input id='chkUPCAllocation' type='checkbox' />UPC Allocation <br><input id='chkR2Authorized' checked=true type='checkbox' />R2 Authorized<input id='chkManageWorkgroup' checked='true' type='checkbox' />Manage Workgroup").Visible(true);
+                                  column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_RightsLabel).Width(200);
+                                  column.Add(c => c.Id).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_IdLabel).Visible(false);
+                                  column.Add(c => c.Name).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_WkgNameLabel);
+                                  //column.Add(c => c.RoleId).HeaderText("ParentId").Width(100); 
+                                  column.Add(c => c.StatusType).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpTypeLabel).Width(120);
+                                  column.Add(c => c.RoleName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_RoleNameLabel);
+                                  column.Add(c => c.Company).HeaderText("");
+                                  column.Add(c => c.User).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_DefaultUsersLabel);
+                                  column.Add(c => c.Country).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_CountriesLabel).ResizeSettings(true);
+
+                              })
+                              .ClientSideEvents(evt => evt.OnLoad("AddUserGridLoad"))
+                  .ClientSideEvents(evt => evt.OnActionBegin("ActionBegin"))
+                  .ClientSideEvents(evt => evt.QueryCellInfo("SetRightCheckBox"))
+                  .ClientSideEvents(evt => evt.OnActionSuccess("ShowResultCountForUser"))
+                  //.PageSettings(page =>
+                  //                  {
+                  //                      page.AllowPaging(true);
+                  //                      page.PageSize(10);
+                  //                      page.ShowPagerInformation(false);
+                  //                      page.PageCount(5);
+                  //                      page.PagerPosition(Position.BottomLeft);
+                  //                      page.PagerStyle(PagerStyle.Default);
+
+                  //                  }
+                  //)
+                  .PageSettings(page =>
+                  {
+                      page.PageSize(10);
+                      page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+                  }) 
+
+                  )
+        </div>
+    }
+    else
+    {
+        <div id="divRemoveWGUser" style="azimuth:center; padding-left:15px; padding-right:15px;">
+            @(Html.Syncfusion().Grid<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupSearch>("SearchWgForRemoveUser")
+                  .Datasource((IEnumerable<UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupSearch>)ViewData["workgroupListForRemove"])
+                  .Column(column =>
+                              {
+                                  column.Add(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserSelectLabel).Width(55);
+                                  column.Add(c => c.Id).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_IdLabel).Visible(false);
+                                  column.Add(c => c.Name).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_WkgNameLabel);
+                                  column.Add(c => c.StatusType).Width(80);
+                                  column.Add(c => c.RoleName).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_RoleNameLabel);
+                                  column.Add(c => c.Company).HeaderText("");
+                                  column.Add(c => c.User).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_DefaultUsersLabel);
+                                  column.Add(c => c.Country).HeaderText(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_Column_CountriesLabel).ResizeSettings(true);
+
+                              })
+                  // .Mappers(m => m.Action("RemoveUserFromWG"))
+                  .ClientSideEvents(evt => evt.OnLoad("RemoveUserGridLoad"))
+                  .ClientSideEvents(evt => evt.OnActionBegin("RemoveUserFromWG"))
+                  .ClientSideEvents(evt => evt.QueryCellInfo("RecordBind"))
+                  //.PageSettings(page =>
+                  //{
+                  //    page.PageSize(10);
+                  //    page.ShowPagerInformation(false);
+                  //    page.PageCount(5);
+                  //    page.PagerPosition(Position.BottomLeft);
+                  //    page.PagerStyle(PagerStyle.Default);
+                  //}
+                  //)
+                  .PageSettings(page =>
+                  {
+                      page.PageSize(10);
+                      page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+                  }) 
+                  .ActionMode(ActionMode.JSON)
+                        .EnableOnDemand()
+                        .AllowAutoWrap(true)
+                        .TotalRecordCount(0)
+                        .AutoFormat(Skins.Olive)
+                        .EnableAlternateRowStyling()
+                        .EnableRowHover(true)
+                        .EnableScrolling()
+                        .EnablePaging()
+                        .AllowSelection(true)
+                        .SelectionMode(SelectionMode.Multiple)
+                        .Scrolling(scroll =>
+                        {
+                            scroll.AllowScrolling(true);
+                            scroll.Height(300);
+                        })
+                  )
+        </div>
+    }
+    <div style="float: right;  margin:10px 15px 10px 0;">
+        <input id="btnAddUserForWg"  class="primbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddUserButton" runat="server" />
+        <input id="btnRemoveUserForWg"  class="primbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveUserButton" runat="server" />
+        <input id="btnUserCancelForWg"  class="primbutton" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" />
+    </div>
+</div>
+<script type="text/javascript">
+    var mgUserRequestorRights = {
+        Requestor: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Requestor',
+        R2Authorized: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_R2Authorized',
+        UPCAllocation: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_UPCAllocation',
+        Reviewer: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Reviewer',
+        ManageWorkgroup: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_ManageWorkgroup',
+        Inquiry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Inquiry',
+        Admin: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_RccAdmin',
+        DefaultUsers: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DefaultUsersLabel'
+       
+    }
+</script>
+
+
+

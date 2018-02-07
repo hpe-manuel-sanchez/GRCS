@@ -1,0 +1,482 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout;
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    ViewBag.Title = @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.HdrResubmitProject;
+    Layout = "";
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jquery.validate.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/CancelRejectedResource.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var title = '@ClearanceLayout.HdrResubmitProject';
+</script>
+@using (Html.BeginForm())
+{
+    <div id="showwaringingmsg" class="warningMsg">
+    </div>
+    <div>
+        @if (ViewBag.ProjectType == "Master")
+        {
+            <table id="tblResources" style="width: 99%; border: 0;">
+                <tr>
+                    <td>
+
+                        @if (Model.MasterProjectDetails.RequestInfoList.Where(stat => stat.ApprovalStatusId == 5).ToList().Count > 0)
+                        {
+
+                            <b>@ClearanceLayout.GCSRejectResource</b>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="height: auto; overflow-y: auto; overflow-x: hidden">
+                            <table id="tblCancelResources" class="jtable" style="width: 99%">
+                                @if (Model.MasterProjectDetails.RequestInfoList.Where(stat => stat.ApprovalStatusId == 5).ToList().Count > 0)
+                                {
+                                    <thead>
+                                        <tr>
+                                            <th class="jtable-command-column-header">Select All
+                                        <input type="checkbox" id="chkCancelResource" onclick="SelectChildCancelResource();" />
+                                                @*@Html.checkbo(model => model.MasterProjectDetails.IsAdvertisingRequest, new { id = "chkCancelResource" })*@
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumUPCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumTitleLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumISRCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumClearanceOwnerLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">Request Type
+                                            </th>
+                                            @if (Model.MasterProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <th class="jtable-command-column-header">
+                                                    @ClearanceLayout.MasterProjectReqSumConfigurationLabel
+                                                </th>
+                                            }
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewStatusLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewCommentLabel
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                }
+                                <tbody>
+                                    @{int j = 0;}
+                                    @for (int i = 0; i < Model.MasterProjectDetails.RequestInfoList.Count; i++)
+                                    {
+                                        if (Model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId == 5)
+                                        {
+
+                                        <tr id="trCancelResource @j">
+                                            <td>
+                                                <input type="checkbox" id ="chkCancelResource @j" onclick="SelectHeaderCancelResource();" />
+                                                @* @Html.CheckBoxFor(model => model.RequestInfoList[i].IsOpen, new { id = "chkCancelResource" + i })*@
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceId, new { id = "hdnCancelClearanceProjectResourceID" + j })
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RoutedItemId, new { id = "hdnCancelClearanceProjectRoutedItemId" + j })
+                                                @* @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ClearanceProjectResourceId, new { id = "labelCancelClearanceProjectResourceID" + j })*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Upc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Isrc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].AdminCompany)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestType)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestTypeId, new { id = "hdnRequestTypeId" + j })
+                                            </td>
+                                            @if (Model.MasterProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Configuration)
+                                                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ConfigurationId, new { id = "hdnConfigurationId" + j })
+                                                </td>
+                                            }
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatus)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId, new { id = "hdnRequestStatusId" + j })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Comment)
+                                            </td>
+                                        </tr>
+                                            j++;
+                                        }
+
+                                    }
+                                    <script language="javascript">
+                                        $('#loadingDivPA').hide();
+                                    </script>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @if (Model.MasterProjectDetails.RequestInfoList.Where(s => s.ApprovalStatusId == 7 || s.ApprovalStatusId == 10).ToList().Count > 0)
+                        {
+                            <b>@ClearanceLayout.GcsCancelResource</b>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="height: auto; overflow-y: auto; overflow-x: hidden">
+                            <table id="tblRejectResources" class="jtable" style="width: 99%">
+                                @if (Model.MasterProjectDetails.RequestInfoList.Where(s => s.ApprovalStatusId == 7 || s.ApprovalStatusId == 10).ToList().Count > 0)
+                                {
+                                    <thead>
+                                        <tr>
+                                            <th class="jtable-command-column-header">Select All
+                                         <input type="checkbox" id="chkRejectResource" onclick="SelectChildRejectResource();" />
+                                                @* @Html.CheckBoxFor(model => model.MasterProjectDetails.IsAdvertisingRequest, new { id = "chkRejectResource" })*@
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumUPCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumTitleLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumISRCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumClearanceOwnerLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">Request Type
+                                            </th>
+                                            @if (Model.MasterProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <th class="jtable-command-column-header">
+                                                    @ClearanceLayout.MasterProjectReqSumConfigurationLabel
+                                                </th>
+                                            }
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewStatusLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewCommentLabel
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                }
+                                <tbody>
+                                    <script language="javascript">
+                                        $('#loadingDivPA').show();
+                                    </script>
+                                    @{int k = 0;}
+                                    @for (int i = 0; i < Model.MasterProjectDetails.RequestInfoList.Count; i++)
+                                    {
+                                        if ((Model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId == 7) || (Model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId == 10))
+                                        {
+
+                                        <tr id="trRejectResource @k">
+                                            <td>
+                                                <input type="checkbox" id ="chkRejectResource + @k" onclick="SelectHeaderRejectResource();" />
+                                                @* @Html.CheckBoxFor(model => model.RequestInfoList[i].IsOpen, new { id = "chkRejectResource" + i })*@
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceId, new { id = "hdnRejectedClearanceProjectResourceID" + k })
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RoutedItemId, new { id = "hdnRejectedClearanceProjectRoutedItemId" + k })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Upc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Isrc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].AdminCompany)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestType)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestTypeId, new { id = "hdnRequestTypeId" + k })
+                                            </td>
+                                            @if (Model.MasterProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Configuration)
+                                                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ConfigurationId, new { id = "hdnConfigurationId" + k })
+                                                </td>
+                                            }
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatus)
+                                                @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId, new { id = "hdnRequestStatusId" + k })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].Comment)
+                                            </td>
+                                        </tr>
+                                            k++;
+                                        }
+                                    }
+                                    <script language="javascript">
+                                        $('#loadingDivPA').hide();
+                                    </script>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+        else
+        {
+            <table id="tblResources" style="width: 99%; border: 0;">
+                <tr>
+                    <td>
+
+                        @if (Model.RegularProjectDetails.RequestInfoList.Where(stat => stat.ApprovalStatusId == 5).ToList().Count > 0)
+                        {
+                            <b>@ClearanceLayout.GCSRejectResource</b>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="height: auto; overflow-y: auto; overflow-x: hidden">
+                            <table id="tblCancelResources" class="jtable" style="width: 99%">
+                                @if (Model.RegularProjectDetails.RequestInfoList.Where(stat => stat.ApprovalStatusId == 5).ToList().Count > 0)
+                                {
+                                    <thead>
+                                        <tr>
+                                            <th class="jtable-command-column-header">Select All
+                                        <input type="checkbox" id="chkCancelResource" onclick="SelectChildCancelResource();" />
+                                                @*@Html.checkbo(model => model.MasterProjectDetails.IsAdvertisingRequest, new { id = "chkCancelResource" })*@
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumUPCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumTitleLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumISRCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumClearanceOwnerLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">Request Type
+                                            </th>
+                                            @if (Model.RegularProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <th class="jtable-command-column-header">
+                                                    @ClearanceLayout.MasterProjectReqSumConfigurationLabel
+                                                </th>
+                                            }
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewStatusLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewCommentLabel
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                }
+                                <tbody>
+                                    @{int j = 0;}
+                                    @for (int i = 0; i < Model.RegularProjectDetails.RequestInfoList.Count; i++)
+                                    {
+                                        if (Model.RegularProjectDetails.RequestInfoList[i].ApprovalStatusId == 5)
+                                        {
+
+                                        <tr id="trCancelResource @j">
+                                            <td>
+                                                <input type="checkbox" id ="chkCancelResource @j" onclick="SelectHeaderCancelResource();" />
+                                                @* @Html.CheckBoxFor(model => model.RequestInfoList[i].IsOpen, new { id = "chkCancelResource" + i })*@
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ResourceId, new { id = "hdnCancelClearanceProjectResourceID" + j })
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].RoutedItemId, new { id = "hdnCancelClearanceProjectRoutedItemId" + j })
+                                                @* @Html.DisplayFor(model => model.MasterProjectDetails.RequestInfoList[i].ClearanceProjectResourceId, new { id = "labelCancelClearanceProjectResourceID" + j })*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Upc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].ResourceTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Isrc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].AdminCompany)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].RequestType)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].RequestTypeId, new { id = "hdnRequestTypeId" + j })
+                                            </td>
+                                            @if (Model.RegularProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Configuration)
+                                                    @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ConfigurationId, new { id = "hdnConfigurationId" + j })
+                                                </td>
+                                            }
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].ApprovalStatus)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ApprovalStatusId, new { id = "hdnRequestStatusId" + j })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Comment)
+                                            </td>
+                                        </tr>
+                                            j++;
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @if (Model.RegularProjectDetails.RequestInfoList.Where(s => s.ApprovalStatusId == 7 || s.ApprovalStatusId == 10).ToList().Count > 0)
+                        {
+                            <b>@ClearanceLayout.GcsCancelResource</b>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="height: auto; overflow-y: auto; overflow-x: hidden">
+                            <table id="tblRejectResources" class="jtable" style="width: 99%">
+                                @if (Model.RegularProjectDetails.RequestInfoList.Where(s => s.ApprovalStatusId == 7 || s.ApprovalStatusId == 10).ToList().Count > 0)
+                                {
+                                    <thead>
+                                        <tr>
+                                            <th class="jtable-command-column-header">Select All
+                                         <input type="checkbox" id="chkRejectResource" onclick="SelectChildRejectResource();" />
+                                                @* @Html.CheckBoxFor(model => model.MasterProjectDetails.IsAdvertisingRequest, new { id = "chkRejectResource" })*@
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumUPCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.RegularProjReqSumTitleLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumISRCLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumClearanceOwnerLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">Request Type
+                                            </th>
+                                            @if (Model.RegularProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <th class="jtable-command-column-header">
+                                                    @ClearanceLayout.MasterProjectReqSumConfigurationLabel
+                                                </th>
+                                            }
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewStatusLabel
+                                            </th>
+                                            <th class="jtable-command-column-header">
+                                                @ClearanceLayout.MasterProjectReqSumReviewCommentLabel
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                }
+                                <tbody>
+                                    @{int k = 0;}
+                                    @for (int i = 0; i < Model.RegularProjectDetails.RequestInfoList.Count; i++)
+                                    {
+                                        if ((Model.RegularProjectDetails.RequestInfoList[i].ApprovalStatusId == 7) || ((Model.RegularProjectDetails.RequestInfoList[i].ApprovalStatusId == 10)))
+                                        {
+
+                                        <tr id="trRejectResource @k">
+                                            <td>
+                                                <input type="checkbox" id ="chkRejectResource + @k" onclick="SelectHeaderRejectResource();" />
+                                                @* @Html.CheckBoxFor(model => model.RequestInfoList[i].IsOpen, new { id = "chkRejectResource" + i })*@
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ResourceId, new { id = "hdnRejectedClearanceProjectResourceID" + k })
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].RoutedItemId, new { id = "hdnRejectedClearanceProjectRoutedItemId" + k })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Upc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].ResourceTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Isrc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].AdminCompany)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].RequestType)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].RequestTypeId, new { id = "hdnRequestTypeId" + k })
+                                            </td>
+                                            @if (Model.RegularProjectDetails.ProjectTypeId == 2)
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Configuration)
+                                                    @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ConfigurationId, new { id = "hdnConfigurationId" + k })
+                                                </td>
+                                            }
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].ApprovalStatus)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.RequestInfoList[i].ApprovalStatusId, new { id = "hdnRequestStatusId" + k })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.RegularProjectDetails.RequestInfoList[i].Comment)
+                                            </td>
+                                        </tr>
+                                            k++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+        <div class="floatR marT_10">
+            <input type="button" class="primbutton" id ="btnCancelRejectSubmit" value='@ClearanceLayout.UserTransPopupTransferSubmitButton' />
+        </div>
+    </div>
+}

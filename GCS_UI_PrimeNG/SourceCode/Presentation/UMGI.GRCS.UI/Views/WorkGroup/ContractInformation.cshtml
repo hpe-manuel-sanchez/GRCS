@@ -1,0 +1,78 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="subContWrapperDiv" id="divContract">
+        <div class="headerDv">
+            Contract Information
+        </div>
+        @if (Model.ContractsList.Count() > 0)
+        {
+            var territoryMaxLength = 254;
+            var territoryMinLength = 0;
+            var dotSymbol = "...";
+            for (int i = 0; i <= Model.ContractsList.Count() - 1; i++)
+            {
+            <div class="contentSubDv">
+                <div class="checkBoxDv">
+                    @if (@ViewBag.PageName != "Childworkgroup")
+                    {
+                        @Html.CheckBox(Model.ContractsList[i].ClearanceAdminCompanyName.ToString(), new { id = Model.ContractsList[i].ContractId.ToString(), value = Model.ContractsList[i].ClearanceAdminCompanyId.ToString(), dataFld = Model.ContractsList[i].ArtistName, resourceId = string.Empty })
+                    }
+                </div>
+                <div class="labelDv">
+                    @Html.Label("Contract ID:")
+                    @Html.Label(Model.ContractsList[i].ContractId.ToString())
+                </div>
+                <br />
+                <div class="labelDv2">
+                    @Html.Label("Clearance Admin Company:")
+                    <label>@Model.ContractsList[i].ClearanceAdminCompanyName.ToString()</label>
+                    @*  @Html.Label(Model.ContractsList[i].ClearanceAdminCompanyName.ToString().Replace('.', ' '))*@
+                </div>
+                <div class="clearBoth1"></div>
+                <div class="three-column">
+                    <div class="labelDv2">
+                        @Html.Label("Territories :")
+                    </div>
+                    @if (Model.ContractsList[i].ContractTerritoryList.Count() > 0)
+                    {
+                        ViewBag.includedTerritory = "";
+                        ViewBag.excludedTerritory = "";
+
+                        ViewBag.includedTerritory = Model.ContractsList[i].IncludedTerritoryData;
+                        ViewBag.excludedTerritory = Model.ContractsList[i].ExcludedTerritoryData;
+                    }
+                    else
+                    {
+                        ViewBag.includedTerritory = "";
+                        ViewBag.excludedTerritory = "";
+                    }
+
+                    <div class="column2">
+                        <span>Included</span>
+                        <p>
+                            @ViewBag.includedTerritory
+                            @*<a    href="#">more +</a>*@
+                        </p>
+                    </div>
+                    <div class="column2">
+                        <span>Excluded</span><p>
+                            @ViewBag.excludedTerritory
+                            @*<a href="#">more +</a>*@
+                        </p>
+                    </div>
+                    <div class="clearBoth1"></div>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</body>
+</html>

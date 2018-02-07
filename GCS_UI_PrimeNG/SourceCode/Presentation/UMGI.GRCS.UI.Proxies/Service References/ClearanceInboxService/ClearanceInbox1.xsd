@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ClearanceInboxFilterCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RccAdminRequestType" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="RccHandler" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="RequestType" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="Requestor" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:long" />
+          <xs:element minOccurs="0" name="ScopeType" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" minOccurs="0" name="Workgroup" nillable="true" type="q2:ArrayOfWorkgroupBase" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxFilterCriteria" nillable="true" type="tns:ClearanceInboxFilterCriteria" />
+  <xs:complexType name="ArrayOfListItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListItem" nillable="true" type="tns:ListItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListItem" nillable="true" type="tns:ArrayOfListItem" />
+  <xs:complexType name="ListItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Order" type="xs:int" />
+      <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListItem" nillable="true" type="tns:ListItem" />
+  <xs:complexType name="ClearanceInboxSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q3:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InboxState" nillable="true" type="tns:ClearanceInboxState" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:long" />
+          <xs:element minOccurs="0" name="SearchText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SearchType" nillable="true" type="tns:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="UserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxSearchCriteria" nillable="true" type="tns:ClearanceInboxSearchCriteria" />
+  <xs:complexType name="ClearanceInboxState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FolderSize" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectReadStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SelectedFolderId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="SelectedProjectId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ShowAllProjects" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SortByColumnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SortByDirection" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxState" nillable="true" type="tns:ClearanceInboxState" />
+  <xs:complexType name="ClearanceInboxSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Folders" nillable="true" type="tns:ArrayOfClearanceInboxFolder" />
+      <xs:element minOccurs="0" name="InboxState" nillable="true" type="tns:ClearanceInboxState" />
+      <xs:element minOccurs="0" name="NotificationCount" type="xs:long" />
+      <xs:element minOccurs="0" name="ReminderCount" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxSearchResult" nillable="true" type="tns:ClearanceInboxSearchResult" />
+  <xs:complexType name="ArrayOfClearanceInboxFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceInboxFolder" nillable="true" type="tns:ClearanceInboxFolder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceInboxFolder" nillable="true" type="tns:ArrayOfClearanceInboxFolder" />
+  <xs:complexType name="ClearanceInboxFolder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FolderId" type="xs:long" />
+      <xs:element minOccurs="0" name="FolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSystemFolder" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProjectCount" type="xs:long" />
+      <xs:element minOccurs="0" name="Projects" nillable="true" type="tns:ArrayOfClearanceInboxProject" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxFolder" nillable="true" type="tns:ClearanceInboxFolder" />
+  <xs:complexType name="ArrayOfClearanceInboxProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceInboxProject" nillable="true" type="tns:ClearanceInboxProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceInboxProject" nillable="true" type="tns:ArrayOfClearanceInboxProject" />
+  <xs:complexType name="ClearanceInboxProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedToUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssignedToUserId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ClearanceProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedByUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CurrentFolderId" type="xs:long" />
+      <xs:element minOccurs="0" name="EstimatedSalesUnit" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="IsAllRequestReviewed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsThirdParty" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUnread" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedDateAssignedTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedUserAssignedTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotificationRecieved" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OriginalSystemFolderId" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectStatusId" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectSubmissionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectTypeId" type="xs:long" />
+      <xs:element minOccurs="0" name="RccHandlerId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RccHandlerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestingCompanyIsoName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestingCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" type="xs:long" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThirdPartyCompanyIsoName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThirdPartyCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToFolderId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxProject" nillable="true" type="tns:ClearanceInboxProject" />
+  <xs:complexType name="ClearanceInboxData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilterCriteria" nillable="true" type="tns:ClearanceInboxFilterCriteria" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="tns:ClearanceInboxSearchCriteria" />
+      <xs:element minOccurs="0" name="SearchResult" nillable="true" type="tns:ClearanceInboxSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxData" nillable="true" type="tns:ClearanceInboxData" />
+  <xs:complexType name="ArrayOfClearanceInboxDispatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceInboxDispatch" nillable="true" type="tns:ClearanceInboxDispatch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceInboxDispatch" nillable="true" type="tns:ArrayOfClearanceInboxDispatch" />
+  <xs:complexType name="ClearanceInboxDispatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkgroupName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WorkgroupPrimaryUser" nillable="true" type="q4:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxDispatch" nillable="true" type="tns:ClearanceInboxDispatch" />
+  <xs:complexType name="ClearanceInboxProjectDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableActions" nillable="true" type="tns:ArrayOfListItem" />
+      <xs:element minOccurs="0" name="FolderId" type="xs:long" />
+      <xs:element minOccurs="0" name="NotificationCount" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectType" type="xs:int" />
+      <xs:element minOccurs="0" name="RccHandler" nillable="true" type="tns:ArrayOfListItem" />
+      <xs:element minOccurs="0" name="ReminderCount" type="xs:long" />
+      <xs:element minOccurs="0" name="Requests" nillable="true" type="tns:ArrayOfClearanceInboxRequest" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoutingStatus" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Upc" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="clrProjectId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxProjectDetail" nillable="true" type="tns:ClearanceInboxProjectDetail" />
+  <xs:complexType name="ArrayOfClearanceInboxRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceInboxRequest" nillable="true" type="tns:ClearanceInboxRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceInboxRequest" nillable="true" type="tns:ArrayOfClearanceInboxRequest" />
+  <xs:complexType name="ClearanceInboxRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionId" type="xs:long" />
+      <xs:element minOccurs="0" name="AdminCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdminCompanyId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ApprovalStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApprovalStatusId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ArchiveFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistId" type="xs:long" />
+      <xs:element minOccurs="0" name="AssignedToUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssignedToUserId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="AssignedToUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AvailableDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClearanceProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="ClearanceProjectResourceId" type="xs:long" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommentCount" type="xs:long" />
+      <xs:element minOccurs="0" name="Configuration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConfigurationId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ContractArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractId" nillable="true" type="xs:long" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContractIds" nillable="true" type="q6:ArrayOflong" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContractSummary" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element minOccurs="0" name="CreatedByUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDisabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsExistingReleaseRequest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNonUMGAndNonExclusive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsOpen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReinstated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRoutingStop" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRoutingTriggered" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Isrc" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KeyRoutedItemRequest" nillable="true" type="q8:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="LastRoutingComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedDateRequest" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedDateRequestString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDateRoutedString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="PrimaryArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RejectReasonId" type="xs:long" />
+      <xs:element minOccurs="0" name="ReleaseId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestId" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestStatusId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestTypeId" type="xs:long" />
+      <xs:element minOccurs="0" name="RequestTypes" nillable="true" type="tns:ArrayOfListItem" />
+      <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+      <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceTypeId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ReviewDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RightId" type="xs:long" />
+      <xs:element minOccurs="0" name="RightsType_Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoutedItemId" type="xs:long" />
+      <xs:element minOccurs="0" name="RoutingCalculationStatus" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="SalesChannelId" type="xs:long" />
+      <xs:element minOccurs="0" name="SequenceNo" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:long" />
+      <xs:element minOccurs="0" name="UndoStatus" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Upc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkgroupId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkgroupName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxRequest" nillable="true" type="tns:ClearanceInboxRequest" />
+  <xs:complexType name="ClearanceInboxRequestAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionId" type="xs:long" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FolderId" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectModifiedDateString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Requests" nillable="true" type="tns:ArrayOfClearanceInboxRequest" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToWorkgroupId" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxRequestAction" nillable="true" type="tns:ClearanceInboxRequestAction" />
+  <xs:complexType name="ClearanceInboxResourceHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Isrc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Records" nillable="true" type="tns:ArrayOfClearanceInboxResourceHistoryItem" />
+      <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+      <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalRecordCount" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxResourceHistory" nillable="true" type="tns:ClearanceInboxResourceHistory" />
+  <xs:complexType name="ArrayOfClearanceInboxResourceHistoryItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceInboxResourceHistoryItem" nillable="true" type="tns:ClearanceInboxResourceHistoryItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceInboxResourceHistoryItem" nillable="true" type="tns:ArrayOfClearanceInboxResourceHistoryItem" />
+  <xs:complexType name="ClearanceInboxResourceHistoryItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProjectReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReviewComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReviewStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceInboxResourceHistoryItem" nillable="true" type="tns:ClearanceInboxResourceHistoryItem" />
+  <xs:complexType name="ArrayOfClearanceRejectReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceRejectReason" nillable="true" type="tns:ClearanceRejectReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceRejectReason" nillable="true" type="tns:ArrayOfClearanceRejectReason" />
+  <xs:complexType name="ClearanceRejectReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Archive_Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsLegal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMarktng" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUMGI" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Modified_Dttm" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReasonId" type="xs:long" />
+      <xs:element minOccurs="0" name="RejectReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sequence_No" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceRejectReason" nillable="true" type="tns:ClearanceRejectReason" />
+</xs:schema>

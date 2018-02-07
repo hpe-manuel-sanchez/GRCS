@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="UMGI.GRCS.UI.Rights.Models.ContractModel" BaseTypeListCollapsed="true">
+    <Position X="6" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAIAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ContractModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.Models.ContractRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAARAAAAgAUECBBQAQAAACAQCYAABAAmLAgAAAgA=</HashCode>
+      <FileName>ContractRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.Models.ContractTabModel" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="8" Width="5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEAAAABCQAAAAAAACiVAQIIIABABYAAAABAAAAEA=</HashCode>
+      <FileName>ContractTabModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.Models.RightsRestrictionTabModel" BaseTypeListCollapsed="true">
+    <Position X="6" Y="3" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAABAAQAAAYACAAAAAAAgAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>RightsRestrictionTabModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.Models.SecondaryExploitationTabModel" BaseTypeListCollapsed="true">
+    <Position X="6" Y="6.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAIACAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>SecondaryExploitationTabModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMGI.GRCS.UI.Rights.Models.ContractMaintenanceWorkQueueModel" BaseTypeListCollapsed="true">
+    <Position X="6" Y="9.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContractMaintenanceWorkQueueModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

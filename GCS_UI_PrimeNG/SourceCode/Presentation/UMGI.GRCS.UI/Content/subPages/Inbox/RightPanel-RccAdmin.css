@@ -1,0 +1,52 @@
+﻿
+
+#TblRCCAdminResourceGrid .RowCell,
+#TblRCCAdminResourceGrid .RowCell div,
+#TblRCCAdminResourceGrid .RowCell a,
+#TblRCCAdminTrackGrid .RowCell,
+#TblRCCAdminTrackGrid .RowCell div,
+#TblRCCAdminTrackGrid .RowCell a {
+    overflow: hidden !important;
+    -ms-text-overflow: ellipsis !important;
+    -o-text-overflow: ellipsis !important;
+    text-overflow: ellipsis !important;
+    line-height: normal;
+}
+
+#tabsRCCAdmin {
+    display: inline-block !important;
+    overflow: visible !important;
+}
+
+.ui-jtable-loading {
+    float: left !important;
+}
+
+#TblRCCAdminResourceGrid .TblRCCAdminResourceGrid_ManualPager,
+#TblRCCAdminTrackGrid .TblRCCAdminTrackGrid_ManualPager,
+#TblRCCAdminResourceGrid .RefreshPager,
+#TblRCCAdminTrackGrid .RefreshPager {
+    display: none !important;
+}
+
+#TblRCCAdminResourceGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}
+
+#TblRCCAdminTrackGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}
+
+.ui-state-default, .ui-multiselect-header ul,
+.ui-multiselect-checkboxes li,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+button {
+    width: 150px !important;
+}

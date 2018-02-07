@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+  <xs:complexType name="ArrayOfClearanceRelease">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceRelease" nillable="true" type="tns:ClearanceRelease" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceRelease" nillable="true" type="tns:ArrayOfClearanceRelease" />
+  <xs:complexType name="ClearanceRelease">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" base="q1:ReleaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Account_Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Archive_Flag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CallFrom" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClrProjectReleaseIds" nillable="true" type="q2:ArrayOflong" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" minOccurs="0" name="ClrPushR2Item" nillable="true" type="q3:ClearancePushR2Item" />
+          <xs:element minOccurs="0" name="Clr_Project_Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_Club" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_Non" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_Promotional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_Regular" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Comments_SalesChannel_TV" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConfigGroup_List_Id" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ConfigId" type="xs:long" />
+          <xs:element minOccurs="0" name="ConfigIdSelected" type="xs:long" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="ConfigListRelease" nillable="true" type="q5:ArrayOfListItem" />
+          <xs:element minOccurs="0" name="ConfigurationGroup_Desc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConfigurationGroup_Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Configuration_Desc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Configuration_Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Created_Dttm" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Created_User" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeemedPPD" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_Club" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_ClubDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_Non" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_NonDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_PriceDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_Promotional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_PromotionalDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_Regular" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_RegularDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_TV" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviatedICLALevel_TVDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DropDownStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstimatedRetail" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExactPPD" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ExistingReleasePkg_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ExistingReleases" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLAAccountingBase" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ICLALevelText_Club" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevelText_Non" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevelText_Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevelText_Promotional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevelText_Regular" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevelText_TV" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ICLALevel_Club" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_Club_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLALevel_Non" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_Non_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLALevel_Price" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_Price_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLALevel_Promo_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLALevel_Promotional" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_Reg_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLALevel_Regular" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_TV" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ICLALevel_TV_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ICLA_Non" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Icla_Level_Deviated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InvoicePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsAddedBySearchPkg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCompilation" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_Club" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_Non" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_Price" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_Promotional" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_Regular" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLALevel_TV" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_Club" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_Price" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_Promo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_Regular" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_TV" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeviatedICLA_nonTrad" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsExisting" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMultiArtist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNewlyAddedAfterSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRemoved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRouted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSaved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Club" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Mac" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Non_Traditional" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Ost" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Price_Reduction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Promotional" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Regular_Retail" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_TV" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Is_Upc_Manual" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Modified_Dttm" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Modified_User" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MusicType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="MusicType_Desc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MusicType_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="No_Components" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="No_Tracks" type="xs:int" />
+          <xs:element minOccurs="0" name="NumberOfComponents" type="xs:int" />
+          <xs:element minOccurs="0" name="NumberOfTracks" type="xs:int" />
+          <xs:element minOccurs="0" name="P_Company_Id" type="xs:long" />
+          <xs:element minOccurs="0" name="P_Notice_Extension" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="P_Year" type="xs:int" />
+          <xs:element minOccurs="0" name="Package" type="xs:boolean" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PackageIds" nillable="true" type="q6:ArrayOflong" />
+          <xs:element minOccurs="0" name="PackageText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Package_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ParentId" type="xs:long" />
+          <xs:element minOccurs="0" name="PriceLevel_Club" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_ClubDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_Club_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceLevel_Non" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_NonDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_Non_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceLevel_Price" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_PriceDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_Price_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceLevel_Promo_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceLevel_Promotional" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_PromotionalDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_Reg_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceLevel_Regular" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_RegularDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_TV" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="PriceLevel_TVDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceLevel_TV_Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Project_Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2ProjectId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="R2_Workflow_Status_Type" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ReleaseDt" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReleaseResubmitReasonComments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RemovedPackageReleases" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceFee" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Rights_Type" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="RowId" type="xs:int" />
+          <xs:element minOccurs="0" name="SalesChannelId" type="xs:long" />
+          <xs:element minOccurs="0" name="SellingPriceLesVAT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SoundTrack" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SoundTrackText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status_Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuggestedFee_Non" type="xs:boolean" />
+          <xs:element minOccurs="0" name="isPushedToR2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="labelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="processId" type="xs:long" />
+          <xs:element minOccurs="0" name="releaseComposer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="releaseTypeDetail" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" minOccurs="0" name="resourceDetail" nillable="true" type="q7:ArrayOfClearanceResource" />
+          <xs:element minOccurs="0" name="submit" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceRelease" nillable="true" type="tns:ClearanceRelease" />
+  <xs:complexType name="ClearanceReleaseSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtistID" type="xs:int" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReleaseTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpcNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceReleaseSearch" nillable="true" type="tns:ClearanceReleaseSearch" />
+  <xs:complexType name="ClearanceReleaseSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentPage" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="releaseDetail" nillable="true" type="tns:ArrayOfClearanceRelease" />
+      <xs:element minOccurs="0" name="releaseSearch" nillable="true" type="tns:ClearanceReleaseSearch" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" minOccurs="0" name="resourceDetail" nillable="true" type="q8:ArrayOfClearanceResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceReleaseSearchResult" nillable="true" type="tns:ClearanceReleaseSearchResult" />
+</xs:schema>

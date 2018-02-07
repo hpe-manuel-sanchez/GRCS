@@ -1,0 +1,247 @@
+﻿.ui-dialog .ui-dialog-content {
+    position: relative;
+    border: 0;
+    padding: 0px 0px 10px 10px;
+    background: none;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.autocompleteContainer {
+    margin-top: 1em;
+}
+
+.terrRightsContainer {
+    width: 100%;
+    margin-top: 1em;
+    height: 82%;
+}
+
+table td {
+    border: solid 1px #a4b7c9;
+}
+
+#autocomplete {
+    border: 1px solid #A2A6C1;
+}
+
+.includeItemsCont {
+    width: 94.5%;
+    margin-left: 5%;
+    background-color: #b8d0e9;
+    color: #143489;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-bottom: none;
+    margin-top: 2%;
+}
+
+.excludeItems {
+    width: 94.5%;
+    margin-left: 5%;
+    background-color: #b8d0e9;
+    color: #143489;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-bottom: none;
+    margin-top: 5%;
+}
+
+.countryHeader {
+    background-color: #b8d0e9;
+    border-right: 1px solid #A4B7C9;
+    border-top: 1px solid #A4B7C9;
+    padding: 0 7px;
+    border-bottom: 1px solid #A4B7C9;
+}
+
+.terrTableFirstRow {
+    float: left;
+    width: 70%;
+    background-color: #b8d0e9;
+    border-left: 1px solid #A4B7C9;
+    border-right: 1px solid #A4B7C9;
+    border-top: 1px solid #A4B7C9;
+    border-bottom: none;
+}
+
+.excludeIncludeList {
+    width: 29.5%;
+    height: 100%;
+    float: left;
+    margin-top: -16px;
+}
+
+#includeitems {
+    width: 95%;
+    margin-left: 5%;
+    height: 45%;
+    overflow-y: scroll;
+    background-color: #f6f7f9;
+}
+
+#excludeitems {
+    width: 95%;
+    margin-left: 5%;
+    height: 45%;
+    overflow-y: scroll;
+    background-color: #f6f7f9;
+}
+
+div.Expanded {
+    background: url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0.5em 0.6em #f6f7f9;
+}
+
+div.Collapsed {
+    background: url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0.5em 0.6em #f6f7f9;
+}
+
+#mainDiv {
+    width: 70%;
+    height: 100%;
+    float: left;
+    overflow: auto;
+    border: 1px solid #a4b7c9;
+}
+
+    #mainDiv table tr {
+        border: 1px solid #a4b7c9;
+    }
+
+        #mainDiv table tr th {
+            padding: 0.5em;
+            text-align: center;
+            background-color: #b8d0e9;
+            border: 1px solid #a4b7c9;
+        }
+
+.firstHeaderColumn {
+    width: 50%;
+    background-color: #b8d0e9;
+    border-left: 1px solid #A4B7C9;
+    border-right: 1px solid #A4B7C9;
+    border-top: 1px solid #A4B7C9;
+    border-bottom: none;
+    text-align: center;
+}
+
+.columnWithContent {
+    width: 10%;
+    background-color: #b8d0e9;
+    border-left: 1px solid #A4B7C9;
+    border-right: 1px solid #A4B7C9;
+    border-top: 1px solid #A4B7C9;
+    border-bottom: none;
+    text-align: center;
+}
+
+.lastColumn {
+    width: 20%;
+    background-color: #b8d0e9;
+    border-right: 1px solid #B8D0E9 !important;
+    border-left: 1px solid #A4B7C9;
+    border-top: 1px solid #A4B7C9;
+    border-bottom: none;
+}
+
+#buttonContainer {
+    position: relative;
+    width: 70%;
+    padding: 10px 0 10px 0;
+}
+
+.btnHolder {
+    position: absolute;
+    right: -4px;
+}
+
+.TreeView {
+    line-height: 20px;
+    font-style: normal;
+    color: black;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .TreeView LI {
+        list-style-type: none;
+        width: 100%;
+        float: left;
+        padding: 0px;
+    }
+
+    .TreeView UL {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+    }
+
+LI.Expanded UL {
+    display: inline;
+}
+
+LI.Collapsed UL {
+    display: none;
+}
+/* Table Style */
+
+.territoryCountry {
+    width: 100%; /*background-color: #fff;*/
+    border: 1px solid #a4b7c9;
+    margin: 0;
+    padding: 0;
+}
+
+.FirstColumn {
+    padding-left: 15px;
+    width: 50%;
+}
+
+.SecondColumn {
+    width: 10%;
+    text-align: center;
+}
+
+.FinalColumn {
+    width: 20%;
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+}
+
+.border {
+    border: 1px solid #000000;
+}
+
+.FirstColumn img {
+    margin: 10px 5px 0;
+}
+
+.FinalColumn label {
+    margin: 5px 30px;
+}
+
+.Territoryimageaction {
+    height: 22px;
+    margin-left: 0;
+    position: absolute;
+    width: 33.5%;
+    z-index: 200;
+}
+
+.bordernone {
+    border: hidden;
+}
+
+.Clear {
+    clear: both;
+}

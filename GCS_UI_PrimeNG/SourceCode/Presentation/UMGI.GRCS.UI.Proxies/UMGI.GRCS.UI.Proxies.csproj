@@ -1,0 +1,1052 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEA9C93B-519B-4B05-BA01-99B9A4E07267}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMGI.GRCS.UI.Proxies</RootNamespace>
+    <AssemblyName>UMGI.GRCS.UI.Proxies</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UMGI.GRCS.Core.Utilities.Helper">
+      <HintPath>..\..\References\UMGI.GRCS.Core.Utilities.Helper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ClearanceInboxService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClearanceProjectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClearanceReleaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClearanceResourceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ContractService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\GlobalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProjectService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReleaseService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ResourceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RightsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WorkgroupService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataSet2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.MappingFilterResults.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.RightsCountry.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.RightsDefaultForRepertoire.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.RightsExpiryReportParameter.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.RightsReviewRule.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.RightsRoleGroup.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AdminEntities.WorkQueueReleaseDate.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AnaEntities.GcsAuthentication1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.AnaEntities.GrsAuthentication.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ArtistEntities.ArtistContract2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ArtistEntities.ArtistContractSearchResult2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ArtistEntities.ArtistInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ArtistEntities.ArtistSearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.AuditTrailFilter2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.ClearanceAdminCompany.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.ClearanceMasterData1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.CountryIdentifier.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.HoldbackPeriod1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.LeanUserInfo1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.StringIdentifier.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.TemplateDetails.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.BaseEntities.UploadDocument1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxDispatch1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxFolder.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxProjectDetail1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxRequest1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxResourceHistory1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceInboxSearchResult1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceNotification1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceRejectReason1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceRoutingDetails1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ListItem1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities.ClearanceRegularProject1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities.MasterProject1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities.ProjectSearchResult1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities.UserTransfer1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities.ClearanceRelease1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities.ClearanceReleaseSearchResult1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities.DropDeviatedICLALevel1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities.DropPriceLevel1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities.ClearanceResource1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities.ClearanceResourceSearchResult1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.CompanyInfo1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.ContractDetails.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.ContractInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.CountryInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.LeanContractInfo2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ContractEntities.TerritorialDisplay.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.GlobalAddressEntities.EmailGroupDetails.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NoticeCompanyEntities.NoticeCompanySearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.ArtistRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.NotificationProcessingResult2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.ProjectRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.ReleaseRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.ResourceRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.NotificationEntities.TrackRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.LabelInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.LinkedProjectInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.PackageInfo1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.ProjectInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.ProjectSearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.TrackInfo1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities.ConfigurationInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities.LinkedReleaseInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities.ReleaseSearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities.DigitalRestrictionRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities.RepertoireFilterResults.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities.RepertoireRightsSearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.ActiveRoster.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.ClearedResources.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.PreClearedResources.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.ReleaseCommitment.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.ResourceRightsDiscrepancies.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.RightsAcquired.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.RightsExpiry.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.RightsExpiryToBeDetermined.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.RollUpStatus.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.SecondaryExploitationRights.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ReportEntities.SecondaryExploitationSample.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.LinkedResourceInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ReleaseResourcesInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ResourceContract2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ResourceContractSearchResult2.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ResourceDetail1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ResourceInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.ResourceEntities.ResourceSearchResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.DigitalRightsMasterData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.MasterRightsDefaultData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.PreClearanceMasterData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ReleaseDigitalRightsResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ReleaseRightsResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourceDigitalRightsResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourcePreClearanceResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourceRightsResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourceSecondaryRightsResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ReviewRightsMasterInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.SecondaryRightsMasterData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.Templates.DigitalRestrictionTemplate.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.Templates.SecondaryExploitationDefaults.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.ChildWorkgroup1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.Preferences1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.Request1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.UserPreference1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.Workgroup1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupBase1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkgroupSearchResult1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities.WorkGroupUser1.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities.CustomWorkQueueSetting.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities.WorkQueueMasterData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Entities.WorkQueueEntities.WorkQueueResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.BackgroundContractData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.ContractTemplatesResult.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.DataResponseInfo.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.DigitalRestrictions.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.DigitalRestrictionTemplateResults.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.MasterData.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.RightsAndRestrictions.datasource" />
+    <None Include="Properties\DataSources\UMGI.GRCS.BusinessEntities.Responses.SearchContractMasterData.datasource" />
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox.wsdl" />
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject1.wsdl" />
+    <None Include="Service References\ClearanceProjectService\ClearanceProject20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject201.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2010.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2011.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2012.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2013.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2014.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2015.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2016.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2017.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2018.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject2019.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject202.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject203.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject204.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject205.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject206.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject207.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject208.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject209.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceProjectService\UMGI.GRCS.UI.Proxies.ClearanceProjectService.ClrProject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClearanceProjectService\UMGI.GRCS.UI.Proxies.ClearanceProjectService.ClrRelease.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClearanceProjectService\UMGI.GRCS.UI.Proxies.ClearanceProjectService.ClrResource.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1.wsdl" />
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease161.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1610.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1611.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1612.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1613.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1614.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1615.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1616.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease162.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease163.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease164.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease165.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease166.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease167.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease168.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease169.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceReleaseService\UMGI.GRCS.UI.Proxies.ClearanceReleaseService.ArrayOfClrRelease.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1.wsdl" />
+    <None Include="Service References\ClearanceResourceService\ClearanceResource14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource141.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1410.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1411.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1412.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1413.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource142.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource143.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource144.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource145.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource146.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource147.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource148.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource149.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClearanceResourceService\UMGI.GRCS.UI.Proxies.ClearanceResourceService.ArrayOfClrResource.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ContractService\Contract.wsdl" />
+    <None Include="Service References\ContractService\Contract1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract11.wsdl" />
+    <None Include="Service References\ContractService\Contract11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract21.xsd" />
+    <None Include="Service References\ContractService\Contract3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ContractService\Contract9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global101.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global1010.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global102.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global103.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global104.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global105.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global106.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global107.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global108.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\Global109.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GlobalService\GlobalData1.wsdl" />
+    <None Include="Service References\ProjectService\Project1.wsdl" />
+    <None Include="Service References\ProjectService\Project12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project121.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project1210.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project122.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project123.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project124.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project125.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project126.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project127.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project128.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectService\Project129.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release.wsdl" />
+    <None Include="Service References\ReleaseService\Release.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReleaseService\Release9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource.wsdl" />
+    <None Include="Service References\ResourceService\Resource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\Resource9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ResourceService\UMGI.GRCS.UI.Proxies.ResourceService.ResourceRights.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ResourceService\UMGI.GRCS.UI.Proxies.ResourceService.TrackRights.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RightsService\Rights1.wsdl" />
+    <None Include="Service References\RightsService\Rights10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights101.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights102.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights103.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights104.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights105.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights106.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights107.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights108.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights109.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights44.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights45.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights46.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights47.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights48.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights49.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights5.wsdl" />
+    <None Include="Service References\RightsService\Rights50.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights55.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights56.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights57.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights58.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights59.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights6.wsdl" />
+    <None Include="Service References\RightsService\Rights60.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights66.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights67.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights68.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights69.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RightsService\Rights7.wsdl" />
+    <None Include="Service References\RightsService\Rights70.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User1.wsdl" />
+    <None Include="Service References\UserService\User5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User55.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User56.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\User57.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup1.wsdl" />
+    <None Include="Service References\WorkgroupService\Workgroup10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup101.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup102.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup103.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup104.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup105.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup106.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup107.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup108.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkgroupService\Workgroup109.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ClearanceInboxService\" />
+    <WCFMetadataStorage Include="Service References\ClearanceProjectService\" />
+    <WCFMetadataStorage Include="Service References\ClearanceReleaseService\" />
+    <WCFMetadataStorage Include="Service References\ClearanceResourceService\" />
+    <WCFMetadataStorage Include="Service References\ContractService\" />
+    <WCFMetadataStorage Include="Service References\GlobalService\" />
+    <WCFMetadataStorage Include="Service References\ProjectService\" />
+    <WCFMetadataStorage Include="Service References\ReleaseService\" />
+    <WCFMetadataStorage Include="Service References\ResourceService\" />
+    <WCFMetadataStorage Include="Service References\RightsService\" />
+    <WCFMetadataStorage Include="Service References\UserService\" />
+    <WCFMetadataStorage Include="Service References\WorkgroupService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GlobalService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GlobalService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GlobalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReleaseService\Release.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReleaseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReleaseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReleaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\BusinessEntities\GRCS.BusinessEntities\UMGI.GRCS.BusinessEntities.csproj">
+      <Project>{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF}</Project>
+      <Name>UMGI.GRCS.BusinessEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContractService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContractService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContractService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\Rights1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ResourceService\Resource.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ResourceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ResourceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ResourceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\Rights5.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\Rights6.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RightsService\Rights7.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceResourceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceResourceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceResourceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkgroupService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkgroupService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkgroupService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceInboxService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceInboxService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceInboxService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceReleaseService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceReleaseService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceReleaseService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceProjectService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceProjectService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceProjectService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceResourceService\ClearanceResource1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\User1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GlobalService\Global1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkgroupService\Workgroup1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceReleaseService\ClearanceRelease1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContractService\Contract.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceProjectService\ClearanceProject1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClearanceInboxService\ClearanceInbox.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectService\Project1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

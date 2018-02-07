@@ -1,0 +1,90 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@{
+    ViewBag.Title = "Manage Company";
+    Layout = "";
+}
+<script>
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var watermarkCompanyName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompanyName';
+    var watermarkIsacCode = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkIsacCode';
+    var mgCompJtableColNames = {
+        CompName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompNameLabel',
+        ISACCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_IsacCodeLabel',
+        CountryName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CountryLabel',
+        Company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        ISACCompCode: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_ISACCompCodeLabel'
+    };
+    var listOfMgCompaniess = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_listOfAddedCompanies';
+    var pageName = '@ViewBag.parentPage';
+</script>
+
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceManageCompany.js")" type="text/javascript"></script>
+<style type="text/css">
+    .ui-dialog .ui-dialog-content {
+        padding: 0;
+    }
+
+    #partialViewContainer {
+        padding: 0;
+        margin: 0;
+        width: 1000px;
+    }
+
+    #manageCompanyContainer {
+        padding: 0;
+    }
+
+    .ui-autocomplete-loading {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") left center no-repeat;
+    }
+</style>
+<div id="popupMgCompanyerrorMessage" class="warning" style="margin: 5px 0;">
+</div>
+<div id="partialViewContainer">
+    <div class="dwMainContainer">
+        <div id="wrapperDv">
+            <div class="accItem " id="searchCriteriaContainer">
+                <!-- not used ID-->
+                <div class="editor-field">
+                    <label class="madatoryField" style="margin-left: 10px;">*</label>
+                    @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)
+                    @Html.TextBoxFor(m => m.ErrorMessage, new { id = "CompanyDetails_Name", @maxlength = "120" })
+                    @Html.TextBox("isaccode", "", new { maxlength = "20" })
+                    @Html.TextBox("country", "", new { maxlength = "40" })
+                    @Html.Hidden("companyValues")
+                    <input id="btnOpenSearchComp"  style=" vertical-align:top"   type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" runat="server" class="primbutton" />
+                    <input id="btnReset"   style=" vertical-align:top"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="managecompany" style="position: relative">
+        <span id="spnMgCompanyAddedResultLabel" style="font-weight: bold; display: none; margin: 10px 0"></span>
+        <br />
+        <div id="addedManageCompanyResults" class="jtableDvwithDrop" style="position: static">
+        </div>
+
+    </div>
+    <div id="searchCompanyPopup">
+        <table class="popupTableResult">
+            <tr>
+                <td id="searchResultForCompany" style="text-align: left;"></td>
+                <td id="SearchCompanyPaging" style="text-align: right;">
+                    <div id="divSearchCompanyPaging">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlCompanyPaging" })
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="searchCompanyResults" class="jtableDvwithDrop" style="position: static">
+        </div>
+        <div style="float: right;" class="poupBottomBarButton">
+            <input id="btnAdd" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" runat="server" class="primbutton" />
+            <input id="btnCancel1" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+
+        </div>
+    </div>
+</div>
+<div style="clear: both;">
+</div>

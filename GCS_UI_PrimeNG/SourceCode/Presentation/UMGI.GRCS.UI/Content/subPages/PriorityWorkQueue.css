@@ -1,0 +1,194 @@
+﻿input[type="text"], input[type="password"]
+{
+    width:100%;
+}
+
+
+.search-button input[type="text"] 
+{
+   /* padding-left: 1.5em;*/
+    width: 75%;
+}
+
+#FilterApp
+{
+    display:none;
+}
+ 
+
+.headerColor
+{
+    color: #143489;
+}
+
+.workQueueBodyCont
+{
+    width:100%;
+    margin-bottom:10px;
+    margin-top:15px;
+}
+
+.labelCont
+{
+    width:50%;
+}
+
+.contractDescCont
+{
+    width:50%;
+}
+
+.titleCont
+{
+    width:100%;
+    margin-bottom:10px;
+}
+
+.titleInnerCont
+{
+    width:50%;
+}
+
+.reviewReason
+{
+    width:50%;
+}
+
+.workQueueCompanyName
+{
+    width:50%; float:left; margin:10px 0 15px 0;
+}
+ 
+ .scrollWorkQueue 
+ {
+     width: 100%;
+     overflow-y: auto;
+     position: relative;
+ }
+ .PriotrtyWorkQueue
+ {
+   padding-left: 15px;
+    color:#143489;
+    padding-top: 10px;
+ }
+ 
+ 
+ .priorityWorkQueueAccordion
+ {
+     margin-left: 15px;
+     margin-right: 15px;
+ }
+ 
+ 
+ 
+ #refreshWorkQueue
+{
+    margin:0 15px 0 0;
+    margin-right: 15px;
+}
+.refreshBtnContainer
+{
+margin:10px 0;
+padding-right: 15px;
+}
+.worQueueAccHead
+{
+margin-left:15px;}
+
+.labelControl
+{
+text-align:right;
+margin-right:10px;
+width:23%;
+padding-left:8px;
+word-wrap:break-word;}
+.dropDownControl
+{
+        
+margin-right:1px;
+
+}
+.fieldControl
+{
+width:70%;
+float:left;
+}
+.textBoxControl
+{
+width:65%;
+}
+
+.workqueueAdminCompany
+{
+    width: 56%;
+    width: 55% \9;
+}
+
+
+.workqueueFilterReset
+{
+    margin-right: 15px;
+    margin-top: 7px;
+}
+
+#workQueueGrid
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    display: block;
+}
+.greyColor {
+    background-color: grey;
+}
+
+#Remove {
+    margin-left: 30px;
+}
+#menuuTab
+{
+    width:100%;
+    background-color:#ccc;
+    border-bottom:3px solid #999;
+    
+ }
+ #searchwarning {
+     display: none;
+ }
+input#AdminCompany {
+    min-width: 394px;
+}
+.cacTable
+{
+    border:1px solid #ccc;}
+.CAC_Sfc
+{
+    font-size:1.1em !important;
+    font-weight:bold;}    
+    
+.hyperlink a
+{
+    font-size:1em !important;}  
+.CAC_Scr
+{
+    font-size:1em !important;
+    font-weight:bold;}  
+.selectedListTable
+{
+    margin-left:2% !important;}  
+    .cacTableContainer
+    {
+        padding-top:10px;}  
+        .cacTable td
+        {
+            padding:0 !important;}   
+            .cacTable
+            {
+              /*  width:45% !important;*/} 
+                .CAC_Sfc_Autocomplete
+                {
+                    width:50% !important;}
+                    #linkRemoveAll
+                    {
+                        margin-right:3% !important;}
+}
+

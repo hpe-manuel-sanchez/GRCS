@@ -1,0 +1,27 @@
+﻿#newResourcesList {
+    width: 98.5%;
+    display: none;
+    overflow-x: auto !important;
+}
+
+table.jtable th {
+    min-height: 23px !important;
+    padding: 0px 10px 10px 10px !important;
+    max-height: auto;
+}
+
+table.jtable td {
+    padding: 5px !important;
+}
+
+.imgBorder {
+    border: 0 0 0 0 !important;
+    background-color: #ffffff !important;
+    vertical-align: middle !important;
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+}
+
+#newResourcesList input[type='button'] {
+    width: 80px !important;
+}

@@ -1,0 +1,57 @@
+A.multiSelect {
+	BORDER-BOTTOM: #bbb 1px solid; POSITION: relative; BORDER-LEFT: #bbb 1px solid; PADDING-RIGHT: 20px; DISPLAY: inline-block; BACKGROUND: url(images/dropdown.blue.png) #fff no-repeat right center; COLOR: black; VERTICAL-ALIGN: top; BORDER-TOP: #bbb 1px solid; CURSOR: default; BORDER-RIGHT: #bbb 1px solid; TEXT-DECORATION: none
+}
+A.multiSelect:link {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.multiSelect:visited {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.multiSelect:hover {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.multiSelect:active {
+	COLOR: black; TEXT-DECORATION: none
+}
+A.multiSelect SPAN {
+	MARGIN: 1px 0px 1px 3px; DISPLAY: inline-block; WHITE-SPACE: nowrap; OVERFLOW: hidden
+}
+A.hover.multiSelect {
+	BACKGROUND-IMAGE: url(images/dropdown.blue.hover.png)
+}
+A.active.multiSelect {
+	BORDER-BOTTOM: #000 1px inset; BORDER-LEFT: #000 1px inset; BORDER-TOP: #000 1px inset; BORDER-RIGHT: #000 1px inset
+}
+A.focus.multiSelect {
+	BORDER-BOTTOM: #000 1px inset; BORDER-LEFT: #000 1px inset; BORDER-TOP: #000 1px inset; BORDER-RIGHT: #000 1px inset
+}
+A.active.multiSelect {
+	BACKGROUND-IMAGE: url(images/dropdown.blue.active.png)
+}
+.multiSelectOptions {
+	BORDER-BOTTOM: #b2b2b2 1px solid; BORDER-LEFT: #b2b2b2 1px solid; OVERFLOW-X: hidden; OVERFLOW-Y: auto; MARGIN-TOP: -1px; BACKGROUND: #fff; BORDER-TOP: #b2b2b2 1px solid; BORDER-RIGHT: #b2b2b2 1px solid
+}
+.multiSelectOptions LABEL {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; DISPLAY: block; WHITE-SPACE: nowrap; PADDING-TOP: 0px
+}
+.multiSelectOptions LABEL.optGroup {
+	FONT-WEIGHT: bold
+}
+.multiSelectOptions .optGroupContainer LABEL {
+	PADDING-LEFT: 10px
+}
+.optGroupHasCheckboxes.multiSelectOptions .optGroupContainer LABEL {
+	PADDING-LEFT: 18px
+}
+.multiSelectOptions INPUT {
+	VERTICAL-ALIGN: middle
+}
+.multiSelectOptions LABEL.checked {
+	BACKGROUND-COLOR: #dce5f8
+}
+.multiSelectOptions LABEL.selectAll {
+	BORDER-BOTTOM: #ccc 1px dotted
+}
+.multiSelectOptions LABEL.hover {
+	BACKGROUND-COLOR: #3399ff; COLOR: white
+}

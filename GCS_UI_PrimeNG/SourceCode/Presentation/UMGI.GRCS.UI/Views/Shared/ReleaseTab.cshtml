@@ -1,0 +1,132 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.ReleaseModel
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ReleaseTab.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ReleaseTab.js")" type="text/javascript"></script>
+<div id="releaseTab">
+    <div id="releaseaccordion">
+        <div class="head">
+            <div class="leftRight">
+                <a href="#" class="header alignLeft iconBottom">@ContractResource.SearchReleasesHeader</a>
+            </div>
+        </div>
+        <div class="accItem accbg">
+            <div class="dvWrapper">
+                <!-----------firstline------->
+                <div class="releaseLeftDiv">
+                    <div class="releaseLeftDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.Upc):</div>
+                    <div class="releaseLeftDivField">
+                        @Html.TextBoxFor(model => model.ReleaseSearch.Upc)
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.Upc)
+                    </div>
+                </div>
+                <div class="releaseCenterDiv">
+                    <div class="releaseCenterDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.ArtistName):</div>
+                    <div class="releaseCenterDivField" style="width: 47%;">
+                        @Html.TextBoxFor(model => model.ReleaseSearch.ArtistName)
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.ArtistName)
+                    </div>
+                    <span id="checkBoxField" class="alignLeft">@*@Html.ValidationMessageFor(model => model.ReleaseSearch.IsArtistExactSearch)*@
+                        @*@Html.CheckBoxFor(model => model.ReleaseSearch.IsArtistExactSearch)*@
+                        <input type="checkbox" id="ReleaseSearch_IsArtistExactSearch" />
+                        @Html.LabelFor(model => model.ReleaseSearch.IsArtistExactSearch)</span>
+                </div>
+                <div class="releaseRightDiv">
+                    <div class="releaseRightDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.ArtistId):</div>
+                    <div class="releaseRightDivField">
+                        @Html.TextBoxFor(model => model.ReleaseSearch.ArtistId)
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.ArtistId)
+                    </div>
+                </div>
+                <div class="releaseLeftDiv" style="clear: both;">
+                    <div class="releaseLeftDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.ReleaseTitle):</div>
+                    <div class="releaseLeftDivField">
+                        @Html.TextBoxFor(model => model.ReleaseSearch.ReleaseTitle)
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.ReleaseTitle)
+                    </div>
+                </div>
+                <div class="releaseCenterDiv">
+                    <div class="releaseCenterDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.ConfigurationGroupCode):</div>
+                    <div class="releaseCenterDivField">
+                        @* @Html.DropDownListFor(model => model.ReleaseSearch, Model.ConfigurationGroupCode)*@
+                        @Html.DropDownListFor(model => model.ReleaseSearch, new SelectList(Model.ConfigurationGroupCode, "value", "text", Model.ReleaseSearch))
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.ConfigurationGroupCode)
+                    </div>
+                </div>
+                <div class="releaseRightDiv">
+                    <div class="releaseRightDivLabel allignLabel">@Html.LabelFor(model => model.ReleaseSearch.ConfigurationId):</div>
+                    <div class="releaseRightDivField">
+                        @* @Html.DropDownListFor(model => model.ReleaseSearch, Model.ConfigurationId)*@
+                        @Html.DropDownList("release_ConfigurationId", new SelectList(Model.ConfigurationId, "value", "text", Model.ReleaseSearch))
+                        @Html.ValidationMessageFor(model => model.ReleaseSearch.ConfigurationId)
+                    </div>
+                </div>
+                <div class="rightField" style="margin-right: 15px; margin-top: 4px;">
+                    <input class="primbutton"  type="submit" id="searchrelease" value="@ContractResource.SearchButton" />
+                    <input class="secbutton btnSpacing" id="unlinkRelRes" type="submit" value="@ContractResource.ResetButton" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="releasehide" style="display: none;">
+        <div class="alignLeft">
+            <h2 style="color: #143489; margin: 15px 0; padding: 0;">
+                <span id="releaseResultCount" style="float: left;">@ContractResource.SearchResultsHeader<label>&nbsp;(0)</label></span>
+                <span class="ui-jtable-loading" style="float: left; margin-top: -1px;"></span>
+            </h2>
+        </div>
+        <div class="alignRight" style="margin: 15px;">
+            <span id="releasePager">
+                @ContractResource.ShowDropDown
+                @Html.DropDownListFor(model => model.ShowItemsPerPage, Model.ShowItemsPerPage)
+                @ContractResource.itemsperpage
+            </span>
+        </div>
+
+        <!-- div id="releasehide" style="display: none;">
+        <h2 style="color: #143489;margin: 15px 0;padding: 0;"><label> <span id="releaseResultCount">@ContractResource.SearchResultsHeader<label>&nbsp;(0)</label></span></label></h2><span class="ui-jtable-loading"></span>
+        <div class="rightField">
+            <span id="releasePager">
+            @ContractResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ReleaseSearch, Model.ShowItemsPerPage)
+            @ContractResource.itemsperpage
+            </span>
+        </div -->
+        <div id="gridContainer" style="clear: both;">
+            <div id="reljqgrid">
+            </div>
+        </div>
+        <div>
+            @* <input class="primbutton"  type="submit" value="@ContractResource.LinkToContractButton" style="float:right" />*@
+        </div>
+    </div>
+</div>
+<style>
+    input[type="text"], input[type="password"] {
+        width: 96%;
+    }
+
+    .releaseLeftDiv, .releaseCenterDiv, .releaseRightDiv {
+        width: 33%;
+        float: left;
+        margin: 4px 0;
+    }
+
+    .releaseLeftDivLabel, .releaseCenterDivLabel, .releaseRightDivLabel {
+        float: left;
+        padding-left: 5px;
+        text-align: right;
+        width: 22%;
+    }
+
+    .releaseLeftDivField, .releaseCenterDivField, .releaseRightDivField {
+        float: left;
+        width: 72%;
+    }
+
+    #release_ConfigurationId {
+        width: 100%;
+    }
+</style>

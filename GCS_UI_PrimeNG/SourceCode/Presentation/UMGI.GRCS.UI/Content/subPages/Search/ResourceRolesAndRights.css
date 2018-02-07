@@ -1,0 +1,13 @@
+﻿table.rr-and-right {
+    border: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.rr-and-right tr {
+    border: 0px !important;
+}
+
+.rr-and-right td {
+    border: 0px !important;
+}

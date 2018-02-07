@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UMGI.GRCS.Entities.ContractEntities.ContractExploitationRestrictions">
+    <Position X="4" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAGEAAAABAAAABQAAAAAAgABAACAAA=</HashCode>
+      <FileName>Entities\ContractEntities\ContractExploitationRestrictions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.Entities.BaseEntities.ClassInfo">
+    <Position X="7.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEADAAAAEAAAAAAIAAAAICAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Entities\BaseEntities\ClassInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMGI.GRCS.Entities.Templates.SecondaryExploitationTemplate">
+    <Position X="4.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Templates\SecondaryExploitationTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UMGI.GRCS.Common.Interfaces.IContractService">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IContractService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

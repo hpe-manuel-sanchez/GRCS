@@ -1,0 +1,13 @@
+﻿.ui-dialog .ui-dialog-content
+{
+padding:20px;}
+.chooseTemplateContainer
+{
+margin:0;
+padding:0;}
+.chooseTemplateLabel
+{
+margin-bottom:10px;}
+#SelectTemplate
+{
+    width:86%;}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NoticeCompanyEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.Templates" />
+  <xs:complexType name="DataResponseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResponseInfos" nillable="true" type="tns:ArrayOfResponseInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataResponseInfo" nillable="true" type="tns:DataResponseInfo" />
+  <xs:complexType name="ArrayOfResponseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseInfo" nillable="true" type="tns:ResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseInfo" nillable="true" type="tns:ArrayOfResponseInfo" />
+  <xs:complexType name="ResponseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryId" type="xs:long" />
+          <xs:element minOccurs="0" name="CountryIsoCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseInfo" nillable="true" type="tns:ResponseInfo" />
+  <xs:complexType name="RightsAndRestrictions">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AcquiredOption" nillable="true" type="q3:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="AcquiredStatus" nillable="true" type="q4:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" name="AcquisitableRights" nillable="true" type="q5:ArrayOfContractRightsAcquired" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="DigitalRestrictionTemplates" nillable="true" type="q6:ArrayOfTemplateDetails" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="DigitalRestrictions" nillable="true" type="q7:ArrayOfContractDigitalRestrictions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RightsAndRestrictions" nillable="true" type="tns:RightsAndRestrictions" />
+  <xs:complexType name="MasterData">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ClearanceAdminCompanies" nillable="true" type="q8:ArrayOfClearanceAdminCompany" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ContractDescriptions" nillable="true" type="q9:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ContractStatus" nillable="true" type="q10:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="LostRightsReasons" nillable="true" type="q11:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="OnActiveRoster" nillable="true" type="q12:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NoticeCompanyEntities" minOccurs="0" name="PCompanies" nillable="true" type="q13:ArrayOfNoticeCompany" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="RightTypes" nillable="true" type="q14:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="RightsPeriods" nillable="true" type="q15:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="UmgSigningCompanies" nillable="true" type="q16:ArrayOfUmgSigningCompany" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="WorkflowStatus" nillable="true" type="q17:ArrayOfStringIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MasterData" nillable="true" type="tns:MasterData" />
+  <xs:complexType name="SearchContractMasterData">
+    <xs:sequence>
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ContractStatus" nillable="true" type="q18:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="RightTypes" nillable="true" type="q19:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="WorkflowStatus" nillable="true" type="q20:ArrayOfStringIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchContractMasterData" nillable="true" type="tns:SearchContractMasterData" />
+  <xs:complexType name="DigitalRestrictions">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="CommercialModelTypes" nillable="true" type="q21:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ConsentPeriodTypes" nillable="true" type="q22:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="ContentTypes" nillable="true" type="q23:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="DigitalRestrictionTemplates" nillable="true" type="q24:ArrayOfTemplateDetails" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="RestrictionReasonTypes" nillable="true" type="q25:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="RestrictionTypes" nillable="true" type="q26:ArrayOfStringIdentifier" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="UseTypes" nillable="true" type="q27:ArrayOfStringIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DigitalRestrictions" nillable="true" type="tns:DigitalRestrictions" />
+  <xs:complexType name="DigitalRestrictionTemplateResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q28:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DigitalRestrictionTemplateResults" nillable="true" type="tns:DigitalRestrictionTemplateResults" />
+  <xs:complexType name="ContractTemplatesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q29:EntityInformation">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.Templates" minOccurs="0" name="ContractTemplates" nillable="true" type="q30:ArrayOfTemplateInfo" />
+          <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContractTemplatesResult" nillable="true" type="tns:ContractTemplatesResult" />
+</xs:schema>

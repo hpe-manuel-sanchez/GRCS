@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:complexType name="ArrayOfLinkedContractDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedContractDetails" nillable="true" type="tns:LinkedContractDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedContractDetails" nillable="true" type="tns:ArrayOfLinkedContractDetails" />
+  <xs:complexType name="LinkedContractDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceCompanyCountry" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceCompanyCountryId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommencementDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ContractingParty" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LinkedContractDetails" nillable="true" type="tns:LinkedContractDetails" />
+  <xs:complexType name="LinkedInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyId" type="xs:long" />
+          <xs:element minOccurs="0" name="ContractId" type="xs:long" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="FilterCriteria" nillable="true" type="q3:FilterFields" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LinkedInfo" nillable="true" type="tns:LinkedInfo" />
+</xs:schema>

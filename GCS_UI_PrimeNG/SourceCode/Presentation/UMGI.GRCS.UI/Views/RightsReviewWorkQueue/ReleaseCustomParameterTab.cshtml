@@ -1,0 +1,58 @@
+﻿@model UMGI.GRCS.UI.Models.ReleaseModel
+<link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/CreateCustomSetting.js")" type="text/javascript"></script>
+<div class="fieldControl">
+    <div class="alignLeft opLabel">
+        @Html.Label("UPC"):
+    </div>
+    <div class="alignLeft">
+           @Html.TextBox("txtUpc")        
+    </div>
+</div>
+<div class="fieldControl">
+    <div class="alignLeft opLabel">
+        @Html.Label("Artist Name"):
+    </div>
+    <div class="alignLeft">
+           @Html.TextBox("txt1",string.Empty, new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global") }) <span><input type="checkbox" value="release" id="releases" /><label>Exact Search</label> </span>
+    </div>
+</div>
+<div class="fieldControl">
+    <div class="alignLeft opLabel">
+        @Html.Label("Release Title"):
+    </div>
+    <div class="search-button alignLeft opField">
+         @Html.TextBox("txt3")        
+    </div>
+</div>
+<div class="fieldControl">
+    <div class="alignLeft opLabel2">
+        @Html.Label("Clearance/Data Admin Company"):
+    </div>
+    <div class="search-button alignLeft opField">
+        @Html.TextBox("txt1", string.Empty, new { data_autocomplete_source_manual = @Url.Action("AutoSearchRightsReviewCompCountry", "Global") })
+    </div>
+</div>
+<div class="fieldControl">
+    <div class="alignLeft opLabel">
+        @Html.Label("Linked Contract"):
+    </div>
+    <div class="search-button alignLeft opField">
+      @Html.TextArea("txt1")<span style="vertical-align:top"><img src="@Url.Content("/GCS/Images/Search-for-Contract.png")" id="SearchRightsContract" /></span>
+    </div>
+</div>
+<div style="width:100%;float:left;">
+    <div class="alignLeft" style="margin-top: 10px; text-align: right; margin-right: 6px; width: 22%;">
+        @Html.Label("Release Date Range (Max 6 months)"):
+    </div>
+    <div class="alignLeft" style="margin-top: 10px; margin-right: 1%;">
+         @Html.TextBox("txt1", string.Empty, new { style = "width:70px" })<span style="vertical-align:top"><img class="ui-datepicker-trigger" src="@Url.Content("/GCS/Images/Calender_Icon_img.png")" alt="" title=""></span>
+    </div>
+    <div class="alignLeft" style="margin-top: 10px; margin-right: 1%;">
+         @Html.TextBox("txt1", string.Empty, new { style = "width:70px" })<span style="vertical-align:top"><img class="ui-datepicker-trigger" src="@Url.Content("/GCS/Images/Calender_Icon_img.png")" alt="" title=""></span>
+    </div>
+    <div class="alignLeft" style="margin-top:10px;width:38%">
+        <input type="checkbox" value="release" id="releases" />
+        <label>Only include repertoire with no release date</label>
+    </div>
+</div>

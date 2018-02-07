@@ -1,0 +1,133 @@
+﻿@using UMGI.GRCS.BusinessEntities.Lookups
+@model UMGI.GRCS.UI.ViewModels.ClearanceInbox.InboxViewModel
+
+<div class="pop-wrapper-div" id="popupFilters">
+
+    <div class="filter-leftnav-wrapper">
+        
+        <div class="section-one inboxCnt">
+
+            <ul class="poup-ul">
+                <li><span class="inboxSpanClass">Request Type:</span></li>
+                <li>
+                    @{
+                        var i = 0;
+                        foreach (var requestType in Model.FilterCriteria.RequestType)
+                        {
+                            <div class="@(i++ % 2 != 0 ? "popup-checkbox-dv1" : "popup-checkbox-dv2")"  >
+                                <input type="checkbox" class="regular-checkbox" value="@requestType.Value" name="requestType" @(requestType.Selected ? "checked" : "")/>@requestType.Text
+                            </div>
+                        }
+                    }
+                </li>
+            </ul>
+
+        </div>
+
+        @switch ((RoleGroup)ViewBag.RoleGroup)
+        {
+            case RoleGroup.RCCAdmin:
+            
+                <div class="section-two inboxCnt">
+
+                    <ul class="poup-ul">
+                        <li>
+                            @{
+                                i = 0;
+                                foreach (var rccAdminRequestType in Model.FilterCriteria.RccAdminRequestType)
+                                {
+                                    <div class="@(i++ % 2 != 0 ? "popup-checkbox-dv1" : "popup-checkbox-dv2")"  >
+                                        <input type="checkbox" class="regular-checkbox" value="@rccAdminRequestType.Value" name="rccAdminRequestType" @(rccAdminRequestType.Selected ? "checked" : "")/>@rccAdminRequestType.Text
+                                    </div>
+                                }
+                            }
+                        </li>
+                        <li><span class="inboxSpanClass">RCC Handler:</span></li>
+                        <li>
+                            <select id="ddlRccHandler" class="input-select" name="ddlRccHandler" multiple="multiple">
+
+                                @foreach (var rccHandler in Model.FilterCriteria.RccHandler)
+                                {
+                                    <option value="@rccHandler.Value" @(rccHandler.Selected ? "selected" : "")>@rccHandler.Text</option>                            
+                                }
+
+                            </select>
+                        </li>
+                    </ul>
+
+                </div>
+
+                break;
+
+            case RoleGroup.Requestor:
+
+                <div class="section-two inboxCnt">
+                    <ul class="poup-ul">
+                        <li><span class="inboxSpanClass">Requestor:</span></li>
+                        <li>
+                            <select id="ddlRequestor" class="input-select" name="ddlRequestor" multiple="multiple">
+
+                                @foreach (var requestor in Model.FilterCriteria.Requestor)
+                                {
+                                    <option value="@requestor.Value" @(requestor.Selected ? "selected" : "")>@requestor.Text</option>                            
+                                }
+                            
+                            </select>
+                        </li>
+                    </ul>
+
+                </div>
+            
+                break;
+        }
+
+        <div class="section-two inboxCnt">
+            <ul class="poup-ul">
+                <li><span class="inboxSpanClass">Scope:</span></li>
+                <li>
+                    @{
+                        i = 0;
+                        foreach (var scopeType in Model.FilterCriteria.ScopeType)
+                        { 
+                            <div class="@(i++ % 2 != 0 ? "popup-checkbox-dv1" : "popup-checkbox-dv2")"  >
+                                <input type="checkbox" class="regular-checkbox" value="@scopeType.Value" name="scopeType" @(scopeType.Selected ? "checked" : "")/>@scopeType.Text
+                            </div>
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+
+        @if ((RoleGroup)ViewBag.RoleGroup == RoleGroup.Reviewer){
+        
+            <div class="section-three inboxCnt">
+                <ul class="poup-ul">
+                    <li><span class="inboxSpanClass">Workgroup:</span></li>
+                    <li>
+                        <select id="ddlWorkgroup" class="input-select" name="ddlWorkgroup" multiple="multiple">
+                            @foreach (var workgroup in Model.FilterCriteria.Workgroup)
+                            {
+                                <option value="@workgroup.Id" @(workgroup.Selected ? "selected":"")> @string.Concat(@workgroup.Name, " - ", @workgroup.RoleName )</option>
+                            }
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        }
+
+    </div>
+
+    <div class="checkBoxWrapper">
+    
+        <div class="popup-checkbox-dv1">
+            <input id="btn-popup-Filters-Save" type="button" class="primbutton" value="Save"/>
+        </div>
+        <div class="popup-checkbox-dv3">
+            <input id="btn-popup-Filters-ApplyFilters" type="button" class="plbutton" value="Apply Filters"/>
+            <input id="btn-popup-Filters-Clear" type="button" class="plbutton" value="Reset" />
+            <input id="btn-popup-Filters-Cancel" type="button" class="plbutton" value="Cancel"/>
+        </div>
+    
+    </div>
+
+</div>

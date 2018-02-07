@@ -1,0 +1,168 @@
+/*code for synchfusion related changes*/
+.Syncfusion-Grid-Core .HeaderCellDiv { /*border:1px solid #cccccc !important;*/
+    color: #fff !important;
+    background-color: #485472 !important;
+    height: auto !important;
+    font-weight: bold !important;
+    padding: 0 0 0 5px;
+    line-height: normal !important;
+    word-spacing: normal !important;
+    white-space: pre-wrap !important;
+    margin: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+    .Syncfusion-Grid-Core .HeaderCellDiv:hover { /*border:1px solid #cccccc !important;*/
+        color: #fff !important;
+        height: auto !important;
+        background-color: #485472 !important;
+        font-weight: bold !important;
+    }
+
+.Syncfusion-Grid-Olive .HeaderCellHover, .sf-grid-olive-menu .button-wrapper, .sf-grid-olive-menu .button-wrapper:hover, .Syncfusion-Grid-Olive .FilterCellHover, .Syncfusion-Grid-Olive .GroupHeaderCell:hover {
+    height: 24px !important;
+}
+
+.Table tr:hover {
+    background-color: #FFFFFF !important;
+    color: #333 !important;
+}
+
+.EnableRowHover {
+    height: 220px !important;
+}
+
+.ui-widget-content {
+    border: 1px solid #CCC !important;
+}
+
+.Syncfusion-Grid-Olive {
+    border-color: #CCC !important;
+    background-color: #FAFAFA !important;
+}
+
+    .Syncfusion-Grid-Olive .SelectionBackground {
+        border-color: #CCC !important;
+        background-color: #FFF !important;
+    }
+
+.Alt_Row {
+    background-color: #EAEAEA !important;
+}
+
+#MimicUserGrid_Table tr, #SelectSingleUserGrid_Table tbody tr {
+    background-color: #FAFAFA !important;
+}
+
+    #MimicUserGrid_Table tr:hover, #SelectSingleUserGrid_Table tr:hover {
+        background-color: #fff !important;
+    }
+
+#MimicUserGrid_Table .Alt_Row, #SelectSingleUserGrid_Table .Alt_Row {
+    background-color: #EAEAEA !important;
+}
+
+#MimicUserGrid_Table tr .RowCell .SelectionBackground {
+    background-color: #FFF !important;
+}
+
+.Syncfusion-Grid-Core {
+    border-collapse: collapse;
+    font-size: 11px !important;
+    font-family: Arial, Verdana, Sans-Serif !important;
+}
+
+    .Syncfusion-Grid-Core .Table {
+        border-collapse: collapse !important;
+    }
+
+.Syncfusion-Grid-Olive .RowCell {
+    border: 1px solid #CCC !important;
+}
+
+.GridPager {
+    background-color: #fff !important;
+    border: 1px solid #CCC !important;
+}
+
+.Syncfusion-Grid-Olive .GridHeader {
+    background-color: #485472 !important;
+    font-weight: bold !important;
+}
+
+.Syncfusion-Grid-Olive .NextPage,
+.Syncfusion-Grid-Olive .LastPage,
+.Syncfusion-Grid-Olive .FirstPage,
+.Syncfusion-Grid-Olive .PrevPage,
+.Syncfusion-Grid-Olive .GridPager .RefreshPager {
+    background-color: #E7FEE7 !important;
+    border-color: #9C9 !important;
+    color: Black !important;
+}
+
+    .Syncfusion-Grid-Olive .NextPage:Hover,
+    .Syncfusion-Grid-Olive .LastPage:Hover,
+    .Syncfusion-Grid-Olive .FirstPage:Hover,
+    .Syncfusion-Grid-Olive .PrevPage:Hover,
+    .Syncfusion-Grid-Olive .GridPager .RefreshPager:Hover {
+        background-color: #E7FEE7 !important;
+        border-color: #9C9 !important;
+        color: Black !important;
+    }
+
+.Syncfusion-Grid-Olive .CurrentItem, .Syncfusion-Grid-Olive .CurrentItem:hover {
+    background-color: #E7FEE7 !important;
+    border-color: #9C9 !important;
+    color: black!important;
+}
+
+.Syncfusion-Grid-Olive .NumericItem-hover {
+    background-color: #E7FEE7 !important;
+    border-color: #9C9 !important;
+    color: black!important;
+}
+
+#NumericContainer a {
+    color: #333 !important;
+}
+
+.Syncfusion-Grid-Olive .RowCell, .Syncfusion-Grid-Olive .EmptyCell, .Syncfusion-Grid-Olive tr[class*=ChildRow] > .ChildGrid {
+    border-color: #CCC !important;
+}
+
+.Syncfusion-Grid-Core .NumericItem:hover, .Syncfusion-Grid-Core .Spacing, .Syncfusion-Grid-Core .CurrentItem {
+    -moz-border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.Syncfusion-Grid-Olive .HeaderCellDivHover, .Syncfusion-Grid-Olive .HeaderCell {
+    background: #485472 !important;
+    font-weight: bold !important;
+}
+
+.GridContent {
+    width: 100% !important;
+}
+
+#SearchWgForUser_Table tr {
+    background-color: #FAFAFA !important;
+}
+
+#SearchWgForUser_Table .Alt_Row {
+    background-color: #CCC !important;
+}
+
+#SearchWgForUser_Table tr:hover {
+    background-color: #FFF !important;
+}
+/*code for synchfusion related changes*/
+
+#RoutingRuleVariationsGrid_Table tr:first-child {
+    background-color: #F2F5A9 !important;
+}
+
+    #RoutingRuleVariationsGrid_Table tr:first-child:hover {
+        background-color: #F2F5A9 !important;
+    }

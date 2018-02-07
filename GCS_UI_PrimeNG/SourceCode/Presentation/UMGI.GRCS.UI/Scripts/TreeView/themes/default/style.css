@@ -1,0 +1,205 @@
+/*
+ * jsTree default theme 1.0
+ * Supported features: dots/no-dots, icons/no-icons, focused, loading
+ * Supported plugins: ui (hovered, clicked), checkbox, contextmenu, search
+ */
+
+.jstree-default li, 
+.jstree-default ins { background-image:url("d.png"); background-repeat:no-repeat; background-color:transparent; }
+.jstree-default li { background-position:-90px 0; background-repeat:repeat-y; }
+.jstree-default li.jstree-last { background:transparent; }
+.jstree-default .jstree-open > ins { background-position:-72px 0; }
+.jstree-default .jstree-closed > ins { background-position:-54px 0; }
+.jstree-default .jstree-leaf > ins { background-position:-36px 0; }
+
+.jstree-default .jstree-hovered { background:#e7f4f9; border:1px solid #d8f0fa; padding:0 2px 0 1px; }
+.jstree-default .jstree-clicked { background:#beebff; border:1px solid #99defd; padding:0 2px 0 1px; }
+.jstree-default a .jstree-icon { background-position:-56px -19px; }
+.jstree-default a.jstree-loading .jstree-icon { background:url("throbber.gif") center center no-repeat !important; }
+
+.jstree-default.jstree-focused { background:#ffffee; }
+
+.jstree-default .jstree-no-dots li, 
+.jstree-default .jstree-no-dots .jstree-leaf > ins { background:transparent; }
+.jstree-default .jstree-no-dots .jstree-open > ins { background-position:-18px 0; }
+.jstree-default .jstree-no-dots .jstree-closed > ins { background-position:0 0; }
+
+.jstree-default .jstree-no-icons a .jstree-icon { display:none; }
+
+.jstree-default .jstree-search { font-style:italic; }
+
+.jstree-default .jstree-no-icons .jstree-checkbox { display:inline-block; }
+.jstree-default .jstree-no-checkboxes .jstree-checkbox { display:none !important; }
+.jstree-default .jstree-checked > a > .jstree-checkbox { background-position:-38px -19px; }
+.jstree-default .jstree-unchecked > a > .jstree-checkbox { background-position:-2px -19px; }
+.jstree-default .jstree-undetermined > a > .jstree-checkbox { background-position:-20px -19px; }
+.jstree-default .jstree-checked > a > .jstree-checkbox:hover { background-position:-38px -37px; }
+.jstree-default .jstree-unchecked > a > .jstree-checkbox:hover { background-position:-2px -37px; }
+.jstree-default .jstree-undetermined > a > .jstree-checkbox:hover { background-position:-20px -37px; }
+
+#vakata-dragged.jstree-default ins { background:transparent !important; }
+#vakata-dragged.jstree-default .jstree-ok { background:url("d.png") -2px -53px no-repeat !important; }
+#vakata-dragged.jstree-default .jstree-invalid { background:url("d.png") -18px -53px no-repeat !important; }
+#jstree-marker.jstree-default { background:url("d.png") -41px -57px no-repeat !important; text-indent:-100px; }
+
+.jstree-default a.jstree-search { color:aqua; }
+.jstree-default .jstree-locked a { color:silver; cursor:default; }
+
+#vakata-contextmenu.jstree-default-context, 
+#vakata-contextmenu.jstree-default-context li ul { background:#f0f0f0; border:1px solid #979797; -moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999; }
+#vakata-contextmenu.jstree-default-context li { }
+#vakata-contextmenu.jstree-default-context a { color:black; }
+#vakata-contextmenu.jstree-default-context a:hover, 
+#vakata-contextmenu.jstree-default-context .vakata-hover > a { padding:0 5px; background:#e8eff7; border:1px solid #aecff7; color:black; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; }
+#vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a, 
+#vakata-contextmenu.jstree-default-context li.jstree-contextmenu-disabled a:hover { color:silver; background:transparent; border:0; padding:1px 4px; }
+#vakata-contextmenu.jstree-default-context li.vakata-separator { background:white; border-top:1px solid #e0e0e0; margin:0; }
+#vakata-contextmenu.jstree-default-context li ul { margin-left:-4px; }
+
+/* IE6 BEGIN */
+.jstree-default li, 
+.jstree-default ins,
+#vakata-dragged.jstree-default .jstree-invalid, 
+#vakata-dragged.jstree-default .jstree-ok, 
+#jstree-marker.jstree-default { _background-image:url("d.gif"); }
+.jstree-default .jstree-open ins { _background-position:-72px 0; }
+.jstree-default .jstree-closed ins { _background-position:-54px 0; }
+.jstree-default .jstree-leaf ins { _background-position:-36px 0; }
+.jstree-default a ins.jstree-icon { _background-position:-56px -19px; }
+#vakata-contextmenu.jstree-default-context ins { _display:none; }
+#vakata-contextmenu.jstree-default-context li { _zoom:1; }
+.jstree-default .jstree-undetermined a .jstree-checkbox { _background-position:-20px -19px; }
+.jstree-default .jstree-checked a .jstree-checkbox { _background-position:-38px -19px; }
+.jstree-default .jstree-unchecked a .jstree-checkbox { _background-position:-2px -19px; }
+/* IE6 END */
+
+.usr .jstree-icon {background:url("usericon.png") -2px -53px no-repeat !important; background-position:0px 0px !important; }
+
+/* 28-12-2012 View Component CSS */
+#popupLeftScrollableDv{
+	float:left;
+	width:210px !important;
+	height:200px !important;
+	overflow:auto !important;
+	
+	
+}
+ 
+#popupRightDv{
+	float:left;
+	width:77%;
+	margin-left:1%;
+	
+}
+ 
+#popupContainerDv{
+	float:left;
+	width:100%;
+	border:1px solid #a6a6a6;
+	background-color:#fafafa;
+	border-bottom:0px;
+	height:auto;
+ 
+ 
+}
+#tree{color: #333; line-height: 14px;list-style:none;}
+#tree ul li{
+	list-style:none;
+	font-size:11px;
+	font-weight:500;	
+}
+.contentDv{
+	background-color:#fafafa;
+	/*background-color:#fff;*/
+ 	height:auto !important;
+	text-align:left;
+	color:#333;
+	font-size:11px;
+	padding:10px 0;
+  	border-bottom:1px solid #a6a6a6; 
+	
+   /* position:relative;*/
+}  
+.contentWrapper{
+	width:100%;
+	float:left;	
+	
+}
+#firstContentDv{
+	width:34%;
+	float:left;	
+ 
+}
+#secondContentDv{
+	width:34%;
+	float:left;	
+ 
+}
+#thirdContentDv{
+	width:30%;
+	float:right;
+	
+}
+.divField{
+	width:49%;
+	float:left;
+	text-align:right;
+	
+	clear:left;
+ 
+}
+.valueDv{
+	width:49%;
+	float:right;
+	text-align:left;
+ 
+	clear:right;
+ 
+}
+.wrapperheadDv{
+	width:24%;
+	float:left;
+	overflow:hidden;
+	position:relative;
+}
+ 
+.headerdivField1{
+	width:18%;
+	float:left;
+	text-align:right;
+	position:relative;
+ 
+	overflow:hidden;
+}
+.headervalueDv1{
+	width:79%;
+	float:right;
+	text-align:left;
+	position:relative;
+	font-weight:normal;
+	overflow:hidden;
+}
+.headerdivField2{
+	width:48%;
+	float:left;
+	text-align:right;
+	position:relative;
+		
+ 
+}
+.headervalueDv2{
+	width:49%;
+	float:right;
+	text-align:left;
+	position:relative;
+	font-weight:normal;
+ 
+}
+.cellAlignLeft{
+	padding-left:15px; text-align:left;	
+}
+table.bottomBorder { border-collapse:collapse;width:100%;
+	font-size:11px; }
+ 
+table.bottomBorder td, table.bottomBorder th { border-bottom:1px dotted black;padding:5px; }
+#tblGrid{ margin-top:120px; overflow:auto;max-height:200px;max-width:758px;}

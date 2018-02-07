@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c5e7b456-f944-453a-9be2-10d86986f66a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1234/Rights/Rights.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Rights61.xsd" MetadataType="Schema" ID="68a4d58a-8b7f-4034-87f5-f230eefba512" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd7" />
+    <MetadataFile FileName="Rights62.xsd" MetadataType="Schema" ID="9ed3be74-b1e0-42d7-a04e-3ed07a5a28fa" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd9" />
+    <MetadataFile FileName="Rights7.disco" MetadataType="Disco" ID="e8ba0c3b-ece7-49ab-b3b5-5ea3afb19367" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?disco" />
+    <MetadataFile FileName="Rights63.xsd" MetadataType="Schema" ID="df3be1f8-8fd2-454c-a655-2673e7c81a94" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd2" />
+    <MetadataFile FileName="Rights7.wsdl" MetadataType="Wsdl" ID="53d6a625-bc3d-4f41-882a-27056e300d5b" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?wsdl" />
+    <MetadataFile FileName="Rights64.xsd" MetadataType="Schema" ID="cb8327b2-bf78-4127-967d-5e94b762e46f" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd1" />
+    <MetadataFile FileName="Rights65.xsd" MetadataType="Schema" ID="71bd5947-6cad-4d38-a5b7-87bbcdd4bb17" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd6" />
+    <MetadataFile FileName="Rights66.xsd" MetadataType="Schema" ID="1e5895e1-a667-4f3f-9d31-7215d4857bb1" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd0" />
+    <MetadataFile FileName="Rights67.xsd" MetadataType="Schema" ID="17fd6530-c48b-4d4f-9576-36e8abc72c82" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd5" />
+    <MetadataFile FileName="Rights68.xsd" MetadataType="Schema" ID="87168560-068b-4b4e-b2fe-828089d62fb4" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd3" />
+    <MetadataFile FileName="Rights69.xsd" MetadataType="Schema" ID="48e434d8-9d3b-4dba-b244-038331459378" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd4" />
+    <MetadataFile FileName="Rights70.xsd" MetadataType="Schema" ID="22bf69de-1c80-4251-9472-4dc5d8443f9e" SourceId="1" SourceUrl="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

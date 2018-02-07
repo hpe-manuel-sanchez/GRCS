@@ -1,0 +1,194 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourceFilterParameters
+@{
+    if (ViewBag.referrerMessage == "Resource")
+    {
+        <script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/CustomParametersTab.js")" type="text/javascript"> </script>
+    }
+    <link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/ContractSearchPopup.min.css")"  rel="stylesheet" type="text/css" />
+    
+    if (ViewBag.referrerMessage == "Resource")
+    {
+        <div class="fieldControl">
+            <div class="alignLeft opLabel" >
+                @WorkQueueResource.Include
+            </div>
+           
+            <div class="alignLeft resourceSpace">
+                <input type="checkbox" value="project" id="chkCustomPopupResource" onclick="disableReleaseTitle()"/>
+                <label>
+                    Resource(ISRC)
+                </label>
+            </div>
+            <div class="alignLeft resourceSpace">
+                <input type="checkbox" value="release" id="chkCustomPopupTrack" onclick="enableReleaseTitle()" />
+                <label>
+                    Track(UPC)</label>
+            </div>
+        </div>
+        <div class="fieldControl">
+            <div class="alignLeft opLabel">
+                @WorkQueueResource.ISRC:
+            </div>
+            <div class="alignLeft isrcContainer">
+                @Html.TextBoxFor(model => model.ISRC, new { maxlength = 20 })
+            </div>
+            <div class="alignLeft opLabelRight upcLabel">
+                @WorkQueueResource.CustomUPC
+            </div>
+            <div class="alignLeft upcTextBox">
+                @Html.TextBoxFor(model => model.RepertoireFilter.UPC, new { maxlength = 20 })
+            </div>
+        </div>
+    }
+    if (ViewBag.referrerMessage == "Release")
+    {
+        <div class="fieldControl">
+            <div class="alignLeft opLabel">
+                @WorkQueueResource.UPC:
+            </div>
+            <div class="search-button alignLeft opField">
+                @Html.TextBoxFor(model => model.RepertoireFilter.UPC, new { maxlength = 20 })
+            </div>
+        </div>
+    }
+     if (ViewBag.referrerMessage == "Resource")
+     {
+         <div class="fieldControl">
+             <div class="alignLeft opLabel">
+                 @WorkQueueResource.ArtistName:
+             </div>
+             <div class="alignLeft opField">
+                 @Html.TextBoxFor(model => model.RepertoireFilter.Artist, new {data_autocomplete_source_manual = @Url.Action("AutoSearchResourceArtist", "Resource")})
+             </div>
+             <div class="alignleft"><input type="checkbox" value="checkbox" id="chkExactSearch" />Exact Search</div>
+         </div>
+     }
+    if (ViewBag.referrerMessage == "Release")
+    {
+        <div class="fieldControl">
+            <div class="alignLeft opLabel">
+                @WorkQueueResource.ArtistName:
+            </div>
+            <div class="alignLeft opField">
+                @Html.TextBoxFor(model => model.RepertoireFilter.Artist, new {data_autocomplete_source_manual = @Url.Action("AutoSearchReleaseArtist", "Release")})
+            </div>
+            <div class="alignleft"><input type="checkbox" value="checkbox" id="chkExactSearch" />Exact Search</div>
+        </div>
+    }
+    if (ViewBag.referrerMessage == "Resource")
+       {
+        <div class="fieldControl">
+            <div class="alignLeft opLabel">
+                @WorkQueueResource.ResourceTrackTitle:
+            </div>
+            <div class="alignLeft opField resourceContainer">
+                @*@Html.TextBox("txtResourceTrackTitle", string.Empty, new {data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global")})*@
+                @Html.TextBoxFor(model => model.ResourceTitle, new { data_autocomplete_source_manual = @Url.Action("AutoSearchResourceTitle", "Resource") })
+                <input type="hidden" id="hdnResourceId" />
+            </div>
+        </div>
+       }
+<!--
+    if (ViewBag.referrerMessage == "Resource")
+    {
+    <div class="fieldControl">
+        <div class="alignLeft opLabel">
+            @WorkQueueResource.ReleaseTitle:
+        </div>
+        <div class="search-button alignLeft opField">
+            @Html.TextBoxFor(model => model.ResourceTitle, new { maxlength = 20 })
+        </div>
+    </div>
+    }
+    -->
+    <div class="fieldControl">
+        <div class="alignLeft opLabel">
+            @WorkQueueResource.ReleaseTitle:
+        </div>
+        <div class="search-button alignLeft opField">
+           @Html.TextBoxFor(model => model.RepertoireFilter.ReleaseTitle, new { data_autocomplete_source_manual = @Url.Action("AutoSearchReleaseTitle", "Release") })
+            <input type="hidden" id="hdnReleaseId" />
+        </div>
+    </div>
+    <div class="fieldControl">
+        <div class="alignLeft opLabel2">
+            @WorkQueueResource.ClearanceDataAdminCompany:
+        </div>
+        <div class="search-button alignLeft opField">
+            @Html.TextBoxFor(model => model.AdminCompany, new { data_autocomplete_source_manual = @Url.Action("AutoSearchRightsReviewCompCountry", "Global"), id = "txtAdminCompany" })
+            <input type="hidden" id="hdnclearanceCompanyId" />
+        </div>
+    </div>
+    <div class="fieldControl">
+        <div class="alignLeft opLabel">
+            @WorkQueueResource.LinkedContract:
+        </div>
+        <div class="search-button alignLeft opField">
+            @Html.TextAreaFor(model => model.RepertoireFilter.LinkedContract)<span class="searchIcon" id="SearchReviewRightsContract"></span>
+        </div>
+    </div>
+       if (ViewBag.referrerMessage == "Release")
+       {
+        <input type="hidden" value="@ViewBag.referrerMessage" id="hiddenReleaseRights" />
+        <input type="hidden" id="hdnReleaseContractId" />
+       }
+       if (ViewBag.referrerMessage == "Resource")
+       {
+         <input type="hidden" value="@ViewBag.referrerMessage" id="hiddenReleaseRights" />
+            <input type="hidden" id="hdnReleaseContractId" />
+       }
+    <div class="releaseDateContainer">
+        <div class="alignLeft opLabel releaseDateLabel">
+        Release Date Range:<div class="maxSixMonths">(Max 6 Months)</div>
+            <!--@WorkQueueResource.ReleaseDateRange: (Max 6 Months)-->
+        </div>
+        <div class="alignLeft dateContainer">
+           @Html.EditorFor(model => model.FromDt)
+        </div>
+        <div class="alignLeft dateContainer">
+           @Html.EditorFor(model => model.ToDt)
+        </div>
+        <div class="alignLeft relChkBox">
+            <input type="checkbox" value="chkNoRlsDt" id="chkNoRlsDt" onclick="FnChkVal()" />
+            @WorkQueueResource.NoReleaseDate
+        </div>
+    </div>
+    if (ViewBag.referrerMessage == "Resource")
+    {
+        <input type="hidden" value="@ViewBag.referrerMessage" id="hiddenResourceRights" />
+    <div class="fieldControl">
+        <div class="alignLeft opLabel">
+            @WorkQueueResource.CustomReviewStatus
+        </div>
+        <div class="alignLeft resourceSpace">
+            <input type="checkbox" value="project" id="chkCustomPopupNewForReview" />
+            <label>
+                @WorkQueueResource.NewForReview</label>
+        </div>
+        <div class="alignLeft resourceSpace">
+            <input type="checkbox" value="release" id="chkCustomPopupFinal" />
+            <label>
+                @WorkQueueResource.Final</label>
+        </div>
+        <div class="alignLeft resourceSpace">
+            <input type="checkbox" value="project" id="chkCustomPopupFinalForReview" />
+            <label>
+                @WorkQueueResource.FinalForReview</label>
+        </div>
+    </div>
+    <div class="fieldControl reviewStatusSecondContainer">
+        <div class="alignLeft resourceSpace">
+            <input type="checkbox" value="project" id="chkCustomPopupSampleExist" />
+            <label>
+                @WorkQueueResource.SampleExists </label>
+        </div>
+        <div class="alignLeft resourceSpace">
+            <input type="checkbox" value="release" id="chkCustomPopupSideArtist" />
+            <label>
+                @WorkQueueResource.SideArtistExists </label>
+        </div>
+    </div>
+    }
+    }

@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMGI.GRCS.BusinessEntities</RootNamespace>
+    <AssemblyName>UMGI.GRCS.BusinessEntities</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UMGI.GRCS.Core.Utilities.Helper">
+      <HintPath>..\..\..\References\UMGI.GRCS.Core.Utilities.Helper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheItems\CacheEnum.cs" />
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Constants\GRSErrorCode.cs" />
+    <Compile Include="Constants\InterfaceConstants.cs" />
+    <Compile Include="Entities\AdminEntities\AutoLinkCdlContract.cs" />
+    <Compile Include="Entities\AdminEntities\CompanyInfo.cs" />
+    <Compile Include="Entities\AnaEntities\AnaApplicationUsers.cs" />
+    <Compile Include="Entities\AnaEntities\AnaCompany.cs" />
+    <Compile Include="Entities\AnaEntities\AnaCompanyDag.cs" />
+    <Compile Include="Entities\AnaEntities\AnaDivision.cs" />
+    <Compile Include="Entities\AnaEntities\GcsAuthentication.cs" />
+    <Compile Include="Entities\AnaEntities\GcsPermission.cs" />
+    <Compile Include="Entities\AnaEntities\GcsTasks.cs" />
+    <Compile Include="Entities\AnaEntities\GcsUserSpecialRights.cs" />
+    <Compile Include="Entities\AnaEntities\R2Authentication.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistContract.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistContractSearchResult.cs" />
+    <Compile Include="Entities\ArtistEntities\DeviationArtistContract.cs" />
+    <Compile Include="Entities\AuditEntities\AuditingTask.cs" />
+    <Compile Include="Entities\AuditEntities\AuditTrailFilter.cs" />
+    <Compile Include="Entities\BaseEntities\ClassInfo.cs" />
+    <Compile Include="Entities\BaseEntities\ClearanceMasterData.cs" />
+    <Compile Include="Entities\BaseEntities\CompanySearch.cs" />
+    <Compile Include="Entities\BaseEntities\FilterCriteria.cs" />
+    <Compile Include="Entities\BaseEntities\LeanUserInfo.cs" />
+    <Compile Include="Entities\BaseEntities\PagingBase.cs" />
+    <Compile Include="Entities\BaseEntities\SearchCriteria.cs" />
+    <Compile Include="Entities\BaseEntities\UploadDocument.cs" />
+    <Compile Include="Entities\BaseEntities\UserDetails.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxAuthorization.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxData.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxDispatch.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxFilterCriteria.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxFolder.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxProject.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxProjectDetail.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxRequest.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxRequestAction.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxResourceHistory.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxResourceHistoryItem.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxSearchCriteria.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxSearchResult.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceInboxState.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceNotification.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceRejectReason.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ClearanceRoutingDetails.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\InboxContractSearch.cs" />
+    <Compile Include="Entities\ClearanceInboxEntities\ListItem.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\Advertising.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceProject.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceProjectDetails.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceProjectInquirySearchCriteria.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceProjectSearchCriteria.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearancePushR2Item.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceRegularProject.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ClearanceRoutingItem.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\Film.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\MasterProject.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\Others.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\OthersICLA.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\ProjectSearchResult.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\Radio.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\RegularProject.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\RequestTypeBaseMaster.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\RequestTypeRegular.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\SalesChannel.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\Trailer.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\TV.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\TVRadioBreakICLABase.cs" />
+    <Compile Include="Entities\ClearanceProjectEntities\UserFromTo.cs" />
+    <Compile Include="Entities\ClearanceReleaseEntities\ClearanceRelease.cs" />
+    <Compile Include="Entities\ClearanceReleaseEntities\ClearanceReleaseDetails.cs" />
+    <Compile Include="Entities\ClearanceReleaseEntities\ClearanceReleaseSearch.cs" />
+    <Compile Include="Entities\ClearanceReleaseEntities\ClearanceReleaseSearchResult.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ClearanceResource.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ClearanceResourceDetails.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ClearanceResourceInfo.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ClearanceResourceSearchResult.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ClearanceResourceStatus.cs" />
+    <Compile Include="Entities\ClearanceResourceEntities\ResourceCompletenessCheck.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\BaseCompany.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\BaseTerritory.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\ClearanceRoutedProject.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\CompanyType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\ObjectType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\ProjectType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RequestStatus.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoleType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutedItemStatusType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutedRequest.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutedResource.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutedResourceWorkgroupDetails.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutedVariation.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingAction .cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingCaller.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingLogActionType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingNotificationEnum.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingParams.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingQueueStatus.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingRule.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingRuleSaveInfo.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingRuleVariation.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingVariation.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingVariationInput.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingVariationOutput.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingVariationSaveInfo.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\RoutingVariatonRequestType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\ScopeType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\StatusType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\TerritoryType.cs" />
+    <Compile Include="Entities\ClearanceRoutingEntities\WorkgroupIdentificationParameters.cs" />
+    <Compile Include="Entities\ContractEntities\ContractMapping.cs" />
+    <Compile Include="Entities\ContractEntities\ContractMappingList.cs" />
+    <Compile Include="Entities\ContractEntities\ContractMappingDetails.cs" />
+    <Compile Include="Entities\AdminEntities\CountryInfo.cs" />
+    <Compile Include="Entities\AdminEntities\MappingFilterCriteria.cs" />
+    <Compile Include="Entities\AdminEntities\MappingFilterResults.cs" />
+    <Compile Include="Entities\AdminEntities\MappingInfo.cs" />
+    <Compile Include="Entities\AdminEntities\ReviewStatusType.cs" />
+    <Compile Include="Entities\AdminEntities\RightsCompany.cs" />
+    <Compile Include="Entities\AdminEntities\RightsCountry.cs" />
+    <Compile Include="Entities\AdminEntities\RightsDataReviewCondition.cs" />
+    <Compile Include="Entities\AdminEntities\RightsDataReviewCriteria.cs" />
+    <Compile Include="Entities\AdminEntities\RightsDefaultForRepertoire.cs" />
+    <Compile Include="Entities\AdminEntities\RightsDefaultRepertoireCriteria.cs" />
+    <Compile Include="Entities\AdminEntities\RightsExpiryReportParameter.cs" />
+    <Compile Include="Entities\AdminEntities\RightsExpiryWindowCriteira.cs" />
+    <Compile Include="Entities\AdminEntities\RightsReviewRule.cs" />
+    <Compile Include="Entities\AdminEntities\RightsRoleGroup.cs" />
+    <Compile Include="Entities\AdminEntities\WorkQueueReleaseComparisionCriteria.cs" />
+    <Compile Include="Entities\AdminEntities\WorkQueueReleaseDate.cs" />
+    <Compile Include="Entities\AnaEntities\AnaConfigurationType.cs" />
+    <Compile Include="Entities\AnaEntities\AnaSourceApplication.cs" />
+    <Compile Include="Entities\AnaEntities\AnaTargetApplication.cs" />
+    <Compile Include="Entities\AnaEntities\ApplicationUser.cs" />
+    <Compile Include="Entities\AnaEntities\DagEntityType.cs" />
+    <Compile Include="Entities\AnaEntities\DagFilterType.cs" />
+    <Compile Include="Entities\AnaEntities\DataAccessGroup.cs" />
+    <Compile Include="Entities\AnaEntities\DataAccessGroupData.cs" />
+    <Compile Include="Entities\AnaEntities\GrsAuthentication.cs" />
+    <Compile Include="Entities\AnaEntities\GrsPermission.cs" />
+    <Compile Include="Entities\AnaEntities\GrsTasks.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistDetail.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistInfo.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistSearchCriteria.cs" />
+    <Compile Include="Entities\BaseEntities\AddressBook.cs" />
+    <Compile Include="Entities\BaseEntities\BaseIdentifier.cs" />
+    <Compile Include="Entities\BaseEntities\BaseSearch.cs" />
+    <Compile Include="Entities\BaseEntities\ClearanceAdminCompany.cs" />
+    <Compile Include="Entities\BaseEntities\BaseConfigurationItem.cs" />
+    <Compile Include="Entities\BaseEntities\ConsentPeriod.cs" />
+    <Compile Include="Entities\BaseEntities\CountryIdentifier.cs" />
+    <Compile Include="Entities\BaseEntities\DataInfo.cs" />
+    <Compile Include="Entities\ContractEntities\ContractPreClearanceInformation.cs" />
+    <Compile Include="Entities\ContractEntities\ContractRightExplotaition.cs" />
+    <Compile Include="Entities\ContractEntities\LeanContractInfo.cs" />
+    <Compile Include="Entities\ContractEntities\TerritoryDataInfo.cs" />
+    <Compile Include="Entities\Enumerations\General.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPReleaseResourceAssociaton.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPRightsRestrictions.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPRollUpRestrictions.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceEmail.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceEmailDetails.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceEmailExtract.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceProject.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceRelease.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceResource.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceSearchOptions.cs" />
+    <Compile Include="Entities\NotificationEntities\ClearanceType.cs" />
+    <Compile Include="Entities\NotificationEntities\NotificationMessageType.cs" />
+    <Compile Include="Entities\NotificationEntities\RightsClearanceMessage.cs" />
+    <Compile Include="Entities\R2Entities\R2Project.cs" />
+    <Compile Include="Entities\R2Entities\R2ReleaseResources.cs" />
+    <Compile Include="Entities\R2Entities\R2RepertoireResult.cs" />
+    <Compile Include="Entities\R2Entities\ResourceCompletenessCheckResult.cs" />
+    <Compile Include="Entities\R2Entities\ResourceLinkingResult.cs" />
+    <Compile Include="Entities\RepertoireEntities\ChangeLinkInfo.cs" />
+    <Compile Include="Entities\RepertoireEntities\DigitalRestrictionRights.cs" />
+    <Compile Include="Entities\RepertoireEntities\GCSInfo.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireCodeResults.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireFilterResults.cs" />
+    <Compile Include="Entities\RepertoireEntities\ReportoireDigitalRestriction.cs" />
+    <Compile Include="Entities\ReportEntities\ActiveRoster.cs" />
+    <Compile Include="Entities\ReportEntities\ActiveRosterReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\PreClearedResourceReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\PreClearedResources.cs" />
+    <Compile Include="Entities\ReportEntities\ReleaseCommitment.cs" />
+    <Compile Include="Entities\ReportEntities\ReleaseCommitmentReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\ReportParameters.cs" />
+    <Compile Include="Entities\ReportEntities\ResourceRightsDiscrepancies.cs" />
+    <Compile Include="Entities\ReportEntities\ResourceRightsDiscrepanciesReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\RightsAcquired.cs" />
+    <Compile Include="Entities\ReportEntities\RightsAcquiredReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\RightsExpiry.cs" />
+    <Compile Include="Entities\ReportEntities\RightsExpiryReportFilters.cs" />
+    <Compile Include="Entities\ReportEntities\RightsExpiryToBeDetermined.cs" />
+    <Compile Include="Entities\ReportEntities\RightsExpiryToBeDeterminedReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\RollUpStatus.cs" />
+    <Compile Include="Entities\ReportEntities\RollUpStatusReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\SecondaryExploitationRights.cs" />
+    <Compile Include="Entities\ReportEntities\SecondaryExploitationRightsReportFilter.cs" />
+    <Compile Include="Entities\ReportEntities\SecondaryExploitationSample.cs" />
+    <Compile Include="Entities\ReportEntities\SecondaryExploitationSampleReportFilter.cs" />
+    <Compile Include="Entities\ResourceEntities\DeviationResourceContract.cs" />
+    <Compile Include="Entities\ResourceEntities\MobileArtistSearchType.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceContract.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceContractSearchResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ColumnSetting.cs" />
+    <Compile Include="Entities\RightsReviewEntities\DigitalRestrictionLinear.cs" />
+    <Compile Include="Entities\RightsReviewEntities\DigitalRestrictionList.cs" />
+    <Compile Include="Entities\RightsReviewEntities\DigitalRestrictionsInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\DigitalRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\FilterCriteria.cs" />
+    <Compile Include="Entities\RightsReviewEntities\LinkType.cs" />
+    <Compile Include="Entities\RightsReviewEntities\DigitalRightsMasterData.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ModifierInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreClearanceInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreClearanceLinear.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreClearanceMasterData.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreClearanceResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreClearanceSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\PreDefinedParametersWQ.cs" />
+    <Compile Include="Entities\RightsReviewEntities\Release.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RepertoireParameter.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseDigitalLnr.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseDigitalRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseDigitalRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseDigitalRightsSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseFilterParameters.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseRight.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseRightsAcquired.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseRightsSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReleaseType.cs" />
+    <Compile Include="Entities\RightsReviewEntities\Release_Linear.cs" />
+    <Compile Include="Entities\RightsReviewEntities\Repertoire.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RepertoireFilter.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RepertoireRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\Resource.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceAcquiredRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceDigitalRestrictions.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceDigitalRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceDigitalRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceDigitalSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceFilterParameters.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourcePreClearance.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourcePreClearanceResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceRight.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceRightSet.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceRightsList.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceRightsSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceSecondaryRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceSecondaryRightsLinear.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourceSecondaryRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ResourcesRightLinear.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\RightsReviewEntities\ResourcesType.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RestrictionDetails.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReviewRightSaveResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReviewRightsMasterInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReviewStatus.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReviewStatusType.cs" />
+    <Compile Include="Entities\RightsReviewEntities\ReviewWQFilters.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RightSetInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RightSource.cs" />
+    <Compile Include="Entities\RightsReviewEntities\RightTypes.cs" />
+    <Compile Include="Entities\RightsReviewEntities\SecondaryExploitation.cs" />
+    <Compile Include="Entities\RightsReviewEntities\SecondaryRights.cs" />
+    <Compile Include="Entities\RightsReviewEntities\SecondaryRightsMasterData.cs" />
+    <Compile Include="Entities\RightsReviewEntities\SecondaryRightsResult.cs" />
+    <Compile Include="Entities\RightsReviewEntities\SecondaryRightsSaveInfo.cs" />
+    <Compile Include="Entities\RightsReviewEntities\TerritorialDisplayWQ.cs" />
+    <Compile Include="Entities\Templates\TemplateInfo.cs" />
+    <Compile Include="Entities\WorkgroupEntities\ChildWorkgroup.cs" />
+    <Compile Include="Entities\WorkgroupEntities\CompanySearchCriteria.cs" />
+    <Compile Include="Entities\WorkgroupEntities\DeviationRequestType.cs" />
+    <Compile Include="Entities\WorkgroupEntities\MasterRole.cs" />
+    <Compile Include="Entities\WorkgroupEntities\ParentWorkgroup.cs" />
+    <Compile Include="Entities\WorkgroupEntities\Preference.cs" />
+    <Compile Include="Entities\WorkgroupEntities\Request.cs" />
+    <Compile Include="Entities\WorkgroupEntities\RequestSearch.cs" />
+    <Compile Include="Entities\WorkgroupEntities\RoleGroup.cs" />
+    <Compile Include="Entities\WorkgroupEntities\SearchBase.cs" />
+    <Compile Include="Entities\WorkgroupEntities\UserPreference.cs" />
+    <Compile Include="Entities\WorkgroupEntities\UserPreferenceInfo.cs" />
+    <Compile Include="Entities\WorkgroupEntities\UserPreferenceValues.cs" />
+    <Compile Include="Entities\WorkgroupEntities\Workgroup.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupBase.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupDeviation.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupSearch.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupSearchCriteria.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupSearchResult.cs" />
+    <Compile Include="Entities\WorkgroupEntities\WorkgroupUser.cs" />
+    <Compile Include="Interfaces\IClearanceInbox.cs" />
+    <Compile Include="Interfaces\IClearanceProject.cs" />
+    <Compile Include="Interfaces\IClearanceProjectDataProvider.cs" />
+    <Compile Include="Interfaces\IClearanceRelease.cs" />
+    <Compile Include="Interfaces\IClearanceReleaseDataProvider.cs" />
+    <Compile Include="Interfaces\IClearanceResource.cs" />
+    <Compile Include="Interfaces\IClearanceResourceDataProvider.cs" />
+    <Compile Include="Interfaces\IGCSContract.cs" />
+    <Compile Include="Interfaces\IGCSUser.cs" />
+    <Compile Include="Interfaces\IReport.cs" />
+    <Compile Include="Interfaces\IRouting.cs" />
+    <Compile Include="Interfaces\IRoutingService.cs" />
+    <Compile Include="Interfaces\IWorkgroup.cs" />
+    <Compile Include="Lookups\EmailTypeEnum.cs" />
+    <Compile Include="Lookups\RollUpStatus.cs" />
+    <Compile Include="Requests\DataRequestInfo.cs" />
+    <Compile Include="Responses\BackgroundContractData.cs" />
+    <Compile Include="Responses\DataResponseInfo.cs" />
+    <Compile Include="Entities\BaseEntities\Exploitations.cs" />
+    <Compile Include="Entities\BaseEntities\Filter.cs" />
+    <Compile Include="Entities\BaseEntities\HoldbackPeriod.cs" />
+    <Compile Include="Entities\BaseEntities\Identifier.cs" />
+    <Compile Include="Entities\BaseEntities\MasterDataIdentifierBase.cs" />
+    <Compile Include="Entities\BaseEntities\NotificationRecipient.cs" />
+    <Compile Include="Entities\BaseEntities\Page.cs" />
+    <Compile Include="Entities\BaseEntities\PreClearance.cs" />
+    <Compile Include="Entities\BaseEntities\PreClearanceCountry.cs" />
+    <Compile Include="Entities\BaseEntities\RepertoireBase.cs" />
+    <Compile Include="Responses\ContractTemplatesResult.cs" />
+    <Compile Include="Responses\DigitalRestrictionTemplateResults.cs" />
+    <Compile Include="Responses\ResponseInfo.cs" />
+    <Compile Include="Entities\BaseEntities\Restrictions.cs" />
+    <Compile Include="Entities\BaseEntities\TemplateDetails.cs" />
+    <Compile Include="Entities\BaseEntities\UmgSigningCompany.cs" />
+    <Compile Include="Entities\ContractEntities\CompanyInfo.cs" />
+    <Compile Include="Entities\BaseEntities\StringIdentifier.cs" />
+    <Compile Include="Entities\BaseEntities\UserInfo.cs" />
+    <Compile Include="Entities\ContractEntities\ContractDetails.cs" />
+    <Compile Include="Entities\ContractEntities\ContractSearch.cs" />
+    <Compile Include="Entities\ContractEntities\ContractSearchResult.cs" />
+    <Compile Include="Entities\ContractEntities\CountryInfo.cs" />
+    <Compile Include="Entities\ContractEntities\FilterFields.cs" />
+    <Compile Include="Entities\ContractEntities\LinkContractInfo.cs" />
+    <Compile Include="Entities\ContractEntities\LinkingProjToRep.cs" />
+    <Compile Include="Entities\ContractEntities\SearchFields.cs" />
+    <Compile Include="Entities\NotificationEntities\ArtistRights.cs" />
+    <Compile Include="Entities\NotificationEntities\ContractRights.cs" />
+    <Compile Include="Entities\NotificationEntities\NotificationMessage.cs" />
+    <Compile Include="Entities\NotificationEntities\NotificationType.cs" />
+    <Compile Include="Entities\NotificationEntities\ProjectRights.cs" />
+    <Compile Include="Entities\NotificationEntities\ReleaseRights.cs" />
+    <Compile Include="Entities\NotificationEntities\ResourceRights.cs" />
+    <Compile Include="Entities\NotificationEntities\RightsType.cs" />
+    <Compile Include="Entities\NotificationEntities\TrackRights.cs" />
+    <Compile Include="Entities\ProjectEntities\LabelInfo.cs" />
+    <Compile Include="Entities\ProjectEntities\LinkedProjectInfo.cs" />
+    <Compile Include="Entities\ProjectEntities\PackageInfo.cs" />
+    <Compile Include="Entities\ProjectEntities\TrackInfo.cs" />
+    <Compile Include="Entities\ReleaseEntities\LinkedReleaseInfo.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseHierarchy.cs" />
+    <Compile Include="Entities\ReleaseEntities\TaskInfo.cs" />
+    <Compile Include="Entities\R2Entities\R2ProjectAdditionalInfo.cs" />
+    <Compile Include="Entities\R2Entities\R2ReleaseAdditionalInfo.cs" />
+    <Compile Include="Entities\R2Entities\R2ResourceAdditionalInfo.cs" />
+    <Compile Include="Entities\R2Entities\R2ServiceAdditionalInfo.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireInfo.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireResult.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireRightsSearchResult.cs" />
+    <Compile Include="Entities\RepertoireEntities\SearchRepertoireCriteria.cs" />
+    <Compile Include="Entities\RepertoireEntities\SearchExploitationCriteria.cs" />
+    <Compile Include="Entities\RepertoireEntities\SearchPreClearedCriteria.cs" />
+    <Compile Include="Entities\RepertoireEntities\SearchResourceReleaseCriteria.cs" />
+    <Compile Include="Entities\RepertoireEntities\SearchRightsCriteria.cs" />
+    <Compile Include="Entities\ResourceEntities\LinkedResourceInfo.cs" />
+    <Compile Include="Entities\RightsEntities\RightExpiryMailContent.cs" />
+    <Compile Include="Entities\RightsEntities\RightsDownstream.cs" />
+    <Compile Include="Entities\RightsEntities\RightSetDetail.cs" />
+    <Compile Include="Entities\WorkQueueEntities\CustomWorkQueueSetting.cs" />
+    <Compile Include="Entities\WorkQueueEntities\ResourceParameters.cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueueCriteria.cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueueFilters.cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueueFilterType .cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueueMasterData.cs" />
+    <Compile Include="Entities\ContractEntities\Territorialdisplay.cs" />
+    <Compile Include="Entities\ContractEntities\TerritoryInfo.cs" />
+    <Compile Include="Entities\ContractEntities\RccClearanceContract.cs" />
+    <Compile Include="Entities\CprsEntities\CprsNotification.cs" />
+    <Compile Include="Entities\CprsEntities\CprsReleaseDetail.cs" />
+    <Compile Include="Entities\GdrsEntities\GdrsReleaseDetail.cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueue.cs" />
+    <Compile Include="Entities\GlobalAddressEntities\EmailGroup.cs" />
+    <Compile Include="Entities\GlobalAddressEntities\GlobalAddress.cs" />
+    <Compile Include="Entities\GlobalAddressEntities\GlobalAddressSearch.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistSearch.cs" />
+    <Compile Include="Entities\ArtistEntities\ArtistSearchResult.cs" />
+    <Compile Include="Entities\BaseEntities\EntityInformation.cs" />
+    <Compile Include="Entities\ContractEntities\ContractInfo.cs" />
+    <Compile Include="Entities\ContractEntities\ContractDigitalRestrictions.cs" />
+    <Compile Include="Entities\ContractEntities\ContractExploitationRestrictions.cs" />
+    <Compile Include="Entities\ContractEntities\ContractRightsAcquired.cs" />
+    <Compile Include="Entities\ContractEntities\ParentContractSearch.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPReleaseRights.Casting.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPReleaseRights.cs" />
+    <Compile Include="Entities\MediaPortalEntities\MPResourceRights.cs" />
+    <Compile Include="Entities\NoticeCompanyEntities\NoticeCompany.cs" />
+    <Compile Include="Entities\NoticeCompanyEntities\NoticeCompanySearch.cs" />
+    <Compile Include="Entities\NoticeCompanyEntities\NoticeCompanySearchResult.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectDetail.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectInfo.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectSearch.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectSearchCriteria.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectResult.cs" />
+    <Compile Include="Entities\ProjectEntities\ProjectSearchResult.cs" />
+    <Compile Include="Entities\R2Entities\R2Artists.cs" />
+    <Compile Include="Entities\R2Entities\R2Companies.cs" />
+    <Compile Include="Entities\R2Entities\R2Projects.cs" />
+    <Compile Include="Entities\R2Entities\R2Releases.cs" />
+    <Compile Include="Entities\R2Entities\R2Resources.cs" />
+    <Compile Include="Entities\ReleaseEntities\ConfigurationInfo.cs" />
+    <Compile Include="Entities\ReleaseEntities\LinkedContractDetails.cs" />
+    <Compile Include="Entities\ReleaseEntities\LinkedInfo.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseDetail.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseInfo.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseSearch.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseSearchCriteria.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseSearchResult.cs" />
+    <Compile Include="Entities\ReleaseEntities\ReleaseType.cs" />
+    <Compile Include="Entities\ResourceEntities\ReleaseResourcesInfo.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireSearchCriteriaBase.cs" />
+    <Compile Include="Entities\RepertoireEntities\RepertoireSearchResultsBase.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceDetail.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceInfo.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceSearch.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceSearchCriteria.cs" />
+    <Compile Include="Entities\ResourceEntities\ResourceSearchResult.cs" />
+    <Compile Include="Entities\RightsEntities\RightsPeriod.cs" />
+    <Compile Include="Entities\Templates\ContractTemplate.cs" />
+    <Compile Include="Entities\Templates\ContractTemplateInfo.cs" />
+    <Compile Include="Entities\Templates\DigitalRestrictionTemplate.cs" />
+    <Compile Include="Entities\Templates\SecondaryExploitationDefaults.cs" />
+    <Compile Include="Entities\Templates\SecondaryExploitationTemplate.cs" />
+    <Compile Include="Entities\WorkQueueEntities\WorkQueueResult.cs" />
+    <Compile Include="Interfaces\IArtist.cs" />
+    <Compile Include="Interfaces\IAutoLinkCdlContract.cs" />
+    <Compile Include="Interfaces\IContract.cs" />
+    <Compile Include="Interfaces\IGlobal.cs" />
+    <Compile Include="Interfaces\IGRCSCacheFactory.cs" />
+    <Compile Include="Interfaces\IPCompany.cs" />
+    <Compile Include="Interfaces\IProject.cs" />
+    <Compile Include="Interfaces\IRelease.cs" />
+    <Compile Include="Interfaces\IRepertoire.cs" />
+    <Compile Include="Interfaces\IResource.cs" />
+    <Compile Include="Interfaces\IRights.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="Interfaces\IWorkQueue.cs" />
+    <Compile Include="Lookups\ContractStatusEnum.cs" />
+    <Compile Include="Lookups\Enum.cs" />
+    <Compile Include="Lookups\NotificationType.cs" />
+    <Compile Include="Lookups\RepertoireStatus.cs" />
+    <Compile Include="Lookups\RepertoireType.cs" />
+    <Compile Include="Lookups\RightsAcquiredType.cs" />
+    <Compile Include="Lookups\RerouteOption.cs" />
+    <Compile Include="Lookups\Roles.cs" />
+    <Compile Include="Lookups\WorkflowEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\RightsEntities\Artist.cs" />
+    <Compile Include="Entities\RightsEntities\Release.cs" />
+    <Compile Include="Entities\RightsEntities\Resources.cs" />
+    <Compile Include="Requests\BaseRequest.cs" />
+    <Compile Include="Requests\ChildContractsRequest.cs" />
+    <Compile Include="Requests\ContractRestrictions.cs" />
+    <Compile Include="Requests\ContractSearch.cs" />
+    <Compile Include="Requests\RerouteResources.cs" />
+    <Compile Include="Requests\ClearanceAdminCompanyFilter.cs" />
+    <Compile Include="Responses\DigitalRestrictions.cs" />
+    <Compile Include="Responses\MasterData.cs" />
+    <Compile Include="Responses\RightsAndRestrictions.cs" />
+    <Compile Include="Responses\RightsMasterData.cs" />
+    <Compile Include="Responses\SearchContractMasterData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BusinessResources\UMGI.GRCS.Resx.Resources.csproj">
+      <Project>{A227DF1F-44D4-4727-B734-0B063B2489A4}</Project>
+      <Name>UMGI.GRCS.Resx.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Proxies\GRCS.Proxies\UMGI.GRCS.Proxies.csproj">
+      <Project>{D8480320-3CFF-4304-80F4-AFE151046C86}</Project>
+      <Name>UMGI.GRCS.Proxies</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\ClearanceInboxEntities\ClearanceInbox.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Schema\EmailTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*" "$(SolutionDir)Components"</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\GCS\app\Components" Condition="!Exists('$(SolutionDir)\..\Deliverables\GCS\app\Components')" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\app\Components" />
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

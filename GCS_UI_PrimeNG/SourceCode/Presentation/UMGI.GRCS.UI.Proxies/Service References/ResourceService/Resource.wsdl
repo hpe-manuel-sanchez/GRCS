@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Resource" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Resource/Resource.svc?xsd=xsd10" namespace="http://schemas.umusic.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IResource_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IResource_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetAssociatedResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedResource" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetAssociatedResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResources" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesTracksBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesTracksBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesTracksBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesTracksBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesTracksSearchReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesTracksSearchReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesTracksSearchReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesTracksSearchReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionResourcesBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionResourcesBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionResourcesBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionResourcesBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsTracksBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsTracksBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsTracksBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsTracksBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsTracksSearchReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsTracksSearchReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsTracksSearchReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsTracksSearchReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesAndTracksBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesAndTracksBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesAndTracksBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesAndTracksBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsResourcesAndTracksSearchReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsReleases" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetDigitalRestrictionsReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalRestrictionsReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesReleaseParameterSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesReleaseParameterSearch" />
+  </wsdl:message>
+  <wsdl:message name="IResource_GetResourcesReleaseParameterSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesReleaseParameterSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_AutoSearchResourceTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSearchResourceTitle" />
+  </wsdl:message>
+  <wsdl:message name="IResource_AutoSearchResourceTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSearchResourceTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResource_AutoSearchResourceArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSearchResourceArtist" />
+  </wsdl:message>
+  <wsdl:message name="IResource_AutoSearchResourceArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoSearchResourceArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationProcessor_ProcessNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessNotification" />
+  </wsdl:message>
+  <wsdl:message name="INotificationProcessor_ProcessNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResourceDataProvider_GetResourceRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceRights" />
+  </wsdl:message>
+  <wsdl:message name="IResourceDataProvider_GetResourceRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IResourceDataProvider_GetTracksRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksRights" />
+  </wsdl:message>
+  <wsdl:message name="IResourceDataProvider_GetTracksRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksRightsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IResource">
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/Search" message="tns:IResource_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/SearchResponse" message="tns:IResource_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetAssociatedResource" message="tns:IResource_GetAssociatedResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetAssociatedResourceResponse" message="tns:IResource_GetAssociatedResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetResources" message="tns:IResource_GetResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetResourcesResponse" message="tns:IResource_GetResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetResourcesBasicSearch" message="tns:IResource_GetResourcesBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetResourcesBasicSearchResponse" message="tns:IResource_GetResourcesBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesTracksBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetResourcesTracksBasicSearch" message="tns:IResource_GetResourcesTracksBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetResourcesTracksBasicSearchResponse" message="tns:IResource_GetResourcesTracksBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesTracksSearchReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetResourcesTracksSearchReleaseParameters" message="tns:IResource_GetResourcesTracksSearchReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetResourcesTracksSearchReleaseParametersResponse" message="tns:IResource_GetResourcesTracksSearchReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionResourcesBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionResourcesBasicSearch" message="tns:IResource_GetDigitalRestrictionResourcesBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionResourcesBasicSearchResponse" message="tns:IResource_GetDigitalRestrictionResourcesBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesReleaseParameters" message="tns:IResource_GetDigitalRestrictionsResourcesReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesReleaseParametersResponse" message="tns:IResource_GetDigitalRestrictionsResourcesReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsTracksBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsTracksBasicSearch" message="tns:IResource_GetDigitalRestrictionsTracksBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsTracksBasicSearchResponse" message="tns:IResource_GetDigitalRestrictionsTracksBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsTracksSearchReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsTracksSearchReleaseParameters" message="tns:IResource_GetDigitalRestrictionsTracksSearchReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsTracksSearchReleaseParametersResponse" message="tns:IResource_GetDigitalRestrictionsTracksSearchReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesAndTracksBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksBasicSearch" message="tns:IResource_GetDigitalRestrictionsResourcesAndTracksBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksBasicSearchResponse" message="tns:IResource_GetDigitalRestrictionsResourcesAndTracksBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters" message="tns:IResource_GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksSearchReleaseParametersResponse" message="tns:IResource_GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsReleases" message="tns:IResource_GetDigitalRestrictionsReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetDigitalRestrictionsReleasesResponse" message="tns:IResource_GetDigitalRestrictionsReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesReleaseParameterSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/GetResourcesReleaseParameterSearch" message="tns:IResource_GetResourcesReleaseParameterSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/GetResourcesReleaseParameterSearchResponse" message="tns:IResource_GetResourcesReleaseParameterSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoSearchResourceTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/AutoSearchResourceTitle" message="tns:IResource_AutoSearchResourceTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/AutoSearchResourceTitleResponse" message="tns:IResource_AutoSearchResourceTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoSearchResourceArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResource/AutoSearchResourceArtist" message="tns:IResource_AutoSearchResourceArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResource/AutoSearchResourceArtistResponse" message="tns:IResource_AutoSearchResourceArtist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INotificationProcessor">
+    <wsdl:operation name="ProcessNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationProcessor/ProcessNotification" message="tns:INotificationProcessor_ProcessNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationProcessor/ProcessNotificationResponse" message="tns:INotificationProcessor_ProcessNotification_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IResourceDataProvider">
+    <wsdl:operation name="GetResourceRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResourceDataProvider/GetResourceRights" message="tns:IResourceDataProvider_GetResourceRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResourceDataProvider/GetResourceRightsResponse" message="tns:IResourceDataProvider_GetResourceRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IResourceDataProvider/GetTracksRights" message="tns:IResourceDataProvider_GetTracksRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IResourceDataProvider/GetTracksRightsResponse" message="tns:IResourceDataProvider_GetTracksRights_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IResource" type="tns:IResource">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IResource/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedResource">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetAssociatedResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResources">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetResourcesBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesTracksBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetResourcesTracksBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesTracksSearchReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetResourcesTracksSearchReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionResourcesBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionResourcesBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsTracksBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsTracksBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsTracksSearchReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsTracksSearchReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesAndTracksBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalRestrictionsReleases">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetDigitalRestrictionsReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesReleaseParameterSearch">
+      <soap:operation soapAction="http://tempuri.org/IResource/GetResourcesReleaseParameterSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoSearchResourceTitle">
+      <soap:operation soapAction="http://tempuri.org/IResource/AutoSearchResourceTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoSearchResourceArtist">
+      <soap:operation soapAction="http://tempuri.org/IResource/AutoSearchResourceArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_INotificationProcessor" type="tns:INotificationProcessor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessNotification">
+      <soap:operation soapAction="http://tempuri.org/INotificationProcessor/ProcessNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IResourceDataProvider" type="tns:IResourceDataProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetResourceRights">
+      <soap:operation soapAction="http://tempuri.org/IResourceDataProvider/GetResourceRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksRights">
+      <soap:operation soapAction="http://tempuri.org/IResourceDataProvider/GetTracksRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Resource">
+    <wsdl:port name="BasicHttpBinding_IResource" binding="tns:BasicHttpBinding_IResource">
+      <soap:address location="http://localhost:1234/Resource/Resource.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_INotificationProcessor" binding="tns:BasicHttpBinding_INotificationProcessor">
+      <soap:address location="http://localhost:1234/Resource/Resource.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IResourceDataProvider" binding="tns:BasicHttpBinding_IResourceDataProvider">
+      <soap:address location="http://localhost:1234/Resource/Resource.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

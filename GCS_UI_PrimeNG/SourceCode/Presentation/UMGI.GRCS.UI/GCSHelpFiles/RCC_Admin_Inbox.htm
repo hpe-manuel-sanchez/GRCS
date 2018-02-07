@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="generator" content="Adobe RoboHelp 8" />
+<title>RCC Admin Inbox</title>
+<link rel="StyleSheet" href="RefSS.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="whlang.js"></script>
+<script type="text/javascript" language="javascript1.2" src="whtopic.js"></script>
+
+</head>
+
+<body><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = document.location.href;
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.href = strUrl.substring(0, n);
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Inbox Management\nRCC Admin Inbox");
+addAvenueInfo("Inbox Management","","Reviewer_Inbox.htm");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("Clearance_System.htm", "", ">", "Home", "Creating_Workgroup.htm");
+document.write("<a href=\"Requestor_Inbox.htm\">Inbox Management<\/a> > RCC Admin Inbox<\/p>");
+
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("Clearance_System.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+//-->
+//]]></script>
+<script src="./ehlpdhtm.js" type="text/javascript" language="JavaScript1.2"></script>
+<h1 align="justify">RCC Admin Inbox</h1>
+<p style="font-weight: bold;" align="justify">* Only RCC Admin can perform 
+ the actions on RCC Admin tab</p>
+<p style="font-weight: bold;" align="justify">* Only Submitted project 
+ will be displayed in the Inbox of RCC Admin</p>
+<p align="justify">1. Login to GCS and the home page of the system is displayed.</p>
+<p align="justify">2. By default, system displays the RCC Admin Inbox with 
+ all the submitted/resubmitted projects based on routing.</p>
+<p align="justify">3. Inbox is divided into two sections: Left hand side 
+ and Right hand side. You can drag the divider between two sections to 
+ increase/decrease the view of each section.</p>
+<p style="font-size: 14pt; font-weight: bold; font-family: Arial, sans-serif; 
+	 color: #365f91;" align="justify">Left Hand Side section of RCC Admin’s 
+ Inbox</p>
+<p align="justify"><img src="115.JPG" alt="115.JPG" style="border: none;" width="1024" height="363" border="0" /></p>
+<p align="justify">1. <span style="font-weight: bold;"><b>Grouping of Projects:</b></span> 
+ System groups the project in the following folders for RCC Admin Inbox</p>
+<ul type="disc">
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif;"><p style="margin-top: 10pt; 
+		 margin-bottom: 2pt;" align="justify"><span style="font-weight: bold;"><b>High 
+	 Priority :</b></span> This folder includes all the projects where the 
+	 requests have been identified as orphan and have high priority flag 
+	 set on the project except one stop routing requests</p></li>
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif;"><p style="margin-top: 10pt; 
+		 margin-bottom: 2pt;" align="justify"><span style="font-weight: bold;"><b>Orphan 
+	 :</b></span> This folder includes all the projects where the request(s) 
+	 have been identified as orphan and does not have a high priority flag 
+	 set</p></li>
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif;"><p style="margin-top: 10pt; 
+		 margin-bottom: 2pt;" align="justify"><span style="font-weight: bold;"><b>One 
+	 Stop Routing:</b></span> This folder includes all the projects where one 
+	 stop flag is enabled</p></li>
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif; font-weight: bold;"><p 
+		 style="margin-top: 10pt; margin-bottom: 2pt; font-weight: bold;" 
+		 align="justify">User created folder</p></li>
+</ul>
+<p align="justify">2. <span style="font-weight: bold;"><b>Default Folder:</b></span> 
+ Whenever you log in to the Global Clearance System, by default, System 
+ displays the Orphan folder as expanded mode. If the Orphan folder is empty, 
+ the system opens the High Priority folder by default.</p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a1">Note:</a><span class="expandtext" id="POPUP356567007" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;Only 
+ one folder can be in expanded mode at a time. If the user clicks on any 
+ other folder, the previously opened folder will become collapsed.</i></font></span></span> 
+ </p>
+<p align="justify">3. By default, System displays 20 requests in each folder. 
+ If the folder contains more than 20 requests, the system enables the Show 
+ All link. You can click on Show All link to view all the projects within 
+ the folder.</p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a14">Note:</a><span class="expandtext" id="POPUP356562310" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;The 
+ clearance system changes the Show All link to Show Default link to revert 
+ to the default mode.</i></font></span></span> </p>
+<p align="justify">4. All the projects in each folder will appear in bold 
+ when a notification has been received for the request. Once the requestor 
+ has clicked on a bold project, the bold highlight will be removed. </p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a15">Note:</a><span class="expandtext" id="POPUP356560599" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;The 
+ RCC Admin can click on the “eye” icon to again highlight the project as 
+ bold to indicate unread. </i></font></span></span> </p>
+<p align="justify">5. System shows the following columns in the sequence 
+ listed below for each project.</p>
+<ul type="disc">
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Project 
+	 Type </p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><span 
+	 style="margin-top: 10pt; margin-bottom: 2pt;">Project Reference Number</span></p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Project 
+	 Title</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Notification 
+	 Date</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Submission 
+	 Date</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Release 
+	 Date</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Estimated 
+	 Sales</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">RCC 
+	 handler</p></li>
+</ul>
+<p align="justify">6. Click on Project Reference Number hyperlink, project 
+ opens in the new browser tab.</p>
+<p align="justify">7. <span style="font-weight: bold;"><b>Manual Allocation 
+ of RCC Handler:</b></span> By default, Release tab is opened .You can select 
+ the RCC Handler from the dropdown and click Save.</p>
+<p align="justify"><img src="116.JPG" alt="116.JPG" style="border: none;" width="1024" height="133" border="0" /></p>
+<p align="justify">7.<span style="font-weight: bold;"><b> Filters:</b></span> 
+ By clicking on Filters hyperlink, system opens the filters popup with 
+ the below given sections</p>
+<p align="justify"><img src="117.JPG" alt="117.JPG" style="border: none;" width="404" height="368" border="0" /></p>
+<ul type="disc">
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><span 
+	 style="font-weight: bold;"><b>Request Type Filter:</b></span> You can select 
+	 one or more request types to filter the projects in Inbox. Only those 
+	 projects will be displayed which have matching request type(s).</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><span 
+	 style="font-weight: bold;"><b>No RCC Handler Assigned:</b></span> Set the 
+	 flag to select only those projects which are not assigned to RCC Handler.</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><span 
+	 style="font-weight: bold;"><b>RCC Handler:</b></span> Select the name of 
+	 one or more RCC handlers from the dropdown to filter the projects 
+	 based on RCC handler. </p></li>
+</ul>
+<p style="margin-left: 40px; margin-top: 10pt; margin-bottom: 2pt;" align="justify"><a 
+	 class="expandspot" href="javascript:TextPopup(this)" id="a2">Note:</a><span 
+ class="expandtext" id="POPUP356584712" style="display: none;"><span style="font-size: 12pt; 
+	 font-style: italic; font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;The 
+ dropdown will only show the names of users who are a part of RCC Admin 
+ workgroup.</i></font></span></span> </p>
+<ul type="disc">
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><span 
+	 style="font-weight: bold;"><b>Scope Filter:</b></span> You can select scope 
+	 to filter the projects in Inbox. </p></li>
+</ul>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">9. By 
+ clicking on <span style="font-weight: bold;"><b>Save,</b></span> System saves 
+ the selected checks on the respective sections of the filter</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><a class="expandspot" 
+	 href="javascript:TextPopup(this)" id="a16">Note:</a><span class="expandtext" 
+ id="POPUP356565814" style="display: none;"><span style="font-size: 12pt; 
+													 font-style: italic; 
+													 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;System 
+ will save the setting of the filter and show the same settings on the 
+ next login to the Inbox.</i></font></span></span> </p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">10. By 
+ clicking on <span style="font-weight: bold;"><b>Apply Filters</b></span>, system 
+ filters the projects on the basis of selected filters.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><a class="expandspot" 
+	 href="javascript:TextPopup(this)" id="a17">Note:</a><span class="expandtext" 
+ id="POPUP356569817" style="display: none;"><span style="font-size: 12pt; 
+													 font-style: italic; 
+													 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;By 
+ clicking on Cancel, filter pop up gets closed and navigates back to RCC 
+ Admin Inbox.</i></font></span></span> </p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">11. <span 
+	 style="font-weight: bold;"><b>Search Projects:</b></span> You can select 
+ one of the search criteria from following dropdown values:</p>
+<ul type="disc">
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Project 
+	 Reference Number</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Project 
+	 Title</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Local 
+	 Reference</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Requestor 
+	 Name</p></li>
+</ul>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><a class="expandspot" 
+	 href="javascript:TextPopup(this)" id="a18">Note:</a><span class="expandtext" 
+ id="POPUP356569628" style="display: none;"><span style="font-size: 12pt; 
+													 font-style: italic; 
+													 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;By 
+ default, system displays the Project Reference No. as search criteria</i></font></span></span> 
+ </p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">13. Click 
+ Search. System filters and displays the project on the basis of search 
+ applied.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">14. By 
+ clicking on Clear, system resets the search criteria.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">15. When 
+ both filter and search is applied, system shows the list of projects based 
+ on combination of filter and search criteria entered.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">16. <span 
+	 style="font-weight: bold;"><b>User Created Folders:</b></span> By clicking 
+ on New Folder, the below pop up is displayed:</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><img src="242.JPG" alt="242.JPG" style="border: none;" width="411" height="121" border="0" /></p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">17. Enter 
+ the name of the new folder and click on Create.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><a class="expandspot" 
+	 href="javascript:TextPopup(this)" id="a3">Note:</a><span class="expandtext" 
+ id="POPUP356560321" style="display: none;"><span style="font-size: 12pt; 
+													 font-style: italic; 
+													 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;By 
+ clicking on Cancel, the New Folder pop up gets closed and navigate back 
+ to RCC Admin Inbox.</i></font></span></span> </p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">18. System 
+ displays the new created folder in RCC Admin Inbox</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><img src="120.JPG" alt="120.JPG" style="border: none;" width="1024" height="367" border="0" /></p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">19. <span 
+	 style="font-weight: bold;"><b>Edit User Created Folder:</b></span> By clicking 
+ on Edit, the Edit folder pop up is displayed where you can edit the name 
+ of the folder.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">20. By 
+ clicking <span style="font-weight: bold;"><b>Save</b></span>, System saves the 
+ updated name in the RCC’s inbox.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">Note: 
+ &#160;By clicking on <span style="font-weight: bold;"><b>Cancel</b></span>, the 
+ New Folder pop up gets closed and navigate back to RCC’s inbox</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">21. <span 
+	 style="font-weight: bold;"><b>Delete User Created Folder</b></span>: By clicking 
+ on Delete, System verifies if there are any projects existing in the folder 
+ which is getting deleted, if there are no projects in the folder, System 
+ asks for the confirmation with Delete and Cancel Button. </p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">22. If 
+ there are projects in the folder, system displays a message “This folder 
+ contains project(s). To delete this folder, please move its project(s) 
+ to some other folder.</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">25. <span 
+	 style="font-weight: bold;"><b>Move projects between folders:</b></span> You 
+ can drag and drop the projects from the below listed folders in the inbox.</p>
+<ul type="disc">
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">System 
+	 folders to any of the user created folders</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">From 
+	 any of the user created folders to any other user created folder</p></li>
+	<li><p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">From 
+	 any of the user created folders to its original system folder.</p></li>
+</ul>
+<p style="margin-top: 10pt; margin-bottom: 2pt; font-size: 14pt; font-weight: bold; 
+	 font-family: 'Times New Roman', serif; color: #365F91;" align="justify">&#160;Right 
+ Hand Side section of RCC Admin’s Inbox</p>
+<p align="justify">1. You can click on any column of the project except 
+ project reference number hyperlink to view the right hand side section 
+ of the project.</p>
+<p align="justify"><img src="121.JPG" alt="121.JPG" style="border: none;" width="1024" height="367" border="0" /></p>
+<p align="justify">2. <span style="font-weight: bold;"><b>Project Reference 
+ Number:</b></span> RHS displays project reference number as hyperlink. You 
+ can click on Project Reference Number hyperlink to open complete project 
+ in a new browser/tab.</p>
+<p align="justify">3. If you roll over the mouse on project reference number, 
+ the system will display the “project details” as added on project information 
+ tab by requestor.</p>
+<p align="justify">4. <span style="font-weight: bold;"><b>Project Status:</b></span> 
+ Project status is displayed in brackets next to project reference number 
+ hyperlink</p>
+<p align="justify">5. <span style="font-weight: bold;"><b>Actions:</b></span> 
+ The system displays the actions which can be performed on pending requests. 
+ The action buttons are enabled for the project depending on the orphan 
+ or high priority request.</p>
+<p align="justify">6. The system displays the resource details under two 
+ sections:</p>
+<ul type="disc">
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif;"><p style="margin-top: 10pt; 
+		 margin-bottom: 2pt;" align="justify"><span style="font-weight: bold;"><b>Resources:</b></span> 
+	 The resources added on resource tab are displayed under resources 
+	 section</p></li>
+	<li style="font-size: 10pt; font-family: Verdana, sans-serif;"><p style="margin-top: 10pt; 
+		 margin-bottom: 2pt;" align="justify"><span style="font-weight: bold;"><b>Resources 
+	 of Existing Releases:</b></span> The tracks of existing releases which 
+	 are a part of the project are displayed under this tab.</p></li>
+</ul>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><img src="244.JPG" alt="244.JPG" style="border: none;" width="1024" height="351" border="0" /></p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify">7. <span 
+	 style="font-weight: bold;"><b>Manage Contract:</b></span> By clicking on 
+ Manage, system displays the manage contract pop-up with the associated 
+ primary artist(s) linked with the resource(s).</p>
+<p style="margin-top: 10pt; margin-bottom: 2pt;" align="justify"><img src="124.JPG" alt="124.JPG" style="border: none;" width="901" height="448" border="0" /></p>
+<p align="justify">8. You can search for any other contract for different 
+ artist(s) in GRS based on below criteria:</p>
+<p align="justify">&#160;<img src="125.JPG" alt="125.JPG" style="border: none;" width="901" height="420" border="0" /></p>
+<p align="justify">9. Select the Contract(s) and click on <span style="font-weight: bold;"><b>Link 
+ to Resource.</b></span></p>
+<p style="font-weight: bold;" align="justify"><img src="126.JPG" alt="126.JPG" style="border: none;" width="899" height="448" border="0" /></p>
+<p align="justify">10. Select one or more of the contracts displayed on 
+ manage contract pop up and click on <span style="font-weight: bold;"><b>Save</b></span>. 
+ System navigates back to the Inbox RHS with the new contract linked with 
+ the resource displayed.</p>
+<p align="justify">11. <span style="font-weight: bold;"><b>Create Clearance 
+ Routing Contract:</b></span> Click <span style="font-weight: bold;"><b>Create 
+ Contract</b></span>, System displays the following fields to create contract.</p>
+<p align="justify"><img src="127.JPG" alt="127.JPG" style="border: none;" width="803" height="257" border="0" /></p>
+<p align="justify">12. Click Search Company, the Manage company popup is 
+ displayed as displayed below:</p>
+<p align="justify"><img src="128.JPG" alt="128.JPG" style="border: none;" width="1005" height="153" border="0" /></p>
+<p align="justify">13. Enter the relevant search fields and click <span 
+	 style="font-weight: bold;"><b>Search</b></span>.</p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a4">Note:</a><span class="expandtext" id="POPUP356586677" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;By 
+ clicking on Reset, system clears the entered fields.</i></font></span></span> </p>
+<p align="justify">14. Select the company from the search result and click 
+ on Add.</p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a5">Note:</a><span class="expandtext" id="POPUP356585887" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;By 
+ clicking on Cancel, system exits the manage company pop up.</i></font></span></span> 
+ </p>
+<p align="justify">15. Click <span style="font-weight: bold;"><b>Search Artist</b></span> 
+ button, the manage Artist pop up is displayed.</p>
+<p align="justify"><img src="129.JPG" alt="129.JPG" style="border: none;" width="1005" height="160" border="0" /></p>
+<p align="justify">16. Enter the relevant search fields and click <span 
+	 style="font-weight: bold;"><b>Search</b></span>.</p>
+<p align="justify"><img src="130.JPG" alt="130.JPG" style="border: none;" width="1003" height="507" border="0" /></p>
+<p align="justify">17. Select the Artist from the search result and click 
+ on <span style="font-weight: bold;"><b>Add.</b></span></p>
+<p style="font-weight: bold;" align="justify"><img src="131.JPG" alt="131.JPG" style="border: none;" width="802" height="256" border="0" /></p>
+<p style="font-weight: bold;" align="justify">18. <span style="font-weight: normal;">You 
+ can enter the Clearance Notes in the text area and click on </span>Create.</p>
+<p style="font-weight: bold;" align="justify"><img src="132.JPG" alt="132.JPG" style="border: none;" width="899" height="446" border="0" /></p>
+<p align="justify">19. System displays the created clearance routing contract 
+ on manage contract screen. Click <span style="font-weight: bold;"><b>Save.</b></span></p>
+<p align="justify">20. System will navigate back to Inbox RHS with the 
+ select contract displayed in contract column</p>
+<p align="justify">21.<span style="font-weight: bold;"><b> Route:</b></span> Select 
+ one or more request from the Admin Inbox and click Route.</p>
+<p align="justify"><img src="133.JPG" alt="133.JPG" style="border: none;" width="1024" height="366" border="0" /></p>
+<p align="justify">22. System identifies the relevant Work group to route 
+ the request.</p>
+<p align="justify"><img src="134.JPG" alt="134.JPG" style="border: none;" width="1024" height="366" border="0" /></p>
+<p align="justify">23. <span style="font-weight: bold;"><b>Approve:</b></span> 
+ By clicking Approve hyperlink, system updates the final status of each 
+ of the request in project as approved and sends the notification to Requestor.</p>
+<p align="justify"><a class="expandspot" href="javascript:TextPopup(this)" 
+						 id="a19">Note:</a><span class="expandtext" id="POPUP356571461" 
+ style="display: none;"><span style="font-size: 12pt; font-style: italic; 
+								 font-family: 'Times New Roman', serif;"><font size="3" style="font-size:12pt;"><i>&#160;Approve 
+ hyperlink is enabled only for One stop Request</i></font></span></span> </p>
+<p align="justify">24. <span style="font-weight: bold;"><b>Refresh:</b></span> 
+ By clicking on the Refresh icon, you can manually refresh the Inbox at 
+ any point in time.</p>
+<p align="justify">25. <span style="font-weight: bold;"><b>Notifications:</b></span> 
+ The Inbox will have a notification icon with a counter to show the number 
+ of unread notifications in the Inbox.</p>
+<p align="justify">26. Click on specific notification, System will directly 
+ navigate the requestor to the project in the Inbox in a new browser tab 
+ for which the notification has been received and right hand side of the 
+ project will be displayed. </p>
+<p align="justify">27. System also removes any other notifications for 
+ the same project for all the users in the Inbox. It also removes the bold 
+ highlight against the project in Inbox for the individual user.</p>
+<p align="justify">28. If you click directly on the project in the Inbox 
+ without clicking on the project notification, System removes all the notifications 
+ related to the project from the Inbox of the workgroup.</p>
+<p align="justify">&#160;</p>
+<p align="justify">&#160;</p>
+<p align="justify">&#160;</p>
+
+
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+	if( typeof( TextPopupInit ) != 'function' ) TextPopupInit = new Function();
+	TextPopupInit('a1','POPUP356567007');
+	TextPopupInit('a14','POPUP356562310');
+	TextPopupInit('a15','POPUP356560599');
+	TextPopupInit('a2','POPUP356584712');
+	TextPopupInit('a16','POPUP356565814');
+	TextPopupInit('a17','POPUP356569817');
+	TextPopupInit('a18','POPUP356569628');
+	TextPopupInit('a3','POPUP356560321');
+	TextPopupInit('a4','POPUP356586677');
+	TextPopupInit('a5','POPUP356585887');
+	TextPopupInit('a19','POPUP356571461');
+//]]></script>
+<script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+</body>
+</html>

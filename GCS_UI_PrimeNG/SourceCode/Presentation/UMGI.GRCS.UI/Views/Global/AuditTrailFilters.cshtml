@@ -1,0 +1,105 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.BaseEntities
+@model List<AuditTrailFilter>
+<div id="accordion">    
+  @Html.HiddenFor(model => model.Count, new {id="auditFilterCount" })
+   @for (int i = 0; i < Model.Count; i++)
+   {
+       if (Model[i].Level == 1)
+       {
+        <div>
+        @*<h3 style="border:0px !important; background-color:#485472;"><a href="#">@Html.DisplayFor(model => Model[i].DisplayName) </a></h3>       *@
+        @if(Model[i].AuditConfigId!=218)
+        {
+            <div class="headerDv1" >
+              <h5 class="downArrow prjInfoRegHeader">
+                   <ul class="upper_header">
+                   <li class="first"><a href="#">@Html.DisplayFor(model => Model[i].DisplayName) </a></li>
+                   </ul>
+              </h5>
+            </div>
+         }
+        <div class="div1" id="childDiv">
+        @for (int j = i + 1; j < Model.Count; j++)
+        {
+            if (Model[j].Level > 1)
+            {
+                if (Model[j].ParentAuditConfigId == Model[i].AuditConfigId)
+                {
+                    <div class="listItemDiv"><input id="CheckboxItem@(Model[j].AuditConfigId)" type="checkbox" /> @Html.DisplayFor(model => Model[j].DisplayName) <br /></div>
+                    @Html.HiddenFor(model => model[j].ParentAuditConfigId, new { id = "itemParent" + Model[j].AuditConfigId })
+                    @Html.HiddenFor(model => model[j].Level, new { id = "itemLevel" + Model[j].AuditConfigId })
+
+                    if (Model.Count - 1 != j)
+                    {
+                        if (Model[j + 1].ParentAuditConfigId == Model[j].AuditConfigId)
+                        {    
+                              @Html.Hidden("itemHasChild" + Model[j].AuditConfigId, "yes")
+                        }
+                        else
+                        {    
+                              @Html.Hidden("itemHasChild" + Model[j].AuditConfigId, "no")
+                        }
+
+                    }
+                }
+
+
+                else if (Model[j].ParentAuditConfigId == Model[j - 1].AuditConfigId)
+                { 
+                <div id="Level@(Model[j].Level)" class="childDiv" style="padding-left:@(Model[j].Level * 10);">                
+                @for (int k = j; k < Model.Count; k++)
+                {
+                    if (Model[k].ParentAuditConfigId == Model[j - 1].AuditConfigId)
+                    {
+                    
+                     <ul>
+                          <li><input id="CheckboxItem@(Model[k].AuditConfigId)" class="child@(j - 1)" type="checkbox" /> @Html.DisplayFor(model => Model[k].DisplayName) <br /></li>
+                           @Html.HiddenFor(model => model[k].ParentAuditConfigId, new { id = "itemParent" + Model[k].AuditConfigId })
+                           @Html.HiddenFor(model => model[j].Level, new { id = "itemLevel" + Model[j].AuditConfigId })
+
+                           @if (Model.Count - 1 != k)
+                           {
+                               if (Model[k + 1].ParentAuditConfigId == Model[k].AuditConfigId)
+                               {    
+                                    @Html.Hidden("itemHasChild" + Model[k].AuditConfigId, "yes")
+                               }
+                               else
+                               {    
+                                    @Html.Hidden("itemHasChild" + Model[k].AuditConfigId, "no")
+                               }
+
+                           }
+                     </ul>    
+                   
+                    }
+                    @*else if (Model[k].ParentAuditConfigId == Model[j - 1].AuditConfigId && Model[k+1].ParentAuditConfigId == Model[k].AuditConfigId)
+                    {
+                    
+                     <ul>
+                          <li><input id="CheckboxItem@(Model[j].AuditConfigId)" class="child@(j - 1)" type="checkbox" /> @Html.DisplayFor(model => Model[k].DisplayName) <br /></li>                          
+                          @Html.HiddenFor(model => model[j].ParentAuditConfigId, new { id = "itemParent" + Model[k].AuditConfigId })
+                          @Html.Hidden("itemHasChild" + j, "yes")                          
+                     </ul>    
+                   
+                    }*@
+                    else
+                    {
+                        j = k - 1;
+                        break;
+                    }
+                }
+            </div>
+                }
+            }
+            else
+            {
+                i = j - 1;
+                break;
+            }
+        }
+            
+        </div>        
+    </div>       
+       }
+   }
+</div>

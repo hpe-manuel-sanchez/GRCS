@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <WorkFlow>
+    <ToAddress>~EmailTo~</ToAddress>
+    <Subject>Status Change</Subject>
+    <MessageBody>
+      <![CDATA[<html>
+<b><h3>Dear GRCS User,</h3></b>
+<p>This mail is to intimate that the following contract’s workflow status has been changed. The details are as follows.</p>
+<H4>Work Flow Status Change Details:</H4>
+<table border = 1> 
+<tr>
+<th>Description</th>
+<th>Values</th>
+</tr>
+<tr>
+<td> Contract ID </td>
+<td> ~ContractID~ </td>
+</tr>
+<tr>
+<td> Contract Description </td>
+<td> ~ContractDescription~ </td>
+</tr>
+<tr>
+<td>  Rights Type </td>
+<td>  ~RightsType~ </td>
+</tr>
+<tr>
+<td> Artist </td>
+<td> ~Artist~ </td>
+</tr>
+<tr>
+<td> Contracting Party </td>
+<td> ~ContractingParty~ </td>
+</tr>
+<tr>
+<td> Territorial Rights </td>
+<td> ~TerritorialRights~ </td>
+</tr>
+<tr>
+<td>  Umg Signing Company </td>
+<td>  ~UmgSigningCompany~ </td>
+</tr>
+<tr>
+<td> Clearance Admin Company </td>
+<td> ~ClearanceAdminCompany~ </td>
+</tr>
+<tr>
+<td> Contract Commencement Date </td>
+<td> ~ContractCommencementDate~ </td>
+</tr>
+<tr>
+<td> Local Contract Ref. No </td>
+<td> ~LocalContractRefNo~ </td>
+</tr>
+<tr>
+<td> Work Flow Status </td>
+<td> ~WorkFlowStatus~ </td>
+</tr>
+<td> Contract Status </td>
+<td> ~ContractStatus~ </td>
+</tr>
+<tr>
+<td> Last Status Change Date </td>
+<td> ~LastStatusChangeDate~ </td>
+</tr>
+</table>
+<tfoot>
+<hr>
+<b>::DISCLAIMER::<br>
+This is an auto-generated mail please do not reply back.<br>
+This message and any attachment(s) contained here are information that is confidential, proprietary to GRCS and its customers.<br>
+This communication is for the sole use of the intended recipient(s) and may contain confidential and privileged information.<br> 
+Any unauthorized review, use, disclosure or distribution of this information is prohibited.<br>
+If you have received this email in error or if you are not the intended recipient, please notify the sender by email (xxxxx) 
+and delete all copies of the message.<br>
+<hr>
+</tfoot>
+</body>
+</html>
+]]>
+    </MessageBody>
+  </WorkFlow>
+  <RightsExpiry>
+    <ToAddress>~EmailTo~</ToAddress>
+    <Subject>Status Change</Subject>
+    <MessageBody>
+      <![CDATA[<html>
+<b><h3>Dear GRCS User,</h3></b>
+	<p>The Releases in the following Grid are pertaining to ~RightsCountry~ Territorial Rights Country.
+These Releases are losing rights in the period starting from ~StartDate~ to ~EndDate~
+
+Releases Where Rights are due to be lost are as under Below:
+</H4>
+<table border = 1> 
+<tr>
+<th> S.No. </th>
+<th> Release  ID (UPC) </th> 
+<th> Rights Period </th> 
+<th> Rights Expiry Rules </th>
+<th> Lost Rights Date </th> 
+<th> Lost Rights Indicator </th> 
+<th> Lost Rights Reason </th>
+<th> Physical exploitation Rights </th> 
+<th> Digital Exploitation Rights </th> 
+<th> Territorial Rights </th> 
+</tr>
+<tr>
+<th> ~SNo~ </th>
+<th> ~ReleaseIdUPC~ </th> 
+<th> ~RightsPeriod~ </th> 
+<th> ~RightsExpiryRules~ </th>
+<th> ~LostRightsDate~ </th> 
+<th> ~LostRightsIndicator~ </th> 
+<th> ~LostRightsReason~ </th>
+<th> ~HasPhysicalExploitationRights~ </th> 
+<th> ~HasDigitalExploitationRights~ </th> 
+<th> ~TerritorialRights~ </th> 
+</tr>
+</table>
+<tfoot>
+<hr>
+<b>::DISCLAIMER::<br>
+This is an auto-generated mail please do not reply back.<br>
+This message and any attachment(s) contained here are information that is confidential, proprietary to GRCS and its customers.<br>
+This communication is for the sole use of the intended recipient(s) and may contain confidential and privileged information.<br> 
+Any unauthorized review, use, disclosure or distribution of this information is prohibited.<br>
+If you have received this email in error or if you are not the intended recipient, please notify the sender by email (xxxxx) 
+and delete all copies of the message.<br>
+<hr>
+</tfoot>
+</body>
+</html>
+]]>
+    </MessageBody>
+  </RightsExpiry>
+</Root>
+

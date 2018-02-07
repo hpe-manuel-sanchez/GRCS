@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://ds-6cf049fd17ad.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="RightsCountry">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ComapnyId" nillable="true" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIds" nillable="true" type="q2:ArrayOflong" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:long" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Ids" nillable="true" type="q3:ArrayOflong" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsCountry" nillable="true" type="tns:RightsCountry" />
+  <xs:complexType name="ArrayOfRightsCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsCountry" nillable="true" type="tns:RightsCountry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsCountry" nillable="true" type="tns:ArrayOfRightsCountry" />
+  <xs:complexType name="RightsRoleGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q4:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="IsDeletedRoleGroup" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsInsertedRoleGroup" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsRoleGroup" nillable="true" type="tns:RightsRoleGroup" />
+  <xs:complexType name="ArrayOfRightsRoleGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsRoleGroup" nillable="true" type="tns:RightsRoleGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsRoleGroup" nillable="true" type="tns:ArrayOfRightsRoleGroup" />
+  <xs:complexType name="RightsExpiryReportParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q5:BaseSearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Notification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightExpiryId" type="xs:long" />
+          <xs:element minOccurs="0" name="RightsCountries" nillable="true" type="tns:RightsCountry" />
+          <xs:element minOccurs="0" name="RoleGroup" nillable="true" type="tns:ArrayOfRightsRoleGroup" />
+          <xs:element minOccurs="0" name="RoleGroupFilter" nillable="true" type="tns:RightsRoleGroup" />
+          <xs:element minOccurs="0" name="RoleGroupNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsExpiryReportParameter" nillable="true" type="tns:RightsExpiryReportParameter" />
+  <xs:complexType name="RightsExpiryWindowCriteira">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q6:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:long" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Criteria" nillable="true" type="q7:FilterFields" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Ids" nillable="true" type="q8:ArrayOfNullableOflong" />
+          <xs:element minOccurs="0" name="RoleGroupId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="rightsCountry" nillable="true" type="tns:RightsCountry" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsExpiryWindowCriteira" nillable="true" type="tns:RightsExpiryWindowCriteira" />
+  <xs:complexType name="ArrayOfRightsExpiryReportParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsExpiryReportParameter" nillable="true" type="tns:RightsExpiryReportParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsExpiryReportParameter" nillable="true" type="tns:ArrayOfRightsExpiryReportParameter" />
+  <xs:complexType name="RightsReviewRule">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q9:BaseSearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataReviewLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="IsReviewConditionLevel" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RightsCountries" nillable="true" type="tns:RightsCountry" />
+          <xs:element minOccurs="0" name="RightsDataReviewCondition" nillable="true" type="tns:ArrayOfRightsDataReviewCondition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsReviewRule" nillable="true" type="tns:RightsReviewRule" />
+  <xs:complexType name="ArrayOfRightsDataReviewCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsDataReviewCondition" nillable="true" type="tns:RightsDataReviewCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsDataReviewCondition" nillable="true" type="tns:ArrayOfRightsDataReviewCondition" />
+  <xs:complexType name="RightsDataReviewCondition">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q10:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsReview" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReviewOptionId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReviewRuleTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightCountry" nillable="true" type="tns:RightsCountry" />
+          <xs:element minOccurs="0" name="RightsReviewId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="RightsReviewTypeId" nillable="true" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsDataReviewCondition" nillable="true" type="tns:RightsDataReviewCondition" />
+  <xs:complexType name="RightsDataReviewCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q11:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Contractid" type="xs:long" />
+          <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:long" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Criteria" nillable="true" type="q12:FilterFields" />
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Ids" nillable="true" type="q13:ArrayOflong" />
+          <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rightsCountry" nillable="true" type="tns:RightsCountry" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsDataReviewCriteria" nillable="true" type="tns:RightsDataReviewCriteria" />
+  <xs:complexType name="ArrayOfRightsReviewRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsReviewRule" nillable="true" type="tns:RightsReviewRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsReviewRule" nillable="true" type="tns:ArrayOfRightsReviewRule" />
+  <xs:complexType name="RightsDefaultForRepertoire">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q14:BaseSearch">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Criteria" nillable="true" type="q15:FilterFields" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="DigitalRestriction" nillable="true" type="q16:ArrayOfContractDigitalRestrictions" />
+          <xs:element minOccurs="0" name="IsDefaultRight" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDigitalExploitation" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDigitalUnbundle" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPhysicalRights" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastModifiedDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReviewStatusType" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="RightAcquiredTemplateId" type="xs:long" />
+          <xs:element minOccurs="0" name="RightSetTemplateId" type="xs:int" />
+          <xs:element minOccurs="0" name="RightsCountries" nillable="true" type="tns:RightsCountry" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="TerritorialList" nillable="true" type="q17:ArrayOfTerritorialDisplay" />
+          <xs:element minOccurs="0" name="TerritorialRights" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsDefaultForRepertoire" nillable="true" type="tns:RightsDefaultForRepertoire" />
+  <xs:complexType name="RightsDefaultRepertoireCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q18:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="CountryId" nillable="true" type="xs:long" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Criteria" nillable="true" type="q19:FilterFields" />
+          <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Ids" nillable="true" type="q20:ArrayOflong" />
+          <xs:element minOccurs="0" name="IsDigitalExploitation" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDigitalUnbundle" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPhysicalRights" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReviewStatusType" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="rightsCountry" nillable="true" type="tns:RightsCountry" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RightsDefaultRepertoireCriteria" nillable="true" type="tns:RightsDefaultRepertoireCriteria" />
+  <xs:complexType name="ArrayOfRightsDefaultForRepertoire">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RightsDefaultForRepertoire" nillable="true" type="tns:RightsDefaultForRepertoire" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRightsDefaultForRepertoire" nillable="true" type="tns:ArrayOfRightsDefaultForRepertoire" />
+</xs:schema>

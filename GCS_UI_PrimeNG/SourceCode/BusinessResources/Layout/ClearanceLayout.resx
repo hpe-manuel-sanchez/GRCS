@@ -1,0 +1,2130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CreateProjectHeader" xml:space="preserve">
+    <value>Create New Project</value>
+  </data>
+  <data name="CreateProjectMenuMaster" xml:space="preserve">
+    <value>Master</value>
+  </data>
+  <data name="CreateProjectMenuRegular" xml:space="preserve">
+    <value>Regular/Special</value>
+  </data>
+  <data name="CreateWorkgroupHeader" xml:space="preserve">
+    <value>Create Workgroup</value>
+  </data>
+  <data name="DeactivateWorkgroupMenu" xml:space="preserve">
+    <value>Deactivate Workgroup</value>
+  </data>
+  <data name="DeleteWorkgroupMenu" xml:space="preserve">
+    <value>Delete Workgroup</value>
+  </data>
+  <data name="HomeHeader" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LinkArtistContractsToWorkgroupsMenu" xml:space="preserve">
+    <value>Link Artist Contract(s) To Workgroup(s)</value>
+  </data>
+  <data name="LinkResourceContractsToWorkgroupsMenu" xml:space="preserve">
+    <value>Link Resource Contract(s) To Workgroup(s)</value>
+  </data>
+  <data name="LogoutButton" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MaintainWorkgroupMenu" xml:space="preserve">
+    <value>Maintain Workgroup</value>
+  </data>
+  <data name="ManageDeviationsHeader" xml:space="preserve">
+    <value>Manage Deviation</value>
+  </data>
+  <data name="ManageHeader" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="MasterProjectAdvertisingAdvertisedProductsLabel" xml:space="preserve">
+    <value>Advertised Products:</value>
+  </data>
+  <data name="MasterProjectAdvertisingChkbox" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="MasterProjectAdvertisingCinemaChkbox" xml:space="preserve">
+    <value>Cinema</value>
+  </data>
+  <data name="MasterProjectAdvertisingDurationFromLabel" xml:space="preserve">
+    <value>Duration From:</value>
+  </data>
+  <data name="MasterProjectAdvertisingDurationToLabel" xml:space="preserve">
+    <value>Duration To:</value>
+  </data>
+  <data name="MasterProjectAdvertisingHeader" xml:space="preserve">
+    <value>Advertising </value>
+  </data>
+  <data name="MasterProjectAdvertisingInitialNoOfVideosLabel" xml:space="preserve">
+    <value>Initial no of videos:</value>
+  </data>
+  <data name="MasterProjectAdvertisingInternetChkbox" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="MasterProjectAdvertisingNoOfSpotsLabel" xml:space="preserve">
+    <value>No of spots:</value>
+  </data>
+  <data name="MasterProjectAdvertisingOptionalAdditionalRightsLabel" xml:space="preserve">
+    <value>Optional Additional Rights:</value>
+  </data>
+  <data name="MasterProjectAdvertisingOtherChkbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="MasterProjectAdvertisingRadioChkbox" xml:space="preserve">
+    <value>Radio</value>
+  </data>
+  <data name="MasterProjectAdvertisingTVChkbox" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="MasterProjectAdvertisingVideoChkbox" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MasterProjectClientNameLabel" xml:space="preserve">
+    <value>Client Name:</value>
+  </data>
+  <data name="MasterProjectClientWebsiteLabel" xml:space="preserve">
+    <value>Client Website:</value>
+  </data>
+  <data name="MasterProjectCreatedByLabel" xml:space="preserve">
+    <value>Requestor: </value>
+  </data>
+  <data name="MasterProjectCreatedDateLabel" xml:space="preserve">
+    <value>Created Date: </value>
+  </data>
+  <data name="MasterProjectDetailsLabel" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="MasterProjectExcludedLabel" xml:space="preserve">
+    <value>Excluded</value>
+  </data>
+  <data name="MasterProjectFilmChkbox" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="MasterProjectFilmCinemaChkbox" xml:space="preserve">
+    <value>Cinema</value>
+  </data>
+  <data name="MasterProjectFilmHeader" xml:space="preserve">
+    <value>Film</value>
+  </data>
+  <data name="MasterProjectFilmInitialNoOfVideosLabel" xml:space="preserve">
+    <value>Initial no of videos:</value>
+  </data>
+  <data name="MasterProjectFilmInternetChkbox" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="MasterProjectFilmOptionalAdditionalRightsLabel" xml:space="preserve">
+    <value>Optional Additional Rights:</value>
+  </data>
+  <data name="MasterProjectFilmOtherChkbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="MasterProjectFilmTrailerChkbox" xml:space="preserve">
+    <value>Trailer</value>
+  </data>
+  <data name="MasterProjectFilmTVChkbox" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="MasterProjectFilmVideoChkbox" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MasterProjectIncludedLabel" xml:space="preserve">
+    <value>Included</value>
+  </data>
+  <data name="MasterProjectInformationHeader" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
+  <data name="MasterProjectInfoSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MasterProjectInfoSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="MasterProjectLicenseTermLabel" xml:space="preserve">
+    <value>License Term:</value>
+  </data>
+  <data name="MasterProjectLocalReferenceLabel" xml:space="preserve">
+    <value>Local Reference:</value>
+  </data>
+  <data name="MasterProjectManageTerritoriesLabel" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="MasterProjectOtherChkbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="MasterProjectOthersCinemaChkbox" xml:space="preserve">
+    <value>Cinema</value>
+  </data>
+  <data name="MasterProjectOthersHeader" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="MasterProjectOthersInitialNoOfVideosLabel" xml:space="preserve">
+    <value>Initial no of videos:</value>
+  </data>
+  <data name="MasterProjectOthersInternetChkbox" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="MasterProjectOthersOptionalAdditionalRightsLabel" xml:space="preserve">
+    <value>Optional Additional Rights:</value>
+  </data>
+  <data name="MasterProjectOthersOtherChkbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="MasterProjectOthersRadioChkbox" xml:space="preserve">
+    <value>Radio</value>
+  </data>
+  <data name="MasterProjectOthersTVChkbox" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="MasterProjectOthersVideoChkbox" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MasterProjectReferenceLabel" xml:space="preserve">
+    <value>Project Reference:</value>
+  </data>
+  <data name="MasterProjectReleaseCountriesLabel" xml:space="preserve">
+    <value>Release Countries</value>
+  </data>
+  <data name="MasterProjectReqSumCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MasterProjectReqSumClearanceOwnerLabel" xml:space="preserve">
+    <value>Clearance Owner</value>
+  </data>
+  <data name="MasterProjectReqSumConfigurationLabel" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="MasterProjectReqSumISRCLabel" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="MasterProjectReqSumNewResourcesLabel" xml:space="preserve">
+    <value>New Resources</value>
+  </data>
+  <data name="MasterProjectReqSumReApplyButton" xml:space="preserve">
+    <value>Re-Apply</value>
+  </data>
+  <data name="MasterProjectReqSumReInstateButton" xml:space="preserve">
+    <value>Re-Instate</value>
+  </data>
+  <data name="MasterProjectReqSumRequestType" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="MasterProjectReqSumResourceLabel" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="MasterProjectReqSumReviewCommentLabel" xml:space="preserve">
+    <value>Review Comment</value>
+  </data>
+  <data name="MasterProjectReqSumReviewDateLabel" xml:space="preserve">
+    <value>Review Date</value>
+  </data>
+  <data name="MasterProjectReqSumReviewerRoleLabel" xml:space="preserve">
+    <value>Reviewer Role</value>
+  </data>
+  <data name="MasterProjectReqSumReviewerWorkgroupLabel" xml:space="preserve">
+    <value>Reviewer Workgroup</value>
+  </data>
+  <data name="MasterProjectReqSumReviewStatusLabel" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="MasterProjectReqSumSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MasterProjectReqSumSubmissionDateLabel" xml:space="preserve">
+    <value>Submission Date</value>
+  </data>
+  <data name="MasterProjectReqSumSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="MasterProjectRequestingCompanyLabel" xml:space="preserve">
+    <value>Requesting Company:</value>
+  </data>
+  <data name="MasterProjectRequestSummaryHeader" xml:space="preserve">
+    <value>Request Summary</value>
+  </data>
+  <data name="MasterProjectRequestTypeLabel" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="MasterProjectResourcesArtistLabel" xml:space="preserve">
+    <value>Artist:</value>
+  </data>
+  <data name="MasterProjectResourcesCommentsLabel" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="MasterProjectResourcesDurationLabel" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="MasterProjectResourcesExcerptTimeLabel" xml:space="preserve">
+    <value>Excerpt Time:</value>
+  </data>
+  <data name="MasterProjectResourcesHeader" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="MasterProjectResourcesISRCLabel" xml:space="preserve">
+    <value>ISRC:</value>
+  </data>
+  <data name="MasterProjectResourcesManageTerritoriesButton" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="MasterProjectResourcesMusicTypeLabel" xml:space="preserve">
+    <value>Music Type:</value>
+  </data>
+  <data name="MasterProjectResourcesRecordingTypeLabel" xml:space="preserve">
+    <value>Recording Type</value>
+  </data>
+  <data name="MasterProjectResourcesReleaseCountriesExcludeLabel" xml:space="preserve">
+    <value>Release Countries Exclude:</value>
+  </data>
+  <data name="MasterProjectResourcesReleaseCountriesIncludeLabel" xml:space="preserve">
+    <value>Release Countries Include:</value>
+  </data>
+  <data name="MasterProjectResourcesResourcesLabel" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="MasterProjectResourcesResourceTypeLabel" xml:space="preserve">
+    <value>Resource Type</value>
+  </data>
+  <data name="MasterProjectResourcesSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MasterProjectResourcesSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="MasterProjectResourcesSearchLabel" xml:space="preserve">
+    <value>Search By:</value>
+  </data>
+  <data name="MasterProjectResourcesSensitiveExploitationLabel" xml:space="preserve">
+    <value>Sensitive Exploitation</value>
+  </data>
+  <data name="MasterProjectResourcesSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="MasterProjectResourcesSuggestedFeeLabel" xml:space="preserve">
+    <value>Suggested Fee:</value>
+  </data>
+  <data name="MasterProjectResourcesTitleLabel" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="MasterProjectResourcesVersionTitleLabel" xml:space="preserve">
+    <value>Version Title:</value>
+  </data>
+  <data name="MasterProjectSensitiveExploitationLabel" xml:space="preserve">
+    <value>Sensitive Exploitation</value>
+  </data>
+  <data name="MasterProjectStatusLabel" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="MasterProjectTitleLabel" xml:space="preserve">
+    <value>Project Title:</value>
+  </data>
+  <data name="MasterProjectTrailerChkbox" xml:space="preserve">
+    <value>Trailer</value>
+  </data>
+  <data name="MasterProjectTrailersCinemaChxbox" xml:space="preserve">
+    <value>Cinema</value>
+  </data>
+  <data name="MasterProjectTrailersHeader" xml:space="preserve">
+    <value>Trailer</value>
+  </data>
+  <data name="MasterProjectTrailersInitialNoOfVideosLabel" xml:space="preserve">
+    <value>Initial no of videos:</value>
+  </data>
+  <data name="MasterProjectTrailersInternetChxbox" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="MasterProjectTrailersOptionalAdditionalRightsLabel" xml:space="preserve">
+    <value>Optional Additional Rights:</value>
+  </data>
+  <data name="MasterProjectTrailersOtherChxbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="MasterProjectTrailersTVChxbox" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="MasterProjectTrailersVideoChxbox" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="MasterProjectUploadProjectDocumentsLabel" xml:space="preserve">
+    <value>Upload Project Documents:</value>
+  </data>
+  <data name="MastertProjectInformationDetailsLabel" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
+  <data name="PhysicalChkbox" xml:space="preserve">
+    <value>Physical</value>
+  </data>
+  <data name="RegularProjectInfoCompilationLabel" xml:space="preserve">
+    <value>Compilation</value>
+  </data>
+  <data name="RegularProjectInfoCreatedByLabel" xml:space="preserve">
+    <value>Created By:</value>
+  </data>
+  <data name="RegularProjectInfoCreatedDateLabel" xml:space="preserve">
+    <value>Created Date:</value>
+  </data>
+  <data name="RegularProjectInfoDetailsLabel" xml:space="preserve">
+    <value>Details:</value>
+  </data>
+  <data name="RegularProjectInfoEstimatedSalesUnitsLabel" xml:space="preserve">
+    <value>Estimated Sales/Units:</value>
+  </data>
+  <data name="RegularProjectInfoExcludedLabel" xml:space="preserve">
+    <value>Excluded</value>
+  </data>
+  <data name="RegularProjectInfoHighPriorityLabel" xml:space="preserve">
+    <value>High Priority</value>
+  </data>
+  <data name="RegularProjectInfoIncludedLabel" xml:space="preserve">
+    <value>Included</value>
+  </data>
+  <data name="RegularProjectInfoLicenseTermLabel" xml:space="preserve">
+    <value>License Term:</value>
+  </data>
+  <data name="RegularProjectInfoLocalReferenceLabel" xml:space="preserve">
+    <value>Local Reference:</value>
+  </data>
+  <data name="RegularProjectInfoManageTerritoriesButton" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="RegularProjectInfoMultiArtistChkbox" xml:space="preserve">
+    <value>Multi Artist</value>
+  </data>
+  <data name="RegularProjectInfoOneStopLabel" xml:space="preserve">
+    <value>One Stop</value>
+  </data>
+  <data name="RegularProjectInfoProjectReferenceLabel" xml:space="preserve">
+    <value>Project Reference:</value>
+  </data>
+  <data name="RegularProjectInfoProjectTitleLabel" xml:space="preserve">
+    <value>Project Title:</value>
+  </data>
+  <data name="RegularProjectInfoReleaseDateLabel" xml:space="preserve">
+    <value>Release Date:</value>
+  </data>
+  <data name="RegularProjectInfoReleaseTerritoriesLabel" xml:space="preserve">
+    <value>Release Territories:</value>
+  </data>
+  <data name="RegularProjectInfoRequestingCompanyLabel" xml:space="preserve">
+    <value>Requesting Company:</value>
+  </data>
+  <data name="RegularProjectInfoSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="RegularProjectInfoSensitiveExploitationLabel" xml:space="preserve">
+    <value>Sensitive Exploitation</value>
+  </data>
+  <data name="RegularProjectInfoStatusLabel" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="RegularProjectInfoSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="RegularProjectInfoThirdPartyChxbox" xml:space="preserve">
+    <value>3rd Party</value>
+  </data>
+  <data name="RegularProjectInfoThirdPartyCompanyLabel" xml:space="preserve">
+    <value>3rd Party Company:</value>
+  </data>
+  <data name="RegularProjectInfoThirdPartyLabel" xml:space="preserve">
+    <value>Third Party</value>
+  </data>
+  <data name="RegularProjectInfoThirdPartyRepertoireLabel" xml:space="preserve">
+    <value>Third Party Repertoire:</value>
+  </data>
+  <data name="RegularProjectInfoUploadProjectDocumentsLabel" xml:space="preserve">
+    <value>Upload Project Documents:</value>
+  </data>
+  <data name="RegularProjectProjectInformationLabel" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
+  <data name="RegularProjReqSumERClearanceOwnerLabel" xml:space="preserve">
+    <value>Clearance Owner</value>
+  </data>
+  <data name="RegularProjReqSumERConfigurationLabel" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="RegularProjReqSumERISRCLabel" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="RegularProjReqSumERRequestTypeLabel" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="RegularProjReqSumERReviewCommentLabel" xml:space="preserve">
+    <value>Review Comment</value>
+  </data>
+  <data name="RegularProjReqSumERReviewDateLabel" xml:space="preserve">
+    <value>Review Date</value>
+  </data>
+  <data name="RegularProjReqSumERReviewerRoleLabel" xml:space="preserve">
+    <value>Reviewer Role</value>
+  </data>
+  <data name="RegularProjReqSumERReviewerWorkgroupLabel" xml:space="preserve">
+    <value>Reviewer Workgroup</value>
+  </data>
+  <data name="RegularProjReqSumERReviewStatusLabel" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="RegularProjReqSumERRoutingDetailLink" xml:space="preserve">
+    <value>Routing Detail</value>
+  </data>
+  <data name="RegularProjReqSumERSubmissionDateLabel" xml:space="preserve">
+    <value>Submission Date</value>
+  </data>
+  <data name="RegularProjReqSumNRClearanceOwnerLabel" xml:space="preserve">
+    <value>Clearance Owner</value>
+  </data>
+  <data name="RegularProjReqSumNRConfigurationLabel" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="RegularProjReqSumNRISRCLabel" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="RegularProjReqSumNRRequestTypeLabel" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="RegularProjReqSumNRReviewCommentLabel" xml:space="preserve">
+    <value>Review Comment</value>
+  </data>
+  <data name="RegularProjReqSumNRReviewDateLabel" xml:space="preserve">
+    <value>Review Date</value>
+  </data>
+  <data name="RegularProjReqSumNRReviewerRoleLabel" xml:space="preserve">
+    <value>Reviewer Role</value>
+  </data>
+  <data name="RegularProjReqSumNRReviewerWorkgroupLabel" xml:space="preserve">
+    <value>Reviewer Workgroup</value>
+  </data>
+  <data name="RegularProjReqSumNRReviewStatusLabel" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="RegularProjReqSumNRRoutingDetailLink" xml:space="preserve">
+    <value>Routing Detail</value>
+  </data>
+  <data name="RegularProjReqSumNRSubmissionDateLabel" xml:space="preserve">
+    <value>Submission Date</value>
+  </data>
+  <data name="RegularProjReqSumResourceLabel" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="RegularProjReqSumResourcesOfExistingReleaseHeader" xml:space="preserve">
+    <value>Resources of Existing Release</value>
+  </data>
+  <data name="RegularProjReqSumResourcesOfNewReleaseHeader" xml:space="preserve">
+    <value>Resources of new Release</value>
+  </data>
+  <data name="RegularProjReqSumTitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="RegularProjReqSumUPCLabel" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="RegularProjReqTypeAdditionalMailOrderChkbox" xml:space="preserve">
+    <value>Additional Mail Order</value>
+  </data>
+  <data name="RegularProjReqTypeAlaCarteDownloadChkbox" xml:space="preserve">
+    <value>A la carte Download</value>
+  </data>
+  <data name="RegularProjReqTypeCampaignCountriesLabel" xml:space="preserve">
+    <value>Campaign Countries:</value>
+  </data>
+  <data name="RegularProjReqTypeClientNameTxtbox" xml:space="preserve">
+    <value>Client Name:</value>
+  </data>
+  <data name="RegularProjReqTypeClientWebsiteTxtbox" xml:space="preserve">
+    <value>Client Website:</value>
+  </data>
+  <data name="RegularProjReqTypeClubChkbox" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="RegularProjReqTypeClubHeader" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="RegularProjReqTypeCurrentPriceLevelDrpdwn" xml:space="preserve">
+    <value>Current Price Level:</value>
+  </data>
+  <data name="RegularProjReqTypeDigitalChkbox" xml:space="preserve">
+    <value>Digital</value>
+  </data>
+  <data name="RegularProjReqTypeDigitalRevenueSplitHeader" xml:space="preserve">
+    <value>Digital Revenue Split</value>
+  </data>
+  <data name="RegularProjReqTypeDigitalSalesSplitHeader" xml:space="preserve">
+    <value>Digital Sales Split</value>
+  </data>
+  <data name="RegularProjReqTypeDirectResponseChkbox" xml:space="preserve">
+    <value>Direct Response</value>
+  </data>
+  <data name="RegularProjReqTypeDistributionToTxtbox" xml:space="preserve">
+    <value>Distribution To:</value>
+  </data>
+  <data name="RegularProjReqTypeDRSRevenueToDateTxtbox" xml:space="preserve">
+    <value>Revenue to Date:</value>
+  </data>
+  <data name="RegularProjReqTypeDRSRevenueWithoutTxtbox" xml:space="preserve">
+    <value>Revenue Without:</value>
+  </data>
+  <data name="RegularProjReqTypeDRSRevenueWithTxtbox" xml:space="preserve">
+    <value>Revenue With:</value>
+  </data>
+  <data name="RegularProjReqTypeDSSSalesToDateTxtbox" xml:space="preserve">
+    <value>Sales to Date:</value>
+  </data>
+  <data name="RegularProjReqTypeDSSSalesWithoutTxtbox" xml:space="preserve">
+    <value>Sales Without:</value>
+  </data>
+  <data name="RegularProjReqTypeDSSSalesWithTxtbox" xml:space="preserve">
+    <value>Sales With:</value>
+  </data>
+  <data name="RegularProjReqTypeDurationFromLabel" xml:space="preserve">
+    <value>Duration From:</value>
+  </data>
+  <data name="RegularProjReqTypeDurationToLabel" xml:space="preserve">
+    <value>Duration To:</value>
+  </data>
+  <data name="RegularProjReqTypeEducationalChkbox" xml:space="preserve">
+    <value>Educational</value>
+  </data>
+  <data name="RegularProjReqTypeExcludedLabel" xml:space="preserve">
+    <value>Excluded</value>
+  </data>
+  <data name="RegularProjReqTypeGiveAwayCommentsTxtArea" xml:space="preserve">
+    <value>Give Away Comments:</value>
+  </data>
+  <data name="RegularProjReqTypeGiveAwayFreeOfChargeChkbox" xml:space="preserve">
+    <value>Give Away Free of Charge</value>
+  </data>
+  <data name="RegularProjReqTypeIncludedLabel" xml:space="preserve">
+    <value>Included</value>
+  </data>
+  <data name="RegularProjReqTypeInternetChkbox" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="RegularProjReqTypeIntroductoryUseChkbox" xml:space="preserve">
+    <value>Introductory Use</value>
+  </data>
+  <data name="RegularProjReqTypeKioskChkbox" xml:space="preserve">
+    <value>Kiosk</value>
+  </data>
+  <data name="RegularProjReqTypeMailOrderChkbox" xml:space="preserve">
+    <value>Mail Order</value>
+  </data>
+  <data name="RegularProjReqTypeManageCountriesButton" xml:space="preserve">
+    <value>Manage Countries</value>
+  </data>
+  <data name="RegularProjReqTypeManufacturedByUMGDrpdwn" xml:space="preserve">
+    <value>Manufactured by UMG:</value>
+  </data>
+  <data name="RegularProjReqTypeMediaPromoSpendCommentTxtArea" xml:space="preserve">
+    <value>Media Promo Spend Comment:</value>
+  </data>
+  <data name="RegularProjReqTypeMobileRealTonesmastersDownloadChkbox" xml:space="preserve">
+    <value>Mobile Real Tones(masters) Download</value>
+  </data>
+  <data name="RegularProjReqTypeMobileRingBackDownloadChkbox" xml:space="preserve">
+    <value>Mobile Ring Back Tones</value>
+  </data>
+  <data name="RegularProjReqTypeNonTraditionalHeader" xml:space="preserve">
+    <value>Non Traditional</value>
+  </data>
+  <data name="RegularProjReqTypeNonTrditionalChkbox" xml:space="preserve">
+    <value>Non Traditional</value>
+  </data>
+  <data name="RegularProjReqTypeOtherChkbox" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="RegularProjReqTypeOtherCommentsTxtArea" xml:space="preserve">
+    <value>Other Comments:</value>
+  </data>
+  <data name="RegularProjReqTypeOthersBudgetInUSDLabel" xml:space="preserve">
+    <value>Budget in USD:</value>
+  </data>
+  <data name="RegularProjReqTypeOthersBudgetLabel" xml:space="preserve">
+    <value>Budget:</value>
+  </data>
+  <data name="RegularProjReqTypeOthersChkbox" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="RegularProjReqTypeOthersOtherMediaDetailsLabel" xml:space="preserve">
+    <value>Other Media Details:</value>
+  </data>
+  <data name="RegularProjReqTypeOthersProductionCostOfCommercialLabel" xml:space="preserve">
+    <value>Production Cost of Commercial:</value>
+  </data>
+  <data name="RegularProjReqTypePartworkChkbox" xml:space="preserve">
+    <value>Partwork</value>
+  </data>
+  <data name="RegularProjReqTypePhysicalChkbox" xml:space="preserve">
+    <value>Physical</value>
+  </data>
+  <data name="RegularProjReqTypePhysicalRevenueSplitHeader" xml:space="preserve">
+    <value>Physical Revenue Split</value>
+  </data>
+  <data name="RegularProjReqTypePhysicalSalesSplitHeader" xml:space="preserve">
+    <value>Physical Sales Split</value>
+  </data>
+  <data name="RegularProjReqTypePremiumChkbox" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="RegularProjReqTypePremiumCommentsTxtArea" xml:space="preserve">
+    <value>Premium Comments:</value>
+  </data>
+  <data name="RegularProjReqTypePriceReductionChkbox" xml:space="preserve">
+    <value>Price Reduction</value>
+  </data>
+  <data name="RegularProjReqTypePriceReductionHeader" xml:space="preserve">
+    <value>Price Reduction</value>
+  </data>
+  <data name="RegularProjReqTypeProductionCostOfCommercialLabel" xml:space="preserve">
+    <value>Production Cost of Commercial:</value>
+  </data>
+  <data name="RegularProjReqTypePromotionalChkbox" xml:space="preserve">
+    <value>Promotional</value>
+  </data>
+  <data name="RegularProjReqTypePromotionalHeader" xml:space="preserve">
+    <value>Promotional</value>
+  </data>
+  <data name="RegularProjReqTypePRSRevenueToDateTxtbox" xml:space="preserve">
+    <value>Revenue to Date:</value>
+  </data>
+  <data name="RegularProjReqTypePRSRevenueWithoutTxtbox" xml:space="preserve">
+    <value>Revenue Without:</value>
+  </data>
+  <data name="RegularProjReqTypePRSRevenueWithTxtbox" xml:space="preserve">
+    <value>Revenue With:</value>
+  </data>
+  <data name="RegularProjReqTypePSSSalesToDateTxtbox" xml:space="preserve">
+    <value>Sales to Date:</value>
+  </data>
+  <data name="RegularProjReqTypePSSSalesWithoutTxtbox" xml:space="preserve">
+    <value>Sales Without:</value>
+  </data>
+  <data name="RegularProjReqTypePSSSalesWithTxtbox" xml:space="preserve">
+    <value>Sales With:</value>
+  </data>
+  <data name="RegularProjReqTypeRadioBudgetInUSDLabel" xml:space="preserve">
+    <value>Budget in USD:</value>
+  </data>
+  <data name="RegularProjReqTypeRadioBudgetLabel" xml:space="preserve">
+    <value>Budget:</value>
+  </data>
+  <data name="RegularProjReqTypeRadioChkbox" xml:space="preserve">
+    <value>Radio</value>
+  </data>
+  <data name="RegularProjReqTypeRegularRetailChkbox" xml:space="preserve">
+    <value>Regular Retail</value>
+  </data>
+  <data name="RegularProjReqTypeRequestedPriceLevelDrpdwn" xml:space="preserve">
+    <value>Requested Price Level:</value>
+  </data>
+  <data name="RegularProjReqTypeRequestTypeLabel" xml:space="preserve">
+    <value>Request Type:</value>
+  </data>
+  <data name="RegularProjReqTypeSalesChanelHeader" xml:space="preserve">
+    <value>Sales Chanel:</value>
+  </data>
+  <data name="RegularProjReqTypeScopeAndRequestTypeHeader" xml:space="preserve">
+    <value>Scope and Request Type</value>
+  </data>
+  <data name="RegularProjReqTypeScopeLabel" xml:space="preserve">
+    <value>Scope:</value>
+  </data>
+  <data name="RegularProjReqTypeStreamingChkbox" xml:space="preserve">
+    <value>Streaming</value>
+  </data>
+  <data name="RegularProjReqTypeSubscriptionDownloadChkbox" xml:space="preserve">
+    <value>Subscription Download</value>
+  </data>
+  <data name="RegularProjReqTypeTotalRevenueSplitHeader" xml:space="preserve">
+    <value>Total Revenue Split</value>
+  </data>
+  <data name="RegularProjReqTypeTotalSalesSplitHeader" xml:space="preserve">
+    <value>Total Sales Split</value>
+  </data>
+  <data name="RegularProjReqTypeTRSRevenueToDateTxtbox" xml:space="preserve">
+    <value>Revenue to Date:</value>
+  </data>
+  <data name="RegularProjReqTypeTRSRevenueWithOutTxtbox" xml:space="preserve">
+    <value>Revenue Without:</value>
+  </data>
+  <data name="RegularProjReqTypeTRSRevenueWithTxtbox" xml:space="preserve">
+    <value>Revenue With:</value>
+  </data>
+  <data name="RegularProjReqTypeTSSSalesToDateTxtbox" xml:space="preserve">
+    <value>Sales to Date:</value>
+  </data>
+  <data name="RegularProjReqTypeTSSSalesWithDateTxtbox" xml:space="preserve">
+    <value>Sales With:</value>
+  </data>
+  <data name="RegularProjReqTypeTSSSalesWithoutTxtbox" xml:space="preserve">
+    <value>Sales Without:</value>
+  </data>
+  <data name="RegularProjReqTypeTVBudgetInUSDLabel" xml:space="preserve">
+    <value>Budget in USD:</value>
+  </data>
+  <data name="RegularProjReqTypeTVBudgetLabel" xml:space="preserve">
+    <value>Budget:</value>
+  </data>
+  <data name="RegularProjReqTypeTVChkbox" xml:space="preserve">
+    <value>TV</value>
+  </data>
+  <data name="RegularProjReqTypeTVProductionCostOfCommercialLabel" xml:space="preserve">
+    <value>Production Cost of Commercial:</value>
+  </data>
+  <data name="RegularProjReqTypeTVRadioBreakICLAChkbox" xml:space="preserve">
+    <value>TV/Radio Break ICLA</value>
+  </data>
+  <data name="RegularProjReqTypeTVRadioBreakICLAHeader" xml:space="preserve">
+    <value>TV/Radio Break ICLA</value>
+  </data>
+  <data name="UmgEmailId" xml:space="preserve">
+    <value>Support-admin@umg.com</value>
+  </data>
+  <data name="UmgNumber" xml:space="preserve">
+    <value>+1 7588-892-4541</value>
+  </data>
+  <data name="UserRolesHeader" xml:space="preserve">
+    <value>User Preferences</value>
+  </data>
+  <data name="WelcomeHeader" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="RegularProjResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="RegularProjSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="RegularProjThirdPartyCompanyLabel" xml:space="preserve">
+    <value>3rd Party Company:</value>
+  </data>
+  <data name="RegularProjThirdPartySearchHeader" xml:space="preserve">
+    <value>ThirdPartySearch</value>
+  </data>
+  <data name="ReleaseNewRegArtistNameTxtbox" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ReleaseNewRegArtistTxtbox" xml:space="preserve">
+    <value>Artist:</value>
+  </data>
+  <data name="ReleaseNewRegCollapseAllLink" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="ReleaseNewRegDuplicateLink" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
+  <data name="ReleaseNewRegExpandAllLink" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="ReleaseNewRegFullTitleLabel" xml:space="preserve">
+    <value>Full Title</value>
+  </data>
+  <data name="ReleaseNewRegManageArtistButton" xml:space="preserve">
+    <value>Manage Artist</value>
+  </data>
+  <data name="ReleaseNewRegReleaseHeader" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="ReleaseNewRegRemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ReleaseNewRegSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ReleaseNewRegSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ReleaseNewRegTitleLabel" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="ReleaseNewRegUPCLabel" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="ReleaseNewRegUPCNumberLabel" xml:space="preserve">
+    <value>UPC Number</value>
+  </data>
+  <data name="ReleaseNewRegVersionTitleLabel" xml:space="preserve">
+    <value>Version Title:</value>
+  </data>
+  <data name="ReleaseNewRegVersionTitleTxtbox" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="ReleaseRegArtistNameLabel" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ReleaseRegDeemedPPDTxtbox" xml:space="preserve">
+    <value>Deemed PPD:</value>
+  </data>
+  <data name="ReleaseRegDurationLabel" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="ReleaseRegExistingReleasesInPackageDrpdwn" xml:space="preserve">
+    <value>Existing Releases in Package:</value>
+  </data>
+  <data name="ReleaseRegICLAAccountingBaseTxtbox" xml:space="preserve">
+    <value>ICLA Accounting Base:</value>
+  </data>
+  <data name="ReleaseRegICLAradioButton" xml:space="preserve">
+    <value>ICLA</value>
+  </data>
+  <data name="ReleaseRegInvoicePriceTxtbox" xml:space="preserve">
+    <value>Invoice Price:</value>
+  </data>
+  <data name="ReleaseRegISRCLabel" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="ReleaseRegResourceFeeRadioButton" xml:space="preserve">
+    <value>Resource Fee:</value>
+  </data>
+  <data name="ReleaseRegResourceTitleLabel" xml:space="preserve">
+    <value>Resource Title</value>
+  </data>
+  <data name="ReleaseRegDataSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ReleaseRegSellingPriceLessVATTxtbox" xml:space="preserve">
+    <value>Selling Price Less VAT:</value>
+  </data>
+  <data name="ReleaseRegSequenceLabel" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="ReleaseRegDataVersionTitleLabel" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="ReleaseRegViewExistingReleasesLink" xml:space="preserve">
+    <value>View/Remove Existing Release</value>
+  </data>
+  <data name="ReleaseRegClubHeader" xml:space="preserve">
+    <value>Club</value>
+  </data>
+  <data name="ReleaseRegConfigurationDrpdwn" xml:space="preserve">
+    <value>Configuration:</value>
+  </data>
+  <data name="ReleaseRegDeviatedICLLevelChkbox" xml:space="preserve">
+    <value>Deviated ICLA Level</value>
+  </data>
+  <data name="ReleaseRegICLALevelLabel" xml:space="preserve">
+    <value>ICLA Level:</value>
+  </data>
+  <data name="ReleaseRegLabelDrpdwn" xml:space="preserve">
+    <value>Label:</value>
+  </data>
+  <data name="ReleaseRegMusicTypeDrpdwn" xml:space="preserve">
+    <value>Music Type:</value>
+  </data>
+  <data name="ReleaseRegNonTraditionalHeader" xml:space="preserve">
+    <value>Non Traditional</value>
+  </data>
+  <data name="ReleaseRegNumberOfComponentsTxtbox" xml:space="preserve">
+    <value>Number of Components:</value>
+  </data>
+  <data name="ReleaseRegDataNumberOfTracksTxtbox" xml:space="preserve">
+    <value>Number Of Tracks:</value>
+  </data>
+  <data name="ReleaseRegPackageDrpdwn" xml:space="preserve">
+    <value>Package:</value>
+  </data>
+  <data name="ReleaseRegPriceLevelDrpdwn" xml:space="preserve">
+    <value>Price Level:</value>
+  </data>
+  <data name="ReleaseRegPriceReductionHeader" xml:space="preserve">
+    <value>Price Reduction</value>
+  </data>
+  <data name="ReleaseRegPromotionalHeader" xml:space="preserve">
+    <value>Promotional</value>
+  </data>
+  <data name="ReleaseRegRegularRetailHeader" xml:space="preserve">
+    <value>Regular Retail</value>
+  </data>
+  <data name="ReleaseRegSoundTrackChkbox" xml:space="preserve">
+    <value>Sound Track:</value>
+  </data>
+  <data name="ReleaseRegSuggestedFeeRadioButton" xml:space="preserve">
+    <value>Suggested Fee</value>
+  </data>
+  <data name="ReleaseRegTVBreakICLAHeader" xml:space="preserve">
+    <value>TV/Break ICLA</value>
+  </data>
+  <data name="ReleaseRegTvBreakEstimatedRetailTxtbox" xml:space="preserve">
+    <value>Estimated Retail:</value>
+  </data>
+  <data name="ReleaseRegTvBreakExactPPDTxtbox" xml:space="preserve">
+    <value>Exact PPD:</value>
+  </data>
+  <data name="AdvResSearchAddToProjectButton" xml:space="preserve">
+    <value>Add to Project</value>
+  </data>
+  <data name="AdvResSearchArtistIdLabel" xml:space="preserve">
+    <value>Artist Id:</value>
+  </data>
+  <data name="AdvResSearchArtistNameLabel" xml:space="preserve">
+    <value>Artist Name:</value>
+  </data>
+  <data name="AdvResSearchDataAdminByCompanyLabel" xml:space="preserve">
+    <value>Data Admin By Company</value>
+  </data>
+  <data name="AdvResSearchDurationLabel" xml:space="preserve">
+    <value>Duration:</value>
+  </data>
+  <data name="AdvResSearchIncludeMobileChkbox" xml:space="preserve">
+    <value>Include Mobile</value>
+  </data>
+  <data name="AdvResSearchISRCLabel" xml:space="preserve">
+    <value>ISRC:</value>
+  </data>
+  <data name="AdvResSearchItemsPerPageLabel" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="AdvResSearchPYearLabel" xml:space="preserve">
+    <value>P-Year</value>
+  </data>
+  <data name="AdvResSearchReleaseTitleLabel" xml:space="preserve">
+    <value>Release Title:</value>
+  </data>
+  <data name="AdvResSearchResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="AdvResSearchResourceTitleLabel" xml:space="preserve">
+    <value>Resource Title:</value>
+  </data>
+  <data name="AdvResSearchResourceTypeDrpdwn" xml:space="preserve">
+    <value>Resource Type:</value>
+  </data>
+  <data name="AdvResSearchRightsTypeLabel" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="AdvResSearchSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="AdvResSearchSearchResultForLabel" xml:space="preserve">
+    <value>Search Result For</value>
+  </data>
+  <data name="AdvResSearchSelectAllChkbox" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="AdvResSearchTitleLabel" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="AdvResSearchUPCLabel" xml:space="preserve">
+    <value>UPC:</value>
+  </data>
+  <data name="AdvResSearchVersionTitleLabel" xml:space="preserve">
+    <value>Version Title:</value>
+  </data>
+  <data name="ClrProjSearchAddToProjectButton" xml:space="preserve">
+    <value>Add to Project</value>
+  </data>
+  <data name="ClrProjSearchItemsPerPageLabel" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="ClrProjSearchLocalReferenceLabel" xml:space="preserve">
+    <value>Local Reference</value>
+  </data>
+  <data name="ClrProjSearchLocalReferenceTxtbox" xml:space="preserve">
+    <value>Local Reference:</value>
+  </data>
+  <data name="ClrProjSearchNextLink" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ClrProjSearchProjectReferenceNumberLabel" xml:space="preserve">
+    <value>Project Reference Number</value>
+  </data>
+  <data name="ClrProjSearchProjectReferenceNumberTxtbox" xml:space="preserve">
+    <value>Project Reference Number:</value>
+  </data>
+  <data name="ClrProjSearchProjectTitleLabel" xml:space="preserve">
+    <value>Project Title</value>
+  </data>
+  <data name="ClrProjSearchProjectTitleTxtbox" xml:space="preserve">
+    <value>Project Title:</value>
+  </data>
+  <data name="ClrProjSearchProjectTypeDropdwn" xml:space="preserve">
+    <value>Project Type:</value>
+  </data>
+  <data name="ClrProjSearchProjectTypeLabel" xml:space="preserve">
+    <value>Project Type</value>
+  </data>
+  <data name="ClrProjSearchRequestingCompanyLabel" xml:space="preserve">
+    <value>Requesting Company</value>
+  </data>
+  <data name="ClrProjSearchRequestingCompanyTxtbox" xml:space="preserve">
+    <value>Requesting Company:</value>
+  </data>
+  <data name="ClrProjSearchRequestorTxtbox" xml:space="preserve">
+    <value>Requestor:</value>
+  </data>
+  <data name="ClrProjSearchRequestTypeDropdwn" xml:space="preserve">
+    <value>Request Type:</value>
+  </data>
+  <data name="ClrProjSearchRequestTypeLabel" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="ClrProjSearchResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ClrProjSearchSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ClrProjSearchSearchResultForLabel" xml:space="preserve">
+    <value>Search Result for</value>
+  </data>
+  <data name="ClrProjSearchSelectLabel" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="ClrProjSearchThirdPartyCompanyLabel" xml:space="preserve">
+    <value>3rd Party Company</value>
+  </data>
+  <data name="ClrProjSearchThirdPartyCompanyTxtbox" xml:space="preserve">
+    <value>3rd Party Company:</value>
+  </data>
+  <data name="CreateRegProjCreateRegularProjectHeader" xml:space="preserve">
+    <value>Create New Regular/Non Traditional Project</value>
+  </data>
+  <data name="CreateRegProjExistingLabel" xml:space="preserve">
+    <value>Existing</value>
+  </data>
+  <data name="CreateRegProjNewLabel" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="CreateRegProjProjectInformationHeader" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
+  <data name="CreateRegProjReleaseHeader" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="CreateRegProjReleaseTypeDrpdwn" xml:space="preserve">
+    <value>Release Type:</value>
+  </data>
+  <data name="CreateRegProjRequestSummaryHeader" xml:space="preserve">
+    <value>Request Summary</value>
+  </data>
+  <data name="CreateRegProjRequestTypeHeader" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="CreateRegProjResourcesHeader" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="MasterProjectCreateMasterProjectHeader" xml:space="preserve">
+    <value>Create Master Project</value>
+  </data>
+  <data name="MasterProjectReqSumRoutingDetailsLink" xml:space="preserve">
+    <value>Routing Details</value>
+  </data>
+  <data name="MasterProjectResourcesCollapseAllLink" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="MasterProjectResourcesExpandAllLink" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="MasterProjectResourcesManageArtistLink" xml:space="preserve">
+    <value>Manage Artist</value>
+  </data>
+  <data name="MasterProjectResourcesManageTerritoriesLink" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="MasterProjectResourcesRemoveLink" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RegularProjReqSumSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ReleaseRegCollapseAllLink" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="ReleaseRegExpandAllLink" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="ReleaseRegFullTitleLabel" xml:space="preserve">
+    <value>Full Title</value>
+  </data>
+  <data name="ReleaseRegRemoveLink" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ReleaseRegSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ReleaseRegSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ReleaseRegSearchByLabel" xml:space="preserve">
+    <value>Search By:</value>
+  </data>
+  <data name="ReleaseRegSearchReleaseButton" xml:space="preserve">
+    <value>SearchRelease</value>
+  </data>
+  <data name="ReleaseRegSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ReleaseRegTitleLabel" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="ReleaseRegVersionTitleLabel" xml:space="preserve">
+    <value>Version Title:</value>
+  </data>
+  <data name="SearchForRelAddToProjectButton" xml:space="preserve">
+    <value>Add To Project</value>
+  </data>
+  <data name="SearchForRelArtistIDTxtbox" xml:space="preserve">
+    <value>Artist ID:</value>
+  </data>
+  <data name="SearchForRelArtistNameLabel" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="SearchForRelArtistNameTxtbox" xml:space="preserve">
+    <value>Artist Name:</value>
+  </data>
+  <data name="SearchForRelConfigurationLabel" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="SearchForRelDataAdminByCompanyLabel" xml:space="preserve">
+    <value>Data Admin By Company</value>
+  </data>
+  <data name="SearchForRelDataArtistNameLabel" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="SearchForRelDataDurationLabel" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="SearchForRelDataISRCLabel" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="SearchForRelDataResourceTitleLabel" xml:space="preserve">
+    <value>Resource Title</value>
+  </data>
+  <data name="SearchForRelDataSequence" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="SearchForRelDataVersionTitleLabel" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="SearchForRelItemsPerPageLabel" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="SearchForRelReleaseTitleLabel" xml:space="preserve">
+    <value>Release Title</value>
+  </data>
+  <data name="SearchForRelReleaseTitleTxtbox" xml:space="preserve">
+    <value>Release Title:</value>
+  </data>
+  <data name="R2ProjectIdLabel" xml:space="preserve">
+    <value>R2 Project Id:</value>
+  </data>
+  <data name="SearchForRelR2ProjectIdTxtbox" xml:space="preserve">
+    <value>R2 Project Id:</value>
+  </data>
+  <data name="SearchForRelResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SearchForRelSearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchForRelSearchResultFor" xml:space="preserve">
+    <value>Search Result for :</value>
+  </data>
+  <data name="SearchForRelSelectAllChkbox" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="SearchForRelShowDrpdwn" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="SearchForRelUPCLabel" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="SearchForRelUPCTxtbox" xml:space="preserve">
+    <value>UPC:</value>
+  </data>
+  <data name="SearchForRelVersionTitleLabel" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="MasterProjectOneStopChkbox" xml:space="preserve">
+    <value>One Stop</value>
+  </data>
+  <data name="ReleaseRegConfigurationGroupDrpdwn" xml:space="preserve">
+    <value>Configuration Group:</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddFreehandButton" xml:space="preserve">
+    <value>Add Freehand</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CompanyNameLabel" xml:space="preserve">
+    <value>Company Name:</value>
+  </data>
+  <data name="ManageProjectHeader" xml:space="preserve">
+    <value>Manage Project</value>
+  </data>
+  <data name="NoRecordsFoundMsg" xml:space="preserve">
+    <value>No Results Found</value>
+  </data>
+  <data name="RegularProjectInfoCompanyNameLabel" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="RegularProjectInfoFreeHandLabel" xml:space="preserve">
+    <value>Free Hand</value>
+  </data>
+  <data name="RegularProjectInfoNewRegularOrNonTraditionalProjectLabel" xml:space="preserve">
+    <value>New Regular/Non Traditional Project</value>
+  </data>
+  <data name="RegularProjectInfoRemoveLabel" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RegularProjectInfoRemoveLink" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RegularProjectInfoSearch3rdPartyCompanyButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="CopyButton" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="NResourcesMsg" xml:space="preserve">
+    <value>NO Resources</value>
+  </data>
+  <data name="MasterProjectResourcesRoutingDetailsLink" xml:space="preserve">
+    <value>Routing Details</value>
+  </data>
+  <data name="ManageTerritoriesButton" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="AdvResSearchManageArtistButton" xml:space="preserve">
+    <value>Manage Artist</value>
+  </data>
+  <data name="AdvResSearchNoResultsFoundForMsg" xml:space="preserve">
+    <value>No Results found for</value>
+  </data>
+  <data name="AdvResSearchRecordTypeLabel" xml:space="preserve">
+    <value>Recording Type:</value>
+  </data>
+  <data name="AdvResSearchResourcesAlreadyExistForISRCMsg" xml:space="preserve">
+    <value>has already been saved; you cannot save it again</value>
+  </data>
+  <data name="CreateNewFromExistingProjectHeader" xml:space="preserve">
+    <value>Create New From Existing Project</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SelectDropDownLabel" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SuccesfullMessageProjectSave" xml:space="preserve">
+    <value>Project Saved Successfully</value>
+  </data>
+  <data name="UnsuccesfullMessageProjectSave" xml:space="preserve">
+    <value>Couldnot Save . Please try again</value>
+  </data>
+  <data name="MasterProjectInformationStatus" xml:space="preserve">
+    <value>New Master Project</value>
+  </data>
+  <data name="ResourceTabRemoveLinkButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ClearanceProjectCurrency" xml:space="preserve">
+    <value>Currency :</value>
+  </data>
+  <data name="ClearanceLayoutProjectInquiryHeader" xml:space="preserve">
+    <value>Project Inquiry</value>
+  </data>
+  <data name="RegularProjReqTypeMobileRealTonesMastersDownload" xml:space="preserve">
+    <value>Mobile Ring Tones (masters) Download</value>
+  </data>
+  <data name="RegularProjReqTypeSalesChannelHeader" xml:space="preserve">
+    <value>Sales Channel</value>
+  </data>
+  <data name="ReInstateProjectButton" xml:space="preserve">
+    <value>Re-Instate</value>
+  </data>
+  <data name="ReopenProjectButton" xml:space="preserve">
+    <value>Re-Open</value>
+  </data>
+  <data name="ArtistDuplicateMessage" xml:space="preserve">
+    <value>Duplicate artist added</value>
+  </data>
+  <data name="SearchForRelRecordsAreAlreadyAddedMsg" xml:space="preserve">
+    <value>has already been saved; you cannot save it again.</value>
+  </data>
+  <data name="SearchForRelResultNotFoundForMsg" xml:space="preserve">
+    <value>No Results found for </value>
+  </data>
+  <data name="MaintainProj3rdPartyCompanyHeader" xml:space="preserve">
+    <value>3rd Party Company</value>
+  </data>
+  <data name="MaintainProj3rdPartyCompanyTxtBox" xml:space="preserve">
+    <value>3rd Party Company:</value>
+  </data>
+  <data name="MaintainProjItemsPerPageLabel" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="MaintainProjLocalReferenceHeader" xml:space="preserve">
+    <value>Local Reference</value>
+  </data>
+  <data name="MaintainProjLocalReferenceTxtBox" xml:space="preserve">
+    <value>Local Reference:</value>
+  </data>
+  <data name="MaintainProjProjectReferenceNumberHeader" xml:space="preserve">
+    <value>Project Reference Number</value>
+  </data>
+  <data name="MaintainProjProjectReferenceNumberTxtBox" xml:space="preserve">
+    <value>Project Reference Number:</value>
+  </data>
+  <data name="MaintainProjProjectTitleHeader" xml:space="preserve">
+    <value>Project Title</value>
+  </data>
+  <data name="MaintainProjProjectTitleTxtBox" xml:space="preserve">
+    <value>Project Title:</value>
+  </data>
+  <data name="MaintainProjProjectTypeDrpDwn" xml:space="preserve">
+    <value>Project Type:</value>
+  </data>
+  <data name="MaintainProjProjectTypeHeader" xml:space="preserve">
+    <value>Project Type</value>
+  </data>
+  <data name="MaintainProjRequestingCompanyHeader" xml:space="preserve">
+    <value>Requesting Company</value>
+  </data>
+  <data name="MaintainProjRequestingCompanyTxtBox" xml:space="preserve">
+    <value>Requesting Company:</value>
+  </data>
+  <data name="MaintainProjRequestorTxtBox" xml:space="preserve">
+    <value>Requestor:</value>
+  </data>
+  <data name="MaintainProjRequestTypeDrpDwn" xml:space="preserve">
+    <value>Request Type:</value>
+  </data>
+  <data name="MaintainProjResetBtn" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="MaintainProjSearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="MaintainProjSearchResultForHeader" xml:space="preserve">
+    <value>Search Result For</value>
+  </data>
+  <data name="MaintainProjShowDrpDwn" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="UserTrans3rdPartyCompanyHeader" xml:space="preserve">
+    <value>3rd Party Company</value>
+  </data>
+  <data name="UserTrans3rdPartyCompanyTxtBox" xml:space="preserve">
+    <value>3rd Party Company:</value>
+  </data>
+  <data name="UserTransItemsPerPageLabel" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="UserTransLocalReferenceHeader" xml:space="preserve">
+    <value>Local Reference</value>
+  </data>
+  <data name="UserTransLocalReferenceTxtBox" xml:space="preserve">
+    <value>Local Reference:</value>
+  </data>
+  <data name="UserTransProjectReferenceNumberHeader" xml:space="preserve">
+    <value>Project Reference Number</value>
+  </data>
+  <data name="UserTransProjectReferenceNumberTxtBox" xml:space="preserve">
+    <value>Project Reference Number:</value>
+  </data>
+  <data name="UserTransProjectTitleHeader" xml:space="preserve">
+    <value>Project Title</value>
+  </data>
+  <data name="UserTransProjectTitleTxtBox" xml:space="preserve">
+    <value>Project Title:</value>
+  </data>
+  <data name="UserTransProjectTypeDrpDwn" xml:space="preserve">
+    <value>Project Type:</value>
+  </data>
+  <data name="UserTransProjectTypeHeader" xml:space="preserve">
+    <value>Project Type</value>
+  </data>
+  <data name="UserTransRequestingCompanyHeader" xml:space="preserve">
+    <value>Requesting Company</value>
+  </data>
+  <data name="UserTransRequestingCompanyTxtBox" xml:space="preserve">
+    <value>Requesting Company:</value>
+  </data>
+  <data name="UserTransRequestorHeader" xml:space="preserve">
+    <value>Requestor</value>
+  </data>
+  <data name="UserTransRequestorTxtBox" xml:space="preserve">
+    <value>Requestor:</value>
+  </data>
+  <data name="UserTransRequestTypeDrpDwn" xml:space="preserve">
+    <value>Request Type:</value>
+  </data>
+  <data name="UserTransRequestTypeHeader" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="UserTransResetBtn" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="UserTransSearchBtn" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UserTransSearchProjectsForUserTransferHeader" xml:space="preserve">
+    <value>Search Projects For User Transfer</value>
+  </data>
+  <data name="UserTransSearchResultForHeader" xml:space="preserve">
+    <value>Search Result For</value>
+  </data>
+  <data name="UserTransSelectAllHeader" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="UserTransShowDrpDwn" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="UserTransStatusHeader" xml:space="preserve">
+    <value>Status </value>
+  </data>
+  <data name="UserTransTransferBtn" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="UserTransSearchProjectsForUserTransferTitle" xml:space="preserve">
+    <value>Search Projects For User Transfer</value>
+  </data>
+  <data name="UserTransPopupTitle" xml:space="preserve">
+    <value>Transfer To User</value>
+  </data>
+  <data name="UserTransPopupExistingRequestorHeader" xml:space="preserve">
+    <value>Existing Requestor</value>
+  </data>
+  <data name="UserTransPopupTransferCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UserTransPopupTransferSubmitButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="UserTransPopupTransferToHeader" xml:space="preserve">
+    <value>Transfer To</value>
+  </data>
+  <data name="ClrProjSearchPageTitle" xml:space="preserve">
+    <value>Search Project</value>
+  </data>
+  <data name="GCSCancelStatus" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="GCSCompletedStatus" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="GCSReOpenedStatus" xml:space="preserve">
+    <value>Re-Opened</value>
+  </data>
+  <data name="GCSReSubmittedStatus" xml:space="preserve">
+    <value>Re-Submitted</value>
+  </data>
+  <data name="GCSSubmittedStatus" xml:space="preserve">
+    <value>Submitted</value>
+  </data>
+  <data name="GCSUnsubmitted" xml:space="preserve">
+    <value>Unsubmitted</value>
+  </data>
+  <data name="MaintainProjOpenButton" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="MaintainProjOpenPopupClearanceProjectTitle" xml:space="preserve">
+    <value>Clearance Project Details</value>
+  </data>
+  <data name="MaintainProjProjectSearchPageTitle" xml:space="preserve">
+    <value>Maintain Project</value>
+  </data>
+  <data name="MaintainProjStatusHeader" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ClrProjSearchProjectReferenceNumberHeader" xml:space="preserve">
+    <value>Ref. Number</value>
+  </data>
+  <data name="ReleaseRegNumberOfTracksTxtbox" xml:space="preserve">
+    <value>Number of Tracks:</value>
+  </data>
+  <data name="ReleaseRegDataPriceReductionHeader" xml:space="preserve">
+    <value>Price Reduction</value>
+  </data>
+  <data name="RegularProjectResourcesGloaballyClearedLabel" xml:space="preserve">
+    <value>Globally Cleared</value>
+  </data>
+  <data name="AdvResSearchReleasesAlreadyExistForISRCMsg" xml:space="preserve">
+    <value>Duplicate release added</value>
+  </data>
+  <data name="UpcMailBody" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="UpcNoCount" xml:space="preserve">
+    <value>NOCOUNT</value>
+  </data>
+  <data name="UpcSubject" xml:space="preserve">
+    <value>Sub</value>
+  </data>
+  <data name="UserTransWorkgroupDrpDwn" xml:space="preserve">
+    <value>Workgroup:</value>
+  </data>
+  <data name="authorizedUserMsgPush" xml:space="preserve">
+    <value>you are not authorized to create projects in R2</value>
+  </data>
+  <data name="freehandCompanyPush" xml:space="preserve">
+    <value>3rd party company not linked in Global Tables. The resources cannot be pushed</value>
+  </data>
+  <data name="freeHandResourceMsgPush" xml:space="preserve">
+    <value>freehand resources in the project will not be pushed to R2</value>
+  </data>
+  <data name="noReleaseResourceFoundPush" xml:space="preserve">
+    <value>no release/resource found to be pushed to R2</value>
+  </data>
+  <data name="R2InProgressPush" xml:space="preserve">
+    <value>Push to R2 is in progress</value>
+  </data>
+  <data name="R2LinkFailed" xml:space="preserve">
+    <value>R2 project linking failed</value>
+  </data>
+  <data name="R2ProjectIdIs" xml:space="preserve">
+    <value>R2 project id is</value>
+  </data>
+  <data name="R2ProjectNotSelectedPush" xml:space="preserve">
+    <value>No project is selected to link to R2</value>
+  </data>
+  <data name="upcNullMsgPush" xml:space="preserve">
+    <value>releases without a UPC will not be pushed to R2</value>
+  </data>
+  <data name="mandatorySearchCriteria" xml:space="preserve">
+    <value>Please select a Workgroup</value>
+  </data>
+  <data name="ActiveMarketing" xml:space="preserve">
+    <value>Active For Marketing</value>
+  </data>
+  <data name="ClearanceAdminCompany" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ClearanceNotes" xml:space="preserve">
+    <value>Clearance Notes</value>
+  </data>
+  <data name="CommericalModels" xml:space="preserve">
+    <value>Commerical Models</value>
+  </data>
+  <data name="ConsentPeriod" xml:space="preserve">
+    <value>Consent Period</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>Content Type</value>
+  </data>
+  <data name="DigitalRestrictions" xml:space="preserve">
+    <value>Digital Restrictions</value>
+  </data>
+  <data name="DigitalRights" xml:space="preserve">
+    <value>Digital Rights</value>
+  </data>
+  <data name="DigitalUnbundlingAllowed" xml:space="preserve">
+    <value>Digital Unbundling Allowed</value>
+  </data>
+  <data name="ExploitationType" xml:space="preserve">
+    <value>Exploitation Type</value>
+  </data>
+  <data name="HoldbackPeriod" xml:space="preserve">
+    <value>Holdback Period</value>
+  </data>
+  <data name="LossRightIndicator" xml:space="preserve">
+    <value>Loss of Rights Indicator</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="PhysicalRights" xml:space="preserve">
+    <value>Physical Rights</value>
+  </data>
+  <data name="PreClearanceInformation" xml:space="preserve">
+    <value>Pre Clearance Information</value>
+  </data>
+  <data name="PreclearanceTerritoryExclusions" xml:space="preserve">
+    <value>Preclearance Territory Exclusions</value>
+  </data>
+  <data name="PreclearanceType" xml:space="preserve">
+    <value>Preclearance Type</value>
+  </data>
+  <data name="Precleared" xml:space="preserve">
+    <value>Precleared</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="Restriction" xml:space="preserve">
+    <value>Restriction</value>
+  </data>
+  <data name="Restrictions" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="SecondaryExploitationRights" xml:space="preserve">
+    <value>Secondary Exploitation Rights</value>
+  </data>
+  <data name="Senstive" xml:space="preserve">
+    <value>Senstive</value>
+  </data>
+  <data name="TerritorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="UseType" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="ClearanceContractSearchArtist" xml:space="preserve">
+    <value>Artist:</value>
+  </data>
+  <data name="ClearanceContractSearchArtistID" xml:space="preserve">
+    <value>Artist ID:</value>
+  </data>
+  <data name="ClearanceContractSearchArtistinLocalCharacters" xml:space="preserve">
+    <value>Artist in Local Characters:</value>
+  </data>
+  <data name="ClearanceContractSearchClearanceAdminCompanyCounty" xml:space="preserve">
+    <value>Clearance Admin Company/Country:</value>
+  </data>
+  <data name="ClearanceContractSearchContractID" xml:space="preserve">
+    <value>Contract ID:</value>
+  </data>
+  <data name="ClearanceContractSearchContractingParty" xml:space="preserve">
+    <value>Contracting Party:</value>
+  </data>
+  <data name="ClearanceContractSearchContractStatus" xml:space="preserve">
+    <value>Contract Status:</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderArtistId" xml:space="preserve">
+    <value>Artist Id</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderArtistName" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderClearanceAdminCompany" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderClearanceAdminId" xml:space="preserve">
+    <value>Clearance Admin Id</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderContractId" xml:space="preserve">
+    <value>ContractId</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderContractStatus" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderLossofRights" xml:space="preserve">
+    <value>Loss of Rights</value>
+  </data>
+  <data name="ClearanceContractSearchHeaderResourceLinked" xml:space="preserve">
+    <value>Resource Linked</value>
+  </data>
+  <data name="ClearanceContractSearchLocalContractReference" xml:space="preserve">
+    <value>Local Contract Reference:</value>
+  </data>
+  <data name="ClearanceContractSearchReset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ClearanceContractSearchRightsType" xml:space="preserve">
+    <value>Rights Type:</value>
+  </data>
+  <data name="ClearanceContractSearchSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ClearanceContractSearchUMGISigningCompany" xml:space="preserve">
+    <value>UMGI Signing Company:</value>
+  </data>
+  <data name="GcsCancelResource" xml:space="preserve">
+    <value>Cancelled Resources</value>
+  </data>
+  <data name="GCSRejectResource" xml:space="preserve">
+    <value>Rejected Resources</value>
+  </data>
+  <data name="HdrResubmitProject" xml:space="preserve">
+    <value>Resubmit Projects</value>
+  </data>
+  <data name="ResubmissionFieldsEditMsg" xml:space="preserve">
+    <value>fields have been edited, this will trigger re-submission. Do you wish to continue?</value>
+  </data>
+  <data name="ResubmissionResourceEditmsg" xml:space="preserve">
+    <value>Resource fields have been edited, this will trigger resubmission. Do you wish to continue?</value>
+  </data>
+  <data name="ResubmissionResourceOtherFieldEditmsg" xml:space="preserve">
+    <value>do you wish to re-submit the resources which are edited?</value>
+  </data>
+  <data name="ResubmissionTooltipMsg" xml:space="preserve">
+    <value>modification will trigger re-submission on Save</value>
+  </data>
+  <data name="msgConfirmNewResourceAdd" xml:space="preserve">
+    <value>additional resources have been saved to the project. Do you wish to submit?</value>
+  </data>
+  <data name="ReqSummaryComments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ReqSummaryDate" xml:space="preserve">
+    <value>Date/Time</value>
+  </data>
+  <data name="ReqSummaryName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ReqSummaryRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="ReqSummaryRoutingCalcMsg" xml:space="preserve">
+    <value>Routing calculation is in progress...</value>
+  </data>
+  <data name="ReqSummaryStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ReqSummaryWorkgroup" xml:space="preserve">
+    <value>Workgroup</value>
+  </data>
+  <data name="ResubmissionCancelledResourceEditmsg" xml:space="preserve">
+    <value>Do you also want to re-submit cancelled/rejected requests?</value>
+  </data>
+  <data name="ResubmissionConfigurationEditmsg" xml:space="preserve">
+    <value>Do you wish to re-submit the resources?</value>
+  </data>
+  <data name="ResubmissionSalesChannelsEditmsg" xml:space="preserve">
+    <value>Sales channels/request types have been edited, this will trigger submission and/or removal of resources. Do you wish to continue?</value>
+  </data>
+  <data name="ResubmissionNewResourceReleaseAddMsg" xml:space="preserve">
+    <value>additional resources have been saved to the project. Do you wish to submit?</value>
+  </data>
+  <data name="ClearanceLayoutClearanceInboxHeader" xml:space="preserve">
+    <value>Inbox</value>
+  </data>
+  <data name="ReqSummaryLoadingMsg" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="SearchForRelArtistLabel" xml:space="preserve">
+    <value>Artist:</value>
+  </data>
+  <data name="ReleaseRegularCommentsLabel" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="RegularProjectMoneyMsg" xml:space="preserve">
+    <value>Data is not in correct format.</value>
+  </data>
+  <data name="AdminHeader" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="CreateNewFromExistingProjectItem" xml:space="preserve">
+    <value>Create From Existing Project</value>
+  </data>
+  <data name="CreateNewMasterProjectItem" xml:space="preserve">
+    <value>Master Project</value>
+  </data>
+  <data name="CreateNewRegularNonTraditionalProjectItem" xml:space="preserve">
+    <value>Regular/Non-Traditional Project</value>
+  </data>
+  <data name="CreateProjectMenu" xml:space="preserve">
+    <value>Create Project</value>
+  </data>
+  <data name="ProjectInquiryMenu" xml:space="preserve">
+    <value>Project Inquiry</value>
+  </data>
+  <data name="ProjectsHeader" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="ReportsHeader" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="WorkgroupHeader" xml:space="preserve">
+    <value>Workgroup</value>
+  </data>
+  <data name="AllocateUPCMenu" xml:space="preserve">
+    <value>Allocate UPC</value>
+  </data>
+  <data name="CancelledProjectsMenu" xml:space="preserve">
+    <value>Cancelled Projects</value>
+  </data>
+  <data name="MaintainCompletedMenu" xml:space="preserve">
+    <value>Maintain Completed/</value>
+  </data>
+  <data name="ManageArtistContractMenu" xml:space="preserve">
+    <value>Manage Artist Contract</value>
+  </data>
+  <data name="ManageEmailTemplatesMenu" xml:space="preserve">
+    <value>Manage Email Templates</value>
+  </data>
+  <data name="ManagePredefinedMenu" xml:space="preserve">
+    <value>Manage Pre-defined</value>
+  </data>
+  <data name="ManageResourceContractMenu" xml:space="preserve">
+    <value>Manage Resource Contract</value>
+  </data>
+  <data name="ManageRoutingValidationMenu" xml:space="preserve">
+    <value>Manage Routing Variations</value>
+  </data>
+  <data name="ManageSafeTerritoriesMenu" xml:space="preserve">
+    <value>Manage Safe Territories</value>
+  </data>
+  <data name="ManageWorkgroupMenu" xml:space="preserve">
+    <value>Manage Workgroup</value>
+  </data>
+  <data name="MimicUserMenu" xml:space="preserve">
+    <value>Mimic User</value>
+  </data>
+  <data name="RejectionReasonsMenuPart1" xml:space="preserve">
+    <value>Manage Pre-Defined</value>
+  </data>
+  <data name="RequestorTransferMenu" xml:space="preserve">
+    <value>Requestor Transfer</value>
+  </data>
+  <data name="UnlockProjectsMenu" xml:space="preserve">
+    <value>Unlock Projects</value>
+  </data>
+  <data name="ManageUsersMenu" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="MimicUser_ExitLabel" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="MimicUser_MimicUserLabel" xml:space="preserve">
+    <value>Mimic User</value>
+  </data>
+  <data name="AllocateUPCHeader" xml:space="preserve">
+    <value>Search Project to Allocate UPC</value>
+  </data>
+  <data name="CancelledCompletedProject" xml:space="preserve">
+    <value>Search Cancelled/Completed Projects</value>
+  </data>
+  <data name="ProjectLockingHeader" xml:space="preserve">
+    <value>Unlock Project</value>
+  </data>
+  <data name="ProjectLockingLockedBy" xml:space="preserve">
+    <value>Locked By</value>
+  </data>
+  <data name="ProjectLockingStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="js_ErrorMessage" xml:space="preserve">
+    <value>Save Failed</value>
+  </data>
+  <data name="js_SavedMessage" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="ManageSafeTerritory" xml:space="preserve">
+    <value>Manage Safe Territories</value>
+  </data>
+  <data name="SafeTerritoriesList" xml:space="preserve">
+    <value>Safe Territories List</value>
+  </data>
+  <data name="WaterMarkAGiveAwayComments" xml:space="preserve">
+    <value>Give away Free of Charge Comments</value>
+  </data>
+  <data name="WaterMarkAOtherComments" xml:space="preserve">
+    <value>Others Comments</value>
+  </data>
+  <data name="WaterMarkAPremiumComments" xml:space="preserve">
+    <value>Premium Comments</value>
+  </data>
+  <data name="UploadDoumentMsg" xml:space="preserve">
+    <value>Document cannot be uploaded. Attached documents exceeds 4 MB size limit</value>
+  </data>
+  <data name="RegularProjectCreateDate" xml:space="preserve">
+    <value>dd/MM/yyyy</value>
+  </data>
+  <data name="PreferredCurrency" xml:space="preserve">
+    <value>USD</value>
+  </data>
+  <data name="RejectionReasonsMenuPart2" xml:space="preserve">
+    <value>Rejection Reasons</value>
+  </data>
+  <data name="freeHandCompanyMsg" xml:space="preserve">
+    <value>Push cannot be executed. 3rd party company  is freehand.</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error has been ocurred due to save or submit the project</value>
+  </data>
+  <data name="MasterProjectRCCHandler" xml:space="preserve">
+    <value>RCC Handler:</value>
+  </data>
+  <data name="lblRccHandler" xml:space="preserve">
+    <value>RCC Handler:</value>
+  </data>
+  <data name="msgNoRightsInGRS" xml:space="preserve">
+    <value>No rights information is available in GRS</value>
+  </data>
+  <data name="PrintButton" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="EmailButton" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="msgNotCopyFreeHand" xml:space="preserve">
+    <value>Freehand Resource not copied</value>
+  </data>
+  <data name="authorizedR2UserMsgPush" xml:space="preserve">
+    <value>You are not authorized to do the first push to R2. Please contact R2 user to create mapping with R2 project</value>
+  </data>
+  <data name="authorizedR2UserMsgSubsequent" xml:space="preserve">
+    <value>You are not authorized to do push to R2</value>
+  </data>
+  <data name="ReleaseRegularComposer" xml:space="preserve">
+    <value>Composer:</value>
+  </data>
+  <data name="ResubmissionProjectLevelMsg" xml:space="preserve">
+    <value>fields have been edited, this will trigger re-submission. Do you wish to continue (Yes/No)</value>
+  </data>
+  <data name="ClearanceProjectInquiryHeader" xml:space="preserve">
+    <value>Search Project for Project Inquiry</value>
+  </data>
+  <data name="CorfirmPreviousRoutingResource" xml:space="preserve">
+    <value>Additional resources have been saved to the project. Do you wish to submit?</value>
+  </data>
+  <data name="ProjectDateFormat" xml:space="preserve">
+    <value>MM/dd/yyyy</value>
+  </data>
+  <data name="RoutingMessageWhenErrorIsInRouting" xml:space="preserve">
+    <value>An Error Occurred in Routing Calculation</value>
+  </data>
+  <data name="RoutingMessageWhenNotReachedRouting" xml:space="preserve">
+    <value>Routing Calculation is in Progress..</value>
+  </data>
+  <data name="RoutingMessageWhenReachedRouting" xml:space="preserve">
+    <value>Routing Calculation is in Progress...</value>
+  </data>
+  <data name="RoutingMessageWhenRoutingIsInProgress" xml:space="preserve">
+    <value>Routing Calculation is in Progress....</value>
+  </data>
+  <data name="authorizedUserSearchMsgPush" xml:space="preserve">
+    <value>you are not authorized to search projects in R2</value>
+  </data>
+  <data name="MasterProjectResourcesMusicType" xml:space="preserve">
+    <value>Music Type</value>
+  </data>
+  <data name="MasterProjResourcesExcerptTime" xml:space="preserve">
+    <value>Excerpt Time</value>
+  </data>
+  <data name="EstimatedNoOfTracksLabel" xml:space="preserve">
+    <value>Estimated Number Of Tracks:</value>
+  </data>
+  <data name="ReleaseNewPackageIncludedLabel" xml:space="preserve">
+    <value>Included UPC's:</value>
+  </data>
+  <data name="ResubmissionPackageRemovalMsg" xml:space="preserve">
+    <value>Tracks from removed components will be deleted from the routing process. Do you wish to continue?</value>
+  </data>
+  <data name="Rights" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+</root>

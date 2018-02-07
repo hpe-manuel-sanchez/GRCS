@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e151a43b-ee35-4efe-a632-2239dad8a707" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/Project/Project.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Project12.xsd" MetadataType="Schema" ID="b38c7062-9efe-4cd5-8850-4097c37ff1a3" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd7" />
+    <MetadataFile FileName="Project121.xsd" MetadataType="Schema" ID="cd3e0663-90db-46ca-baf1-ef46a0a9c17e" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd3" />
+    <MetadataFile FileName="Project1.disco" MetadataType="Disco" ID="818cb7cb-4f8e-4612-87b6-b6494455252d" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?disco" />
+    <MetadataFile FileName="Project122.xsd" MetadataType="Schema" ID="3dd8d45c-cfdb-4e65-bb2a-e97fa0cc51fc" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd10" />
+    <MetadataFile FileName="Project123.xsd" MetadataType="Schema" ID="ce749301-e6c6-4652-849f-9cfb978cc001" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd8" />
+    <MetadataFile FileName="Project124.xsd" MetadataType="Schema" ID="2853ccae-73a5-4387-b9b6-077a1d7530ee" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd4" />
+    <MetadataFile FileName="Project125.xsd" MetadataType="Schema" ID="2e7651bd-9544-4d4a-b912-e1a79c92b6c9" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd0" />
+    <MetadataFile FileName="Project126.xsd" MetadataType="Schema" ID="bcb0888a-c81f-4881-90df-ff276d480deb" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd9" />
+    <MetadataFile FileName="Project127.xsd" MetadataType="Schema" ID="ac746947-0488-4af5-9490-d94d959aafe3" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd5" />
+    <MetadataFile FileName="Project128.xsd" MetadataType="Schema" ID="9378d6b3-858e-428a-9cb4-b6256045b321" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd1" />
+    <MetadataFile FileName="Project1.wsdl" MetadataType="Wsdl" ID="c9bba72c-0fe6-49fb-a2a3-565d6533a200" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?wsdl" />
+    <MetadataFile FileName="Project129.xsd" MetadataType="Schema" ID="0c69e9a5-ae09-409c-8654-980e7ff9d414" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd6" />
+    <MetadataFile FileName="Project1210.xsd" MetadataType="Schema" ID="57c485f1-6122-4d40-af44-700fc236b256" SourceId="1" SourceUrl="http://localhost:7778/Project/Project.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

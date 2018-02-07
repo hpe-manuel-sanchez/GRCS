@@ -1,0 +1,126 @@
+﻿@using System.Collections
+@using UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities;
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceRightsWorkQueueModel
+@{ 
+    if (ViewBag.rightsAcquiredGridId == null)
+    {
+        ViewBag.rightsAcquiredGridId = "rightsAcquired";
+    } 
+}
+<script type="text/javascript">
+    var rightsAcquiredMessages = {
+        saveSuccess: '@WorkQueueResource.RecordsSave'
+    };
+</script>
+ 
+<script type="text/javascript" src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/RightsAcquiredTab.js")"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEdit.css")"  rel="stylesheet" type="text/css" />
+ <link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEditTab.css")" rel="stylesheet" type="text/css" />
+ <link href="@Url.Content("/GCS/Content/SubPages/TerritorialRights.min.css")" rel="stylesheet" type="text/css" />
+<div>
+    <div id="divRightsAcquiredStrip">
+    </div>
+        <div id="jqgrid">
+        @(Html.Syncfusion().Grid<ResourcesRight>((string)ViewBag.rightsAcquiredGridId)
+              .Caption(@WorkQueueResource.RightsAcquired)
+              .PageSettings(page =>
+                {
+                    page.PageSize(25);
+                    page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+                })
+              .AllowResizing(true)
+              .AllowAutoWrap(true)
+              .EnableSorting()
+              .AllowColumnSelection(false)
+              .AllowSelection(true)
+              .EnableAlternateRowStyling()
+              .ActionMode(ActionMode.JSON)
+              .EnableScrolling()
+              .EnableOnDemand()
+              .TotalRecordCount(Convert.ToInt32(ViewData["totalrightsAcquiredData"]))
+              .CustomCss("Syncfusion-Grid-Greenish")
+                      .ClientSideEvents(events => events.OnActionBegin("onRightsGridActionBegin"))
+                      .ClientSideEvents(events => events.OnActionSuccess("onRightsAcquiredGridSuccess"))
+                      .ClientSideEvents(events => events.OnActionFailure("onRightsAcquiredGridError"))
+                      .ClientSideEvents(events => events.OnCellEdit("onCellEditCustom"))
+                      .ClientSideEvents(events => events.OnLoad("onRightsAcquiredLoad"))
+                    //  .ClientSideEvents(events => events.QueryCellInfo("checkImageForRightsAcquiredLoad"))
+                      .ClientSideEvents(events => events.OnCellSave("validateValuesOnEdit"))
+            .ClientSideRecordSelectionEvent("onRowSelectionEvent")
+              .SelectionMode(SelectionMode.Multiple)
+              .RowsSelectionMode(RowsSelectionMode.Toggle)
+              .Column(column =>
+                          {   //Column Order is very Important in this Scenario / Any changes made re-check all features working fine 
+                              column.Add(" ").Format("<input type=\"checkBox\" id=\"chkChild\" class=\"chkChildClass\">").AllowFilter(false).Width(50);
+                              column.Add(p => p.Rights.RightSetId).HeaderText(@WorkQueueResource.RightSetId).Width(0).Visible(false).CssClass("tdRightSetId");
+                              column.Add(p => p.ResourceType).HeaderText("Traits").Width(40).TextAlign(TextAlignment.Center).AllowEditing(false).CssClass("tdResourceType");
+                              column.Add(p => p.ReviewStatusLnr).HeaderText(@WorkQueueResource.ReviewStatus).Width(130).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.ReviewStatusDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdReviewStatus");
+                              column.Add(p => p.ISRCId).HeaderText(@WorkQueueResource.ISRC).Width(110).CellEditType(CellEditType.StringEdit).CssClass("hyperTextBlue tdIsrcId");
+                              column.Add(p => p.UPCId).HeaderText(@WorkQueueResource.UPC).Width(110).CellEditType(CellEditType.StringEdit).CssClass("hyperTextBlue tdUpcId");
+                              column.Add(p => p.Artist).HeaderText(@RepertoireSearch.Artist).Width(180).AllowEditing(false).CssClass("tdArtist");
+                              column.Add(p => p.Title).HeaderText(@RepertoireSearch.Title).Width(180).AllowEditing(false).CssClass("tdTitle");
+                              column.Add(p => p.VersionTitle).HeaderText(@WorkQueueResource.VersionTitle).Width(180).AllowEditing(false).CssClass("tdVersionTitle");
+                              column.Add(p => p.ReleaseDate).HeaderText(@WorkQueueResource.ReleaseDate).Width(90).Format(Html.GetRequestDateFormat()).AllowEditing(false).CssClass("tdReleaseDate");
+                              column.Add(p => p.LinkedContract).HeaderText(@WorkQueueResource.LinkedContract).Width(60).TextAlign(TextAlignment.Center).AllowEditing(false).CssClass("tdLinkedContract");
+                              column.Add(p => p.AdminCompany).HeaderText(@WorkQueueResource.clearanceDataAdmin).Width(160).AllowEditing(false).CssClass("tdAdminComapny");
+                              column.Add(p => p.SideArtistLnr).HeaderText("<div class='sampleArtist' title='Side Artist'></div>").Width(25).TextAlign(TextAlignment.Center).CssClass("tdSideArtistLnr");
+                              column.Add(p => p.SampleExistsLnr).HeaderText("<div class='sampleExists' title='Sample Exists'></div>").TextAlign(TextAlignment.Center).Width(25).CssClass("tdSampleExistLinear");
+                              column.Add(p => p.PYear).HeaderText(@WorkQueueResource.PYear).Width(50).AllowEditing(false).CssClass("tdPYear");
+                              column.Add(p => p.RightsTypeLnr).HeaderText(@WorkQueueResource.RightsType).Width(150).AllowEditing(false).CssClass("tdRightsTypeLnr");
+                              column.Add(p => p.ReviewReasonLnr).HeaderText(@WorkQueueResource.ContractReviewReason).Width(150).AllowEditing(false).CssClass("tdReviewReasonLnr");
+                              column.Add(p => p.TerritoryRightsLnr).HeaderText(@RepertoireSearch.TerritorialRights).Width(150).AllowEditing(true).CellEditType(CellEditType.StringEdit).CssClass("hyperTextBlack tdTerritoryRightsLnr");
+                              column.Add(p => p.Error).HeaderText(@WorkQueueResource.Error).Width(40).AllowFilter(false).AllowEditing(false).TextAlign(TextAlignment.Center).CssClass("resourceRightsTabError tdError");
+                              column.Add(p => p.ActiveForMrktLnr).HeaderText(@RepertoireSearch.ActiveForMarketing).Width(65).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdActiveForMrktLnr");
+                              column.Add(p => p.RightsPeriodLnr).HeaderText(@RepertoireSearch.RightsPeriod).Width(130).AllowEditing(true).AllowFormatinEditMode(true).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.RightsPeriodDropDown).CssClass("tdRightsPeriodLnr");
+                              column.Add(p => p.LostRightsLnr).HeaderText(@RepertoireSearch.LostRights).Width(50).CellEditType(CellEditType.DropdownEdit).TextAlign(TextAlignment.Center).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").CssClass("tdLostRightsLnr");
+                              column.Add(p => p.LostRightsDateLnr).HeaderText(@RepertoireSearch.LostRightsDate).Format(Html.GetRequestDateFormat()).AllowFormatinEditMode(false).Width(85).CellEditType(CellEditType.DateTimeEdit).CssClass("tdLostRightsDateLnr");
+                              column.Add(p => p.LostRightsReasonLnr).HeaderText(@RepertoireSearch.LostRightsReason).Width(130).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.LostRightReasonDropDown).CssClass("tdLostRightsReasonLnr");
+                              column.Add(p => p.RightsExceptionLnr).HeaderText(@WorkQueueResource.RightsException).Width(100).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.RightsExceptionDropdown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdRightsExceptionLnr");
+                              column.Add(p => p.PhysicalExpLnr).HeaderText(@WorkQueueResource.PhysicalExploitation).Width(70).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdPhysicalExpLnr");
+                              column.Add(p => p.DigitalExpLnr).HeaderText(@WorkQueueResource.DigitalExploitation).Width(70).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdDigitalExpLnr");
+                              column.Add(p => p.DigitalUnbundledLnr).HeaderText(@WorkQueueResource.DigitalUnbundlingAllowed).Width(80).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdDigitalUnbundledLnr");
+                              column.Add(p => p.MobileExpLnr).HeaderText(@WorkQueueResource.MobileExploitation).Width(70).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdMobileExpLnr");
+                              column.Add(p => p.PpbClaimLnr).HeaderText(@RepertoireSearch.PPBRevenueClaim).Width(55).CellEditType(CellEditType.DropdownEdit).DropDownDataSource((IEnumerable)Model.BooleanDropDown, "Value", "Value").TextAlign(TextAlignment.Center).CssClass("tdPpbClaimLnr");
+                              column.Add(p => p.LinkedTooltip).HeaderText(" ").Width(0).Visible(false).AllowEditing(false).CssClass("tdLinkedTooltip");
+                              column.Add(p => p.Rights.ExceptionText).HeaderText(" ").Width(0).Visible(false).AllowEditing(false).CssClass("tdExceptionText"); ;
+                              column.Add(p => p.Rights.RightsExpiryRule).HeaderText(" ").Width(0).Visible(false).AllowEditing(false).CssClass("tdRightsExpiryRule"); ;
+                              column.Add(p => p.ModifiedDateTimeLnr).Visible(false).AllowEditing(false).CssClass("ModifiedDateTimeLnr");
+                              column.Add(p => p.ReviewStatusPermitted).Visible(false).AllowEditing(false).CssClass("tdReviewStatusPermitted");
+                              column.Add(p => p.RightsEditPermitted).Visible(false).AllowEditing(false).CssClass("tdRightsEditPermitted");
+                              column.Add(p => p.SensitiveInfoPermitted).Visible(false).AllowEditing(false).CssClass("tdSensitiveInfoPermitted");
+                              column.Add(p => p.IncludedCountryLnr).Visible(false).AllowEditing(false).CssClass("tdIncludedCountryLnr");
+                              column.Add(p => p.IncludedTerritoryLnr).Visible(false).AllowEditing(false).CssClass("tdIncludedTerritoryLnr");
+                              column.Add(p => p.ExcludedCountryLnr).Visible(false).AllowEditing(false).CssClass("tdExcludedCountryLnr");
+                              column.Add(p => p.ExcludedTerritoryLnr).Visible(false).AllowEditing(false).CssClass("tdExcludedTerritoryLnr");
+                              column.Add(p => p.R2ResourceId).Visible(false).AllowEditing(false).CssClass("r2RepertoireId tdR2ResourceId");
+                              column.Add(p => p.SampleDescription).Visible(false).AllowEditing(false).CssClass("tdSampleDescription");
+                              column.Add(p => p.LostRightsDateLinear).Visible(false).AllowEditing(false).CssClass("tdLostRightsDateLinear");
+                              column.Add(p => p.ContractIdLnr).Visible(false).AllowEditing(false).CssClass("contractId tdContractIdLnr");
+                              column.Add(p => p.Rights.RepertoireId).Visible(false).AllowEditing(false).CssClass("repertoireId tdRepertoireId");
+                              column.Add(p => p.Rights.Status.Status).Visible(false).AllowEditing(false).CssClass("flagStatus");
+                              column.Add(p => p.Rights.Notes).Visible(false).AllowEditing(false).CssClass("tdNotes");
+                              //column.Add(p => p.IsUpdated).Visible(false).AllowEditing(false);
+                          })
+                              .ToolBar(tools =>
+                               {
+                                   tools.Add(GridToolBarItems.Edit);// tool bar item for editing record
+                                   tools.Add(GridToolBarItems.Update);// tool bar item for save request
+                                   tools.Add(GridToolBarItems.Cancel);// tool bar item for Cancel request.                                                       
+                               })
+                              .Mappers(mapper =>
+                                   {
+                                       mapper.SaveAction("SaveResourceAcquiredRights");
+                                   })
+                               .Editing(edit =>
+                                   {
+                                       edit.AllowEdit(true);
+                                       edit.EditMode(GridEditMode.ManualExcel);
+                                       edit.PrimaryKey(key => key.Add(p => p.Rights.RightSetId));
+                                   })
+                  )
+    </div>
+</div>
+<input type="hidden" id="hdnrightsAcquired" value="" />

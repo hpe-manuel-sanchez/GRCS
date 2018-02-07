@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="52ed6c16-b9fb-4ef6-a6f4-974b4e41d0aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClearanceInbox.xsd" MetadataType="Schema" ID="ccb2bb99-a05c-4bf1-8092-398a7af8f98f" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd6" />
+    <MetadataFile FileName="ClearanceInbox1.xsd" MetadataType="Schema" ID="6702b608-61ef-4214-a0a8-acd888632679" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClearanceInbox2.xsd" MetadataType="Schema" ID="718c1bc5-c904-4ac3-a450-d79ed6370c51" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClearanceInbox3.xsd" MetadataType="Schema" ID="0fd99ea7-d3c2-458a-857a-a9d33e19ca2d" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd10" />
+    <MetadataFile FileName="ClearanceInbox4.xsd" MetadataType="Schema" ID="8ab76507-06d1-4f07-b762-9ed5e7018966" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClearanceInbox5.xsd" MetadataType="Schema" ID="0c4d2335-d300-4d8e-90ab-8425a1dcd1c7" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd11" />
+    <MetadataFile FileName="ClearanceInbox6.xsd" MetadataType="Schema" ID="4268546d-8375-47b6-b7de-c247a94a00e7" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd12" />
+    <MetadataFile FileName="ClearanceInbox.wsdl" MetadataType="Wsdl" ID="e4677519-b38d-4d9c-91d1-a341d3d109bb" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?wsdl" />
+    <MetadataFile FileName="ClearanceInbox7.xsd" MetadataType="Schema" ID="a74e1529-c08b-4ec4-a04a-5285d394ad4d" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd9" />
+    <MetadataFile FileName="ClearanceInbox8.xsd" MetadataType="Schema" ID="12269170-9c67-4b8f-b246-fe76c2621e9f" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd7" />
+    <MetadataFile FileName="ClearanceInbox9.xsd" MetadataType="Schema" ID="4b502d1c-dab2-4fe2-903b-f59b568b9863" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClearanceInbox10.xsd" MetadataType="Schema" ID="30940b0a-9168-426c-882b-8b4ef49f1358" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd5" />
+    <MetadataFile FileName="ClearanceInbox11.xsd" MetadataType="Schema" ID="6e535a77-2a68-4b5a-85f8-eac15eba872c" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClearanceInbox.disco" MetadataType="Disco" ID="cc002962-6c60-464d-b73b-989ea340362b" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?disco" />
+    <MetadataFile FileName="ClearanceInbox12.xsd" MetadataType="Schema" ID="26e335bc-c9a6-4977-8621-f6c3b6a6c7a9" SourceId="1" SourceUrl="http://localhost:7778/ClearanceInbox/ClearanceInbox.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

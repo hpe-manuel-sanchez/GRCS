@@ -1,0 +1,279 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceRightsWorkQueueModel
+<script type="text/javascript" src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/PriorityReviewWorkQueue.js")"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/RightsPriorityWorkQueue.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/SecondaryExploitationPopup.css")" rel="stylesheet" type="text/css" />
+     <link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEditTab.css")" rel="stylesheet" type="text/css" />    
+    <link href="@Url.Content("/GCS/Content/SubPages/ContractSearchPopup.min.css")"  rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/PreClearanceBulkEdit.css")"  rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEdit.css")"  rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/RightsPriorityWorkQueue.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceAdminCountryPopup.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/TerritorialRights.min.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var priorityWorkQueueMessages = {
+        filterSearch: '@WorkQueueResource.filterSearch'
+    }
+      
+</script>
+<!-- Parent Accordion Starts -->
+<div class="rightsReviewContainer">
+    <div id="divScrollPriorityWorkQueue">
+        <div id="divRightsReviewFilterAccordion">
+            <div class="rightsReviewAcc">
+                <div class="head">
+                    <div class="clearFloat">
+                        <a href="#" class="header alignLeft iconBottom">Rights Review Filter</a>
+                         <span id="spanReviewFilter" class="alignRight displayNone"><span class="hyperlink"><a id="clearReviewFilter" class="alignRight" href="javascript:void(0);">Clear Filter</a></span></span>
+                    </div>
+                </div>
+                <div class="filterBody displayNone">
+                    <!-- First Filter Condition -->
+                    <div id="divRightsReviewFilter">
+                        <div class="rrfChkContainer ">
+                            <div class="rrf_Rtrd_Container">
+                                <label class="rrfChkLabel">
+                                    @WorkQueueResource.ResourceTrackRightsData</label>
+                                <br class="clearFloat" />
+                                <div class="alignLeft">
+                                <span class="rrf_OneColumnChkBox">
+                                    <input type="checkbox" value="Resource" id="chkResource" /><label for="chkResource">@WorkQueueResource.Resource</label></span></div>
+                                <!--br class="clearFloat" /-->
+                                <div class="alignLeft"><span class="rrf_TwoColumnChkBox">
+                                    <input type="checkbox" value="Track" id="chkTrack" /><label for="chkTrack">@WorkQueueResource.Track</label></span></div>
+                            </div>
+                            <div class="rrf_Rt_Container">
+                                <label class="rrfChkLabel">
+                                    @WorkQueueResource.ResourceType</label>
+                                <br class="clearFloat" />
+                                <div class="alignLeft">
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="Image" id="chkImage" /><label for="chkImage">
+                                        @WorkQueueResource.Images</label></span>
+                                    <!--br class="clearFloat" /-->
+                                    
+                                </div>
+                                <div class="alignLeft">
+                                    <span class="rrf_TwoColumnChkBox">
+                                        <input type="checkbox" value="Video" id="chkVideo" /><label for="chkVideo">
+                                        @WorkQueueResource.Video</label></span>
+                                </div>
+                                <div class="alignLeft">
+                                <span class="rrf_TwoColumnChkBox">
+                                        <input type="checkbox" value="Audio" id="chkAudio" /><label for="chkAudio">
+                                        @WorkQueueResource.Audio</label></span>
+                                
+                                </div>
+
+
+                            </div>
+                            <div class="rrf_Rs_Container">
+                                <label class="rrfChkLabel">
+                                    @WorkQueueResource.ReviewStatus</label>
+                                <br class="clearFloat" />
+                                <span class="rrf_OneColumnChkBox">
+                                    <input type="checkbox" value="NewForReview" id="chkNewForReview" /><label for="chkNewForReview">
+                                    @WorkQueueResource.NewForReview</label>
+                                    </span>
+                                <span class="rrf_TwoColumnChkBox">
+                                    <input type="checkbox" value="FinalForReview" id="chkFinalForReview" /><label for="chkFinalForReview">
+                                                                                                               @WorkQueueResource.FinalForReview</label>
+                                                                                                               </span>
+                            </div>
+                            <div class="rrfChkLastContainer">
+                                <label class="rrfChkLabel">
+                                </label>
+                                <br class="clearFloat" />
+                                <div class="alignLeft">
+                                <span class="rrf_OneColumnChkBox">
+                                    <input type="checkbox" value="SampleExists" id="chkSampleExists" /><label for="chkSampleExists">
+                                    @WorkQueueResource.SampleExists</label>
+                                    </span></div>
+                                <!--br class="clearFloat" /-->
+                                <div class="alignLeft">
+                                <span class="rrf_TwoColumnChkBox">
+                                    <input type="checkbox" value="SideArtistExists" id="chkSideArtistExists" /><label for="chkSideArtistExists">
+                                    @WorkQueueResource.SideArtistExists</label>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- First Filter Condition -->
+                    <div class="Clear">
+                    </div>
+                    <!-- Digital Restriction Starts -->
+                    <div style="">
+                    <div id="divHiddenDigitalRestrictionContainer" class="digiRestrictionAcc">
+                        <div class="head">
+                            <div class="leftRight">
+                                <a href="#" class="header alignLeft iconBottom">@WorkQueueResource.DigitalRestriction</a>
+                            </div>
+                        </div>
+                        <div id="divDigitalRestrictionFilterAccordion">
+                            <div class="rrfChkContainer">
+                                <div class="rrf_Rtrd_Container">
+                                    <label class="rrfChkLabel">
+                                        @WorkQueueResource.UseType</label>
+                                    <br class="clearFloat" />
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="Download" id="chkDownload" /><label for="chkDownload">@WorkQueueResource.Download</label></span>
+                                    <br class="clearFloat" />
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="Streaming" id="chkStreaming" /><label for="chkStreaming">
+                                        @WorkQueueResource.Streaming</label> </span>
+                                    <br class="clearFloat" />
+                                </div>
+                                <div class="rrf_Rt_Container">
+                                    <label class="rrfChkLabel">
+                                        @WorkQueueResource.CommercialModels</label>
+                                    <br class="clearFloat" />
+                                    <div class="alignLeft">
+                                        <span class="rrf_OneColumnChkBox">
+                                            <input type="checkbox" value="All" id="commercialModelAll" /><label for="commercialModelAll">
+                                            @WorkQueueResource.All</label> </span>
+                                        <br class="clearFloat" />
+                                        <span class="rrf_OneColumnChkBox">
+                                            <input type="checkbox" value="AlaCarte" id="chkAlaCarte" /><label for="chkAlaCarte">
+                                            @WorkQueueResource.AlaCarte</label>
+                                            </span>
+                                    </div>
+                                    <div class="alignLeft">
+                                        <span class="rrf_TwoColumnChkBox">
+                                            <input type="checkbox" value="Resource" id="chkSubscription" /><label for="chkSubscription">
+                                            @WorkQueueResource.Subscription</label> </span>
+                                        <br class="clearFloat" />
+                                        <span class="rrf_TwoColumnChkBox">
+                                            <input type="checkbox" value="AdFunded" id="chkAdFunded" /><label for="chkAdFunded">
+                                                                                                           @WorkQueueResource.AdFunded</label>
+                                                                                                           </span>
+                                    </div>
+                                </div>
+                                <div class="rrf_Rs_Container">
+                                    <label class="rrfChkLabel">
+                                        @WorkQueueResource.Restrictions</label>
+                                    <br class="clearFloat" />
+                                    <div class="alignLeft">
+                                        <span class="rrf_OneColumnChkBox">
+                                            <input type="checkbox" value="NoRights" id="chkNoRights" /><label for="chkNoRights">
+                                            @WorkQueueResource.NoRights</label>
+                                            </span>
+                                        <br class="clearFloat" />
+                                        <span class="rrf_OneColumnChkBox">
+                                            <input type="checkbox" value="ConsentRequired" id="chkConsentRequired" /><label for="chkConsentRequired">
+                                            @WorkQueueResource.ConsentRequired</label> </span>
+                                        <br class="clearFloat" />
+                                        <span class="rrf_OneColumnChkBox">
+                                            <input type="checkbox" value="ReferToLegal" id="chkReferToLegal" /><label for="chkReferToLegal">
+                                            @WorkQueueResource.ReferToLegal</label></span>
+                                    </div>
+                                    <div class="alignLeft">
+                                        <span class="rrf_TwoColumnChkBox">
+                                            <input type="checkbox" value="NoRestriction" id="chkNoRestriction" /><label for="chkNoRestriction">
+                                            @WorkQueueResource.NoRestriction</label></span>
+                                        <br class="clearFloat" />
+                                        <span class="rrf_TwoColumnChkBox">
+                                            <input type="checkbox" value="Consult" id="chkConsult" /><label for="chkConsult"> @WorkQueueResource.Consult</label></span>
+                                    </div>
+                                </div>
+                                <div class="rrfChkLastContainer" id="holdBackContainer" >
+                                    <label class="rrfChkLabel">
+                                        @WorkQueueResource.ConsentPeriod</label>
+                                    <br class="clearFloat" />
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="DuringandAfterTerm" id="chkDuringandAfterTerm" /><label for="chkDuringandAfterTerm">@WorkQueueResource.DuringandAfterTerm</label></span>
+                                    <br class="clearFloat" />
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="DuringHoldbackPeriod" id="chkDuringHoldbackPeriod" /><label for="chkDuringHoldbackPeriod">@WorkQueueResource.DuringHoldbackPeriod</label></span>
+                                    <br class="clearFloat" />
+                                    <span class="rrf_OneColumnChkBox">
+                                        <input type="checkbox" value="DuringTerm" id="chkDuringTerm" /><label for="chkDuringTerm">@WorkQueueResource.DuringTerm</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Digital Restriction Ends -->
+                    <!-- Common Filter Starts -->
+                    <div>
+                        <div id="divDataField">
+                            <div class="divLeftFields">
+                                <div class="leftLabelDiv">@ContractResource.XlHdrArtistName:</div>
+                                <div class="leftFieldDiv artistInputText">
+                                    @Html.TextBox("txtArtistName")
+                                    <span>
+                                        <input type="checkbox" value="chkBoxArtistExact" id="chkBoxArtistExact" /><label for="chkBoxArtistExact">Exact Search</label></span></div>
+                            </div>
+                            <div class="divRightFields">
+                                <div class="rightLabelDiv">@WorkQueueResource.ClearanceDataAdminCompany:</div>
+                                <div class="rightFieldDiv cacInputText">
+                                    @* @Html.TextBox("txtClearanceAdminCompany", "", new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global") })*@
+                                     @Html.TextBox("txtClearanceAdminCompany", "", new { data_autocomplete_source_manual = @Url.Action("AutoSearchRightsReviewCompCountry", "Global") })
+                                    <input type="hidden" id="hiddenClearanceCountryId" />
+                                </div>
+                            </div>
+                            <div class="Clear">
+                            </div>
+                            <div class="divLeftFields">
+                                <div class="leftLabelDiv">@Html.Label(@RepertoireSearch.Title):</div>
+                                <div class="leftFieldDiv titleInputText">
+                                    <input type="text" id="txtTitles" /></div>
+                            </div>
+                            <div class="divRightFields">
+                                <div class="rightLabelDiv">@Html.Label(@WorkQueueResource.LinkedContract):</div>
+                                <div class="rightFieldDiv linkContractInputText"><div class="alignLeft">@Html.TextArea("txtAreaLinkedContract")</div><div class="alignLeft"><span id="imgSearchReviewContract" class="linkContractSearchIcon"></span></div></div>
+                                <input type="hidden" id="txtAreaLinkedContractId" />
+                            </div>
+                            <div class="Clear">
+                            </div>
+                            <div class="divLeftFields">
+                                <div class="isrcContainer">
+                                    <div class="leftLabelDiv">@Html.Label(@RepertoireSearch.ISRC):</div>
+                                    <div class="isrcInputText">
+                                        <input type="text" id="txtIsrc" />
+                                    </div>
+                                </div>
+                                <div class="upcContainer">
+                                    <div class="upcContainerLabel">
+                                        @Html.Label(@RepertoireSearch.UPC):</div>
+                                    <div class="upcInputText">
+                                        <input type="text" id="txtUpc" /></div>
+                                </div>
+                            </div>
+                            <div class="divRightFields">
+                                <div class="rightLabelDiv">@Html.Label(@WorkQueueResource.ReasonforReview):</div>
+                                <div class="rightFieldDiv reasonDropDown">
+                                    @Html.DropDownListFor(model => model.RightsMasterData.ReviewReason.Values, new SelectList(Model.ReviewReasonDropDown,"value", "text",0))
+                                    <div id="divReviewFilterButtons" class="filterResetCont">
+                                        <div class="primbutton_left alignLeft">
+                                        </div>
+                                        <div class="alignLeft">
+                                            <input type="button" id="btnReviewFilter" value="Apply Filter" class="primbutton" /></div>
+                                        <div class="primbutton_right alignLeft filterResetSpace">
+                                        </div>
+                                        <div class="secbutton_left alignLeft">
+                                        </div>
+                                        <div class="alignLeft">
+                                            <input type="button" id="btnReviewFilterReset" value="Reset" class="secbutton" /></div>
+                                        <div class="secbutton_right alignLeft">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="clearFloat">
+                                </div>
+                            </div>
+                            <!-- Common Filter Ends -->
+                        </div>
+                        <div class="clearFloat">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearFloat">
+                </div>
+            </div>
+        </div>
+        <div id="divRightsWorkQueue" class="clearFloat">
+            @Html.Partial("RightsWorkQueue", Model)
+        </div>
+    </div>
+</div>

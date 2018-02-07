@@ -1,0 +1,107 @@
+﻿@using System.Collections
+@using UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ReleaseRightsWorkQueueModel
+ <link href="@Url.Content("/GCS/Content/SubPages/ReleaseDigitalRestrictions.css")"  rel="stylesheet" type="text/css" />
+ <script type="text/javascript" src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/ReleaseDigitalRestrictionsTab.js")"></script>
+@{if (ViewBag.releaseDigitalGridId == null)
+  {
+      ViewBag.releaseDigitalGridId = "releaseDigitalRestrictions";
+  }
+}
+<div class="GridDisplay">
+<div>
+    <div id="divReleaseDigitalRestrictionsStrip">
+    </div>  
+
+    <div id="jqgrid">
+        @(Html.Syncfusion().Grid<ReleaseDigitalLnr>((string)ViewBag.releaseDigitalGridId)
+           .ActionMode(ActionMode.JSON)
+           .Caption("Digital Restriction Grid")
+           .CustomCss("Syncfusion-Grid-Greenish")
+           .PageSettings(page => { page.PageSize(25); page.PagerPosition(Position.TopRight); page.PagerStyle(PagerStyle.DefaultAndAdvanced); })
+           .EnablePaging()
+           .EnableOnDemand()
+           .TotalRecordCount(0)
+           .EnableScrolling()           
+           .EnableSorting()
+           .AllowResizing(true)
+           .AllowAutoWrap(true)
+           .AllowMergeCells(true)
+           .AllowSelection(true)
+           .SelectionMode(SelectionMode.Multiple)
+           .ClientSideEvents(evt => evt.RowDataBound("checkImageForReleaeDigitalRights"))
+           .ClientSideEvents(evt => evt.OnActionBegin("onRelDigActionBegin"))
+           .ClientSideEvents(evt => evt.OnActionSuccess("RelDigActionSuccess"))
+           .ClientSideEvents(evt => evt.OnActionFailure("onReleaseDigitalError"))
+           .ClientSideEvents(evt => evt.MergeCellInfo("RelDigMergeRow"))
+           .ClientSideEvents(evt => evt.OnLoad("RelDigonLoad"))
+           .ClientSideEvents(evt => evt.OnCellSave("releaseDigitalCellSave"))
+           .ClientSideEvents(evt => evt.OnCellEdit("releaseDigitalCellEdit"))           
+           .Column(column =>
+                       {
+                           column.Add(p => p.RightSetIdLnr).Width(0).Visible(true).AllowEditing(true).CssClass("RightSetId tdRightSetId");
+                           column.Add(p => p.MergeCount).Width(0).Visible(false).AllowEditing(false).CssClass("mergeCount");
+                           column.Add(" ").Format("<input type=\"checkBox\" id=\"checkboxReleaseDigitalchild\" class=\"checkboxReleaseDigitalClass\">").TextAlign(TextAlignment.Center).Visible(true).AllowFilter(false).AllowDragging(false).Width(50);
+
+                           column.Add(p => p.ReleaseType).Width(40).HeaderText("Traits").TextAlign(TextAlignment.Center).AllowEditing(false);
+                           column.Add(p => p.RightsSourceId).Width(70).HeaderText(@WorkQueueResource.RightsDataSource).TextAlign(TextAlignment.Center).AllowEditing(false);
+                           column.Add(p => p.UPCId).Width(110).HeaderText(@WorkQueueResource.UPC).CellEditType(CellEditType.StringEdit).CssClass("hyperTextBlue");
+                           column.Add(p => p.Artist).Width(180).HeaderText(@RepertoireSearch.ArtistName).AllowEditing(false);
+                           column.Add(p => p.Title).Width(180).HeaderText(@RepertoireSearch.Title).AllowEditing(false);
+                           column.Add(p => p.VersionTitle).Width(180).HeaderText(@WorkQueueResource.VersionTitle).AllowEditing(false);
+                           column.Add(p => p.ReleaseDate).Width(100).HeaderText(@WorkQueueResource.ReleaseDate).AllowEditing(false).Format(Html.GetRequestDateFormat()); 
+                           column.Add(p => p.Configration).Width(150).HeaderText(@WorkQueueResource.Configuration).AllowEditing(false);
+                           column.Add(p => p.IsSplitDeal).Width(60).HeaderText(@WorkQueueResource.LinkedContract).TextAlign(TextAlignment.Center).AllowEditing(false);
+                           column.Add(p => p.AdminCompany).Width(160).HeaderText(@RepertoireSearch.ClearanceOrDataAdminCompany).AllowEditing(false);
+                           column.Add(p => p.TerritorialRights).Width(150).HeaderText(@RepertoireSearch.TerritorialRights).AllowEditing(false);
+                           column.Add(p => p.Error).Width(40).HeaderText(@WorkQueueResource.Error).AllowEditing(false).CssClass("rightsError");
+                           column.Add(p => p.RestrictionIdLnr).Width(0).AllowEditing(false).Visible(false);
+                           column.Add(p => p.UseTypeLnr).Width(100).HeaderText("Use Type").CellEditType(CellEditType.DropdownEdit).DropDownDataSource(Model.UserTypeDropDown).CssClass("UseTypes");
+                           column.Add(p => p.CommercialModelsLnr).Width(120).HeaderText("Commercial Models").CellEditType(CellEditType.DropdownEdit).DropDownDataSource(Model.CommercialDropDown).CssClass("CommercialModel");
+                           column.Add(p => p.RestrictionLnr).Width(140).HeaderText("Restriction").CellEditType(CellEditType.DropdownEdit).DropDownDataSource(Model.RestrictionsDropDown).CssClass("Restriction");
+                           column.Add(p => p.RestrictonReasonLnr).Width(160).HeaderText("Restricton Reason").CellEditType(CellEditType.DropdownEdit).DropDownDataSource(Model.RestrictionsReasonDropDown).CssClass("RestrictionReason");
+                           column.Add(p => p.ConsentPeriodLnr).Width(165).HeaderText("Consent/Consult Period").CellEditType(CellEditType.DropdownEdit).DropDownDataSource(Model.ConsentPeriodDropDown).CssClass("ConsentPeriod");
+                           column.Add(p => p.NotesLnr).Width(150).HeaderText("Notes").CellEditType(CellEditType.StringEdit).CssClass("Notes");
+                           column.Add("Actions").Format("<img id=\"imgAddNew\" style=\"cursor:pointer\" src='/GCS/Images/DR_plus.png'\" onclick=\"ReleaseDigPlusClick(this)\">&nbsp;&nbsp; <img id=\"imgDelete\" style=\"cursor:pointer\" src='/GCS/Images/DR_delete.png'\" onclick=\"ReleaseDigDeleteClick(this)\"> ").UnBound(true).Width(60).AllowEditing(false);
+                           column.Add(p => p.ModifiedDateTimeLnr).Width(0).Visible(true).AllowEditing(true);
+                           column.Add(p => p.RightsEditPermitted).Width(0).AllowEditing(false).Visible(false).CssClass("RightsEditPermitted"); 
+                           column.Add(p => p.SensitiveInfoPermitted).Width(0).AllowEditing(false).Visible(false);
+                           column.Add(p => p.ReleaseId).Width(0).AllowEditing(false).Visible(false).CssClass("repertoireId");
+                           column.Add(p => p.R2ReleaseId).Width(0).AllowEditing(false).Visible(false).CssClass("r2RepertoireId");
+                           column.Add(p => p.ContractId).Width(0).AllowEditing(false).Visible(false).CssClass("contractId");
+                           column.Add(p => p.LostRightsLnr).Width(0).AllowEditing(false).Visible(false);
+                           column.Add(p => p.RestrictionReasonForOthers).Visible(false).AllowEditing(false);
+                           column.Add(p => p.RestrictionIdLnr).Width(0).AllowEditing(false).Visible(false).CssClass("RestrictionIdLnr");
+                           column.Add(p => p.IsEditableRight).Width(0).AllowEditing(false).Visible(false);
+                           
+                       })
+           .ToolBar(tools =>
+                        {
+                            tools.Add(GridToolBarItems.AddNew);
+                            tools.Add(GridToolBarItems.Edit);
+                            tools.Add(GridToolBarItems.Delete);
+                            tools.Add(GridToolBarItems.Update);
+                            tools.Add(GridToolBarItems.Cancel);
+                        })
+           .Mappers(mapper =>
+                        {
+                            mapper.SaveAction("SaveReleaseDigitalRestriction");
+                        })
+           .Editing(edit =>
+                        {
+                            edit.AllowEdit(true);
+                            edit.AllowNew(true);
+                            edit.AllowDelete(true);
+                            edit.EditMode(GridEditMode.ManualExcel);
+                            edit.PrimaryKey(key => key.Add(p => p.RightSetIdLnr));
+                        })
+              )
+    </div>
+</div>
+</div>
+
+<input type="hidden" id="hdnRelDigGridId" value="" />
+<input type="hidden" id="hdnRelCheckBoxId" value="checkboxReleaseDigitalchild" />
+<input type="hidden" id="hdnRelDigGridChkId" value="" />

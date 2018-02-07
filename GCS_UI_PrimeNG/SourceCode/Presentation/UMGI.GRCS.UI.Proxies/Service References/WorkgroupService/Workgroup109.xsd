@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+  <xs:complexType name="CompanySearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsacCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkGroupId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompanySearchCriteria" nillable="true" type="tns:CompanySearchCriteria" />
+  <xs:complexType name="WorkgroupSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActiveOnly" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRccAdmin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" type="xs:int" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkGroupSearchOptions" type="tns:WorkGroupSearchOption" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkgroupSearchCriteria" nillable="true" type="tns:WorkgroupSearchCriteria" />
+  <xs:simpleType name="WorkGroupSearchOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoOPtionWg" />
+      <xs:enumeration value="IncludeInactiveWg" />
+      <xs:enumeration value="IgnoreSelectedUserWg" />
+      <xs:enumeration value="SearchSelectedUserWg" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WorkGroupSearchOption" nillable="true" type="tns:WorkGroupSearchOption" />
+  <xs:complexType name="ArrayOfWorkgroupSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkgroupSearchResult" nillable="true" type="tns:WorkgroupSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkgroupSearchResult" nillable="true" type="tns:ArrayOfWorkgroupSearchResult" />
+  <xs:complexType name="WorkgroupSearchResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Workgroup">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CanAllocateUpc" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CanManageWorkgroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ChildWorkgroupNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsInRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsR2Authorized" type="xs:boolean" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkgroupSearchResult" nillable="true" type="tns:WorkgroupSearchResult" />
+  <xs:complexType name="Workgroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q3:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssignedgtWorkgroupID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ChildWorkgroups" nillable="true" type="q4:ArrayOfKeyValuePairOflongstring" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Companies" nillable="true" type="q5:ArrayOfCompanyInfo" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Countries" nillable="true" type="q6:ArrayOfTerritoryInfo" />
+          <xs:element minOccurs="0" name="ExcludedTerritories" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpectWorkgroupID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="IncludedTerritories" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentID" type="xs:long" />
+          <xs:element minOccurs="0" name="R2Contract" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestTypeName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ResourceType" nillable="true" type="q7:ArrayOfKeyValuePairOflongstring" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="StatusType" nillable="true" type="xs:string" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Territories" nillable="true" type="q8:ArrayOfTerritorialDisplay" />
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfWorkGroupUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Workgroup" nillable="true" type="tns:Workgroup" />
+  <xs:complexType name="ArrayOfWorkGroupUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkGroupUser" nillable="true" type="tns:WorkGroupUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkGroupUser" nillable="true" type="tns:ArrayOfWorkGroupUser" />
+  <xs:complexType name="WorkGroupUser">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" base="q9:ApplicationUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CanAllocateUpc" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CanManageWorkgroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsInRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsR2Authorized" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsUserDefault" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+          <xs:element minOccurs="0" name="UserInactiveWorkgroupNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserWorkgroupNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkGroups" nillable="true" type="tns:ArrayOfWorkgroup" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkGroupUser" nillable="true" type="tns:WorkGroupUser" />
+  <xs:complexType name="ArrayOfWorkgroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Workgroup" nillable="true" type="tns:Workgroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkgroup" nillable="true" type="tns:ArrayOfWorkgroup" />
+  <xs:complexType name="RequestSearch">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q10:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FromParent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsParent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkGroupId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestSearch" nillable="true" type="tns:RequestSearch" />
+  <xs:complexType name="ArrayOfRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Request" nillable="true" type="tns:Request" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequest" nillable="true" type="tns:ArrayOfRequest" />
+  <xs:complexType name="Request">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q11:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceOwner" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="ISRC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectID" type="xs:long" />
+          <xs:element minOccurs="0" name="ProjectReferenceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkgroupID" type="xs:long" />
+          <xs:element minOccurs="0" name="WorkgroupName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Request" nillable="true" type="tns:Request" />
+  <xs:complexType name="ChildWorkgroup">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ParentWorkgroup">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" minOccurs="0" name="ArtistContracts" nillable="true" type="q12:ArrayOfDeviationArtistContract" />
+          <xs:element minOccurs="0" name="DeviationRequestTypes" nillable="true" type="tns:ArrayOfDeviationRequestType" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="RequestTypes" nillable="true" type="q13:ArrayOfKeyValuePairOflonglong" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="RequestTypesLookup" nillable="true" type="q14:ArrayOfKeyValuePairOflongstring" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" minOccurs="0" name="ResourceContracts" nillable="true" type="q15:ArrayOfDeviationResourceContract" />
+          <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChildWorkgroup" nillable="true" type="tns:ChildWorkgroup" />
+  <xs:complexType name="ParentWorkgroup">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WorkgroupBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ChildWorkgroups" nillable="true" type="q16:ArrayOfKeyValuePairOflongstring" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Companies" nillable="true" type="q17:ArrayOfCompanyInfo" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Countries" nillable="true" type="q18:ArrayOfTerritoryInfo" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="R2Contract" nillable="true" type="xs:string" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Territories" nillable="true" type="q19:ArrayOfTerritorialDisplay" />
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfWorkGroupUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ParentWorkgroup" nillable="true" type="tns:ParentWorkgroup" />
+  <xs:complexType name="WorkgroupBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q20:PagingBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Order" type="xs:int" />
+          <xs:element minOccurs="0" name="ParentId" type="xs:long" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:long" />
+          <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StatusType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkgroupBase" nillable="true" type="tns:WorkgroupBase" />
+  <xs:complexType name="ArrayOfDeviationRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviationRequestType" nillable="true" type="tns:DeviationRequestType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviationRequestType" nillable="true" type="tns:ArrayOfDeviationRequestType" />
+  <xs:complexType name="DeviationRequestType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviationRequestType" nillable="true" type="tns:DeviationRequestType" />
+  <xs:complexType name="ArrayOfPreferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Preferences" nillable="true" type="tns:Preferences" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPreferences" nillable="true" type="tns:ArrayOfPreferences" />
+  <xs:complexType name="Preferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreferenceID" type="xs:long" />
+      <xs:element minOccurs="0" name="PreferenceType" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="SequenceNumber" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Preferences" nillable="true" type="tns:Preferences" />
+  <xs:complexType name="ArrayOfUserPreference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserPreference" nillable="true" type="tns:UserPreference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserPreference" nillable="true" type="tns:ArrayOfUserPreference" />
+  <xs:complexType name="UserPreference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PreferenceID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPreferenceValuesList" nillable="true" type="tns:ArrayOfUserPreferenceValues" />
+      <xs:element minOccurs="0" name="UserPrefernceID" type="xs:long" />
+      <xs:element minOccurs="0" name="WorkGroupValues" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserPreference" nillable="true" type="tns:UserPreference" />
+  <xs:complexType name="ArrayOfUserPreferenceValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserPreferenceValues" nillable="true" type="tns:UserPreferenceValues" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserPreferenceValues" nillable="true" type="tns:ArrayOfUserPreferenceValues" />
+  <xs:complexType name="UserPreferenceValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserPreferenceValuesID" type="xs:long" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserPreferenceValues" nillable="true" type="tns:UserPreferenceValues" />
+  <xs:complexType name="ArrayOfWorkgroupBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkgroupBase" nillable="true" type="tns:WorkgroupBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkgroupBase" nillable="true" type="tns:ArrayOfWorkgroupBase" />
+</xs:schema>

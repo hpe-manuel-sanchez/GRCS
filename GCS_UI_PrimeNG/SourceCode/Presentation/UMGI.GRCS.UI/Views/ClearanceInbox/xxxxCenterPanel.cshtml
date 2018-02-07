@@ -1,0 +1,73 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+           
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.Resx.Resource.ClearanceInbox
+
+<div id="centerPanel">
+
+    <div id="clearanceInboxSearch">
+        <ul class="ulClass">
+            <li class="margin-top-8pix margin-left-fivepix">
+                @Html.TextBox("txtSearchCriteria", null, new { @class = "inbox-input" })
+            </li>
+
+            <li class="margin-top-8pix">
+                @Html.DropDownList("ddlSearchType", new SelectList(Model.SearchCriteria.SearchType, "Value", "Text"), "--  Select  --")
+            </li>
+            
+            <li class="margin-top-8pix">
+                <input type="button" value="Search" class="plbutton" onclick="getSearchResult();" />
+            </li>
+            
+            <li class="margin-top-8pix">
+                <input type="button" value="Clear" class="plbutton" onclick="clearSearchCriteria();" />
+            </li>
+            
+            <li class="last margin-top-8pix">
+                <input type="button" value="New Folder" class="plbutton" onclick="manageFolders(null, null, 'CREATE');" />
+            </li>
+        </ul>
+    </div>
+     <div id="inbox-header-container" class="margin-top-50pix">
+            <table id="filtTbl" class="inboxTable">
+                <thead>
+                    <tr>
+                        <th class="always-hidden"><div class="inbox-header always-hidden">FolderId</div></th>
+                        <th class="always-hidden"><div class="inbox-header always-hidden">ClearanceProjectId</div></th>
+                        <th class="always-hidden"><div class="inbox-header always-hidden">IsHighPriority</div></th>
+                        <th class="always-hidden"><div class="inbox-header always-hidden">IsThirdParty</div></th>
+                        <th class="always-hidden"><div class="inbox-header always-hidden">IsUnread</div></th>
+                        <th><div class="inbox-header">Project Type</div></th>
+                        <th><div class="inbox-header">Project Reference Number</div></th>
+                        <th><div class="inbox-header">Project Title</div></th>
+                        <th><div class="inbox-header display-in-extendedview">Assigned To</div></th>
+                        <th><div class="inbox-header display-in-extendedview">Requestor Name</div></th>
+                        <th><div class="inbox-header display-in-extendedview">Release Date</div></th>
+                        <th><div class="inbox-header display-in-extendedview">Estimated Sales</div></th>
+                        <th><div class="inbox-header display-in-extendedview">Role</div></th>
+                        <th><div class="inbox-header display-in-extendedview">WorkGroup</div></th>
+                        <th><div class="inbox-header">Notification Recieved Date</div></th>
+                    </tr>
+                </thead>
+            </table>
+        
+
+        </div>
+    <div id="loadFilterTable" >
+        
+        <div id="clearanceInbox"></div>
+
+        <div id="padding">
+            <p>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </p>
+       </div>
+
+    </div>
+
+</div>
+            

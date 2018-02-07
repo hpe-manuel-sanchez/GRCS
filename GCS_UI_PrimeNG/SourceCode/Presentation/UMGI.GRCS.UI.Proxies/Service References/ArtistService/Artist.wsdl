@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Artist" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" />
+      <xsd:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IArtist_SearchArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchArtist" />
+  </wsdl:message>
+  <wsdl:message name="IArtist_SearchArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtist_SearchGRCSArtists_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchGRCSArtists" />
+  </wsdl:message>
+  <wsdl:message name="IArtist_SearchGRCSArtists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchGRCSArtistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INotificationProcessor_ProcessNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessNotification" />
+  </wsdl:message>
+  <wsdl:message name="INotificationProcessor_ProcessNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtistDataProvider_GetArtistRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtistRights" />
+  </wsdl:message>
+  <wsdl:message name="IArtistDataProvider_GetArtistRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArtistRightsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IArtist">
+    <wsdl:operation name="SearchArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtist/SearchArtist" message="tns:IArtist_SearchArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtist/SearchArtistResponse" message="tns:IArtist_SearchArtist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchGRCSArtists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtist/SearchGRCSArtists" message="tns:IArtist_SearchGRCSArtists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtist/SearchGRCSArtistsResponse" message="tns:IArtist_SearchGRCSArtists_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="INotificationProcessor">
+    <wsdl:operation name="ProcessNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/INotificationProcessor/ProcessNotification" message="tns:INotificationProcessor_ProcessNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INotificationProcessor/ProcessNotificationResponse" message="tns:INotificationProcessor_ProcessNotification_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IArtistDataProvider">
+    <wsdl:operation name="GetArtistRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtistDataProvider/GetArtistRights" message="tns:IArtistDataProvider_GetArtistRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtistDataProvider/GetArtistRightsResponse" message="tns:IArtistDataProvider_GetArtistRights_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IArtist" type="tns:IArtist">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchArtist">
+      <soap:operation soapAction="http://tempuri.org/IArtist/SearchArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGRCSArtists">
+      <soap:operation soapAction="http://tempuri.org/IArtist/SearchGRCSArtists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_INotificationProcessor" type="tns:INotificationProcessor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessNotification">
+      <soap:operation soapAction="http://tempuri.org/INotificationProcessor/ProcessNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IArtistDataProvider" type="tns:IArtistDataProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetArtistRights">
+      <soap:operation soapAction="http://tempuri.org/IArtistDataProvider/GetArtistRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Artist">
+    <wsdl:port name="BasicHttpBinding_IArtist" binding="tns:BasicHttpBinding_IArtist">
+      <soap:address location="http://localhost:1234/Artist/Artist.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_INotificationProcessor" binding="tns:BasicHttpBinding_INotificationProcessor">
+      <soap:address location="http://localhost:1234/Artist/Artist.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IArtistDataProvider" binding="tns:BasicHttpBinding_IArtistDataProvider">
+      <soap:address location="http://localhost:1234/Artist/Artist.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,86 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RepertoireRightsSearch.RepertoireRightsSearchRepository
+           
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceAdminCountry.css")"  rel="stylesheet" type="text/css" />
+        
+<script src="@Url.Content("/GCS/Scripts/Custom/RepertoireRightsSearch/TerritorialCountries.js")" type="text/javascript"></script>
+<div class="">
+   <!-- TODO: Remove label hardcoding--> 
+    <div> 
+   
+        <div class="CAC_Sfc">
+            @RepertoireSearch.SelectCountries
+        </div>
+        
+        <div class="search-button CAC_Sfc_Autocomplete">
+        @Html.TextBox("txtClearanceAdminComp", "", new { data_autocomplete_source_manual = @Url.Action("SelectTerritorialCountries", "RepertoireRightsSearch"), @class = "ui-autocomplete-input" })<span id="imgClearIcon" onclick="clearCountry()" style="display:none"></span>
+         </div>
+        <div class="CAC_Scr">
+            <label>@RepertoireSearch.SelectedCountries-</label>
+            <label id="labelSelCount"></label>
+        </div>
+        
+        <div class="hyperlink removeAll">
+            <div class="deleteIcon"></div>
+            <a id="linkRemoveAll" class="alignRight" href="javascript:void(0);">@RepertoireSearch.ClearAll</a>
+        </div>
+    </div>
+    <br class="clearFloat" />
+    <div class="cacTableContainer">
+        <div class="cacTable cacTableClearance" style="height:300px;">
+        
+            <table id="ClearenceList">
+            
+            </table>
+        
+        </div>
+        <div class="cacTable selectedListTable" style="height:300px;">
+            <table id="SelectedList">
+            </table>
+        </div>
+    </div>
+
+    <div class="clrAdminCountFoot">
+    
+
+        <div class="hyperlink resetSelection" style="align:left">
+                 <div class="resetImg"></div>
+                 <a id="linkClear" class="resetTxt" href="javascript:void(0);">@RepertoireSearch.ClearFilter</a>
+        </div>
+
+        
+
+
+
+
+
+         <div class="CAC_Btn_Container">
+                     <div class="alignLeft okBtn">
+                           <div class="primbutton_left"></div>
+                           <div class="alignLeft">
+                                  <input type="submit" id="subOk"  class="primbutton" value="@ContractResource.OKButton" />
+                           </div>
+                           <div class="primbutton_right"></div>
+                     </div>
+                      <div class="alignLeft">
+                           <div class="secbutton_left"></div>
+                           <div class="alignLeft">
+                                  <input type="submit" id="subCancel" class="secbutton btnSpacing" value="@ContractResource.CancelButton" />
+                           </div>
+                           <div class="secbutton_right"></div>
+                     </div>
+          </div> <!--------------- end of btnHolder -------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

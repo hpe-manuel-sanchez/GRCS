@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Pending Request";
+   Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#searchWorkGroupList').jtable({
+            title: 'Table of people',
+            actions: {
+                listAction: '/GCS/WorkGroup/SearchWorkGroup'
+            },
+            fields: {
+                PersonId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Author Name',
+                    width: '40%'
+                },
+                Age: {
+                    title: 'Age',
+                    width: '20%'
+                },
+                RecordDate: {
+                    title: 'Record date', width: '30%',
+                    type: 'date',
+                    create: false,
+                    edit: false
+                }
+            }
+        });
+
+        $('#searchWorkGroupList').jtable('load');
+    });
+</script>
+  <div class="searchContainer">
+
+  <div id="searchContractBtnContainer" style="display: inline-block; position: relative;">
+                    <input class="primbutton" id="btnSearchWorkGroup"  runat="server" type="submit" value="Search"/>
+
+   </div>
+    </div>
+    <div id="searchWorkGroupList">
+    </div>
+    <div id="SelectedRowList">
+    </div>
+    <div style="margin-top: 0.7em; margin-left: 45.6%; width: 41%;">
+        <input class="primbutton" id="btnViewWorkGroup" runat="server" type="button" value= "View" />
+        <input class="primbutton" id="btnDeactiveWorkGroup" runat="server" type="button" value= "Deactive" />
+        <input class="secbutton" id="btnCancelWorkGroup" runat="server" type="button" value="Cancel" />
+    </div>

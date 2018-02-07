@@ -1,0 +1,66 @@
+﻿@model UMGI.GRCS.UI.Models.TemplateMaintenanceModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    ViewBag.Title = @ContractResource.DigitalRestrictionsTemplatesHeader;
+}
+
+<!DOCTYPE html>
+@section scripts{
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/ColumnFilter/jquery.columnfilters.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/TemplateMaintenance.js")" type="text/javascript"></script>
+
+}
+<!--Including java script files -->
+<script type="text/javascript" src="/Gcs/Scripts/Custom/TemplateMaintenance.js"></script>
+<script type="text/javascript" src="/Gcs/Scripts/jtable/jquery.jtable.js"></script>
+<script type="text/javascript">
+    var msg = '@ViewBag.Message';
+    if (msg != null)
+        displayDialog("Info", msg);
+</script>
+<style type="text/css">
+    .ui-jtable-loading {
+        float: left !important;
+    }
+</style>
+<html>
+<head>
+    <title>@ContractResource.DigitalRestrictionsTemplatesHeader</title>
+</head>
+
+<div class="digitalRestriction">
+
+    <!-- Digital Restriction Template Header Starts -->
+    <div>
+        <!--<h2 class="digitalRestrictionTempHeader">
+         @ContractResource.DigitalRestrictionsTemplatesHeader</h2>-->
+        <h2 class="digitalRestrictionTempHeader alignLeft">
+            <span id="DigitalCount">Digital Restriction Templates (0)</span> </h2>
+        @*<span id="DigitalAlerts"></span>*@
+        <div class="ui-jtable-loading"></div>
+        <div id="jqTableDigiPager" class="alignRight">
+            @ContractResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage)
+            @ContractResource.itemsperpage
+        </div>
+    </div>
+    <!-- Digital Restriction Template Header ends -->
+
+    <div class="clear">
+    </div>
+    <div>
+        <div id="DigitalRestrictionsTable">
+        </div>
+        <div id="DigitalSelectList">
+        </div>
+        @section BottomInputs{
+            <div class="alignRight setRightMargin editBtnContainer">
+                <input id="editDigitalTemplate" runat="server" type="submit" class="primbutton" value=" @ContractResource.EditButton" />
+                <input id="deleteDigitalTemplate" runat="server" type="submit" class="secbutton btnSpacing" value=" @ContractResource.DeleteButton" />
+            </div>
+        }
+    </div>
+</div>
+</html>

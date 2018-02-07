@@ -1,0 +1,17 @@
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\Schema\EmailTemplate.xml
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.UI.Interfaces.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.UI.Interfaces.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.BusinessEntities.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Core.Utilities.logger.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Core.Utilities.Helper.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Proxies.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\log4net.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.BusinessEntities.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Proxies.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\obj\Debug\UMGI.GRCS.UI.Interfaces.csprojResolveAssemblyReference.cache
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\obj\Debug\UMGI.GRCS.UI.Interfaces.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\obj\Debug\UMGI.GRCS.UI.Interfaces.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Interfaces\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll

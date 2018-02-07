@@ -1,0 +1,647 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel 
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using System.Collections.Generic
+@using System.Web.Script.Serialization
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.UI.Models
+
+<link href="@VersionExtension.GetFileLastVersion(Url.Content("/GCS/Content/SubPages/Inbox/RightPanel-RccAdmin.min.css"))" rel="stylesheet" type="text/css" />
+
+<script>
+    $(function () {
+        $("#tab2").tabs();
+    });
+    $(function () {
+        $("#tabsRCCAdmin").tabs();
+    });
+</script>
+
+<!-- HEADER ONE START -->
+<div id="RCCAdminRightPanelContent">
+    <div class="rightPanelHeader dark-green-background" id="RCCAdminRightPanelHeader">
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix smallWidth-M">
+            @Html.Hidden("projectRefNo", "", new { id = "hdnProjectRefNo" })
+            <a href="#" id="projectRefNum" onclick="viewProject(@Model.projectDetails.clrProjectId, @Model.projectDetails.ProjectType, @Model.projectDetails.ProjectType)" 
+                title="@Model.projectDetails.ProjectDetail" class="smallWidth-S text-align-left text-color-white ">
+                @Html.DisplayFor(model => model.projectDetails.ProjectReferenceNumber)
+            </a>
+        </div>
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix smallWidth-M remove-underline">
+            (@(Model.projectDetails.StatusDesc))
+        </div>
+
+        <!-- HEADER ONE ENDS -->
+        <!-- HEADER TWO START -->
+        <ul class="upper_header">
+            @if (Model.projectDetails.AvailableActions != null)
+            {
+                if (Model.projectDetails.AvailableActions.Count > 0)
+                {
+                    var i = 0;
+                    foreach (var item in Model.projectDetails.AvailableActions.OrderBy(action => action.Order))
+                    {
+                        i = i + 1;
+                <li>
+                    <a href="#" class="smallWidth-S text-align-left" style="color:#fff !important;" onclick="return actionOnSelectedItem('@item.Value','RCCAdmin')">@(item.Text)</a>
+                </li>
+                        if (i != Model.projectDetails.AvailableActions.Count)
+                        {
+                <li>|</li>
+                        }
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>
+<!-- HEADER TWO ENDS -->
+<div class="clear1 text-align-left">
+    @if (Model.TasksList != null)
+    {
+        if (Model.TasksList.Count > 0)
+        {
+            var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsProjectLevel).SingleOrDefault();
+            if (taskval.Value)
+            {
+        <textarea id="review_comment" rows="2" cols="20" onchange="return isValueChangedCss($(this));"></textarea>
+            }
+        }
+    }
+</div>
+
+<div id="tabsRCCAdmin" class="clear">
+    <ul id="screenTabs" class="rccAdminTab">
+        <li style="display: none" id="RCCResourceListItem">
+            <a href="#RCCAdmin_ResourceGrid" id="tablinkRccAdmin1">
+                <span class="rightcurvePATab">Resources</span>
+            </a>
+        </li>
+        <li style="display: none" id="RCCExistingResourceListItem">
+            <a href="#RCCAdmin_ExistingResources" id="tablinkRccAdmin2">
+                <span class="rightcurvePATab">Resources of Existing Release</span>
+            </a>
+        </li>
+        <li style="display: block !important; margin-left: 5px; top: 3px !important;">
+            <ul class="upper_header">
+                <li>
+                    <img src="/GCS/Images/save.gif" onclick="return SaveReviewComments_AssignedTo('RCCAdmin');" title="Save" alt="Save" />&nbsp;&nbsp;</li>
+                <li style="font-size: 11px;">RCC Handler:&nbsp;</li>
+                @if (Model.projectDetails.RccHandler != null)
+                {
+                    <li>@Model.projectDetails.RccHandler.Select(r => r.Text).FirstOrDefault()</li>
+                }
+                else
+                {
+                    <li style="margin-top: 0px;">
+                        <div id="rcc_hqandler">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                }
+                @if (Model.projectDetails.Upc != null)
+                {
+                    <li style="font-size: 11px;">|&nbsp;&nbsp;UPC:&nbsp; </li>
+                    if (Model.projectDetails.Upc.Count > 2)
+                    {
+                    <li id="upc_text" title="@(string.Join(";", Model.projectDetails.Upc.ToArray()))" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                    }
+                    else
+                    {
+                    <li id="upc_text" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+
+    <div id="RCCAdminWrapper">
+        @Html.Hidden("GridSelectedValues", "", new { Id = "grdSelectedValues" })
+        @Html.Hidden("WorkgrpId", "", new { Id = "WorkGrpId" })
+
+        @*Resources*@
+        <div id="RCCAdmin_ResourceGrid" style="display: none">
+            @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblRCCAdminResourceGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblRCCAdminResourceGridData"])
+        .Caption("RCCAdmin Resources")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .AllowColumnSelection(false)
+            .AllowResizing(true)
+            .ColumnMinimumWidth(50)
+        .EnableAlternateRowStyling()
+                .EnableOnDemand(true)
+        .ActionMode(ActionMode.Server)
+        .TotalRecordCount((long)ViewData["TotalRecCountRCCAdminResourceGrid"])
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBeginRCCAdminResource"))
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadRCCAdminResource"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+                 .RowDataBound(row =>
+                 {
+                     if (row.Data.RightsType_Desc == "NONUMG")
+                     {
+                         row.HtmlAttributes["Style"] = "border: 1px solid #ff0000 !important; background-color: #ffeeee !important; color: #ff0000 !important; ";
+                     }
+                 })
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+
+                if (cell.Data.IsDisabled)
+                {
+                    cell.HtmlAttributes.Add("disabled", true);
+                }
+
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")// for showing the actions based on Approval Status
+                {
+                    string KeyRoutedItemRequest = "";
+
+                    foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                    {
+                        if (KeyRoutedItemRequest == "")
+                        {
+                            KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                        }
+                        else
+                        {
+                            KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                        }
+                    }
+                    KeyRoutedItemRequest = KeyRoutedItemRequest + '~' + cell.Data.ResourceId;
+                    var workgroupid = cell.Data.WorkgroupId;
+                    var projectId = cell.Data.ClearanceProjectId;
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevProjectLevelAction).SingleOrDefault();
+
+                    string contractIds = "";
+                    var taskval_ = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+
+                    var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                    string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                    summaryText = summaryText.ToString().Replace('~', ' ');
+                    summaryText = summaryText.ToString().Replace('=', ' ');
+                    if (taskval1.Value)
+                    {
+                        foreach (var row in cell.Data.ContractSummary.ToArray())
+                        {
+                            var contracts = row.ToString().Split('~');
+                            foreach (var contract in contracts)
+                            {
+                                if (contract.Contains('='))
+                                {
+                                    var contracts1 = contract.ToString().Split('=');
+                                    if (contracts1 != null)
+                                    {
+                                        if (contractIds == "")
+                                        {
+                                            contractIds = contracts1[0];
+                                        }
+                                        else
+                                        {
+                                            contractIds = contractIds + ',' + contracts1[0];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+                    KeyRoutedItemRequest = KeyRoutedItemRequest + '-' + contractIds;
+
+
+
+                    if (taskval.Value)
+                    {
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','ResourceGrid','RCCAdmin');\" class=\"hidden\"/>";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = false;
+                    }
+                    else
+                    {
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','ResourceGrid','RCCAdmin');\" class=\"visible\" />";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = true;
+                    }
+                }
+
+                if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+
+                    string link = "<a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + "<div></div>" + link;
+                    cell.HtmlAttributes["Title"] = cell.Data.LastRoutingComment;
+                }
+                if (cell.Column.MappingName == "ContractSummary")// for Binding the Contracts
+                {
+                    string contractIds = "";
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                        string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                        summaryText = summaryText.ToString().Replace('~', ' ');
+                        summaryText = summaryText.ToString().Replace('=', ' ');
+
+                        if (taskval1.Value)
+                        {
+                            foreach (var row in cell.Data.ContractSummary.ToArray())
+                            {
+                                var contracts = row.ToString().Split('~');
+                                foreach (var contract in contracts)
+                                {
+                                    if (contract.Contains('='))
+                                    {
+                                        var contracts1 = contract.ToString().Split('=');
+                                        if (contracts1 != null)
+                                        {
+                                            if (contractIds == "")
+                                            {
+                                                contractIds = contracts1[0];
+                                            }
+                                            else
+                                            {
+                                                contractIds = contractIds + ',' + contracts1[0];
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            string btnManage = "<a href=\"#\" style=\"font-weight:bold;color:black;\" onclick=\"return ManageContract('" + cell.Data.ResourceId + "','" + contractIds + "','" + cell.Data.RoutedItemId + "');\">Manage</a>";
+
+                            if (contractIds != "")
+                            {
+                                cell.Text = summaryText + "<div></div>" + btnManage;
+                            }
+                            else
+                            {
+                                cell.Text = btnManage;
+                            }
+                        }
+                        else
+                        {
+                            if (cell.Data.ContractId != null)
+                            {
+                                cell.Text = summaryText;
+                            }
+                        }
+                        cell.HtmlAttributes["Title"] = summaryText;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "Comment")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsRequest).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string TextArea = "<TEXTAREA ROWS=2 class=\"textareaclass\" onblur=\"return isValueChangedCss($(this));\">" + cell.Data.Comment + "</TEXTAREA>";
+                        cell.Text = TextArea;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+
+
+                    }
+                }
+
+                if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+
+                if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                }
+
+                if (cell.Column.MappingName == "ModifiedDateRequest")// for showing/hiding configuratio column 
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRequestDate\" value='" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "'></input>";
+                    cell.Text = TextArea;
+                }
+
+                if (cell.Column.MappingName == "ResourceId")
+                {
+                    string resourceId = "<input type=\"hidden\" class=\"resourceId\" value='" + cell.Data.ResourceId + "'></input>";
+                    cell.Text = resourceId;
+                }
+
+                if (cell.Column.MappingName == "ModifiedDate")// for showing/hiding configuratio column 
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRoutedItemDate\" value='" + serializer.Serialize(cell.Data.ModifiedDate) + "'></input>";
+                    cell.Text = TextArea;
+
+                }
+            }
+            else if (cell.TableCellType == GridTableCellType.ColumnHeaderCell)
+            {
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "border-right:0px !important";
+                }
+            }
+        })
+        .Column(cols =>
+        {
+            cols.Add(c => c.KeyRoutedItemRequest).HeaderText("<input id=\"ChkSelectAllResource\" type='checkbox' onclick=\"return SelectAllCheckboxes($(this),'ResourceGrid','RCCAdmin');\" />").Width(35).AllowSorting(false);
+            cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+            cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+            cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+            cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(88);
+            cols.Add(c => c.RequestType).HeaderText("Request Type").Width(90);
+            cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Width(90).Format("{0:dd MMM yyyy}");
+            cols.Add(c => c.LastRoutingComment).HeaderText("Comment").Width(150);
+            cols.Add(c => c.ContractSummary).HeaderText("Contracts").Width(90);
+            cols.Add(c => c.Comment).HeaderText("Review Comments").Width(221);
+            cols.Add(c => c.ModifiedDateRequest).HeaderText("RequestDate").Visible(false);
+            cols.Add(c => c.ModifiedDate).HeaderText("RoutedItemDate").Visible(false);
+            cols.Add(c => c.RightsType_Desc).HeaderText("RightsTypeDesc").Width(35).Visible(false);
+            cols.Add(c => c.ResourceId).HeaderText("ResourceId").CssClass("ResourceId").Width(35).Visible(false);
+
+        }))
+        </div>
+
+        @*Existing Resources*@
+        <div id="RCCAdmin_ExistingResources">
+            @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblRCCAdminTrackGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblRCCAdminTrackGridData"])
+        .Caption("RCCAdmin Tracks")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .EnableAlternateRowStyling()
+                 .EnableOnDemand(true)
+                 .AllowColumnSelection(false)
+        .AllowResizing(true)
+        .ColumnMinimumWidth(50)
+        .ActionMode(ActionMode.Server)
+        .TotalRecordCount((long)ViewData["TotalRecCountRCCAdminTrackGrid"])
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBeginRCCAdminTrack"))
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadRCCAdminTracks"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Data.IsDisabled)
+                {
+                    cell.HtmlAttributes.Add("disabled", true);
+                }
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")// for showing the actions based on Approval Status
+                {
+                    string KeyRoutedItemRequest = "";
+                    foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                    {
+                        if (KeyRoutedItemRequest == "")
+                        {
+                            KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                        }
+                        else
+                        {
+                            KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                        }
+                    }
+                    KeyRoutedItemRequest = KeyRoutedItemRequest + '~' + cell.Data.ResourceId;
+
+                    var workgroupid = cell.Data.WorkgroupId;
+                    var projectId = cell.Data.ClearanceProjectId;
+                    var GridType = "TrackGrid";
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevProjectLevelAction).SingleOrDefault();
+
+                    string contractIds = "";
+                    var taskval_ = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+
+                    var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                    string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                    summaryText = summaryText.ToString().Replace('~', ' ');
+                    summaryText = summaryText.ToString().Replace('=', ' ');
+
+                    if (taskval1.Value)
+                    {
+                        foreach (var row in cell.Data.ContractSummary.ToArray())
+                        {
+                            var contracts = row.ToString().Split('~');
+                            foreach (var contract in contracts)
+                            {
+                                if (contract.Contains('='))
+                                {
+                                    var contracts1 = contract.ToString().Split('=');
+                                    if (contracts1 != null)
+                                    {
+                                        if (contractIds == "")
+                                        {
+                                            contractIds = contracts1[0];
+                                        }
+                                        else
+                                        {
+                                            contractIds = contractIds + ',' + contracts1[0];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+
+                    }
+
+                    KeyRoutedItemRequest = KeyRoutedItemRequest + '-' + contractIds;
+
+                    if (taskval.Value)
+                    {
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','" + GridType + "','RCCAdmin');\" class=\"hidden\"/>";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = false;
+                    }
+                    else
+                    {
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','" + GridType + "','RCCAdmin');\" class=\"visible\" />";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = true;
+                    }
+                }
+
+                if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+                    string link = "<a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + "<div></div>" + link;
+                    cell.HtmlAttributes["Title"] = cell.Data.LastRoutingComment;
+                }
+                if (cell.Column.MappingName == "ContractSummary")// for Binding the Contracts
+                {
+                    string contractIds = "";
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                        string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                        summaryText = summaryText.ToString().Replace('~', ' ');
+                        summaryText = summaryText.ToString().Replace('=', ' ');
+
+                        if (taskval1.Value)
+                        {
+                            foreach (var row in cell.Data.ContractSummary.ToArray())
+                            {
+                                var contracts = row.ToString().Split('~');
+                                foreach (var contract in contracts)
+                                {
+                                    if (contract.Contains('='))
+                                    {
+                                        var contracts1 = contract.ToString().Split('=');
+                                        if (contracts1 != null)
+                                        {
+                                            if (contractIds == "")
+                                            {
+                                                contractIds = contracts1[0];
+                                            }
+                                            else
+                                            {
+                                                contractIds = contractIds + ',' + contracts1[0];
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            string btnManage = "<a href=\"#\" style=\"font-weight:bold;color:black;\" onclick=\"return ManageContract('" + cell.Data.ResourceId + "','" + contractIds + "','" + cell.Data.RoutedItemId + "');\">Manage</a>";
+                            if (contractIds != "")
+                            {
+                                cell.Text = summaryText + "<div></div>" + btnManage;
+                            }
+                            else
+                            {
+                                cell.Text = btnManage;
+                            }
+                        }
+                        else
+                        {
+                            if (cell.Data.ContractId != null)
+                            {
+                                cell.Text = summaryText;
+                            }
+                        }
+                        cell.HtmlAttributes["Title"] = summaryText;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "Comment")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsRequest).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string TextArea = "<TEXTAREA ROWS=2 class=\"textareaclass\" onblur=\"return isValueChangedCss($(this));\">" + cell.Data.Comment + "</TEXTAREA>";
+                        cell.Text = TextArea;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+
+                if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                }
+
+                if (cell.Column.MappingName == "ModifiedDateRequest")// for showing/hiding configuratio column 
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRequestDate\" value='" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "'></input>";
+                    cell.Text = TextArea;
+
+                }
+                if (cell.Column.MappingName == "ModifiedDate")// for showing/hiding configuratio column 
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRoutedItemDate\" value='" + serializer.Serialize(cell.Data.ModifiedDate) + "'></input>";
+                    cell.Text = TextArea;
+                }
+
+                if (cell.Column.MappingName == "ResourceId")
+                {
+                    string resourceId = "<input type=\"hidden\" class=\"resourceId\" value='" + cell.Data.ResourceId + "'></input>";
+                    cell.Text = resourceId;
+                }
+
+            }
+            else if (cell.TableCellType == GridTableCellType.ColumnHeaderCell)
+            {
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "border-right:0px !important";
+                }
+            }
+
+        })
+                .Column(cols =>
+                {
+                    cols.Add(c => c.KeyRoutedItemRequest).HeaderText("<input id=\"ChkSelectAllTrack\" type='checkbox' onclick=\"return SelectAllCheckboxes($(this),'TrackGrid','RCCAdmin');\" />").Format("<input type='checkbox' />").Width(35).AllowSorting(false);
+                    cols.Add(c => c.Upc).HeaderText("UPC").Width(110);
+                    cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+                    cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+                    cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+                    cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(88);
+                    cols.Add(c => c.RequestType).HeaderText("Request Type").Width(90);
+                    cols.Add(c => c.Configuration).HeaderText("Configuration").Width(90);
+                    cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Width(90).Format("{0:dd MMM yyyy}");
+                    cols.Add(c => c.LastRoutingComment).HeaderText("Comment").Width(150);
+                    cols.Add(c => c.ContractSummary).HeaderText("Contracts").Width(90);
+                    cols.Add(c => c.Comment).HeaderText("Review Comments").Width(221);
+                    cols.Add(c => c.ModifiedDateRequest).HeaderText("RequestDate").Visible(false);
+                    cols.Add(c => c.ModifiedDate).HeaderText("RoutedItemDate").Visible(false);
+                    cols.Add(c => c.ResourceId).HeaderText("ResourceId").CssClass("ResourceId").Width(35).Visible(false);
+
+                })
+)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0cb015e7-4664-4f04-b904-92d2ef448bfc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1234/Artist/Artist.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Artist.disco" MetadataType="Disco" ID="8bd881bd-a29f-4985-ba37-e26b49a432ed" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?disco" />
+    <MetadataFile FileName="Artist.xsd" MetadataType="Schema" ID="f24f7e37-06c4-4a1b-ab63-4a856ca18d28" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd4" />
+    <MetadataFile FileName="Artist1.xsd" MetadataType="Schema" ID="d2884c70-fe55-41d9-8752-48c6673e6997" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd3" />
+    <MetadataFile FileName="Artist2.xsd" MetadataType="Schema" ID="eb9a1011-607f-4aa1-b168-7751e865fe58" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd2" />
+    <MetadataFile FileName="Artist.wsdl" MetadataType="Wsdl" ID="5bd7d9b4-979e-42ba-b14c-48948bbec251" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?wsdl" />
+    <MetadataFile FileName="Artist3.xsd" MetadataType="Schema" ID="64ef41f8-3e11-442b-b720-ca27efef6e65" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd6" />
+    <MetadataFile FileName="Artist4.xsd" MetadataType="Schema" ID="dc55d6d6-68e1-431c-a388-417d6613b25c" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd1" />
+    <MetadataFile FileName="Artist5.xsd" MetadataType="Schema" ID="9f0e64a8-0004-42e3-8aa0-f875e483110f" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd0" />
+    <MetadataFile FileName="Artist6.xsd" MetadataType="Schema" ID="33fd6b7e-117c-44fb-8841-d2f0918a03a6" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd5" />
+    <MetadataFile FileName="Artist7.xsd" MetadataType="Schema" ID="46ccb45e-bf89-4544-98a1-caefaaf705ab" SourceId="1" SourceUrl="http://localhost:1234/Artist/Artist.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

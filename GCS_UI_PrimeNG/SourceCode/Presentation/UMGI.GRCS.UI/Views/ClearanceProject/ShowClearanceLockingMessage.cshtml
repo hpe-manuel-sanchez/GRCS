@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayoutForPopUp.cshtml";
+}
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+<script type="text/javascript" language="javascript">
+    var url_ViewProjectDetail = '@Url.Action("OpenClearanceProjectInReadOnly", "ClearanceProject")';
+    var url_OpenProjectDetail = '@Url.Action("OpenClearanceProject", "ClearanceProject")';
+    var msg_ProjectLocking = 'The project is being viewed by User. Do you want to open it in read only mode?';
+
+    function showPopupLockedProject() {
+
+        var clearanceProjectId = $('#hdnProjectId').val();
+        var projectTypeId = $('#hdnProjectType').val();
+        var projectStatusId = $('#hdnProjectStatus').val();
+        var userName = $('#hdnUserName').val();
+        var activeRoleGroup = $('#hdnRoleGroup').val();
+        var msg = msg_ProjectLocking.replace("User", userName);
+        var url = url_ViewProjectDetail;
+
+        var objWarningDialog = $('<div id="Confirm"></div>')
+            .html('<p>' + msg + '</p>')
+            .dialog({
+                autoOpen: false,
+                modal: true,
+                title: "Locked Project",
+                show: 'clip',
+                hide: 'clip',
+                width: 300
+            });
+
+        objWarningDialog.dialog('open');
+        objWarningDialog.dialog({
+            buttons:
+                {
+                    'Yes': function (e) {
+                        $(this).dialog('close');                       
+                        LoadProject(url, clearanceProjectId, projectTypeId, projectStatusId, activeRoleGroup);
+                    },
+                    'No': function () {
+                        $(this).dialog('close');
+                        window.close();
+                    }
+                }
+        });
+
+        return false;
+    }
+
+    function LoadProject(url_ViewProjectDetail, clearanceProjectId, projectTypeId, projectStatusId, activeRoleGroup) {
+
+        var wwidth = $(window).width() - 50;
+        var wheight = $(window).height() - 50;
+        var isReadOnly = true;
+        var url = url_ViewProjectDetail + '?Projectid=' + clearanceProjectId + '&ProjectTypeId=' + projectTypeId + '&ProjectStatus=' + projectStatusId + '&RoleGroup=' + activeRoleGroup + '&IsProjectBlocked=' + isReadOnly;
+        window.open(url, '_self' , 'width=' + wwidth + 'px,height=' + wheight + 'px,top=40px,left=10px,resizable=yes', false);
+    }
+
+    $(document).ready(function () {
+        showPopupLockedProject();
+    });
+
+</script>
+
+<div id="SearchDialog"></div>
+<input type="hidden" id="hdnProjectId" value="@Model.MasterProjectDetails.ClrProjectId" />
+<input type="hidden" id="hdnProjectStatus" value="@Model.MasterProjectDetails.Status" />
+<input type="hidden" id="hdnProjectType" value="@Model.MasterProjectDetails.ProjectType" />
+<input type="hidden" id="hdnUserName" value="@Model.MasterProjectDetails.CreatedByUser" />
+<input type="hidden" id="hdnRoleGroup" value="@Model.MasterProjectDetails.Rcc_User" />

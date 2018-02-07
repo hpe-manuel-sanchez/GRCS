@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>ClearFilter</value>
+  </data>
+  <data name="ClearFilterLink" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="CreateEditParam" xml:space="preserve">
+    <value>Create/Edit WQ Release Date Comparison Parameter</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterButton" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="HeaderWQ" xml:space="preserve">
+    <value>Admin Settings/Maintain WQ Release Date Comparison Parameter</value>
+  </data>
+  <data name="itemsperpage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next &gt;&gt;</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="WqList" xml:space="preserve">
+    <value>Work Queue Comparison Parameter List</value>
+  </data>
+  <data name="HeaderRightsExpiry" xml:space="preserve">
+    <value>Admin Setting/Manage Rights Expiry Report Parameters</value>
+  </data>
+  <data name="AddressBookLink" xml:space="preserve">
+    <value>Add/Edit Recipients</value>
+  </data>
+  <data name="CreateEditRightsExpiry" xml:space="preserve">
+    <value>Create/Edit Rights Expiry Notification Setting</value>
+  </data>
+  <data name="EndDateYLabel" xml:space="preserve">
+    <value>End Date [Y] Weeks from report date</value>
+  </data>
+  <data name="LostRightsDateReportingWindow" xml:space="preserve">
+    <value>Define Lost Rights Date Reporting Window</value>
+  </data>
+  <data name="NotificationRecipientsLabel" xml:space="preserve">
+    <value>Notification Recipients:</value>
+  </data>
+  <data name="RightsExpiryNotificationList" xml:space="preserve">
+    <value>Rights Expiry Notification List</value>
+  </data>
+  <data name="RoleGroupNameLabel" xml:space="preserve">
+    <value>Role/Group Name</value>
+  </data>
+  <data name="StartDateXLabel" xml:space="preserve">
+    <value>Start Date [X] Weeks from report date</value>
+  </data>
+  <data name="TerritorialRightsCountryLabel" xml:space="preserve">
+    <value>Territorial Rights Country</value>
+  </data>
+  <data name="ValidationEndDate" xml:space="preserve">
+    <value>Please enter End Date</value>
+  </data>
+  <data name="ValidationNotificationRecepients" xml:space="preserve">
+    <value>Please have atleast one Notification Recipients</value>
+  </data>
+  <data name="ValidationRightsExpiryFilter" xml:space="preserve">
+    <value>Please specify at least one search criteria</value>
+  </data>
+  <data name="ValidationStartDate" xml:space="preserve">
+    <value>Please enter Start Date</value>
+  </data>
+  <data name="ValidationStartGreaterThanEndDate" xml:space="preserve">
+    <value>Y Must be greater than X, either may be negative</value>
+  </data>
+  <data name="ValidationTerritorialRightsCountry" xml:space="preserve">
+    <value>Please enter Territorial Rights Country</value>
+  </data>
+  <data name="FilterApplied" xml:space="preserve">
+    <value>(Filter Applied)</value>
+  </data>
+  <data name="CountryRightsDataReviewMandatory" xml:space="preserve">
+    <value>Please Enter the Country/Company</value>
+  </data>
+  <data name="ReviewConditionsValidationMessage" xml:space="preserve">
+    <value>Atleast one Review Conditions is Mandatory</value>
+  </data>
+  <data name="ComparisonLevel" xml:space="preserve">
+    <value>Comparison Parameter Level</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Maximum" xml:space="preserve">
+    <value>Maximum 90 Weeks</value>
+  </data>
+  <data name="Xweeks" xml:space="preserve">
+    <value>Include repertoire on WQ where Release Date is within X weeks of current date</value>
+  </data>
+  <data name="ValidationRightsDataReviewFilter" xml:space="preserve">
+    <value>Please select Country/Company</value>
+  </data>
+  <data name="CountryValidationMessage" xml:space="preserve">
+    <value>Please select Country/Company</value>
+  </data>
+  <data name="XWeeksValidationMessage" xml:space="preserve">
+    <value>Please enter X weeks between 1 and 90</value>
+  </data>
+  <data name="AddDigitalRestrictionLink" xml:space="preserve">
+    <value>Add Digital Restrictions</value>
+  </data>
+  <data name="AddTerritorialLink" xml:space="preserve">
+    <value>Add Territorial Rights</value>
+  </data>
+  <data name="CommercialModelColumn" xml:space="preserve">
+    <value>Commercial Models</value>
+  </data>
+  <data name="ConsentPeriodColumn" xml:space="preserve">
+    <value>Consent Period</value>
+  </data>
+  <data name="ContentTypeColumn" xml:space="preserve">
+    <value>Content Type</value>
+  </data>
+  <data name="CreateEditRightsDefault" xml:space="preserve">
+    <value>Create/Edit Rights Default</value>
+  </data>
+  <data name="DataSetLevel" xml:space="preserve">
+    <value>Data Set Level</value>
+  </data>
+  <data name="DatasetLevelGlobal" xml:space="preserve">
+    <value>Data Set Level(Global/ Country/ Company)</value>
+  </data>
+  <data name="DigitalExploitationRights" xml:space="preserve">
+    <value>Digital Exploitation Rights</value>
+  </data>
+  <data name="DigitalRestrictionsHeader" xml:space="preserve">
+    <value>Digital Restrictions</value>
+  </data>
+  <data name="DigitalUnbundlingAllowed" xml:space="preserve">
+    <value>Digital Unbundling Allowed</value>
+  </data>
+  <data name="NoTerritoriesSelected" xml:space="preserve">
+    <value>No Territorial Rights is selected</value>
+  </data>
+  <data name="NotesColumn" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="PhysicalExploitationRights" xml:space="preserve">
+    <value>Physical Exploitation Rights</value>
+  </data>
+  <data name="RemoveRestrictionLink" xml:space="preserve">
+    <value>Remove Restrictions</value>
+  </data>
+  <data name="RestrictionColumn" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="RightReviewStatus" xml:space="preserve">
+    <value>Rights Review Status</value>
+  </data>
+  <data name="RightsDefaultList" xml:space="preserve">
+    <value>Rights Default List</value>
+  </data>
+  <data name="SelectCheckBox" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="TerritorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="UseTypeColumn" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="DigitalExploitation" xml:space="preserve">
+    <value>Please select Digital Exploitation</value>
+  </data>
+  <data name="DigitalUnbundling" xml:space="preserve">
+    <value>Please select Digital Unbundling</value>
+  </data>
+  <data name="PhysicalExploitation" xml:space="preserve">
+    <value>Please select Physical Exploitation</value>
+  </data>
+  <data name="RightReviewValidation" xml:space="preserve">
+    <value>Please select Rights Review</value>
+  </data>
+  <data name="SaveFailedAlreadyExist" xml:space="preserve">
+    <value>Entry already exists</value>
+  </data>
+  <data name="SaveSucesss" xml:space="preserve">
+    <value>Saved sucessfully</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>Global</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="DigitalExploitationListValidation" xml:space="preserve">
+    <value>Please add atleast one Digital Restrictions</value>
+  </data>
+</root>

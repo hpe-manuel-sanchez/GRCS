@@ -1,0 +1,69 @@
+﻿#linkReleasePage {
+    height: 500px;
+    overflow: scroll;
+}
+
+#projectContainer {
+    overflow: scroll;
+    position: relative;
+    border: 1px solid Gray;
+}
+
+#head {
+    border: 1px solid black;
+}
+
+#projDescription {
+    padding-top: 5px;
+}
+
+.hrRep {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+#footer {
+    height: 25px;
+    background-color: Gray;
+}
+
+#bottomButtons {
+    float: right;
+    width: 17%;
+}
+
+#contractInfo {
+    padding: 10px;
+}
+
+.contractFields {
+    float: left;
+    position: relative;
+}
+
+#buttons {
+    float: right;
+    width: 17%;
+}
+
+.projectFields {
+    width: 25%;
+    float: left;
+    position: relative;
+}
+
+.topPadding {
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+#releaseGrids {
+    clear: both;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de5c8f3c-78ef-4a04-8994-0393ca3c3bab" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/ClearanceResource/ClearanceResource.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClearanceResource14.xsd" MetadataType="Schema" ID="b642ae91-7e3b-4041-a732-1f5c4efa216a" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd5" />
+    <MetadataFile FileName="ClearanceResource141.xsd" MetadataType="Schema" ID="300d06c0-097a-4a56-af99-8b70413bca4c" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClearanceResource142.xsd" MetadataType="Schema" ID="e3927a8b-ce83-4202-bfeb-6b3e04797747" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd9" />
+    <MetadataFile FileName="ClearanceResource143.xsd" MetadataType="Schema" ID="67508028-f353-4f51-a0dd-cef1578a36fb" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd11" />
+    <MetadataFile FileName="ClearanceResource144.xsd" MetadataType="Schema" ID="3cfa14e9-44cb-4fd2-9549-b4b10d58ba10" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd10" />
+    <MetadataFile FileName="ClearanceResource145.xsd" MetadataType="Schema" ID="fbccd4e6-2e75-426e-907c-b7a3919fa628" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd12" />
+    <MetadataFile FileName="ClearanceResource146.xsd" MetadataType="Schema" ID="bd220193-1e81-4063-a350-35133199117e" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd6" />
+    <MetadataFile FileName="ClearanceResource147.xsd" MetadataType="Schema" ID="024c63a7-c136-46ba-8ec5-5c8e04a8c235" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClearanceResource148.xsd" MetadataType="Schema" ID="87d40aa9-6327-4dcd-88d2-84cac9f9ee3b" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd13" />
+    <MetadataFile FileName="ClearanceResource1.wsdl" MetadataType="Wsdl" ID="524fc285-ed43-44a8-8a5e-269973026063" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?wsdl" />
+    <MetadataFile FileName="ClearanceResource149.xsd" MetadataType="Schema" ID="535a87c0-1054-4ee4-8adb-002bab17d0ef" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd7" />
+    <MetadataFile FileName="ClearanceResource1410.xsd" MetadataType="Schema" ID="e1ae7de7-807a-4f14-8594-bf8b629cceb1" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClearanceResource1.disco" MetadataType="Disco" ID="db9caf92-a4ee-4279-adf6-c8ed796869bd" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?disco" />
+    <MetadataFile FileName="ClearanceResource1411.xsd" MetadataType="Schema" ID="911b307f-88b3-4fc9-8b54-49085d2f2111" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClearanceResource1412.xsd" MetadataType="Schema" ID="c89228b2-9789-4e40-9d7f-70fcab1edf7c" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClearanceResource1413.xsd" MetadataType="Schema" ID="3c27ff54-a19a-40ce-9d7e-d841b14b1453" SourceId="1" SourceUrl="http://localhost:7778/ClearanceResource/ClearanceResource.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

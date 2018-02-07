@@ -1,0 +1,50 @@
+﻿@using resFile = UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox
+@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    ViewBag.Title = "Mass Reminders";
+    Layout = "";
+}
+<script type="text/javascript">
+    var resourceName = '@UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox.Resource';
+    var requestType = '@UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox.RequestType';
+    var isrc = '@UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox.Isrc';
+</script>
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/MassReminders.js")" type="text/javascript"></script>
+<div class="searchContainer">
+    <div id="deleteWorkgroup">
+        <div class="dwMainContainer">
+            <div id="wrapperDv">
+                <div id="headerScreen">
+                    <span><a class="cross">&nbsp;</a>@resFile.MassReminders
+                    </span>
+                </div>
+                <div class="accItem accItemNew">
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder">
+                            @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectReferenceLabel
+                        </div>
+                        <div class="inputPlaceHolder">
+                            &nbsp;   &nbsp; @Model.projectDetails.ProjectReferenceNumber
+                        </div>
+                    </div>
+                    <input type="hidden" id="hdnProjectId" value='@Model.InboxState.SelectedProjectId' />
+                    <input type="hidden" id="hdnFolderId" value='@Model.InboxState.SelectedFolderId' />
+                    <input type="hidden" id="hdnWorkgroupId" value='@Model.InboxState.FolderSize' />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divMassReminderErrorMessage">
+    </div>
+    <div id="massRemindersList" class="styleClass" style="margin: 5px 15px; height: 430px; overflow-y: auto;">
+    </div>
+    <div id="SelectedRowList">
+    </div>
+    <div class="inputPlaceHolder massReminderFooterButton">
+        <br />
+        <input class="primbutton" id="btnSendReminder"  type="submit" value='@resFile.SendReminders' />
+        <input id="btnClose" type="button" class="secbutton"  value='@resFile.Cancel' />
+    </div>
+</div>

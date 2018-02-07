@@ -1,0 +1,181 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.Resx.Resource.ClearanceInbox
+@using UMGI.GRCS.UI.Models
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    if (Model.ReadOnlyMode == 1)
+    {
+        ViewBag.Title = @ClearanceLayout.CancelledCompletedProject;
+    }
+    else
+    {
+        ViewBag.Title = @ClearanceLayout.MaintainProjProjectSearchPageTitle;
+    }
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+@functions
+{
+    string getCurrentUserRole()
+    {
+        return "";
+    }
+
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchCancelledProject.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var mandatoryselectProject = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectProject';
+    var mandatorySearchCriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var jHProjectReferenceNumber = '@ClearanceLayout.MaintainProjProjectReferenceNumberHeader'; //Jtable Header for Project Reference Number
+    var jHProjectTitle = '@ClearanceLayout.MaintainProjProjectTitleHeader'; //Jtable Header for Project Title
+    var jHLocalReference = '@ClearanceLayout.MaintainProjLocalReferenceHeader'; //Jtable Header for Local Reference
+    var jHProjectType = '@ClearanceLayout.MaintainProjProjectTypeHeader'; //Jtable Header for Project Type
+    var jHStatus = '@ClearanceLayout.MaintainProjStatusHeader'; //Jtable Header for Status
+    var jHRequestingCompany = '@ClearanceLayout.MaintainProjRequestingCompanyHeader'; //Jtable Header for Requesting Company
+    var jH3rdPartycompany = '@ClearanceLayout.MaintainProj3rdPartyCompanyHeader'; //Jtable Header for 3rd Party Company
+    var MaintainProjOpenPopupClearanceProjectTitle = '@ClearanceLayout.MaintainProjOpenPopupClearanceProjectTitle'; //Set the project title of Open Clearance project
+    var GCSCancelStatus = '@ClearanceLayout.GCSCancelStatus'; //Set the Cancel status
+    var GCSReOpenedStatus = '@ClearanceLayout.GCSReOpenedStatus'; //Set the Re-Open status
+    var GCSSubmittedStatus = '@ClearanceLayout.GCSSubmittedStatus'; //Set the Submit status
+    var GCSReSubmittedStatus = '@ClearanceLayout.GCSReSubmittedStatus'; //Set the Re-Submit status
+    var GCSCompletedStatus = '@ClearanceLayout.GCSCompletedStatus'; //Set the complete status
+    var GCSUnsubmitted = '@ClearanceLayout.GCSUnsubmitted'; //Set the Unsubmit status
+    var projectLockingMsg = '@ClearanceInbox.ProjectLockingMsg'; //Project Locking msg
+</script>
+<style>
+    #divErrorMessage {
+        margin: 15px;
+    }
+</style>
+@using (Html.BeginForm("OpenCancelledProjectDetails", "ClearanceProject", FormMethod.Post))
+{
+
+    <div id="divUserTransfer">
+    </div>
+    <div id="divErrorMessage">
+    </div>
+    <div class="searchContainer">
+        <div id="deleteWorkgroup">
+            <div class="dwMainContainer">
+                <div id="wrapperDv">
+                    <div id="headerScreen">
+                        <span><a class="cross">&nbsp;</a> @ViewBag.Title
+                        </span>
+                    </div>
+                    <div class="accItem">
+                        <div class="editor-field">
+                            <table style="width: 100%; border: 0;" border="0">
+                                <tr>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Hidden("hdnCurrentUserRole", @getCurrentUserRole())
+
+                                        @Html.Label(@ClearanceLayout.MaintainProjProjectReferenceNumberTxtBox) @Html.HiddenFor(model => model.ReadOnlyMode, new { id = "hdnReadOnly" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtPRN")
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjProjectTypeDrpDwn)
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.ProjectType, new SelectList(Model.ProjectType, "Value", "Text", Model.ProjectType), "Select", new { id = "ddlProjectTypeMaintain", onchange = "ChangeProjectTypeMaintain(this.id);" })
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProj3rdPartyCompanyTxtBox)
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtUPC")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjProjectTitleTxtBox)
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtProjectTitle")
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjRequestTypeDrpDwn)
+                                    </td>
+                                    <td>
+                                        @Html.DropDownListFor(model => model.RequestType, new SelectList(Model.RequestType, "Value", "Text", Model.RequestType), "Select", new { id = "ddlRequestTypeMaintain" })
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjRequestorTxtBox)
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtRequestor")
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjLocalReferenceTxtBox)
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtLocalReference")
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">
+                                        @Html.Label(@ClearanceLayout.MaintainProjRequestingCompanyTxtBox)
+                                    </td>
+                                    <td>
+                                        @Html.TextBox("txtRequestingCompany")
+                                    </td>
+                                    <td align="right" style="width: 200px;" class="labelbold">&nbsp;
+                                    </td>
+                                    <td align="left" style="width: 200px;">
+                                        <input id="btnSearchCancelledProject" type="button" class="primbutton" value="@ClearanceLayout.SearchButton" />&nbsp;&nbsp;
+                                        <input id="btnSearchCancelledProjectReset" type="button" class="secbutton" value="@ClearanceLayout.ResetButton" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="searchContainer">
+            <div>
+                <div id="trShowPaging" style="display: none; margin: 0 15px 0 10px;">
+                    <table class="popupTableResult">
+                        <tr>
+                            <td align="left">
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnSearchResult"
+                                    style="font-weight: bold;"></span>
+                            </td>
+                            <td id="paging" align="right">
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown &nbsp;
+                                @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPaging" })
+                                &nbsp;
+                                @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" colspan="6">
+                                <div id="SelectedRowList">
+                                </div>
+                                @Html.Hidden("SelectedProjectId")
+                                @Html.Hidden("CancelledProjectId")
+                                @Html.Hidden("ReOpenedProjectId")
+                                @Html.Hidden("SubmittedProjectId")
+                                @Html.Hidden("SelectedProjectType")
+                                @Html.Hidden("ReSubmittedProjectId")
+                                @Html.Hidden("CompleteProjectId")
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="searchProjectList" style="margin: 0 15px 0 10px;">
+                </div>
+                @section BottomInputs{
+                    <span id="trAddProject" style="display: none;">
+                        <input id="btnOpenProject"  type="submit" class="primbutton" value='@ClearanceLayout.MaintainProjOpenButton' style="display:none;" />
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+
+}

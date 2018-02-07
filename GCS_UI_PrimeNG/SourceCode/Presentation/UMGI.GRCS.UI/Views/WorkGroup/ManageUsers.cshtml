@@ -1,0 +1,148 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageUsers.js")" type="text/javascript"></script>
+<style type="text/css">
+    .ui-dialog .ui-dialog-content {
+        padding: 0;
+    }
+
+    .poupPage {
+        margin-left: 0;
+    }
+
+    #tblUserRights td {
+        width: 50% !important;
+        padding-left: 0px !important;
+        border: 0px !important;
+    }
+
+    div.jtable-main-container {
+        *position: static !important;
+    }
+
+    .jtable {
+        margin-top: 0px !important;
+    }
+
+    .txtAlign {
+        text-align: center;
+    }
+</style>
+<div id="popupMuCompanyerrorMessage" class="warning" style="margin: 0 0  0 0;">
+</div>
+<div id="manageUsers">
+    <div class="searchContainer">
+        <div class="dwMainContainer">
+            <div id="wrapperDv">
+                <div class="accItem">
+                    <div class="editor-field" id="mainsearch">
+                        <label class="madatoryField" style="margin-left: 10px;">*</label>
+                        @Html.Label(@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel)
+                        @Html.Editor("username", "", new { maxlength = "100" })
+                        @Html.Editor("userid", "", new { maxlength = "8" })
+                        @Html.Editor("usercountry", "", new { maxlength = "40" })
+                        <input id="btnOpenSearchUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" runat="server" class="primbutton" />
+                        <input id="btnManageUserReset" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span id="spnMgUserAddedResultLabel" style="font-weight: bold; display: none; margin: 10px 15px;"></span>
+    <div id="addedManageUserResults" class="jtableDvwithDrop" style="display: none; position: relative; *position: static; overflow-y: auto;">
+    </div>
+    <div id="mainbutton">
+        <div style="float: left; margin-left: 15px;">
+            <input id="btnUserRemove" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RemoveButton" runat="server" class="secbutton" style="visibility: hidden;" />
+        </div>
+        <div style="float: right;" class="poupBottomBarButton">
+            <input id="btnUserSave" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SaveButton" runat="server" class="primbutton"
+                        style="visibility: hidden;" />
+            <input id="btnUserCancel" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton"
+                        style="visibility: hidden;" />
+            <input id="hdnSavedUserValues" type="hidden" value="" runat="server" />
+            <input id="hdnSavedUserNameValues" type="hidden" value="" runat="server" />
+            <input id="hdnSavedUserNameValuesWithOutComma" type="hidden" value="" />
+            <input id="hdnDefaultsUserForSave" type="hidden" value="" />
+        </div>
+    </div>
+    <div id="searchUserPopup" class="poupPage">
+        <table class="popupTableResult">
+            <tr>
+                <td id="searchResultForUsers" style="text-align: left;"></td>
+                <td id="SearchUserPaging" style="text-align: right;">
+                    <div id="divSearchUserPaging" style="margin-right: 15px;">
+                        show @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlUserPaging" })
+                        Items per Page
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="searchUserResults" class="jtableDvwithDrop" style="position: relative; *position: static; overflow-y: auto;">
+        </div>
+        <div align="right" class="poupBottomBarButton">
+            <input id="btnAddUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" runat="server" class="primbutton" />
+            <input id="btnUserCancel1" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+            <input id="hdnAddedUsers" type="hidden" value="" runat="server" />
+        </div>
+    </div>
+</div>
+@*<div id="searchUserPopup" class="poupPage">
+    <div style="width: 86%;">
+    </div>
+    <table class="popupTableResult" border="0">
+        <tr>
+            <td id="searchResultForUsers" align="left">
+            </td>
+            <td id="SearchUserPaging" align="right" style="position: relative;">
+                <div id="divSearchUserPaging">
+                    show @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlUserPaging" })
+                    Items per Page
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="searchUserResults" class="jtableDvwithDrop">
+    </div>
+    <div align="right" class="poupBottomBarButton">
+        <input id="btnAddUser" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.AddButton" runat="server" class="primbutton" />
+        <input id="btnUserCancel1" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" runat="server" class="secbutton" />
+        <input id="hdnAddedUsers" type="hidden" value="" runat="server" />
+    </div>
+</div>*@
+<script type="text/javascript">
+
+    var noRowsSelected = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert';
+    var createWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        SelectDefaultUser: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectDefaultUser',
+        manageCompany: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageCompanyButton',
+        manageUser: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageUsersButton'
+    };
+    var watermarkUserName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserName';
+    var watermarkUserId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserId';
+    var mandatoryFields = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_MandatoryFields';
+    var listOfAddedMgUsers = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_listOfAddedUsers';
+
+    var mgUserJtableColNames = {
+        UserName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserNameLabel',
+        LoginName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_LoginNameLabel',
+        Country: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_CountryNameLabel',
+        Default: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_UserDefaultLabel',
+        Name: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_NameLabel',
+        Email: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_EmailLabel',
+        ActiveWgNames: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_ActiveWorkgroupNameLabel',
+        InactiveWgNames: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_InActiveWorkgroupNameLabel',
+        Rights: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgUser_RightsLabel'
+    };
+    var mgUserRequestorRights = {
+        Requestor: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Requestor',
+        R2Authorized: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_R2Authorized',
+        UPCAllocation: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_UPCAllocation',
+        Reviewer: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Reviewer',
+        ManageWorkgroup: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_ManageWorkgroup',
+        Inquiry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Inquiry',
+        Admin: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_RccAdmin',
+        DefaultUsers: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DefaultUsersLabel'
+    }
+</script>

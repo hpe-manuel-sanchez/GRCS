@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+  <xs:complexType name="ArrayOfClearanceResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceResource" nillable="true" type="tns:ClearanceResource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceResource" nillable="true" type="tns:ArrayOfClearanceResource" />
+  <xs:complexType name="ClearanceResource">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" base="q1:ResourceInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArchiveFlag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearanceResourceId" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" minOccurs="0" name="ClrPushR2Item" nillable="true" type="q2:ClearancePushR2Item" />
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExcerptTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExcludedTerritories" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FreeHandResourceStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GloballyClearedComments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasUMGIConditionChanged" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IncludedTerritories" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsGloballyCleared" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNewlyAddedAfterSubmit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRouted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MusicTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2ProjectId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="RecordingTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReplaceFreeHandFlag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceIdToUpdate" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceIndexToUpdate" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceResubmitReasonComments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resource_Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightsTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rights_TypeId" nillable="true" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="SensitiveExplotation_ClearanceResource" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SequenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Source_Upc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status_Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuggestedFee" nillable="true" type="xs:decimal" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="TerritorialRights" nillable="true" type="q3:ArrayOfTerritorialDisplay" />
+          <xs:element minOccurs="0" name="isPushedToR2" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceResource" nillable="true" type="tns:ClearanceResource" />
+</xs:schema>

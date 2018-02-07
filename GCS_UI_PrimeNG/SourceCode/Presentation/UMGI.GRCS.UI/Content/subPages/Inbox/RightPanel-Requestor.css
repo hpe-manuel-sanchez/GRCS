@@ -1,0 +1,55 @@
+﻿
+#TblRequestorTrackGrid .RowCell,
+#TblRequestorTrackGrid .RowCell div,
+#TblRequestorTrackGrid .RowCell a,
+#TblRequestorResourceGrid .RowCell,
+#TblRequestorResourceGrid .RowCell div,
+#TblRequestorResourceGrid .RowCell a {
+    overflow: hidden !important;
+    -ms-text-overflow: ellipsis !important;
+    -o-text-overflow: ellipsis !important;
+    text-overflow: ellipsis !important;
+    line-height: normal;
+}
+
+#tabsRequestor {
+    display: inline-block !important;
+    overflow: visible !important;
+}
+
+.ui-state-default, .ui-multiselect-header ul,
+.ui-multiselect-checkboxes li,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+button {
+    width: 150px !important;
+}
+
+#TblRequestorTrackGrid .TblRequestorTrackGrid_ManualPager,
+#TblRequestorResourceGrid .TblRequestorResourceGrid_ManualPager,
+#TblRequestorResourceGrid .RefreshPager,
+#TblRequestorTrackGrid .RefreshPager {
+    display: none !important;
+}
+
+.Syncfusion-Grid-Core .GridHeader {
+    border-bottom: 0px !important;
+}
+
+.imageStyle {
+    padding-top: 5px !important;
+}
+
+#TblRequestorResourceGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}
+
+#TblRequestorTrackGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}

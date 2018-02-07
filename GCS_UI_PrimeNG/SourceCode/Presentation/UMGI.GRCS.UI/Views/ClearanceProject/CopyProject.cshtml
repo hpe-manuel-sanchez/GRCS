@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Copy Project";
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+<div id="mainDiv" style="width: 100%; float: left;">
+    <table width="100%">
+        <tr>
+                <td>
+                    <table style="width: 100%; border:0;">
+                     <tr>
+                        <td align="left">Project Reference Number:</td>
+                        <td align="left">@Html.TextBox("ProjectRefNumber")</td>
+                        <td align="left">Project Type:</td>
+                        <td align="left"><select size="1"><option>-select-</option></select></td>
+                        <td align="left">3rd Party Company:</td>
+                        <td align="left">@Html.TextBox("3rd Party Company")</td>                                                                                
+                    </tr>
+                    <tr>
+                        <td align="left">Project Title:</td>
+                        <td align="left">@Html.TextBox("ProjectTitle")</td>
+                        <td align="left">Request Type:</td>
+                        <td align="left"><select size="1"><option>-select-</option></select></td>
+                        <td align="left">Requestor:</td>
+                        <td align="left">@Html.TextBox("Requestor")</td>                                                                                
+                    </tr>
+                    <tr>
+                        <td align="left">Local Reference:</td>
+                        <td align="left">@Html.TextBox("ProjectTitle")</td>                        
+                        <td align="left">Requesting Company:</td>
+                        <td align="left">@Html.TextBox("RequestingCompany")</td>
+                        <td align="center" colspan="2"><input type="button" value="Search" /> &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="Reset" /></td>
+                                                                                                                                                                                       
+                    </tr>
+                    </table>
+                </td>
+        </tr>
+    </table>
+     <h3 style="text-align:left">Search Result for "World Music - EU" (15) </h3>
+<table width="100%">
+        <tr>
+                <td>
+                    <table style="width: 100%; border:0;">
+                        <tr>
+                           <td>Select </td>
+                           <td>Project Reference Number</td>
+                           <td>Project Title</td>
+                           <td>Local Reference</td>
+                           <td>Project Type</td>
+                           <td>Request Type</td>
+                           <td>Requesting Company</td>
+                           <td>3rd Party Company</td>                                    
+                        </tr>
+                        <tr>
+                           <td><input type="radio" /> </td>
+                           <td>1345673</td>
+                           <td>Rehana Best Collection</td>
+                           <td>ABC</td>
+                           <td>ABC</td>
+                           <td>ABC</td>
+                           <td>ABC</td>
+                           <td>N-MKT</td>                                          
+                        </tr>
+                    </table>
+                </td>
+        </tr>
+ </table>
+
+</div>

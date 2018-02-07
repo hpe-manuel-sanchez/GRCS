@@ -1,0 +1,35 @@
+﻿#errorOnPage {
+    background-color: #f4fbff;
+    font-family: Arial,Verdana,sans-serif;
+}
+
+#errorOnPage ul {
+    list-style: none;
+}
+
+#errorOnPage ul li {
+    font-size: 12px;
+    color: #6e7070;
+    line-height: 2.5em;
+}
+
+#errorOnPage .errorHeader {
+    color: #4963a4;
+    font-size: 14px;
+}
+
+#errorContainer {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+}
+
+.goPrevious, .supportAdmin {
+    text-decoration: underline;
+    color: #4963a4;
+}
+
+.supportPhone {
+    font-weight: bold;
+    color: #575858;
+}

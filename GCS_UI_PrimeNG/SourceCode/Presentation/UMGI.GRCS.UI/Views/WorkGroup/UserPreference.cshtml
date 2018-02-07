@@ -1,0 +1,227 @@
+﻿@using UMGI.GRCS.UI.Interfaces;
+@using UMGI.GRCS.UI.Extensions
+
+@model UMGI.GRCS.UI.Models.UserPreferenceViewModel
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+@{
+    ViewBag.Title = "User Preferences";
+}
+
+<script src="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.js")" type="text/javascript"></script>
+<script src="@VersionExtension.GetFileLastVersion(Url.Content("/GCS/Scripts/Custom/UserPreference.js"))" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.min.css")" rel="stylesheet" type="text/css" />
+<link href="@VersionExtension.GetFileLastVersion(Url.Content("/GCS/Content/SubPages/UserPreference.min.css"))" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm("UserPreferences", "WorkGroup", FormMethod.Post, new { Id = "UserPreferences" }))
+{ 
+    <div id="loadingDv"></div>
+    <div id="errorMessage" class="warning" style="margin: 10px 0;"></div>
+    <div id="divMessage" style="display: none; margin: 10px" class="success"></div>
+    <div style="height: 900px !important;">
+        @{
+            var userSessionWrapper = DependencyResolver.Current.GetService<ISessionWrapper>();
+            var isReviewer = userSessionWrapper.GcsCurrentPermissions.Roles.Where(roles => roles.Value.Contains("Reviewer") || roles.Value.Contains("UMGI Global Clearance")).GroupBy(role => role.Value).Count() != 0;
+            var isRequestor = userSessionWrapper.GcsCurrentPermissions.Roles.Where(roles => roles.Value.Contains("Requestor")).GroupBy(role => role.Value).Count() != 0;
+            var isRCCAdmin = userSessionWrapper.GcsCurrentPermissions.Roles.Where(roles => roles.Value == "RCC Admin").GroupBy(role => role.Value).Count() != 0;
+            ViewBag.Requstor = isRequestor;
+            ViewBag.Reviewer = isReviewer;
+            ViewBag.ReviewerId = Model.userPreferenceInfo.PreferenceList.Where(Id => Id.Description.Contains("Reviewer") || Id.Description.Contains("UMGI Global Clearance")).Select(preferenceId => preferenceId.PreferenceID).SingleOrDefault();
+            ViewBag.RequestorId = Model.userPreferenceInfo.PreferenceList.Where(Id => Id.Description.Contains("Requestor")).Select(preferenceId => preferenceId.PreferenceID).SingleOrDefault();
+            ViewBag.CurrencyId = Model.userPreferenceInfo.PreferenceList.Where(Id => Id.Description.Contains("Currency")).Select(preferenceId => preferenceId.PreferenceID).SingleOrDefault();
+            ViewBag.CompanyId = Model.userPreferenceInfo.PreferenceList.Where(Id => Id.Description.Contains("Requesting Company")).Select(preferenceId => preferenceId.PreferenceID).SingleOrDefault();
+        }
+
+        <input type ="hidden" value = "@Model.initialLoad" id = "initialLoad"/>
+        <div class="uprr-wrapper">
+            <div class="uprr-head grey-background">
+                Default Settings
+            </div>
+            <div class="uprr-content-wrapper">
+                <!-- COLUMN1 START HERE -->
+                @if (isRCCAdmin == false && isRequestor == true && isReviewer == true)
+                {
+                    <div class="floatL uprr-width1">
+                        <ul class="currency">
+                            <li class="labelbold pa-inbox-role">Inbox Role</li>
+                            @if (Model.InboxRole == "Requestor")
+                            {
+                                <input type="radio" id="requestor" name="Role" checked="checked" />
+                            }
+                            else
+                            {
+                                <input type="radio" id="requestor" name="Role" /> 
+                            }
+                            <b>Requestor</b><br />
+                            @if (Model.InboxRole == "Reviewer" || Model.initialLoad == true)
+                            {
+                                <input type="radio" id="reviewer" name="Role" checked="true" />
+                            }
+                            else
+                            { 
+                                <input type="radio" id="reviewer" name="Role" />
+                            }
+                            <b>Reviewer</b>
+                        </ul>
+                    </div>
+                }
+                <!-- COLUMN1 Ends HERE -->
+                <!-- COLUMN2 START HERE -->
+                @if (isRequestor == true)
+                {
+                    <div class="floatL uprr-width2">
+                        <ul class="currency">
+                            <li class="labelbold">Requesting Company</li>
+                            <li>@Html.DropDownListFor(model => model.RqstngCmpny, new SelectList(Model.RqstngCmpny, "value", "text", Model.RqstngCmpny), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectCompany, new { id = "ddlRequestngCompany", @style = "width: 188px;!important" })
+                                <input type = "hidden" value = "@Model.RequestingCompanyId" id = "companyVal"/>
+                            </li>
+
+                        </ul>
+                    </div>
+                
+                    <!-- COLUMN2 Ends HERE -->
+                    <!-- COLUMN3 START HERE -->
+                    <div class="floatL uprr-width3">
+                        <ul class="currency">
+                            <li class="labelbold">Currency</li>
+                            <li>@Html.DropDownListFor(model => model.Currency, new SelectList(Model.Currency, "value", "text", Model.Currency), new { id = "ddlCurrList", @style = " width: 70px;!important" })
+                                <input type = "hidden" value = "@Model.CurrencyId" id = "CurrencyId" />
+                            </li>
+
+                        </ul>
+                    </div>
+                }
+                <!-- COLUMN3 Ends HERE -->
+            </div>
+        </div>
+        <div class="uprr-wrapper">
+            <div class="uprr-head grey-background">
+                Email Preferences
+            </div>
+            <div class="uprr-content-wrapper">
+                @if (isReviewer == true || isRequestor == true)
+                {
+                    <div class="dataDv" id="rcvFnlEmlTxt">
+                        @{
+                    var ischecked = Model.userPreferenceInfo.UserPreferenceList.Where(e => e.PreferenceID == 1).Count() != 0;
+                        }
+                        @if (ischecked == true)
+                        {  <input type="checkbox" checked="checked" />}
+                        else
+                        {
+                            <input type="checkbox" />
+                        }
+                        @Model.ConsolidatedEmail
+                    </div>
+                
+                }
+                <div class="clearBoth1">
+                    &nbsp;
+                </div>
+                @if (isRequestor == true)
+                {
+                    <div class="dataDv" id="userDDL1">
+                        <ul class="currency">
+                            @for (int i = 1; i < 3; i++)
+                            {
+                                <li>
+                                    @{
+                                var ischecked = Model.userPreferenceInfo.UserPreferenceList.Where(e => e.PreferenceID == Model.userPreferenceInfo.PreferenceList[i].PreferenceID).Count() != 0;
+                                    }
+                                    @if (Model.userPreferenceInfo.UserPreferenceList.Count == 0 && Model.initialLoad == true)
+                                    {
+                                        <input type="checkbox" checked="checked" class="dynamicclass1" /> 
+                                    }
+                                    else if (ischecked == false)
+                                    {
+                                        <input type="checkbox" class="dynamicclass1" />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" checked="checked" class="dynamicclass1" /> 
+                                    }
+                                    @Model.userPreferenceInfo.PreferenceList[i].Description
+                                    <input type = "hidden" value = "@Model.userPreferenceInfo.PreferenceList[i].PreferenceID" id= "hdnPrefID" />
+                                    <input type = "hidden" value = "@Model.userPreferenceInfo.PreferenceList[i].Description" id= "hdnPrefDesc" />
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+                <div class="clearBoth1">
+                    &nbsp;
+                </div>
+
+                @if (isReviewer == true)
+                {
+                    <div class="dataDv" id="userDDL">
+                        <ul class="currency">
+                            @for (int i = 3; i < 8; i++)
+                            {
+                                <li class="userPreferenceLi">
+                                    <div style="float: left; width: 55%;">
+                                        @{
+                                var ischecked = Model.userPreferenceInfo.UserPreferenceList.Where(e => e.PreferenceID == Model.userPreferenceInfo.PreferenceList[i].PreferenceID).Count() != 0;
+                                        }
+                                        @if (Model.userPreferenceInfo.UserPreferenceList.Count == 0 && Model.initialLoad == true)
+                                        {
+                                            <input type="checkbox" checked="checked" class="dynamicclass2" /> 
+                                        }
+                                        else if (ischecked == false)
+                                        {
+                                            <input type="checkbox" class="dynamicclass2" />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" checked="checked" class="dynamicclass2" /> 
+                                        }
+                                        @Model.userPreferenceInfo.PreferenceList[i].Description
+                                        <input type = "hidden" value = "@Model.userPreferenceInfo.PreferenceList[i].PreferenceID" id= "hdnPrefID" />
+                                        <input type = "hidden" value = "@Model.userPreferenceInfo.PreferenceList[i].Description" id= "hdnPrefDesc" />
+                                        @for (int j = 0; j < Model.userPreferenceInfo.UserPreferenceList.Count; j++)
+                                        {
+                                            if (Model.userPreferenceInfo.PreferenceList[i].PreferenceID == Model.userPreferenceInfo.UserPreferenceList[j].PreferenceID)
+                                            {
+                                                var workgroupList = "";
+                                                foreach (var item in Model.userPreferenceInfo.UserPreferenceList[j].UserPreferenceValuesList)
+                                                {
+                                                    workgroupList += item.Value + ',';
+                                                }
+                                            <input type="hidden" value="@workgroupList" id="ValueList" /> 
+                                            }
+                                        }
+                                    
+                                    </div>
+                                    @if (Model.DisplayWorkgroupList == true || (isRCCAdmin == false && isRequestor == true && isReviewer == true))
+                                    {
+                                        <div style="float: right; width: 45%; padding: 3px 0;">
+                                            @Html.DropDownListFor(model => model.listItem, new SelectList(Model.listItem, "value", "text", Model.listItem), new { id = i, @class = "multiselect", @readOnly = true, name = "mulrcvEmlInbx", @style = "width: 350px;!important" })
+                                        </div>
+                                    }
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+        <input type="hidden" name="hdnJsonUserPref" id="hdnJsonUserPref" value="" />
+        @section BottomInputs{
+            <input type="button" id="savebtn" value="Save" class="plbutton" style="margin-left: 550px !important;" />
+            <input type="button" value="Cancel" class="plbutton" id="Cancelbtn" />
+        }
+    </div>
+}
+
+<script type="text/javascript">
+    var userPreferenceSuccessMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_UserPreferenceSuccessMsg';
+    var userPreferenceWarningMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_UserPreferenceWarningMsg';
+    var chkRequestor = '@ViewBag.Requstor';
+    var chkReviewer = '@ViewBag.Reviewer';
+    var workGroupCount = '@ViewBag.WorkgroupCount';
+    var reviewerId = '@ViewBag.ReviewerId';
+    var requestorId = '@ViewBag.RequestorId ';
+    var currencyId = '@ViewBag.CurrencyId';
+    var companyId = '@ViewBag.CompanyId';
+</script>

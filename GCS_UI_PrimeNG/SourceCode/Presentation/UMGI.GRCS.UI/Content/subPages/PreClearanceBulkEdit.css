@@ -1,0 +1,51 @@
+﻿.divobjBulkEditPreClearancePopUp .reviewStatusStrip
+{
+height:35px;background:#f0f0f0;}
+.divobjBulkEditPreClearancePopUp .resetBtnStrip
+{
+width: 100%; height: 38px; text-align: right;background:#CC99FF;} 
+.divobjBulkEditPreClearancePopUp .dropDownCntrlContainer
+{
+float: left; width: 33%; margin-top: 10px;}  
+.divobjBulkEditPreClearancePopUp .preClearanceTRContainer
+{
+float: left; width: 65%;}  
+.divobjBulkEditPreClearancePopUp .preClearanceLabel
+{
+float: left;  padding-left: 15px;
+padding-top: 10px;font-weight:bold;}  
+.divobjBulkEditPreClearancePopUp .divLeftControl
+{
+font-size: 11px;
+text-align: right;
+margin-left:10px;
+width:140px;
+font-weight:bold; }
+.divobjBulkEditPreClearancePopUp .divRightControl
+{
+margin-bottom:10px;}
+.divobjBulkEditPreClearancePopUp .reviewDropDown
+{
+padding:8px 0 0px 10px;
+font-weight:bold;} 
+.divobjBulkEditPreClearancePopUp .cacBody
+{
+background-color: #f2f2f2;
+padding-left:10px;
+padding-right:10px;
+width:100%;
+} 
+.divobjBulkEditPreClearancePopUp .clrAdminCountFoot
+{
+display:none;}   
+.divobjBulkEditPreClearancePopUp .cacTable
+{
+    background: #fff;
+    width:47%;
+}  
+.divobjBulkEditPreClearancePopUp .resetPreClearanceContainer
+{
+    padding:5px 10px 10px 0;}
+    .divobjBulkEditPreClearancePopUp .applyCancelContainer
+    {
+        padding: 8px 10px 0px 0px;}

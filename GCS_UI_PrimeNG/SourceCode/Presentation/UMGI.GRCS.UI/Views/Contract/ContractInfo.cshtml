@@ -1,0 +1,370 @@
+﻿@model UMGI.GRCS.UI.Rights.Models.ContractInfoManager
+
+@{
+    ViewBag.Title = "Contract";
+}
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+<div>
+<div id="accordion">
+   <div class="head">
+    <div class="leftRight">
+        <a class="header alignLeft" href="#">Parent Contract</a>
+        <a id="linkParent" class="alignRight" href="javascript:void();">Link Parent</a>
+    </div>
+    <div>
+        <hr class="hrContract">
+    </div>
+</div>
+    <div class="accItem">    
+   <p>Not Available</p>
+     </div>    
+
+    <div class="head">
+        <a href="#" class="header">Split Deal</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+   <p>Not Available</p>
+     </div>  
+
+      <div class="head">
+        <a href="#" class="header">Contracting Party</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div class="alignLeft">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ContractingParty):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.ContractingParty)
+                @Html.ValidationMessageFor(model => model.NewContract.ContractingParty)
+            </div>    
+     </div>
+      <div class="leftMargin">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ClearanceCompanyCountry):            
+        </div>
+        <div class="editor-field search-button">        
+                @Html.TextBoxFor(model => model.NewContract.ClearanceCompanyCountry, new { data_autocomplete_source = @Url.Action("AutoSearchClearanceCompCountry", "Contract") })                
+                @Html.ValidationMessageFor(model => model.NewContract.ClearanceCompanyCountry)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.UMGSigningCompanyId):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.UMGSigningCompanyId, Model.UmgSigningCompList) 
+                <span class="search-button"></span>                            
+                @Html.ValidationMessageFor(model => model.NewContract.UMGSigningCompanyId)                
+            </div>    
+     </div>    
+     </div>
+
+     <div class="head">
+        <a href="#" class="header">Artist Information</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ArtistName):            
+        </div>
+        <div class="editor-field ">
+                @Html.TextBoxFor(model => model.NewContract.ArtistName, new { disabled = "disabled", @class = "grayColor" })                
+                <input id="openArtistPopup" type="submit" value="Search" class="smallButton" />
+        </div>
+     </div>
+         
+    <div class="alignLeft">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ArtistId):            
+        </div>
+        <div class="editor-field">        
+                @Html.TextBoxFor(model => model.NewContract.ArtistId, new { disabled = "disabled", @class="disabled" })                
+            </div>    
+     </div>
+    
+     <div class="leftMargin">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ArtistNameInLocalCharacters):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.ArtistNameInLocalCharacters)
+                @Html.ValidationMessageFor(model => model.NewContract.ArtistNameInLocalCharacters)
+            </div>    
+     </div>
+     </div>
+     
+     <div class="head">
+        <a href="#" class="header">Contract Definition</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div class="alignLeft">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ContractDescription):            
+        </div>
+        <div class="editor-field search-button">
+                 @Html.TextBoxFor(model => model.NewContract.ContractDescription, new { data_autocomplete_source = @Url.Action("AutoSearchContractDesc", "Contract") })                
+                @Html.ValidationMessageFor(model => model.NewContract.ContractDescription)
+            </div>    
+     </div>
+      <div class="leftMargin">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.LocalContractRefNumber):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.LocalContractRefNumber)
+                @Html.ValidationMessageFor(model => model.NewContract.LocalContractRefNumber)
+            </div>    
+     </div>
+      <div >
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ContractStatusId):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.ContractStatusId, Model.ContractStatusList) 
+                @Html.ValidationMessageFor(model => model.NewContract.ContractStatusId)
+            </div>    
+     </div>    
+     </div>   
+     
+     <div class="head">
+        <a href="#" class="header">Territorial Rights</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+ <p> Not Available</p>
+     </div>   
+
+     <div class="head">
+        <a href="#" class="header">Contract Term</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div class="alignLeft">
+    <div class="alignLeft" >
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ContractCommencementDate):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.ContractCommencementDate)
+                @Html.ValidationMessageFor(model => model.NewContract.ContractCommencementDate)
+            </div> 
+            </div>  
+            <div class="alignLeft">       
+            <div class="alignLeft">
+            @Html.LabelFor(model => model.NewContract.ContractEndDate):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.ContractEndDate)
+                @Html.ValidationMessageFor(model => model.NewContract.ContractEndDate)
+            </div>   
+            </div> 
+     </div>
+     <div class="leftMargin">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsContractInActiveRoster):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.IsContractInActiveRoster, Model.OnActiveRoosterList) 
+                @Html.ValidationMessageFor(model => model.NewContract.IsContractInActiveRoster)
+            </div>    
+     </div>
+     </div>  
+
+     <div class="head">
+        <a href="#" class="header">Rights Expiration</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsPeriodId):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.RightsPeriodId, Model.RightsPeriodList) 
+                @Html.ValidationMessageFor(model => model.NewContract.RightsPeriodId)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsExpiryDate):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.RightsExpiryDate)
+                @Html.ValidationMessageFor(model => model.NewContract.RightsExpiryDate)
+            </div>    
+     </div>
+     <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsLossRightsIndicator):            
+        </div>
+        <div class="editor-field"> 
+                @Html.DropDownListFor(model => model.NewContract.IsLossRightsIndicator, Model.LostRightsIndicatorList) 
+                @Html.ValidationMessageFor(model => model.NewContract.IsLossRightsIndicator)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.LossRightsReasonId):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.LossRightsReasonId, Model.LostRightsReasonList) 
+                @Html.ValidationMessageFor(model => model.NewContract.LossRightsReasonId)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsExpiryRule):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.RightsExpiryRule)
+                @Html.ValidationMessageFor(model => model.NewContract.RightsExpiryRule)
+            </div>    
+     </div>
+     </div>  
+
+     <div class="head">
+        <a href="#" class="header">Rights Exceptions</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsExceptions):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.RightsExceptions)
+                @Html.ValidationMessageFor(model => model.NewContract.RightsExceptions)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsRightsExceptionApplied):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.IsRightsExceptionApplied)
+                @Html.ValidationMessageFor(model => model.NewContract.IsRightsExceptionApplied)
+            </div>    
+     </div>
+     <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsExceptionNotes):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.RightsExceptionNotes)
+                @Html.ValidationMessageFor(model => model.NewContract.RightsExceptionNotes)
+            </div>    
+     </div>
+     </div> 
+     
+     <div class="head">
+        <a href="#" class="header">Repertoire Defaults</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.PCNoticeCompanyId):            
+        </div>
+        <div class="editor-field search-button">
+                @Html.TextBoxFor(model => model.NewContract.PCNoticeCountryCompany, new { data_autocomplete_source = @Url.Action("AutoSearchContractDesc", "Contract") })                
+                @Html.ValidationMessageFor(model => model.NewContract.PCNoticeCompanyId)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.PCNoticeCompanyExtension):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.PCNoticeCompanyExtension)
+                @Html.ValidationMessageFor(model => model.NewContract.PCNoticeCompanyExtension)
+            </div>    
+     </div>
+     <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.RightsTypeId):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.RightsTypeId, Model.RightsType) 
+                @Html.ValidationMessageFor(model => model.NewContract.RightsTypeId)
+            </div>    
+     </div>
+     </div>   
+
+     <div class="head">
+        <a href="#" class="header">Clearance Controls</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsLegalRightsReviewRequired):            
+        </div>
+        <div class="editor-field"> 
+                @Html.DropDownListFor(model => model.NewContract.IsLegalRightsReviewRequired, Model.LegalReviewRequiredList)
+                @Html.ValidationMessageFor(model => model.NewContract.IsLegalRightsReviewRequired)
+            </div>    
+     </div>
+      <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsActiveForMarketing):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.IsActiveForMarketing, Model.ActiveForMarketingList)
+                @Html.ValidationMessageFor(model => model.NewContract.IsActiveForMarketing)
+            </div>    
+     </div>
+     <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.IsSensitiveArtist):            
+        </div>
+        <div class="editor-field">
+                @Html.DropDownListFor(model => model.NewContract.IsSensitiveArtist, Model.SensitiveArtistList)
+                @Html.ValidationMessageFor(model => model.NewContract.IsSensitiveArtist)
+            </div>    
+     </div>
+     <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.ClearingNotes):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.ClearingNotes)
+                @Html.ValidationMessageFor(model => model.NewContract.ClearingNotes)
+            </div>    
+     </div>
+     </div>  
+
+     <div class="head">
+        <a href="#" class="header">Notification</a>
+        <hr class="hrContract" />
+    </div>
+    <div class="accItem">    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewContract.EmailReceipients):            
+        </div>
+        <div class="editor-field">        
+                @Html.EditorFor(model => model.NewContract.EmailReceipients)
+                @Html.ValidationMessageFor(model => model.NewContract.EmailReceipients)
+            </div>    
+     </div>     
+     </div>  
+</div>
+<div>
+<div class="bottomInputs">
+<input type="submit" value="Create Child Contract" />
+<input type="submit" value="Save Contract Contract" />
+<input type="submit" value="Cancel" />
+<input type="submit" value="Save" />
+<input type="submit" value="Next >>" />
+</div>
+</div>
+</div>
+}

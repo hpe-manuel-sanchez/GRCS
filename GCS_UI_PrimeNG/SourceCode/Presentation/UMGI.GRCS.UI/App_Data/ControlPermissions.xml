@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfPermissionEntity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PermissionEntity>
+		<TaskId>1</TaskId>
+		<TaskName>CreateNCRContract</TaskName>
+		<Control>SaveContract</Control>
+		<Visibility>V</Visibility>
+	</PermissionEntity>
+	<PermissionEntity>
+		<TaskId>4</TaskId>
+		<TaskName>EditNCRContract</TaskName>
+		<Control>SaveContract</Control>
+		<Visibility>V</Visibility>
+	</PermissionEntity>
+	<PermissionEntity>
+		<TaskId>8589934592</TaskId>
+		<TaskName>SearchContract</TaskName>
+		<Control>SearchContractMenu</Control>
+		<Visibility>V</Visibility>
+	</PermissionEntity>
+	<PermissionEntity>
+		<TaskId>16</TaskId>
+		<TaskName>EditCACContract</TaskName>
+		<Control>EditContractButton</Control>
+		<Visibility>V</Visibility>
+	</PermissionEntity>
+	<PermissionEntity>
+		<TaskId>64</TaskId>
+		<TaskName>DeleteNCRcontract</TaskName>
+		<Control>DeleteNCRcontractButton</Control>
+		<Visibility>V</Visibility>
+	</PermissionEntity>
+</ArrayOfPermissionEntity>

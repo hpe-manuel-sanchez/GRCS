@@ -1,0 +1,141 @@
+﻿@model UMGI.GRCS.UI.Models.RccClearanceContractModel
+@{
+    ViewBag.Title = "RCC Contract Creation";
+}
+<script type="text/javascript">
+    var msg = '@ViewBag.displayMessage';
+    if (msg != null)
+        displayDialog("Info", msg);
+</script>
+@using (Html.BeginForm())
+{
+    <script src="@Url.Content("/GCS/Scripts/Custom/ContractTab.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SearchContractPopup.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SplitDealGrid.js")" type="text/javascript"></script>
+
+    <div>
+        <div>
+            <input type="button" id="splitDealCheck" value="splitDeal" />
+            <input type="button" id="SearchContractPopup" value="SearchContract" />
+            <input type="button" id="testClick" value="Save" />
+            <div id="alignLeft">
+                @Html.LabelFor(model => model.NewRccContract.ContractId):
+            </div>
+            <div class="editor-field">
+                @Html.ValidationMessageFor(model => model.NewRccContract.ContractId)
+            </div>
+        </div>
+        <div id="tabs">
+
+            <div class="alignRight">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NewRccContract.WorkFlowStatus):
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.NewRccContract, Model.WorkFlowStatusList, new { @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.NewRccContract.WorkFlowStatus)
+                </div>
+            </div>
+            <ul class="tabul">
+                <li><a href="#divContractTab">Contract</a></li>
+            </ul>
+            <div id="divContractTab" class="tabStyle">
+                <div id="accordion">
+                    <div class="head rccdiv">
+                        <a href="#" class="header">Contracting Party</a>
+                        <hr class="hrContract" />
+                    </div>
+                    <div class="accItem">
+                        <div class="alignLeft">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ContractingParty):
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.NewRccContract.ContractingParty)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ContractingParty)
+                            </div>
+                        </div>
+                        <div class="leftMargin">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ClearanceAdminCompanyCountry):
+                            </div>
+                            <div class="editor-field  search-button">
+                                @Html.TextBoxFor(model => model.NewRccContract.ClearanceAdminCompanyCountry, new { data_autocomplete_source = @Url.Action("AutoSearchClearanceCompCountry", "Contract") })
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ClearanceAdminCompanyCountry)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="head rccdiv">
+                        <a href="#" class="header">Artist Information</a>
+                        <hr class="hrContract" />
+                    </div>
+                    <div class="accItem">
+                        <div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.Artist):
+                            </div>
+                            <div class="editor-field search-button">
+                                @Html.EditorFor(model => model.NewRccContract.Artist)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.Artist)
+                                <input id="openArtistPopup" type="submit" value="Search" class="smallButton" />
+                            </div>
+                        </div>
+                        <div class="alignLeft">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ArtistId):
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.NewRccContract.ArtistId)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ArtistId)
+                            </div>
+                        </div>
+                        <div class="leftMargin">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ArtistinLocalCharacters):
+                            </div>
+                            <div class="editor-field ">
+                                @Html.EditorFor(model => model.NewRccContract.ArtistinLocalCharacters)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ArtistinLocalCharacters)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="head rccdiv">
+                        <a href="#" class="header">Contract Definition</a>
+                        <hr class="hrContract" />
+                    </div>
+                    <div class="accItem">
+                        <div class="alignLeft">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ContractStatus):
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.NewRccContract.ContractStatus, Model.ContractStatusList)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ContractStatus)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="head rccdiv">
+                        <a href="#" class="header">Clearance Controls</a>
+                        <hr class="hrContract" />
+                    </div>
+                    <div class="accItem">
+                        <div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NewRccContract.ClearanceNotes):
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.NewRccContract.ClearanceNotes)
+                                @Html.ValidationMessageFor(model => model.NewRccContract.ClearanceNotes)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottomInputs">
+                        <input type="submit" value="Cancel" />
+                        <input type="submit" value="Save" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

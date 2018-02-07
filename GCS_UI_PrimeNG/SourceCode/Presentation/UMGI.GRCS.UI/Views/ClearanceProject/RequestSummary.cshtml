@@ -1,0 +1,139 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@using UMGI.GRCS.Resx.Resource.Layout
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<style type="text/css">
+    #newResourcesList {
+        width: 98.5%;
+        display: none;
+        overflow-x: auto !important;
+    }
+
+    table.jtable th {
+        min-height: 23px !important;
+        padding: 0px 10px 10px 10px !important;
+        max-height: auto;
+    }
+
+    table.jtable td {
+        padding: 5px !important;
+    }
+
+    .imgBorder {
+        border: 0 0 0 0 !important;
+        background-color: #ffffff !important;
+        vertical-align: middle !important;
+        margin-right: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #newResourcesList input[type='button'] {
+        width: 80px !important;
+    }
+</style>
+@*//Add by vikas Used for UC-011*@
+<script language="javascript" type="text/javascript">
+    var RequestCount = $('#hdnRSResourceCount').val();
+    var RequestSummaryGridPageSize = '@System.Configuration.ConfigurationManager.AppSettings["RequestSummaryGridPageSize"]';
+    //Routing message variables start
+    var RoutingMessageWhenNotReachedRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenNotReachedRouting';
+    var RoutingMessageWhenReachedRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenReachedRouting';
+    var RoutingMessageWhenRoutingIsInProgress = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenRoutingIsInProgress';
+    var RoutingMessageWhenErrorIsInRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenErrorIsInRouting';
+    //Routing message variables end
+</script>
+<script src="@Url.Content("/GCS/Scripts/Custom/RequestSummary.js")" type="text/javascript"></script>
+
+
+<table style="width: 100%">
+    <tr>
+        <td>
+            <div id="loaderMsg" style="display: none; padding-left: 10px; padding-right: 10px; color: #222 !important; float: left;">
+                <h3 style="margin-top: 2px !important;">@ClearanceLayout.ReqSummaryLoadingMsg</h3>
+            </div>
+            <div style="float: left;">
+                <h3 id="errorMessageDiv" style="padding-left: 10px; padding-right: 10px; color: #222 !important; margin-top: 2px !important;"></h3>
+            </div>
+            <div style="padding-right: 10px;" id="refreshBtnDiv">
+                <input type="button" class="plbutton" id="refreshBtn" value="Refresh" />
+            </div>
+            <div style="clear: both;"></div>
+        </td>
+    </tr>
+</table>
+
+
+
+        
+<div id="divSearchRequestSummaryPaging" style="display: none; float: right; margin-right: 15px; margin-top: 5px;">
+    <label>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown&nbsp;</label>
+    <select id='ddlSearchRequestSummaryPaging'>
+        <option>25</option>
+        <option>50</option>
+        <option>100</option>
+        <option>150</option>
+    </select>&nbsp;&nbsp;			    
+			   <label> @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage</label>
+</div>
+<div style="clear: both;"></div>
+
+<div style="margin-left: 5px; margin-top: 5px;" id="newResourcesList">
+    <script type="text/javascript" language="javascript">
+        $('#loaderMsg').show();
+        newResources();
+    </script>
+</div>
+
+<div>
+    <table id="tblRequestSummaryResources">
+        @if (Model.MasterProjectDetails.RequestInfoList != null)
+        {
+            for (int i = 0; i < Model.MasterProjectDetails.RequestInfoList.Count; i++)
+            {
+			    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].SalesChannelId, new { id = "hdnSalesChannelId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].IsRoutingStop, new { id = "hdnIsRoutingStop" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ReleaseId, new { id = "hdnRequestInfoReleaseId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].PackageId, new { id = "hdnRequestInfoPackageId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ClearanceProjectResourceId, new { id = "hdnRequestInfoClearanceResourceId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceId, new { id = "hdnRSClearanceResoruceId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RoutedItemId, new { id = "hdnRequestInfoRoutedItemId" + i }) 
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestId, new { id = "hdnRSRequestlId" + i })
+			    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestTypeId, new { id = "hdnRSRequestTypeId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatusId, new { id = "hdnRSApprovalStatusId" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].IsRoutingTriggered, new { id = "hdnRSIsRoutingTriggered" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].Upc, new { id = "hdnRSUPc" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ResourceTitle, new { id = "hdnRSResourceTitle" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].Isrc, new { id = "hdnRSISRC" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].AdminCompany, new { id = "hdnAdminCompany" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].RequestType, new { id = "hdnRSRequestType" + i }) 
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].Configuration, new { id = "hdnRSConfiguration" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ApprovalStatus, new { id = "hdnRSApprovalStatus" + i })
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ModifiedDateRequestString)
+                    @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList[i].ModifiedDateRoutedString)
+            }
+            @Html.Hidden("hdnActionRequestId");
+            @Html.HiddenFor(model => model.MasterProjectDetails.RequestInfoList.Count, new { id = "hdnRSResourceCount" })
+            @Html.HiddenFor(model => Model.MasterProjectDetails.RequestInfoList.Where(stat => stat.ApprovalStatusId == 5 || stat.ApprovalStatusId == 7 || stat.ApprovalStatusId == 10).ToList().Count, new { id = "hdnRSCancelledRejectedResourceCount" })
+        }
+    </table>
+</div>
+
+@if (Model.ReadOnlyMode == 1)
+{
+    <script type="text/javascript">
+        var isDisable = "Y";
+    </script>
+}
+else
+{
+    <script type="text/javascript">
+        var RCCAdminAllocateUPC = '@ViewBag.RCCAllocateUpc';
+
+        if (RCCAdminAllocateUPC != null && RCCAdminAllocateUPC == 'True') {
+            var isDisable = "Y";
+        }
+        else {
+            var isDisable = "N";
+        }
+     </script> 
+}

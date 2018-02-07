@@ -1,0 +1,130 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.RightsReviewCustomWorkQueueModel
+@{
+    ViewBag.Title = "Rights Review WorkQueue";
+}
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/CustomRightsReviewWorkQueue.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/ReleaseRightsWorkQueue.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsReviewWorkQueue.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/CustomRightsReviewWorkQueue.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/SecondaryExploitationPopup.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEditTab.css")" rel="stylesheet" type="text/css" />    
+<link href="@Url.Content("/GCS/Content/SubPages/ContractSearchPopup.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/PreClearanceBulkEdit.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEdit.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/RightsPriorityWorkQueue.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceAdminCountryPopup.css")"  rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/jtable_standard_base.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.css")" rel="stylesheet" type="text/css" />
+@section jqueryUi{
+    <script src="@Url.Content("/GCS/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jquery-ui-1.9.0.custom.js")" type="text/javascript"></script>
+}
+<script type="text/javascript">
+    var rightsReviewWorkQueueMessages = {
+        resource: '@WorkQueueResource.Resource',
+        release: '@WorkQueueResource.Release',
+        retrieving: '@WorkQueueResource.Retrieving_Data',
+        rightsAdministration: '@LayoutRes.rightsAdministrationHeader',
+        customSetting: '@WorkQueueResource.CustomSetting',
+        searchResults: '@WorkQueueResource.SearchResults',
+        searchCritereaValidation: '@WorkQueueResource.SearchCritereaValidation',
+        headerSecondaryPopup: '@WorkQueueResource.HeaderSecondaryPopup',
+        saveSuccess: '@WorkQueueResource.RecordsSave'
+    };
+    var ReleaseCustomsSearchConstants = {
+        Success: ' @RepertoireSearch.Success',
+        DateValidation: '@RepertoireSearch.DateValidation',
+        DateValidationEqual: '@RepertoireSearch.DateValidationEqual',
+        SelectFromDate: '@WorkQueueResource.SelectFromDate',
+        SelectToDate: '@WorkQueueResource.SelectToDate',
+        ReleaseDateRangeValidation: '@WorkQueueResource.ReleaseDateRangeValidation',
+        ReleaseRequiredFieldValidation: '@WorkQueueResource.ReleaseRequiredFieldValidation',
+        ReleaseRightsSuccessMessages: '@WorkQueueResource.RecordsSave'
+    };
+</script>
+<input type="hidden" id="hdnGridId" />@*To have the grid id*@ <span id="spanListIds"
+    class="displayNone">@ViewData["rightSetIds"]</span> <span id="spanHiddenSearchParams"
+        class="displayNone"></span>
+<div id="divScrollRightsReviewTabs">
+    <div id="divRightsPriorityWorkQueueTab">
+        <div id='menuuTab' class="alignLeft">
+            <div class="top_desc alignLeft wqCustomSetting">
+                <ul class="tabul uitabWork" id="screenTabs">
+                    <li><a href="#workQueueTabs-1">Custom WQ @ViewBag.referringType</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div id="workQueueTabs-1" class="wqTabs">
+                <div id="divCustomRightsReviewWorkQueueContainer">
+                    @if (ViewBag.referringType == "Release")
+                    {
+                        <input type="hidden" id="editRightsDataHeader" value="@ViewBag.EditRightsDataHeader"/>
+                        <input type="hidden" id="editRightsDataDigital" value="@ViewBag.EditRightsDataDigital"/>
+                        <input type="hidden" id="editRightsDataSecondary" value="@ViewBag.EditRightsDataSecondary"/>
+                        <input type="hidden" id="editRightsDataPrecleared" value="@ViewBag.EditRightsDataPrecleared"/>
+                        <script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/RightsWorkQueue.js")" type="text/javascript"></script>
+                        <div id="divCustomWorkQueueRelease">
+                            @Html.Partial("ReleaseRightsWorkQueue", Model.ReleaseRightsWorkQueueModel)
+                        </div>   
+                    }
+                    @if (ViewBag.referringType == "Resource")
+                    {
+                        <div id="divCustomWorkQueueResource">
+                            @Html.Partial("RightsWorkQueue", Model.ResourceRightsWorkQueueModel)
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="buttonHide displayNone">
+        <div class="ui-jtable-loading alignLeft">
+        </div>
+    </div>
+</div>
+@section BottomInputs{
+    <div class="bottomInputs">
+        <ul>
+            <li>
+                <div class="primbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnSaveAllReviewDataChanges" value="Save All Changes" class="primbutton" />
+                </div>
+                <div class="primbutton_right btnSpaceLocal">
+                </div>
+            </li>
+            <li>
+                <div class="primbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnCancelReviewDataChanges" value="Cancel Changes" class="primbutton" />
+                </div>
+                <div class="primbutton_right btnSpaceLocal">
+                </div>
+            </li>
+            <li>
+                <div class="primbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnReviewDataChangeLink" value="Change Link" class="primbutton" />
+                </div>
+                <div class="primbutton_right btnSpaceLocal">
+                </div>
+            </li>
+            <li>
+                <div class="primbutton_left">
+                </div>
+                <div class="alignLeft">
+                    <input type="button" id="btnReviewDataUnlinkContract" value="Unlink Contract" class="primbutton" />
+                </div>
+                <div class="primbutton_right">
+                </div>
+            </li>
+        </ul>
+    </div>
+}
+<input type="hidden" value="" id="hiddenTabSelectionId"/>

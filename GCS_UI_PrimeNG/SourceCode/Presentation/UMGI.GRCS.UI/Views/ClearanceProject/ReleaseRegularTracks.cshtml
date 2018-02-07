@@ -1,0 +1,126 @@
+﻿@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities;
+@using UMGI.GRCS.Resx.Resource.Layout
+@model ClearanceReleaseModel
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+
+<table class="releaseSubDiv jtable-main-container">
+    @if (Model.clearanceRelease.resourceDetail != null && Model.clearanceRelease.resourceDetail.Count > 0)
+    {
+        <tr class="grey-header-background drk-gry-bdr line-height25">
+            <td align="left" valign="top" width="70px">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegSequenceLabel)</b>
+            </td>
+            <td align="left" valign="top" width="100px">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegResourceTitleLabel)</b>
+            </td>
+            <td align="left" valign="top" width="100px">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegDataVersionTitleLabel)</b>
+            </td>
+            <td align="left" width="250px" valign="top">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegArtistNameLabel)</b>
+            </td>
+            <td align="left" width="100px" valign="top">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegDurationLabel)</b>
+            </td>
+            <td align="left" width="100px" valign="top">
+                <b>@Html.Label(@ClearanceLayout.ReleaseRegISRCLabel)</b>
+            </td>
+        </tr>
+        for (int j = 0; j < Model.clearanceRelease.resourceDetail.Count; j++)
+        {
+            //|| (Model.clearanceRelease.R2ReleaseId == Model.clearanceRelease.resourceDetail[j].ReleaseId && (Model.clearanceRelease.PackageIndicator == null || Model.clearanceRelease.PackageIndicator == "N"))
+            //if ((Model.clearanceRelease.resourceDetail[j].ArchiveFlag == "N"))
+            //{
+            // highlight the row when Rights
+            //style="@(Model.RegularProjectDetails.ObjRelease[i].Rights_Type == 3 ? "Background-color:Yellow" : "")"
+
+        <tr>
+            <td valign="top" align="left">@Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].SequenceNo)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].SequenceNo)
+            </td>
+            <td valign="top" align="left">@Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].ResourceTitle)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].ResourceTitle)
+            </td>
+            <td valign="top" align="left">@Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].VersionTitle)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].VersionTitle)
+            </td>
+            <td valign="top" align="left">
+                @Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].ArtistName)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].ArtistName)
+            </td>
+            <td valign="top" align="left">@Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].Duration)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].Duration)
+            </td>
+            <td valign="top" align="left">@Html.DisplayFor(model => Model.clearanceRelease.resourceDetail[j].Isrc)@Html.HiddenFor(model => Model.clearanceRelease.resourceDetail[j].Isrc)
+                @* @for (int k = 0; k < Model.clearanceRelease.resourceDetail.Count; k++)
+        {*@
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].AccountId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].AdminCompanyId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].ArchiveFlag)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].ArtistInfo)
+                @if (Model.clearanceRelease.resourceDetail[j].ArtistInfo != null && Model.clearanceRelease.resourceDetail[j].ArtistInfo.Count > 0)
+                {
+                    for (int kchild = 0; kchild < Model.clearanceRelease.resourceDetail[j].ArtistInfo.Count; kchild++)
+                    {
+                    @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].ArtistInfo[kchild].Name)
+                    @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[j].ArtistInfo[kchild].Id)
+                    }
+                }
+
+@*@Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ArtistName)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].AudioVideoType)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ClearanceResourceId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Comments)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].DataAdminCompanyId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].DivisionId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Duration)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ExcerptTime)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].EarilerReleaseDate)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ExcerptTime)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].GenreId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].HasSample)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].HasSideArtist)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Id)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].IsAlreadyLinked)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].IsMediaPortal)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Isrc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].LabelId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].LinkedContractDetails)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].LiveStudioType)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].MusicClassType)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].MusicTime)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].MusicTypeDesc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].OwnedProjectId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].PCompanyId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].PCompanyName)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].PLicensingExtension)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].PYear)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].R2_ResourceId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].R2AccountId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].RecordingTypeDesc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ReleaseId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ResourceId)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ResourceTitle)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ResourceType)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].ResourceTypeDesc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].RightsType)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].SampleCredit)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].SensitiveExplotation_ClearanceResource)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].SequenceNo)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Source_Upc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].SourceUpc)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].SuggestedFee)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].TerritorialRights)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].Title)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].UserName)
+                @Html.HiddenFor(model => model.clearanceRelease.resourceDetail[k].VersionTitle) *@
+@*}   *@
+            </td>
+        </tr>
+            // }
+
+        }
+
+    }
+    <script language="javascript" type="text/javascript">
+        var rowid = @(Model.clearanceRelease.RowId);
+        document.getElementById('LoaderTracks' + rowid + '').className = '';
+    </script>
+</table>

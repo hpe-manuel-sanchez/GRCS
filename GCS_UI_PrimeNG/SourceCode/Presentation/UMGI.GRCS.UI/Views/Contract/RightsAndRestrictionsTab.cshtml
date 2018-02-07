@@ -1,0 +1,142 @@
+﻿@model UMGI.GRCS.UI.Models.RightsRestrictionTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    ViewBag.Title = @ContractResource.RightsRestrictionsMenu;
+}
+
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsAndRestriction.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var msg = '@ViewBag.Result';
+    if (msg != null)
+        displayDialog("Info", msg);
+</script>
+
+<link href="@Url.Content("/GCS/Content/SubPages/RightsAndRestrictionsTab.min.css")"  rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("RightsAndRestrictions", "Contract", FormMethod.Post, new { Id = "RightsForm" }))
+{
+    <input type="hidden" value="@ViewBag.Result" id="templateSaveStatus" />
+    <div class="scrollContract">
+
+        <div class="rightsAndRestriction">
+            <!-- First Accordion -->
+            <div id="accordion">
+
+                <div class="accRights">
+                    <div class="accRightsHead">
+                        <span>@ContractResource.RightsAcquisitionHeader</span>
+                    </div>
+                </div>
+
+                <div id="divRightsAcquisition" class="accRightsBody">
+                    @{ Html.RenderPartial("RightsAcquired", Model);}
+                </div>
+
+                <!-- First Accordion -->
+                <!-- Second Accordion -->
+                <div id="divDigitalRestrictionContainer">
+                    <div class="accRights">
+
+                        <div class="accRightsHead">
+                            <span>@ContractResource.DigitalRestrictionsHeader</span>
+                        </div>
+                    </div>
+
+                    <div class="accRightsBody">
+
+                        <div id="divDigitalRestriction">
+                            <div>
+
+                                <span class="alignLeft chooseRestrictionTemplate">
+                                    <label class="">Choose Restriction Template</label>
+                                    @Html.DropDownListFor(model => model.DigitalTemplate, new SelectList(Model.DigitalTemplate, "value", "text", Model.TemplateId))</span>
+
+                                <span class="hyperlink">
+                                    <a id="btnAddDigitalTemplate"
+                                        href="" class="search-button alignRight">
+                                        <img src="/GCS/Images/plus sign.gif" alt="Add" class="addImage" />@ContractResource.AddDigitalRestrictionLink</a></span>
+                            </div>
+
+                            <div class="Fullwidth" style="clear: both;">
+                                <table class="sample">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @ContractResource.SelectCheckBox
+                                            </th>
+                                            <th>
+                                                @ContractResource.ContentTypeColumn
+                                            </th>
+                                            <th>
+                                                @ContractResource.UseTypeColumn
+                                            </th>
+                                            <th>
+                                                @ContractResource.CommercialModelColumn
+                                            </th>
+                                            <th>
+                                                @ContractResource.RestrictionColumn
+                                            </th>
+                                            <th>
+                                                @ContractResource.ConsentPeriodColumn
+                                            </th>
+                                            <th>
+                                                @ContractResource.NotesColumn
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int index = 0; index < Model.DigitalRestriction.Count; index++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.CheckBoxFor(model => model.DigitalRestriction[index].DigitalRestrictionIdChecked)
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(model => model.DigitalRestriction[index].ContentTypeId, new SelectList(Model.ContentTypeList, "value", "text", Model.DigitalRestriction[index].ContentTypeId), new { @class = "ContentTypeList" })
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].ContentTypeId)
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(model => model.DigitalRestriction[index].UseTypeId, new SelectList(Model.UseTypeList, "value", "text", Model.DigitalRestriction[index].UseTypeId), new { @class = "UseTypeList" })
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].UseTypeId)
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(model => model.DigitalRestriction[index].CommercialModelId, new SelectList(Model.CommercialModelsList, "value", "text", Model.DigitalRestriction[index].CommercialModelId), new { @class = "CommercialModelList" })
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].CommercialModelId)
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(model => model.DigitalRestriction[index].RestrictionId, new SelectList(Model.RestrictionList, "value", "text", Model.DigitalRestriction[index].RestrictionId), new { @class = "DigitalrestrictionList" })
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].RestrictionId)
+                                                </td>
+                                                <td>
+                                                    @Html.DropDownListFor(model => model.DigitalRestriction[index].ConsentPeriodId, new SelectList(Model.ConsentPeriodList, "value", "text", Model.DigitalRestriction[index].ConsentPeriodId), new { @class = "DigitalconsentList" })
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].ConsentPeriodId)
+                                                </td>
+                                                <td>
+                                                    @Html.EditorFor(model => model.DigitalRestriction[index].Notes)
+                                                    @Html.ValidationMessageFor(model => model.DigitalRestriction[index].Notes)
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+
+                                <div class="width97">
+                                    <div class="digitalButton hyperlink">
+                                        <a id="btnSaveDigitalTemplate" href=""
+                                            class="search-button">
+                                            <img src="/GCS/Images/save.gif" alt="Save" class="saveImage" />@ContractResource.SaveAsRestrictionTemplateLink</a>
+                                    </div>
+                                    <span class="hyperlink"><a id="btnRemoveDigitalTemplate"
+                                        href="" class="search-button">
+                                        <img src="/GCS/Images/delete.gif" alt="Delete" class="deleteImage" />@ContractResource.RemoveRestrictionLink</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Accordion -->
+        </div>
+    </div>
+}

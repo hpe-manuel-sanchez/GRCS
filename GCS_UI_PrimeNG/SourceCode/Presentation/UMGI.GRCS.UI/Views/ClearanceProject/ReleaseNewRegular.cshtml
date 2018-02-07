@@ -1,0 +1,815 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities
+@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Models
+@model ClearanceProjectModel
+@{
+    var mandatory = ClearenceResource.MandatorySymbol;
+}
+
+@functions {
+
+    bool getUPCNumberState()
+    {
+        if (Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.Submitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReSubmitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReOpened))
+        {
+            var currentUserRole = Model.UPCAllocationRightsGroup;
+            if (Model.RegularProjectDetails.ObjRelease != null)
+            {
+                if ((currentUserRole == RoleGroup.RCCAdmin.ToString() && Model.RegularProjectDetails.ObjRelease.Where(s => (s.Upc == null || s.Upc == string.Empty) && s.ReleaseId > 0).Count() > 0) || (currentUserRole == RoleGroup.Requestor.ToString() && Model.RegularProjectDetails.MultiArtist && Model.RegularProjectDetails.ObjRelease.Where(s => (s.Upc == null || s.Upc == string.Empty) && s.MusicType_Id != 1 && s.ReleaseId > 0).Count() > 0))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    object getHtmlAttributes(bool readOnly, string cssClass, string musicClassType)
+    {
+        if (!readOnly && (Model.UPCAllocationRightsGroup == RoleGroup.RCCAdmin.ToString() || (Model.UPCAllocationRightsGroup == RoleGroup.Requestor.ToString() && musicClassType != "1")))
+            return new { @class = cssClass };
+
+        return new { @class = cssClass + "disabled", @disabled = "disabled" };
+    }
+
+    object getHtmlActionAttributes(bool hasValue, string id, string cssClass, long r2ReleaseId, string manual, string isPushedToR2)
+    {
+        if ((hasValue && isPushedToR2 == "N") || (isPushedToR2 == "Y" && manual == "Y"))
+            return new { @class = cssClass, @onclick = "return RemoveUPCNumber('" + id + "')", @Href = "#", @id = "lnkRemoveUPCNumber" + id };
+
+        return new { @class = cssClass + "disabled" + " hiddenUpc", @disabled = "disabled", @id = "lnkRemoveUPCNumber" + id, @onclick = "return RemoveUPCNumber('" + id + "')", @Href = "#", };
+    }
+
+    object getHtmlTextBoxAttribute(bool readOnly, string id)
+    {
+        if (readOnly)
+            return new { @disabled = "disabled", @id = "txtNewReleaseUpcNum" + id, @onkeydown = "return OnlyNumeric(event, 'i')", @onblur = "return SetUPCNumberlink('" + id + "')", style = "width:80px", @maxlength = 13, @class = "hiddenUpc" };
+
+        return new { @maxlength = 13, @onkeydown = "return OnlyNumeric(event, 'i')", @onblur = "return SetUPCNumberlink('" + id + "')", @id = "txtNewReleaseUpcNum" + id, style = "width:80px" };
+    }
+
+    object getHtmlAdditionalTextBoxAttribute(bool readOnly, string id)
+    {
+        if (readOnly)
+            return new { @disabled = "disabled", @id = "txtAdditionalNewReleaseUpcNum" + id, @onkeydown = "return OnlyNumeric(event, 'i')", @maxlength = 1, style = "width:10px", @class = "hiddenUpc" };
+
+        return new { @maxlength = 1, @id = "txtAdditionalNewReleaseUpcNum" + id, style = "width:5px", @disabled = "disabled" };
+    }
+
+    bool getUPCNumberState(string upcNumber)
+    {
+        return upcNumber != null && upcNumber.Trim() != "";
+    }
+
+}
+
+<link href="@Url.Content("/GCS/Content/SubPages/resources.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ReleaseNewRegular.min.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+    var watermarkComments = '@ClearenceResource.js_watermarkComments';
+    $(document).ready(function () {
+
+        function handleProjectUnlock(e) {
+
+            if (globalPostBackCheck == true) {
+                globalPostBackCheck = false;
+            } else {
+                if ($("#Clr_Project_Id").val() != "" && $("#Clr_Project_Id").val() != "0") {
+                    unlockProject($("#Clr_Project_Id").val());
+                }
+
+            }
+        }
+
+        window.onbeforeunload = handleProjectUnlock;
+    });
+</script>
+
+<script src="@Url.Content("/GCS/Scripts/Custom/ReleaseNewRegular.js")" type="text/javascript"> </script>
+
+<div id="SearchReleaseDialog" style="display: none; margin: 0; padding: 0;"></div>
+<div id="NewReleaseArtistDialog" style="margin: 0; padding: 0;"></div>
+<div style="display: none" id="hdnrowId"></div>
+<div id="CallerFunctionForArtistSearch"></div>
+<div id="ReleaseDialog" style="display: none; margin: 0; padding: 0;">
+    @Html.Hidden("releaseListFromSearchPopUp", "Empty")
+    @Html.Hidden("resourceListAddToProject", "Empty")
+    @Html.Hidden("hdnCurrentUserRole", @Model.UPCAllocationRightsGroup)
+</div>
+
+<!-- Search Box START HERE -->
+<div id="release_expand_collapse" class="sbox-wrap sbox-height-release sbox_wrapper-margin">
+    <div class="floatL sbox-colum1 text-align-left line-height padding-left3px rqt-bold headFont">Release</div>
+    <div class="floatL sbox-colum3 text-align-right">&nbsp;</div>
+    <div class="floatL sbox-colum_2 text-align-right" style="width: 400px;">
+        <ul class="sbox_ul">
+            <li><a id="lnkExpand" href="#">Expand All </a></li>
+            <li>|</li>
+            <li><a id="lnkCollapse" href="#">Collapse All </a></li>
+            @if (Model.UPCAllocationRightsGroup != string.Empty && (Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.Submitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReSubmitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReOpened)))
+            {
+                <li>|</li>
+                <li><a id="lnkReleaseNewSelectAll" href="#">Select All </a></li>
+            }
+            <li><input id="btnAddRelease" class="plbutton " type="button" value="Add Release" onclick=" return AddRelease(); "/></li>            
+        </ul>
+    </div>
+</div>
+<div id="ReleaseDialogdetail" style="display: none; margin: 0; padding: 0;">
+    @Html.Hidden("resourceListFromSearchPopUpDetail", "Empty")
+</div>
+@Html.Hidden("hdnDuplicate", "")@Html.Hidden("hdnbuttonId", ViewData["btnId"])@Html.Hidden("hdnReleaseCount", ViewData["rowCount"])
+@Html.Hidden("hdnReleaseId", "")@Html.Hidden("CallFrom") @Html.Hidden("hdnConfigList", "")
+@Html.HiddenFor(model => Model.UPCAllocationRightsGroup)
+<div id="tblRelease">
+    @if (Model.RegularProjectDetails.ObjRelease != null)
+    {
+        @Html.HiddenFor(model => model.RegularProjectDetails.ObjRelease.Count, new { id = "hdnReleaseRowsCount" })
+
+        for (var i = 0; i < Model.RegularProjectDetails.ObjRelease.Count; i++)
+        {
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ReleaseId, new {id = "hdnReleaseId" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].Archive_Flag, new {id = "hdnArchiveFlag" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].Clr_Project_Id, new {id = "hdnClr_Project_Id" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].isPushedToR2, new {id = "hdnisPushedToR2" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ExistingReleases, new {id = "ExistingReleasesUPC" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].RemovedPackageReleases, new {id = "RemovedPackageReleases" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].IsNewlyAddedAfterSubmit, new {id = "hdnIsNewReleaseAdded" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].IsRouted, new {id = "hdnIsReleaseRouted" + i})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ClrProjectReleaseIds.Count, new {id = "hdnReleaseIdsCount"})
+            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ReleaseResubmitReasonComments, new { id = "hdnReleaseResubmitReasonComments_" + Model.RegularProjectDetails.ObjRelease[i].ReleaseId })
+
+            if (Model.RegularProjectDetails.ObjRelease[i].ClrProjectReleaseIds != null)
+            {
+                for (var j = 0; j < Model.RegularProjectDetails.ObjRelease[i].ClrProjectReleaseIds.Count; j++)
+                {
+        @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ClrProjectReleaseIds[j], new { id = "hdnClrReleaseIds" + i + j })
+                }
+            }
+        <div id="ExistingRelease@(i)" style="display: none;"></div>
+        @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ConfigIdSelected, new { id = "hdnConfigId" + i })
+        <div id="mainDivResourceRegular">
+            <div id="tr@(i)" class="contentPanel">
+                <div id="tblReleaseNew@(i)">
+                    <div class="headerDv1">
+                        <div id="trRegNew@(i)">
+                            <div style="height: auto; float: left; width: 95%;">
+                                <ul class="upper_header_release">
+                                        <li ><h6 class="prjInfoRegHeader details downArrowUPC" id="img_@(i)">&nbsp;</h6></li>         
+                                    @if (Model.RegularProjectDetails.ObjRelease[i].ReleaseId != 0 && (Model.UPCAllocationRightsGroup == RoleGroup.RCCAdmin.ToString() || (Model.UPCAllocationRightsGroup == RoleGroup.Requestor.ToString() && Model.RegularProjectDetails.ObjRelease[i].MusicType_Id != 1)) && (Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.Submitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReSubmitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReOpened)))
+                                    {
+                                        <li class="widthchk rr-new-first">
+                                            @Html.CheckBox("chkUpcNumber_" + i, @getUPCNumberState(Model.RegularProjectDetails.ObjRelease[i].Upc), @getHtmlAttributes(getUPCNumberState(Model.RegularProjectDetails.ObjRelease[i].Upc), "chkUpcNumber", Model.RegularProjectDetails.ObjRelease[i].MusicClassType))
+                                        </li>
+                                    }
+                                    <li class="upcLabel">UPC:</li>
+                                    <li class="upcVal rr-new-tal unbold">
+                                        <div  id ="tdReleaseNewUPC @i">
+                                                @Html.DisplayFor(model => Model.RegularProjectDetails.ObjRelease[i].Upc) </div>
+
+                                        @if (@Model.UPCAllocationRightsGroup == RoleGroup.RCCAdmin.ToString() && Model.RegularProjectDetails.ObjRelease[i].ReleaseId != 0 && (Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.Submitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReSubmitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReOpened)))
+                                        {
+                                            @Html.TextBox("txtNewReleaseUpcNum" + i, "", @getHtmlTextBoxAttribute(getUPCNumberState(Model.RegularProjectDetails.ObjRelease[i].Upc), i.ToString()))
+                                            @Html.TextBox("txtAdditionalNewReleaseUpcNum" + i, "", @getHtmlAdditionalTextBoxAttribute(getUPCNumberState(Model.RegularProjectDetails.ObjRelease[i].Upc), i.ToString()))
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].Is_Upc_Manual, new { id = "hdnManualUpcNumber" + i })
+                                        }
+                                        @if (@Model.UPCAllocationRightsGroup == RoleGroup.RCCAdmin.ToString() && Model.RegularProjectDetails.ObjRelease[i].ReleaseId != 0 && (Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.Submitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReSubmitted) || Model.RegularProjectDetails.StatusType.Equals((int)Constants.StatusType.ReOpened)))
+                                        {
+                                            @Html.ActionLink("(Remove)", "", null, @getHtmlActionAttributes(getUPCNumberState(Model.RegularProjectDetails.ObjRelease[i].Upc), i.ToString(), "lnkUPCNumberCss", Model.RegularProjectDetails.ObjRelease[i].R2ReleaseId, Model.RegularProjectDetails.ObjRelease[i].Is_Upc_Manual, Model.RegularProjectDetails.ObjRelease[i].isPushedToR2))
+                                        }
+                                        @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].Upc, new { id = "hdnUpcNumber" + i, @class = "hdnUPCNumberCls" })
+                                    </li>
+                                    <li class="artistLabel rr-new-tal">| <span class="madatoryField">@(mandatory)</span>Artist:</li>
+                                    <li class="width_artist rr-new-tal unbold">
+                                        @if (Model.RegularProjectDetails.ObjRelease[i].ArtistInfo != null)
+                                        {
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ArtistInfo.Count, new { id = "hdnArtistCount" + i })
+
+                                            for (var k = 0; k < Model.RegularProjectDetails.ObjRelease[i].ArtistInfo.Count; k++)
+                                            {
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ArtistInfo[k].Name, new { id = "hdnArtistName" + i + '_' + k })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ArtistInfo[k].NameId, new { id = "hdnArtistId" + i + '_' + k })
+                                            @Html.HiddenFor(model => model.RegularProjectDetails.ObjRelease[i].ArtistInfo[k].Id, new { id = "hdnArtistTalentId" + i + '_' + k })
+                                            }
+                                        }
+                                        @Html.Hidden("hdnArtist" + @i)
+                                        <div id="divArtistName@(i)"></div>
+                                        <div style="display: none" id="hdnArtistId@(i)"></div>
+                                    </li>
+                                    <li class="artistVal">&nbsp;<input id="btnManageArtist@(i)" class="plbutton " type="button" value="Manage Artist" onclick=" ManageArtistclass(this); " /></li>
+                                    <li class="astrik-titleLabel">| <span class="madatoryField">@(mandatory)</span>@ClearanceLayout.ReleaseRegTitleLabel</li>
+                                    <li class="titleVal">@Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ReleaseTitle, new { id = "txtTitle_" + i, @class = "rr-new-input-width-medium release-new-title-textbox", @maxlength = 255, onchange = "EnableDuplicateButton();stopProjectTitleSync(id);" }) </li>
+                                    <li class="versionTitleLabel">| @ClearanceLayout.ReleaseRegVersionTitleLabel</li>
+                                    <li class="versionTitleVal">@Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].VersionTitle, new { id = "txtVersionTitle_" + i, @class = "rr-new-input-width-medium release-new-title-textbox", @maxlength = 255 })</li>
+
+                                    <li class="width_4">
+                                        <div onclick=" Toggle(@i); ">
+                                                <input type="button" value="Duplicate" class="duplicateButton" id="btnDuplicate_@(i)" onclick=" duplicateClick(this); " enable="false"/> <img  src="@Url.Content("/GCS/Images/Main-Menu_Arrow_white.png")" style="margin-top: 7px; vertical-align: top;" onclick=" ToogleDiv('@i') " alt=""/>
+                                            <div id="divConfig_@(i)" class="dpDown drpDwn"   onmousemove=" SetFlag(); " onmouseout=" SetFlagFalse(@i); "  onclick=" ShowDiv(@i); ">
+                                                @foreach (var configGroupList in Model.ConfigGroupList)
+                                                {
+                                                    <input type="checkbox" id="chkConfig_@(i)" name="chkConfig_@(i)" value= @configGroupList.Value />
+                                                    @configGroupList.Text
+                                                    <br />
+                                                }
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="float: right; width: 5%;">
+                                @if (Model.RegularProjectDetails.StatusType == 1)
+                                {
+                                    @Html.ActionLink("Remove", "", null, new { onclick = "return OnDeleteClickNewRelease(" + i + ");", style = "color:#fff;" })
+                                }
+                                else if (Model.RegularProjectDetails.ObjRelease[i].ReleaseId == 0 && Model.RegularProjectDetails.StatusType != 1)
+                                {
+                                    @Html.ActionLink("Remove", "", null, new { onclick = "return OnDeleteClickNewRelease(" + i + ");", style = "color:#fff;" })
+                                }
+                                else
+                                {
+                                    <div style="text-decoration: underline; color: #fff; margin-top: 5px;">@Html.ActionLink("History", "", null, new { onclick = "return triggerRegularNewAuditHistory(" + i + ");" }) </div>
+                                }
+                            </div>
+                            </div></div>
+                    <div class="contentDv" id="cmdmainDiv@(i)">
+                        <div id="ClearanceRelease_@(i)">
+                            <!-- first row Start -->
+                            <div class="rr-new-wrapper" id="trPackageRow@(i)">
+                                <div class="rr-new-column1 rr-new-fl  ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" style="white-space: nowrap;">
+                                        <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegLabelDrpdwn
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].labelName, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearchForLabels", "ClearanceProject"), SearchFor = "SearchLabels", id = "labelName_" + i, style = "width:170px;", onchange = "EnableDuplicateButton();" })
+                                        @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].LabelId, new { id = "LabelId_" + i, onblur = "return EnableDuplicateButton();" })
+                                    </div>
+                                </div>
+                                <div class="rr-new-column2 rr-new-fl ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegMusicTypeDrpdwn
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].MusicType_Id, new SelectList(Model.MusicType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].MusicType_Id), "--Select--", new { id = "ddlMusicType_" + i, @class = "rr-new-select-xsmall", onchange = "HideTooltipMsg(event,this);EnableDuplicateButton();" })
+                                    </div>
+                                </div>
+                                <div class="rr-new-column3 rr-new-fr ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        Package:
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].Package_Id, new SelectList(Model.YesNoDropdown, "value", "text", Model.RegularProjectDetails.ObjRelease[i].Package_Id), new { id = "ddlPackage_" + i, @class = "packageClass rr-new-select-very-small", onchange = "ClearIncludedList(" + i + ")" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!--first row  Ends -->
+                            <!-- second row Start -->
+                            <div class="rr-new-wrapper" id="trConfig@(i)">
+                                <div class="rr-new-column1 rr-new-fl  ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" style="white-space: nowrap;">
+                                        <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegConfigurationGroupDrpdwn
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].ConfigurationGroup_Id, new SelectList(Model.ConfigGroupList, "value", "text", Model.RegularProjectDetails.ObjRelease[i].ConfigurationGroup_Id), "--Select--", new { id = "ddlConfigGrpList_" + i, @class = "configGrpDropdown rr-new-select-large", onchange = "GetConfigurationListParent(event,this);EnableDuplicateButton();" })
+                                    </div>
+                                </div>
+                                <div class="rr-new-column2 rr-new-fl ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        @ClearanceLayout.ReleaseRegSoundTrackChkbox
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].Is_Ost, new { id = "chkSoundTrack_" + i, @class = "soundTrack" })
+                                    </div>
+                                </div>
+                                <div class="rr-new-column3 rr-new-fr " id="tdNoOfComp@(i)">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        <span class="madatoryField">@(mandatory)</span>@ClearanceLayout.ReleaseRegNumberOfComponentsTxtbox
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal" id="tdddlComp@(i)">
+                                        @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].No_Components, new { id = "txtNoOfComp_" + i, maxlength = 25, @class = "rr-new-input-width-small" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!--second row  Ends -->
+                            <!-- third row start -->
+                            <div class="rr-new-wrapper">
+                                <div class="rr-new-column1 rr-new-fl  ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        <ul class="rr-new-manu-umg">
+                                            <li>
+                                                <span class="madatoryField">@(mandatory)</span>@ClearanceLayout.ReleaseRegConfigurationDrpdwn
+                                            </li>
+                                            <li id="liPackageIncludedLabel@(i)" style="display:none;">
+                                                @ClearanceLayout.ReleaseNewPackageIncludedLabel
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        <ul class="rr-new-manu-umg">
+                                            <li>
+                                                @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].ConfigId, new SelectList(Model.RegularProjectDetails.ObjRelease[i].ConfigListRelease.Select(r => new { r.Text, r.Value }), "value", "text", Model.RegularProjectDetails.ObjRelease[i].ConfigId), "--Select--", new { id = "ddlConfigList_" + i, @class = "configDropdown rr-new-select-large" })
+                                            </li>
+                                            <li id="liPackageIncludedUpc@(i)" style="display:none;">
+                                                <label id="PackageIncludedUPC@(i)" style="font-weight:normal !important; text-align:left; width:195px !important;" ></label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="rr-new-column2 rr-new-fl ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                        <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.EstimatedNoOfTracksLabel
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal">
+                                        @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].TrackCount, new { id = "txtNoOfTrack_" + i, @class = "rr-new-input-width-small", @onkeydown = "return OnlyNumericReleaseNoofTracks(event, 'i')", @maxlength = 4, onchange = "EnableDuplicateButton();" })
+                                    </div>
+                                </div>
+                                <div class="rr-new-column3 rr-new-fr ">
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" id ="tdExistRel@(i)">
+                                        @ClearanceLayout.ReleaseRegExistingReleasesInPackageDrpdwn
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal" id ="tdddlExistRel@(i)">
+                                        <ul class="rr-new-manu-umg">
+                                            <li>
+                                                @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].ExistingReleasePkg_Id, new SelectList(Model.YesNoDropdown, "value", "text", Model.RegularProjectDetails.ObjRelease[i].ExistingReleasePkg_Id), new { id = "ddlExistingRelease_" + i, @class = "existingRelPkgclass rr-new-select-very-small" })
+                                                <input type="button" value="Search" id="btnSearchRelease@(i)" class = "searchclass plbutton" style="display: none" onclick=" searchReleaseclass(this); " />
+                                            </li>
+                                            <li id="tdViewExisting@(i)">
+                                                <a href="#" id = "lnkViewExtRelease_" + @i title="@i-@Model.RegularProjectDetails.ObjRelease[i].R2ReleaseId" style="text-decoration: underline !important;" class="ViewComponent" onclick=" ViewComponentNewclass(this); ">@ClearanceLayout.ReleaseRegViewExistingReleasesLink</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                    <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold ">
+                                        @ClearanceLayout.ReleaseRegularCommentsLabel
+                                    </div>
+                                    <div class="rr-new-field rr-new-fr rr-new-tal" id="tdComments@(i)">
+                                        @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments, new { id = "txtAreaComments_" + i, @class = "rr-new-txtarea-width-medium" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!--third row ends -->
+                            <div id="salesSection@(i)">
+                                <!-- Regular Retail Start Here -->
+                                <div id="trRegular@(i)">
+                                    <div class="rr-new-header labelbold">
+                                        @ClearanceLayout.ReleaseRegRegularRetailHeader
+                                    </div>
+                                    <!-- first row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegPriceLevelDrpdwn
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Regular, new SelectList(Model.PriceLevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Regular), new { id = "ddlRegPriceLevel_" + i, @class = "regPriceLevelclass rr-new-select-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            <ul class="rr-new-ul">
+                                                <li>@Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].IsDeviatedICLALevel_Regular, new { id = "chkRegDeviatedICLA_" + i, @class = "regularICLAclass" }) @ClearanceLayout.ReleaseRegDeviatedICLLevelChkbox</li>
+                                                <li class="pdding7px-ie" id="tdRegDeactiveICLA@(i)"><span class="madatoryField" style="display: none;" id="tdRegularDeactiveICLAMandatory@(i)">@mandatory</span>@Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Regular, new SelectList(Model.ICLALevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Regular), "--Select--", new { id = "ddlRegICLALevel_" + i, style = "width:90px;", @class = "rr-new-select-small" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--first row  Ends -->
+                                    <!-- second row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl  ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegICLALevelLabel
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLALevelText_Regular, new { id = "txtICLALevelRegular" + i, disabled = "disabled", @class = "rr-new-input-width-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto rr-new-paddin-fiveper" id="tdRegComments@(i)">
+                                            <span class="madatoryField" style="display: none;" id="txtRegAreaCommentsMandatory_@(i)">@mandatory</span>
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments_SalesChannel_Regular, new { id = "txtRegAreaComments_" + i, @class = "relNewRegTextArea rr-new-txtarea-width-large" })
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--second row  Ends -->
+                                <!-- Regular Retail End Here -->
+                                <!-- TV/Break ICLA Start Here -->
+                                <div id="trTV@(i)">
+                                    <div class="rr-new-header labelbold">
+                                        @ClearanceLayout.ReleaseRegTVBreakICLAHeader
+                                    </div>
+                                    <!-- first row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegPriceLevelDrpdwn
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_TV, new SelectList(Model.PriceLevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].PriceLevel_TV), new { id = "ddlTVPriceLevel_" + i, @class = "tvPriceLevelclass rr-new-select-xsmall", style = "width:90px;" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            <ul class="rr-new-ul">
+                                                <li>@Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].IsDeviatedICLALevel_TV, new { id = "chkTVDeviatedICLA_" + i, @class = "tvICLAclass" })@ClearanceLayout.ReleaseRegDeviatedICLLevelChkbox</li>
+                                                <li class="pdding7px-ie" id="tdTVDeactiveICLA@(i)"><span class="madatoryField" style="display: none;" id="tdTVDeactiveICLAMandatory@(i)">@mandatory</span>@Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_TV, new SelectList(Model.ICLALevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_TV), "--Select--", new { id = "ddlTVICLALevel_" + i, style = "width:90px;", @class = "rr-new-select-small" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--first row  Ends -->
+                                    <!-- second row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl  ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegICLALevelLabel
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLALevelText_TV, new { id = "txtICLALevelTVRadio" + i, disabled = "disabled", @Value = "TV Break ICLA", @class = "rr-new-input-width-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto rr-new-paddin-fiveper" id="tdTVComments@(i)">
+                                            <span class="madatoryField" style="display: none;" id="txtTVAreaCommentsMandatory_@(i)">@mandatory</span>
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments_SalesChannel_TV, new { id = "txtTVAreaComments_" + i, @class = "relNewRegTextArea rr-new-txtarea-width-large" })
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--second row  Ends -->
+                                    <!-- Third row Start -->
+                                    <div class="rr-new-wrapper rr-new-margintop-neg">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold ">
+                                                <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegTvBreakExactPPDTxtbox
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ExactPPD, new { id = "txtExPPD_" + i, style = "90px;", @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            &nbsp;
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Third row  Ends -->
+                                    <!-- fourth row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegTvBreakEstimatedRetailTxtbox
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].EstimatedRetail, new { id = "txtEstRetail_" + i, style = "90px;", @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            &nbsp;
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Fourth row  Ends -->
+                                <!-- TV/Break ICLA End Here -->
+                                <!-- Club Start Here -->
+                                <div id="trClubNew@(i)">
+                                    <div class="rr-new-header labelbold">
+                                        @ClearanceLayout.ReleaseRegClubHeader
+                                    </div>
+                                    <!-- first row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegPriceLevelDrpdwn
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Club, new { id = "txtPriceLevelClub" + i, disabled = "disabled", @Value = "Club", @class = "rr-new-input-width-xsmall" })
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Club, new { id = "hdnPriceLevelClub" + i })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            <ul class="rr-new-ul">
+                                                <li>@Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].IsDeviatedICLALevel_Club, new { id = "chkClubDeviatedICLA_" + i, @class = "clubICLAclass" }) @ClearanceLayout.ReleaseRegDeviatedICLLevelChkbox</li>
+                                                <li class="pdding7px-ie" id="tdClubDeactiveICLA@(i)"><span class="madatoryField" style="display: none;" id="tdClubDeactiveICLAMandatory@(i)">@mandatory</span>@Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Club, new SelectList(Model.ICLALevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Club), "--Select--", new { id = "ddlClubICLALevel_" + i, style = "width:90px;", @class = "rr-new-select-small" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--first row  Ends -->
+                                    <!-- second row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl  ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegICLALevelLabel
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLALevel_Club, new { id = "txtICLALevelClub" + i, disabled = "disabled", @Value = "Club", @class = "rr-new-input-width-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto rr-new-paddin-fiveper" id="tdClubComments@(i)">
+                                            <span class="madatoryField" style="display: none;" id="txtClubAreaCommentsMandatory_@(i)">@mandatory</span>
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments_SalesChannel_Club, new { id = "txtClubAreaComments_" + i, @class = "relNewRegTextArea rr-new-txtarea-width-large" })
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--second row  Ends -->
+                                </div>
+                                <!-- Club End Here -->
+                                <!-- Promotional Start Here -->
+                                <div id="trPromoNew@(i)">
+                                    <div class="rr-new-header labelbold">
+                                        @ClearanceLayout.ReleaseRegPromotionalHeader
+                                    </div>
+                                    <!-- first row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegPriceLevelDrpdwn
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Promotional, new { id = "txtPriceLevelPromo" + i, disabled = "disabled", @Value = "Nil", @class = "rr-new-input-width-xsmall" })
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].PriceLevel_Promotional, new { id = "hdnPriceLevelPromo" + i })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            <ul class="rr-new-ul">
+                                                <li>@Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].IsDeviatedICLALevel_Promotional, new { id = "chkPromoDeviatedICLA_" + i, @class = "promoICLAclass" }) @ClearanceLayout.ReleaseRegDeviatedICLLevelChkbox</li>
+                                                <li class="pdding7px-ie" id="tdPromoDeactiveICLA@(i)"><span class="madatoryField" style="display: none;" id="tdPromoDeactiveICLAMandatory@(i)">@mandatory</span>@Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Promotional, new SelectList(Model.ICLALevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Promotional), "--Select--", new { id = "ddlPromoICLALevel_" + i, style = "width:90px;", @class = "rr-new-select-small" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--first row  Ends -->
+                                    <!-- second row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl  ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                @ClearanceLayout.ReleaseRegICLALevelLabel
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLALevel_Promotional, new { id = "txtICLALevelPromo" + i, disabled = "disabled", @Value = "Nil", @class = "rr-new-input-width-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto rr-new-paddin-fiveper" id="tdPromoComments@(i)">
+                                            <span class="madatoryField" style="display: none;" id="txtPromoAreaCommentsMandatory_@(i)">@mandatory</span>
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments_SalesChannel_Promotional, new { id = "txtPromoAreaComments_" + i, @class = "relNewRegTextArea rr-new-txtarea-width-large" })
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--second row  Ends -->
+                                    <!-- Promotional End Here -->
+                                </div>
+                                <!-- Non Traditional Start Here -->
+                                <div id="trNon@(i)">
+                                    <div class="rr-new-header labelbold">
+                                        @ClearanceLayout.ReleaseRegNonTraditionalHeader
+                                    </div>
+                                    <!-- first row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div id="dvNonTraditionalReleaseMndtryMsg@(i)" class="rr-new-label rr-new-fl rr-new-tar" style="width: 330px; color: Red;">
+                                            Please select one of the below radio button
+                                        </div>
+                                    </div>
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl" id="dvNonTraditionalRelease@(i)">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar">
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLA_Non, new { id = "hdnNonTrad1" + i })
+                                                @Html.RadioButton("rdoICLA" + i, "ICLA", new { id = "rdoNonTrad1" + i, @class = "radioICLAclass", onClick = "ChnageICLAdeviation(" + i + ");" }) @ClearanceLayout.ReleaseRegICLAradioButton
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ObjRelease[i].SuggestedFee_Non, new { id = "hdnNonTrad2" + i })
+                                                @Html.RadioButton("rdoICLA" + i, "Suggest", new { id = "rdoNonTrad2" + i, @class = "radioSuggestedclass onestop" }) @ClearanceLayout.ReleaseRegSuggestedFeeRadioButton
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto" id="tdNonDeactiveICLA@(i)">
+                                            <ul class="rr-new-ul">
+                                                <li>@Html.CheckBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].IsDeviatedICLALevel_Non, new { id = "chkNonTradDeviatedICLA_" + i, @class = "nonICLAclass" })@ClearanceLayout.ReleaseRegDeviatedICLLevelChkbox</li>
+                                                <li class="pdding7px-ie"><span class="madatoryField" style="display: none;" id="ddlNonICLALevelMandatory@(i)">@mandatory</span>@Html.DropDownListFor(model => Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Non, new SelectList(Model.ICLALevelType, "value", "text", Model.RegularProjectDetails.ObjRelease[i].DeviatedICLALevel_Non), "--Select--", new { id = "ddlNonICLALevel_" + i, style = "width:100px;", @class = "rr-new-select-small" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr reso-fee-margin">
+                                            <div class="rr-new-label-resource rr-new-fl rr-new-tal rr-new-bold" id="tdResFee@(i)" style="white-space: nowrap; padding-right: 10px;">
+                                                <label class="madatoryField">@(mandatory)</label>@ClearanceLayout.ReleaseRegResourceFeeRadioButton
+                                            </div>
+                                            <div class="rr-new-field rr-new-fl rr-new-tal" id="tdResFeeVal@(i)">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ResourceFee, new { id = "txtResourceFee_" + i, @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--first row  Ends -->
+                                    <!-- second row Start -->
+                                    <div class="rr-new-wrapper">
+                                        <div class="rr-new-column1 rr-new-fl  ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" id="tdICLAl@(i)">
+                                                @ClearanceLayout.ReleaseRegICLALevelLabel
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal" id="tdICLAVal@(i)">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLALevel_Non, new { id = "txtICLALevelNon" + i, disabled = "disabled", @class = "rr-new-input-width-xsmall" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto rr-new-paddin-fiveper ntdv" id="tdNonComments@(i)">
+                                            <span class="madatoryField" style="display: none;" id="txtNonTradAreaCommentsMandatory_@(i)">@mandatory</span>
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ObjRelease[i].Comments_SalesChannel_Non, new { id = "txtNonTradAreaComments_" + i, @class = "relNewRegTextArea rr-new-txtarea-width-large" })
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr rr-new-margintop-neg-resource-fee">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" id="tdDeemed@(i)">
+                                                <span class="madatoryField">@(mandatory)</span>@ClearanceLayout.ReleaseRegDeemedPPDTxtbox
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal" id="tdDeemedVal@(i)">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].DeemedPPD, new { id = "txtDeemedPPD_" + i, @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--second row  Ends -->
+                                    <!-- third row Start -->
+                                    <div class="rr-new-wrapper rr-new-margintop-neg1">
+                                        <div class="rr-new-column1 rr-new-fl ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" id="tdInvoiePrice@(i)">
+                                                <span class="madatoryField">@(mandatory)</span>@ClearanceLayout.ReleaseRegInvoicePriceTxtbox
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal" id="tdInvoicePriceVal@(i)">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].InvoicePrice, new { id = "txtInvPrice_" + i, @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl rr-new-margin-zero-auto">
+                                            <div class="rr-new-label1 rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field1 rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column3 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--third row  Ends -->
+                                    <!-- fourth row Start -->
+                                    <div class="rr-new-wrapper rr-new-margintop-neg2">
+                                        <div class="rr-new-column1 rr-new-fl " style="margin-top: 4px\0; *margin-top: 2px;">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold" id="tdSelling@(i)">
+                                                @ClearanceLayout.ReleaseRegSellingPriceLessVATTxtbox
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal" id="tdSellingVal@(i)">
+                                                @Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].SellingPriceLesVAT, new { id = "txtSellPrice_" + i, @class = "rr-new-input-width-xsmall", onblur = "return ValidateMoneyFormat(this);" })
+                                            </div>
+                                        </div>
+                                        <div class="rr-new-column2 rr-new-fl ">
+                                            <ul class="rr-new-ul" style="*margin-top: 5px;">
+                                                <li id="tdICLAAccBase@(i)"><span class="madatoryField">@(mandatory)</span><b>@ClearanceLayout.ReleaseRegICLAAccountingBaseTxtbox</b></li>
+                                                <li class="pdding7px-ie" id="tdICLAAccBaseVal@(i)">@Html.TextBoxFor(model => Model.RegularProjectDetails.ObjRelease[i].ICLAAccountingBase, new { id = "txtICLAcc_" + i, @class = "rr-new-input-width-very-small", onblur = "return ValidateMoneyFormat(this);" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="rr-new-column1 rr-new-fr ">
+                                            <div class="rr-new-label rr-new-fl rr-new-tar rr-new-bold">
+                                                &nbsp;
+                                            </div>
+                                            <div class="rr-new-field rr-new-fr rr-new-tal">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--fourth row  Ends -->
+                                </div>
+                                <!-- Non Traditional End Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    }
+</div>
+<p><br /><br /></p>
+
+<script type="text/javascript">
+
+    var btnUPCAllocate;
+
+    function setResolution() {
+        var wd = $(window).width();
+
+        wd = 0.0226138 * wd;
+
+        $(".reso-fee-margin").css("marginRight", wd + "%");
+    }
+
+    $(document).ready(function () {
+        setResolution();
+        showReleaseResubmitMsg();
+        if ($('#IsReadOnlyMode').val() == 1) {
+            $('#btnAddRelease').attr('disabled', 'disabled');
+
+            $('#tblRelease').find('input, textarea, button, select, a,.ui-datepicker-trigger').each(function () {
+                var id = $(this).attr('id');
+
+                if (id != undefined) {
+
+                    if (id.indexOf("lnkViewExtRelease_") >= 0) {
+
+                        $(this)[0].innerHTML = "View Existing Release";
+
+                    }
+                    else if (id.indexOf("chkUpcNumber") < 0 && id.indexOf("lnkRemoveUPCNumber") < 0 && id.indexOf("txtNewReleaseUpcNum") < 0
+                  && id.indexOf("txtAdditionalNewReleaseUpcNum") < 0) {
+                        $(this).attr('disabled', 'disabled');
+                    }
+                }
+
+            });
+        }
+    });
+    $(window).resize(function () {
+        setResolution();
+    });
+</script>
+
+@if (getUPCNumberState())
+{
+    <script type="text/javascript" language="javascript">
+        var btnUPCAllocate = true;
+        $('#btnAllocateUPC').show();
+    </script>
+}
+else
+{
+    <script type="text/javascript" language="javascript">
+        var btnUPCAllocate = false;
+        $('#btnAllocateUPC').hide();
+    </script>
+}

@@ -1,0 +1,456 @@
+﻿@using UMGI.GRCS.BusinessEntities.Lookups
+@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var manageTerritoryTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ManageTerritoryHeader';
+    var noRowsSelected = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectRowAlert';
+    var searchresultForLabel = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel';
+    var createWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        SelectDefaultUser: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SelectDefaultUser',
+        noRowSelect: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_NoRowSelected'
+
+    };
+    var watermarkUserName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserName';
+    var watermarkUserId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUserId';
+    var watermarkCountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountryOnly';
+    var watermarkCompanyName = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompanyName';
+    var watermarkIsacCode = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkIsacCode';
+    var mandatoryFields = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_MandatoryFields';
+    var validEmailId = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_ValidEmailId';
+    var recordCount = '@UMGI.GRCS.UI.Models.ClearanceProjectModel.TotalRowsCount';
+
+    var watermarkThirdPartyReptoire = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkComments';
+    var watermarkOneStopReason = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkOneStopReason';
+
+    var selectedCompanyId = "";
+
+    $(document).ready(function () {
+        ParentCall();
+        $(function () {
+            $('input:button').css('visibility', 'hidden');
+            $('#btnEmail').css('visibility', 'visible');
+            $('#btnPrint').css('visibility', 'visible');
+            $('#refreshBtn').css('visibility', 'visible');
+        });
+        //Project Information
+        $("#ImgProjInfo").live("click", function () {
+            $("#trProjInfo").slideToggle("fast");
+            var imgSrc = $("#ImgProjInfo").attr("src");
+            if (imgSrc.indexOf('left') == -1) {
+                $("#ImgProjInfo").attr("src", "/Gcs/Images/left.png");
+                $("#ImgProjInfo").attr("title", "Expand");
+            }
+            else {
+                $("#ImgProjInfo").attr("src", "/Gcs/Images/Down.png");
+                $("#ImgProjInfo").attr("title", "Collapse");
+            }
+            return false;
+        });
+
+        //Third Party
+        $("#ImgThirdParty").live("click", function () {
+            $("#trThirdParty").slideToggle("fast");
+            var imgSrc = $("#ImgThirdParty").attr("src");
+            if (imgSrc.indexOf('left') == -1) {
+                $("#ImgThirdParty").attr("src", "/Gcs/Images/left.png");
+                $("#ImgThirdParty").attr("title", "Expand");
+            }
+            else {
+                $("#ImgThirdParty").attr("src", "/Gcs/Images/Down.png");
+                $("#ImgThirdParty").attr("title", "Collapse");
+            }
+            return false;
+        });
+    });
+</script>
+
+@functions
+     {
+
+    string getRCCHandler()
+    {
+        string RCChandlerUserName = string.Empty;
+        if (Model.RccHandler.Where(x => x.Value == Model.RegularProjectDetails.Rcc_User).ToList().Count > 0)
+        {
+            for (int i = 0; i < Model.RccHandler.Count; i++)
+            {
+                if (Model.RccHandler[i].Value == Model.RegularProjectDetails.Rcc_User)
+                {
+                    RCChandlerUserName = Model.RccHandler[i].Text;
+                    break;
+                }
+            }
+        }
+        return RCChandlerUserName;
+    }
+}
+
+<link href="@Url.Content("/GCS/Content/SubPages/pi-regular.min.css")" rel="stylesheet" type="text/css" />
+<div id="divCancelledRejResource"></div>@* Added for UC-011A*@
+<div id="SearchedCompanyList" style="position: relative; margin: 0; padding: 0;">
+</div>
+<input id="hdnterritoryDetailsForSave_1" name="hdnterritoryDetailsForSave_1" type="hidden" class="hdnManageTerriCls" />
+<input id="hdnTempterritoryDetailsForSave" type="hidden" />
+@Html.HiddenFor(model => model.RegularProjectDetails.RequesterWorkgroupId, new { id = "hdnrequesterWorkgroupId" })
+@Html.HiddenFor(model => model.RegularProjectDetails.StatusType, new { id = "hdnStatusType" })
+@*    Upper panel: Start*@
+
+<div class="contentPanel">
+    <div class="headerDv1">
+
+        <h5 class="downArrow prjInfoRegHeader" style="overflow: visible; height: auto;">
+
+            <ul class="upper_header">
+                <li class="first">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectProjectInformationLabel</li>
+                <li class="bar_header">|</li>
+                <li class="createdByLabel">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoCreatedByLabel</li>
+                <li class="createdBy">@Html.DisplayTextFor(model => model.RegularProjectDetails.CreatedByUser)</li>
+                <li class="bar_header">|</li>
+                <li class="label_header2">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoProjectReferenceLabel</li>
+                <li class="field_header_regular">@Html.DisplayFor(model => model.RegularProjectDetails.ProjectReferenceId) @Html.HiddenFor(model => model.RegularProjectDetails.ProjectReferenceId, new { id = "ProjectRefId" })</li>
+                @* <li class="bar_header">|</li>
+            <li class="new_regular_non_traditional_project"> @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoNewRegularOrNonTraditionalProjectLabel</li>*@
+                <li class="bar_header">|</li>
+                <li class="createdDate text-align-left">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoCreatedDateLabel</li>
+                <li class="createdVal text-align-left">@Html.DisplayTextFor(model => model.RegularProjectDetails.CreatedDate)</li>
+
+                @if (ViewBag.RoleGroup != RoleGroup.RCCAdmin)
+                {
+                    <li class="createdDate text-align-left">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.lblRccHandler</li>
+                    if (Model.RccHandler != null && Model.RegularProjectDetails.Rcc_User != null && Model.RegularProjectDetails.Rcc_User != "0")
+                    {
+                    <li class="text-align-left" style="width: auto !important;">
+                        @getRCCHandler()
+                    </li>
+                    }
+                }
+            </ul>
+        </h5>
+    </div>
+    <div class="contentDv">
+        <!-- first row Start -->
+        <div class="rpi-wrapper">
+            <!-- Project Title Start Here -->
+            <div class="rpi-column1 rpi-fl  ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoProjectTitleLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.ProjectTitle)
+                </div>
+            </div>
+            <!-- Project Title Ends Here -->
+            <!-- Requesting Company Start Here -->
+            <div class="rpi-column1 rpi-fl ">
+                <div class="rpi-label-1 rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoRequestingCompanyLabel
+                </div>
+                <div class="rpi-field-2 rpi-fl rpi-tal pddlef">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.RequestCompanyName)
+                    @Html.HiddenFor(model => model.RegularProjectDetails.RequesterCompanyId, new { id = "ddlRequestingComp" })
+                </div>
+            </div>
+            <!-- Requesting Company End Here -->
+            <!-- Status Start Here -->
+            <div class="rpi-column1 rpi-fr ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoStatusLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.StatusTypeDesc)
+                    @Html.HiddenFor(model => model.RegularProjectDetails.ClrProjectId, new { id = "Clr_Project_Id" })
+                </div>
+            </div>
+            <!-- Status End Here -->
+        </div>
+        <!--first row  Ends -->
+        <!-- second row Start -->
+        <div class="rpi-wrapper">
+            <!-- Local Refrence Start Here -->
+            <div class="rpi-column1 rpi-fl  ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoLocalReferenceLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.LocalReference)
+                </div>
+            </div>
+            <!-- Local Refrence End Here -->
+            <!-- Estimated Sales/Units Start Here -->
+            <div class="rpi-column1 rpi-fl ">
+                <div class="rpi-label-1 rpi-fl rpi-tar rpi-bold">
+                    <span id="lblEstimatedSalesMandatory" class="madatoryField">@mandatory</span>@ClearanceLayout.RegularProjectInfoEstimatedSalesUnitsLabel
+                </div>
+                <div class="rpi-field-1 rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.EstimatedSalesUnit)
+                </div>
+            </div>
+            <!-- Estimated Sales/Units Ends Here -->
+            <!-- Release Date Start Here -->
+            <div class="rpi-column1 rpi-fr ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoReleaseDateLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.ReleaseDate)
+                </div>
+            </div>
+            <!-- Release Date Ends Here -->
+        </div>
+        <!--second row  Ends -->
+        <!-- third row start -->
+        <div class="rpi-wrapper">
+            <!-- Details Start Here -->
+            <div class="rpi-column1 rpi-fl  ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoDetailsLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.Details)
+                </div>
+            </div>
+            <!-- Details Ends Here -->
+            <!-- Third Party Repertoire Start Here -->
+            <div class="rpi-column1 rpi-fl ">
+                <div class="rpi-label-1 rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoThirdPartyRepertoireLabel
+                </div>
+                <div class="rpi-field-1 rpi-fr rpi-tal">
+                    @Html.DisplayTextFor(model => model.RegularProjectDetails.ThirdPartyRepertoire)
+                </div>
+            </div>
+            <!-- Third Party Repertoire Ends Here -->
+            <!-- Upload Project Documents Start Here -->
+            <div class="rpi-column1 rpi-fr ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @ClearanceLayout.RegularProjectInfoUploadProjectDocumentsLabel
+                </div>
+
+                <div id="fileuploadloading">
+                    @*<div  class="file-upload-scroll">
+                    <table id="tblFileUpload" style="border-collapse:collapse; display:none;" border="1">*@
+                    <table class="file-upload-scroll">
+                        @if (Model.RegularProjectDetails.listUploadDocument != null)
+                        {
+                            if (Model.RegularProjectDetails.listUploadDocument.Any())
+                            {
+                                for (int i = 0; i < Model.RegularProjectDetails.listUploadDocument.Count; i++)
+                                {
+                            <tr>
+                                <td style="border: 1px solid #999; padding: 5px;">
+                                    @Html.ActionLink(Model.RegularProjectDetails.listUploadDocument[i].Name, "ReadRegularFile/" + Model.RegularProjectDetails.listUploadDocument[i].Name + "~" + Model.RegularProjectDetails.listUploadDocument[i].Id + "~" + Model.RegularProjectDetails.ClrProjectId, "ClearanceProject")
+                                </td>
+                            </tr>
+                                }
+
+                            }
+
+                        }
+                    </table>
+                </div>
+
+                @*</div>*@
+            </div>
+        </div>
+        <!-- Upload Project Documents Ends Here -->
+
+        <!--third row ends -->
+        <!-- fourth row start -->
+        <div class="rpi-wrapper">
+            <div class="rpi-column7 rpi-fl  ">
+                &nbsp;
+            </div>
+            <div class="rpi-column6 rpi-fl ">
+                <ul class="rpi-ul">
+                    <li class="li-first">@Html.CheckBoxFor(model => model.RegularProjectDetails.MultiArtist, new { id = "chkMultiArtist", @class = "multiArtist", @disabled = "disabled" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoMultiArtistChkbox</li>
+                    <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.Compilation, new { @class = "chkCompilation", @disabled = "disabled" })
+                        @Html.HiddenFor(model => model.RegularProjectDetails.Compilation)
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoCompilationLabel</li>
+                    <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.HighPriority, new { id = "chkHighPriority", @disabled = "disabled" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoHighPriorityLabel</li>
+                    <li>@Html.CheckBoxFor(model => model.RegularProjectDetails.SensitiveExplotation, new { id = "chkSensitiveExplotation", @disabled = "disabled" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoSensitiveExploitationLabel</li>
+                    <li class="li-last">@Html.CheckBoxFor(model => model.RegularProjectDetails.OneStop, new { id = "chkOneStop", @class = "onestop", @disabled = "disabled" })
+                        @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RegularProjectInfoOneStopLabel</li>
+                </ul>
+            </div>
+        </div>
+        <!--fourth row ends -->
+        <!-- fifth row start -->
+        <div class="rpi-wrapper">
+            <!-- Release Territories: Start Here -->
+            <div class="rpi-column1 rpi-fl  ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.TerritoryCountryLabel
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+                    <ul class="manu-umg-pi1">
+                        <li id="tdcountryList" class="rpi-bold">
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.IncludedLabel
+                        </li>
+                        <li class="wrapText " id="wrap_2">
+                            <div id="selectedCountries_1"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Release Territories: End Here -->
+
+            <div class="rpi-column1 rpi-fl ">
+                <div class="rpi-label-1 rpi-fl rpi-tar rpi-bold">
+                    &nbsp;
+                </div>
+                <div class="rpi-field-1 rpi-fr rpi-tal">
+                    <span class="rpi-bold">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ExcludedLabel</span>
+                    <div id="UnselectedCountries_1" class="wrapText"></div>
+                </div>
+            </div>
+            <div class="rpi-column1 rpi-fr ">
+                <div class="rpi-label rpi-fl rpi-tar rpi-bold">
+                    <span id="lblChkStopMandatory" class="madatoryField" style="display: none;">@mandatory</span>
+                </div>
+                <div class="rpi-field rpi-fr rpi-tal">
+
+                    @Html.DisplayFor(model => model.RegularProjectDetails.OneStopReason, new { id = "txtOneStopReason", @class = "txt-width-small" })
+                </div>
+            </div>
+        </div>
+        <!--fifth row ends -->
+    </div>
+</div>
+
+@*  Upper panel: Ends*@
+@*  Lower panel: Starts *@
+<div class="contentPanel">
+    <div class="headerDv1">
+        <h5 class="downArrow prjInfoRegHeader">@Html.Label(ClearanceLayout.RegularProjectInfoThirdPartyLabel)</h5>
+    </div>
+    <div class="contentDv">
+        <!-- first row  starts-->
+        <!-- 3rd Party Start Here -->
+        <div class="rpi-wrapper">
+            <div class="rpi-column7 rpi-fl  ">
+                &nbsp;
+            </div>
+            <div class="rpi-column6 rpi-fl ">
+                <ul class="rpi-ul ">
+                    <li class="li-first rpi-bold">@Html.CheckBoxFor(model => model.RegularProjectDetails.ThirdParty, new { id = "chk3rdParty", @class = "multiArtist", @disabled = "disabled" }) @ClearanceLayout.RegularProjectInfoThirdPartyChxbox</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 3rd Party End Here -->
+
+        <!-- first row ends -->
+        <!-- Second row  starts-->
+        <div class="rpi-wrapper" id="Div3rdPartyDetails" style="display: none">
+            <div class="rpi-column7 rpi-tar rpi-fl labelbold pddtop rpi-bold">
+                <label id="3rdPartyCompanyMandatory" class="madatoryField">@mandatory</label>
+                @Html.Label(ClearanceLayout.RegularProjectInfoThirdPartyCompanyLabel) &nbsp;
+            </div>
+            <div class="rpi-column6 rpi-fl ">
+
+                <div class="thrd-prty-col2">
+                    <div class="thrd-prty-subcol1"><span id="licenseTermMandatory" style="margin-right: 1px;" class="madatoryField">@mandatory</span>@ClearanceLayout.RegularProjectInfoLicenseTermLabel </div>
+                    <div class="thrd-prty-subcol2">@Html.DisplayFor(model => model.RegularProjectDetails.LicenseTerm, new { id = "txtLicenseTerm", maxlength = 100, @class = "width-medium2" })</div>
+                </div>
+            </div>
+        </div>
+        <!-- Second row ends -->
+        <!-- third row  starts-->
+        <div class="rpi-wrapper" id="tblThirdParty">
+            <div class="rpi-column7 rpi-tar rpi-fl labelbold pddtop">
+                &nbsp;
+            </div>
+            <div class="rpi-column6 rpi-fl ">
+                <div id="rowAddedCompanyResult" class="jtable-main-container" style="width: 700px;">
+                    <table class="jtable" id="thirdPartyCompanyTable">
+                        <thead>
+                            <tr>
+                                <th class="jtable-column-header" style="width: 40;">
+                                    <div class="jtable-column-header-container">
+                                        <span class="jtable-column-header-text">Company</span>
+                                        <div class="jtable-column-resize-handler"></div>
+                                    </div>
+                                </th>
+                                <th class="jtable-column-header" style="width: 20%;">
+                                    <div class="jtable-column-header-container">
+                                        <span class="jtable-column-header-text">ISAC Company Code</span>
+                                        <div class="jtable-column-resize-handler"></div>
+                                    </div>
+                                </th>
+                                <th class="jtable-column-header" style="width: 30%;">
+                                    <div class="jtable-column-header-container">
+                                        <span class="jtable-column-header-text">Country</span>
+                                    </div>
+                                </th>
+                                <th class="jtable-column-header" style="width: 10%;">
+                                    <div class="jtable-column-header-container">
+                                        <span class="jtable-column-header-text">Remove</span>
+                                    </div>
+                                    @Html.HiddenFor(model => model.CompanyDetails.Id, new { id = "hdnCompId", maxlength = 100 })
+                                    @Html.HiddenFor(model => model.CompanyDetails.Name, new { id = "hdnCompName" })
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="jtable-row-even">
+                                <td id="tdCompName">
+                                    @*<!-- If Third company id is 0 then show Freehand icon.--> *@
+                                    @if (Model.RegularProjectDetails.thirdPartyCompanyDetails == null)
+                                    {
+                                        <img src="@Url.Content("/GCS/images/project.png")" alt="Freehand" title="Project" />
+                                    }
+                                    @Html.DisplayFor(model => model.RegularProjectDetails.ThirdPartyCompanyName, new { id = "txtThirdPartyCompName" })</td>
+                                @Html.HiddenFor(model => model.RegularProjectDetails.ThirdPartyCompanyID, new { id = "txtThirdPartyCompId" })
+                                <td id="tdIsacCode">@Html.DisplayFor(model => model.RegularProjectDetails.thirdPartyCompanyDetails.ISACCode)</td>
+                                <td id="tdCountry">@Html.DisplayFor(model => model.RegularProjectDetails.thirdPartyCompanyDetails.CountryName)</td>
+                                <td><a class="LockIt" href="javascript:void(0);">@ClearanceLayout.RegularProjectInfoRemoveLink </a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- third row ends -->
+    </div>
+</div>
+<p>
+    <br />
+    <br />
+</p>
+
+<script language="javascript">
+
+    $(document).ready(function () {
+        //$(".contentDv:first").toggle();
+
+        $(".contentDv").show();
+        $("h5").click(function () {
+            //$(".contentDv").hide();
+            var obj = $(this).closest("div").parent();
+            $(obj).find('.contentDv').toggle();
+            if ($(this).hasClass('rightArrow')) {
+                $(this).removeClass('rightArrow');
+                $(this).addClass('downArrow');
+
+            } else {
+                $(this).removeClass('downArrow');
+                $(this).addClass('rightArrow');
+
+            }
+
+        });
+
+    });
+</script>

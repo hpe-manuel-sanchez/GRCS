@@ -1,0 +1,23 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout 
+@{
+    ViewBag.Title = "ThirdPartySearch";
+}
+
+<h2>@Html.Label(@ClearanceLayout.RegularProjThirdPartySearchHeader)</h2>
+<div id="mainDiv" style="width: 100%; float: left;">
+    <table width="100%">
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                       <td align="left"> @Html.Label(@ClearanceLayout.RegularProjThirdPartyCompanyLabel)</td> 
+                       <td align="left"> @Html.TextBox("CompanyName") </td>                        
+                       <td align="left">@Html.TextBox("ISACCode")</td> 
+                       <td align="left">@Html.TextBox("Country")</td> 
+                       <td align="center"><input type="button" value="@ClearanceLayout.RegularProjSearchButton" /> &nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="@ClearanceLayout.RegularProjResetButton"/></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

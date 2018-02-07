@@ -1,0 +1,406 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using System.Web.Script.Serialization
+@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.BusinessEntities.Lookups;
+
+<link href="@Url.Content("/GCS/Content/SubPages/Inbox/RightPanel-Requestor.min.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+    //Routing message variables start
+    var _routingMessageWhenNotReachedRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenNotReachedRouting';
+    var _routingMessageWhenReachedRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenReachedRouting';
+    var _routingMessageWhenRoutingIsInProgress = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenRoutingIsInProgress';
+    var _routingMessageWhenErrorIsInRouting = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.RoutingMessageWhenErrorIsInRouting';
+    //Routing message variables end
+
+    $(function () {
+        $("#tabsRequestor").tabs();
+
+        $(".rightPanelHeader img ,#divProjectActions,#tl").bind('mouseover', function () {
+            ShowDiv();
+        });
+        $("#museout,#divProjectActions,#tl,.rightPanelHeader img").bind('mouseleave', function () {
+            SetFlagFalse();
+        });
+    });
+</script>
+
+@Html.HiddenFor(model => model.projectDetails.RoutingStatus, new { id = "requestorRoutingStatus" })
+
+
+@if (Model.projectDetails.RoutingStatus != (byte)QueueStatus.Completed)
+{
+    <!-- STATUS MSG START -->
+    <div>
+        <h4 id="routingStatusMsg" style="padding-left: 10px; color: #222 !important;"></h4>
+    </div> 
+    <!-- STATUS MSG ENDS -->
+}
+else if (Model.projectDetails.RoutingStatus == (byte)QueueStatus.Completed)
+{
+    <!-- HEADER START -->
+    <div id="requestorHeaderContent">
+        <div class="rightPanelHeader dark-green-background" id="requestorHeader">
+            <ul class="headerlist request-header1">
+                @{
+    JavaScriptSerializer serializer1 = new JavaScriptSerializer();
+    string Modifieddate = serializer1.Serialize(Model.projectDetails.ProjectModifiedDate);
+                }
+                <li>
+                    <a href="#" id="projectRefNum" onclick="viewProject(@Model.projectDetails.clrProjectId, @Model.projectDetails.ProjectType, @Model.projectDetails.ProjectType)"  
+                    class="smallWidth-S text-align-left  text-color-white ">
+                        @Html.DisplayFor(model => model.projectDetails.ProjectReferenceNumber)
+                        @Html.Hidden("hdnProjectModifiedDate", Modifieddate, new { id = "hdnProjectModifiedDate" })
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="smallWidth-S text-align-left  text-color-white " style="text-decoration: none !important;">( @Html.DisplayFor(model => model.projectDetails.StatusDesc))</a>
+                </li>
+                <li class=" text-color-white">>></li>
+                <li class="smallWidth-L text-align-left  text-color-white " id="paction">
+                    @if (Model.projectDetails.AvailableActions != null && Model.projectDetails.AvailableActions.Count > 0)
+                    {
+                        <div id="tl">
+                            <a href="javascript:void(0);" class="text-color-white">Project Actions</a>
+                            <img  src="@Url.Content("/GCS/Images/arrow-down.png")" alt="" />
+                            <div id="divProjectActions" class="dpDown drpDwn project_actions">
+                                @foreach (var availableActions in Model.projectDetails.AvailableActions.OrderBy(action => action.Order))
+                                {                                            
+                                    <div class="bdr">
+                                        <a id='xxx' href='#' onclick="processProjectAction('@availableActions.Value');">@availableActions.Text </a>
+                                    </div>                                                                             
+                                }
+                                <div id="museout" style="height: 5px; border: 0px !important;">&nbsp;</div>
+                            </div>
+                        </div>
+                    }
+                </li>
+                <li />
+            </ul>
+        </div>
+    </div>
+    <!-- HEADER ENDS -->
+    <!-- CONTENT START -->
+    <div id="tabsRequestor" class="clear">
+
+        <ul id="screenTabs" class="requestorTab">
+            <li class="FirsttabGap" style="display: none;" id="requestorResourceListItem">
+                <a href="#tabsReq-1" id="tablinkRequestor1">Resources</a>
+            </li>
+            <li class="tabGap" style="display: none;" id="requestorExistingResourceListItem">
+                <a href="#tabsReq-2" id="tablinkRequestor2">Resources of Existing Release</a>
+            </li>
+            <li style="display: block !important; margin-left: 5px; top: 3px !important;">
+                <ul class="upper_header">
+                    <li>&nbsp;&nbsp;RCC Handler:&nbsp;&nbsp;</li>
+                    @if (Model.projectDetails.RccHandler[0].Text != null)
+                    {
+                        <li style="margin-top: 0px;" id="rcc_hqandler">@Model.projectDetails.RccHandler.Select(r => r.Text).FirstOrDefault()</li>
+                    }
+                    else
+                    {
+                        <li style="margin-top: 0px;" id="rcc_hqandler">
+                            <pre></pre>
+                        </li>
+                    }
+                    @if (Model.projectDetails.Upc != null)
+                    {                                                                                                                                                                                           
+                        <li>| UPC:&nbsp;&nbsp;</li>         
+                        if (Model.projectDetails.Upc.Count > 2)
+                        {
+                        <li id="upc_text" title="@(string.Join(";", Model.projectDetails.Upc.ToArray()))" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                        }
+                        else
+                        {
+                        <li id="upc_text" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                        }
+                    }
+                </ul>
+            </li>
+        </ul>
+
+        <div id="divwrapperReq" style="background-color: #fff;">
+            <div id="tabsReq-1" style="display: none">
+                @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblRequestorResourceGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblRequestorResourceGridData"])
+        .Caption("Requests")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .AllowColumnSelection(false)
+        .EnableAlternateRowStyling()
+        .AllowResizing(true)
+        .ColumnMinimumWidth(50)
+        .EnableOnDemand(true)
+        .TotalRecordCount((long)ViewData["TotalRecCountResourceGrid"])
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadResource"))
+        .ClientSideEvents(evt => evt.OnActionBegin("ActionBeginRequestorResource"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+        .RowDataBound(row =>
+        {
+            if (row.Data.RightsType_Desc == "NONUMG")
+            {
+                row.HtmlAttributes["Style"] = "border: 1px solid #ff0000 !important; background-color: #ffeeee !important; color: #ff0000 !important; ";
+            }
+        })
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Column.MappingName == "Action")// for showing the actions based on Approval Status
+                {
+                    string RoutedItemDate = serializer.Serialize(cell.Data.ModifiedDate);
+                    string requestDate = serializer.Serialize(cell.Data.ModifiedDateRequest);
+                    string Beginslash = "\"\\/";
+                    string EndSlash = "\\/\"";
+                    RoutedItemDate = RoutedItemDate.ToString().Replace(Beginslash, "");
+                    RoutedItemDate = RoutedItemDate.ToString().Replace(EndSlash, "");
+                    requestDate = requestDate.ToString().Replace(Beginslash, "");
+                    requestDate = requestDate.ToString().Replace(EndSlash, "");
+
+                    if (cell.Data.ApprovalStatus == "Waiting")
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 7 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate; // 8 for remind
+                        string valueForRemind = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 8 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" onclick=\"actionOnRequest('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle;margin:2px !important\" value=\"Cancel\" /><br /><input type=\"button\" id=\"Remind\" onclick=\"actionOnRequest('" + valueForRemind + "');\"  class=\"plbutton\" style=\"vertical-align:middle;margin:2px !important\" value=\"Remind\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else if (cell.Data.ApprovalStatus == "Cancelled")
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 12 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" onclick=\"actionOnRequest('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle;margin:2px !important;\" value=\"Re-Instate\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else if (cell.Data.ApprovalStatus == "Rejected")
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 9 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" id=\"Reapply\" onclick=\"openReapplyCommentDialog('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle;margin:2px !important;\" value=\"Re-Apply\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else if (cell.Data.ApprovalStatus == "Approved" || cell.Data.ApprovalStatus == "Conditionally Approved")// to get the project type as this is for master only
+                    {
+                        if (Model.projectDetails.ProjectType == 1)
+                        {
+                            string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 10 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                            cell.Text = "<input type=\"button\" onclick=\"actionOnRequest('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle; margin:2px !important;\" value=\"Exclude\" />";
+                            cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                        }
+                    }
+                    else if (cell.Data.ApprovalStatus == "Excluded")// to get the project type as this is for master only
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 11 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" onclick=\"actionOnRequest('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle; margin:2px !important;\" value=\"Include\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+
+                }
+                if (cell.Column.MappingName == "Image")// for showing the image when request is fully approved
+                {
+
+                    switch (cell.Data.ApprovalStatusId)
+                    {
+                        case 2: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/approved.png\" alt=\"Approved\" title=\"Approved\" />";
+                            break;
+                        case 4: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/conditionallyApproved.png\" alt=\"Conditionally Approved\" title=\"Conditionally Approved\" />";
+                            break;
+                        case 5: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/rejected.png\" alt=\"Rejected\" title=\"Rejected\" />";
+                            break;
+                        case 7: cell.Text = "";
+                            break;
+                        case 8: cell.Text = "";
+                            break;
+                        case 10: cell.Text = "";
+                            break;
+                        case 12: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/routingStopped.png\" alt=\"Routing Stopped\" title=\"Routing Stopped\" />";
+                            break;
+                    }
+
+                    if (!(cell.Text.Equals(string.Empty)))
+                    {
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important;";
+                        cell.Column.Visible = true;
+                    }
+
+                }
+                if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+                    cell.HtmlAttributes["Title"] = cell.Data.LastRoutingComment;
+
+                    string link = "<a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + "<div></div>" + link;
+                }
+                if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+
+                if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+
+            }
+        })
+        .Column(cols =>
+        {
+            cols.Add("Image").HeaderText(" ").Width(35).CssClass("imageStyle").Visible(false);
+            cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+            cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+            cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+            cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(86);
+            cols.Add(c => c.AdminCompany).HeaderText("Clearance Owner").Width(150);
+            cols.Add(c => c.RequestType).HeaderText("Request Type").Width(90);
+            cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Format("{CreatedDate:dd MMM yyyy}").Width(90);
+            cols.Add(c => c.RoleName).HeaderText("Reviewer Role").Width(150);
+            cols.Add(c => c.WorkgroupName).HeaderText("Reviewer Workgroup").Width(150);
+            cols.Add(c => c.ApprovalStatus).HeaderText("Review Status").Width(132);
+            cols.Add(c => c.ReviewDate).HeaderText("Review Date").Format("{ReviewDate:dd MMM yyyy}").Width(80);
+            cols.Add(c => c.LastRoutingComment).HeaderText("Comments").Width(150);
+            cols.Add(c => c.RightsType_Desc).HeaderText("RightsTypeDesc").Width(150).Visible(false);
+            cols.Add("Action").HeaderText(" ").Width(100);
+        }))
+            </div>
+
+            <div id="tabsReq-2" style="display: none;">
+                @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblRequestorTrackGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblRequestorTrackGridData"])
+        .Caption("Requests")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .AllowColumnSelection(false)
+        .EnableOnDemand(true)
+        .EnableAlternateRowStyling()
+        .AllowResizing(true)
+        .ColumnMinimumWidth(50)
+        .TotalRecordCount((long)ViewData["TotalRecCountTrackGrid"])
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadTrack"))
+        .ClientSideEvents(evt => evt.OnActionBegin("ActionBeginRequestorTrack"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Column.MappingName == "Action")// for showing the actions based on Approval Status
+                {
+                    string RoutedItemDate = serializer.Serialize(cell.Data.ModifiedDate);
+                    string requestDate = serializer.Serialize(cell.Data.ModifiedDateRequest);
+                    string Beginslash = "\"\\/";
+                    string EndSlash = "\\/\"";
+                    RoutedItemDate = RoutedItemDate.ToString().Replace(Beginslash, "");
+                    RoutedItemDate = RoutedItemDate.ToString().Replace(EndSlash, "");
+                    requestDate = requestDate.ToString().Replace(Beginslash, "");
+                    requestDate = requestDate.ToString().Replace(EndSlash, "");
+                    if (cell.Data.ApprovalStatus == "Waiting")
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 8 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" onclick=\"actionOnRequest('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle; margin:2px !important\" value=\"Remind\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else if (cell.Data.ApprovalStatus == "Rejected")
+                    {
+                        string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId + "~" + cell.Data.WorkgroupId + "~" + 9 + "~" + RoutedItemDate + "~" + cell.Data.ModifiedUser + "~" + requestDate;
+                        cell.Text = "<input type=\"button\" id=\"Reapply\" onclick=\"openReapplyCommentDialog('" + value + "');\"  class=\"plbutton\" style=\"vertical-align:middle; margin:2px !important;\" value=\"Re-Apply\" />";
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+
+                }
+                else if (cell.Column.MappingName == "Image")// for showing the image when request is fully approved
+                {
+                    switch (cell.Data.ApprovalStatusId)
+                    {
+                        case 2: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/approved.png\" alt=\"Approved\" title=\"Approved\" />";
+                            break;
+                        case 4: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/conditionallyApproved.png\" alt=\"Conditionally Approved\" title=\"Conditionally Approved\" />";
+                            break;
+                        case 5: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/rejected.png\" alt=\"Rejected\" title=\"Rejected\" />";
+                            break;
+                        case 7: cell.Text = "";
+                            break;
+                        case 8: cell.Text = "";
+                            break;
+                        case 10: cell.Text = "";
+                            break;
+                        case 12: cell.Text = "<img src=\"/GCS/Images/ClearanceInbox/routingStopped.png\" alt=\"Routing Stopped\" title=\"Routing Stopped\" />";
+                            break;
+                    }
+
+                    if (!(cell.Text.Equals(string.Empty)))
+                    {
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important;";
+                        cell.Column.Visible = true;
+                    }
+                }
+                else if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+                    cell.HtmlAttributes["Title"] = cell.Text;
+                    string link = "<a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + "<div></div>" + link;
+                }
+                else if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+                else if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+            }
+        })
+        .Column(cols =>
+        {
+            cols.Add("Image").HeaderText(" ").Width(35).CssClass("imageStyle").Visible(false);
+            cols.Add(c => c.Upc).HeaderText("UPC").Width(110);
+            cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+            cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+            cols.Add(c => c.Comment).HeaderText("Package Indicator (Yes/No)").Width(150).Visible(false);
+            cols.Add(c => c.RequestStatus).HeaderText("Number of components in package").Width(132).Visible(false);
+            cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+            cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(86);
+            cols.Add(c => c.AdminCompany).HeaderText("Clearance Owner").Width(150);
+            cols.Add(c => c.RequestType).HeaderText("Request Type").Width(90);
+            cols.Add(c => c.Configuration).HeaderText("Configuration").Width(150);
+            cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Format("{CreatedDate:dd MMM yyyy}").Width(90);
+            cols.Add(c => c.RoleName).HeaderText("Reviewer Role").Width(150);
+            cols.Add(c => c.WorkgroupName).HeaderText("Reviewer Workgroup").Width(150);
+            cols.Add(c => c.ApprovalStatus).HeaderText("Review Status").Width(132);
+            cols.Add(c => c.ReviewDate).HeaderText("Review Date").Format("{ReviewDate:dd MMM yyyy}").Width(80);
+            cols.Add(c => c.LastRoutingComment).HeaderText("Comments").Width(150); // link to show
+            cols.Add("Action").HeaderText(" ").Width(100); //actions to show         
+        }))
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT ENDS-->
+}
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceInbox/RightPanelRequestor.js")" type="text/javascript"></script>

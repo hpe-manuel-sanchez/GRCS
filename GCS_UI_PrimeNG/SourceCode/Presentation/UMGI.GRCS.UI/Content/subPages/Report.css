@@ -1,0 +1,424 @@
+﻿/*--------------- Styling for Report Pages[5-Feb, 2013] by Pranjal--------------- */
+
+.report_parameter_header
+{
+    padding: 2px 10px;
+    margin: 0px 15px;
+    background-color: #d7d7d7;
+    font-family: Arial;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    background: url(/Images/grs_sprite_img.png) repeat-x 0 -1969px;
+    border: 1px solid #c8c8c8;
+    height: 16px;
+}
+.report_parameter_panel
+{
+    padding: 10px;
+    margin: 0px 15px 15px 15px;
+    background-color: #f9f9f9;
+    font-family: Arial;
+    /*font-size: 12px;*/
+   /* font-style: normal;*/
+    border: 1px solid #dcdcdc;
+}
+.report_parameter_panel_Without_b_padding
+{
+    padding: 10px;
+     margin: 0px 15px 0px;
+    background-color: #f9f9f9;
+    font-family: Arial;
+    /*font-size: 12px;*/
+   /* font-style: normal;*/
+    border: 1px solid #dcdcdc;
+}
+
+
+.report_parameter_panel #countryLabel
+{
+    margin-top: 15px;
+}
+#activeRosterTableHeader .alertImage
+{
+    float: none !important;
+    padding-bottom: 0px !important;
+    padding-right: 0px !important;
+}
+#activeRosterTableHeader
+{
+    margin: 0px !important;
+}
+#activeRosterTableHeader a
+{
+    margin-right: 20px !important;
+}
+.report_parameter_header .down
+{
+    padding-left: 15px;
+    background: url(/Images/Acc_Arrow_Down.png) no-repeat transparent 0px 5px;
+    color: #143489;
+}
+.report_parameter_header .up
+{
+    padding-left: 15px;
+    background: url(/Images/Acc_Arrow_RIght.png) no-repeat transparent 0px 2px;
+    color: #143489;
+}
+.ReportTemplates
+{
+    margin-left: 15px;
+    overflow-x: visible;
+    height: 410px;
+    position: relative; /*overflow-y:auto;*/
+}
+
+.floatL
+{
+    float: left;
+}
+.floatR
+{
+    float: right;
+}
+.pdfExport
+{
+    background: url(/Images/pdf_icon.png) no-repeat;
+    padding-left: 22px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-top: 7px;
+}
+a.pdfExport:hover{text-decoration:underline;}
+
+.excelExport
+{
+    background: url(/Images/Excel-16.png) no-repeat;
+    padding-left: 22px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-top: 7px;
+}
+a.excelExport:hover{text-decoration:underline;}
+
+
+.report_parameter_subheader
+{
+    padding: 2px 5px;
+    margin: 5px 5px 0px 5px;
+    background-color: #d7d7d7;
+    font-family: Arial;
+    /*font-size: 12px;*/
+    font-style: normal;
+    font-weight: bold;
+    background: url(/Images/grs_sprite_img.png) repeat-x 0 -1969px;
+    border: 1px solid #c8c8c8;
+    height: 16px;
+}
+.report_parameter_subheader .subdown
+{
+    padding-left: 15px;
+    background: url(/Images/Acc_Arrow_Down.png) no-repeat transparent 0px 5px;
+    color: #143489;
+}
+.report_parameter_subheader .subup
+{
+    padding-left: 15px;
+    background: url(/Images/Acc_Arrow_RIght.png) no-repeat transparent 0px 2px;
+    color: #143489;
+}
+.report_parameter_subpanel
+{
+    /*padding: 10px;*/
+    margin: 5px 15px 15px 15px;
+    background-color: #f9f9f9;
+    font-family: Arial;
+   /* font-style: normal;*/
+}
+.ui-jtable-loading
+{
+    float: left !important;
+}
+
+.Syncfusion-Grid-Core .RowCell, .Syncfusion-Grid-Core .EmptyCell, .Syncfusion-Grid-Core tr[class*="ChildRow"] > .ChildGrid
+{
+    padding: 0.3em !important;
+}
+.Syncfusion-Grid-Vista .SelectionBackground
+{
+    background-color: #3171bb !important;
+    color: #ffffff !important;
+}
+.Syncfusion-Grid-Core .HeaderCellDiv
+{
+    font-weight: bold !important;
+}
+
+/*------------------------------ */
+.ReportTemplates
+{
+    display: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/************************************************** Delete icon ***********************************************/
+
+span.deleteicon
+{
+    position: relative;
+}
+span.deleteicon span
+{
+    position: absolute;
+    display: block;
+    top: 3px;
+    right: 55px;
+    width: 16px;
+    height: 16px;
+    background: url('/GCS/Images/Close.png') 0 -690px;
+    cursor: pointer;
+}
+span.deleteicon input
+{
+    padding-right: 16px;
+}
+
+
+/************************************************** Chrome Fixes ***********************************************/
+
+/*@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+
+    .textBoxControl
+    {
+        width: 65%;
+        margin-top: 2px;
+    }
+
+    .dataAdminComp
+    {
+        margin-top: 5px;
+    }
+
+}*/
+
+
+.ui-dialog .ui-dialog-content
+{
+    overflow: hidden;
+    padding: 0 !important;
+}
+.CAC_container
+{
+    padding: 0 15px;
+}
+#AdminCompanyNames 
+{
+    height: 35px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    border: 1px solid #a2a6c1;
+}
+#countryNames
+{
+    height: 35px;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    border: 1px solid #a2a6c1;
+    }
+.clearenceCompany 
+{
+    float: left;
+}
+.expCountry{
+    float: left;
+}
+#ClearanceAdminPopUp
+{
+    margin-top: 3px;
+}
+
+.selRemComp
+{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.hyperlink
+{
+color:#143489;}
+.CAC_container1
+{
+   padding:0 15px; }
+   
+#SelectedcountryList .seltd4 .imgClose
+{
+    background-image: url("/GCS/Images/grs_sprite_img.png");
+    background-position: 53px 1036px;
+    cursor: pointer;
+    float: left;
+    height: 20px;
+    margin-left: 0;
+    margin-top: -2px;
+    width: 15px;
+}
+
+#countryList, #SelectedcountryList
+{
+width:100%;}
+.cacTable #countryList td
+{
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom: #e8eef4 1px solid;}
+.cacTable #SelectedcountryList td
+{
+*padding:3px !important;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom: #e8eef4 1px solid;
+}
+.cacTable #SelectedcountryList .seltd2 
+{ 
+display:none; 
+}   
+
+.cacTable #SelectedcountryList .seltd4 
+{ 
+text-align: right;    
+}
+#countryList .sertd2
+{
+padding-left: 0 !important;
+padding-right: 0 !important;
+width: 0;}
+#linkRemoveAllCountry
+{
+margin-right:3% !important;
+margin-top:3px;
+margin-left:5px;
+float:left;}
+.clearLink1
+{
+width:110px;
+margin-top:10px;
+margin-bottom:10px;}
+.leftdiv
+{
+    width:50%;
+    float:left;
+ }
+ .spandiv
+ {
+ 	width:100px;
+ 	margin-bottom:5px;
+ 	font-weight:bold;
+ 	text-align:right;
+ 	float:left;
+ 	margin-right:10px;
+ }
+ .controls
+ {
+ 	width:40%;
+ 	margin-bottom:5px;
+ }
+.rightdiv
+{
+    width:50%;
+    float:right;
+}
+
+.top 
+{
+	margin-top:-5px; 
+	width:25%;
+	font-weight:bold;
+	text-align:right;
+ 	float:left;
+ 	margin-right:10px;
+ 	z-index:2;
+}
+.listbox
+{
+	margin-top:5px;
+ 	margin-bottom:5px;
+ 	width: 420px;height:50px;
+}
+.under
+{
+	text-decoration:underline;
+}
+.gridwidth
+{
+	width:50px;
+}.spanname
+ {
+ 	width:150px;
+   font-weight   :bold;
+ 	text-align:right;
+ 	float:left;
+ 	margin-right:5px;
+ 	
+ }
+       
+ .leftdivP
+{
+    width:40%;
+    float:left;
+	height: 80px;
+	margin-bottom:12px;
+}
+.dv
+{
+	 margin-bottom:8PX;
+}
+.colname
+{
+	font-weight:bold;
+	text-align:right;
+	width:120px;
+	float:left;
+	margin-right:5px;
+	}
+.ControlsPre
+{
+	
+	width:350px;
+	
+}
+	.rightdivP
+{
+    width:35%;
+    float:right;
+}
+.colname_R
+{
+	font-weight:bold;
+	text-align:right;
+	width:120px;
+	float:left;
+	margin-right:5px;
+	}
+	
+	/*---------------------*/
+.ui-datepicker-current { display: none; }
+/*---------------------*/
+
+
+.backgroundForHeader
+{
+   background-color: #F2F2F2;
+    border-bottom: 2px solid #3171BB;
+ 
+     padding: 10px 0 0;}
+.backgroundForHeader_rightEx
+{
+   background-color: #F2F2F2;
+    border-bottom: 2px solid #3171BB;
+ 
+     padding: 10px 0 15px;}

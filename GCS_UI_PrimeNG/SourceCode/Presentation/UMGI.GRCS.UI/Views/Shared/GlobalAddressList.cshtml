@@ -1,0 +1,84 @@
+﻿@model UMGI.GRCS.UI.Models.AddressBookModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<html>
+<head>
+    <title>@ViewBag.Title = "Global Address List"</title>
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/GlobalAddressList.min.css")"  rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/GlobalAddressListSearch.js")" type="text/javascript"></script>
+    <div id="splitWarning">
+        <div class="warningContainer">
+            <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+        </div>
+        <div id="SplitAlert"></div>
+    </div>
+    <div id="globalAddressListSearchContainer">
+        <div id="globalAddressListPopup">
+            <div class="accbg popupBackground">
+                <div class="addressDiv">
+                    <div class="allignLabel floatLeft">
+                        @Html.LabelFor(model => model.MailDetails.Name):
+                    </div>
+
+                    <div class="floatLeft setWidth">
+                        @Html.Editor("addressName", Model.MailDetails.Name)
+                    </div>
+                </div>
+
+                <div class="countryNameDiv">
+
+                    <div class="allignLabel floatLeft">
+                        @Html.LabelFor(model => model.MailDetails.CountryDetails.CountryName):
+                    </div>
+
+                    <div class="floatLeft setWidthDiv">
+                        @Html.TextBox("addressCountryName", Model.MailDetails.CountryDetails.CountryName, new { data_autocomplete_source_manual = @Url.Action("AutoSearchCountry", "Contract") })
+                        @Html.HiddenFor(model => model.MailDetails.CountryDetails.CountryId)  @*Need to pass countryID*@
+                    </div>
+                </div>
+
+                <div class="bottomInputs">
+                    <input id="searchGlobalAddressList" type="submit" class="primbutton" runat="server" value="@ContractResource.SearchButton" />
+                    <input id="resetButton" type="submit" class="secbutton btnSpacing" runat="server" value="@ContractResource.ResetButton" />
+                </div>
+
+                <!-------- End of accbg   ------->
+            </div>
+            <!-------- End of globalAddressListPopup  ------->
+            <div>
+                <h2 class="globalAddressListResult alignLeft " title="Search Results (0)">
+                    <span id="SearchCounts">Search Results (0)</span>
+                </h2>
+            </div>
+            <div class="ui-jtable-loading" style="float: left;"></div>
+            <div>
+                <span id="jqPager">
+                    @ContractResource.ShowDropDown
+                    @Html.DropDownListFor(model => model.AddressBookPerPage, Model.AddressBookPerPage)
+                    @ContractResource.itemsperpage
+                </span>
+            </div>
+            <br class="Clear" />
+            <div id="searchGlobalList">
+            </div>
+            <div id="tempSelectedRecords">
+            </div>
+            <div class="editor-field emailRecepContainer">
+                <span class="toMailRecipients">@Html.Label("To (Email Notification Receipients)"):</span>
+                <br />
+
+                @*@Html.TextAreaFor(model => model.MailReceipients, Model.MailReceipients)*@
+                <div id="MailReceipients"></div>
+                @Html.Hidden("MailReceipientsId")
+            </div>
+            <div class="globalAddressListBtmInput">
+                <input id="okButton" type="submit" class="primbutton" value="@ContractResource.OKButton" runat="server" />
+                <input id="cancelButton" type="submit" class="secbutton btnSpacing" value="@ContractResource.CancelButton" runat="server" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

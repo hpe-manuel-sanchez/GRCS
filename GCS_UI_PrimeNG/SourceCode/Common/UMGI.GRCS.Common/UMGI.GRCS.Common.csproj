@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1F7A27BE-A5B8-461B-BE70-12170904A908}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMGI.GRCS.Common</RootNamespace>
+    <AssemblyName>UMGI.GRCS.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UMGI.GRCS.Core.Utilities.Helper">
+      <HintPath>..\..\References\UMGI.GRCS.Core.Utilities.Helper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdaptorInterfaces\IAnaAdapter.cs" />
+    <Compile Include="AdaptorInterfaces\IMpAdaptor.cs" />
+    <Compile Include="AdaptorInterfaces\IOHIAdaptor.cs" />
+    <Compile Include="ComponentInterfaces\IArtistData.cs" />
+    <Compile Include="ComponentInterfaces\IArtistManager.cs" />
+    <Compile Include="ComponentInterfaces\IAuditData.cs" />
+    <Compile Include="ComponentInterfaces\ICacheProvider.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceInboxData.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceInboxManager.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceProjectData.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceProjectManager.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceReleaseData.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceReleaseManager.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceResourceData.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceResourceManager.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceRoutingWorkflowData.cs" />
+    <Compile Include="ComponentInterfaces\IClearanceRoutingWorkflowManager.cs" />
+    <Compile Include="ComponentInterfaces\IContractData.cs" />
+    <Compile Include="ComponentInterfaces\IContractManager.cs" />
+    <Compile Include="AdaptorInterfaces\ICprsAdaptor.cs" />
+    <Compile Include="AdaptorInterfaces\IGdrsAdaptor.cs" />
+    <Compile Include="ComponentInterfaces\IEmailData.cs" />
+    <Compile Include="ComponentInterfaces\IEmailManager.cs" />
+    <Compile Include="ComponentInterfaces\IGCSArtistManager.cs" />
+    <Compile Include="ComponentInterfaces\IGCSContractData.cs" />
+    <Compile Include="ComponentInterfaces\IGCSContractManager.cs" />
+    <Compile Include="ComponentInterfaces\IGCSRightsData.cs" />
+    <Compile Include="ComponentInterfaces\IGlobalData.cs" />
+    <Compile Include="ComponentInterfaces\IGlobalManager.cs" />
+    <Compile Include="ComponentInterfaces\IGlobalTablesAdapter.cs" />
+    <Compile Include="ComponentInterfaces\IGrcsBackgroundService.cs" />
+    <Compile Include="ComponentInterfaces\IGrcsNotification.cs" />
+    <Compile Include="ComponentInterfaces\IInterfaceData.cs" />
+    <Compile Include="ComponentInterfaces\IPCompanyData.cs" />
+    <Compile Include="ComponentInterfaces\IPCompanyManager.cs" />
+    <Compile Include="ComponentInterfaces\IProjectData.cs" />
+    <Compile Include="ComponentInterfaces\IProjectManager.cs" />
+    <Compile Include="AdaptorInterfaces\IR2Adapter.cs" />
+    <Compile Include="ComponentInterfaces\IReleaseData.cs" />
+    <Compile Include="ComponentInterfaces\IReleaseManager.cs" />
+    <Compile Include="ComponentInterfaces\IRepertoireData.cs" />
+    <Compile Include="ComponentInterfaces\IRepertoireProcessor.cs" />
+    <Compile Include="ComponentInterfaces\IReportData.cs" />
+    <Compile Include="ComponentInterfaces\IReportManager.cs" />
+    <Compile Include="ComponentInterfaces\IResourceData.cs" />
+    <Compile Include="ComponentInterfaces\IResourceManager.cs" />
+    <Compile Include="ComponentInterfaces\IRightsData.cs" />
+    <Compile Include="ComponentInterfaces\IRightsManager.cs" />
+    <Compile Include="ComponentInterfaces\IUserData.cs" />
+    <Compile Include="ComponentInterfaces\IUserManager.cs" />
+    <Compile Include="ComponentInterfaces\IWorkgroupData.cs" />
+    <Compile Include="ComponentInterfaces\IWorkgroupManager.cs" />
+    <Compile Include="ComponentInterfaces\IWorkQueueData.cs" />
+    <Compile Include="ComponentInterfaces\IWorkQueueManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business\BusinessEntities\GRCS.BusinessEntities\UMGI.GRCS.BusinessEntities.csproj">
+      <Project>{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF}</Project>
+      <Name>UMGI.GRCS.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\DataAssemblies\UMGI.GRCS.Data.Entities\UMGI.GRCS.Data.Entities.csproj">
+      <Project>{5a75cdea-79ec-4bdf-9788-70a8666e8b14}</Project>
+      <Name>UMGI.GRCS.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\GRCS.Proxies\UMGI.GRCS.Proxies.csproj">
+      <Project>{D8480320-3CFF-4304-80F4-AFE151046C86}</Project>
+      <Name>UMGI.GRCS.Proxies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utilities\Notification\UMGI.GRCS.NotificationInterfaces\UMGI.GRCS.NotificationInterfaces.csproj">
+      <Project>{31373207-c3ef-41b8-8450-3594dea3b2d2}</Project>
+      <Name>UMGI.GRCS.NotificationInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*" "$(SolutionDir)Components"</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\GCS\app\Components" Condition="!Exists('$(SolutionDir)\..\Deliverables\GCS\app\Components')" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\app\Components" />
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,182 @@
+﻿.a9multiselect {
+    width: 9.9em;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    padding: 0;
+    margin: -.05em 0 1em 0;
+    border: 0;
+}
+
+.a9multiselect .expcol-click, .a9multiselect .expcol-click-open {
+    background-color: #fff;
+    border: 1px solid #999;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+    min-width: 9.8em;
+}
+
+.a9multiselect div.expcol-click {
+    position: absolute;
+    z-index: 64;
+}
+
+.a9multiselect div.expcol-click-open {
+    border-bottom: 1px solid #fff;
+}
+
+.a9multiselect .title {
+    font-size: .8em;
+    height: 1.3em;
+    line-height: 1.2em;
+    overflow: hidden;
+    padding: .3em 1.1em .1em .5em;
+    background: white url('/Gcs/Images/multiselect.gif') no-repeat top right;
+}
+
+.a9multiselect .title:hover {
+    background: white url('/Gcs/Images/multiselect-hover.gif') no-repeat top right;
+}
+
+.expcol-body {
+    position: absolute;
+    z-index: 106;
+    min-height: 1em;
+    background: #e9f3f8;
+    padding: .1em;
+    display: block;
+    font-size: 75%;
+    display: none;
+    margin-top: -1px;
+    border: 1px solid #999;
+}
+
+.expcol-body ul {
+    overflow: auto;
+    min-height: 1em;
+    min-width: 20em;
+    margin: 0;
+    padding: 0;
+}
+
+.expcol-body li {
+    margin: 0 0 .2em 0;
+    list-style: none;
+}
+
+.expcol-body li:hover {
+    background: #ddd;
+}
+
+.arc90_multiselect {
+    width: 12.5em;
+    height: 1.35em;
+    visibility: hidden;
+}
+
+.a9selectall {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Styles for page layout */
+DIV.examples {
+    margin: 0 0 2em 0;
+    width: 17em;
+    border: 1px solid #e9e9e9;
+    padding: .3em;
+}
+
+DIV.examples LABEL.examples {
+    display: block;
+    margin: 0 0 .2em 0;
+}
+
+.uprr-wrapper {
+    border: 1px solid #ccc;
+    margin: 10px 15px;
+    overflow: hidden;
+}
+
+.uprr-head {
+    margin: 0 !important;
+    font-weight: bold;
+    padding-left: 5px;
+    line-height: 19px;
+}
+
+.uprr-content-wrapper {
+    overflow: hidden;
+    margin: 10px 15px;
+}
+
+.uprr-width1 {
+    width: 10%;
+}
+
+.uprr-width2 {
+    width: 15%;
+}
+
+.uprr-width3 {
+    width: 71%;
+}
+
+.currency {
+    margin: 0;
+    padding: 0;
+}
+
+.currency li {
+    list-style: none;
+    height: auto;
+    overflow: hidden;
+}
+
+.bar {
+    width: 2px;
+    height: 100%;
+    float: left;
+    clear: both;
+}
+
+.dataDv {
+    height: auto; /*line-height:17px;*/
+    line-height: 0px !important;
+    clear: both;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.dataDv ul li {
+    border-bottom: 1px solid #ccc;
+    padding-top: 0 !important;
+}
+
+.dataDv ul li:last-child {
+    border-bottom: 0px;
+}
+
+.last-li {
+    border-bottom: 0px !important;
+}
+
+.clearBoth1 {
+    clear: both;
+    padding-top: 5px;
+}
+
+select {
+    margin: 2px 0;
+}
+
+.pa-inbox-role {
+    padding-left: 4.5%;
+}
+
+ul li {
+    padding-top: 0 !important;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}

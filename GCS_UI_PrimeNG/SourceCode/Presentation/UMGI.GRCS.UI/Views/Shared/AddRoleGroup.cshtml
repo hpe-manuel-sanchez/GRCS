@@ -1,0 +1,57 @@
+﻿@model UMGI.GRCS.UI.Models.ManageAddressBookModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<link href="@Url.Content("/GCS/Content/SubPages/AddRoleGroup.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/Custom/AddressBook.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var msg = '@ViewBag.displayMessage';
+    if (msg == 'success')
+        displayDialog("Info", msg);
+</script>
+
+<div class="accbg" id="addRoleGroup">
+    <div class="leftMainDiv">
+        <input type="hidden" value="@ViewBag.displayMessage" id="displayMessage" />
+        <div class="leftLabelDiv allignLabel">
+            @Html.LabelFor(model => model.EmailGroupDetails.Name):
+        @Html.Hidden("roleGroupId", Model.EmailGroupDetails.Id)  @*Need to store Id *@
+        </div>
+        <div class="leftFieldDiv roleName">
+            @Html.TextArea("roleGroupName", Model.EmailGroupDetails.Name, new { col = 60, rows = 1 })
+            @Html.ValidationMessageFor(model => model.EmailGroupDetails.Name)
+        </div>
+        <!--div id="RoleExistAlert"></div-->
+    </div>
+
+    <br class="clear" />
+
+    <div class="leftMainDiv">
+        <div class="leftLabelDiv allignLabel">
+            @Html.LabelFor(model => model.EmailGroupDetails.CountryDetails.CountryName):
+        </div>
+        <div class="leftFieldDiv search-button">
+            @Html.TextBox("countryName", Model.EmailGroupDetails.CountryDetails.CountryName,
+                new { data_autocomplete_source_manual = @Url.Action("AutoSearchCountry", "Contract") })
+            @Html.ValidationMessageFor(model => model.EmailGroupDetails.CountryDetails.CountryName)
+            @Html.Hidden("countryId", Model.EmailGroupDetails.CountryDetails.CountryId)  @*Need to store CountryId *@
+        </div>
+    </div>
+
+    <br class="clear" />
+
+    <div class="leftMainDiv">
+        <div class="leftLabelDiv allignLabel">
+            @Html.LabelFor(model => model.EmailGroupDetails.EmailIds):
+        </div>
+        <div class="leftFieldDiv">
+            @Html.TextArea("EmailGroupDetails", Model.EmailGroupDetails.EmailIds, new { col = 60, rows = 6 })
+            @Html.ValidationMessageFor(model => model.EmailGroupDetails.EmailIds)
+        </div>
+    </div>
+
+    <br class="clear" />
+</div>
+
+<div class="alignRight btnsPadding">
+    <input class="primbutton" id="SaveEmailGroup" type="button" value="@ContractResource.SaveButton" />
+    <input class="secbutton btnSpacing" id="CancelGroup" type="button" value="@ContractResource.CancelButton" />
+</div>

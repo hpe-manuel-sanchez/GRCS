@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
+            enableLocalization="true">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" description="Home">
+    <mvcSiteMapNode title="Contract Administration" controller="Home" action="Index" description ="Contract_Administration">
+      <mvcSiteMapNode title="Create New Contract From Template" controller="Contract" action="GetContractTemplate" description="Create_New_Contract_From_Template"/>
+      <mvcSiteMapNode title="Create New Contract" controller="Contract" action="ContractCreation" description="Create_New_Contract"/>
+      <mvcSiteMapNode title="Search For Contract" controller="Contract" action="SearchContract" description="Search_For_Contract">
+        <mvcSiteMapNode title="Edit Contract" controller="Contract" action="EditContract" description ="Edit_Contract"/>
+        <mvcSiteMapNode title="View Contract" controller="Contract" action="ViewContract" description ="View_Contract"/>
+        <mvcSiteMapNode title ="Search Repertoire" controller="Project" action="SearchRepertoire" description ="Search_Repertoire"/>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Contract Maintenance WorkQueue" controller="Contract" action="ContractMaintenanceWorkQueue" description="Contract_Maintenance_WorkQueue">
+        <mvcSiteMapNode title="Edit Contract" controller="Contract" action="EditContract" description="Edit_Contract"/>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Manage Address Book" controller="Contract" action="ManageAddressBook" description ="Manage_Address_Book"/>
+      <mvcSiteMapNode title="Contract Linking Work Queue" controller="WorkQueue" action="ContractLinkingWorkQueue" description="Contract_Linking_Work_Queue"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Manage Template" controller="Home" action="Index" description="Manage_Template">
+      <mvcSiteMapNode title="Contract Template" controller="Contract" action="ContractTemplates" description ="Contract_Template">
+        <mvcSiteMapNode title="Edit Contract Template" controller="Contract" action="GetContractTemplate" description ="Edit_Contract_Template"/>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Digital Restrictions" controller="Contract" action="DigitalRestrictionTemplates" description="Digital_Restrictions">
+        <mvcSiteMapNode title="Edit Digital Restrictions Template" controller="Contract" action="GetDigitalTemplate" description="Edit_Digital_Restrictions_Template"/>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+  
+    <mvcSiteMapNode title="Manage Rights Expiry Report Parameters" controller="RightsExpiryReportWindow" action="MaintainRightsExpiry" description="Manage_Rights_Expiry_Report_Parameters"/>
+    <mvcSiteMapNode title="Maintain Rights Data Review Conditions" controller="RightsDataReview" action="MaintainRightsDataReview" description="Maintain_Rights_Data_Review_Conditions"/>
+    <mvcSiteMapNode title="Maintain WQ Release Date Comparison Parameter" controller="WorkQueueComparisionParameter" action="MaintainWorkQueueRelease" description="Maintain_WQ_Release_Date_Comparison_Parameter"/>
+    <mvcSiteMapNode title="Maintain Rights Defaults For Repertoire" controller="RightsDefaultRepertoire" action="MaintainRightsRepertoire" description="Maintain_Rights_Defaults_For_Repertoire"/>
+
+
+  </mvcSiteMapNode>
+</mvcSiteMap>
+

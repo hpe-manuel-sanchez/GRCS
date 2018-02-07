@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClearanceProject" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.R2Entities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceRoutingEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd19" namespace="http://schemas.umusic.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClearanceProject_ClearanceProjectSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceProjectSearch" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ClearanceProjectSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceProjectSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_FillProjectSearchDropDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:FillProjectSearchDropDown" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_FillProjectSearchDropDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FillProjectSearchDropDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchR2Resource_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchR2Resource" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchR2Resource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchR2ResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveProjectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveProjectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProjectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveRegularProjectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegularProjectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveRegularProjectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegularProjectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetMasterProjectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterProjectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetMasterProjectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterProjectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetClearanceProjectDropDownByUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceProjectDropDownByUserList" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetClearanceProjectDropDownByUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceProjectDropDownByUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ClearanceProjectInquirySearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceProjectInquirySearch" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ClearanceProjectInquirySearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceProjectInquirySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetClearanceProjectRequestTypeDropDownByProjectType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceProjectRequestTypeDropDownByProjectType" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetClearanceProjectRequestTypeDropDownByProjectType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClearanceProjectRequestTypeDropDownByProjectTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveRequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRequestType" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveRequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_TransferUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferUser" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_TransferUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_FillWorkGroupUserDropDown_InputMessage">
+    <wsdl:part name="parameters" element="tns:FillWorkGroupUserDropDown" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_FillWorkGroupUserDropDown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FillWorkGroupUserDropDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectForUserTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectForUserTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectForUserTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectForUserTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetWorkGroupDropdown_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkGroupDropdown" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetWorkGroupDropdown_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkGroupDropdownResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_RemoveFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFile" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_RemoveFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ReadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadFile" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ReadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ReopenProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReopenProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ReopenProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReopenProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_StatusProjectUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:StatusProjectUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_StatusProjectUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StatusProjectUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_getLabelNmForExistingRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLabelNmForExistingRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_getLabelNmForExistingRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLabelNmForExistingReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_getMusicClassTypeIdForExistingRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMusicClassTypeIdForExistingRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_getMusicClassTypeIdForExistingRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMusicClassTypeIdForExistingReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_RemoveReleaseProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveReleaseProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_RemoveReleaseProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveReleaseProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetEmailId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailId" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetEmailId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompaniesPushToR2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesPushToR2" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompaniesPushToR2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesPushToR2Response" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetDivisionPushToR2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisionPushToR2" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetDivisionPushToR2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisionPushToR2Response" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetLabelPushToR2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelPushToR2" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetLabelPushToR2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelPushToR2Response" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveR2ProjectIdLinking_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveR2ProjectIdLinking" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveR2ProjectIdLinking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveR2ProjectIdLinkingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteSearch" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveReleaseResourceToPushToR2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseResourceToPushToR2" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SaveReleaseResourceToPushToR2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseResourceToPushToR2Response" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ClearanceRoutingAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceRoutingAction" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_ClearanceRoutingAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceRoutingActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetSafeCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSafeCountries" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetSafeCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSafeCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestorCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestorCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestorCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestorCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestSummaryRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestSummaryRequests" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestSummaryRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestSummaryRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRoutingDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutingDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRoutingDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoutingDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_CreateProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_CreateProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectInfo_RequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectInfo_RequestType" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectInfo_RequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectInfo_RequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectReleases" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectResources" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRegularProjectResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegularProjectResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectToAllocateUPC_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectToAllocateUPC" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectToAllocateUPC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectToAllocateUPCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchClearanceUnlockedProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClearanceUnlockedProjects" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchClearanceUnlockedProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClearanceUnlockedProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_UpdateProjectLockingStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectLockingStatus" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_UpdateProjectLockingStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectLockingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_IsProjectUnlocked_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsProjectUnlocked" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_IsProjectUnlocked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsProjectUnlockedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_IsProjectUnlockedByAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsProjectUnlockedByAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_IsProjectUnlockedByAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsProjectUnlockedByAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetAuthorizationsForR2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizationsForR2" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetAuthorizationsForR2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizationsForR2Response" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetDivisions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisions" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetDivisions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDivisionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetLabels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabels" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetLabels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestType" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRCCHandlerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRCCHandlerList" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetRCCHandlerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRCCHandlerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_QueueEmailFailedReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueueEmailFailedReleases" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_QueueEmailFailedReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueueEmailFailedReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_QueueEmailFailedResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueueEmailFailedResources" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_QueueEmailFailedResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueueEmailFailedResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_CompleteRegularProjectNewReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteRegularProjectNewReleases" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_CompleteRegularProjectNewReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteRegularProjectNewReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectForEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectForEmail" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_SearchProjectForEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchProjectForEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_HasSpecialPermission_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasSpecialPermission" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_HasSpecialPermission_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasSpecialPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompanyListFromANA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyListFromANA" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetCompanyListFromANA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyListFromANAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteCreateSearchProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteCreateSearchProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteCreateSearchProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteCreateSearchProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetTerritoryIdRequestorCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryIdRequestorCompany" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_GetTerritoryIdRequestorCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryIdRequestorCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteSearchLabels_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteSearchLabels" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProject_AutoCompleteSearchLabels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoCompleteSearchLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSProject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSProject" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSProject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSResource" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_GetGCSResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSResourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_ClearanceNotify_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceNotify" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceProjectDataProvider_ClearanceNotify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearanceNotifyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClearanceProject">
+    <wsdl:operation name="ClearanceProjectSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceProjectSearch" message="tns:IClearanceProject_ClearanceProjectSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceProjectSearchResponse" message="tns:IClearanceProject_ClearanceProjectSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FillProjectSearchDropDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/FillProjectSearchDropDown" message="tns:IClearanceProject_FillProjectSearchDropDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/FillProjectSearchDropDownResponse" message="tns:IClearanceProject_FillProjectSearchDropDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetMasterData" message="tns:IClearanceProject_GetMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetMasterDataResponse" message="tns:IClearanceProject_GetMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchR2Resource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchR2Resource" message="tns:IClearanceProject_SearchR2Resource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchR2ResourceResponse" message="tns:IClearanceProject_SearchR2Resource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SaveProjectDetails" message="tns:IClearanceProject_SaveProjectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SaveProjectDetailsResponse" message="tns:IClearanceProject_SaveProjectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRegularProjectDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SaveRegularProjectDetails" message="tns:IClearanceProject_SaveRegularProjectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SaveRegularProjectDetailsResponse" message="tns:IClearanceProject_SaveRegularProjectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterProjectDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetMasterProjectDetails" message="tns:IClearanceProject_GetMasterProjectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetMasterProjectDetailsResponse" message="tns:IClearanceProject_GetMasterProjectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchCompany" message="tns:IClearanceProject_SearchCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchCompanyResponse" message="tns:IClearanceProject_SearchCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetCompanies" message="tns:IClearanceProject_GetCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetCompaniesResponse" message="tns:IClearanceProject_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceProjectDropDownByUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetClearanceProjectDropDownByUserList" message="tns:IClearanceProject_GetClearanceProjectDropDownByUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetClearanceProjectDropDownByUserListResponse" message="tns:IClearanceProject_GetClearanceProjectDropDownByUserList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceProjectInquirySearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceProjectInquirySearch" message="tns:IClearanceProject_ClearanceProjectInquirySearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceProjectInquirySearchResponse" message="tns:IClearanceProject_ClearanceProjectInquirySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceProjectRequestTypeDropDownByProjectType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetClearanceProjectRequestTypeDropDownByProjectType" message="tns:IClearanceProject_GetClearanceProjectRequestTypeDropDownByProjectType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetClearanceProjectRequestTypeDropDownByProjectTypeResponse" message="tns:IClearanceProject_GetClearanceProjectRequestTypeDropDownByProjectType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SaveRequestType" message="tns:IClearanceProject_SaveRequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SaveRequestTypeResponse" message="tns:IClearanceProject_SaveRequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/TransferUser" message="tns:IClearanceProject_TransferUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/TransferUserResponse" message="tns:IClearanceProject_TransferUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FillWorkGroupUserDropDown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/FillWorkGroupUserDropDown" message="tns:IClearanceProject_FillWorkGroupUserDropDown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/FillWorkGroupUserDropDownResponse" message="tns:IClearanceProject_FillWorkGroupUserDropDown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectForUserTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectForUserTransfer" message="tns:IClearanceProject_SearchProjectForUserTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectForUserTransferResponse" message="tns:IClearanceProject_SearchProjectForUserTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkGroupDropdown">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetWorkGroupDropdown" message="tns:IClearanceProject_GetWorkGroupDropdown_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetWorkGroupDropdownResponse" message="tns:IClearanceProject_GetWorkGroupDropdown_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/RemoveFile" message="tns:IClearanceProject_RemoveFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/RemoveFileResponse" message="tns:IClearanceProject_RemoveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/ReadFile" message="tns:IClearanceProject_ReadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/ReadFileResponse" message="tns:IClearanceProject_ReadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReopenProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/ReopenProject" message="tns:IClearanceProject_ReopenProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/ReopenProjectResponse" message="tns:IClearanceProject_ReopenProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectDetails" message="tns:IClearanceProject_GetRegularProjectDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectDetailsResponse" message="tns:IClearanceProject_GetRegularProjectDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusProjectUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/StatusProjectUpdate" message="tns:IClearanceProject_StatusProjectUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/StatusProjectUpdateResponse" message="tns:IClearanceProject_StatusProjectUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLabelNmForExistingRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/getLabelNmForExistingRelease" message="tns:IClearanceProject_getLabelNmForExistingRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/getLabelNmForExistingReleaseResponse" message="tns:IClearanceProject_getLabelNmForExistingRelease_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMusicClassTypeIdForExistingRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/getMusicClassTypeIdForExistingRelease" message="tns:IClearanceProject_getMusicClassTypeIdForExistingRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/getMusicClassTypeIdForExistingReleaseResponse" message="tns:IClearanceProject_getMusicClassTypeIdForExistingRelease_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveReleaseProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/RemoveReleaseProject" message="tns:IClearanceProject_RemoveReleaseProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/RemoveReleaseProjectResponse" message="tns:IClearanceProject_RemoveReleaseProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetEmailId" message="tns:IClearanceProject_GetEmailId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetEmailIdResponse" message="tns:IClearanceProject_GetEmailId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesPushToR2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetCompaniesPushToR2" message="tns:IClearanceProject_GetCompaniesPushToR2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetCompaniesPushToR2Response" message="tns:IClearanceProject_GetCompaniesPushToR2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionPushToR2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetDivisionPushToR2" message="tns:IClearanceProject_GetDivisionPushToR2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetDivisionPushToR2Response" message="tns:IClearanceProject_GetDivisionPushToR2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelPushToR2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetLabelPushToR2" message="tns:IClearanceProject_GetLabelPushToR2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetLabelPushToR2Response" message="tns:IClearanceProject_GetLabelPushToR2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveR2ProjectIdLinking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SaveR2ProjectIdLinking" message="tns:IClearanceProject_SaveR2ProjectIdLinking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SaveR2ProjectIdLinkingResponse" message="tns:IClearanceProject_SaveR2ProjectIdLinking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteSearch" message="tns:IClearanceProject_AutoCompleteSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteSearchResponse" message="tns:IClearanceProject_AutoCompleteSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseResourceToPushToR2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SaveReleaseResourceToPushToR2" message="tns:IClearanceProject_SaveReleaseResourceToPushToR2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SaveReleaseResourceToPushToR2Response" message="tns:IClearanceProject_SaveReleaseResourceToPushToR2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceRoutingAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceRoutingAction" message="tns:IClearanceProject_ClearanceRoutingAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/ClearanceRoutingActionResponse" message="tns:IClearanceProject_ClearanceRoutingAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSafeCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetSafeCountries" message="tns:IClearanceProject_GetSafeCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetSafeCountriesResponse" message="tns:IClearanceProject_GetSafeCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestorCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestorCompany" message="tns:IClearanceProject_GetRequestorCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestorCompanyResponse" message="tns:IClearanceProject_GetRequestorCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestSummaryRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestSummaryRequests" message="tns:IClearanceProject_GetRequestSummaryRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestSummaryRequestsResponse" message="tns:IClearanceProject_GetRequestSummaryRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutingDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRoutingDetails" message="tns:IClearanceProject_GetRoutingDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRoutingDetailsResponse" message="tns:IClearanceProject_GetRoutingDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/Search" message="tns:IClearanceProject_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchResponse" message="tns:IClearanceProject_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/CreateProject" message="tns:IClearanceProject_CreateProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/CreateProjectResponse" message="tns:IClearanceProject_CreateProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectInfo_RequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectInfo_RequestType" message="tns:IClearanceProject_GetRegularProjectInfo_RequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectInfo_RequestTypeResponse" message="tns:IClearanceProject_GetRegularProjectInfo_RequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectReleases" message="tns:IClearanceProject_GetRegularProjectReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectReleasesResponse" message="tns:IClearanceProject_GetRegularProjectReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectResources" message="tns:IClearanceProject_GetRegularProjectResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRegularProjectResourcesResponse" message="tns:IClearanceProject_GetRegularProjectResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectToAllocateUPC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectToAllocateUPC" message="tns:IClearanceProject_SearchProjectToAllocateUPC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectToAllocateUPCResponse" message="tns:IClearanceProject_SearchProjectToAllocateUPC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchClearanceUnlockedProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchClearanceUnlockedProjects" message="tns:IClearanceProject_SearchClearanceUnlockedProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchClearanceUnlockedProjectsResponse" message="tns:IClearanceProject_SearchClearanceUnlockedProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectLockingStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/UpdateProjectLockingStatus" message="tns:IClearanceProject_UpdateProjectLockingStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/UpdateProjectLockingStatusResponse" message="tns:IClearanceProject_UpdateProjectLockingStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsProjectUnlocked">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/IsProjectUnlocked" message="tns:IClearanceProject_IsProjectUnlocked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/IsProjectUnlockedResponse" message="tns:IClearanceProject_IsProjectUnlocked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsProjectUnlockedByAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/IsProjectUnlockedByAdmin" message="tns:IClearanceProject_IsProjectUnlockedByAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/IsProjectUnlockedByAdminResponse" message="tns:IClearanceProject_IsProjectUnlockedByAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SendEmail" message="tns:IClearanceProject_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SendEmailResponse" message="tns:IClearanceProject_SendEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizationsForR2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetAuthorizationsForR2" message="tns:IClearanceProject_GetAuthorizationsForR2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetAuthorizationsForR2Response" message="tns:IClearanceProject_GetAuthorizationsForR2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetDivisions" message="tns:IClearanceProject_GetDivisions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetDivisionsResponse" message="tns:IClearanceProject_GetDivisions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetLabels" message="tns:IClearanceProject_GetLabels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetLabelsResponse" message="tns:IClearanceProject_GetLabels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestType" message="tns:IClearanceProject_GetRequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRequestTypeResponse" message="tns:IClearanceProject_GetRequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRCCHandlerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetRCCHandlerList" message="tns:IClearanceProject_GetRCCHandlerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetRCCHandlerListResponse" message="tns:IClearanceProject_GetRCCHandlerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueueEmailFailedReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/QueueEmailFailedReleases" message="tns:IClearanceProject_QueueEmailFailedReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/QueueEmailFailedReleasesResponse" message="tns:IClearanceProject_QueueEmailFailedReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueueEmailFailedResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/QueueEmailFailedResources" message="tns:IClearanceProject_QueueEmailFailedResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/QueueEmailFailedResourcesResponse" message="tns:IClearanceProject_QueueEmailFailedResources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteRegularProjectNewReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/CompleteRegularProjectNewReleases" message="tns:IClearanceProject_CompleteRegularProjectNewReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/CompleteRegularProjectNewReleasesResponse" message="tns:IClearanceProject_CompleteRegularProjectNewReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectForEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectForEmail" message="tns:IClearanceProject_SearchProjectForEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/SearchProjectForEmailResponse" message="tns:IClearanceProject_SearchProjectForEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasSpecialPermission">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/HasSpecialPermission" message="tns:IClearanceProject_HasSpecialPermission_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/HasSpecialPermissionResponse" message="tns:IClearanceProject_HasSpecialPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyListFromANA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetCompanyListFromANA" message="tns:IClearanceProject_GetCompanyListFromANA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetCompanyListFromANAResponse" message="tns:IClearanceProject_GetCompanyListFromANA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteCreateSearchProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteCreateSearchProject" message="tns:IClearanceProject_AutoCompleteCreateSearchProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteCreateSearchProjectResponse" message="tns:IClearanceProject_AutoCompleteCreateSearchProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryIdRequestorCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/GetTerritoryIdRequestorCompany" message="tns:IClearanceProject_GetTerritoryIdRequestorCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/GetTerritoryIdRequestorCompanyResponse" message="tns:IClearanceProject_GetTerritoryIdRequestorCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteSearchLabels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteSearchLabels" message="tns:IClearanceProject_AutoCompleteSearchLabels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProject/AutoCompleteSearchLabelsResponse" message="tns:IClearanceProject_AutoCompleteSearchLabels_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IClearanceProjectDataProvider">
+    <wsdl:operation name="GetGCSProject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSProject" message="tns:IClearanceProjectDataProvider_GetGCSProject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSProjectResponse" message="tns:IClearanceProjectDataProvider_GetGCSProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSRelease" message="tns:IClearanceProjectDataProvider_GetGCSRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSReleaseResponse" message="tns:IClearanceProjectDataProvider_GetGCSRelease_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSResource" message="tns:IClearanceProjectDataProvider_GetGCSResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/GetGCSResourceResponse" message="tns:IClearanceProjectDataProvider_GetGCSResource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceNotify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/ClearanceNotify" message="tns:IClearanceProjectDataProvider_ClearanceNotify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceProjectDataProvider/ClearanceNotifyResponse" message="tns:IClearanceProjectDataProvider_ClearanceNotify_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClearanceProject" type="tns:IClearanceProject">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearanceProjectSearch">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/ClearanceProjectSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FillProjectSearchDropDown">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/FillProjectSearchDropDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterData">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchR2Resource">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchR2Resource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProjectDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SaveProjectDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRegularProjectDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SaveRegularProjectDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterProjectDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetMasterProjectDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCompany">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceProjectDropDownByUserList">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetClearanceProjectDropDownByUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceProjectInquirySearch">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/ClearanceProjectInquirySearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClearanceProjectRequestTypeDropDownByProjectType">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetClearanceProjectRequestTypeDropDownByProjectType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRequestType">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SaveRequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferUser">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/TransferUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FillWorkGroupUserDropDown">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/FillWorkGroupUserDropDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectForUserTransfer">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchProjectForUserTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkGroupDropdown">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetWorkGroupDropdown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFile">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/RemoveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadFile">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/ReadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReopenProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/ReopenProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRegularProjectDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusProjectUpdate">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/StatusProjectUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLabelNmForExistingRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/getLabelNmForExistingRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMusicClassTypeIdForExistingRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/getMusicClassTypeIdForExistingRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveReleaseProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/RemoveReleaseProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailId">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetEmailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompaniesPushToR2">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetCompaniesPushToR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisionPushToR2">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetDivisionPushToR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabelPushToR2">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetLabelPushToR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveR2ProjectIdLinking">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SaveR2ProjectIdLinking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteSearch">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/AutoCompleteSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseResourceToPushToR2">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SaveReleaseResourceToPushToR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceRoutingAction">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/ClearanceRoutingAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSafeCountries">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetSafeCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestorCompany">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRequestorCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestSummaryRequests">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRequestSummaryRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoutingDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRoutingDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/CreateProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectInfo_RequestType">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRegularProjectInfo_RequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectReleases">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRegularProjectReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegularProjectResources">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRegularProjectResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectToAllocateUPC">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchProjectToAllocateUPC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchClearanceUnlockedProjects">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchClearanceUnlockedProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectLockingStatus">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/UpdateProjectLockingStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsProjectUnlocked">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/IsProjectUnlocked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsProjectUnlockedByAdmin">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/IsProjectUnlockedByAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizationsForR2">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetAuthorizationsForR2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDivisions">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetDivisions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabels">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestType">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRCCHandlerList">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetRCCHandlerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueueEmailFailedReleases">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/QueueEmailFailedReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueueEmailFailedResources">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/QueueEmailFailedResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteRegularProjectNewReleases">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/CompleteRegularProjectNewReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProjectForEmail">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/SearchProjectForEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasSpecialPermission">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/HasSpecialPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyListFromANA">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetCompanyListFromANA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteCreateSearchProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/AutoCompleteCreateSearchProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryIdRequestorCompany">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/GetTerritoryIdRequestorCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoCompleteSearchLabels">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProject/AutoCompleteSearchLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IClearanceProjectDataProvider" type="tns:IClearanceProjectDataProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGCSProject">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProjectDataProvider/GetGCSProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProjectDataProvider/GetGCSRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGCSResource">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProjectDataProvider/GetGCSResource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearanceNotify">
+      <soap:operation soapAction="http://tempuri.org/IClearanceProjectDataProvider/ClearanceNotify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClearanceProject">
+    <wsdl:port name="BasicHttpBinding_IClearanceProject" binding="tns:BasicHttpBinding_IClearanceProject">
+      <soap:address location="http://localhost:7778/ClearanceProject/ClearanceProject.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IClearanceProjectDataProvider" binding="tns:BasicHttpBinding_IClearanceProjectDataProvider">
+      <soap:address location="http://localhost:7778/ClearanceProject/ClearanceProject.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

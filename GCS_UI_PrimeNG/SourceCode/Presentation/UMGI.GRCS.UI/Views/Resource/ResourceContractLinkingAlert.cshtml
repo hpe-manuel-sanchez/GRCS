@@ -1,0 +1,71 @@
+﻿@model UMGI.GRCS.UI.Models.RepertoireSearchModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+.linkContractResource
+{
+    color:Blue;
+    font-weight:bold;
+}
+</style>    
+</head>
+<body>
+    <div>
+        Below Resource(s) have already been Linked to contract <span class="linkContractResource">"Artist {or Contracting Party if no artists}-CAC"</span>
+    </div>
+    
+    <div id="alinLeft"><input type="submit" id="linkOk" value="Ok"/></div>
+    <div id="linkContractInfo" style="*margin-right:15px; padding-left:15px; padding-right:15px;padding-top:15px; background-color:#ccc;*padding:0;">
+                            <table class="sample">
+                                <thead>
+                                    <tr>
+                                        <th style="width:16%;">
+                                            ISRC
+                                        </th>
+                                        <th style="width:16%;">
+                                            Title
+                                        </th>
+                                        <th style="width:12%;">
+                                            Version Title
+                                        </th>
+                                        <th style="width:12%;">
+                                            Artist
+                                        </th>
+                                        <th style="width:16%;">
+                                           UserName
+                                        </th>                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int index = 0; index < Model.ObjResourceModel.SearchResults.Count(); index++)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(model => model.ObjResourceModel.SearchResults[index].Isrc)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.ObjResourceModel.SearchResults[index].ResourceTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.ObjResourceModel.SearchResults[index].VersionTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.ObjResourceModel.SearchResults[index].ArtistName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.ObjResourceModel.SearchResults[index].UserName)
+                                            </td>
+                                           
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+</body>
+</html>

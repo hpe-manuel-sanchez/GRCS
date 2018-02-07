@@ -1,0 +1,80 @@
+﻿@model UMGI.GRCS.UI.Models.ContractTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<div class="searchParentContracthead">
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/SearchParentContract.min.css")"  rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SearchParentContract.js")" type="text/javascript"></script>
+    <div id="splitWarning">
+        <div class="warningContainer">
+            <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+        </div>
+        <div id="SplitAlert"></div>
+    </div>
+    <div class="searchParentContractInnerDiv">
+        <div class="accbg">
+            <div class="leftMainDiv">
+                <div class="leftLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ContractingParty):
+                </div>
+                <div class="leftFieldDiv">
+                    @Html.Editor("inpContractingParty", Model.Contract.ContractingParty)
+                    @Html.ValidationMessageFor(model => model.Contract.ContractingParty)
+                </div>
+            </div>
+            <div class="rightMainDiv">
+                <div class="rightLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ArtistName):
+                </div>
+                <div class="rightFieldDiv">
+                    @Html.Editor("inpArtistName", Model.Contract.ArtistName)
+                    @Html.ValidationMessageFor(model => model.Contract.ArtistName)
+                </div>
+            </div>
+            <div class="leftMainDiv">
+                <div class="leftLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.LocalContractRefNumber):
+                </div>
+                <div class="leftFieldDiv">
+                    @Html.Editor("inpLocalContractRefNumber", Model.Contract.LocalContractRefNumber)
+                    @Html.ValidationMessageFor(model => model.Contract.LocalContractRefNumber)
+                </div>
+            </div>
+            <div class="rightMainDiv">
+                <div class="rightLabelDiv allignLabel">
+                    @Html.LabelFor(model => model.Contract.ContractId):
+                </div>
+                <div class="rightFieldDiv">
+                    @Html.Editor("inpContractId", Model.Contract.ContractId)
+                    @Html.ValidationMessageFor(model => model.Contract.ContractId)
+                </div>
+            </div>
+            <br class="clear" />
+        </div>
+        @*<span id="hiddenValidation">Please specify at least one search criteria</span>*@
+        <!-- end of accbg -->
+        <div class="searchParentPopUpBtnContainer">
+            <input id="searchParentContract" type="submit" class="primbutton" value="@ContractResource.SearchButton" onclick="loadTable();" />
+            <input id="resetButton" class="secbutton btnSpacing" type="submit" value="@ContractResource.ResetButton" runat="server" />
+        </div>
+    </div>
+</div>
+<div class="clear">
+    <div id="totalContracts" class="alignLeft" style="font-weight: bold; color: #143489">
+        Search Result (0) <span class="ui-jtable-loading alignLeft" style="display: none"></span>
+    </div>
+    <div id="ContractPaging" class="alignRight searchParentPopUpDropDown displayNone">
+        <div id="searchParentcontractList">
+        </div>
+        @ContractResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ItemsPerPage, new SelectList(Model.ItemsPerPage, "value", "text", Model.ItemsPerPage))
+        @ContractResource.itemsperpage
+    </div>
+</div>
+<div id="searchResult" class="popupTable clear searchResultContainer" style="height: 400px; position: relative;">
+</div>
+<style type="text/css">
+    #parentContractPopup {
+        height: 450px;
+    }
+</style>

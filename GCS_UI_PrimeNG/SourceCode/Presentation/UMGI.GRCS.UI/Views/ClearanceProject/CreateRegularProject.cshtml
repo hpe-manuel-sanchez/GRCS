@@ -1,0 +1,105 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    if (Model.ReadOnlyMode == 1)
+    {
+        ViewBag.Title = Model.RegularProjectDetails.ProjectReferenceId;
+        Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    <script type="text/javascript">
+        $("#myjquerymenu").hide();
+        $("#lnkUserPreferencesMenu").hide();
+        $("#lblMenuUserPreference").hide();
+        $("#MimicUserExitListItem").hide();
+    </script>
+    }
+    else
+    {
+        if (Model.RegularProjectDetails.ClrProjectId > 0)
+        {
+            ViewBag.Title = "Regular/Non Traditional Project";
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        }
+        else if (@ViewBag.Title != null || @ViewBag.Title == "Create New Regular/Non Traditional Project")
+        {
+            ViewBag.Title = @ViewBag.Title;
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        }
+        else
+        {
+            ViewBag.Title = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_RegularProjectTitle + " " + @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.Js_ProjectTitle;
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        }
+        if (Model.isInMaintainMode == 1)
+        {
+            ViewBag.Title = Model.RegularProjectDetails.ProjectReferenceId;
+            Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    <script type="text/javascript">
+        $("#myjquerymenu").hide();
+        $("#lnkUserPreferencesMenu").hide();
+        $("#lblMenuUserPreference").hide();
+        $("#MimicUserExitListItem").hide();
+    </script>
+        }
+
+    }
+
+}
+
+@section scripts
+{
+    <script src="@Url.Content("/GCS/Scripts/Custom/CreateRegularProject.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/ManageTerritoryExtn.js")" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var PushToR2NewReleaseExist = "";
+        PushToR2NewReleaseExist = '@ViewBag.PushToR2NewReleaseExist';
+        var projectStatus = '@ViewBag.ProjectStatus';
+        var RCCAdminAllocateUPC = '@ViewBag.RCCAllocateUpc';
+        var btnUPCAllocate = false;
+        // *** fucntion used for showing buttons based on project status***//
+        setBottomsButtonVisibilty(projectStatus, btnUPCAllocate, PushToR2NewReleaseExist,RCCAdminAllocateUPC);
+
+        // *** fucntion used for showing buttons based on project status***//
+
+    });
+    var RegularControlsList = @Html.Raw(Json.Encode(ViewBag.ControlsRegularList)); //For UC-011A
+    var ResubmissionTooltipMsg='@ClearanceLayout.ResubmissionTooltipMsg'; //For UC-011A
+    var ResubmissionFieldsEditMsg='@ClearanceLayout.ResubmissionFieldsEditMsg';//For UC-011A
+    var ResubmissionResourceEditmsg='@ClearanceLayout.ResubmissionResourceEditmsg';//For UC-011A
+    var ResubmissionCancelledResourceEditmsg='@ClearanceLayout.ResubmissionCancelledResourceEditmsg';//For UC-011A
+    var ResubmissionSalesChannelsEditmsg='@ClearanceLayout.ResubmissionSalesChannelsEditmsg';//For UC-011A
+    var ResubmissionConfigurationEditmsg='@ClearanceLayout.ResubmissionConfigurationEditmsg';//For UC-011A
+    var ResubmissionNewResourceReleaseAddMsg='@ClearanceLayout.ResubmissionNewResourceReleaseAddMsg';//For UC-011A
+    var ResubmissionProjectLevelMsg='@ClearanceLayout.ResubmissionProjectLevelMsg';//For UC-011A
+    var ResubmissionResourceOtherFieldEditmsg='@ClearanceLayout.ResubmissionResourceOtherFieldEditmsg';//For UC-011A
+    var ResubmissionPackageRemovalMsg='@ClearanceLayout.ResubmissionPackageRemovalMsg';//For UC-011A
+</script>
+
+@using (Html.BeginForm("RegularProjectPostBacks", "ClearanceProject", FormMethod.Post, new { Id = "CreateRegularProjectForm", encType = "multipart/form-data" }))
+{
+    <div id="divPartialUpdate">
+        @Html.Partial("CreateRegularProjectPartialView", Model)
+    </div>
+}
+
+@section BottomInputs{
+    @if (Model.ReadOnlyMode != 1)
+    {
+        <input type="submit" class="primbutton" style="display: none" id="btnSave" name="command" value = @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSaveButton />
+        <input type="submit" class="primbutton" style="display: none" id="btnSubmit" name="command" value = @UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.MasterProjectInfoSubmitButton />
+        <input type="submit" class="secbutton" style="display: none" id="btnCancelProject" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.CancelButton />
+        <input type="submit" class="secbutton" style="display: none" id="btnComplete" name="command" value="Complete" />
+        <input type="submit" class="secbutton" style="display: none" id="btnReinstate" name="command" value=@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ReInstateProjectButton />
+        <input type="submit" class="secbutton" style="display: none" id="btnReOpen" name="command" value="ReOpen" />
+        <input type="submit" class="secbutton" style="display: none" id="btnSaveResubmit" name="command" value="Save" />
+        <input type="submit" class="secbutton" style="display: none" id="btnAllocateUPC" value="Allocate UPC" />
+        <input type="button" class="secbutton" style="display: none" id="btnPushToR2" name="command" value="Push To R2" />
+
+    }
+    @if (Model.ReadOnlyMode == 1 && Model.roleGroupName == UMGI.GRCS.BusinessEntities.Lookups.RoleGroup.RCCAdmin)
+    {
+        <input type="submit" class="secbutton" style="display: none" id="btnAllocateUPC" value="Allocate UPC" />
+    }
+}

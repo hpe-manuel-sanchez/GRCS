@@ -1,0 +1,532 @@
+﻿@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities
+
+@model ClearanceProjectModel
+@{
+    var a = ViewBag.id;
+    ViewBag.Title = "Release";
+    Layout = "";
+}
+ @using (Html.BeginForm("SaveExistingRelease", "ClearanceProject", FormMethod.Post))
+ {
+<table style="width: 100%;">
+    @if (Model.ObjRelease != null && Model.ObjRelease.Count > 0)
+    {
+
+        for (int i = 0; i < Model.ObjRelease.Count; i++)
+        {
+
+            if (Convert.ToString(a) == Model.ObjRelease[i].UpcNumber)
+            {   
+
+        <tr>
+            <td>
+                <table style="width: 100%; border: no;">
+                    <tr>
+                        <td align="right">
+                            <b>Label:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].Label)@Html.HiddenFor(model => model.ObjRelease[i].Label)
+                        </td>
+                        <td align="right">
+                            <b>Sound Track:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].SoundTrack)@Html.HiddenFor(model => model.ObjRelease[i].SoundTrack)
+                        </td>
+                        <td align="right">
+                            <b>Package:</b>
+                        </td>
+                        <td align="left" width="20px">@Html.DisplayFor(model => model.ObjRelease[i].Package)@Html.HiddenFor(model => model.ObjRelease[i].Package)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Configuration:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].Configuration_Id)@Html.HiddenFor(model => model.ObjRelease[i].Configuration_Id)
+                        </td>
+                        <td align="right">
+                            <b>Number Of Tracks:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].NumberOfTracks)@Html.HiddenFor(model => model.ObjRelease[i].NumberOfTracks)
+                        </td>
+                        <td align="right">
+                            @if (@Model.ObjRelease[i].Package == true)
+                            {
+                                <b>Number Of Components:</b>
+                            }
+                        </td>
+                        <td align="left">
+                            @if (@Model.ObjRelease[i].Package == true)
+                            {
+                                @Html.DisplayFor(model => model.ObjRelease[i].NumberOfComponents)@Html.ActionLink("(View)", "", "")@Html.HiddenFor(model => model.ObjRelease[i].NumberOfComponents)
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Music Type:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].MusicType)@Html.HiddenFor(model => model.ObjRelease[i].MusicType)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td align="left" colspan="3">@Html.TextAreaFor(model => model.ObjRelease[i].Comments)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>Regular Detail</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Price Level:</b>
+                        </td>
+                        <td align="left">
+                            @Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropPriceLevel, "Id", "Description"), "-Select-", new { @class = "Top" })
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">
+                            @Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLALevel_Regular)@Html.HiddenFor(model => model.ObjRelease[i].ICLALevel_Regular)
+                        </td>
+                        <td align="left" colspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].Comments_SalesChannel_Regular)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>TV/Radio Break ICLA</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Price Level:</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropPriceLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLALevel_TV)@Html.HiddenFor(model => model.ObjRelease[i].ICLALevel_TV)
+                        </td>
+                        <td align="left" colspan="2" rowspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].Comments_SalesChannel_TV)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Exact PPD:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].ExactPPD)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Estimated Retail:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].EstimatedRetail)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>Price Reduction</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Price Level:</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropPriceLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLALevel_Price)@Html.HiddenFor(model => model.ObjRelease[i].ICLALevel_Price)
+                        </td>
+                        <td align="left" colspan="2" rowspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].ICLALevel_Price)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>Club</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Price Level:</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropPriceLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLALevel_Club)@Html.HiddenFor(model => model.ObjRelease[i].ICLALevel_Club)
+                        </td>
+                        <td align="left" colspan="2" rowspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].Comments_SalesChannel_Club)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>Promotional</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Price Level:</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropPriceLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLALevel_Promotional)@Html.HiddenFor(model => model.ObjRelease[i].ICLALevel_Promotional)
+                        </td>
+                        <td align="left" colspan="2" rowspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].Comments_SalesChannel_Promotional)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>Non Traditional</b>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <b>@Html.CheckBoxFor(model => model.ObjRelease[i].ICLA_Non) ICLA </b>
+                        </td>
+                        <td align="left">
+                            <b>@Html.CheckBoxFor(model => model.ObjRelease[i].SuggestedFee_Non) Suggested Fee </b>
+                        </td>
+                        <td>
+                            <b>@Html.CheckBox("chkDeviatedICLA")Deviated ICLA Level</b>
+                        </td>
+                        <td align="left">@Html.DropDownListFor(model => model.ObjRelease[i].DropDownStatus, new SelectList(Model.dropDeviatedIclaLevel, "Id", "Description"), "-Select-")
+                        </td>
+                        <td align="right">
+                            <b>Resource Fee:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].ResourceFee)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>ICLA Level:</b>
+                        </td>
+                        <td align="left">@Html.DisplayFor(model => model.ObjRelease[i].ICLA_Non)@Html.HiddenFor(model => model.ObjRelease[i].ICLA_Non)
+                        </td>
+                        <td align="left" colspan="2" rowspan="2">@Html.TextAreaFor(model => model.ObjRelease[i].Comments_SalesChannel_Non)
+                        </td>
+                        <td align="right">
+                            <b>Deemed PPD:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].DeemedPPD)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Invoice Price:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].InvoicePrice)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Selling Price Less VAT:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].SellingPriceLesVAT)
+                        </td>
+                        <td align="right">
+                            <b>ICLA Accounting Base:</b>
+                        </td>
+                        <td align="left">@Html.TextBoxFor(model => model.ObjRelease[i].ICLAAccountingBase)
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td align="left">
+                                        <b>Sequence</b>
+                                    </td>
+                                    <td align="left">
+                                        <b>Resource Title</b>
+                                    </td>
+                                    <td align="left">
+                                        <b>Version Title</b>
+                                    </td>
+                                    <td align="left">
+                                        <b>Artist Name</b>
+                                    </td>
+                                    <td align="left">
+                                        <b>Duration</b>
+                                    </td>
+                                    <td align="left">
+                                        <b>ISRC</b>
+                                    </td>
+                                </tr>
+                                @if (Model.ObjResource != null && Model.ObjResource.Count > 0)
+                                {
+
+                                    for (int j = 0; j < Model.ObjResource.Count; j++)
+                                    {
+                                        if (Convert.ToString(a) == Model.ObjResource[j].Source_Upc)
+                                        {
+                                            // highlight the row when Rights 
+                                    <tr style="@(Model.ObjResource[j].RightsType == "3" ? "Background-color:Yellow" : "")">
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].ClearanceResourceId)@Html.HiddenFor(model => model.ObjResource[j].ClearanceResourceId)
+                                        </td>
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].Title)@Html.HiddenFor(model => model.ObjResource[j].Title)
+                                        </td>
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].VersionTitle)@Html.HiddenFor(model => model.ObjResource[j].VersionTitle)
+                                        </td>
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].Info.FirstName)@Html.HiddenFor(model => model.ObjResource[j].Info.FirstName)
+                                        </td>
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].Duration)@Html.HiddenFor(model => model.ObjResource[j].Duration)
+                                        </td>
+                                        <td align="left">@Html.DisplayFor(model => model.ObjResource[j].Isrc)@Html.HiddenFor(model => model.ObjResource[j].Isrc)
+                                        </td>
+                                    </tr>
+                                        }
+
+                                    }
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>   
+            }
+        }
+    }
+</table>
+ }

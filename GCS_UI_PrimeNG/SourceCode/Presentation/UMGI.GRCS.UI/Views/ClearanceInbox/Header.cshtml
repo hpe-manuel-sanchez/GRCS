@@ -1,0 +1,89 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.BusinessEntities.Lookups
+@model UMGI.GRCS.UI.ViewModels.ClearanceInbox.InboxViewModel
+
+<div id="inboxHeaderScreen" class="dark-green-background">
+    <div id="inboxSearch">
+        <ul class="ulClass text-color-white">       
+            <li><span class="displayAsHyperlink text-color-white" onclick="showFilters();">Filters</span><span><span id="filters" class="filters-inactive"></span></span></li>
+            <li class="bar">|</li>
+            <li><input id="txtSearchText" type="text" name="txtSearchText" class="inbox-input"/></li>
+             @switch ((RoleGroup)ViewBag.RoleGroup)
+             {
+                 case RoleGroup.Reviewer:
+                     Dictionary<long, Dictionary<long, string>> userWorkgroups = ViewBag.UserWorkgroups;
+                     var workgroupUsers = new Dictionary<long, string>();
+                     var assignedToUsers = new List<KeyValuePair<long, string>>();
+                     foreach (var userWorkgroup in userWorkgroups)
+                     {
+                         assignedToUsers.AddRange(userWorkgroup.Value.ToList());
+                     }
+                    <li>
+                        <select id="ddlAssignedToUser" name="ddlAssignedToUser" class="input-select displayNone">                           
+                            @foreach (var user in assignedToUsers.Distinct().OrderBy(a=>a.Value))
+                            {
+                                <option value="@user.Key">@user.Value</option>
+                            }
+                        </select>
+                    </li>        
+                    break;
+             }
+
+            <li>
+                <select id="ddlSearchType" class="input-select" name="ddlSearchType" @(ViewBag.RoleGroup == RoleGroup.Reviewer ? string.Format("onchange=updateSearchCriteria('{0}');", ViewBag.RoleGroup) : string.Empty) >
+                     @{
+                         var searchType = Model.SearchCriteria.SearchType;
+
+                         foreach (var s in searchType)
+                         {
+                            <option value="@s.Value" @(s.Selected ? "selected" : "")>@s.Text</option>
+                         }
+                     }
+                 </select>
+            </li>       
+            <li><input type="button" value="Search" class="plbutton" onclick="getSearchResult();"/></li>
+            <li><input type="button" value="Clear" class="secbutton" onclick="clearSearchResult();"/></li>       
+             @switch ((RoleGroup)ViewBag.RoleGroup)
+             {
+                case RoleGroup.Reviewer:
+                case RoleGroup.RCCAdmin:
+                    
+                    <li><input type="button" value="New Folder" class="plbutton" onclick="manageFolder(null, null, null, FolderAction.Create);"/></li>
+                
+                break;
+             }
+        </ul>
+    </div>
+    <div id="popup" class="displayNone">
+        <div id="popup-filters-@ViewBag.RoleGroup" class="displayNone">
+            @{Html.RenderPartial("Filters");}
+        </div>
+        <div class="popup-inbox-manageFolder displayNone">  
+            <div class="manageFolder">
+                <div class="manageFolder-Message"><label id="lbl-folder-message" class="displayNone"></label></div>
+                <div class="manageFolder-Content">
+                    <div class="floatL padLeft"><label id="lbl-folder-name" class="displayNone"></label></div>
+                    <div class="floatL padLeft"><input id="txt-folder-name" type="text" class="displayNone"/></div>
+                    <div class="floatL padLeft"><input id="btn-folder-create" type="button" class="displayNone plbutton" value="Create"/></div>                
+                    <div class="floatL padLeft"><input id="btn-folder-save" type="button" class="displayNone plbutton" value="Save"/></div>               
+                    <div class="floatL padLeft"><input id="btn-folder-cancel" type="button" class="displayNone plbutton" value="Cancel"/></div>                    
+                    <div class="clear"></div>
+                </div>
+                <div class="msg-folder-delete displayNone">               
+                    <div class="floatL">Delete - <span class="folderToDelete bold italic"></span> ? </div>
+                    <div class="floatL padLeft"><input type="button" class="btn-folder-delete plbutton" value="Delete"/></div>               
+                    <div class="floatL padLeft"><input type="button" class="btn-folder-delete-cancel plbutton" value="Cancel"/></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div id="popup-dragHelper" class="displayNone draggable">
+            <div class="floatL ptitle">Project Title</div><div id="projectTitle" class="floatL ptitlev"></div>       
+            <div class="clear"></div>        
+            <div class="floatL ptitle">Project Ref #</div><div id="projectReferenceNumber" class="floatL ptitlev"></div>        
+            <div class="clear"></div>        
+            <div class="floatL ptitle">Project Type</div><div id="projectType" class="floatL ptitlev"></div>        
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

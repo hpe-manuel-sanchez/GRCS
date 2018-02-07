@@ -1,0 +1,401 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.UI.Extensions
+<link href="@Url.Content("/GCS/Content/SubPages/Menu.css")"  rel="stylesheet" type="text/css" />
+
+<div class="gr_pageHeader">
+    @{
+        var layoutModel = new UMGI.GRCS.UI.Models.LayoutModel();
+    }
+    <div class="headerLayout">
+        <div id="title">
+            <div id="logo">
+                <span class="appVersion">@layoutModel.AppVersion</span>
+            </div>
+        </div>
+        <div class="nav menucolor">
+            <ul id="menu">
+                <li class="guestNameTxt">
+                    <!--img src="/GCS/Images/user.png" alt="GRS User"  class="userIcon"/-->
+                    <b style="vertical-align: bottom;">@layoutModel.UserName</b>
+                    <label class="menucolor" style="margin-right: 4px;">
+                        |</label>
+                </li>
+                <li>
+                    <ul id="navlist">
+                        <li id="active" style="text-align: left;"></li>
+                        <li id="helpInactive" class="helpNavMenu"><a href="#" class="menucolor helpSupportImg">
+                            &nbsp;</a>
+                            <ul id="subnavlist" class="subMenusNav">
+                                <li id="supportGRS">@Html.ActionLink(LayoutRes.support, "Support", "Home")</li>
+                                <li id="liHelp"><a href="/GCS/helpfiles/Con_Admin.htm">@LayoutRes.Help</a></li>
+                                <li id="aboutGRS">@Html.ActionLink(LayoutRes.aboutGRS, "About", "Home")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="pageMenu" style="clear: both; position: absolute; z-index: 0; z-index: -1;">
+        <ul id="jsddm">
+            <li id="homeMenu" class="homeMainMenu"><a href='@Url.Action("Index", "Home")' class="homeMainMenuInner">
+            <span class="homeMenuImg"></span></a>
+                <!-- img class="down" src="@Url.Content("/GCS/Images/Main-Menu_Arrow.png")" alt="Expand"/ -->
+            </a></li>
+            <li id="ContractAdministrationMenu"><a id="ContractAdministrationMenuActive">@LayoutRes.ContractAdministrationMenu
+            <span class="mainMenuDownArr"></span></a>
+                <ul class="nestedMenuHover">
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.SearchContract))
+                    {
+                        <li id="liSearchContract">@Html.ActionLink(LayoutRes.searchForContract, "SearchContract", "Contract")</li>
+                    }
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.CreateNCRContract))
+                    {
+                        <li id="liContractCreation">
+                            @Html.ActionLink(LayoutRes.createNewContract, "ContractCreation", "Contract")
+                        </li>
+                    }
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.CreateNCRContract))
+                    {
+                        <li><a id="ChooseTemplate" href="javascript:void(0);">@LayoutRes.CreateNewTemplateMenu</a>
+                        </li>                
+                    }
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.ContractMaintinanceWQ))
+                    {
+                        <li id="liContractMaintenanceWorkQ">@Html.ActionLink(LayoutRes.contractMaintenanceWorkQueue, "ContractMaintenanceWorkQueue", "Contract")
+                        </li>
+                    }
+                   @* @if (!ViewBag.isContractModuleOnly && PermissionExtension.HasAnyPermission(GrsTasks.LinkContract, GrsTasks.UnlinkContract))*@
+                    @if (!ViewBag.isContractModuleOnly && PermissionExtension.HasAnyPermission(GrsTasks.ContractLinkingWQ))
+                    {
+                        <li id="liContractLinkingWorkQ">@Html.ActionLink(LayoutRes.contractLinkingWorkQueue, "ContractLinkingWorkQueue", "WorkQueue")</li>
+                    }
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.EditNCRContract, GrsTasks.EditNCRAppContract))
+                    {
+                        <li id="liManageAddressBook">@Html.ActionLink(LayoutRes.manageAddressBook, "ManageAddressBook", "Contract")</li>
+                    }
+                    @if (PermissionExtension.HasAnyPermission(GrsTasks.ContractTemplateMaintinance, GrsTasks.DigitalRestrictionTemplate))
+                    {
+                        <li id="ManageTemplatesHeader"><a href="javascript:void(0);">@LayoutRes.ManageTemplatesHeader
+                         <span class="mainMenuRightArr"></span></a>
+                            <ul class="manageTemplatesMenu" style="top: 156px !important; left: 237px !important">
+                                <li class="manageTemplatesContractMenu">
+                                    @Html.ActionLink(LayoutRes.contractTemplates, "ContractTemplates", "Contract")
+                                </li>
+                                <li>@Html.ActionLink(LayoutRes.digitalRestrictionsTemplates, "DigitalRestrictionTemplates", "Contract")</li>
+                            </ul>
+                        </li> 
+                    }
+                </ul>
+            </li>
+            @if ((PermissionExtension.HasAnyPermission(GrsTasks.ViewRepertoireRights, GrsTasks.ViewSensitiveRightsData)))
+            {
+                <li id="RepertoireRightsSearchHeader"><a id="RepertoireRightsSearchHeaderMenu" href="javascript:void(0);">@LayoutRes.RepertoireRightsSearchHeader
+                 <span class="mainMenuDownArr"></span></a>
+                    @{
+                if (!ViewBag.isContractModuleOnly)
+                {
+                        <ul class="nestedMenuHover">
+                            <li><a href="javascript:void(0);">@LayoutRes.rights</a>
+                            <span class="mainMenuRightArr_L1"></span>
+
+                                <ul class="repertoireSearchMenu subMenuTopPos_L0">
+                                    <li><a href="javascript:void(0);">@LayoutRes.showResources</a>
+                                    <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L0">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "ResourcesBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "ResourcesReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0);">@LayoutRes.showTracks</a>
+                                    <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L1">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "TracksBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "TracksSearchReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0);">@LayoutRes.showResourcesTracks</a>
+                                     <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L2">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "ResourcesAndTracksBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "ResourcesAndTracksSearchReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>@Html.ActionLink(LayoutRes.showReleases, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "Releases" }, null)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);">@LayoutRes.rightsDigitalRestrictions</a>
+                           <span class="mainMenuRightArr_L1"></span>
+                                <ul class="repertoireSearchMenu subMenuTopPos_L1">
+                                    <li><a href="javascript:void(0);">@LayoutRes.showResources</a>
+                                     <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L0">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsResourcesBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsResourcesReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0);">@LayoutRes.showTracks</a>
+                                    <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L1">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsTracksBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsTracksSearchReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0);">@LayoutRes.showResourcesTracks</a>
+                                    <span class="mainMenuRightArr_L2"></span>
+                                        <ul class="subMenuTopPos_L2">
+                                            <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsResourcesAndTracksBasicSearch" }, null)
+                                            </li>
+                                            <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsResourcesAndTracksSearchReleaseParameters" }, null)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>@Html.ActionLink(LayoutRes.showReleases, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "DigitalRestrictionsReleases" }, null)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);">@LayoutRes.rightsSecondaryExploitation</a>
+                                <span class="mainMenuRightArr_L1"></span>
+                                <ul class="repertoireSearchMenu subMenuTopPos_L2">
+                                    <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "SecondaryExploitationBasicSearch" }, null)
+                                    </li>
+                                    <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "SecondaryExploitationReleaseParameters" }, null)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);">@LayoutRes.rightsPreCleared</a>
+                           <span class="mainMenuRightArr_L1"></span>
+                                <ul class="repertoireSearchMenu subMenuTopPos_L3">
+                                    <li>@Html.ActionLink(LayoutRes.basicSearch, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "PreClearedBasicSearch" }, null)
+                                    </li>
+                                    <li>@Html.ActionLink(LayoutRes.searchusingReleaseParameters, "RepertoireRightsSearch", "RepertoireRightsSearch", new { @pageName = "PreClearedReleaseParameters" }, null)
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                }
+                    }
+                </li>
+            }
+            @if (PermissionExtension.HasAnyPermission(GrsTasks.RightsReviewWQ))
+            {
+                <li id='workQueueMenu'><a id='workQueueMenuActive' href="javascript:void(0);">@LayoutRes.rightsAdministrationHeader
+                 <span class="mainMenuDownArr"></span></a>
+                    <ul class="nestedMenuHover">
+                        @{if (!ViewBag.isContractModuleOnly)
+                          {
+                            <li>@Html.ActionLink(LayoutRes.rightsReviewWorkQueue, "RightsReviewWorkqueue", "RightsReviewWorkqueue")</li>
+                          }
+                        }
+                    </ul>
+                </li>
+            }
+            @if (!ViewBag.isContractModuleOnly && (PermissionExtension.HasAnyPermission(GrsTasks.SystemAdministratorPermisson, GrsTasks.LocalAdminPermission)))
+            {
+                <li id="SystemAdminMenu"><a id="SystemAdmin" href="javascript:void(0);">@LayoutRes.SystemAdminMenu
+                                             <span class="mainMenuDownArr"></span></a>
+                    <ul class="nestedMenuHover">
+                            @if ((PermissionExtension.HasAnyPermission(GrsTasks.SystemAdministratorPermisson)))
+                             {
+                                 <li>@Html.ActionLink(LayoutRes.manageAutoLinking, "ManageAutoLinkingofRepertoire", "ManageAutoLinking")
+                                 </li>
+                             }
+                            <li>
+                                @Html.ActionLink(LayoutRes.manageRightsExpiry, "MaintainRightsExpiry", "RightsExpiryReportWindow")
+                            </li>
+                            <li>
+                                @Html.ActionLink(LayoutRes.maintainRightsData, "MaintainRightsDataReview", "RightsDataReview")
+                            </li>
+                            <li>
+                                @Html.ActionLink(LayoutRes.maintainWQRelease, "MaintainWorkQueueRelease", "WorkQueueComparisionParameter")
+                            </li>
+                            <li>
+                                @Html.ActionLink(LayoutRes.maintainRightsDefaults, "MaintainRightsRepertoire", "RightsDefaultRepertoire")
+                            </li>
+                    </ul>
+                </li>
+            }
+            @if (!ViewBag.isContractModuleOnly && (PermissionExtension.HasAnyPermission(new[] { GrsTasks.SearchContract, GrsTasks.ViewRepertoireRights })))
+            {
+                <li class="reportsMainMenu"><a class="reportsMainMenuInner" href="javascript:void(0);">@LayoutRes.ReportsHeader
+                     <span class="mainMenuDownArr"></span>
+                </a>
+                    <ul class="nestedMenuHover">
+                        @{
+                if ((PermissionExtension.HasAnyPermission(new[] { GrsTasks.SearchContract })))
+                {
+                            <li id="ContractReportHeader"><a href='@Url.Action("Index", "Home")'>@LayoutRes.ContractReport
+                                <img class="reportRightImageL1" src="@Url.Content("/GCS/Images/Main-Menu_Arrow-right.png")" alt="Expand"/>
+                            </a>
+                                <ul id="ContractReportMenuLinks">
+                                    <li>@Html.ActionLink(LayoutRes.ActiveRoster, "ActiveRoster", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.RightsExpiry, "RightsExpiry", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.RightsExpiryDetermined, "RightsExpiryToBeDetermined", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.ReleaseCommitment, "ReleaseCommitment", "Report")</li>
+                                </ul>
+                            </li>
+                }
+                if ((PermissionExtension.HasAnyPermission(new[] { GrsTasks.ViewRepertoireRights })))
+                {
+                            <li id="RepertoireReportHeader"><a href='@Url.Action("Index", "Home")'>@LayoutRes.RepertoireReport
+                                <img class="reportRightImageL2" src="@Url.Content("/GCS/Images/Main-Menu_Arrow-right.png")" alt="Expand"/>
+                            </a>
+                                <ul id="RepertoireReportMenuLinks">
+                                    <li>@Html.ActionLink(LayoutRes.RightsAquired, "RightsAcquired", "Report")</li>
+                                   <li>@Html.ActionLink(LayoutRes.SecondaryExploitationRights, "SecondaryExploitationRights", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.SecondaryExploitationSample, "SecondaryExploitationSample", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.PreclearedResources, "PreClearedResources", "Report")</li>
+                                </ul>
+                            </li>
+                }
+                if ((PermissionExtension.HasAnyPermission(new[] { GrsTasks.ViewRepertoireRights })))
+                {
+                            <li><a href='@Url.Action("Index", "Home")'>@LayoutRes.HouseKeepingReports
+                                <img class="reportRightImageL3" src="@Url.Content("/GCS/Images/Main-Menu_Arrow-right.png")" alt="Expand"/>
+                            </a>
+                                <ul id="HouseKeepingReportMenuLinks">
+                                    <li>@Html.ActionLink(LayoutRes.ResourceRightsDiscrepancy, "ResourceRightsDiscrepancies", "Report")</li>
+                                    <li>@Html.ActionLink(LayoutRes.RollUpStatus, "RollUpStatus", "Report")</li>
+                                </ul>
+                            </li>
+                          
+                }
+                        }
+                         <li>
+                                @Html.ActionLink(LayoutRes.LinkingProgressReport, "BackgroundDemo", "Home")
+                         </li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+    <div id="hrMenu">
+    </div>
+</div>
+<script type="text/javascript">
+    var objSupport = $('<div id="SupportGrs"></div>')
+        .html('<p>' + messageCommon.onLoading + '</p>')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: '',
+            show: 'clip',
+            hide: 'clip',
+            //            width: getPopupWidth(20, 420),
+            //            height: getPopupHeight(30, 275, 40),
+            width: 460,
+            height: 150,
+            // minHeight: 440,
+            // minWidth: 575,
+            //position: [getXPosition(30, 0), getYPosition(80, 40)],
+            resizable: false
+        });
+
+
+
+
+
+    $('#supportGRS').click(function (e) {
+        e.preventDefault();
+        objSupport.load('/GCS/Home/Support', "",
+                function (responseText, textStatus) {
+
+                    if (textStatus == 'error') {
+                        objSupport.html('<p>' + messageCommon.error + '</p>');
+                    }
+                });
+        objSupport.dialog('option', { title: 'Support Information' });
+        //Open Dialog
+        objSupport.dialog('open');
+    });
+
+
+
+
+    var objAbout = $('<div id="AboutGrs"></div>')
+        .html('<p>' + messageCommon.onLoading + '</p>')
+        .dialog({
+            autoOpen: false,
+            modal: true,
+            title: '',
+            show: 'clip',
+            hide: 'clip',
+            // width: getPopupWidth(20, 300),
+            width: 351,
+            height: 138,
+            //height: getPopupHeight(30, 300, 40),
+            // minHeight: 440,
+            // minWidth: 575,
+            //position: [getXPosition(30, 0), getYPosition(80, 40)],
+            resizable: false
+        });
+
+
+
+
+
+    $('#aboutGRS').click(function (e) {
+        e.preventDefault();
+        objAbout.load('/GCS/Home/About', "",
+                function (responseText, textStatus) {
+
+                    if (textStatus == 'error') {
+                        objAbout.html('<p>' + messageCommon.error + '</p>');
+                    }
+                });
+        objAbout.dialog('option', { title: 'About' });
+        //Open Dialog
+        objAbout.dialog('open');
+
+    });
+
+
+    var menuLength;
+
+    menuLength = $('li#ContractAdministrationMenu ul li').length - 2;
+    switch (menuLength) {
+        case 6:
+            $('ul.manageTemplatesMenu').attr('style', 'top:130px !important;left:237px !important');
+            break;
+        case 5:
+            $('ul.manageTemplatesMenu').attr('style', 'top:104px !important;left:237px !important');
+            break;
+        case 4:
+            $('ul.manageTemplatesMenu').attr('style', 'top:80px !important;left:237px !important');
+            break;
+        case 3:
+            $('ul.manageTemplatesMenu').attr('style', 'top:56px !important;left:237px !important');
+            break;
+    }
+
+    //Code for Report's sub menu header manipulations on runtime  
+    var contractMenu, repertoireMenu;
+    contractMenu = $('li#ContractReportHeader');
+    repertoireMenu = $('li#RepertoireReportHeader');
+    if ($('li.reportsMainMenu ul li').length == 8) //if the contract sub menu is not available
+    {
+        $('ul#ContractReportMenuLinks').attr('style', 'top: 0px !important; left: 167px !important');
+        $('ul#RepertoireReportMenuLinks').attr('style', 'top: 0px !important; left: 167px !important');
+        $('ul#HouseKeepingReportMenuLinks').attr('style', 'top: 26px !important; left: 167px !important');
+        $('img.reportRightImageL2').attr('style', 'border: medium none !important; left: 155px !important; top: 10px !important; position: absolute !important;');
+        $('img.reportRightImageL3').attr('style', 'border: medium none !important; left: 155px !important; top: 36px !important; position: absolute !important;');
+    } else {
+        $('ul#ContractReportMenuLinks').attr('style', 'top: 0px !important; left: 167px !important');
+        $('ul#RepertoireReportMenuLinks').attr('style', 'top: 26px !important; left: 167px !important');
+        $('ul#HouseKeepingReportMenuLinks').attr('style', 'top: 52px !important; left: 167px !important');
+        $('img.reportRightImageL2').attr('style', 'border: medium none !important; left: 155px !important; top: 36px !important; position: absolute !important;');
+        $('img.reportRightImageL3').attr('style', 'border: medium none !important; left: 155px !important; top: 62px !important; position: absolute !important;');
+    }
+</script>

@@ -1,0 +1,274 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceDigitalRightsReviewModel
+<link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var RestrictionConstants = {
+        NoChangeRequired:'@RepertoireSearch.NoChangeRequired',
+        NA:'@RepertoireSearch.NA',
+        HasDelete:'@ViewBag.HasDelete' ,       
+        RestrictionRemoveMessage:'@RepertoireSearch.RestrictionRemoveMessage',
+        RestrictionRemoveTitle:'@RepertoireSearch.RestrictionRemoveTitle', 
+    }
+</script>
+ <style type="text/css">
+
+#txtNotes
+{
+    width:115px !important;}
+    #DigitalRestriction_k__Notes
+    {
+     width:138px !important;}
+     
+      </style>
+
+<div style="width: 100%">
+   <div id="warningRestriction" style="width:100%; background-color:#fdf5b5;border-bottom:2px solid #fbe758; font-weight:bold;font-size:1em;display:none;height:25px;">
+            <div class="warningContainer">
+                 <span class="alertImage"></span>
+                <div id="AlertMsg">
+                </div>
+    </div>
+</div>
+    <div style="width: 100%; height: 35px; float: left; background-color: #f0f0f0;vertical-align:middle">    
+        <div style="width: 75%; float: left;vertical-align:middle;padding-top:8px;">
+        <div style="padding-left:20px;">
+           @{if (ViewBag.HasDelete == true){   
+             @RepertoireSearch.ReviewStatus  
+            @Html.DropDownList("ddlreviewStatus", Model.ReviewStatusDropDown, @RepertoireSearch.NoChangeRequired, new { @class = "reviewStatus" })
+            }}
+            </div>
+        </div>           
+        <div style="width: 25%; text-align: right; float: left;vertical-align:middle;padding-top:8px">
+        <div style="float:right;padding-right:20px;">                     
+        <div class="primbutton_left">
+            </div>            
+            <div class="alignLeft">
+                <input type="button" class="primbutton" id="btnApply" value="Apply Changes" />
+            </div>
+            <div class="primbutton_right btnSpaceLocal">
+            </div>
+            <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+                <input type="button" class="secbutton"  id="btnCancel" value="Cancel" /></div>
+            
+            <div class="secbutton_right">
+            </div>          
+            </div>
+           </div>
+    </div>
+    <div class="clearBoth">
+    </div>
+    <div id="digitalRestrictionBulkEditTab">
+        <div id="menuYellowTab">
+            <div class="alignLefte" style="padding-top:0 !important;">
+                <ul class="tabul" id="popUpTabs">
+                    <li><a href="#divChangeDRTab">Change Restrictions</a></li>
+                    <li><a href="#divAddDRTab">Add Restrictions</a></li>
+                    @{if (ViewBag.HasDelete == true){                      
+                        <li><a href="#divRemoveDRTab">Remove Restrictions</a></li>
+                        }}
+                </ul>
+            </div>
+        </div>
+        <div id="divChangeDRTab" class="" style="clear: both;">
+          <form id="formChangeDR" action="#">
+            <div style="width: 100%; height: 30px; text-align: right; background-color:#ffdc25; vertical-align:middle;padding-top:5px;"> 
+               <div style="padding-right:20px;padding-top:1px; float:right;">
+
+               <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+               <input type="reset" id="btnResetChangeDR" class="secbutton"  value="Reset Selection"  onclick="resetForm('formChangeDR');"  />  </div>
+            
+            <div class="secbutton_right">
+            </div>
+
+
+
+
+
+
+
+                 
+                 </div>
+            </div>
+            <div style="float:left;width:100%;">
+              <table class="sampleChange sample" id = "divDigitaladd" style="margin:5px; width:98.9% !important;" >
+                <thead>
+                    <tr>
+                        
+                        <th style="width: 10%;">
+                            @RepertoireSearch.UseType
+                        </th>
+                        <th style="width: 10%;">
+                            @RepertoireSearch.CommercialModels
+                        </th>
+                        <th style="width: 10%;">
+                            @RepertoireSearch.Restrictions
+                        </th>
+                         <th style="width: 10%;">
+                            @RepertoireSearch.RestrictionReason
+                        </th>
+                        <th style="width: 10%;">
+                            @RepertoireSearch.ConsentPeriod
+                        </th>
+                        <th style="">
+                            @RepertoireSearch.Notes
+                        </th>
+                      
+                    </tr>
+                </thead>
+                <tbody>                     
+                    <tr>
+                      <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.UseTypes, new SelectList(Model.DigitalRightsMasterData.UseTypes, "Key", "Value"), @RepertoireSearch.NoChangeRequired, new { @class = "UseTypes", @id = "ddlUserType" })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.CommercialModelTypes, new SelectList(Model.DigitalRightsMasterData.CommercialModelTypes, "Key", "Value"), @RepertoireSearch.NoChangeRequired, new { @class = "CommercialModelTypes", @id = "ddlCommercialModelTypes" })
+                         </td>
+                          <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.RestrictionTypes, new SelectList(Model.DigitalRightsMasterData.RestrictionTypes, "Key", "Value"), @RepertoireSearch.NoChangeRequired, new { @class = "RestrictionTypes", @id = "ddlRestrictionTypes" })
+                         </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.RestrictionReason, new SelectList(Model.DigitalRightsMasterData.RestrictionReason, "Key", "Value"), @RepertoireSearch.NoChangeRequired, new { @class = "RestrictionReason", @id = "ddlRestrictionReason" })
+                            @Html.TextBox("Restriction", "", new { @class = "txtRestrictionReason", @id = "txtRestrictionReason", style = "display:none" })
+                         </td>
+                        <td>
+                           @Html.DropDownListFor(x => x.DigitalRightsMasterData.ConsentPeriodTypes, new SelectList(Model.DigitalRightsMasterData.ConsentPeriodTypes, "Key", "Value"), @RepertoireSearch.NoChangeRequired, new { @class = "ConsentPeriodTypes", @id = "ddlConsentPeriodTypes" })
+                        </td>
+                        <td>@Html.TextBox("txtNotes",string.Empty, new { @class = "Notes", @id = "txtNotes" })</td>
+                     </tr>
+                </tbody>
+             </table>               
+             </div>
+           </form>
+        </div>
+         <div id="divAddDRTab" class="" style="clear: both;">
+           <form id="formAddDR" action="#">
+                <div class="Fullwidth" style="clear: both;">
+                    <div style="width: 100%; height: 30px; text-align: right; background-color:#ffdc25; vertical-align:middle;padding-top:5px;"> 
+                        <div style="padding-right:20px;padding-top:1px; float:right;">
+                        <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+               <input type="reset" id="btnResetAddDR" class="secbutton"  value="Reset Selection" onclick="resetForm('formAddDR');" />   </div>
+            
+            <div class="secbutton_right">
+            </div>
+
+
+                            
+                        </div>                        
+                    </div>
+                    <div id="divmiddeladdDR" >
+                       @{ Html.RenderPartial("DigitalRestrictionsAdd", Model);}
+                     </div>
+              <div style="float:left;padding-left:5px">
+            <table id="AddDigitalRestriction" style="display: none;margin:5px;">         
+                <tbody>
+                    <tr>
+                        
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].UseTypeId", new SelectList(Model.DigitalRightsMasterData.UseTypes, "Key", "Value"), String.Empty, new { @class = "UseTypes", @id = "ddlUserType" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].CommercialModelId", new SelectList(Model.DigitalRightsMasterData.CommercialModelTypes, "Key", "Value"), String.Empty, new { @class = "CommercialModelTypes", @id = "ddlCommercialModelTypes" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].RestrictionId", new SelectList(Model.DigitalRightsMasterData.RestrictionTypes, "Key", "Value"), String.Empty, new { @class = "RestrictionTypes", @id = "ddlRestrictionTypes" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].RestrictionReasionId", new SelectList(Model.DigitalRightsMasterData.RestrictionReason, "Key", "Value"), String.Empty, new { @class = "RestrictionReason", @id = "ddlRestrictionReason" })
+                            @Html.TextBox("Restriction", "", new { @class = "txtRestrictionReason", @id = "txtRestrictionReason", style = "display:none" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].ConsentPeriodId", new SelectList(Model.DigitalRightsMasterData.ConsentPeriodTypes, "Key", "Value"), String.Empty, new { @class = "ConsentPeriodTypes", @id = "ddlConsentPeriodTypes" })
+                        </td>
+                        <td>
+                            @Html.Editor("DigitalRestriction[k].Notes", new { @class = "Notes", @id = "txtNotes" })
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img class="deleteImage" alt="Delete" src="@Url.Content("/GCS/Images/delete.png")" /></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                 </div>
+            <div class="width97 hyperlink"  style="float:right;text-align:right;">
+                <div class="digitalButton hyperlink" style="text-align: right; float:right;margin-right:3px;">
+                    <a id="btnAddDigitalTemplateMtn" href="" style="float:right;" class="search-button"><span class="DRplusImage" title="Add"></span>@ContractResource.AddRestrictionLink</a>
+                </div>
+           
+            </div>
+             </div>
+           </form>
+        </div>
+        @*Remove Restriction*@
+           @{if (ViewBag.HasDelete == true){    
+              <div id="divRemoveDRTab" class="" style="clear: both;">
+          <form id="fromRemoveDR">
+             <div style="width: 100%; height: 30px; text-align: right; background-color:#ffdc25; vertical-align:middle;padding-top:5px;"> 
+               <div style="padding-right:20px;padding-top:1px; float:right;">
+
+               <div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+               <input type="reset" id="btnResetRemoveDR" class="secbutton"  value="Reset Selection" onclick="resetForm('fromRemoveDR');" />    </div>
+            
+            <div class="secbutton_right">
+            </div>
+                    
+                    </div>
+             </div>
+               <div style="float:left;width:100%;">
+             <table class="sampleRemove sample" id = "divDigitalRemove" style="margin:5px; width:98.9% !important;">
+                <thead>
+                    <tr>
+                        
+                        <th style="width: 15%;">
+                            @RepertoireSearch.UseType
+                        </th>
+                        <th style="width: 15%;">
+                            @RepertoireSearch.CommercialModels
+                        </th>
+                        <th style="width: 15%;">
+                            @RepertoireSearch.Restrictions
+                        </th>                         
+                        <th style="width: 20%;">
+                            @RepertoireSearch.ConsentPeriod
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>                    
+                       @* <td>@Html.DropDownList("ddlUserType", Model.UseTypes, new { @class = "UseTypes" }) </td>*@
+                        <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.UseTypes, new SelectList(Model.DigitalRightsMasterData.UseTypes, "Key", "Value"), @RepertoireSearch.NA, new { @class = "UseTypes", @id = "ddlUserType" })
+                        </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.CommercialModelTypes, new SelectList(Model.DigitalRightsMasterData.CommercialModelTypes, "Key", "Value"), @RepertoireSearch.NA, new { @class = "CommercialModelTypes", @id = "ddlCommercialModelTypes" })
+                         </td>
+                        <td>
+                            @Html.DropDownListFor(x => x.DigitalRightsMasterData.RestrictionReason, new SelectList(Model.DigitalRightsMasterData.RestrictionTypes, "Key", "Value"), @RepertoireSearch.NA, new { @class = "RestrictionTypes", @id = "ddlRestrictionTypes" })
+                         </td>
+                        <td>
+                           @Html.DropDownListFor(x => x.DigitalRightsMasterData.ConsentPeriodTypes, new SelectList(Model.DigitalRightsMasterData.ConsentPeriodTypes, "Key", "Value"), @RepertoireSearch.NA, new { @class = "ConsentPeriodTypes", @id = "ddlConsentPeriodTypes" })
+                        </td>
+                         
+                     </tr>
+                </tbody>
+             </table>   
+             </div>
+             </form>
+        </div>
+             }}
+    </div>
+</div>
+   
+        <input type="hidden" id="hdnResourceDRView"   @(ViewBag.HasDelete ? "value='checkboxDigitalchild'" : "value='checkboxReleaseDigitalchild'") />
+  
+      
+      <script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/DigitalRestrictionsBulkEdit.js")" type="text/javascript"></script>

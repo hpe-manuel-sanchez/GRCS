@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Collections.Generic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfKeyValuePairOflongstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOflongstring" type="tns:KeyValuePairOflongstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValuePairOflongstring" nillable="true" type="tns:ArrayOfKeyValuePairOflongstring" />
+  <xs:complexType name="KeyValuePairOflongstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="xs:long" />
+      <xs:element name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValuePairOflongstring" nillable="true" type="tns:KeyValuePairOflongstring" />
+  <xs:complexType name="ArrayOfKeyValuePairOflonglong">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOflonglong" type="tns:KeyValuePairOflonglong" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValuePairOflonglong" nillable="true" type="tns:ArrayOfKeyValuePairOflonglong" />
+  <xs:complexType name="KeyValuePairOflonglong">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="xs:long" />
+      <xs:element name="value" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValuePairOflonglong" nillable="true" type="tns:KeyValuePairOflonglong" />
+  <xs:complexType name="ArrayOfKeyValuePairOfintstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfintstring" type="tns:KeyValuePairOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValuePairOfintstring" nillable="true" type="tns:ArrayOfKeyValuePairOfintstring" />
+  <xs:complexType name="KeyValuePairOfintstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="xs:int" />
+      <xs:element name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValuePairOfintstring" nillable="true" type="tns:KeyValuePairOfintstring" />
+</xs:schema>

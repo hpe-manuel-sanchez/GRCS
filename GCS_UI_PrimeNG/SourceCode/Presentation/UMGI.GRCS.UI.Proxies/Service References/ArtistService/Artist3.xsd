@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:1234/Artist/Artist.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="NotificationMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NotificationType" type="tns:NotificationType" />
+          <xs:element minOccurs="0" name="NotificationXml" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReceivedTimeStamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UniqueId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NotificationMessage" nillable="true" type="tns:NotificationMessage" />
+  <xs:simpleType name="NotificationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Invalid" />
+      <xs:enumeration value="R2Project" />
+      <xs:enumeration value="R2Release" />
+      <xs:enumeration value="R2ReleaseLocal" />
+      <xs:enumeration value="R2Resource" />
+      <xs:enumeration value="R2ResourceLocal" />
+      <xs:enumeration value="R2PcNoticeCompany" />
+      <xs:enumeration value="Gta" />
+      <xs:enumeration value="R2Artist" />
+      <xs:enumeration value="Cprs" />
+      <xs:enumeration value="Gdrs" />
+      <xs:enumeration value="MediaPortal" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationType" nillable="true" type="tns:NotificationType" />
+  <xs:complexType name="ArtistRights">
+    <xs:sequence>
+      <xs:element name="contractsField" nillable="true" type="tns:ArrayOfArtistRightsContract" />
+      <xs:element name="countryCodeGroupsField" nillable="true" type="tns:ArrayOfCountryGroupType" />
+      <xs:element name="createdTimeField" type="xs:dateTime" />
+      <xs:element name="digRestrictionsField" nillable="true" type="tns:ArrayOfDigRestrictionType" />
+      <xs:element name="rightsAcquisitionsField" nillable="true" type="tns:ArtistRightsRightsAcquisitions" />
+      <xs:element name="rightsExpirationField" nillable="true" type="tns:ArrayOfLostRightsType" />
+      <xs:element name="rightsRemovedField" type="xs:boolean" />
+      <xs:element name="rightsRemovedFieldSpecified" type="xs:boolean" />
+      <xs:element name="secExploitRestrictionsField" nillable="true" type="tns:ArrayOfSecExploitRestrictionsType" />
+      <xs:element name="talentNameIdField" type="xs:long" />
+      <xs:element name="talentNameIdFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistRights" nillable="true" type="tns:ArtistRights" />
+  <xs:complexType name="ArrayOfArtistRightsContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArtistRightsContract" nillable="true" type="tns:ArtistRightsContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtistRightsContract" nillable="true" type="tns:ArrayOfArtistRightsContract" />
+  <xs:complexType name="ArtistRightsContract">
+    <xs:sequence>
+      <xs:element name="contractDefinitionField" nillable="true" type="tns:ContractDefinitionType" />
+      <xs:element name="contractTermField" nillable="true" type="tns:ContractTermType" />
+      <xs:element name="contractingPartiesField" nillable="true" type="tns:ContractingPartiesType" />
+      <xs:element name="repertoireDefaultsField" nillable="true" type="tns:RepertoireDefaultsType" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistRightsContract" nillable="true" type="tns:ArtistRightsContract" />
+  <xs:complexType name="ContractDefinitionType">
+    <xs:sequence>
+      <xs:element name="contractLocRefNoField" nillable="true" type="xs:string" />
+      <xs:element name="contractStatusField" nillable="true" type="xs:string" />
+      <xs:element name="contractWFStatusField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractDefinitionType" nillable="true" type="tns:ContractDefinitionType" />
+  <xs:complexType name="ContractTermType">
+    <xs:sequence>
+      <xs:element name="contractStartDateField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractTermType" nillable="true" type="tns:ContractTermType" />
+  <xs:complexType name="ContractingPartiesType">
+    <xs:sequence>
+      <xs:element name="clearAdminCompIdField" nillable="true" type="xs:string" />
+      <xs:element name="contractingPartyField" nillable="true" type="xs:string" />
+      <xs:element name="uMGSignCompIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractingPartiesType" nillable="true" type="tns:ContractingPartiesType" />
+  <xs:complexType name="RepertoireDefaultsType">
+    <xs:sequence>
+      <xs:element name="pLineExtField" nillable="true" type="xs:string" />
+      <xs:element name="pNotCompField" nillable="true" type="xs:string" />
+      <xs:element name="repertoireDefaultsRightsTypeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RepertoireDefaultsType" nillable="true" type="tns:RepertoireDefaultsType" />
+  <xs:complexType name="ArrayOfCountryGroupType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryGroupType" nillable="true" type="tns:CountryGroupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryGroupType" nillable="true" type="tns:ArrayOfCountryGroupType" />
+  <xs:complexType name="CountryGroupType">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="countryCodeField" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element name="countryGroupIdField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CountryGroupType" nillable="true" type="tns:CountryGroupType" />
+  <xs:complexType name="ArrayOfDigRestrictionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigRestrictionType" nillable="true" type="tns:DigRestrictionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigRestrictionType" nillable="true" type="tns:ArrayOfDigRestrictionType" />
+  <xs:complexType name="DigRestrictionType">
+    <xs:sequence>
+      <xs:element name="digRestrictionCommercialModelTypeField" nillable="true" type="xs:string" />
+      <xs:element name="digRestrictionContentTypeField" nillable="true" type="xs:string" />
+      <xs:element name="digRestrictionUseTypeField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q4:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DigRestrictionType" nillable="true" type="tns:DigRestrictionType" />
+  <xs:complexType name="ArtistRightsRightsAcquisitions">
+    <xs:sequence>
+      <xs:element name="availableRightsAcquisitionsField" nillable="true" type="tns:ArrayOfAvailableRightsAcquisitionsType" />
+      <xs:element name="degree360DealField" nillable="true" type="tns:ArrayOfContractDegree360DealType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArtistRightsRightsAcquisitions" nillable="true" type="tns:ArtistRightsRightsAcquisitions" />
+  <xs:complexType name="ArrayOfAvailableRightsAcquisitionsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AvailableRightsAcquisitionsType" nillable="true" type="tns:AvailableRightsAcquisitionsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvailableRightsAcquisitionsType" nillable="true" type="tns:ArrayOfAvailableRightsAcquisitionsType" />
+  <xs:complexType name="AvailableRightsAcquisitionsType">
+    <xs:sequence>
+      <xs:element name="hasRightsField" type="xs:boolean" />
+      <xs:element name="rightsAcquisitionDistributionTypeField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q5:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvailableRightsAcquisitionsType" nillable="true" type="tns:AvailableRightsAcquisitionsType" />
+  <xs:complexType name="ArrayOfContractDegree360DealType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContractDegree360DealType" nillable="true" type="tns:ContractDegree360DealType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContractDegree360DealType" nillable="true" type="tns:ArrayOfContractDegree360DealType" />
+  <xs:complexType name="ContractDegree360DealType">
+    <xs:sequence>
+      <xs:element name="activePassiveIndicatorField" nillable="true" type="xs:string" />
+      <xs:element name="degree360RightsTypeField" nillable="true" type="xs:string" />
+      <xs:element name="hasRightsField" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractDegree360DealType" nillable="true" type="tns:ContractDegree360DealType" />
+  <xs:complexType name="ArrayOfLostRightsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LostRightsType" nillable="true" type="tns:LostRightsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLostRightsType" nillable="true" type="tns:ArrayOfLostRightsType" />
+  <xs:complexType name="LostRightsType">
+    <xs:sequence>
+      <xs:element name="lostRightsIndicatorField" type="xs:boolean" />
+      <xs:element name="rightsExpiryDateField" type="xs:dateTime" />
+      <xs:element name="rightsExpiryDateFieldSpecified" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LostRightsType" nillable="true" type="tns:LostRightsType" />
+  <xs:complexType name="ArrayOfSecExploitRestrictionsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SecExploitRestrictionsType" nillable="true" type="tns:SecExploitRestrictionsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSecExploitRestrictionsType" nillable="true" type="tns:ArrayOfSecExploitRestrictionsType" />
+  <xs:complexType name="SecExploitRestrictionsType">
+    <xs:sequence>
+      <xs:element name="restrictedField" type="xs:boolean" />
+      <xs:element name="secExploitationTypeField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="territorialRightsField" nillable="true" type="q8:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecExploitRestrictionsType" nillable="true" type="tns:SecExploitRestrictionsType" />
+</xs:schema>

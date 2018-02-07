@@ -1,0 +1,545 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    ViewBag.Title = "Clearance Contract Search";
+    Layout = "";
+}
+@functions
+{
+    bool IsExistInContractGrid(long contractId)
+    {
+        if (Model.ContractId.Contains(contractId))
+            return true;
+        return false;
+    }
+
+    string getMergeValue(List<long> routedItemId)
+    {
+        string routedItemStr = string.Empty;
+        foreach (var item in routedItemId)
+        {
+            routedItemStr += item + ",";
+        }
+        return routedItemStr;
+    }
+
+    object checkForNull(object val)
+    {
+        if (val == null) return string.Empty; else return val;
+    }
+
+    string checkForBool(bool val)
+    {
+        if (val) return "Yes"; else return "No";
+    }
+}
+<script>
+    var mandatorySearchCriteria = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var headerContractId = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderContractId';
+    var headerArtistId = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderArtistId';
+    var headerArtistName = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderArtistName';
+    var headerClearanceAdminCompany = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderClearanceAdminCompany';
+    var headerClearanceAdminId = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderClearanceAdminId';
+    var headerResourceLinked = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderResourceLinked';
+    var headerContractStatus = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderContractStatus';
+    var headerLossOfRights = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderLossofRights';
+</script>
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/ClearenceSite.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceSearchContract.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<style>
+    .clearancecontractsearch-selectBox {
+        width: 100px;
+    }
+
+    .clearancecontractsearch-inputTypeText {
+        width: 150px !important;
+    }
+
+    .clearancecontractsearch-searchBoxContainer {
+        height: auto !important;
+        width: 100%;
+        color: #333;
+        font-size: 11px;
+        padding: 10px 0;
+        overflow: hidden;
+    }
+
+    #searchcontractList {
+        max-height: 150px;
+        overflow: auto;
+    }
+
+    .clearancecontractsearch-contentBox {
+        height: auto !important;
+        width: 100%;
+        color: #333;
+        font-size: 11px;
+        padding: 10px 0;
+        overflow: hidden;
+    }
+
+    .clearancecontractsearch-contentWrapper {
+        width: 100%;
+        float: left;
+        margin: 2px;
+    }
+
+    .clearancecontractsearch-researchResultWrapper {
+        width: 100%;
+        float: left;
+    }
+
+    #clearancecontractsearch-firstContentDv {
+        width: 30%;
+        float: left;
+    }
+
+    #clearancecontractsearch-secondContentDv {
+        width: 30%;
+        float: left;
+    }
+
+    #clearancecontractsearch-thirdContentDv {
+        width: 38%;
+        float: right;
+    }
+
+    .clearancecontractsearch-divField {
+        width: 49%;
+        float: left;
+        text-align: right;
+        line-height: 2;
+        clear: left;
+        font-size: 10px;
+    }
+
+    .line-height {
+        line-height: normal !important;
+    }
+
+    .clearancecontractsearch-valueDv {
+        width: 49%;
+        float: right;
+        text-align: left;
+        clear: right;
+    }
+
+    .clearancecontractsearch-columShowItm1 {
+        width: 29%;
+        float: left;
+        border: 0px solid green;
+    }
+
+    .clearancecontractsearch-columShowItm2 {
+        width: 22%;
+        float: left;
+        border: 0px solid green;
+    }
+
+    .clearancecontractsearch-columShowItm3 {
+        width: 10%;
+        float: left;
+        border: 0px solid green;
+    }
+
+    .clearancecontractsearch-columShowItm4 {
+        width: 23%;
+        float: right;
+        text-align: right;
+        border: 0px solid green;
+    }
+
+    .clearancecontractsearch-columShowItm5 {
+        width: 20%;
+        float: right;
+        text-align: right;
+        padding-right: 15px;
+    }
+
+    .clearancecontractsearch-searchResultLineHeight {
+        line-height: 2;
+        margin: 0 10px;
+    }
+
+    .cellAlignLeft {
+        padding-left: 15px;
+        text-align: left;
+    }
+
+    .btnAction {
+        margin: 0;
+        padding-left: 38px;
+        font-size: 10px;
+    }
+
+    table.clearancecontractsearch-bottomBorder {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 11px;
+    }
+
+        table.clearancecontractsearch-bottomBorder td, table.clearancecontractsearch-bottomBorder th {
+            padding: 2px;
+        }
+
+        table.clearancecontractsearch-bottomBorder th {
+            background-color: #fafafa;
+        }
+
+    #clearancecontractsearch-tblGrid {
+        padding: 10px;
+    }
+
+    .wordwrap {
+        white-space: pre-wrap;
+    }
+
+    #divSaveCancel {
+        margin-left: 88.5%;
+        margin-left: 80%\0;
+    }
+</style>
+
+<div style="margin: 0 auto; width: 100%;">
+    <div class="clearancecontractsearch-searchBoxContainer" style="display: block;">
+        <div id="clearancecontractsearch-firstContentDv">
+            <!-- Contract ID start here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchContractID</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtContractID" id="txtContractID" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <!-- Contract ID End here -->
+            <!-- Project Description start here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField line-height">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchClearanceAdminCompanyCounty</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv" style="margin-top: 4px;">
+                    <input type="text" name="txtClearanceAdminCompanyCountry" id="txtClearanceAdminCompanyCountry"
+                        class="clearancecontractsearch-inputTypeText" />
+                    @Html.HiddenFor(model => model.ResourceId, new { id = "hdnResourceId" })
+                    @Html.HiddenFor(model => model.ResourceIdSelectedRequests, new { id = "hdnResourceIdSelectedRequests" })
+                    <input type="hidden" value ="@getMergeValue(Model.RoutedItemId)" id="hdnRoutedItemId" />
+                    <input type="hidden" value ="@getMergeValue(Model.ContractId)" id="hdnContractId" />
+                </div>
+            </div>
+            <!-- projectDescription End here -->
+            <!-- Blank Div -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchContractStatus</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtContractStatus" id="txtContractStatus" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchContractingParty</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtContractingParty" id="txtContractingParty" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+        </div>
+        <div id="clearancecontractsearch-secondContentDv">
+            <!-- Company Start Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchArtist</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtArtist" id="txtArtist" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <!-- Company Ends Here -->
+            <!-- Division Start Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchArtistID</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtArtistId" id="txtArtistId" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <!-- Division Ends Here -->
+            <!-- Label Start Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField line-height wordwrap" style="margin-top: -2px;">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchArtistinLocalCharacters</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv" style="margin-top: 3px;">
+                    <input type="text" name="txtArtistInLocalChar" id="txtArtistInLocalChar" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                </div>
+            </div>
+            <!-- Label ends Here -->
+        </div>
+        <div id="clearancecontractsearch-thirdContentDv">
+            <!-- Artist Name Start Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchRightsType</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtRightType" id="txtRightType" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <!-- Artist Name Here -->
+            <!-- Artist ID Start Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchLocalContractReference</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtLocalContractRef" id="txtLocalContractRef" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <!-- Artist ID Here -->
+            <!-- Action Button Here -->
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-divField">
+                    <b>@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchUMGISigningCompany</b>
+                </div>
+                <div class="clearancecontractsearch-valueDv">
+                    <input type="text" name="txtUMGISingComp" id="txtUMGISingComp" class="clearancecontractsearch-inputTypeText" />
+                </div>
+            </div>
+            <div class="clearancecontractsearch-contentWrapper">
+                <div class="clearancecontractsearch-valueDv" style="margin-right: 5px; margin-top: 5px;">
+                    <div class="btnAction">
+                        <input type="button" name="searchBtn" id="searchBtn" value="@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchSearch" class="primbutton" />
+                        <input type="button" name="resetBtn" id="resetBtn" value="@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchReset" class="secbutton" />
+                    </div>
+                </div>
+            </div>
+            <!-- Action Button Here -->
+        </div>
+    </div>
+    <!-- END BTN LINK TO PROJECT -->
+</div>
+<div class="clearBoth3" style="margin-top:3px;" ><hr/></div>
+ <div style="clear:both;text-align:right;margin: 4px 10px;font-size: 10px;"><input type="button" name="btnCreateContract" id="btnCreateContract" value="Create Contract" class="secbutton"/></div>
+<div id="divErrorMessage" style="margin:10px 15px;">
+</div>
+<div style="max-height: 250px; overflow: auto;" id="mainDiv">
+    @if (Model.ContractsSearch != null && Model.ContractsSearch.Count > 0)
+    {
+        var artistContractResult = (from oneGroup in Model.ContractsSearch
+                                    group oneGroup by new { oneGroup.ArtistId, oneGroup.ArtistName } into g
+                                    select g).Distinct().ToList();
+        // var artistContractResult = Model.ContractsSearch.GroupBy(e => e.ArtistName).OrderBy(e => e.Key);
+        int i = 0;
+        <table id="tblArtistContractResult">
+            @if (artistContractResult.Count() > 0)
+            {
+                foreach (var artistContractResultKey in artistContractResult)
+                {
+                <tr>
+                    <td>
+                        <div id="contractgrid@(artistContractResultKey.Key.ArtistName)" class="Clear" style="margin-left: 15px; position: relative;height:auto;">
+                            <table width="890px;">
+                                <tr>
+                                    <td colspan="10" class="grey-background">
+                                        <a class="details" href="#" onclick="showHide(this, @(artistContractResultKey.Key.ArtistId == null ? 0 : artistContractResultKey.Key.ArtistId))">
+                                            <img id="img_@(artistContractResultKey.Key.ArtistId)" class="imgShow" src="@Url.Content("/GCS/Images/Arrow-right-new_trn.png")" alt="Collapsed" />
+                                        </a><b>@artistContractResultKey.Key.ArtistName</b>
+                                    </td>
+                                </tr>
+
+                                @if (@artistContractResultKey.Where(c => c.ContractId == 0).Count() != artistContractResultKey.Count())
+                                {
+                                    <tr>
+                                        <td colspan="9">
+                                            <div style="max-height: 150px; overflow: auto;">
+                                                <table  class="jtable" style="display:none;"  id ="contractSearch@(artistContractResultKey.Key.ArtistId)">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">
+                                                                        <input type="checkbox" /></span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderContractId</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderArtistId</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderArtistName</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderClearanceAdminCompany</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderClearanceAdminId</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderResourceLinked</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderContractStatus</span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="jtable-column-header">
+                                                                <div class="jtable-column-header-container">
+                                                                    <span class="jtable-column-header-text">@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.ClearanceContractSearchHeaderLossofRights</span>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        @foreach (var contactDetail in artistContractResultKey)
+                                                        {
+                                                            if (contactDetail.ContractId > 0)
+                                                            {
+                                                            <tr>
+                                                                <td>
+                                                                    @if (@IsExistInContractGrid(@contactDetail.ContractId))
+                                                                    {<input type="checkbox" checked =checked class="chkClass" id= "chk@(contactDetail.ContractId)" value= "@contactDetail.ArtistId" name =@(i)  />}
+                                                                    else
+                                                                    {<input type="checkbox" class="chkClass"  value= "@contactDetail.ArtistId"  id= "chk@(contactDetail.ContractId)" name=@(i) />}
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(@contactDetail.ContractId)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(@contactDetail.ArtistId)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(contactDetail.ArtistName)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(@contactDetail.ClearanceCompanyCountry)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(@contactDetail.ClearanceCompanyCountryId)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForBool(@contactDetail.HasRepertoire)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForNull(@contactDetail.ContractStatus)
+                                                                </td>
+                                                                <td>
+                                                                    @checkForBool(@contactDetail.IsLossRightsIndicator)
+                                                                </td>
+                                                            </tr>
+                                                            }
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="9">
+                                            <div style="max-height: 150px; overflow: auto;">
+                                                <table  class="jtable" style="display:none;"  id ="contractSearch@(artistContractResultKey.Key.ArtistId)">
+                                                    <tr>
+                                                        <td>No Contract Found
+                                                @foreach (var contactDetail in artistContractResultKey)
+                                                {
+                                                    if (contactDetail.ArtistId > 0)
+                                                    {
+                                                    <input type="checkbox" class="chkClass"  value= "@contactDetail.ArtistId"  id= "chk@(contactDetail.ArtistId)" name="@contactDetail.ArtistId" style ="display:none;" />
+                                                    }
+
+                                                }
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td></td>
+                </tr>
+            }
+        </table>
+
+    }
+    else
+    {
+        <table id="tblArtistContractResult"></table>
+    }
+
+    <div id="divSaveCancel" style="display: none; float: right; min-height: 30px; margin-right: 5px; font-size: 10px;">
+        <input type="button" id="btnContractLinkingSave" value="Save" class="primbutton" />
+        <input type="button" name="btnCancel" id="btnCancel" value="Cancel" class="primbutton" />
+    </div>
+    <div>
+        <div class="alignLeft searchResult">
+            <b><span id="searchResultCount" style="display: none; float: left; display: inline-block; margin-left: 15px;">Search Result (0)</span></b>
+        </div>
+        <div class="ui-jtable-loading alignLeft">
+        </div>
+        <div id="searchErrorMessage" class="alert">
+        </div>
+        <div id="alignRight" class="alignRight" style="margin-bottom: 10px;">
+            <span id="SearchContractPaging">
+                @ContractResource.ShowDropDown
+                @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlPaging" })
+                @ContractResource.itemsperpage
+            </span>
+        </div>
+    </div>
+    <div id="contractgrid" class="Clear" style="margin-left: 15px; margin-top: 35px; position: relative; height: auto;">
+        <div id="searchcontractList">
+        </div>
+        <div id="SelectedRowList">
+        </div>
+        <div id="selectedContractId">
+        </div>
+        <div id="divLinkedToResource" style="float: right; min-height: 30px; margin-top: 5px; font-size: 10px;">
+            <input type="button" name="btnLinkedToResource" id="btnLinkedToResource" value="Link to Resource"
+                class="primbutton" />
+            <input type="button" name="btnClose" id="btnClose" value="Cancel"
+                class="primbutton" />
+        </div>
+    </div>
+</div>

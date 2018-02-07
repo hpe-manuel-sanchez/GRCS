@@ -1,0 +1,735 @@
+﻿/*****
+
+rrs - RepertoireRightsSearch
+
+*****/
+
+.rrs input[type="text"], input[type="password"] 
+{
+    border: 1px solid #A2A6C1;
+    color: #000000;
+    font-size: 1.1em;
+    padding: 2px;
+    width: 98%;
+}
+
+.rrs
+{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    *margin-top: -19px;
+    *padding-top: 5px;   
+}
+
+.rrs textarea 
+{
+    width: 98%;
+    height: 28px;
+     height: 27px\9;
+}
+
+.rrs #SearchCriteria_SearchResourceReleaseCriteria_LinkedContractName
+{
+    width: 93%;
+}
+
+
+.rrs #searchwarning .warningContainers
+{
+    float: left;
+}
+
+.rrs #SearchMsgAlert
+{
+    float: left;
+}
+
+.rrs .dvWrapper
+{
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 5px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    *margin-right: -17px !important;
+    margin-top: 0 !important;    
+}
+
+.rrs .topAccordion
+{
+    margin-bottom: 8px;
+}
+
+.rrs .bgColorContainer 
+{
+  background-color: #F2F2F2;
+  border-bottom: 2px solid #3171BB;    
+  margin-bottom: 10px;
+}
+
+/**** Left Main Div's *******/
+
+.rrs .pc_Left_ISRC,
+.rrs .pc_Left_ResourceTitle,
+.rrs .pc_Left_ResourceType,
+.rrs .pc_Left_RightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights,
+.rrs .pc_Left_ActiveforMarketing,
+.rrs .pc_Left_TerritorialRights,
+.rrs .pc_Left_UPC,
+.rrs .pc_Left_ReleaseTitle,
+.rrs .pc_Left_ResourceTrackTitle
+{
+   float: left;
+   width: 45%;
+   margin-top: 8px;
+}
+
+.rrs .cc3_Left_lnkSelRemCountries
+{
+    float: left;
+    margin-left: 175px;
+    width: 57%;
+    margin-top: 5px;
+}
+
+.rrs .selectCountries
+{
+    float: right;
+}
+
+.rrs .editSelectIcon
+{
+  float: left;
+  background-image:url(/GCS/Images/grs_sprite_img.png);
+  background-position: 25px -588px;
+  cursor: pointer;
+  margin-left: 0px;
+  height: 17px;
+  width: 20px;
+  margin-top: -4px; 
+}
+
+/**** Right Main Div's *******/
+
+.rrs .pc_Right_AritstName,
+.rrs .pc_Right_LinkedContractName,
+.rrs .pc_Right_RepertoireMultipleContracts,
+.rrs .pc_Right_RightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator,
+.rrs .pc_Right_LostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim,
+.rrs .pc_Right_LostRightsDate,
+.rrs .pc_Right_ResourceType
+{
+    float: left;
+    width: 54.9%;
+    margin-top: 8px;
+}
+
+
+/*************** Left Labels **************/
+
+.rrs .pc_Left_TerritorialRights .cc1_Left_lblTerritorialRights,
+.rrs .pc_Left_RightsPeriod .cc1_Left_lblRightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights .cc1_Left_lblPhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights .cc1_Left_lblDigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights .cc1_Left_lblMobileExploitationRights,
+.rrs .cc1_Left_ActiveforMarketing .cc1_Left_ActiveforMarketing,
+.rrs .pc_Left_ActiveforMarketing .cc1_Left_ActiveforMarketing,
+.rrs .pc_Left_ISRC .cc1_Left_lblISRC,
+.rrs .pc_Left_ResourceTitle .cc1_Left_lblResourceTitle,
+.rrs .pc_Left_ResourceType .cc1_Left_lblResourceType,
+.rrs .pc_Left_UPC .cc1_Left_lblUPC,
+.rrs .pc_Left_ReleaseTitle .cc1_Left_lblReleaseTitle,
+.rrs .pc_Left_ResourceTrackTitle .cc1_Left_lblResourceTrackTitle,
+.rrs .pc_Left_ReleaseTitle .cc1_Left_lblResourceTitle
+{
+    float: left;
+    width: 165px;
+    margin-right: 0.8em;
+    margin-top: 0.26em;
+    text-align: right;
+    font-weight: bold;
+      
+}
+
+/*************** Right Labels **************/
+
+.rrs .pc_Right_RightsReviewStatus .cc1_Right_lblRightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator .cc1_Right_lblLostRightsIndicator,
+.rrs .pc_Right_LostRightsReason .cc1_Right_lblLostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed .cc1_Right_lblDigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim .cc1_Right_lblPPBRevenueClaim,
+.rrs .pc_Right_AritstName .cc1_Right_lblArtistName,
+.rrs .pc_Right_LinkedContractName .cc1_Right_lblLinkedContractName,
+.rrs .pc_Right_LostRightsDate .cc1_Right_lblLostRightsDate,
+.rrs .pc_Right_ResourceType .cc1_Right_lblResourceType
+{
+    float: left;
+    width: 165px;
+    margin-right: 0.8em;
+    margin-top: 0.26em;
+    text-align: right;
+    font-weight: bold;  
+}
+
+
+
+/************* Left Text Fields ********************/
+
+.rrs .cc2_Left_txtISRC .cc2_Right_txtArtistName,
+.rrs .pc_Left_ResourceTitle .cc2_Left_txtResourceTitle,
+.rrs .pc_Left_ResourceType .cc2_Left_ddlResourceType,
+.rrs .pc_Left_ISRC .cc2_Left_txtISRC,
+.rrs .pc_Left_ResourceTitle .cc2_Left_txtResourceTitle,
+.rrs .pc_Left_ResourceType .cc2_Left_ddlResourceType,
+.rrs .pc_Left_TerritorialRights .cc2_Left_txtTerritorialRights,
+.rrs .pc_Left_RightsPeriod .cc2_Left_ddlRightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights .cc2_Left_ddlPhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights .cc2_Left_ddlDigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights .cc2_Left_ddlMobileExploitationRights,
+.rrs .pc_Left_ActiveforMarketing .cc2_Left_ActiveforMarketing,
+.rrs .pc_Left_UPC .cc2_Left_txtUPC,
+.rrs .pc_Left_ReleaseTitle .cc2_Left_txtReleaseTitle,
+.rrs .pc_Left_ResourceTrackTitle .cc2_Left_txtResourceTrackTitle
+{
+    width: 57%;
+    float: left;
+}
+
+
+/************* Right Text Fields ********************/
+
+.rrs .pc_Right_LinkedContractName .cc2_Right_txtLinkedContractName,
+.rrs .pc_Right_AritstName .cc2_Right_txtArtistName,
+.rrs .pc_Right_LinkedContractName .cc2_Right_txtLinkedContractName,
+.rrs .pc_Right_RightsReviewStatus .cc2_Right_ddlRightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator .cc2_ddlLostRightsIndicator,
+.rrs .pc_Right_LostRightsReason .cc2_Right_ddlLostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed .cc2_Right_ddlDigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim .cc2_Right_ddlPPBRevenueClaim
+{
+    width: 50%;
+    float: left;
+}
+
+
+
+
+
+
+
+
+.rrs .cc3_Right_fromdtLostRightsDate,
+.rrs .cc5_Right_todtLostRightsDate
+{
+   float: left;
+}
+
+.rrs #SearchCriteria_SearchRightsCriteria_FromDt,
+.rrs #SearchCriteria_SearchRightsCriteria_ToDt
+{
+    width: 74px !important;
+}
+
+.rrs #SearchCriteria_SearchRightsCriteria_LostRightsFromDate, .rrs .cc5_Right_todtLostRightsDate #SearchCriteria_SearchRightsCriteria_LostRightsToDate
+{
+   width: 80px;
+}
+
+.rrs .cc5_Right_todtLostRightsDate
+{
+    margin-left: 10px;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts .cc1_Right_chkRepertoireMultipleContracts
+{
+    float: left;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts .cc2_Right_lblRepertoireMultipleContracts
+{
+    margin-top: 4px;
+    float: left;
+    width: 236px;
+}
+
+
+.rrs .pc_Right_AritstName .cc3_Right_chkArtistName
+{
+    float: left;
+    padding-top: 1px;
+}
+
+.rrs .pc_Right_AritstName .cc4_Right_lblExactSearch
+{
+    float: left;
+    margin-top: 0.4em;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts
+{
+   float: left;
+   font-weight: bold;
+   padding-left: 170px;
+   padding-left: 171px\9;
+   width: auto;
+   margin-top: 0px;
+}
+
+.rrs .RelseasePcRightRepertoireMultipleContracts
+{
+    float: left;
+    font-weight: bold;
+    margin-left: 45%;
+    margin-top: -2px;
+    padding-left: 170px;
+    width: 100%;
+}
+
+
+.rrs .RelseasePcRightRepertoireMultipleContracts .RelseaseCc1RightChkRepertoireMultipleContracts {
+    float: left;
+}
+
+.rrs .RelseasePcRightRepertoireMultipleContracts .RelseaseCc2RightLblRepertoireMultipleContracts {
+    float: left;
+    margin-top: 4px;
+    width: 236px;
+}
+
+.clearFloat
+{
+    clear: both;
+}
+
+
+
+.rrs #clearanceAdminCountry
+{
+    color: #143489;
+    float: left;
+}
+
+.rrs .searchResult
+{
+    float: left;
+    padding-left: 15px;
+    margin-bottom: 7px;
+}
+
+.rrs .excelIcon
+{
+    vertical-align: bottom;
+	margin-right: 5px;
+    cursor: pointer;
+}
+
+.rrs #ListExcelExport
+{
+   float: right;
+    margin-right: 11px;
+    padding-top: 4px;
+}
+
+.rrs .paging
+{
+   float: right;
+   margin-right: 15px;
+}
+
+/******** Resource Type **********/
+
+.rrs .pc_Left_ResourceType
+{
+    margin-top: -2px;
+}
+
+/******** Browse Text Field *****/
+
+.rrs #SearchCriteria_SearchResourceReleaseCriteria_Isrc,
+.rrs #SearchCriteria_SearchResourceReleaseCriteria_Upc
+{
+    float: left;
+   /* width: 62%;*/
+}
+
+.rrs #repertoireRightsSearchList
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.rrs #resultCount
+{
+    color: #143489;
+}
+
+.rrs .rrsBtnHolder
+{
+    float: right;
+    margin-top: 10px;
+    *margin-top: 8px;
+}
+
+.rrs .searchBtn
+{
+    margin-right: 10px;
+}
+
+.rrs .cc3_Right_btnLinkedContractName
+{
+    float: left;
+}
+
+.SearchRightsContractNormal
+{
+  background-image:url(/GCS/Images/grs_sprite_img.png);
+  background-position: 23px -609px; 
+  cursor: pointer;
+  margin-left: -19px;
+  height: 35px;
+  width: 20px;
+  margin-top: -4px; 
+  
+  /***** IE 9 and Below ******/ 
+  background-position: 23px -614px\9; 
+  height: 32px \9;
+  margin-top: 0px \9;
+  margin-left: -18px \9;
+  
+  /***** IE 7 ******/  
+  *margin-top: 1px;
+  *height: 32px;
+}
+
+.SearchRightsContractGrey
+{
+   background-image:url(/GCS/Images/grs_sprite_img.png);
+  background-position: 23px -650px; 
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: -19px;
+  height: 35px;
+  width: 20px;
+  margin-top: -4px; 
+  
+  /***** IE 9 and Below ******/ 
+  background-position: 23px -654px\9; 
+  height: 32px\9;
+  margin-top: -1px\9;
+  margin-left: -18px\9;
+  
+  /***** IE 7 ******/  
+  *margin-top: 1px;
+  *height: 32px; 
+}
+
+/**
+ * This hack targets the Webkit browser engine
+ * which includes Safari and Chrome.
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{
+ 
+    .rrs textarea 
+    {
+      height: 25px;
+    }
+    .rrs .cc3_Right_btnLinkedContractName #SearchRightsContract 
+    {
+      cursor: pointer;
+      margin-left: -18px;
+      height: 37px;
+      margin-top: -5px;
+    }
+}
+
+/************** Tables ****************/
+
+.rrs .preClearanceClass .tableHeader, .rrs .secExploitaionsClass .tableHeader
+{
+    font-weight: bold;
+    background-color: #B8D0E9;
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.rrs .preClearanceClass select, .rrs .secExploitaionsClass select
+{
+    width: 99%;
+}
+
+.rrs .preClearanceClass td, .rrs .secExploitaionsClass td
+{
+    border-left: none;
+    border-top: none;
+}
+
+.rrs .preClearanceClass tr td:first-child, .rrs .secExploitaionsClass tr td:first-child
+{
+    width: 95%;    
+}
+
+.rrs .bgColorInner
+{
+    margin-bottom: 43px;
+    margin-left: 15px;
+    margin-top: -15px;
+    padding-top: 19px;
+    padding-right: 15px;
+}
+
+
+.rrs .ui-datepicker-trigger
+{
+    margin-left: 2px;
+}
+
+/******* Browse Btn *******/
+
+.rrs .browseBtn
+{
+    margin-left: 6px;
+    width:24px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.rrs #btnISRCUpload, .rrs #btnUPCUpload
+{
+    background-image:url(/GCS/Images/icon_browse.png);
+    background-repeat:no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 24px;
+    height:22px;
+    cursor: pointer;
+   
+}
+
+.rrs .hideCheckBox 
+{
+    display: none;
+}
+
+.rrs .file_1 
+{
+    background: #fff;
+    color: #888;
+}
+
+.rrs .rstParam
+{
+    float: right;
+    z-index: 500;
+}
+
+.rrs .plusImage 
+{
+    position: relative;
+    left: 30px;
+    
+    left: 16px\9;
+}
+
+.rrs .rstParam #btnAddDigitalTemplate
+{
+   padding: 0 !important;
+   font-size: 12px;
+   font-weight: bold;
+   color: #143489;
+   margin-right: 15px;
+}
+
+.rrs .cntrctSearchPopupButtons
+{
+    height:30px;
+}
+
+
+
+.sampleArtist
+ {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1121px;
+ height:24px;
+ width:20px;
+ }
+ 
+ .sampleExists {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1094px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .resourceAudio {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1268px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .resourceVideo {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1292px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .resourceImage {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1245px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .resourceMerchandise {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1341px;
+ height:24px;
+ width:20px;
+ }
+ 
+   .resourceText {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1367px;
+ height:24px;
+ width:20px;
+ }
+ 
+   .resourceOthers {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1316px;
+ height:24px;
+ width:20px;
+ }
+ 
+ .flagBlue {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1392px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .flagOrange {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1444px;
+ height:24px;
+ width:20px;
+ }
+ 
+  .flagGreen {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: 25px -1417px;
+ height:24px;
+ width:20px;
+ }
+ 
+ .rightslinkedContract{
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: -4px -1542px;
+ height:24px;
+ width:20px;
+ background-repeat: no-repeat; 
+ margin: 0 auto;
+ }
+ 
+  .rightsSplit {
+ background-image:url(/GCS/Images/grs_sprite_img.png);
+ background-position: -4px -1172px;
+ height:24px;
+ width:20px;
+ background-repeat: no-repeat; 
+ margin: 0 auto;
+
+ }
+ 
+ .rrs .selector select
+ {
+     width: 100% !important;
+ }
+ 
+ .rrs .selector td
+ {
+     text-align: center;
+ }
+ 
+ .rrs .ResourcesBasicSearch_pageSizeCustomizer input,
+ .rrs .ResourcesReleaseParameters_pageSizeCustomizer input,
+ .rrs .TracksBasicSearch_pageSizeCustomizer input,
+ .rrs .TracksSearchReleaseParameters_pageSizeCustomizer input,
+ .rrs .ResourcesAndTracksBasicSearch_pageSizeCustomizer input,
+ .rrs .ResourcesAndTracksSearchReleaseParameters_pageSizeCustomizer input,
+ .rrs .Releases_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsResourcesBasicSearch_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsResourcesReleaseParameters_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsTracksBasicSearch_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsTracksSearchReleaseParameters_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsResourcesAndTracksBasicSearch_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsResourcesAndTracksSearchReleaseParameters_pageSizeCustomizer input,
+ .rrs .DigitalRestrictionsReleases_pageSizeCustomizer input,
+ .rrs .SecondaryExploitationBasicSearch_pageSizeCustomizer input,
+ .rrs .SecondaryExploitationReleaseParameters_pageSizeCustomizer input,
+ .rrs .PreClearedBasicSearch_pageSizeCustomizer input,
+ .rrs .PreClearedReleaseParameters_pageSizeCustomizer input
+ {
+     margin-right: -5px;
+ }
+ 
+ .rrs #ResourcesBasicSearch,
+ .rrs #ResourcesReleaseParameters,
+ .rrs #DigitalRestrictionsResourcesBasicSearch,
+ .rrs #DigitalRestrictionsResourcesReleaseParameters,
+ .rrs #DigitalRestrictionsTracksBasicSearch,
+ .rrs #DigitalRestrictionsTracksSearchReleaseParameters,
+ .rrs #DigitalRestrictionsResourcesAndTracksBasicSearch,
+ .rrs #DigitalRestrictionsResourcesAndTracksSearchReleaseParameters,
+ .rrs #DigitalRestrictionsReleases
+ {
+     margin-right: 15px;
+ }
+ 
+.dateValidation{   
+    background-attachment: scroll;
+    background-image: url("/GCS/Images/grs_sprite_img.png");
+    background-position: 0 -818px;
+    background-repeat: no-repeat;
+    color: red;
+    font-weight: bold;
+    padding-left: 33px;
+}
+
+.rightsSourceIconComplete
+    {
+        background-image: url("/GCS/Images/grs_sprite_img.png");
+        background-position: 15px -1040px;
+        background-repeat: no-repeat;
+        height: 24px;
+        width: 50px;
+    }
+    .rightsSourceIconPartial
+    {
+        background-image: url("/GCS/Images/grs_sprite_img.png");
+        background-position: 15px -1065px;
+        background-repeat: no-repeat;
+        height: 24px;
+        width: 50px;
+    }
+    .rightsSourceIconContract
+    {
+        background-image: url("/GCS/Images/grs_sprite_img.png");
+        background-position: 15px -2605px;
+        background-repeat: no-repeat;
+        height: 24px;
+        width: 50px;
+    }
+    .exportToExcel
+    {
+      background: url('/GCS/Images/grs_sprite_img.png') no-repeat scroll 0 -696px transparent;float: left;height: 17px;padding-bottom: 4px;padding-right: 10px;padding-top: 4px;width: 19px;  }

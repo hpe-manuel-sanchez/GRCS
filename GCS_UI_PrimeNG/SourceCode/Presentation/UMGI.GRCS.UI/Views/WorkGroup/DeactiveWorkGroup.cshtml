@@ -1,0 +1,195 @@
+﻿@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "Deactivate Workgroup";
+}
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/DeactiveWorkgroup.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/PendingRequest.js")" type="text/javascript"></script>
+
+<style type="text/css">
+    #txtName, #txtCompany, #txtUser, #txtCountry {
+        padding-left: 2em;
+    }
+
+    .ui-autocomplete-loading {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") left center no-repeat;
+    }
+</style>
+
+<div id="mgDeactivateSelectedWorkgroupErrorMessage" class="warning" style="margin: 10px 15px;"></div>
+<div id="deactivateWgSuccessMessage" class="success" style="margin: 10px 15px; display: none;"></div>
+
+<div class="searchContainer">
+    <div id="deleteWorkgroup">
+        <div class="dwMainContainer">
+
+            <div id="wrapperDv">
+                <div id="headerScreen">
+                    <span><a class="cross">&nbsp;</a>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DeactivateWorkgroupLabel
+                    </span>
+                </div>
+                <div class="accItem accItemNew">
+
+                    <div class="editor-field">
+                        <div class="inputPlaceHolder">
+                            <label class="madatoryField">*</label>
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchbyLabel
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtName", "", new { maxlength = "510" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.DropDownListFor(model => model.RolesList, new SelectList(Model.RolesList, "value", "text", Model.RolesList), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectRoleLabel, new { @style = "width: 188px;!important" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtCompany", "", new { maxlength = "120" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtUser", "", new { maxlength = "100" })
+                        </div>
+                        <div class="inputPlaceHolder">
+                            @Html.TextBox("txtCountry", "", new { maxlength = "40" })
+                        </div>
+                        <div class="inputPlaceHolder" style="vertical-align: top; margin-top: 2px;">
+                            <input class="primbutton" id="btnGetWorkGrouplist"  type="submit" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchButton" />
+                            <input id="btnSearchWorkgroupReset" type="button" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SearchWorkgroupPaging" style="margin: 5px 15px;">
+        <div style="float: left;">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel <span id="spnSearchResult" style="font-weight: bold;"></span></div>
+        <div id="paging" style="float: right;">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlSearchPaging" })
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+        </div>
+    </div>
+    <div id="searchWorkGroupList" class="styleClass" style="margin: 5px 15px;"></div>
+    @section BottomInputs{
+        <span id="buttonPanel">
+            <input class="secbutton" id="btnViewWorkGroup"  type="button" value= "@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ViewButton" />
+            <input class="secbutton" id="btnDeactiveWorkGroup"  type="button" value= "@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DeactiveButton" />
+            <input class="secbutton" id="btnCancelDeactive"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+        </span>
+    }
+</div>
+
+<div id="SelectedRowList">
+</div>
+<div id="DisplayPendingRequest" style="display: none; margin-right: 15px; clear: both;">
+    <div id="pendingRequestErrorMessage" class="warning" style="margin: 10px 15px; display: none;"></div>
+    <div id="deactivateWgPendingRequestInfoMessage" class="info" style="margin: 10px 0 0 0; display: none;"></div>
+    <div id="pendingrequestparentpaging" style="float: right">
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { id = "ddlpendingrequestparentPaging" })
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+    </div>
+    <br />
+    <br />
+    <div id="ParentPendingRequest" style="height: 150px; overflow: auto;">
+        <div class="dwpopupLabel">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ParentPendingRequest
+        </div>
+        <div id="spnParentPendingRequest" class="dwpopupLabelValue"></div>
+        <div class="clear"></div>
+        <!--
+<span id="spnParentPendingRequest" style="font-weight:bold;"></span>
+-->
+    </div>
+    <div id="ChildPendingRequest" style="height: 150px; overflow: auto;">
+        <div class="dwpopupLabel">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ChildPendingRequest :
+        </div>
+        <div id="spnChildPendingRequest" class="dwpopupLabelValue"></div>
+        <div class="clear"></div>
+        <!--<span id="spnChildPendingRequest" style="font-weight:bold;"></span>-->
+    </div>
+    <div class="clear"></div>
+    <div id="SelectedPendingRequest">
+    </div>
+    <div id="SelectedParentPendingRequest">
+    </div>
+    <div id="SelectedChildPendingRequest">
+    </div>
+
+    <div class="buttonPanel">
+        <table class="withoutborder">
+            <tr>
+                <td>
+                    <input class="secbutton" id="btnSelectPendingRequest"  type="button" value= "@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectWorkgroup" />
+                </td>
+                <td>
+                    <input class="secbutton" id="btnCancelPendingRequest"  type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="ViewWorkgroup">
+</div>
+<div id="SearchWorkgroupRedirect">
+</div>
+<script type="text/javascript">
+    if (!$.browser.msie) {
+        $('input').keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#btnGetWorkGrouplist").trigger('click');
+            }
+        });
+    }
+    var divSearchHeader = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchHeaderForSearchWorgroup';
+    var pageName = 'Deactivate';
+    var viewWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        noRowsSelected: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_noRowsSelectedworkgroupMessage'
+    };
+    var searchWorkgroupMessages = {
+        searchInValid: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage',
+        noRowsSelected: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_noRowsSelectedworkgroupMessage',
+        deactivateworkgrouppopuptitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deactivateworkgroupstatuspopupTitle'
+    };
+    var title = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_viewworkgrouppopuptitle';
+    var watermarkname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkWorkgroupName';
+    var watermarkcompany = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompany';
+    var watermarkuser = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser';
+    var watermarkcountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountry';
+
+    var wgSearchJtableColNames = {
+        wgName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpNameLabel',
+        wgType: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpTypeLabel',
+        wgRole: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_RoleLabel',
+        wgStatus: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpStatusLabel',
+        company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        user: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser',
+        territoryCountry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_TerritoryCountryLabel'
+    };
+    function applyCustomTheam() {
+
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 35;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+        $("#main").scroll(function () {
+            $(".ui-autocomplete").hide();
+        });
+
+    }
+    applyCustomTheam();
+</script>

@@ -1,0 +1,333 @@
+﻿/*****
+
+rrs - RepertoireRightsSearch
+
+*****/
+
+.rrs input[type="text"], input[type="password"] {
+    border: 1px solid #A2A6C1;
+    color: #000000;
+    font-size: 1.1em;
+    padding: 2px;
+    width: 98%;
+}
+
+.rrs
+{
+    overflow-x: hidden;
+    overflow-y: auto;    
+}
+
+.rrs textarea 
+{
+    width: 98%;
+}
+
+
+#rrsContainer
+{
+  overflow-y: auto;
+}
+
+.rrs #searchwarning .warningContainers
+{
+    float: left;
+}
+
+.rrs #SearchMsgAlert
+{
+    float: left;
+}
+
+
+     
+.rrs .dvWrapper
+{
+    width: 100%;
+    margin-bottom: 7px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;    
+}
+
+.rrs .bgColorContainer 
+{
+  background-color: #DAEEF8;
+  border-bottom: 2px solid #3171BB;    
+}
+
+/**** Left Main Div's *******/
+
+.rrs .pc_Left_ISRC,
+.rrs .pc_Left_ResourceTitle,
+.rrs .pc_Left_ResourceType,
+.rrs .cc3_Left_lnkSelRemCountries,
+.rrs .pc_Left_RightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights,
+.rrs .pc_Left_ActiveforMarketing,
+.rrs .pc_Left_TerritorialRights,
+.rrs .pc_Left_UPC,
+.rrs .pc_Left_ReleaseTitle
+{
+   float: left;
+   width: 45%;
+   margin-top: 0.4em;
+}
+
+
+/**** Right Main Div's *******/
+
+.rrs .pc_Right_AritstName,
+.rrs .pc_Right_LinkedContractName,
+.rrs .pc_Right_RepertoireMultipleContracts,
+.rrs .pc_Right_RightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator,
+.rrs .pc_Right_LostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim,
+.rrs .pc_Right_LostRightsDate,
+.rrs .pc_Right_ResourceType
+{
+    float: left;
+    width: 54.9%;
+    margin-top: 0.4em;
+}
+
+
+/*************** Left Labels **************/
+
+.rrs .pc_Left_TerritorialRights .cc1_Left_lblTerritorialRights,
+.rrs .pc_Left_RightsPeriod .cc1_Left_lblRightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights .cc1_Left_lblPhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights .cc1_Left_lblDigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights .cc1_Left_lblMobileExploitationRights,
+.rrs .cc1_Left_ActiveforMarketing .cc1_Left_ActiveforMarketing,
+.rrs .pc_Left_ActiveforMarketing .cc1_Left_ActiveforMarketing,
+.rrs .pc_Left_ISRC .cc1_Left_lblISRC,
+.rrs .pc_Left_ResourceTitle .cc1_Left_lblResourceTitle,
+.rrs .pc_Left_ResourceType .cc1_Left_lblResourceType,
+.rrs .pc_Left_UPC .cc1_Left_lblUPC,
+.rrs .pc_Left_ReleaseTitle .cc1_Left_lblReleaseTitle
+{
+    float: left;
+    width: 155px;
+    margin: 4px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 0.4em;
+    margin-right: 0.8em;   
+}
+
+/*************** Right Labels **************/
+
+.rrs .pc_Right_RightsReviewStatus .cc1_Right_lblRightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator .cc1_Right_lblLostRightsIndicator,
+.rrs .pc_Right_LostRightsReason .cc1_Right_lblLostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed .cc1_Right_lblDigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim .cc1_Right_lblPPBRevenueClaim,
+.rrs .pc_Right_AritstName .cc1_Right_lblArtistName,
+.rrs .pc_Right_LinkedContractName .cc1_Right_lblLinkedContractName,
+.rrs .pc_Right_LostRightsDate .cc1_Right_lblLostRightsDate,
+.rrs .pc_Right_ResourceType .cc1_Right_lblResourceType
+{
+    float: left;
+    width: 146px;
+    margin: 4px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 0.4em;
+    margin-right: 0.8em;   
+}
+
+
+
+/************* Left Text Fields ********************/
+
+.rrs .cc2_Left_txtISRC .cc2_Right_txtArtistName,
+.rrs .pc_Left_ResourceTitle .cc2_Left_txtResourceTitle,
+.rrs .pc_Left_ResourceType .cc2_Left_ddlResourceType,
+.rrs .pc_Left_ISRC .cc2_Left_txtISRC,
+.rrs .pc_Left_ResourceTitle .cc2_Left_txtResourceTitle,
+.rrs .pc_Left_ResourceType .cc2_Left_ddlResourceType,
+.rrs .pc_Left_TerritorialRights .cc2_Left_txtTerritorialRights,
+.rrs .pc_Left_RightsPeriod .cc2_Left_ddlRightsPeriod,
+.rrs .pc_Left_PhysicialExploitationRights .cc2_Left_ddlPhysicialExploitationRights,
+.rrs .pc_Left_DigitalExploitationRights .cc2_Left_ddlDigitalExploitationRights,
+.rrs .pc_Left_MobileExploitationRights .cc2_Left_ddlMobileExploitationRights,
+.rrs .pc_Left_ActiveforMarketing .cc2_Left_ActiveforMarketing,
+.rrs .pc_Left_UPC .cc2_Left_txtUPC,
+.rrs .pc_Left_ReleaseTitle .cc2_Left_txtReleaseTitle
+{
+    width: 57%;
+    float: left;
+}
+
+
+/************* Right Text Fields ********************/
+
+.rrs .pc_Right_LinkedContractName .cc2_Right_txtLinkedContractName,
+.rrs .pc_Right_AritstName .cc2_Right_txtArtistName,
+.rrs .pc_Right_LinkedContractName .cc2_Right_txtLinkedContractName,
+.rrs .pc_Right_RightsReviewStatus .cc2_Right_ddlRightsReviewStatus,
+.rrs .pc_Right_LostRightsIndicator .cc2_ddlLostRightsIndicator,
+.rrs .pc_Right_LostRightsReason .cc2_Right_ddlLostRightsReason,
+.rrs .pc_Right_DigitalUnbundlingAllowed .cc2_Right_ddlDigitalUnbundlingAllowed,
+.rrs .pc_Right_PPBRevenueClaim .cc2_Right_ddlPPBRevenueClaim
+{
+    width: 50%;
+    float: left;
+}
+
+
+
+
+
+
+
+
+.rrs .cc3_Right_fromdtLostRightsDate, .rrs .cc5_Right_todtLostRightsDate
+{
+   float: left;
+}
+
+.rrs #SearchCriteria_SearchRightsCriteria_LostRightsFromDate, .rrs .cc5_Right_todtLostRightsDate #SearchCriteria_SearchRightsCriteria_LostRightsToDate
+{
+   width: 80px;
+}
+
+.rrs .cc5_Right_todtLostRightsDate
+{
+    margin-left: 10px;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts .cc1_Right_chkRepertoireMultipleContracts
+{
+    float: left;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts .cc2_Right_lblRepertoireMultipleContracts
+{
+    margin-top: 4px;
+    float: left;
+}
+
+
+.rrs .pc_Right_AritstName .cc3_Right_chkArtistName
+{
+    float: left;
+    padding-top: 1px;
+    padding-left: 5px;
+}
+
+.rrs .pc_Right_AritstName .cc4_Right_lblExactSearch
+{
+    float: left;
+    margin-top: 0.4em;
+    font-weight: bold;
+}
+
+.rrs .pc_Right_RepertoireMultipleContracts
+{
+   float: left;
+   font-weight: bold;
+   padding-left: 155px;
+   width: auto;
+}
+
+.clearFloat
+{
+    clear: both;
+}
+
+
+
+.rrs #clearanceAdminCountry
+{
+    color: #143489;
+}
+
+.rrs .searchResult
+{
+    float: left;
+    padding-left: 15px;
+    margin-bottom: 7px;
+}
+
+.rrs #ListExcelExport
+{
+   float: right;
+    margin-right: 20px;
+    padding-top: 4px;
+}
+
+.rrs .paging
+{
+   float: right;
+   margin-right: 15px;
+}
+/******** Browse Text Field *****/
+
+.rrs #RepertoireRightsSearchParameters_ISRC, .rrs #RepertoireRightsSearchParameters_UPC
+{
+    float: left;
+    width: 62%;
+}
+
+.rrs #repertoireRightsSearchList
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.rrs #resultCount
+{
+    color: #143489;
+}
+
+.rrs .rrsBtnHolder
+{
+    float: right;
+    margin-bottom: 10px;
+    margin-top: -4px;
+}
+
+.rrs .browseBtn
+{
+    margin-left: 12px;
+}
+
+.rrs .searchBtn
+{
+    margin-right: 10px;
+}
+
+/************** Tables ****************/
+
+.rrs .preClearanceClass .tableHeader, .rrs .secExploitaionsClass .tableHeader
+{
+    font-weight: bold;
+}
+
+.rrs .preClearanceClass td, .rrs .secExploitaionsClass td
+{
+    padding: 4px;
+    border-left: none;
+    border-top: none;
+}
+
+.rrs .preClearanceClass tr td:first-child, .rrs .secExploitaionsClass tr td:first-child
+{
+    width: 94%;    
+}
+
+.rrs .bgColorInner
+{
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-top: -15px;
+    padding-top: 15px;
+}
+
+

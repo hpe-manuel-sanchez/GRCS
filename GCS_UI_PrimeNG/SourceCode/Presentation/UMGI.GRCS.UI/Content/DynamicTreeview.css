@@ -1,0 +1,101 @@
+﻿.scrollable {
+    overflow: scroll;
+    width: 70px; /* adjust this width depending to amount of text to display */
+    height: 80px; /* adjust height depending on number of options to display */
+    border: 1px silver solid;
+}
+
+    .scrollable select {
+        border: none;
+    }
+
+.TreeView {
+    line-height: 20px;
+    font-style: normal;
+    color: black;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .TreeView LI {
+        list-style-type: none;
+        width: 200px;
+        float: left;
+        padding: 0px;
+    }
+
+    .TreeView UL {
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+    }
+
+LI.Expanded {
+    background: url("/GCS/Images/down.png") no-repeat scroll 0.3em 1.1em transparent;
+}
+
+    LI.Expanded UL {
+        display: inline;
+    }
+
+LI.Collapsed {
+    background: url('/Gcs/Images/left.png') no-repeat scroll 0.3em 1.1em transparent;
+}
+
+    LI.Collapsed UL {
+        display: none;
+    }
+
+table td {
+    padding-left: 15px;
+    border: solid 1px black;
+}
+
+/* Table Style */
+
+.territoryCountry {
+    width: 700px; /*background-color: #fff;*/
+    border: 1px solid #000;
+    margin: 0;
+    padding: 0;
+    margin-top: 0px;
+}
+
+.FirstColumn {
+    width: 50%;
+}
+
+    .FirstColumn img {
+        margin: 10px 5px 0;
+    }
+
+.SecondColumn {
+    width: 10%;
+    text-align: center;
+}
+
+.FinalColumn {
+    width: 20%;
+}
+
+    .FinalColumn label {
+        margin: 5px 30px;
+    }
+
+.inline {
+    display: inline;
+}
+
+.Territoryimageaction {
+    height: 50px;
+    margin-left: 0;
+    margin-top: 5px;
+    position: absolute;
+    width: 350px;
+    z-index: 200;
+}
+
+.bordernone {
+    border: hidden;
+}

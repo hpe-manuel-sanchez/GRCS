@@ -1,0 +1,239 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceReleaseModel
+@functions
+        {
+    string substringVal(string inputVal, int length)
+    {
+
+        if (inputVal == null || string.IsNullOrEmpty(inputVal))
+        {
+            return string.Empty;
+        }
+        else
+        {
+            if (inputVal.Length > length)
+            {
+                inputVal = inputVal.Substring(0, length);
+                inputVal += "...";
+            }
+        }
+
+        return inputVal;
+    }
+
+        }
+<link href="@Url.Content("/GCS/Scripts/TreeView/themes/default/style.min.css")" rel="stylesheet" type="text/css" />
+@if (ViewBag.ValidationMsgPackage != null)
+{
+    <div id="divErrorMessagePackageDetails" class="error msg-margin">@ViewBag.ValidationMsgPackage</div>
+}
+@if (Model.clearanceRelease.R2ReleaseId != 0)
+{
+
+    <div id="popupContainerDv">
+        <div class="headerDv1" style="height: auto; overflow: hidden;">
+
+            <!-- START Header UPC START HERE -->
+            <div class="wrapperheadDv">
+                <div class="headerdivField1">
+                    <label>UPC:  </label>
+                </div>
+                <div class="headervalueDv1">
+                    @Html.DisplayTextFor(model => model.clearanceRelease.Upc)
+                </div>
+            </div>
+            <!-- End Header UPC  HERE -->
+
+            <!-- START Header Artist START HERE -->
+            <div class="wrapperheadDv">
+                <div class="headerdivField1">
+                    <label>Artist:  </label>
+                </div>
+                <div class="headervalueDv1" title ='@Model.clearanceRelease.ArtistName'>
+                    @{Model.clearanceRelease.ArtistName = @substringVal(Model.clearanceRelease.ArtistName, 25); }
+                    @Html.DisplayTextFor(model => model.clearanceRelease.ArtistName)
+                </div>
+            </div>
+            <!-- End Header Artist  HERE -->
+
+            <!-- START Header Title START HERE -->
+            <div class="wrapperheadDv">
+                <div class="headerdivField1">
+                    <label>Title:  </label>
+                </div>
+                <div class="headervalueDv1" title ='@Model.clearanceRelease.ReleaseTitle'>
+                    @{Model.clearanceRelease.ReleaseTitle = @substringVal(Model.clearanceRelease.ReleaseTitle, 25); }
+                    @Html.DisplayTextFor(model => model.clearanceRelease.ReleaseTitle)
+                </div>
+            </div>
+            <!-- End Header Title  HERE -->
+
+            <!-- START Header Version Title START HERE -->
+            <div class="wrapperheadDv">
+                <div class="headerdivField2">
+                    <label>Version Title:  </label>
+                </div>
+                <div class="headervalueDv2">
+                    @Html.DisplayTextFor(model => model.clearanceRelease.VersionTitle)
+                    @if (Model.clearanceRelease.CallFrom != null)
+                    {
+                        if (Model.clearanceRelease.IsAddedBySearchPkg != null && !Model.clearanceRelease.IsRemoved)
+                        {
+                        <a href="#" class="usr" title="@Model.clearanceRelease.R2ReleaseId-@Model.clearanceRelease.Upc"  id="viewComponentRemoveLink" onclick="RemoveRelease($(this).attr('title'));" style="text-decoration:underline !important;">Remove</a>
+                        }
+                    }
+                </div>
+            </div>
+            <!-- End Header Version Title  HERE -->
+        </div>
+
+        <div style="clear: both">
+        </div>
+
+        <div class="contentDv" style="display: block;">
+            <div id="firstContentDv">
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Label :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.labelName)
+                    </div>
+                </div>
+                <!-- Configuration cell start here -->
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Configuration :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.ConfigurationDisplay)
+                    </div>
+                </div>
+                <!-- Configuration cell End here -->
+                <!-- Music Type start here -->
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Music Type :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.MusicClassType)
+                    </div>
+                </div>
+                <!-- Music Type cell End here -->
+            </div>
+            <div id="secondContentDv">
+                <!-- Sond Track Start Here -->
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Sound Track :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.SoundtrackIndicator)
+                    </div>
+                </div>
+                <!-- Sond Track Ends Here -->
+                <!-- Number Of Track Start Here -->
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Number Of Track :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.TrackCount)
+                    </div>
+                </div>
+                <!-- Number Of Track Ends Here -->
+            </div>
+            <div id="thirdContentDv">
+                <!-- Package Start Here -->
+                <div class="contentWrapper">
+                    <div class="divField">
+                        <b>Package :</b>
+                    </div>
+                    <div class="valueDv">
+                        @Html.DisplayTextFor(model => model.clearanceRelease.PackageIndicator)
+                    </div>
+                </div>
+                <!-- Package Ends Here -->
+            </div>
+        </div>
+    </div>
+                    if (@Model.clearanceRelease.PackageIndicator != "Y")
+                    {
+    <div id="tblGrid">
+        <table class="bottomBorder">
+            <thead>
+                <tr>
+                    <th>
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegSequenceLabel)</b>
+                    </th>
+                    <th class="cellAlignLeft">
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegResourceTitleLabel)</b>
+                    </th>
+                    <th class="cellAlignLeft">
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegDataVersionTitleLabel)</b>
+                    </th>
+                    <th class="cellAlignLeft">
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegArtistNameLabel)</b>
+                    </th>
+                    <th class="cellAlignLeft">
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegDurationLabel)</b>
+                    </th>
+                    <th class="cellAlignLeft">
+                        <b>@Html.Label(@ClearanceLayout.ReleaseRegISRCLabel)</b>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model.clearanceRelease.TrackInfo != null && Model.clearanceRelease.TrackInfo.Count > 0)
+                {
+                    for (int i = 0; i < Model.clearanceRelease.TrackInfo.Count; i++)
+                    {
+                        var artistName = "";
+                        var ISRC = "";
+                    <tr>
+                        <td align="center">@Html.DisplayTextFor(model => model.clearanceRelease.TrackInfo[i].SequenceNo)</td>
+                        <td class="cellAlignLeft">@Html.DisplayTextFor(model => model.clearanceRelease.TrackInfo[i].ResourceTitle)</td>
+                        <td class="cellAlignLeft">@Html.DisplayTextFor(model => model.clearanceRelease.TrackInfo[i].ResourceVersionTitle)</td>
+
+                        @for (int k = 0; k < Model.clearanceRelease.TrackInfo[i].ArtistInfo.Count; k++)
+                        {
+                            if (artistName == "")
+                            {
+                                artistName = Model.clearanceRelease.TrackInfo[i].ArtistInfo[k].Name;
+                            }
+                            else
+                            {
+                                artistName = artistName + ',' + Model.clearanceRelease.TrackInfo[i].ArtistInfo[k].Name;
+                            }
+
+                        }
+
+                        <td class="cellAlignLeft" title='@artistName'>@{artistName = @substringVal(artistName, 25); }@artistName</td>
+                        <td class="cellAlignLeft">@Html.DisplayTextFor(model => model.clearanceRelease.TrackInfo[i].TrackDuration)</td>
+
+                        @if (Model.clearanceRelease.TrackInfo[i].Isrc != null && Model.clearanceRelease.TrackInfo[i].Isrc.Count() > 0)
+                        {
+                            for (int k = 0; k < Model.clearanceRelease.TrackInfo[i].Isrc.Count(); k++)
+                            {
+                                if (ISRC == "")
+                                {
+                                    ISRC = Model.clearanceRelease.TrackInfo[i].Isrc[k];
+                                }
+                                else
+                                {
+                                    ISRC = ISRC + ',' + Model.clearanceRelease.TrackInfo[i].Isrc[k];
+                                }
+
+                            }
+                        }
+                        <td class="cellAlignLeft">@Html.Label(ISRC)</td>
+                    </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+                    }
+}

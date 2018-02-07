@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActiveforMarketing" xml:space="preserve">
+    <value>Active for Marketing?.ar</value>
+  </data>
+  <data name="AdminCompanyID" xml:space="preserve">
+    <value>Admin Company ID.ar</value>
+  </data>
+  <data name="ArtistFirstName" xml:space="preserve">
+    <value>First Name.ar</value>
+  </data>
+  <data name="ArtistId" xml:space="preserve">
+    <value>Artist ID .ar</value>
+  </data>
+  <data name="ArtistLastGroupName" xml:space="preserve">
+    <value>Last/Group Name.ar</value>
+  </data>
+  <data name="ArtistLocalCharacters" xml:space="preserve">
+    <value>Artist in Local Characters.ar</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist.ar</value>
+  </data>
+  <data name="CatalogueNumber" xml:space="preserve">
+    <value>Catalogue No.ar</value>
+  </data>
+  <data name="ClearanceAdminCompanyCountry" xml:space="preserve">
+    <value>Clearance Admin Company-Country.ar</value>
+  </data>
+  <data name="ClearanceNotes" xml:space="preserve">
+    <value>Clearance Notes.ar</value>
+  </data>
+  <data name="CompanyID" xml:space="preserve">
+    <value>Company ID.ar</value>
+  </data>
+  <data name="ComponentsList" xml:space="preserve">
+    <value>Components.ar</value>
+  </data>
+  <data name="ConfigurationId" xml:space="preserve">
+    <value>Configuration Id.ar</value>
+  </data>
+  <data name="ContractCommencement" xml:space="preserve">
+    <value>Contract Commencement.ar</value>
+  </data>
+  <data name="ContractCreatedDate" xml:space="preserve">
+    <value>Contract CreatedDate.ar</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>Contract Description.ar</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>Contract ID.ar</value>
+  </data>
+  <data name="ContractingParty" xml:space="preserve">
+    <value>Contracting Party.ar</value>
+  </data>
+  <data name="ContractLastChangeDate" xml:space="preserve">
+    <value>Contract Last ChangeDate.ar</value>
+  </data>
+  <data name="ContractStatus" xml:space="preserve">
+    <value>Contract Status.ar</value>
+  </data>
+  <data name="CoreRowFlag" xml:space="preserve">
+    <value>Core Row Flag.ar</value>
+  </data>
+  <data name="CountryDetails" xml:space="preserve">
+    <value>Country.ar</value>
+  </data>
+  <data name="CreatedUser" xml:space="preserve">
+    <value>Created User.ar</value>
+  </data>
+  <data name="DataAdminCompany" xml:space="preserve">
+    <value>Data Admin Company.ar</value>
+  </data>
+  <data name="DivisionName" xml:space="preserve">
+    <value>Division.ar</value>
+  </data>
+  <data name="EmailNotificationRecipients" xml:space="preserve">
+    <value>Email Notification Recipients.ar</value>
+  </data>
+  <data name="EndofTerm" xml:space="preserve">
+    <value>End of Term.ar</value>
+  </data>
+  <data name="GeneralNotes" xml:space="preserve">
+    <value>General Notes.ar</value>
+  </data>
+  <data name="IsrcId" xml:space="preserve">
+    <value>ISRC.ar</value>
+  </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Label.ar</value>
+  </data>
+  <data name="LegalRightsReviewRequired" xml:space="preserve">
+    <value>Legal Rights Review Required?.ar</value>
+  </data>
+  <data name="LocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref No.ar</value>
+  </data>
+  <data name="LostRightsDate" xml:space="preserve">
+    <value>Lost Rights Date.ar</value>
+  </data>
+  <data name="LostRightsIndicator" xml:space="preserve">
+    <value>Lost Rights Indicator.ar</value>
+  </data>
+  <data name="LostRightsReason" xml:space="preserve">
+    <value>Lost Rights Reason.ar</value>
+  </data>
+  <data name="ModifiedUser" xml:space="preserve">
+    <value>Modified User.ar</value>
+  </data>
+  <data name="OnActiveRoster" xml:space="preserve">
+    <value>On Active Roster.ar</value>
+  </data>
+  <data name="OtherRights" xml:space="preserve">
+    <value>Other Rights.ar</value>
+  </data>
+  <data name="PCCompanyName" xml:space="preserve">
+    <value>Company Name.ar</value>
+  </data>
+  <data name="PCCountryName" xml:space="preserve">
+    <value>Country Name.ar</value>
+  </data>
+  <data name="PCNoticeCompanyCountry" xml:space="preserve">
+    <value>P/C Notice Company-Country.ar</value>
+  </data>
+  <data name="PCNoticeCompanyExtension" xml:space="preserve">
+    <value>P/C Notice Company Extension.ar</value>
+  </data>
+  <data name="PCompanyId" xml:space="preserve">
+    <value>PCompany ID.ar</value>
+  </data>
+  <data name="PCompanyName" xml:space="preserve">
+    <value>PCompany Name.ar</value>
+  </data>
+  <data name="PLicensingExtension" xml:space="preserve">
+    <value>PLicensing Extension.ar</value>
+  </data>
+  <data name="ProjectDescription" xml:space="preserve">
+    <value>Project Description.ar</value>
+  </data>
+  <data name="ProjectId" xml:space="preserve">
+    <value>Project ID.ar</value>
+  </data>
+  <data name="ProjectTitle" xml:space="preserve">
+    <value>Title.ar</value>
+  </data>
+  <data name="ReleaseCount" xml:space="preserve">
+    <value>Release Count.ar</value>
+  </data>
+  <data name="ReleaseId" xml:space="preserve">
+    <value>Release ID.ar</value>
+  </data>
+  <data name="ResourceCount" xml:space="preserve">
+    <value>Resource Count.ar</value>
+  </data>
+  <data name="RightsExceptionApplied" xml:space="preserve">
+    <value>Rights Exception Applied.ar</value>
+  </data>
+  <data name="RightsExceptions" xml:space="preserve">
+    <value>Rights Exceptions.ar</value>
+  </data>
+  <data name="RightsExpiryRule" xml:space="preserve">
+    <value>Rights Expiry Rule.ar</value>
+  </data>
+  <data name="RightsPeriod" xml:space="preserve">
+    <value>Rights Period.ar</value>
+  </data>
+  <data name="RightsType" xml:space="preserve">
+    <value>Rights Type.ar</value>
+  </data>
+  <data name="RlsCommitmentRightsReversion" xml:space="preserve">
+    <value>Release Commitment &amp; Rights Reversion.ar</value>
+  </data>
+  <data name="SearchAllFields" xml:space="preserve">
+    <value>Search all Name Fields.ar</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>All.ar</value>
+  </data>
+  <data name="SelectDeselectAllRepertoire" xml:space="preserve">
+    <value>Select/Deselect All Repertoire.ar</value>
+  </data>
+  <data name="SelectedContract" xml:space="preserve">
+    <value>Selected Contract.ar</value>
+  </data>
+  <data name="SensitiveArtist" xml:space="preserve">
+    <value>Sensitive Artist?.ar</value>
+  </data>
+  <data name="StatusType" xml:space="preserve">
+    <value>Status.ar</value>
+  </data>
+  <data name="TalentID" xml:space="preserve">
+    <value>Talent ID.ar</value>
+  </data>
+  <data name="TerritorialDefinitions" xml:space="preserve">
+    <value>Territorial Definitions.ar</value>
+  </data>
+  <data name="TracksList" xml:space="preserve">
+    <value>Tracks.ar</value>
+  </data>
+  <data name="UMGSigningCompany" xml:space="preserve">
+    <value>UMG Signing Company.ar</value>
+  </data>
+  <data name="UpcId" xml:space="preserve">
+    <value>UPC.ar</value>
+  </data>
+  <data name="VersionTitle" xml:space="preserve">
+    <value>Version Title.ar</value>
+  </data>
+  <data name="WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status.ar</value>
+  </data>
+  <data name="AssetType" xml:space="preserve">
+    <value>Asset Type.ar</value>
+  </data>
+  <data name="ConfigurationColumn" xml:space="preserve">
+    <value>Configuration.ar</value>
+  </data>
+  <data name="ConfigurationGroup" xml:space="preserve">
+    <value>Configuration Group.ar</value>
+  </data>
+  <data name="GenreColumn" xml:space="preserve">
+    <value>Resource Genre.ar</value>
+  </data>
+  <data name="IsCoreRow" xml:space="preserve">
+    <value>IsCoreRow.ar</value>
+  </data>
+  <data name="PNoticeExtension" xml:space="preserve">
+    <value>PNotice Extension.ar</value>
+  </data>
+  <data name="PYear" xml:space="preserve">
+    <value>P Year.ar</value>
+  </data>
+  <data name="ReleaseTitle" xml:space="preserve">
+    <value>Release Title.ar</value>
+  </data>
+  <data name="ResourceTitle" xml:space="preserve">
+    <value>Title.ar</value>
+  </data>
+  <data name="ResourceType" xml:space="preserve">
+    <value>Resource Type.ar</value>
+  </data>
+  <data name="SampleCredit" xml:space="preserve">
+    <value>Sample Credit.ar</value>
+  </data>
+  <data name="SampleExists" xml:space="preserve">
+    <value>Sample Exists.ar</value>
+  </data>
+  <data name="EmailId" xml:space="preserve">
+    <value>Email Ids.ar</value>
+  </data>
+  <data name="RoleGroupName" xml:space="preserve">
+    <value>Role/Group Name.ar</value>
+  </data>
+  <data name="ArtistFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Artists.ar</value>
+  </data>
+  <data name="ContentEmptyMsg" xml:space="preserve">
+    <value>Content is empty.ar</value>
+  </data>
+  <data name="ContractDetailsNullmsg" xml:space="preserve">
+    <value>Provided inputs ContractDetails/ UserInfo cannot be null.ar</value>
+  </data>
+  <data name="ContractInfoErrorMsg" xml:space="preserve">
+    <value>Provided input ContractInfo cannot be null.ar</value>
+  </data>
+  <data name="ContractInfoNullMsg" xml:space="preserve">
+    <value>Provided input ContractInfo/UserInfo cannot be null.ar</value>
+  </data>
+  <data name="ContractLoadMsg" xml:space="preserve">
+    <value>Select valid Contract to load.ar</value>
+  </data>
+  <data name="ContractRetrieveFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Contracts.ar</value>
+  </data>
+  <data name="DeleteContractErrorMsg" xml:space="preserve">
+    <value>Error in DeleteContract.ar</value>
+  </data>
+  <data name="ExploitationErrorMsg" xml:space="preserve">
+    <value>lstContractExploitationRestrictions.ar</value>
+  </data>
+  <data name="GetContractErrorMsg" xml:space="preserve">
+    <value>Error in GetContracts.ar</value>
+  </data>
+  <data name="GetDigitalRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataDigitalRestriction.ar</value>
+  </data>
+  <data name="GetPCNoticeErrorMsg" xml:space="preserve">
+    <value>Error in GetPCNoticeCompany.ar</value>
+  </data>
+  <data name="GetRightsRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataRightsAndRestriction.ar</value>
+  </data>
+  <data name="GetSecondaryTemplatesMsg" xml:space="preserve">
+    <value>Error in GetSecondaryExploitationTemplates.ar</value>
+  </data>
+  <data name="GetSplitDealContractErrorMsg" xml:space="preserve">
+    <value>"Error in GetSplitDealContracts.ar</value>
+  </data>
+  <data name="GetSplitDealErrormsg" xml:space="preserve">
+    <value>Provided inputs contractInfo/ UserInfo cannot be null in the function GetSplitDealContracts().ar</value>
+  </data>
+  <data name="GetTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in GetTerritoryData.ar</value>
+  </data>
+  <data name="SaveContractErrorMsg" xml:space="preserve">
+    <value>Error in SaveContract.ar</value>
+  </data>
+  <data name="SaveTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in SaveTerritoryData.ar</value>
+  </data>
+  <data name="SecondaryExploitationsFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Default data secondary exploitations.ar</value>
+  </data>
+  <data name="TemplateExistMsg" xml:space="preserve">
+    <value>Sorry!! Template already exists in this name.ar</value>
+  </data>
+  <data name="UserInfoEmptyMsg" xml:space="preserve">
+    <value>User Information is empty.ar</value>
+  </data>
+  <data name="UserInfoNullErrorMsg" xml:space="preserve">
+    <value>Provided input UserInfo cannot be null.ar</value>
+  </data>
+  <data name="ValidDigitalTemplateMsg" xml:space="preserve">
+    <value>Please select a Valid Digital Restriction template.ar</value>
+  </data>
+  <data name="ValidTemplateLoadMsg" xml:space="preserve">
+    <value>Select valid Contract Template to load.ar</value>
+  </data>
+  <data name="GetMasterDataContractForm" xml:space="preserve">
+    <value>Failed to load master data.ar</value>
+  </data>
+</root>

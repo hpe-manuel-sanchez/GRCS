@@ -1,0 +1,156 @@
+﻿input.datefield {
+    width: 80px !important;
+    float: none !important;
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%;
+}
+
+#Contract_ContractId {
+    width: 80px;
+}
+
+#searchContractAccItem {
+    width: 100%;
+    display: none;
+    padding-bottom: 9px;
+    padding-top: 10px;
+}
+
+#searchContractAccordion .iconBottom {
+    background: #d8ecfd url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 5px;
+}
+
+#searchContractAccordion a.header {
+    margin-left: 5px;
+    text-decoration: none;
+    border: none;
+    font-size: 12px;
+    background: #88c3f8 url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 5px;
+    color: #143489;
+}
+
+#searchContractAccordion a.iconBottom {
+    background: #88c3f8 url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 3px;
+}
+
+#searchContractAccordion .selected {
+    cursor: pointer;
+    background: #ffffff url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 0px;
+    display: block;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: -2px;
+    padding: 0px;
+    text-indent: 14px;
+    text-decoration: none;
+}
+
+#searchContractAccordion .head {
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: 8px;
+    padding: 0px;
+    text-indent: 14px;
+    text-decoration: none;
+    height: 22px;
+    background: #ffffff url('/Gcs/Images/blueAccordionHeaderBg.png') repeat-x top;
+    border: 1px solid #dcdcdc;
+}
+
+#searchContractAccordion .accbg {
+    background: #ffffff url('/Gcs/Images/blueAccordionBg.png') repeat-x top;
+    -moz-border: 1px solid #66BCF6;
+    -ms-border: 1px solid #66BCF6;
+    -webkit-border: 1px solid #66BCF6;
+    border: 1px solid #66BCF6;
+    -moz-border-top: none;
+    border-top: none;
+}
+
+#searchContractAccordion {
+    width: 97.6%;
+    margin-left: 15px;
+}
+
+.searchContractScroll {
+    width: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.searchContainer {
+    border-bottom: 2px solid #3171bb;
+}
+
+.searchContractHeader {
+    padding: 5px 0 5px 15px;
+}
+
+#SearchContractPaging {
+    position: relative;
+    float: right;
+}
+
+#searchContractBtnContainer {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    float: right;
+    margin-right: 15px;
+}
+
+.zeroMargin {
+    margin: 0px !important;
+}
+
+.contractEndOuterDiv {
+    width: 55%;
+    margin-left: 5px;
+}
+
+.contractEndInnerDiv {
+    margin-left: 5px;
+}
+
+.itemsPerPage {
+    display: none;
+    margin-right: 15px;
+    float: right;
+    margin-top: -2px;
+}
+
+.width35 {
+    width: 35%;
+}
+
+div#ExportToWord img {
+    vertical-align: bottom;
+}
+
+div#ContractListExcelExport img {
+    vertical-align: bottom;
+}
+
+.searchResult {
+    padding: 0 0 0 15px;
+    color: #143489;
+}
+
+#alert {
+    height: 35px;
+    width: 500px;
+    background-color: gold;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+.ui-jtable-loading {
+    float: left;
+    margin-top: -1px;
+}

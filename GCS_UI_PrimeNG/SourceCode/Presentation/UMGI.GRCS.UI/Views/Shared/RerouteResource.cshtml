@@ -1,0 +1,28 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.PriorityWorkQueueModel
+<script src="@Url.Content("/GCS/Scripts/Custom/Reroute.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/PriorityWorkQueue.min.css")"  rel="stylesheet" type="text/css" />
+<div class="ninetyWidth">
+    <h4>Please select the User to Re-route this item to</h4>
+
+    <div>
+        <label>
+            <input type="radio" name="ReRouteTo" value="Rcc User" />Route To Rcc User</label>
+    </div>
+    <div>
+        <label>
+            <input type="radio" name="ReRouteTo" value="Company" />Clearence Admin Company</label>
+    </div>
+
+    <div class="greyColor">
+        @Html.TextBox("txtRerouteClearanceComp", Model.WorkQueues.CompanyName, new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global") })
+        @Html.Hidden("hdnRerouteClearanceCompId", Model.WorkQueues.CompanyId)
+    </div>
+    <br class="clear" />
+    <div id="buttonContainer">
+        <div class="btnHolder">
+            <input type="submit" class="primbutton" value="@WorkQueueResource.Ok" id="btnRerouteOk" />
+            <input type="submit" class="secbutton" value="@WorkQueueResource.Cancel" id="btnRerouteCancel" />
+        </div>
+    </div>
+</div>

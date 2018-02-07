@@ -1,0 +1,133 @@
+﻿@model UMGI.GRCS.UI.Interfaces.IWorkQueueSearchModel
+@{
+    Layout = null;
+}
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchRepertoire.js")" type="text/javascript"></script>
+
+<!DOCTYPE html>
+<script type="text/javascript">
+    var msg = '@ViewBag.displayMessage';
+    $(document).ready(function () {
+        $('#inpConcurrencyAlertOk').click(function () {
+            $('#concurrencyErrorDia').dialog('close');
+        });
+    });
+</script>
+
+<style>
+    .linkContractResource {
+        color: Blue;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div style="padding: 10px;">
+        <input type="hidden" id="hiddenCount" value="@ViewBag.displayMessage" />
+
+        <div id="hid">
+            <input type="hidden"  value="@ViewBag.displayMessage" id="hiddenCount" />
+            <input type="hidden"  value="@Model.TotalRows" id="hiddeCounValidation" />
+        </div>
+        <div style="margin-top: 10px;">
+            <div style="float: left; width: 60%; margin-bottom: 10px;">
+                Below Release and Resource(s)  have already been Linked to contract <span class="linkContractResource">
+                    @(!string.IsNullOrEmpty(Model.LinkedContract.ArtistName) ? Html.DisplayFor(model => model.LinkedContract.ArtistName) : Html.DisplayFor(model => model.LinkedContract.ContractingParty))
+                    -
+                                                                                        @Html.DisplayFor(model => model.LinkedContract.ClearanceCompanyCountry)
+                </span>
+            </div>
+            <div id="alinLeft" style="float: right;">
+                <input type="submit" id="inpConcurrencyAlertOk" value="Ok" class="primbutton" />
+            </div>
+        </div>
+
+        @if (Model.ReleaseWorkQueueItems.Any())
+        {
+            <div id="linkContractInfo" style="clear: both; padding-top: 10px; height: 120px; position: relative; overflow-x: hidden; overflow-y: auto; margin-bottom: 10px;">
+                <h3 style="color: #143489">Releases</h3>
+                <table class="sample contractLinkingAlertInfo">
+                    <thead>
+                        <tr>
+                            <th style="width: 16%;">ISRC
+                            </th>
+                            <th style="width: 16%;">Title
+                            </th>
+                            <th style="width: 12%;">Version Title
+                            </th>
+                            <th style="width: 12%;">Artist
+                            </th>
+                            <th style="width: 16%;">UserName
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int index = 0; index < Model.ReleaseWorkQueueItems.Count(); index++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.ReleaseWorkQueueItems[index].Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ReleaseWorkQueueItems[index].Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ReleaseWorkQueueItems[index].VersionTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ReleaseWorkQueueItems[index].ArtistName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ReleaseWorkQueueItems[index].UserName)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        @if (Model.ResourceWorkQueueItems.Any())
+        {
+            <div id="linkContractInfo" style="clear: both; padding-top: 10px; height: 120px; position: relative; overflow-x: hidden; overflow-y: auto; margin-bottom: 10px;">
+                <h3 style="color: #143489">Resources</h3>
+                <table class="sample contractLinkingAlertInfo">
+                    <thead>
+                        <tr>
+                            <th style="width: 16%;">UPC
+                            </th>
+                            <th style="width: 16%;">Title
+                            </th>
+                            <th style="width: 12%;">Version Title
+                            </th>
+                            <th style="width: 12%;">Artist
+                            </th>
+                            <th style="width: 16%;">UserName
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int index = 0; index < Model.ResourceWorkQueueItems.Count(); index++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.ResourceWorkQueueItems[index].Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ResourceWorkQueueItems[index].Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ResourceWorkQueueItems[index].VersionTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ResourceWorkQueueItems[index].ArtistName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => model.ResourceWorkQueueItems[index].UserName)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>

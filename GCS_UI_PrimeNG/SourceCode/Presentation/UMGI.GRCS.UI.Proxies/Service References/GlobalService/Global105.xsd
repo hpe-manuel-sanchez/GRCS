@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Global/Global.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:complexType name="ArrayOfIdentifierOflongstringstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentifierOflongstringstring" nillable="true" type="tns:IdentifierOflongstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdentifierOflongstringstring" nillable="true" type="tns:ArrayOfIdentifierOflongstringstring" />
+  <xs:complexType name="IdentifierOflongstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="IdentifierOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IdentifierOflongstringstring" nillable="true" type="tns:IdentifierOflongstringstring" />
+  <xs:complexType name="EntityInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientIpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityInformation" nillable="true" type="tns:EntityInformation" />
+  <xs:complexType name="CompanySearch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPageDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCountryRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFilterRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PageDetails" nillable="true" type="tns:Page" />
+          <xs:element minOccurs="0" name="SearchTerm" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" minOccurs="0" name="Tasks" type="q1:GrsTasks" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CompanySearch" nillable="true" type="tns:CompanySearch" />
+  <xs:complexType name="Page">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPageDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAscendingOrder" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+          <xs:element minOccurs="0" name="SortField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Page" nillable="true" type="tns:Page" />
+  <xs:complexType name="ArrayOfClearanceAdminCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceAdminCompany" nillable="true" type="tns:ClearanceAdminCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceAdminCompany" nillable="true" type="tns:ArrayOfClearanceAdminCompany" />
+  <xs:complexType name="ClearanceAdminCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" base="q2:CompanyInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceAdminCompany" nillable="true" type="tns:ClearanceAdminCompany" />
+  <xs:complexType name="ArrayOfCountryIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryIdentifier" nillable="true" type="tns:CountryIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountryIdentifier" nillable="true" type="tns:ArrayOfCountryIdentifier" />
+  <xs:complexType name="CountryIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdentifierOfstringstringstring">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountryIdentifier" nillable="true" type="tns:CountryIdentifier" />
+  <xs:complexType name="IdentifierOfstringstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="IdentifierOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IdentifierOfstringstringstring" nillable="true" type="tns:IdentifierOfstringstringstring" />
+  <xs:complexType name="DataInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataInfo" nillable="true" type="tns:DataInfo" />
+  <xs:complexType name="BaseSearch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPageDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasSearchCriteria" type="xs:boolean" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="PageDetails" nillable="true" type="q3:FilterFields" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseSearch" nillable="true" type="tns:BaseSearch" />
+  <xs:complexType name="ArrayOfAuditTrailFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AuditTrailFilter" nillable="true" type="tns:AuditTrailFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAuditTrailFilter" nillable="true" type="tns:ArrayOfAuditTrailFilter" />
+  <xs:complexType name="AuditTrailFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuditConfigId" type="xs:long" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Level" type="xs:long" />
+      <xs:element minOccurs="0" name="ParentAuditConfigId" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditTrailFilter" nillable="true" type="tns:AuditTrailFilter" />
+</xs:schema>

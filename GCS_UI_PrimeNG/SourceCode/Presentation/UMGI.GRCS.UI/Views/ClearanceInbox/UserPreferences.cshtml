@@ -1,0 +1,505 @@
+﻿@using UMGI.GRCS.UI.Interfaces;
+@model UMGI.GRCS.UI.Models.UserPreferenceViewModel
+@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "User Preferences";
+}
+<script src="/Gcs/Scripts/MultiSelectDropdown/jquery.multiselect.js" type="text/javascript"></script>
+<link href="/Gcs/Scripts/MultiSelectDropdown/jquery.multiselect.min.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .a9multiselect {
+        width: 9.9em;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        padding: 0;
+        margin: -.05em 0 1em 0;
+        border: 0;
+    }
+
+        .a9multiselect .expcol-click, .a9multiselect .expcol-click-open {
+            background-color: #fff;
+            border: 1px solid #999;
+            padding: 0;
+            margin: 0;
+            cursor: default;
+            min-width: 9.8em;
+        }
+
+        .a9multiselect div.expcol-click {
+            position: absolute;
+            z-index: 64;
+        }
+
+        .a9multiselect div.expcol-click-open {
+            border-bottom: 1px solid #fff;
+        }
+
+        .a9multiselect .title {
+            font-size: .8em;
+            height: 1.3em;
+            line-height: 1.2em;
+            overflow: hidden;
+            padding: .3em 1.1em .1em .5em;
+            background: white url('/Gcs/Images/multiselect.gif') no-repeat top right;
+        }
+
+            .a9multiselect .title:hover {
+                background: white url('/Gcs/Images/multiselect-hover.gif') no-repeat top right;
+            }
+
+    .expcol-body {
+        position: absolute;
+        z-index: 106;
+        min-height: 1em;
+        background: #e9f3f8;
+        padding: .1em;
+        display: block;
+        font-size: 75%;
+        display: none;
+        margin-top: -1px;
+        border: 1px solid #999;
+    }
+
+        .expcol-body ul {
+            overflow: auto;
+            min-height: 1em;
+            min-width: 20em;
+            margin: 0;
+            padding: 0;
+        }
+
+        .expcol-body li {
+            margin: 0 0 .2em 0;
+            list-style: none;
+        }
+
+            .expcol-body li:hover {
+                background: #ddd;
+            }
+
+    .arc90_multiselect {
+        width: 12.5em;
+        height: 1.35em;
+        visibility: hidden;
+    }
+
+    .a9selectall {
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Styles for page layout */
+    DIV.examples {
+        margin: 0 0 2em 0;
+        width: 17em;
+        border: 1px solid #e9e9e9;
+        padding: .3em;
+    }
+
+        DIV.examples LABEL.examples {
+            display: block;
+            margin: 0 0 .2em 0;
+        }
+
+    .uprr-wrapper {
+        border: 1px solid #ccc;
+        margin: 10px 15px;
+        overflow: hidden;
+    }
+
+    .uprr-head {
+        margin: 0 !important;
+        font-weight: bold;
+        padding-left: 5px;
+        line-height: 19px;
+    }
+
+    .uprr-content-wrapper {
+        overflow: hidden;
+        margin: 10px 15px;
+    }
+
+    .uprr-width1 {
+        width: 10%;
+    }
+
+    .uprr-width2 {
+        width: 15%;
+    }
+
+    .uprr-width3 {
+        width: 71%;
+    }
+
+    .currency {
+        margin: 0;
+        padding: 0;
+    }
+
+        .currency li {
+            list-style: none;
+            height: auto;
+            overflow: hidden;
+        }
+
+    .bar {
+        width: 2px;
+        height: 100%;
+        float: left;
+        backgroud: red;
+        clear: both;
+    }
+
+    .dataDv {
+        height: auto; /*line-height:17px;*/
+        line-height: 0px !important;
+        clear: both;
+        border: 1px solid #ccc;
+        font-weight: bold;
+    }
+
+        .dataDv ul li {
+            border-bottom: 1px solid #ccc;
+            padding-top: 0 !important;
+            min-height: auto !important;
+        }
+
+            .dataDv ul li:last-child {
+                border-bottom: 0px;
+            }
+
+    .last-li {
+        border-bottom: 0px !important;
+    }
+
+    .clearBoth1 {
+        clear: both;
+        padding-top: 5px;
+    }
+
+    select {
+        margin: 2px 0;
+    }
+
+    .pa-inbox-role {
+        padding-left: 4.5%;
+        min-height: auto !important;
+    }
+
+    ul li {
+        padding-top: 0 !important;
+        min-height: auto !important;
+    }
+
+    input[type="checkbox"] {
+        vertical-align: middle;
+    }
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var userPreferencesData = {};
+        var userPreferencesObject = [];
+        var InboxRole = "";
+        var RqstCmpny = null;
+        var Currency = null;
+        var rcvArtstMgmnt = null;
+        var rcvUPCAlloc = null;
+        var rcvEmlInbx = null;
+        var rqstRmvdInbx = null;
+        var addRsrcReq = null;
+        var reqRmvdArtst = null;
+        var reqMstrPrjct = null;
+        var autPrjctCompl = null;
+
+        var FnlRvwRqst = false;
+        var ConsolidatedEmail = false;
+        var rcvArtstMgmnt = false;
+        var rcvUPCAlloc = false;
+        var rcvEmlInbx = false;
+        var rqstRmvdInbx = false;
+        var addRsrcReq = false;
+        var reqRmvdArtst = false;
+        var reqMstrPrjct = false;
+        var autPrjctCompl = false;
+
+        var rstmulrcvEmlInbx = [];
+        var rstmulrqstRmvdInbx = [];
+        var rstaddRsrcReq = [];
+        var rstreqRmvdArtst = [];
+        var rstreqMstrPrjct = [];
+        var rstautPrjctCompl = [];
+
+        $('#rcvFnlEmlTxt').hide();
+
+        //        if ($('#rcvFnlEml')[0].checked == true) {
+        //            ConsolidatedEmail = true;
+        //        }
+
+        $('.requestorrdobtn').click(function () {
+            $('#requestor').attr("checked", false);
+            InboxRole = "Requestor";
+        });
+
+        $('.multiselect').multiselect();
+        $('.multiselect').multiselect("checkAll");
+
+        $('.dynamicclass').click(function () {
+            $('#rcvFnlEmlTxt').show();
+        });
+        if ($('#requestor').checked == "checked") {
+            InboxRole = "Requestor";
+        }
+        $('#rcvFnlRvw').blur(function () {
+            if ($('#rcvFnlRvw')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                FnlRvwRqst = true;
+            }
+        });
+
+        $('#rcvArtstMgmnt').blur(function () {
+            if ($('#rcvArtstMgmnt')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                rcvArtstMgmnt = true;
+            }
+        });
+        $('#rcvUPCAlloc').blur(function () {
+            if ($('#rcvUPCAlloc')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                rcvUPCAlloc = true;
+            }
+        });
+
+        $('#rcvEmlInbx').blur(function () {
+            if ($('#rcvEmlInbx')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                rcvEmlInbx = true;
+                var result = $('#mulrcvEmlInbx').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstmulrcvEmlInbx.push(parseInt(result[i].value));
+                }
+            }
+        });
+
+        $('#rqstRmvdInbx').blur(function () {
+            if ($('#rqstRmvdInbx')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                rqstRmvdInbx = true;
+                var result = $('#mulrqstRmvdInbx').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstmulrqstRmvdInbx.push(parseInt(result[i].value));
+                }
+            }
+        });
+        $('#addRsrcReq').blur(function () {
+            if ($('#addRsrcReq')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                addRsrcReq = true;
+                var result = $('#muladdRsrcReq').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstaddRsrcReq.push(parseInt(result[i].value));
+                }
+            }
+        });
+        $('#reqRmvdArtst').blur(function () {
+            if ($('#reqRmvdArtst')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                reqRmvdArtst = true;
+                var result = $('#mulreqRmvdArtst').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstreqRmvdArtst.push(parseInt(result[i].value));
+                }
+            }
+        });
+        $('#reqMstrPrjct').blur(function () {
+            if ($('#reqMstrPrjct')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                reqMstrPrjct = true;
+                var result = $('#mulreqMstrPrjct').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstreqMstrPrjct.push(parseInt(result[i].value));
+                }
+            }
+        });
+        $('#autPrjctCompl').blur(function () {
+            if ($('#autPrjctCompl')[0].checked == true) {
+                $('#rcvFnlEmlTxt').show();
+                autPrjctCompl = true;
+                var result = $('#mulautPrjctCompl').multiselect("getChecked");
+                var i = 0;
+                for (i = 0; i < result.length; i++) {
+                    rstautPrjctCompl.push(parseInt(result[i].value));
+                }
+            }
+        });
+
+        $('#savebtn').click(function () {
+
+            if ($('#requestor').checked == "checked") {
+                InboxRole = "Requestor";
+            }
+
+            RqstCmpny = $('#ddlPartialRolesList').val();
+            Currency = $('#ddlPartialCurrList').val();
+
+            userPreferencesData = {
+                'RqstCmpny': RqstCmpny, 'Currency': Currency,
+                'consoldtdEmail': ConsolidatedEmail,
+                'fnlRvwReqst': FnlRvwRqst, 'rvwrArtstFlag': rcvArtstMgmnt, 'rcvUPCAlloc': rcvUPCAlloc,
+                'newRqstInbox': rcvEmlInbx, 'rqstRmvdInbox': rqstRmvdInbx, 'addResrce': addRsrcReq, 'reqRmvdArtst': reqRmvdArtst, 'reqMstrPrjct': reqMstrPrjct, 'autPrjctCompl': autPrjctCompl,
+                'newRqstInboxLst': rstmulrcvEmlInbx, 'rqstRmvdInboxCan': rstmulrqstRmvdInbx, 'addResrceLst': rstaddRsrcReq, 'rqstRmvdArtstLst': rstreqRmvdArtst, 'modRqstMstrLst': rstreqMstrPrjct, 'rqstRmvdInboxComLst': rstautPrjctCompl
+            };
+            userPreferencesObject.push(userPreferencesData);
+            $('#hdnJsonUserPref').val(JSON.stringify(userPreferencesObject));
+
+            var digitalVal = $('#UserPreferences').serialize();
+            $.ajax({
+                type: "POST",
+                url: '/GCS/WorkGroup/UserPreferences',
+                data: digitalVal,
+                success: function () {
+                }
+            });
+
+        });
+
+        $('#mulrcvEmlInbx').multiselect();
+        $('#mulrqstRmvdInbx').multiselect();
+        $('#muladdRsrcReq').multiselect();
+        $('#mulreqRmvdArtst').multiselect();
+        $('#mulreqMstrPrjct').multiselect();
+        $('#mulautPrjctCompl').multiselect();
+        $('#mulrcvEmlInbx').multiselect("checkAll");
+        $('#mulrqstRmvdInbx').multiselect("checkAll");
+        $('#muladdRsrcReq').multiselect("checkAll");
+        $('#mulreqRmvdArtst').multiselect("checkAll");
+        $('#mulreqMstrPrjct').multiselect("checkAll");
+        $('#mulautPrjctCompl').multiselect("checkAll");
+
+    });
+</script>
+@using (Html.BeginForm("UserPreferences", "WorkGroup", FormMethod.Post, new { Id = "UserPreferences" }))
+{
+    <div style="height: 900px !important;">
+        @{
+    var userSessionWrapper = DependencyResolver.Current.GetService<ISessionWrapper>();
+    var isReviewer = userSessionWrapper.GcsCurrentPermissions.Roles.Where(roles => roles.Value.Contains("Reviewer")).GroupBy(role => role.Value).Count() != 0;
+    var isRequestor = userSessionWrapper.GcsCurrentPermissions.Roles.Where(roles => roles.Value.Contains("Requestor")).GroupBy(role => role.Value).Count() != 0;
+        }
+        <div class="uprr-wrapper">
+            <div class="uprr-head grey-background">
+                Default Setting
+            </div>
+            <div class="uprr-content-wrapper">
+                <!-- COLUMN1 START HERE -->
+                <div class="floatL uprr-width1">
+                    <ul class="currency">
+                        <li class="labelbold pa-inbox-role">Inbox Role</li>
+                        @Html.RadioButton("Requestor", new { @id = "requestor", @name = "Role", @class = "requestorrdobtn" })<b>Requestor</b><br />
+                        @Html.RadioButton("Reviewer", true, true, new { @id = "reviewer", @name = "Role", @class = "reviewerrdobtn" })<b>Reviewer</b>
+                    </ul>
+                </div>
+                <!-- COLUMN1 Ends HERE -->
+                <!-- COLUMN2 START HERE -->
+                @if (isRequestor == true)
+                {
+                    <div class="floatL uprr-width2">
+                        <ul class="currency">
+                            <li class="labelbold">Requesting Company</li>
+                            @Html.DropDownListFor(model => model.RqstngCmpny, new SelectList(Model.RqstngCmpny, "value", "text", Model.RqstngCmpny), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectRoleLabel, new { id = "ddlPartialRolesList", @style = "width: 188px;!important" })
+                        </ul>
+                    </div>
+
+                    <!-- COLUMN2 Ends HERE -->
+                    <!-- COLUMN3 START HERE -->
+                    <div class="floatL uprr-width3">
+                        <ul class="currency">
+                            <li class="labelbold">Currency</li>
+                            @Html.DropDownListFor(model => model.Currency, new SelectList(Model.Currency, "value", "text", Model.Currency), @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectRoleLabel, new { id = "ddlPartialCurrList", @style = " width: 188px;!important" })
+                        </ul>
+                    </div>
+                }
+                <!-- COLUMN3 Ends HERE -->
+            </div>
+        </div>
+        <div class="uprr-wrapper">
+            <div class="uprr-head grey-background">
+                Email Preferences
+            </div>
+            <div class="uprr-content-wrapper">
+                <div class="dataDv" id="rcvFnlEmlTxt">
+                    @* @Html.CheckBoxFor(m => m.PreferenceText[i].PreferenceID, new { @id = "rcvFnlEml", @name = "rcvFnlEml" })*@
+                    <input type="checkbox" value="" />
+                    @Model.PreferenceText[0].Description
+                </div>
+                <div class="clearBoth1">
+                    &nbsp;
+                </div>
+                <div class="dataDv">
+                    <ul class="currency">
+                        @for (int i = 2; i <= 4; i++)
+                        {
+                            <li>
+                                <input type="checkbox" value="" class="dynamicclass" />
+                                <input type = "hidden" value = "@Model.PreferenceText[i].PreferenceID" />
+                                @*@Html.CheckBoxFor(m => Convert.ToBoolean(m.PreferenceText[i].PreferenceID), new { @id = "rcvFnlRvw", @name = "rcvFnlRvw" })*@
+                                @Model.PreferenceText[i].Description
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="clearBoth1">
+                    &nbsp;
+                </div>
+                @if (isReviewer == true)
+                {
+                    <div class="dataDv">
+                        <ul class="currency">
+                            @for (int i = 5; i <= 9; i++)
+                            {
+                                <li>
+                                    <div style="float: left; width: 55%;">
+                                        <input type="checkbox" value="" class="dynamicclass" />
+                                        <input type = "hidden" value = "@Model.PreferenceText[i].PreferenceID" />
+                                        @*@Html.CheckBoxFor(m => m.PreferenceText[i].PreferenceID, new { @id = "rcvFnlRvw", @name = "rcvFnlRvw" })*@
+                                        @Model.PreferenceText[i].Description
+                                    </div>
+                                    <div style="float: right; width: 45%;">
+                                        @Html.DropDownListFor(model => model.listItem, new SelectList(Model.listItem, "value", "text", Model.listItem), new { id = "mulrcvEmlInbx", @class = "multiselect", name = "mulrcvEmlInbx", @style = "width: 188px;!important" })
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+        <input type="submit" id="savebtn" value="Save" class="plbutton" style="margin-left: 550px !important;" />
+        <input type="button" value="Cancel" class="plbutton" />
+        <input type="hidden" name="hdnJsonUserPref" id="hdnJsonUserPref" value="" />
+    </div>
+}
+<script type="text/javascript">
+
+    function applyCustomTheam() {
+        var docHeight = $(window).height();
+        var headerHeight = 95;
+        var footerHeight = 45;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+
+        $("#main").css({
+            "height": mainContainerHeight + "px",
+            "overflow": "auto",
+            "overflowX": "hidden",
+            "position": "relative"
+        });
+
+    }
+    applyCustomTheam();
+</script>

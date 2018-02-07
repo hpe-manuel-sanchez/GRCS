@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ppfml version="2.00" project="Clearance System" type="1">
+ <windowlist>
+  <window name="NewWindow" x="5%" y="5%" width="90%" height="90%" viewtype="doublepane" workspacestyle="DEFAULT" caption="NewWindow" toolbar="off" locationbar="off" menu="off" resizable="yes" statusbar="off" usecurrentwindowsettings="yes" skin="WebHelp_Skin_Files\Default\Default.skn">
+   <elements><element name="BrowseSequence" present="no" /><element name="SearchInput" present="no" /><element name="SkinInstruction" value="whskin_ep_ins.xml" />
+   </elements>
+   <agents defaultagent="toc">
+    <agent>toc
+    </agent>
+    <agent>ndx
+    </agent>
+    <agent>nls
+    </agent>
+    <agent>gls
+    </agent>
+   </agents>
+  </window>
+  <window name="NewWindow1" x="5%" y="5%" width="90%" height="90%" viewtype="doublepane" workspacestyle="DEFAULT" caption="Clearance System" toolbar="off" locationbar="off" menu="off" resizable="yes" statusbar="off" usecurrentwindowsettings="yes" skin="WebHelp_Skin_Files\Default\Default.skn">
+   <elements><element name="BrowseSequence" present="no" /><element name="SearchInput" present="no" /><element name="SkinInstruction" value="whskin_ep_ins.xml" />
+   </elements>
+   <agents>
+    <agent>toc
+    </agent>
+    <agent>ndx
+    </agent>
+    <agent>nls
+    </agent>
+    <agent>gls
+    </agent>
+   </agents>
+  </window>
+  <window name="NewWindow2" x="5%" y="5%" width="90%" height="90%" viewtype="singlepane" workspacestyle="DEFAULT" caption="Clearance System" toolbar="off" locationbar="off" menu="off" resizable="yes" statusbar="off" usecurrentwindowsettings="yes" skin="WebHelp_Skin_Files\Default\Default.skn">
+   <elements><element name="BrowseSequence" present="no" /><element name="SearchInput" present="no" /><element name="SkinInstruction" value="whskin_ep_ins.xml" />
+   </elements>
+   <agents>
+    <agent>toc
+    </agent>
+    <agent>ndx
+    </agent>
+    <agent>nls
+    </agent>
+    <agent>gls
+    </agent>
+   </agents>
+  </window>
+  <window name="NewWindow3" x="5%" y="5%" width="90%" height="90%" viewtype="doublepane" workspacestyle="DEFAULT" caption="Clearance System" toolbar="off" locationbar="off" menu="off" resizable="yes" statusbar="off" usecurrentwindowsettings="yes" skin="WebHelp_Skin_Files\Default\Default.skn">
+   <elements><element name="BrowseSequence" present="no" /><element name="SearchInput" present="no" /><element name="SkinInstruction" value="whskin_ep_ins.xml" />
+   </elements>
+   <agents>
+    <agent>toc
+    </agent>
+    <agent>ndx
+    </agent>
+    <agent>nls
+    </agent>
+    <agent>gls
+    </agent>
+   </agents>
+  </window>
+  <window name="NewWindow4" x="5%" y="5%" width="90%" height="90%" viewtype="doublepane" workspacestyle="DEFAULT" caption="Clearance System" toolbar="off" locationbar="off" menu="off" resizable="yes" statusbar="off" usecurrentwindowsettings="yes" skin="WebHelp_Skin_Files\Default\Default.skn">
+   <elements><element name="BrowseSequence" present="yes" /><element name="SearchInput" present="no" /><element name="SkinInstruction" value="whskin_ep_ins.xml" />
+   </elements>
+   <agents>
+    <agent>toc
+    </agent>
+    <agent>ndx
+    </agent>
+    <agent>nls
+    </agent>
+    <agent>gls
+    </agent>
+   </agents>
+  </window>
+ </windowlist>
+ <contextmap>
+ </contextmap>
+ <topiclist defaulttopic="Creating_Workgroup.htm">
+  <topic>Creating_Workgroup.htm
+  </topic>
+  <topic>Creating_Regular_Non_Traditional_Projects.htm
+  </topic>
+  <topic>Creating_Master_Projects.htm
+  </topic>
+  <topic>Deleting_Workgroups.htm
+  </topic>
+  <topic>Deactivating_Workgroups.htm
+  </topic>
+  <topic>Managing_Resource_Contracts.htm
+  </topic>
+  <topic>Managing_Artist_Contracts.htm
+  </topic>
+  <topic>Amending_Workgroups.htm
+  </topic>
+  <topic>Managing_Workgroup.htm
+  </topic>
+  <topic>User_Group_Administration.htm
+  </topic>
+  <topic>Welcome.htm
+  </topic>
+  <topic>Creating_Child_Workgroups.htm
+  </topic>
+  <topic>Deleting_the_Projects.htm
+  </topic>
+  <topic>Re-Opening_the_Clearance_Projects.htm
+  </topic>
+  <topic>Completing_Clearance_Projects.htm
+  </topic>
+  <topic>Add_Release(s)_Resource(s).htm
+  </topic>
+  <topic>Re-Submitting_Clearance_Projects.htm
+  </topic>
+  <topic>Submitting_Clearance_Projects.htm
+  </topic>
+  <topic>Cancelling_the_Resource_on_Clearance_Project_(s).htm
+  </topic>
+  <topic>Re-Instating_Clearance_Projects.htm
+  </topic>
+  <topic>Cancelling_the_Clearance_Project(s).htm
+  </topic>
+  <topic>Modifying_Clearance_Projects.htm
+  </topic>
+  <topic>Include_Resource_(s).htm
+  </topic>
+  <topic>Exclude_Resource_(s).htm
+  </topic>
+  <topic>Re-Submit_Resource_(s).htm
+  </topic>
+  <topic>Re-_Apply_Track_(s).htm
+  </topic>
+  <topic>Re-instate_the_Resource(s).htm
+  </topic>
+  <topic>Push_New_Release_(s)_to_R2.htm
+  </topic>
+  <topic>Reminder.htm
+  </topic>
+  <topic>Requestor_Inbox.htm
+  </topic>
+  <topic>Reviewer_Inbox.htm
+  </topic>
+  <topic>RCC_Admin_Inbox.htm
+  </topic>
+  <topic>Free_Hand_Company_Management.htm
+  </topic>
+  <topic>Allocating_UPC_for_New_Release_(s).htm
+  </topic>
+  <topic>Clearance_Project_Inquiry.htm
+  </topic>
+  <topic>Managing_Safe_Territories1.htm
+  </topic>
+  <topic>Managing_Routing_Variations.htm
+  </topic>
+  <topic>Managing_Pre-defined_Rejection_Reasons.htm
+  </topic>
+  <topic>Un_Lock_Project_(s).htm
+  </topic>
+  <topic>Mimic_User.htm
+  </topic>
+  <topic>Free_Hand_Resource_Management.htm
+  </topic>
+  <topic>Maintaining_Projects_at_Resource_Level.htm
+  </topic>
+  <topic>Maintaining_Projects_at_Project_Level.htm
+  </topic>
+  <topic>Creating_Projects.htm
+  </topic>
+  <topic>User_Preferences.htm
+  </topic>
+  <topic>Managing_Deviations.htm
+  </topic>
+  <topic>Managing_Users.htm
+  </topic>
+  <topic>Amending_Child_Workgroups.htm
+  </topic>
+  <topic>Audit_Trails_and_History.htm
+  </topic>
+  <topic>Managing_Emails.htm
+  </topic>
+  <topic>Creating_Project_from_Existing_Projects.htm
+  </topic>
+  <topic>User_Transfer.htm
+  </topic>
+ </topiclist>
+ <projectincludes>
+ </projectincludes>
+ <filenamemap>
+  <filenameentry moniker="wh_languagetype">
+   <filename>en_US
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="toc">
+   <filename>Clearance_System.hhc
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="ndx">
+   <filename>Clearance_System.hhk
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="nls">
+   <filename>Clearance_System.nla
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="gls">
+   <filename>Clearance_System.glo
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="wh_lngfile">
+   <filename>Clearance_System.lng
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="wh_stoplist">
+   <filename>Clearance_System.stp
+   </filename>
+  </filenameentry>
+  <filenameentry moniker="sym">
+   <filename>Clearance_System.syn
+   </filename>
+  </filenameentry>
+ </filenamemap>
+</ppfml>

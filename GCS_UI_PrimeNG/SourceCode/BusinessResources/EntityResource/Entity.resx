@@ -1,0 +1,1434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActiveforMarketing" xml:space="preserve">
+    <value>Active for Marketing?</value>
+  </data>
+  <data name="AdminCompanyID" xml:space="preserve">
+    <value>Admin Company ID</value>
+  </data>
+  <data name="ArtistFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ArtistId" xml:space="preserve">
+    <value>Artist ID </value>
+  </data>
+  <data name="ArtistLastGroupName" xml:space="preserve">
+    <value>Last/Group Name</value>
+  </data>
+  <data name="ArtistLocalCharacters" xml:space="preserve">
+    <value>Artist in Local Characters</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="CatalogueNumber" xml:space="preserve">
+    <value>Catalogue No</value>
+  </data>
+  <data name="ClearanceAdminCompanyCountry" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ClearanceNotes" xml:space="preserve">
+    <value>Clearance Notes</value>
+  </data>
+  <data name="CompanyID" xml:space="preserve">
+    <value>Company ID</value>
+  </data>
+  <data name="ComponentsList" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="ConfigurationId" xml:space="preserve">
+    <value>Configuration </value>
+  </data>
+  <data name="ContractCommencement" xml:space="preserve">
+    <value>Contract Commencement</value>
+  </data>
+  <data name="ContractCreatedDate" xml:space="preserve">
+    <value>Contract CreatedDate</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>Contract Description</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="ContractingParty" xml:space="preserve">
+    <value>Contracting Party</value>
+  </data>
+  <data name="ContractLastChangeDate" xml:space="preserve">
+    <value>Contract Last ChangeDate</value>
+  </data>
+  <data name="ContractStatus" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="CoreRowFlag" xml:space="preserve">
+    <value>Core Row Flag</value>
+  </data>
+  <data name="CountryDetails" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CreatedUser" xml:space="preserve">
+    <value>Created User</value>
+  </data>
+  <data name="DataAdminCompany" xml:space="preserve">
+    <value>Data Admin Company</value>
+  </data>
+  <data name="DivisionName" xml:space="preserve">
+    <value>Division</value>
+  </data>
+  <data name="EmailNotificationRecipients" xml:space="preserve">
+    <value>Email Notification Recipients</value>
+  </data>
+  <data name="EndofTerm" xml:space="preserve">
+    <value>End of Term</value>
+  </data>
+  <data name="GeneralNotes" xml:space="preserve">
+    <value>General Notes</value>
+  </data>
+  <data name="IsrcId" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="LegalRightsReviewRequired" xml:space="preserve">
+    <value>Legal Rights Review Required?</value>
+  </data>
+  <data name="LocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref No</value>
+  </data>
+  <data name="LostRightsDate" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="LostRightsIndicator" xml:space="preserve">
+    <value>Lost Rights Indicator</value>
+  </data>
+  <data name="LostRightsReason" xml:space="preserve">
+    <value>Lost Rights Reason</value>
+  </data>
+  <data name="ModifiedUser" xml:space="preserve">
+    <value>Modified User</value>
+  </data>
+  <data name="OnActiveRoster" xml:space="preserve">
+    <value>On Active Roster</value>
+  </data>
+  <data name="OtherRights" xml:space="preserve">
+    <value>Other Rights</value>
+  </data>
+  <data name="PCCompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="PCCountryName" xml:space="preserve">
+    <value>Country Name</value>
+  </data>
+  <data name="PCNoticeCompanyCountry" xml:space="preserve">
+    <value>P/C Notice Company-Country</value>
+  </data>
+  <data name="PCNoticeCompanyExtension" xml:space="preserve">
+    <value>P/C Notice Company Extension</value>
+  </data>
+  <data name="PCompanyId" xml:space="preserve">
+    <value>PCompany ID</value>
+  </data>
+  <data name="PCompanyName" xml:space="preserve">
+    <value>PCompany Name</value>
+  </data>
+  <data name="PLicensingExtension" xml:space="preserve">
+    <value>PLicensing Extension</value>
+  </data>
+  <data name="ProjectDescription" xml:space="preserve">
+    <value>Project Description</value>
+  </data>
+  <data name="ProjectId" xml:space="preserve">
+    <value>Project ID</value>
+  </data>
+  <data name="ProjectTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="ReleaseCount" xml:space="preserve">
+    <value>Release Count</value>
+  </data>
+  <data name="ReleaseId" xml:space="preserve">
+    <value>Release ID</value>
+  </data>
+  <data name="ResourceCount" xml:space="preserve">
+    <value>Resource Count</value>
+  </data>
+  <data name="RightsExceptionApplied" xml:space="preserve">
+    <value>Rights Exception Applied</value>
+  </data>
+  <data name="RightsExceptions" xml:space="preserve">
+    <value>Rights Exceptions</value>
+  </data>
+  <data name="RightsExpiryRule" xml:space="preserve">
+    <value>Rights Expiry Rule</value>
+  </data>
+  <data name="RightsPeriod" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="RightsType" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="RlsCommitmentRightsReversion" xml:space="preserve">
+    <value>Release Commitment &amp; Rights Reversion</value>
+  </data>
+  <data name="SearchAllFields" xml:space="preserve">
+    <value>Search all Name Fields</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SelectDeselectAllRepertoire" xml:space="preserve">
+    <value>Select/Deselect All Repertoire</value>
+  </data>
+  <data name="SelectedContract" xml:space="preserve">
+    <value>Selected Contract</value>
+  </data>
+  <data name="SensitiveArtist" xml:space="preserve">
+    <value>Sensitive Artist?</value>
+  </data>
+  <data name="StatusType" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TalentID" xml:space="preserve">
+    <value>Talent ID</value>
+  </data>
+  <data name="TerritorialDefinitions" xml:space="preserve">
+    <value>Territorial Definitions</value>
+  </data>
+  <data name="TracksList" xml:space="preserve">
+    <value>Tracks</value>
+  </data>
+  <data name="UMGSigningCompany" xml:space="preserve">
+    <value>UMG Signing Company-Country</value>
+  </data>
+  <data name="UpcId" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="VersionTitle" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="WorkflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="AssetType" xml:space="preserve">
+    <value>Asset Type</value>
+  </data>
+  <data name="ConfigurationColumn" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="ConfigurationGroup" xml:space="preserve">
+    <value>Configuration Group</value>
+  </data>
+  <data name="GenreColumn" xml:space="preserve">
+    <value>Resource Genre</value>
+  </data>
+  <data name="IsCoreRow" xml:space="preserve">
+    <value>IsCoreRow</value>
+  </data>
+  <data name="PNoticeExtension" xml:space="preserve">
+    <value>PNotice Extension</value>
+  </data>
+  <data name="PYear" xml:space="preserve">
+    <value>P Year</value>
+  </data>
+  <data name="ReleaseTitle" xml:space="preserve">
+    <value>Release Title</value>
+  </data>
+  <data name="ResourceTitle" xml:space="preserve">
+    <value>Resource Title</value>
+  </data>
+  <data name="ResourceType" xml:space="preserve">
+    <value>Resource Type</value>
+  </data>
+  <data name="SampleCredit" xml:space="preserve">
+    <value>Sample Credit</value>
+  </data>
+  <data name="SampleExists" xml:space="preserve">
+    <value>Sample Exists</value>
+  </data>
+  <data name="EmailId" xml:space="preserve">
+    <value>Email Ids</value>
+  </data>
+  <data name="RoleGroupName" xml:space="preserve">
+    <value>Role/Group Name</value>
+  </data>
+  <data name="ArtistFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Artists</value>
+  </data>
+  <data name="ContentEmptyMsg" xml:space="preserve">
+    <value>Content is empty</value>
+  </data>
+  <data name="ContractDetailsNullmsg" xml:space="preserve">
+    <value>Provided inputs ContractDetails/ UserInfo cannot be null</value>
+  </data>
+  <data name="ContractInfoErrorMsg" xml:space="preserve">
+    <value>Provided input ContractInfo cannot be null</value>
+  </data>
+  <data name="ContractInfoNullMsg" xml:space="preserve">
+    <value>Provided input ContractInfo/UserInfo cannot be null</value>
+  </data>
+  <data name="ContractLoadMsg" xml:space="preserve">
+    <value>Select valid Contract to load</value>
+  </data>
+  <data name="ContractRetrieveFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Contracts</value>
+  </data>
+  <data name="DeleteContractErrorMsg" xml:space="preserve">
+    <value>Error in DeleteContract</value>
+  </data>
+  <data name="ExploitationErrorMsg" xml:space="preserve">
+    <value>lstContractExploitationRestrictions</value>
+  </data>
+  <data name="GetContractErrorMsg" xml:space="preserve">
+    <value>Error in GetContracts</value>
+  </data>
+  <data name="GetContractsForSplitDealErrorMsg" xml:space="preserve">
+    <value>Error in GetContractsForSplitDeal</value>
+  </data>
+  <data name="GetDigitalRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataDigitalRestriction</value>
+  </data>
+  <data name="GetPCNoticeErrorMsg" xml:space="preserve">
+    <value>Error in GetPCNoticeCompany</value>
+  </data>
+  <data name="GetRightsRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataRightsAndRestriction</value>
+  </data>
+  <data name="GetSecondaryTemplatesMsg" xml:space="preserve">
+    <value>Error in GetSecondaryExploitationTemplates</value>
+  </data>
+  <data name="GetSplitDealContractErrorMsg" xml:space="preserve">
+    <value>Error in GetSplitDealContracts</value>
+  </data>
+  <data name="GetSplitDealErrormsg" xml:space="preserve">
+    <value>Provided inputs contractInfo/ UserInfo cannot be null in the function GetSplitDealContracts()</value>
+  </data>
+  <data name="GetTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in GetTerritoryData</value>
+  </data>
+  <data name="SaveContractErrorMsg" xml:space="preserve">
+    <value>Error in SaveContract</value>
+  </data>
+  <data name="SaveTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in SaveTerritoryData</value>
+  </data>
+  <data name="SecondaryExploitationsFailMsg" xml:space="preserve">
+    <value>Failed to retrieve Default data secondary exploitations</value>
+  </data>
+  <data name="SearchRightsDataReviewResultErrorMsg" xml:space="preserve">
+    <value>Error in SearchRightsDataReviewResult</value>
+  </data>
+  <data name="TemplateExistMsg" xml:space="preserve">
+    <value>Sorry!! Template already exists in this name</value>
+  </data>
+  <data name="UserInfoEmptyMsg" xml:space="preserve">
+    <value>User Information is empty</value>
+  </data>
+  <data name="UserInfoNullErrorMsg" xml:space="preserve">
+    <value>Provided input UserInfo cannot be null</value>
+  </data>
+  <data name="ValidDigitalTemplateMsg" xml:space="preserve">
+    <value>Please select a Valid Digital Restriction template</value>
+  </data>
+  <data name="ValidTemplateLoadMsg" xml:space="preserve">
+    <value>Select valid Contract Template to load</value>
+  </data>
+  <data name="GetMasterDataContractForm" xml:space="preserve">
+    <value>Failed to load master data</value>
+  </data>
+  <data name="DeleteTemplateFailMsg" xml:space="preserve">
+    <value>Failed to Delete Templates</value>
+  </data>
+  <data name="EmailGroupsNullMsg" xml:space="preserve">
+    <value>Provided Input EmailGroupDetails cannot be null</value>
+  </data>
+  <data name="GetContractTemplateErrorMsg" xml:space="preserve">
+    <value>Error in GetContractTemplate</value>
+  </data>
+  <data name="GetContractTemplateInfosErrorMsg" xml:space="preserve">
+    <value>Error in GetContractTemplateInfos</value>
+  </data>
+  <data name="GetContractTemplatesErrorMsg" xml:space="preserve">
+    <value>Error in GetContractTemplates</value>
+  </data>
+  <data name="GetCountriesErrorMsg" xml:space="preserve">
+    <value>Error in GetCountries</value>
+  </data>
+  <data name="GetDigitalTemplateErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalTemplate</value>
+  </data>
+  <data name="GetDigitalTemplatesErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalTemplates</value>
+  </data>
+  <data name="GetEmailGroupErrorMsg" xml:space="preserve">
+    <value>Error in GetEmailGroups</value>
+  </data>
+  <data name="SaveContractTemplateMsg" xml:space="preserve">
+    <value>Error in Savecontracttemplate</value>
+  </data>
+  <data name="SaveEmailGroupErrorMsg" xml:space="preserve">
+    <value>Error in SaveEmailGroup</value>
+  </data>
+  <data name="TemplateDetailsNullErrorMsg" xml:space="preserve">
+    <value>Provided Input TemplateDetails cannot be null</value>
+  </data>
+  <data name="SaveDigitalRestrictionsTemplateErrorMsg" xml:space="preserve">
+    <value>Error in SaveDigitalRestrictionsTemplate</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ArtistExactMatch" xml:space="preserve">
+    <value>Exact Match</value>
+  </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Release Date </value>
+  </data>
+  <data name="ResourceId" xml:space="preserve">
+    <value>Resource ID</value>
+  </data>
+  <data name="ResourceVersionTitle" xml:space="preserve">
+    <value>Resource Version Title</value>
+  </data>
+  <data name="TalentNameID" xml:space="preserve">
+    <value>Talent Name ID</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="ContractTemplateErrorMsg" xml:space="preserve">
+    <value>Error in Getting Contract Templates</value>
+  </data>
+  <data name="ContractTemplateInfoErrorMsg" xml:space="preserve">
+    <value>Error in Getting Contract Template info</value>
+  </data>
+  <data name="DeleteEmailGroupErrorMsg" xml:space="preserve">
+    <value>Error in DeleteEmailGroup</value>
+  </data>
+  <data name="DigitalRestrictionTemplateInfoErrorMsg" xml:space="preserve">
+    <value>Error in Getting Digital Restriction Template info</value>
+  </data>
+  <data name="DigitalRestrictionTemplateNullMsg" xml:space="preserve">
+    <value>Digital Restriction Template is Null</value>
+  </data>
+  <data name="DigitalRestrictionTemplatesErrorMsg" xml:space="preserve">
+    <value>Error in Getting Digital Restriction Templates</value>
+  </data>
+  <data name="EmailGroupRetrieveFailMsg" xml:space="preserve">
+    <value>Failure in retrieving emailgroups</value>
+  </data>
+  <data name="GetDataRightsRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataRightsAndRestrictions</value>
+  </data>
+  <data name="GetDataSecExploitationsErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultDataSecondaryExploitations</value>
+  </data>
+  <data name="InvalidSearchMsg" xml:space="preserve">
+    <value>Invalid Search Criteria</value>
+  </data>
+  <data name="p" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaveContractTemplateErrorMsg" xml:space="preserve">
+    <value>Eror in Saving Contract Template</value>
+  </data>
+  <data name="SaveDigitalRestrictionErrorMsg" xml:space="preserve">
+    <value>Error in Saving Digital Restriction Template</value>
+  </data>
+  <data name="SaveEmailGroupFailMsg" xml:space="preserve">
+    <value>Failed to Save Email Groups Data</value>
+  </data>
+  <data name="UnauthorizedUserErrorMsg" xml:space="preserve">
+    <value>Unauthorized user</value>
+  </data>
+  <data name="UserNotHavingPermissionMsg" xml:space="preserve">
+    <value>User is not having any permissions</value>
+  </data>
+  <data name="ErrorGetParentContract" xml:space="preserve">
+    <value>Failed to retrieve Contract linking information</value>
+  </data>
+  <data name="ErrorMsgAcquiredContract" xml:space="preserve">
+    <value>Error in GetAcquiredRights method</value>
+  </data>
+  <data name="ErrorMsgApplyFilter" xml:space="preserve">
+    <value>Error in ApplyFilter</value>
+  </data>
+  <data name="ErrorMsgContractExtensions" xml:space="preserve">
+    <value>Error in ContractExtensions constructor method</value>
+  </data>
+  <data name="ErrorMsgDeal30Rights" xml:space="preserve">
+    <value>Error in GetDeal360Rights method</value>
+  </data>
+  <data name="ErrorMsgDuplicateContract" xml:space="preserve">
+    <value>Error in Duplicate Contract</value>
+  </data>
+  <data name="ErrorMsgExploitationType" xml:space="preserve">
+    <value>Error in GetExploitationType method</value>
+  </data>
+  <data name="ErrorMsgFilterBy" xml:space="preserve">
+    <value>Error in FilterBy Method</value>
+  </data>
+  <data name="ErrorMsgGetCompaniesCountries" xml:space="preserve">
+    <value>Error in GetCompanies Countries</value>
+  </data>
+  <data name="ErrorMsgGetCompaniesList" xml:space="preserve">
+    <value>Error in GetCompaniesList</value>
+  </data>
+  <data name="ErrorMsgGetCompaniesListwithRole" xml:space="preserve">
+    <value>Error in GetCompanies List with Role </value>
+  </data>
+  <data name="ErrorMsgGetContractFilterByRoleCompanies" xml:space="preserve">
+    <value>Error in GetContractFilterByRoleCompanies</value>
+  </data>
+  <data name="ErrorMsgGetCountriesList" xml:space="preserve">
+    <value>Error in GetCountries List</value>
+  </data>
+  <data name="ErrorMsgGetMasterData" xml:space="preserve">
+    <value>Error in GetMaster Data</value>
+  </data>
+  <data name="ErrorMsgGetOtherRights" xml:space="preserve">
+    <value>Error in GetOtherRights</value>
+  </data>
+  <data name="ErrorMsgGetRestrictionTemplate" xml:space="preserve">
+    <value>Failed to retrieve GetRestriction Template</value>
+  </data>
+  <data name="ErrorMsgGetRoles" xml:space="preserve">
+    <value>Error in GetRoles</value>
+  </data>
+  <data name="ErrorMsgGetWorkFlowStatus" xml:space="preserve">
+    <value>Error in GetWorkFlow status</value>
+  </data>
+  <data name="ErrorMsgHasValue" xml:space="preserve">
+    <value>Error in Has Value</value>
+  </data>
+  <data name="ErrorMsgListMethod" xml:space="preserve">
+    <value>Error in Page - List Return method</value>
+  </data>
+  <data name="ErrorMsgMasterDataFilter" xml:space="preserve">
+    <value>Error in GetMasterDataFilter</value>
+  </data>
+  <data name="ErrorMsgQuerableMethod" xml:space="preserve">
+    <value>Error in Page - Querable Return method</value>
+  </data>
+  <data name="ErrorMsgRightsPeriodInfo" xml:space="preserve">
+    <value>Failed to retrieve Rights period information</value>
+  </data>
+  <data name="ErrorMsgRightsPeriodType" xml:space="preserve">
+    <value>Error in GetRightsPeriodType</value>
+  </data>
+  <data name="ErrorMsgSaveRightTable" xml:space="preserve">
+    <value>Error in Save Right Table</value>
+  </data>
+  <data name="ErrorMsgSplitDeal" xml:space="preserve">
+    <value>Error in SplitDeal</value>
+  </data>
+  <data name="TerritoryRightsFailMsg" xml:space="preserve">
+    <value>Failed to retrieve territory rights information</value>
+  </data>
+  <data name="Artistt" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Clearance/Data Admin Company</value>
+  </data>
+  <data name="DescriptionTitle" xml:space="preserve">
+    <value>Description/Title</value>
+  </data>
+  <data name="ReasonForReview" xml:space="preserve">
+    <value>Reason for Review</value>
+  </data>
+  <data name="NotApplicabletoChangeLink" xml:space="preserve">
+    <value>This action is not available - no Contract is linked</value>
+  </data>
+  <data name="NotApplicabletoLinkContract" xml:space="preserve">
+    <value>Not applicable to Link Contract</value>
+  </data>
+  <data name="NotApplicabletoReroute" xml:space="preserve">
+    <value>Not applicable to Re-route</value>
+  </data>
+  <data name="NotApplicabletoReviewRights" xml:space="preserve">
+    <value>Not applicable to Review Rights</value>
+  </data>
+  <data name="NotApplicabletoUnlinkContract" xml:space="preserve">
+    <value>Not applicable to Unlink Contract</value>
+  </data>
+  <data name="GetWorkQueueMasterErrorMsg" xml:space="preserve">
+    <value>Error in retriving WorkQueue Master data</value>
+  </data>
+  <data name="RerouteResourceErrorMsg" xml:space="preserve">
+    <value>Error in Rerouting resources</value>
+  </data>
+  <data name="RemoveWorkQueueItemsErrorMsg" xml:space="preserve">
+    <value>Error in removing the workqueue items</value>
+  </data>
+  <data name="ProjectAssociatedReleaseErrorMsg" xml:space="preserve">
+    <value>Error in GetAssociatedRelease</value>
+  </data>
+  <data name="ProjectSearchErrorMsg" xml:space="preserve">
+    <value>Error in Project Search</value>
+  </data>
+  <data name="SearchCriteriaErrorMsg" xml:space="preserve">
+    <value>Search Criteria is null</value>
+  </data>
+  <data name="IsContractLinkedErrorMsg" xml:space="preserve">
+    <value>Error in IsContract already Linked</value>
+  </data>
+  <data name="LinkProjectToContractErrorMsg" xml:space="preserve">
+    <value>Error in LinkProjectToContract</value>
+  </data>
+  <data name="GetLinkedProjectDetailsErrorMsg" xml:space="preserve">
+    <value>Error in GetLinkedProjectDetails</value>
+  </data>
+  <data name="GetLinkedReleaseDetailsErrorMsg" xml:space="preserve">
+    <value>Error in GetLinkedReleaseDetails</value>
+  </data>
+  <data name="GetLinkedResourceDetailsErrorMsg" xml:space="preserve">
+    <value>Error in GetLinkedResourceDetails</value>
+  </data>
+  <data name="UnlinkRepertoireErrorMsg" xml:space="preserve">
+    <value>Error in UnlinkRepertoire</value>
+  </data>
+  <data name="UnlinkRepertoireFromWorkQueueErrorMsg" xml:space="preserve">
+    <value>Error in UnlinkRepertoire FromWorkQueue</value>
+  </data>
+  <data name="GetTerritorialReleasesErrorMsg" xml:space="preserve">
+    <value>Error in GetTerritorialReleases</value>
+  </data>
+  <data name="ErrorMsgSavePackage" xml:space="preserve">
+    <value>Error in Save Package</value>
+  </data>
+  <data name="ErrorSavePacakageTrackinbackground" xml:space="preserve">
+    <value>Error in Save Pacakage-Track in background</value>
+  </data>
+  <data name="ErrorMsgProjectRepertoireDetails" xml:space="preserve">
+    <value>Error in Save Project RepertoireDetails</value>
+  </data>
+  <data name="ErrorMsgGetRepetoire" xml:space="preserve">
+    <value>Error in Get Repetoire Details</value>
+  </data>
+  <data name="ErrorMsgSaveTrack" xml:space="preserve">
+    <value>Error in Save Track</value>
+  </data>
+  <data name="SaveContractRepertoireDetailsErrorMsg" xml:space="preserve">
+    <value>Error in SaveContractRepertoireDetails</value>
+  </data>
+  <data name="ComponentAdapterNullErrorMsg" xml:space="preserve">
+    <value>Component Adapter is null</value>
+  </data>
+  <data name="GetConfigurationErrorMsg" xml:space="preserve">
+    <value>Error in GetConfiguration</value>
+  </data>
+  <data name="GetConfigurationGroupErrorMsg" xml:space="preserve">
+    <value>Error in ErrorGetConfigurationGroup</value>
+  </data>
+  <data name="GetResourceTypeErrorMsg" xml:space="preserve">
+    <value>Error in GetResourceType</value>
+  </data>
+  <data name="GetTaskAndRolesErrorMsg" xml:space="preserve">
+    <value>Error in getting Tasks and Roles</value>
+  </data>
+  <data name="GetWorkQueueItemsErrorMsg" xml:space="preserve">
+    <value>Error in GetWorkQueueItems</value>
+  </data>
+  <data name="RemoveWorkQueueInfo" xml:space="preserve">
+    <value>Removed the entries from DB, Retrieving latest workQueueItems from DB</value>
+  </data>
+  <data name="DeleteNotificationPriorityWorkQueueErrMsg" xml:space="preserve">
+    <value>Error in DeleteNotificationPriorityWorkQueue</value>
+  </data>
+  <data name="DeleteWorkQueueComparisionParameterDataErrMsg" xml:space="preserve">
+    <value>Error in DeleteWorkQueueComparisionParameterData</value>
+  </data>
+  <data name="SaveWorkQueueComparisionParameterDataErrMsg" xml:space="preserve">
+    <value>Error in SaveWorkQueueComparisionParameterData</value>
+  </data>
+  <data name="SearchWorkQueueComparisionParameterDataErrorMsg" xml:space="preserve">
+    <value>Error in SearchWorkQueueComparisionParameterData</value>
+  </data>
+  <data name="ReviewRightsErrorMsg" xml:space="preserve">
+    <value>Unable to change to ReviewRights WorkQueue</value>
+  </data>
+  <data name="ErrorMsgResourceSearch" xml:space="preserve">
+    <value>Error in Resource Search </value>
+  </data>
+  <data name="ErrorMsgGetResources" xml:space="preserve">
+    <value>Error in GetResources </value>
+  </data>
+  <data name="ErrorMsgSaveProject" xml:space="preserve">
+    <value>Error in Save Project</value>
+  </data>
+  <data name="ErrorMsgisAlreadyLinkedContract" xml:space="preserve">
+    <value>Error in already Linked Contract</value>
+  </data>
+  <data name="ErrorMsgLinkContractinBackGround" xml:space="preserve">
+    <value>Error in LinkContract in BackGround</value>
+  </data>
+  <data name="GetAssociatedReleaseErrorMsg" xml:space="preserve">
+    <value>Error in GetAssociatedRelease</value>
+  </data>
+  <data name="GetContractDetailsErrorMsg" xml:space="preserve">
+    <value>Error in GetContractDetails</value>
+  </data>
+  <data name="GetEarliestReleaseDateErrorMsg" xml:space="preserve">
+    <value>Error in GetEarliestReleaseDate</value>
+  </data>
+  <data name="LinkReleaseContractRightErrorMsg" xml:space="preserve">
+    <value>Error in LinkRelease ContractRight</value>
+  </data>
+  <data name="LinkResourceContractRightErrorMsg" xml:space="preserve">
+    <value>Error in LinkResource ContractRight</value>
+  </data>
+  <data name="GetReleaseDetailsErrorMsg" xml:space="preserve">
+    <value>Error in GetReleaseDetails</value>
+  </data>
+  <data name="SaveReleaseArtistErrorMsg" xml:space="preserve">
+    <value>Error in SaveReleaseArtist</value>
+  </data>
+  <data name="GetReleaseIdErrorMsg" xml:space="preserve">
+    <value>Error in GetReleaseId</value>
+  </data>
+  <data name="SaveReleaseErrorMsg" xml:space="preserve">
+    <value>Error in SaveRelease</value>
+  </data>
+  <data name="GetSplitDealContractIdErrorMsg" xml:space="preserve">
+    <value>Error in GetSplitDealContractId</value>
+  </data>
+  <data name="SaveResourceRightDatasetErrorMsg" xml:space="preserve">
+    <value>Error in SaveResourceRightDataset</value>
+  </data>
+  <data name="SaveUserCustomWQConfigErrorMsg" xml:space="preserve">
+    <value>Error in SaveUserCustomWQConfig</value>
+  </data>
+  <data name="InsertDefaultTrackRightsErrorMsg" xml:space="preserve">
+    <value>Error in InsertDefaultTrackRights</value>
+  </data>
+  <data name="InsertMacReleaseRightsErrorMsg" xml:space="preserve">
+    <value>Error in InsertMacReleaseRights</value>
+  </data>
+  <data name="GetAssociatedResourceErrorMsg" xml:space="preserve">
+    <value>Error in GetAssociatedResource</value>
+  </data>
+  <data name="GetReleasesErrorMsg" xml:space="preserve">
+    <value>Error in GetReleases</value>
+  </data>
+  <data name="ReleaseSearchError" xml:space="preserve">
+    <value>Error in Release Search</value>
+  </data>
+  <data name="ReviewRightsMoveSuccessInfo" xml:space="preserve">
+    <value>Successfully moved the item to Review Rights WorkQueue</value>
+  </data>
+  <data name="DeleteRightsDataReviewErrorMsg" xml:space="preserve">
+    <value>Error in DeleteRightsDataReview</value>
+  </data>
+  <data name="DeleteRightsExpiryItemsErrorMsg" xml:space="preserve">
+    <value>Error in DeleteRightsExpiryItems</value>
+  </data>
+  <data name="GetRightCountriesErrorMsg" xml:space="preserve">
+    <value>Error in GetRightCountries</value>
+  </data>
+  <data name="GetRightsDataReviewRulesErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsDataReviewRules</value>
+  </data>
+  <data name="GetRightsExpiryResultsErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsExpiryResults</value>
+  </data>
+  <data name="GetRightsRoleGroupsErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsRoleGroups</value>
+  </data>
+  <data name="SaveRightsDataReviewErrorMsg" xml:space="preserve">
+    <value>Error in SaveRightsDataReview</value>
+  </data>
+  <data name="GetRightsDataReviewConditionsErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsDataReviewConditions</value>
+  </data>
+  <data name="SaveDefaultMacReleaseRightsErrorMsg" xml:space="preserve">
+    <value>Error in SaveDefaultMacReleaseRights</value>
+  </data>
+  <data name="SaveRightsExpiryItemErrorMsg" xml:space="preserve">
+    <value>Error in SaveRightsExpiryItem</value>
+  </data>
+  <data name="DeleteRightsDefaultRepertoireDataErrorMsg" xml:space="preserve">
+    <value>Error in DeleteRightsDefaultRepertoireData</value>
+  </data>
+  <data name="LoadTerritoryDataErrorMsg" xml:space="preserve">
+    <value>Error in LoadTerritoryData</value>
+  </data>
+  <data name="SaveRightsDefaultRepertoireDataErrorMsg" xml:space="preserve">
+    <value>Error in SaveRightsDefaultRepertoireData</value>
+  </data>
+  <data name="GetRightsDefaultForRepertorieResultsErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsDefaultForRepertorieResults</value>
+  </data>
+  <data name="GetAssociatedReleaseResourceErrorMsg" xml:space="preserve">
+    <value>Error in GetAssociated ReleaseResource</value>
+  </data>
+  <data name="ErrorMsgSaveArtist" xml:space="preserve">
+    <value>Error in Save Artist</value>
+  </data>
+  <data name="ErrorInContractConstructor" xml:space="preserve">
+    <value>Error in Contract Constructor</value>
+  </data>
+  <data name="ErrorInProjectConstructor" xml:space="preserve">
+    <value>Error in Project Constructor</value>
+  </data>
+  <data name="ErrorInRepertoireConstructor" xml:space="preserve">
+    <value>Error in Repertoire Constructor</value>
+  </data>
+  <data name="ErrorMsgSaveProjectArtist" xml:space="preserve">
+    <value>Error in Save projectArtist</value>
+  </data>
+  <data name="ErrorMsgSaveProjectContract" xml:space="preserve">
+    <value>Error in Save projectContract</value>
+  </data>
+  <data name="ArtistNames" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="MsgCompanyAlreadyExists" xml:space="preserve">
+    <value>Company Already Exists</value>
+  </data>
+  <data name="MsgCountryAlreadyExists" xml:space="preserve">
+    <value>Country Already Exists</value>
+  </data>
+  <data name="GetCompaniesErrorMsg" xml:space="preserve">
+    <value>Error in GetCompanies</value>
+  </data>
+  <data name="GetDivisionListErrorMsg" xml:space="preserve">
+    <value>Error in GetDivisionList</value>
+  </data>
+  <data name="GetLabelListErrorMsg" xml:space="preserve">
+    <value>Error in GetLabelList</value>
+  </data>
+  <data name="GetCompaniesForUserErrorMsg" xml:space="preserve">
+    <value>Error in GetCompaniesForUser</value>
+  </data>
+  <data name="LoadDefaultRightsMasterDataErrorMsg" xml:space="preserve">
+    <value>Error in LoadDefaultRights MasterData</value>
+  </data>
+  <data name="CdlUniqueErrorMsg" xml:space="preserve">
+    <value>Sorry, CDL combination already exists!</value>
+  </data>
+  <data name="Cdlcompany" xml:space="preserve">
+    <value>Company </value>
+  </data>
+  <data name="CdlContract" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="Cdldivision" xml:space="preserve">
+    <value>Division</value>
+  </data>
+  <data name="Cdllabel" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="DeleteCdlContractsErrorMsg" xml:space="preserve">
+    <value>Error in DeleteCdlContracts method</value>
+  </data>
+  <data name="ErrorCdlContractIdsMsg" xml:space="preserve">
+    <value>Cdl-Contract ids are not provided</value>
+  </data>
+  <data name="ErrorMsgGetCustomWorkQueue" xml:space="preserve">
+    <value>Error in retrieving Custom Work Queue Setting</value>
+  </data>
+  <data name="GetAutoMappedCompaniesErrorMsg" xml:space="preserve">
+    <value>Error in GetAutoMappedCompanies</value>
+  </data>
+  <data name="GetAutoMappedDivisionsErrorMsg" xml:space="preserve">
+    <value>Error in GetAutoMappedDivisions</value>
+  </data>
+  <data name="GetAutoMappedLabelsErrorMsg" xml:space="preserve">
+    <value>Error in GetAutoMappedLabels</value>
+  </data>
+  <data name="SaveCdlContractErrorMsg" xml:space="preserve">
+    <value>Error in SaveAutoLinkCdlContract method</value>
+  </data>
+  <data name="SaveCdlContractInputErrorMsg" xml:space="preserve">
+    <value>Inputs for SaveAutoLinkCdlContract method are not provided</value>
+  </data>
+  <data name="CheckReviewCondition" xml:space="preserve">
+    <value>Check Review condtion for CAC</value>
+  </data>
+  <data name="GetCdlContractErrorMsg" xml:space="preserve">
+    <value>Error in GetCdlContracts method</value>
+  </data>
+  <data name="ErrorMsgProcessReleaseNotification" xml:space="preserve">
+    <value>Error in Processing release notification</value>
+  </data>
+  <data name="SavePreClearanceCountryErrorMsg" xml:space="preserve">
+    <value>Error in Save PreClearance Country</value>
+  </data>
+  <data name="SaveNonMacReleaseRightsErrorMsg" xml:space="preserve">
+    <value>Error in SaveNonMacReleaseRights</value>
+  </data>
+  <data name="GetContractBatchProcessErrorMsg" xml:space="preserve">
+    <value>Error in GetContractBatchProcess</value>
+  </data>
+  <data name="SavePreClearanceErrorMsg" xml:space="preserve">
+    <value>Error in Save PreClearance</value>
+  </data>
+  <data name="ProcessDefaultRightsErrorMsg" xml:space="preserve">
+    <value>Error in ProcessDefaultRights</value>
+  </data>
+  <data name="SaveDefaultTrackRightsErrorMsg" xml:space="preserve">
+    <value>Error in SaveDefaultTrackRights</value>
+  </data>
+  <data name="SavePreClearanceTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in Save PreClearance Territory</value>
+  </data>
+  <data name="SaveRightsCountryErrorMsg" xml:space="preserve">
+    <value>Error in Rights Country Save</value>
+  </data>
+  <data name="SaveRightsTerritoryErrorMsg" xml:space="preserve">
+    <value>Error in Rights Territory save</value>
+  </data>
+  <data name="CheckRightsReveiewRestrictionTypeErrorMsg" xml:space="preserve">
+    <value>Error in CheckRightsReveiewRestrictionType</value>
+  </data>
+  <data name="GetDefaultRightDataRepertoireForCompanyErrorMsg" xml:space="preserve">
+    <value>Error in GetDefaultRightDataRepertoireForCompany</value>
+  </data>
+  <data name="IsRightsExceptionAppliedErrorMsg" xml:space="preserve">
+    <value>Error in IsRightsExceptionApplied</value>
+  </data>
+  <data name="RightsReviewWQReviewStatusErrorMsg" xml:space="preserve">
+    <value>Error in RightsReviewWQReviewStatus</value>
+  </data>
+  <data name="GetChildContractsErrorMsg" xml:space="preserve">
+    <value>Failed to retrieve Child Contracts</value>
+  </data>
+  <data name="SaveReleaseTerritorialRightsErrorMsg" xml:space="preserve">
+    <value>Error in Save ReleaseTerritorial Rights</value>
+  </data>
+  <data name="GetRightsReviewStatusErrorMsg" xml:space="preserve">
+    <value>Error in Get Rights ReviewStatus</value>
+  </data>
+  <data name="SavePreClearanceTerritoryCountryErrorMsg" xml:space="preserve">
+    <value>Save PreClearance Territory Country</value>
+  </data>
+  <data name="ComponentPathNullOrEmpty" xml:space="preserve">
+    <value>Path is null or empty</value>
+  </data>
+  <data name="PowerUserRccUserError" xml:space="preserve">
+    <value>Error in checking user permission for Power user/ Rcc user</value>
+  </data>
+  <data name="GetResourcesBasicSearch" xml:space="preserve">
+    <value>Error in Basic Search</value>
+  </data>
+  <data name="ConcurrencyError" xml:space="preserve">
+    <value>Concurrency error occurs</value>
+  </data>
+  <data name="NoRightsDataReviewConditions" xml:space="preserve">
+    <value>No review conditions found</value>
+  </data>
+  <data name="SaveReleaseRightsDataSetErrorMsg" xml:space="preserve">
+    <value>Error in SaveReleaseRightsDataSet</value>
+  </data>
+  <data name="GetLostRightsReasonsErrorMsg" xml:space="preserve">
+    <value>Error in GetLostRightsReasonsError</value>
+  </data>
+  <data name="GetPreClearancesErrorMsg" xml:space="preserve">
+    <value>Error in GetPreClearancesError</value>
+  </data>
+  <data name="GetReasonsForReviewErrorMsg" xml:space="preserve">
+    <value>Error in GetReasonsForReview</value>
+  </data>
+  <data name="GetRightPeriodsErrorMsg" xml:space="preserve">
+    <value>Error in GetRightPeriodsError</value>
+  </data>
+  <data name="GetRightsReviewStatusesErrorMsg" xml:space="preserve">
+    <value>Error in GetRightsReviewStatusesError</value>
+  </data>
+  <data name="ErrorMsgValidateISRC" xml:space="preserve">
+    <value>Error in Validate ISRC</value>
+  </data>
+  <data name="ErrorMsgValidateUpc" xml:space="preserve">
+    <value>Error in Validate UPC</value>
+  </data>
+  <data name="IsGcsRelease" xml:space="preserve">
+    <value>IsGcsRelease</value>
+  </data>
+  <data name="GetPreClearedBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetPreClearedBasicSearch</value>
+  </data>
+  <data name="GetReleasesSearch" xml:space="preserve">
+    <value>Error in Release Search</value>
+  </data>
+  <data name="GetClearanceAdminCampanyDataErrorMessage" xml:space="preserve">
+    <value>Failed to retrieve Clearance Admin Companies</value>
+  </data>
+  <data name="GetCompanyCountriesErrorMessage" xml:space="preserve">
+    <value>Failed to retrieve Company and Countries</value>
+  </data>
+  <data name="GetTracksBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in TracksBasicSearch</value>
+  </data>
+  <data name="GetResourcesBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetResourcesBasicSearch</value>
+  </data>
+  <data name="GetDigitalRestrictionResourcesBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionResourcesBasicSearch</value>
+  </data>
+  <data name="ConcurrencyHandling" xml:space="preserve">
+    <value>The record cannot be saved as it has already been saved by {0}</value>
+  </data>
+  <data name="RollUpRelease" xml:space="preserve">
+    <value>Error in Roll Up Release</value>
+  </data>
+  <data name="RollUpResource" xml:space="preserve">
+    <value>Error in Roll Up Resource</value>
+  </data>
+  <data name="LoadReleaseLevelHierarchyForResource" xml:space="preserve">
+    <value>Unable to load Release Level Hierarchy For Resource</value>
+  </data>
+  <data name="RepertoireIdNull" xml:space="preserve">
+    <value>Repertoire Id is Null</value>
+  </data>
+  <data name="LoadReleaseLevelHierarchyForRelease" xml:space="preserve">
+    <value>Unable to load Release Level Hierarchy For Release</value>
+  </data>
+  <data name="RollUpRepertoire" xml:space="preserve">
+    <value>Unable to RollUp for repertoire</value>
+  </data>
+  <data name="ValidateIsrcFromFileErrorMsg" xml:space="preserve">
+    <value>Error in ValidateIsrcFromFile</value>
+  </data>
+  <data name="SaveRightSetErrorMsg" xml:space="preserve">
+    <value>Error in Saving Contract RightSet </value>
+  </data>
+  <data name="SaveRightSetEditedErrorMsg" xml:space="preserve">
+    <value>Error in Saving Contract RightSet Edited </value>
+  </data>
+  <data name="GetRepertoire" xml:space="preserve">
+    <value>Unable to get UnProcessed Repertoire</value>
+  </data>
+  <data name="UpdateRollUpStatus" xml:space="preserve">
+    <value>Unable to Update RollUp Status</value>
+  </data>
+  <data name="ErrorInGetR2DataForRelease" xml:space="preserve">
+    <value>Error in Retrieving R2 Data for Release</value>
+  </data>
+  <data name="ErrorInGetR2DataForResource" xml:space="preserve">
+    <value>Error in Retrieving R2 Data for Resource</value>
+  </data>
+  <data name="ValidateUpcErrorMsg" xml:space="preserve">
+    <value>Error in ValidateUpc</value>
+  </data>
+  <data name="LoadReleaseLevelHierarchy" xml:space="preserve">
+    <value>Fail in Loading Release Level Hierarchy</value>
+  </data>
+  <data name="RollUpReleaseRight" xml:space="preserve">
+    <value>Fail in RollUp for Release Right</value>
+  </data>
+  <data name="InvalidWorkflowStatusId" xml:space="preserve">
+    <value>Not a valid value for WorkflowStatus Id. Unable to Parse : </value>
+  </data>
+  <data name="ErrorMsgGetContractStatus" xml:space="preserve">
+    <value>Error in retrieving ContractStatuses in caching</value>
+  </data>
+  <data name="ErrorMsgGetContractDescription" xml:space="preserve">
+    <value>Error in Get Contract Description </value>
+  </data>
+  <data name="ErrorMsgGetWorkFlowStatuses" xml:space="preserve">
+    <value>Error in Get Work Flow Status in caching</value>
+  </data>
+  <data name="ErrorMsgGetLostRightsReasons" xml:space="preserve">
+    <value>Error in Get Lost Rights Reasons in caching</value>
+  </data>
+  <data name="ErrorMsgGetRightsDefaultTypes" xml:space="preserve">
+    <value>Error in Get Rights Default Types in caching</value>
+  </data>
+  <data name="ErrorMsgGetRightsPeriods" xml:space="preserve">
+    <value>Error in Get Rights Periods in Caching</value>
+  </data>
+  <data name="ErrorMsgGetCommercialType" xml:space="preserve">
+    <value>Error in Get Commercial Type</value>
+  </data>
+  <data name="ErrorMsgGetConsentType" xml:space="preserve">
+    <value>Error in Get Consent Type </value>
+  </data>
+  <data name="ErrorMsgGetContentType" xml:space="preserve">
+    <value>Error in Get Content Type </value>
+  </data>
+  <data name="ErrorMsgGetRestrictions" xml:space="preserve">
+    <value>Error in Get Restrictions in caching</value>
+  </data>
+  <data name="ErrorMsgGetUseType" xml:space="preserve">
+    <value>Error in Get Use Type in caching</value>
+  </data>
+  <data name="ErrorInEventNotifier" xml:space="preserve">
+    <value>Error In Event Notifier</value>
+  </data>
+  <data name="ErrorMsgGetCommercialTypeCaching" xml:space="preserve">
+    <value>Error in Get Commercial Type in caching</value>
+  </data>
+  <data name="ErrorMsgGetContentTypeCaching" xml:space="preserve">
+    <value>Error in Get Content Type in Caching</value>
+  </data>
+  <data name="ErrorMsgGetContractStatusCaching" xml:space="preserve">
+    <value>Error in Get Contract Status in caching</value>
+  </data>
+  <data name="ErrorMsgGetDigitalRestriction" xml:space="preserve">
+    <value>Error in Get Digital Restriction</value>
+  </data>
+  <data name="ErrorMsgGetRestrictionTypeCaching" xml:space="preserve">
+    <value>Error in Get Restriction Type in caching</value>
+  </data>
+  <data name="ErrorMsgGetUseTypeCaching" xml:space="preserve">
+    <value>Error in Get Use Type in caching</value>
+  </data>
+  <data name="ErrorMsgRightsAndRestrictions" xml:space="preserve">
+    <value>Error in Retrieving Rights and Restrictions</value>
+  </data>
+  <data name="ErrorMsgSecondaryExploitation" xml:space="preserve">
+    <value>Error in Retrieving Secondary Exploitaions</value>
+  </data>
+  <data name="GetReleaseRightsWQ" xml:space="preserve">
+    <value>Error in GetReleaseRightsWQ</value>
+  </data>
+  <data name="GetResourceRightsWQ" xml:space="preserve">
+    <value>Error in GetResourceRightsWQ</value>
+  </data>
+  <data name="SaveReviewedReleaseRights" xml:space="preserve">
+    <value>Error in SaveReviewedReleaseRights</value>
+  </data>
+  <data name="SaveReviewedResourceRights" xml:space="preserve">
+    <value>Error in SaveReviewedResourceRights</value>
+  </data>
+  <data name="NoRightsDataToUpdate" xml:space="preserve">
+    <value>Please Select Rights Data to update</value>
+  </data>
+  <data name="GetRightsAcquiredMasterData" xml:space="preserve">
+    <value>Error in Getting Rights Acquired MasterData</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Error in Get Rights Acquired MasterData</value>
+  </data>
+  <data name="LoadResourcePreClearanceInfo" xml:space="preserve">
+    <value>Error in LoadResourcePreClearanceInfo</value>
+  </data>
+  <data name="LoadResourceSecondaryRights" xml:space="preserve">
+    <value>Error in LoadResourceSecondaryRights</value>
+  </data>
+  <data name="LoadPreClearanceMasterData" xml:space="preserve">
+    <value>Error in Load PreClearance MasterData</value>
+  </data>
+  <data name="LoadSecondaryRightsMasterData" xml:space="preserve">
+    <value>Error in LoadSecondaryRightsMasterData</value>
+  </data>
+  <data name="LoadDigitalRightsMasterData" xml:space="preserve">
+    <value>Error in Load Digital Rights Master Data</value>
+  </data>
+  <data name="GetResourcesPreclearancePredefined" xml:space="preserve">
+    <value>Error in Get Resources Preclearance Predefined</value>
+  </data>
+  <data name="ErrorGetDefaultReviewRightsMasterInfo" xml:space="preserve">
+    <value>Error in Get Default Review Rights MasterInfo</value>
+  </data>
+  <data name="ErrorGetReleasePreDefinedParameters" xml:space="preserve">
+    <value>Error in Get Release PreDefined Parameters</value>
+  </data>
+  <data name="ErrorGetResourcePreDefinedParameters" xml:space="preserve">
+    <value>Error in Get Resource PreDefined Parameters</value>
+  </data>
+  <data name="ErrorGetResourceTypes" xml:space="preserve">
+    <value>Error in Get Resource Types</value>
+  </data>
+  <data name="ErrorGetReviewReason" xml:space="preserve">
+    <value>Error in Get Review Reason</value>
+  </data>
+  <data name="ErrorGetReviewStatus" xml:space="preserve">
+    <value>Error in Get Review Status</value>
+  </data>
+  <data name="ErrorGetClearanceMasterData" xml:space="preserve">
+    <value>Error in Get Clearance MasterData</value>
+  </data>
+  <data name="GetResourceSecondaryRightsPredefined" xml:space="preserve">
+    <value>Error in Get Resource Secondary Rights Predefined</value>
+  </data>
+  <data name="ErrorInReportConstructor" xml:space="preserve">
+    <value>Error In Report Constructor</value>
+  </data>
+  <data name="GetPreClearedReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetPreClearedReleaseParameters</value>
+  </data>
+  <data name="GetSecondaryExploitationReleaseParameterSearchErrorMsg" xml:space="preserve">
+    <value>Error in Secondary Exploitation Release Parameters</value>
+  </data>
+  <data name="SaveResourcePreClearanceRights" xml:space="preserve">
+    <value>Error in SaveResourcePreClearanceRights</value>
+  </data>
+  <data name="SaveResourcePreClearanceRigSaveResourceSecondaryRights" xml:space="preserve">
+    <value>Error in SaveResourceSecondaryRights</value>
+  </data>
+  <data name="SaveResourceSecondaryRights" xml:space="preserve">
+    <value>Error in SaveResourceSecondaryRights</value>
+  </data>
+  <data name="SearchOptionNull" xml:space="preserve">
+    <value>Id or SearchOption is null</value>
+  </data>
+  <data name="LoadReleaseDigitalRights" xml:space="preserve">
+    <value>Error in LoadReleaseDigitalRights</value>
+  </data>
+  <data name="LoadReleaseDigitalRightsPredefined" xml:space="preserve">
+    <value>Error in LoadReleaseDigitalRightsPredefined</value>
+  </data>
+  <data name="SaveReleaseDigitalRights" xml:space="preserve">
+    <value>Error in SaveReleaseDigitalRights</value>
+  </data>
+  <data name="GetResourceDigitalRightsPredefined" xml:space="preserve">
+    <value>Error in GetResourceDigitalRightsPredefined</value>
+  </data>
+  <data name="LoadResourceDigitalRights" xml:space="preserve">
+    <value>Error in LoadResourceDigitalRights</value>
+  </data>
+  <data name="SaveResourceDigitalRights" xml:space="preserve">
+    <value>Error in SaveResourceDigitalRights</value>
+  </data>
+  <data name="SaveResourceContractRightErrorMsg" xml:space="preserve">
+    <value>Error in SaveResourceContractRight</value>
+  </data>
+  <data name="SaveReleaseContractRightErrorMsg" xml:space="preserve">
+    <value>Error in SaveReleaseContractRight</value>
+  </data>
+  <data name="NoAdminCompanies" xml:space="preserve">
+    <value>No Valid Admin Companies assigned to User</value>
+  </data>
+  <data name="GetDigitalRestrictionsReleasesErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsReleases</value>
+  </data>
+  <data name="GetDigitalRestrictionsResourcesAndTracksBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsResourcesAndTracksBasicSearch</value>
+  </data>
+  <data name="GetDigitalRestrictionsResourcesAndTracksSearchReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsResourcesAndTracksSearchReleaseParameters</value>
+  </data>
+  <data name="GetDigitalRestrictionsResourcesReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsResourcesReleaseParameters</value>
+  </data>
+  <data name="GetDigitalRestrictionsTracksBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsTracksBasicSearch</value>
+  </data>
+  <data name="GetDigitalRestrictionsTracksSearchReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetDigitalRestrictionsTracksSearchReleaseParameters</value>
+  </data>
+  <data name="GetResourcesReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetResourcesReleaseParameters</value>
+  </data>
+  <data name="GetResourcesTracksBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetResourcesTracksBasicSearch</value>
+  </data>
+  <data name="GetSecondaryExploitationBasicSearchErrorMsg" xml:space="preserve">
+    <value>Error in GetSecondaryExploitationBasicSearch</value>
+  </data>
+  <data name="GetSecondaryExploitationErrorMsg" xml:space="preserve">
+    <value>Error in GetSecondaryExploitation</value>
+  </data>
+  <data name="GetResourcesAndTracksSearchReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetResourcesAndTracksSearchReleaseParameters</value>
+  </data>
+  <data name="GetTracksSearchReleaseParametersErrorMsg" xml:space="preserve">
+    <value>Error in GetTracksSearchReleaseParameters</value>
+  </data>
+  <data name="DeleteConcurrency" xml:space="preserve">
+    <value>The record has already been deleted by {0}.</value>
+  </data>
+  <data name="ErrorGetMatch" xml:space="preserve">
+    <value>Error in GetMatchType</value>
+  </data>
+  <data name="LoadMatchErrorMsg" xml:space="preserve">
+    <value>Error in LoadMatchType</value>
+  </data>
+  <data name="AutoSearchReleaseTitleErrorMsg" xml:space="preserve">
+    <value>Error in AutoSearchReleaseTitle</value>
+  </data>
+  <data name="PopulateCacheErrorMsg" xml:space="preserve">
+    <value>Error in PopulateCache</value>
+  </data>
+  <data name="ProjectNothaveRights" xml:space="preserve">
+    <value>There are currently no Resource/Track rights associated with the selected Release(s).</value>
+  </data>
+  <data name="ReleaseNothaveRights" xml:space="preserve">
+    <value>There are currently no Resource/Track rights associated with the selected Release(s)</value>
+  </data>
+  <data name="UnlinkRepertoireFromReleaseResourceErrorMsg" xml:space="preserve">
+    <value>Error in UnlinkRepertoireFromReleaseResource</value>
+  </data>
+  <data name="AutoSearchResourceErrorMsg" xml:space="preserve">
+    <value>Error in AutoSearch ResourceTitle</value>
+  </data>
+  <data name="RepertoireReviewRights" xml:space="preserve">
+    <value>RepertoireReviewRights</value>
+  </data>
+  <data name="RepertoireReviewRightsSuccessMsg" xml:space="preserve">
+    <value>Repertoire Rightset - Success</value>
+  </data>
+  <data name="ErrorGetPreClearanceTypes" xml:space="preserve">
+    <value>Error in get PreClearance Types</value>
+  </data>
+  <data name="ErrorGetResourceGenre" xml:space="preserve">
+    <value>Error in Get Resource Genre</value>
+  </data>
+  <data name="AutoSearchReleaseArtistErrorMsg" xml:space="preserve">
+    <value>Error in AutoSearchReleaseArtist</value>
+  </data>
+  <data name="ErrorMsgReport" xml:space="preserve">
+    <value>Error in getting Report</value>
+  </data>
+  <data name="IsExistingContractError" xml:space="preserve">
+    <value>Error in IsExistingContract</value>
+  </data>
+  <data name="SplitDeleteConc" xml:space="preserve">
+    <value>The contract selected for split deal has already been deleted by  {0}.</value>
+  </data>
+  <data name="UnlinkingConcurrency" xml:space="preserve">
+    <value>The Repertoire cannot be Unlinked as it has already been unlinked by  {0}.</value>
+  </data>
+  <data name="WorkflowStatusConcError" xml:space="preserve">
+    <value>Please set  contract status to approved in order to link repertoire.Contract status has been updated by {0}.</value>
+  </data>
+  <data name="RemoveWorkQueueError" xml:space="preserve">
+    <value>The repertoire has already been removed by {0}</value>
+  </data>
+  <data name="AutoSearchResourceArtistErrorMsg" xml:space="preserve">
+    <value>Error in AutoSearchResourceArtist</value>
+  </data>
+  <data name="DeleteContractConcMsg" xml:space="preserve">
+    <value>The contract has already been deleted by {0}.</value>
+  </data>
+  <data name="ParentContrctConcMsg" xml:space="preserve">
+    <value>The assigned parent contract has already been deleted by {0}.</value>
+  </data>
+  <data name="EditCopyAuthorizationError" xml:space="preserve">
+    <value>You are not authorized to Edit / Copy Contract</value>
+  </data>
+  <data name="ErrorIsAlreadyUnlinked" xml:space="preserve">
+    <value>Error in IsAlready Unlinked</value>
+  </data>
+  <data name="ErrorIsAlreadyUnlinkWorkQueue" xml:space="preserve">
+    <value>Error in IsAlready Unlinked Workqueue</value>
+  </data>
+  <data name="ErrorIsExistsTask" xml:space="preserve">
+    <value>Error in IsExistsTask</value>
+  </data>
+  <data name="GetUnProcessedReleaseResourcesErrorMsg" xml:space="preserve">
+    <value>Error in GetUnProcessedReleaseResources</value>
+  </data>
+  <data name="GetLinkedRightSetsErrorMessage" xml:space="preserve">
+    <value>Error in Get Linked Rights Sets</value>
+  </data>
+</root>

@@ -1,0 +1,262 @@
+﻿@model UMGI.GRCS.UI.Models.ContractTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+@{
+    ViewBag.Title = @ContractResource.SearchContractMenu;
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/searchContract.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+@*<style>
+    .ui-autocomplete-loading {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") right center no-repeat;
+    }
+    </style>*@
+<div class="searchContractScroll">
+    <input type="hidden" value="@ViewBag.sessionMessage" id="isFromSession" />
+    <div class="contractmain">
+        <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+        <script src="@Url.Content("/GCS/Scripts/Custom/SearchContract.js")" type="text/javascript"></script>
+        <div class="searchContainer">
+            <!--- Background Starts ----------------------------->
+            <div class="background">
+                <div class="artistWrkflowContractContainer">
+                    <div class="alignLeft firstartistContainer">
+                        <div class="labelAllignLeft alignLeft allignLabel">
+                            @Html.LabelFor(model => model.Artist.Info.Name):
+                        </div>
+                        <div class="editor-field search-button alignLeft artistField">
+                            @Html.TextBoxFor(model => model.Artist.Info.Name, new { data_autocomplete_source_manual = @Url.Action("AutoSearchArtistList", "Contract") })
+                            <span class="search-button"></span>
+                            @Html.ValidationMessageFor(model => model.Artist.Info.Name)
+                        </div>
+                    </div>
+                    <div class="alignLeft workflowContainer">
+                        <div class="labelAllignLeft alignLeft allignLabel">
+                            @Html.LabelFor(model => model.Contract.WorkflowStatus):
+                        </div>
+                        <div class="editor-field alignLeft">
+                            @Html.DropDownListFor(model => model.WorkFlowStatus, new SelectList(Model.WorkFlowStatus, "value", "text", Model.WorkFlowStatus), "All")
+                            @Html.ValidationMessageFor(model => model.WorkFlowStatus)
+                        </div>
+                    </div>
+                    <div class="alignLeft contractstatusContainer">
+                        <div class="labelAllignLeft allignLabel">
+                            @Html.LabelFor(model => model.Contracts.ContractStatus):
+                        </div>
+                        <div class="editor-field alignLeft">
+                            @Html.DropDownListFor(model => model.ContractStatusList, new SelectList(Model.ContractStatusList, "value", "text", Model.ContractStatusList), "All")
+                            @Html.ValidationMessageFor(model => model.ContractStatus)
+                        </div>
+                    </div>
+                </div>
+                <br class="clear" />
+                <div id="searchContractAccordion">
+                    <!--- Accordion Starts ----------------------------->
+                    <div class="head">
+                        <div class="leftRight">
+                            <a href="#" class="header alignLeft iconBottom">@ContractResource.AdvancedSearchHeader
+                            </a>
+                        </div>
+                    </div>
+                    <div class="accbg">
+                        <!--- accbg Starts ----------------------------->
+                        <div class="accItem" id="searchContractAccItem">
+                            <!----  accitem Starts -------->
+                            <div class="leftMainDiv">
+                                <div class="leftLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.ContractingParty):
+                                </div>
+                                <div class="leftFieldDiv">
+                                    @Html.EditorFor(model => model.Contract.ContractingParty)
+                                    @Html.ValidationMessageFor(model => model.Contract.ContractingParty)
+                                </div>
+                            </div>
+                            <div class="rightMainDiv">
+                                <div class="rightLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.ArtistNameInLocalCharacters):
+                                </div>
+                                <div class="rightFieldDiv">
+                                    @Html.EditorFor(model => model.Contract.ArtistNameInLocalCharacters)
+                                    @Html.ValidationMessageFor(model => model.Contract.ArtistNameInLocalCharacters)
+                                </div>
+                            </div>
+                            <br class="clear" />
+                            <div class="leftMainDiv">
+                                <div class="leftLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.ClearanceAdminCompany):
+                                </div>
+                                <div class="leftFieldDiv">
+                                    @Html.DropDownListFor(model => model.ClearanceAdminCompany, new SelectList(Model.ClearanceAdminCompany, "value", "text", Model.ClearanceAdminCompany), " ")
+                                    @Html.ValidationMessageFor(model => model.ClearanceAdminCompany)
+                                </div>
+                            </div>
+                            <div class="rightMainDiv">
+                                <div class="rightLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.UmgSigningCompany):
+                                </div>
+                                <div class="rightFieldDiv search-button">
+                                    @Html.TextBoxFor(model => model.Contract.UmgSigningCompany, new
+                                                                                                    {
+                                                                                                        data_autocomplete_source =
+
+                                                                                                    @Url.Action("AutoSearchUmgSigningCompany", "Contract")
+                                                                                                    })
+                                </div>
+                            </div>
+                            <br class="clear" />
+                            <div class="leftMainDiv zeroMargin">
+                                <div class="fromContainer">
+                                    From
+                                </div>
+                                <div class="toContainer">
+                                    To
+                                </div>
+                            </div>
+                            <div class="rightMainDiv zeroMargin">
+                                <div class="rightLabelDiv allignLabel">
+                                    &nbsp;
+                                </div>
+                                <div class="rightFieldDiv">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <br class="clear" />
+                            <div class="leftMainDiv contractDateContainer">
+                                <div class="leftLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.ContractCommencementDate):
+                                </div>
+                                <div class="leftFieldDiv">
+                                    <div class="alignLeft width35">
+                                        @Html.EditorFor(model => model.Contract.ContractCommencementDate)
+                                        @Html.ValidationMessageFor(model => model.Contract.ContractCommencementDate)
+                                    </div>
+                                    <div class="alignLeft contractEndOuterDiv">
+                                        <div class="alignLeft contractEndInnerDiv">
+                                            @Html.EditorFor(model => model.Contract.ContractEndDate)
+                                            @Html.ValidationMessageFor(model => model.Contract.ContractEndDate)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightMainDiv emptyContainer">
+                                <div class="rightLabelDiv allignLabel">
+                                    &nbsp;
+                                </div>
+                                <div class="rightFieldDiv">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <br class="clear" />
+                            <div class="leftMainDiv">
+                                <div class="leftLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.LocalContractRefNumber):
+                                </div>
+                                <div class="leftFieldDiv">
+                                    @Html.EditorFor(model => model.Contract.LocalContractRefNumber)
+                                    @Html.ValidationMessageFor(model => model.Contract.LocalContractRefNumber)
+                                </div>
+                            </div>
+                            <div class="rightMainDiv">
+                                <div class="rightLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.ContractId):
+                                </div>
+                                <div class="rightFieldDiv">
+
+                                    @Html.TextBoxFor(model => model.Contract.ContractId, new { maxlength = 11 })
+                                    @Html.ValidationMessageFor(model => model.Contract.ContractId)
+                                </div>
+                            </div>
+                            <br class="clear" />
+                            <div class="leftMainDiv">
+                                <div class="leftLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.Contract.RightsTypeId):
+                                </div>
+                                <div class="leftFieldDiv">
+                                    @Html.DropDownListFor(model => model.RightsType, new SelectList(Model.RightsType, "value", "text", Model.RightsType), "All")
+                                    @Html.ValidationMessageFor(model => model.RightsType)
+                                </div>
+                            </div>
+                            <div class="rightMainDiv">
+                                <div class="rightLabelDiv allignLabel">
+                                    @Html.LabelFor(model => model.ContractsSearch.OtherRights):
+                                </div>
+                                <div class="rightFieldDiv">
+                                    @Html.EditorFor(model => model.ContractsSearch.OtherRights)
+                                    @Html.ValidationMessageFor(model => model.RightsType)
+                                </div>
+                            </div>
+                            <br class="clear" />
+                        </div>
+                        <!----  accitem ends -------->
+                    </div>
+                    <!--- accbg Ends ----------------------------->
+                </div>
+                <!--- Accordion Ends ----------------------------->
+                <div class="contractButtonHolder">
+                    <!--- conractButtonHolder Starts----------------------------->
+                    <div id="searchContractBtnContainer">
+                        <input class="primbutton" id="searchcontract"  runat="server" type="submit" value="@ContractResource.SearchButton" />
+                        <input class="secbutton btnSpacing" id="resetContract" runat="server" type="submit" value="@ContractResource.ResetButton" />
+                    </div>
+                </div>
+                <!--- conractButtonHolder Ends ----------------------------->
+            </div>
+            <!--- Background Ends ----------------------------->
+        </div>
+    </div>
+    <!--- scroll contractmain Ends ----------------------------->
+    <br class="clear" />
+    <div>
+        <div class="alignLeft">
+
+            <h2 class="searchResult">
+                <span id="searchResultCount" style="float: left; display: inline-block;">Search Result (0)</span></h2>
+        </div>
+        <div class="ui-jtable-loading alignLeft">
+        </div>
+        <div id="searchErrorMessage" class="alert"></div>
+        <div id="alignRight" class="alignRight" style="margin-bottom: 10px;">
+            <span id="SearchContractPaging" style="margin-top: -5px;">
+                @ContractResource.ShowDropDown
+                @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage)
+                @ContractResource.itemsperpage
+            </span>
+            <div id="ContractListExcelExport" class="hyperlink" style="display: none;">
+                <a>
+                    <img src="/GCS/Images/Excel-16.png" alt="Export To Excel" /><label>Export To Excel</label></a>
+            </div>
+            <div id="ExportToWord" class="hyperlink" style="display: none;">
+                <a>
+                    <img src="/GCS/Images/Word-16.png" alt="Export To Word" /><label>Export To Word</label></a>
+            </div>
+        </div>
+    </div>
+    <div id="contractgrid" class="Clear" style="display: none; margin-left: 15px; position: relative;">
+        <div id="searchcontractList">
+        </div>
+        <div id="SelectedRowList">
+        </div>
+        <input type="hidden" id="Contract_ContractId" value="" />
+        @section BottomInputs{
+            <div class="bottomInputs">
+                <ul>
+                    <li>
+                        <input class="primbutton" id="LinkToRepertoire" runat="server" type="submit" value= "@ContractResource.LinktoRepertoireButton" /></li>
+
+                    <li>
+                        <input type="submit" id="btnUnlinkContract" value="Unlink Repertoire" class="primbutton btnSpacing" />
+                    </li>
+
+                    <li>
+                        <input class="primbutton btnSpacing" id="CopyContract" runat="server" type="submit" value= "@ContractResource.CopyContractButton" /></li>
+                    <li>
+                        <input class="primbutton btnSpacing" id="EditContract" runat="server" type="submit" value= "@ContractResource.EditContractButton" /></li>
+                    <li>
+                        <input class="primbutton btnSpacing" id="ViewContract" runat="server" type="submit" value="@ContractResource.ViewContractButton" /></li>
+                    <li>
+                        <input class="secbutton multipleBtnSpacing" id="DeleteContract" runat="server" type="submit" value="@ContractResource.DeleteContractButton" /></li>
+                </ul>
+            </div>
+        }
+    </div>
+</div>

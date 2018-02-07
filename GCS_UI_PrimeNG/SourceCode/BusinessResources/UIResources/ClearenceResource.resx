@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DeactiveButton" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="itemsperpage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchbyLabel" xml:space="preserve">
+    <value>Search by:</value>
+  </data>
+  <data name="SearchResultLabel" xml:space="preserve">
+    <value>Search Results for</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show:</value>
+  </data>
+  <data name="ViewButton" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="ChildPendingRequest" xml:space="preserve">
+    <value>Child Workgroup</value>
+  </data>
+  <data name="ParentPendingRequest" xml:space="preserve">
+    <value>Pending Requests of</value>
+  </data>
+  <data name="SelectWorkgroup" xml:space="preserve">
+    <value>Select WorkGroup</value>
+  </data>
+  <data name="ChildrenWorkgroupsLabel" xml:space="preserve">
+    <value>Children Workgroups:</value>
+  </data>
+  <data name="CompanyLabel" xml:space="preserve">
+    <value>Company:</value>
+  </data>
+  <data name="CreateButton" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="DefaultUsersLabel" xml:space="preserve">
+    <value>Default User(s):</value>
+  </data>
+  <data name="ExcludedLabel" xml:space="preserve">
+    <value>Excluded</value>
+  </data>
+  <data name="IncludedLabel" xml:space="preserve">
+    <value>Included</value>
+  </data>
+  <data name="NameLabel" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="R2ContactLabel" xml:space="preserve">
+    <value>R2 Contact:</value>
+  </data>
+  <data name="RoleLabel" xml:space="preserve">
+    <value>Role:</value>
+  </data>
+  <data name="StatusLabel" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="TerritoryCountryLabel" xml:space="preserve">
+    <value>Territory/Country:</value>
+  </data>
+  <data name="UsersLabel" xml:space="preserve">
+    <value>Users:</value>
+  </data>
+  <data name="ManageTerritoryHeader" xml:space="preserve">
+    <value>Manage Territory</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>ClearFilter</value>
+  </data>
+  <data name="Exclude" xml:space="preserve">
+    <value>Exclude</value>
+  </data>
+  <data name="ExcludeList" xml:space="preserve">
+    <value>ExcludeList</value>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="IncludeList" xml:space="preserve">
+    <value>IncludeList</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="RidirectButton" xml:space="preserve">
+    <value>Redirect</value>
+  </data>
+  <data name="ParentWorkgroupsLabel" xml:space="preserve">
+    <value>Parent Workgroups:</value>
+  </data>
+  <data name="BasicDetailsLabel" xml:space="preserve">
+    <value>Basic Details</value>
+  </data>
+  <data name="DeactivateWorkgroupLabel" xml:space="preserve">
+    <value>Deactivate Workgroup</value>
+  </data>
+  <data name="SelectRoleLabel" xml:space="preserve">
+    <value>--Select Role--</value>
+  </data>
+  <data name="js_deactivateworkgroupSuccessfulMessage" xml:space="preserve">
+    <value>Pending request is routed!! \nThe Workgroup is deactivated</value>
+  </data>
+  <data name="js_deleteworkgroupPendingrequestMessage" xml:space="preserve">
+    <value>This Workgroup is used for routing of requests</value>
+  </data>
+  <data name="js_deleteworkgroupstatuspopupTitle" xml:space="preserve">
+    <value>Workgroup Deletion Status</value>
+  </data>
+  <data name="js_deleteworkgroupSuccessfulMessage" xml:space="preserve">
+    <value>Workgroup has been deleted successfully</value>
+  </data>
+  <data name="js_noRowsSelectedworkgroupMessage" xml:space="preserve">
+    <value>Please select Worgroup</value>
+  </data>
+  <data name="js_pendingworkgroupRequestMessage" xml:space="preserve">
+    <value>Selected Pending request is routed!! \nThe Workgroup has few more pending request to route.</value>
+  </data>
+  <data name="js_searchworkgroupInvalidMessage" xml:space="preserve">
+    <value>Please enter at least one search criteria</value>
+  </data>
+  <data name="js_viewworkgrouppopuptitle" xml:space="preserve">
+    <value>View Workgroup</value>
+  </data>
+  <data name="CreateChildWorkGroupButton" xml:space="preserve">
+    <value>Create Child Workgroup</value>
+  </data>
+  <data name="MaintainParentWrkGpTitle" xml:space="preserve">
+    <value>Maintain Parent Workgroup</value>
+  </data>
+  <data name="ManageCompanyButton" xml:space="preserve">
+    <value>Manage Company</value>
+  </data>
+  <data name="ManageTerritoriesButton" xml:space="preserve">
+    <value>Manage Territories</value>
+  </data>
+  <data name="ManageUsersButton" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="ManageWorkgroupPageName" xml:space="preserve">
+    <value>ManageWorkgroup</value>
+  </data>
+  <data name="js_searchHeaderForDeleteWorkgroup" xml:space="preserve">
+    <value>Delete Workgroup</value>
+  </data>
+  <data name="js_searchHeaderForManageWorgroup" xml:space="preserve">
+    <value>Maintain Workgroup</value>
+  </data>
+  <data name="js_searchHeaderForSearchWorgroup" xml:space="preserve">
+    <value>Search Workgroup</value>
+  </data>
+  <data name="js_deactivatePendingRequestMessage" xml:space="preserve">
+    <value>This Workgroup has pending requests</value>
+  </data>
+  <data name="js_watermarkCompany" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="js_watermarkCountry" xml:space="preserve">
+    <value>Territory, Country</value>
+  </data>
+  <data name="js_watermarkUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="js_watermarkWorkgroupName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="js_SelectRowAlert" xml:space="preserve">
+    <value>Please select at least one row</value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="BasicDetails" xml:space="preserve">
+    <value>Basic Details</value>
+  </data>
+  <data name="CreateNewWorkGrpHeader" xml:space="preserve">
+    <value>Create New Workgroup</value>
+  </data>
+  <data name="js_SelectDefaultUser" xml:space="preserve">
+    <value>Please Select one Default User</value>
+  </data>
+  <data name="js_watermarkCompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="js_watermarkCountryOnly" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="js_watermarkIsacCode" xml:space="preserve">
+    <value>ISAC Code</value>
+  </data>
+  <data name="js_watermarkUserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+  <data name="js_watermarkUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="js_MandatoryFields" xml:space="preserve">
+    <value>Please enter the mandatory fields</value>
+  </data>
+  <data name="js_ValidEmailId" xml:space="preserve">
+    <value>Please enter the valid Email Id</value>
+  </data>
+  <data name="js_NoRowSelected" xml:space="preserve">
+    <value>No Row Selected</value>
+  </data>
+  <data name="MandatorySymbol" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ParentWorkgroupDataExist" xml:space="preserve">
+    <value>Uniqueness Violation: This workgroup details already exists</value>
+  </data>
+  <data name="ProUserTransProjExistUserLabeljTransUserTitle" xml:space="preserve">
+    <value>Transfer To User</value>
+  </data>
+  <data name="SearchProjectForUserTransferTitle" xml:space="preserve">
+    <value>Search Project for User Transfer</value>
+  </data>
+  <data name="SearchProjectPageTitle" xml:space="preserve">
+    <value>Search Project</value>
+  </data>
+  <data name="SelectProject" xml:space="preserve">
+    <value>Please select a project</value>
+  </data>
+  <data name="UserTransProjCancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UserTransProjExistUserLabel" xml:space="preserve">
+    <value>Existing Requestor</value>
+  </data>
+  <data name="UserTransProjRefNumberLabel" xml:space="preserve">
+    <value>Project Reference Number</value>
+  </data>
+  <data name="UserTransProjSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="UserTransProjTitleLabel" xml:space="preserve">
+    <value>Project Title</value>
+  </data>
+  <data name="UserTransProjTransferAlertSelectUser" xml:space="preserve">
+    <value>Select User</value>
+  </data>
+  <data name="UserTransProjTransferToLabel" xml:space="preserve">
+    <value>Transfer To</value>
+  </data>
+  <data name="UserTransTransferButtonText" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="LinkToWorkgroup" xml:space="preserve">
+    <value>Link To Workgroup</value>
+  </data>
+  <data name="js_deactivateworkgroupstatuspopupTitle" xml:space="preserve">
+    <value>Deactivate Workgroup</value>
+  </data>
+  <data name="LinkToContract" xml:space="preserve">
+    <value>Link To Contract</value>
+  </data>
+  <data name="js_linkContractToWorkgroupstatuspopupTitle" xml:space="preserve">
+    <value>Link contract to workgroup</value>
+  </data>
+  <data name="ListOfCompany" xml:space="preserve">
+    <value>List of Companies</value>
+  </data>
+  <data name="SelectType" xml:space="preserve">
+    <value>--Select Type--</value>
+  </data>
+  <data name="LabelWorkgroupDevArtistContract" xml:space="preserve">
+    <value>Workgroup Deviation for Artist Contract</value>
+  </data>
+  <data name="LabelWorkgroupDevResContract" xml:space="preserve">
+    <value>Workgroup Deviation for Resource Contract</value>
+  </data>
+  <data name="LabelWorkgroupRequestType" xml:space="preserve">
+    <value>Workgroup Deviation for Request Type</value>
+  </data>
+  <data name="ArtistId" xml:space="preserve">
+    <value>Artist ID</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="ClrAdminCompany" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ClrAdminCompanyId" xml:space="preserve">
+    <value>Clearance Admin Company ID</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="Isrc" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="ResourceTitle" xml:space="preserve">
+    <value>Resource Title</value>
+  </data>
+  <data name="artistNotLinkedInfo" xml:space="preserve">
+    <value>Artist not linked to a contract</value>
+  </data>
+  <data name="resourceNotLinkedInfo" xml:space="preserve">
+    <value>Resource not linked to a contract</value>
+  </data>
+  <data name="js_ContractcannotLinkMsg" xml:space="preserve">
+    <value>Contract(s) cannot be linked. Company match cannot be found for the following contract(s)</value>
+  </data>
+  <data name="js_LinkWgToContract_Atleast" xml:space="preserve">
+    <value>Please select at least one contract</value>
+  </data>
+  <data name="js_LinkWgToContract_SameCompanyMsg" xml:space="preserve">
+    <value>Please always only select contracts with same clearance admin company</value>
+  </data>
+  <data name="js_ManageArtistTitle" xml:space="preserve">
+    <value>Artist Contract</value>
+  </data>
+  <data name="js_ManageResourceTitle" xml:space="preserve">
+    <value>Resource Contract</value>
+  </data>
+  <data name="js_SearchForManageArtistTitle" xml:space="preserve">
+    <value>Search For Manage Artist</value>
+  </data>
+  <data name="LinkWorkgroupToContract" xml:space="preserve">
+    <value>Link contract to workgroup</value>
+  </data>
+  <data name="js_SearchforArtistContract" xml:space="preserve">
+    <value>Search for Artist Contract</value>
+  </data>
+  <data name="js_SearchforResourceContract" xml:space="preserve">
+    <value>Search for Resource Contract</value>
+  </data>
+  <data name="js_contractlinktoWGsucessfulMsg" xml:space="preserve">
+    <value>This contract has been linked to the selected workgroup</value>
+  </data>
+  <data name="js_MandatoryResourceField" xml:space="preserve">
+    <value>Linking at least one resource to the project is mandatory</value>
+  </data>
+  <data name="js_atleastaddartist" xml:space="preserve">
+    <value>Please link at least one Artist to add</value>
+  </data>
+  <data name="js_atleastremoveartist" xml:space="preserve">
+    <value>Please select at least one Artist to remove</value>
+  </data>
+  <data name="js_thirdPartyMandatorySelectionMessage" xml:space="preserve">
+    <value>Please link one 3rd party company</value>
+  </data>
+  <data name="js_contractTitleGreen" xml:space="preserve">
+    <value>Contract is Linked</value>
+  </data>
+  <data name="js_contractTitleRed" xml:space="preserve">
+    <value>Contract is not Linked</value>
+  </data>
+  <data name="CollapseLinkButtonText" xml:space="preserve">
+    <value>Collapse</value>
+  </data>
+  <data name="CreateChildWorkgrouplabel" xml:space="preserve">
+    <value>Create Child Workgroup</value>
+  </data>
+  <data name="ExpandAllLinkButtonText" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="ExpandLinkButtonText" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="ManageArtistContractButtonText" xml:space="preserve">
+    <value>Manage Artist Contract</value>
+  </data>
+  <data name="ManageResourceContractButtonText" xml:space="preserve">
+    <value>Manage Resource Contract</value>
+  </data>
+  <data name="RequestTypeLabel" xml:space="preserve">
+    <value>Request Type:</value>
+  </data>
+  <data name="SelectAllLinkButtonText" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="WorkgroupDeviationforArtistContractLabel" xml:space="preserve">
+    <value>Workgroup Deviation for Artist Contract</value>
+  </data>
+  <data name="WorkgroupDeviationforRequestTypeLabel" xml:space="preserve">
+    <value>Workgroup Deviation for Request Type</value>
+  </data>
+  <data name="WorkgroupDeviationforResourceContractLabel" xml:space="preserve">
+    <value>Workgroup Deviation for Resource Contract</value>
+  </data>
+  <data name="js_saveSuccessMessage" xml:space="preserve">
+    <value>Updated Successfully</value>
+  </data>
+  <data name="js_listOfResourceContract" xml:space="preserve">
+    <value>List of Resource Contract</value>
+  </data>
+  <data name="js_listOfArtistContract" xml:space="preserve">
+    <value>List of Artist Contracts</value>
+  </data>
+  <data name="js_listOfAddedCompanies" xml:space="preserve">
+    <value>List of Companies</value>
+  </data>
+  <data name="js_listOfAddedUsers" xml:space="preserve">
+    <value>List of Users</value>
+  </data>
+  <data name="jsJtable_MgComp_CompLabel" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="jsJtable_MgComp_CompNameLabel" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="jsJtable_MgComp_CountryLabel" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="jsJtable_MgComp_IsacCodeLabel" xml:space="preserve">
+    <value>ISAC Code</value>
+  </data>
+  <data name="jsJtable_MgComp_ISACCompCodeLabel" xml:space="preserve">
+    <value>ISAC Company Code</value>
+  </data>
+  <data name="jsJtable_MgUser_ActiveWorkgroupNameLabel" xml:space="preserve">
+    <value>Active Workgroups</value>
+  </data>
+  <data name="jsJtable_MgUser_CountryNameLabel" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="jsJtable_MgUser_EmailLabel" xml:space="preserve">
+    <value>Contact Email</value>
+  </data>
+  <data name="jsJtable_MgUser_InActiveWorkgroupNameLabel" xml:space="preserve">
+    <value>InActive Workgroups</value>
+  </data>
+  <data name="jsJtable_MgUser_LoginNameLabel" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="jsJtable_MgUser_NameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="jsJtable_MgUser_UserDefaultLabel" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="jsJtable_MgUser_UserNameLabel" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="jsJtable_MgArtist_AddtionInfoLabel" xml:space="preserve">
+    <value>Additional Information</value>
+  </data>
+  <data name="jsJtable_MgArtist_ArtistLabel" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="jsJtable_MgArtist_ClrAdmCompNameLabel" xml:space="preserve">
+    <value>Clearance Admin Company Name</value>
+  </data>
+  <data name="jsJtable_MgArtist_ContractLabel" xml:space="preserve">
+    <value>Contract</value>
+  </data>
+  <data name="jsJtable_MgResource_DataAdminCompLabel" xml:space="preserve">
+    <value>Data Admin by Company</value>
+  </data>
+  <data name="jsJtable_MgResource_TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="jsJtable_MgResource_TypeLabel" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="jsJtable_MgResource_VersionTitleLabel" xml:space="preserve">
+    <value>VersionTitle</value>
+  </data>
+  <data name="jsJtable_SearchWgp_RoleLabel" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="jsJtable_SearchWgp_TerritoryCountryLabel" xml:space="preserve">
+    <value>Territory/Country</value>
+  </data>
+  <data name="jsJtable_SearchWgp_WgpNameLabel" xml:space="preserve">
+    <value>Workgroup Name</value>
+  </data>
+  <data name="jsJtable_SearchWgp_WgpStatusLabel" xml:space="preserve">
+    <value>Workgroup Status</value>
+  </data>
+  <data name="jsJtable_SearchWgp_WgpTypeLabel" xml:space="preserve">
+    <value>Workgroup Type</value>
+  </data>
+  <data name="DurationAndExcerptTimeMsg" xml:space="preserve">
+    <value>Data is not in correct format. Please fill in format : HH:MM:SS</value>
+  </data>
+  <data name="MoneyRange" xml:space="preserve">
+    <value>Value entered is greater than range.</value>
+  </data>
+  <data name="js_watermarkComments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="js_watermarkOneStopReason" xml:space="preserve">
+    <value>One Stop Reason</value>
+  </data>
+  <data name="RegularProjectMoneyMsg" xml:space="preserve">
+    <value>Data is not in correct format</value>
+  </data>
+  <data name="UploadMaximumDocumentMsg" xml:space="preserve">
+    <value>The total number of documents cannot exceed 10</value>
+  </data>
+  <data name="SafeTerritory" xml:space="preserve">
+    <value>Safe Territory</value>
+  </data>
+  <data name="jsJtable_MgUser_UserSelectLabel" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="mngUser_Rights_ManageWorkgroup" xml:space="preserve">
+    <value>Manage Workgroup</value>
+  </data>
+  <data name="mngUser_Rights_R2Authorized" xml:space="preserve">
+    <value>R2 Authorized</value>
+  </data>
+  <data name="mngUser_Rights_Requestor" xml:space="preserve">
+    <value>Requestor</value>
+  </data>
+  <data name="mngUser_Rights_Reviewer" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
+  <data name="mngUser_Rights_UPCAllocation" xml:space="preserve">
+    <value>UPC Allocation</value>
+  </data>
+  <data name="js_addUserToWorkgroupForTitle" xml:space="preserve">
+    <value>Add User to Workgroup</value>
+  </data>
+  <data name="js_RemoveUserFromWorkgroupTitle" xml:space="preserve">
+    <value>Remove User from Workgroup</value>
+  </data>
+  <data name="js_addremoveUserWarninglMsg" xml:space="preserve">
+    <value>Please Select any One Checkbox</value>
+  </data>
+  <data name="js_addUsersuccessfulMsg" xml:space="preserve">
+    <value>Successfully Added the User to Selected WorkGroup</value>
+  </data>
+  <data name="js_removeUsersuccessfulMsg" xml:space="preserve">
+    <value>Successfully Removed the User from Selected WorkGroup</value>
+  </data>
+  <data name="js_removeUserWarninglMsgFirst" xml:space="preserve">
+    <value>is the last user linked to the</value>
+  </data>
+  <data name="js_removeUserWarninglMsgSecond" xml:space="preserve">
+    <value> Please add another user to the workgroup to remove the current user</value>
+  </data>
+  <data name="js_titleForAddAndRemoveUser" xml:space="preserve">
+    <value>Add / Remove Users from Workgroup(s)</value>
+  </data>
+  <data name="WaterMarkAGiveAwayComments" xml:space="preserve">
+    <value>Give
+away Free of Charge Comments</value>
+  </data>
+  <data name="WaterMarkAOtherComments" xml:space="preserve">
+    <value>Others Comments</value>
+  </data>
+  <data name="WaterMarkAPremiumComments" xml:space="preserve">
+    <value>Premium Comments</value>
+  </data>
+  <data name="Js_LinkArtist" xml:space="preserve">
+    <value>please link at-least one artist to the resource</value>
+  </data>
+  <data name="jsJtable_MgUser_RightsLabel" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="mngUser_Rights_Inquiry" xml:space="preserve">
+    <value>Inquiry</value>
+  </data>
+  <data name="mngUser_Rights_RccAdmin" xml:space="preserve">
+    <value>RCC Admin</value>
+  </data>
+  <data name="jsJtable_MgComp_ResourceIdLabel" xml:space="preserve">
+    <value>Resource ID</value>
+  </data>
+  <data name="ReleaseCountrieslevel" xml:space="preserve">
+    <value>Release Countries:</value>
+  </data>
+  <data name="ReleaseCountriesExclude" xml:space="preserve">
+    <value>Release Countries Exclude:</value>
+  </data>
+  <data name="ReleaseCountriesInclude" xml:space="preserve">
+    <value>Release Countries Include:</value>
+  </data>
+  <data name="CountriesExclude" xml:space="preserve">
+    <value>Countries Exclude:</value>
+  </data>
+  <data name="CountriesInclude" xml:space="preserve">
+    <value>Countries Include:</value>
+  </data>
+  <data name="dateFormatString" xml:space="preserve">
+    <value>0:dd/Mmm/yyyy</value>
+  </data>
+  <data name="SelectCompany" xml:space="preserve">
+    <value>--Select Company--</value>
+  </data>
+  <data name="js_RegularProjectTitle" xml:space="preserve">
+    <value>Create New Regular/Non-Traditional</value>
+  </data>
+  <data name="Js_ProjectTitle" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Error has been ocurred due to save or submit the project </value>
+  </data>
+  <data name="LegalCheckBoxLabel" xml:space="preserve">
+    <value>Legal</value>
+  </data>
+  <data name="MarketingCheckBoxLabel" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="ReasonNoLabel" xml:space="preserve">
+    <value>Reason Number</value>
+  </data>
+  <data name="ReasonTextLabel" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="RejectReasonHeader1" xml:space="preserve">
+    <value>Manage Pre-defined Rejection Reason</value>
+  </data>
+  <data name="RejectReasonHeader2" xml:space="preserve">
+    <value>Applicable to:</value>
+  </data>
+  <data name="RejectReasonLabel" xml:space="preserve">
+    <value>Pre-defined Rejection Reason</value>
+  </data>
+  <data name="UMGICheckBoxLabel" xml:space="preserve">
+    <value>UMGI</value>
+  </data>
+  <data name="js_mimicUser_userNotmappedtoWkgMessage" xml:space="preserve">
+    <value>Selected User does not belongs to any Workgroup</value>
+  </data>
+  <data name="AddUserButton" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="js_Column_CountriesLabel" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="js_Column_DefaultUsersLabel" xml:space="preserve">
+    <value>Default User(s)</value>
+  </data>
+  <data name="js_Column_IdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="js_Column_RoleNameLabel" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="js_Column_WkgNameLabel" xml:space="preserve">
+    <value>WorkgGroup Name</value>
+  </data>
+  <data name="MimicUserButton" xml:space="preserve">
+    <value>Mimic User</value>
+  </data>
+  <data name="RemoveUserButton" xml:space="preserve">
+    <value>Remove User</value>
+  </data>
+  <data name="js_AddAndRemoveUserExistingMsg" xml:space="preserve">
+    <value>Existing Users</value>
+  </data>
+  <data name="js_UserPreferenceSuccessMsg" xml:space="preserve">
+    <value>User Preference has been updated successfully</value>
+  </data>
+  <data name="js_UserPreferenceWarningMsg" xml:space="preserve">
+    <value>Please select at-least one workgroup to enable the preference</value>
+  </data>
+  <data name="CampaignCountriesManageTerritoryHeader" xml:space="preserve">
+    <value>Manage Campaign Countries</value>
+  </data>
+  <data name="js_watermarkGloballyCleared" xml:space="preserve">
+    <value>Globally Cleared Comments</value>
+  </data>
+  <data name="UniquenessMsg" xml:space="preserve">
+    <value>cannot be added due to uniqueness violation</value>
+  </data>
+  <data name="UniquenessContractIdsMsg" xml:space="preserve">
+    <value>Contract id(s)</value>
+  </data>
+</root>

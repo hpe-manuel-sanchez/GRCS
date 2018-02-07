@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.GlobalAddressEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.GlobalAddressEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:complexType name="EmailGroupDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EmailGroup">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="CountryDetails" nillable="true" type="q1:CountryInfo" />
+          <xs:element minOccurs="0" name="EmailIds" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmailGroupDetails" nillable="true" type="tns:EmailGroupDetails" />
+  <xs:complexType name="EmailGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q2:BaseIdentifier">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmailGroup" nillable="true" type="tns:EmailGroup" />
+  <xs:complexType name="ArrayOfEmailGroupDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailGroupDetails" nillable="true" type="tns:EmailGroupDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailGroupDetails" nillable="true" type="tns:ArrayOfEmailGroupDetails" />
+</xs:schema>

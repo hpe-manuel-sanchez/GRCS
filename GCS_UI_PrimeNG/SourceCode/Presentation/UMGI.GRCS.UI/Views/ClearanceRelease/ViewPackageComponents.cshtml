@@ -1,0 +1,26 @@
+﻿@model UMGI.GRCS.BusinessEntities.Entities.ProjectEntities.PackageInfo
+@{
+    ViewBag.Title = "View Component";
+    Layout = "";
+}
+
+<link href="@Url.Content("/GCS/Scripts/TreeView/themes/default/style.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jquery.jstree.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ViewComponent.js")" type="text/javascript"></script>
+
+<div style="margin: 0 auto; width: 100%;">
+    <!--left DIV Contain tree structure of navigation -->
+    <div id="popupLeftScrollableDv">
+        <ul id="treeView">
+            <li>
+                <a href="#" class="usr" title="@Model.ReleaseId-@Model.Upc" onclick="GetDetails($(this).attr('title'));">@Model.Upc</a>
+                @Html.Partial("TreeviewViewComponent", Model)
+            </li>
+        </ul>
+    </div>
+    <!-- END -->
+    <!--right Container Div Start Here-->
+    <div id="popupRightDv">
+    </div>
+    <!-- Container Div Ends Here-->
+</div>

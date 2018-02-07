@@ -1,0 +1,50 @@
+﻿.ui-dialog {
+    top: 50px !important;
+    bottom: 50px !important;
+}
+
+    .ui-dialog .ui-dialog-content {
+        padding: 0;
+    }
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+}
+
+.pcCompanyNameLabel {
+    width: 50%;
+}
+
+.pcCompanyNameValidation {
+    width: 60%;
+}
+
+.pcCountryName {
+    width: 35%;
+}
+
+.popupBackground {
+    background-color: #F0F0F0;
+    border-bottom: 2px solid #3171BB;
+    height: 35px;
+    position: relative;
+    width: 100%;
+}
+
+#PCNoticeCompanyPaging {
+    float: right;
+    margin: 10px 15px 10px 0px;
+}
+
+.pcNoticeBtnContainer {
+    width: 15%;
+    margin-top: 5px;
+}
+
+.searchNoticeListTop {
+    margin-top: 15px;
+}
+
+div.jtable-main-container {
+    overflow-y: scroll;
+}

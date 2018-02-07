@@ -1,0 +1,37 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.CustomWorkQueueModel
+<script src="@Url.Content("/GCS/Scripts/Custom/CustomSetting.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+
+<div style="clear:both;">
+<div id="customSettingTab">
+    <div>
+        <div style="border-bottom: 2px solid #3171bb;">
+            <div id="menuTab" style="padding-top:15px; padding-left:10px;">
+                
+                <div class="alignLefte">
+                    <ul class="tabul">
+                        <li><a href="#divPredefinedParameter">
+                                Predefined Parameters
+                            </a></li>
+                        <li><a href="#divOtherParameterTab">
+                                OtherParameters
+                            </a></li>
+                               
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="divPredefinedParameter" class="" style="clear:both;">
+            @Html.Partial("PredefindParameterTab", ((UMGI.GRCS.UI.Models.CustomWorkQueueModel)Model))
+        </div>
+        <div id="divOtherParameterTab" class=""  style="clear:both;">
+            @if (ViewBag.LoadTemplate == "1")
+            {
+                @Html.Partial("OtherParameterTab", ((UMGI.GRCS.UI.Models.CustomWorkQueueModel)Model))
+            }
+        </div>
+               
+    </div>
+</div>
+</div>

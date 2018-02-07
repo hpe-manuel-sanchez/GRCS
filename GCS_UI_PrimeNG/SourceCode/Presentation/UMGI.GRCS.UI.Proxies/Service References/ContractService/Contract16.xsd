@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+  <xs:complexType name="ResourceSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" base="q1:RepertoireSearchCriteriaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClearanceAdminCompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsArtistExactSearch" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIncludeMobileLock" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Isrc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobileArtistSearchType" type="tns:MobileArtistSearchType" />
+          <xs:element minOccurs="0" name="R2ProjectID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseUpc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Upc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResourceSearchCriteria" nillable="true" type="tns:ResourceSearchCriteria" />
+  <xs:simpleType name="MobileArtistSearchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoFilter" />
+      <xs:enumeration value="IncludeMobileArtists" />
+      <xs:enumeration value="ExcludeMobileArtists" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MobileArtistSearchType" nillable="true" type="tns:MobileArtistSearchType" />
+  <xs:complexType name="ResourceContractSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResourceContracts" nillable="true" type="tns:ArrayOfResourceContract" />
+      <xs:element minOccurs="0" name="RowIndex" type="xs:long" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceContractSearchResult" nillable="true" type="tns:ResourceContractSearchResult" />
+  <xs:complexType name="ArrayOfResourceContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceContract" nillable="true" type="tns:ResourceContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceContract" nillable="true" type="tns:ArrayOfResourceContract" />
+  <xs:complexType name="ResourceContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" base="q2:ArtistContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Isrc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2ResourceId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="RightsType" type="xs:int" />
+          <xs:element minOccurs="0" name="RightsTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResourceContract" nillable="true" type="tns:ResourceContract" />
+  <xs:complexType name="ArrayOfDeviationResourceContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviationResourceContract" nillable="true" type="tns:DeviationResourceContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviationResourceContract" nillable="true" type="tns:ArrayOfDeviationResourceContract" />
+  <xs:complexType name="DeviationResourceContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" base="q3:ArtistInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContractId" type="xs:long" />
+          <xs:element minOccurs="0" name="ModifiedDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ResourceId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkgroupId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeviationResourceContract" nillable="true" type="tns:DeviationResourceContract" />
+  <xs:complexType name="ArrayOfLinkedResourceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedResourceInfo" nillable="true" type="tns:LinkedResourceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedResourceInfo" nillable="true" type="tns:ArrayOfLinkedResourceInfo" />
+  <xs:complexType name="LinkedResourceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdminCompanyId" type="xs:long" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Isrc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceId" type="xs:long" />
+      <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResourceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedResourceInfo" nillable="true" type="tns:LinkedResourceInfo" />
+</xs:schema>

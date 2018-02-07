@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDigitalRestrictionLink" xml:space="preserve">
+    <value>Add Digital Restriction</value>
+  </data>
+  <data name="AddEditTerritorialRightsLink" xml:space="preserve">
+    <value>Add/Edit Territorial Rights.ar</value>
+  </data>
+  <data name="AdvancedSearchHeader" xml:space="preserve">
+    <value>Advanced Search.ar</value>
+  </data>
+  <data name="AvailableRightsAcquistionHeader" xml:space="preserve">
+    <value>Available Rights Acquistion.ar</value>
+  </data>
+  <data name="BackPage" xml:space="preserve">
+    <value>&lt;&lt; Back.ar</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel.ar</value>
+  </data>
+  <data name="ClearanceControlsHeader" xml:space="preserve">
+    <value>Clearance Controls.ar</value>
+  </data>
+  <data name="ClearFilterLink" xml:space="preserve">
+    <value>Clear Filter.ar</value>
+  </data>
+  <data name="CommercialModelColumn" xml:space="preserve">
+    <value>Commercial Model.ar</value>
+  </data>
+  <data name="ConsentPeriodColumn" xml:space="preserve">
+    <value>Consent Period.ar</value>
+  </data>
+  <data name="ContentTypeColumn" xml:space="preserve">
+    <value>Content Type.ar</value>
+  </data>
+  <data name="ContractHead" xml:space="preserve">
+    <value>Contract Header.ar</value>
+  </data>
+  <data name="ContractMenu" xml:space="preserve">
+    <value>Contract.ar</value>
+  </data>
+  <data name="CopyContractButton" xml:space="preserve">
+    <value>Copy Contract.ar</value>
+  </data>
+  <data name="CreateChildContractButton" xml:space="preserve">
+    <value>Create Child Contract.ar</value>
+  </data>
+  <data name="CreatecontractfromTemplate" xml:space="preserve">
+    <value>Create contract from Template :.ar</value>
+  </data>
+  <data name="DeleteContractButton" xml:space="preserve">
+    <value>Delete Contract.ar</value>
+  </data>
+  <data name="EditContractButton" xml:space="preserve">
+    <value>Edit Contract.ar</value>
+  </data>
+  <data name="ExcludeTerritoryRights" xml:space="preserve">
+    <value>Exclude.ar</value>
+  </data>
+  <data name="ExploitationTypeColumn" xml:space="preserve">
+    <value>Exploitation Type.ar</value>
+  </data>
+  <data name="FindButton" xml:space="preserve">
+    <value>Find.ar</value>
+  </data>
+  <data name="HoldbackPeriodColumn" xml:space="preserve">
+    <value>Holdback Period.ar</value>
+  </data>
+  <data name="IncludeTerritoryRights" xml:space="preserve">
+    <value>Include.ar</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A.ar</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next &gt;&gt;.ar</value>
+  </data>
+  <data name="NotAvailableDisplay" xml:space="preserve">
+    <value>Not Available.ar</value>
+  </data>
+  <data name="NotesColumn" xml:space="preserve">
+    <value>Notes.ar</value>
+  </data>
+  <data name="NotesNotificationsHeader" xml:space="preserve">
+    <value>Notes &amp; Notifications.ar</value>
+  </data>
+  <data name="OKButton" xml:space="preserve">
+    <value>OK.ar</value>
+  </data>
+  <data name="ParentContractHeading" xml:space="preserve">
+    <value>Parent Contract.ar</value>
+  </data>
+  <data name="ParentContractID" xml:space="preserve">
+    <value>Parent Contract ID.ar</value>
+  </data>
+  <data name="RemoveRestrictionLink" xml:space="preserve">
+    <value>Remove Restriction.ar</value>
+  </data>
+  <data name="RepertoireDefaultsHeader" xml:space="preserve">
+    <value>Repertoire Defaults.ar</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset.ar</value>
+  </data>
+  <data name="ResetSelectionButton" xml:space="preserve">
+    <value>Reset Selection.ar</value>
+  </data>
+  <data name="RestrictedColumn" xml:space="preserve">
+    <value>Acquired.ar</value>
+  </data>
+  <data name="RestrictionColumn" xml:space="preserve">
+    <value>Restrictions.ar</value>
+  </data>
+  <data name="RightsRestrictionsMenu" xml:space="preserve">
+    <value>Rights &amp; Restrictions.ar</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save.ar</value>
+  </data>
+  <data name="SaveAsRestrictionTemplateLink" xml:space="preserve">
+    <value>Save As Restriction Template.ar</value>
+  </data>
+  <data name="SaveTemplateButton" xml:space="preserve">
+    <value>Save as a Template.ar</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search.ar</value>
+  </data>
+  <data name="SecondaryExploitationMenu" xml:space="preserve">
+    <value>Secondary Exploitation.ar</value>
+  </data>
+  <data name="SelectCheckBox" xml:space="preserve">
+    <value>Select.ar</value>
+  </data>
+  <data name="SplitDealHeader" xml:space="preserve">
+    <value>Split Deal.ar</value>
+  </data>
+  <data name="TerritorialRightsHeader" xml:space="preserve">
+    <value>Territorial Rights &amp; Rights Period.ar</value>
+  </data>
+  <data name="Header360Deal" xml:space="preserve">
+    <value>360° Deal.ar</value>
+  </data>
+  <data name="UnlinkParent" xml:space="preserve">
+    <value>Unlink.ar</value>
+  </data>
+  <data name="UseTypeColumn" xml:space="preserve">
+    <value>Use Type.ar</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add.ar</value>
+  </data>
+  <data name="AddressBookLink" xml:space="preserve">
+    <value>Address Book.ar</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist.ar</value>
+  </data>
+  <data name="AssignParentContractLink" xml:space="preserve">
+    <value>Assign Parent Contract.ar</value>
+  </data>
+  <data name="ClearanceAdminCompanyCountry" xml:space="preserve">
+    <value>ClearanceAdminCompany-Country.ar</value>
+  </data>
+  <data name="ContractingParty" xml:space="preserve">
+    <value>Contracting Party.ar</value>
+  </data>
+  <data name="LocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref No.ar</value>
+  </data>
+  <data name="ActionColumn" xml:space="preserve">
+    <value>Action.ar</value>
+  </data>
+  <data name="ClearanceCompanyParent" xml:space="preserve">
+    <value>Clearance Company.ar</value>
+  </data>
+  <data name="ContractMaintenanceWorkQueueHeader" xml:space="preserve">
+    <value>Contract Maintenance WorkQueue.ar</value>
+  </data>
+  <data name="DigitalRestrictionsHeader" xml:space="preserve">
+    <value>Digital Restrictions.ar</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From.ar</value>
+  </data>
+  <data name="itemsperpage" xml:space="preserve">
+    <value>items per page.ar</value>
+  </data>
+  <data name="ParentLocalRefNo" xml:space="preserve">
+    <value>Local Ref No.ar</value>
+  </data>
+  <data name="RightsAcquisitionHeader" xml:space="preserve">
+    <value>Rights Acquisition.ar</value>
+  </data>
+  <data name="SearchContractMenu" xml:space="preserve">
+    <value>Search Contract.ar</value>
+  </data>
+  <data name="SecondaryExploitationHeader" xml:space="preserve">
+    <value>SecondaryExploitation Restrictions.ar</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show.ar</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To.ar</value>
+  </data>
+  <data name="IncludeList" xml:space="preserve">
+    <value>IncludeList.ar</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>ContractDescription.ar</value>
+  </data>
+  <data name="CreatecontractfromTemplateLbl" xml:space="preserve">
+    <value>Create contract from Template :.ar</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Sorry, an error occurred while processing your request..ar</value>
+  </data>
+  <data name="ExcludeList" xml:space="preserve">
+    <value>ExcludeList.ar</value>
+  </data>
+  <data name="TerritorialRightsPageHeader" xml:space="preserve">
+    <value>TerritorialRights.ar</value>
+  </data>
+  <data name="GlobalAddressList" xml:space="preserve">
+    <value>Global Address List.ar</value>
+  </data>
+  <data name="LinktoRepertoireButton" xml:space="preserve">
+    <value>Link to Repertoire.ar</value>
+  </data>
+  <data name="SearchForArtistTitle" xml:space="preserve">
+    <value>Search For Artist.ar</value>
+  </data>
+  <data name="SearchPCNoticeCompanyTitle" xml:space="preserve">
+    <value>Search P\C Notice Company.ar</value>
+  </data>
+  <data name="AuthorizedMsg" xml:space="preserve">
+    <value>Not Authorized for this action.ar</value>
+  </data>
+  <data name="ContractErrorMsg" xml:space="preserve">
+    <value>Editor cannot Apporve the Contract.ar</value>
+  </data>
+  <data name="DigitalTemplateFailureMsg" xml:space="preserve">
+    <value>DigitalRestriction Template Not Saved.ar</value>
+  </data>
+  <data name="DigitalTemplateSuccessMsg" xml:space="preserve">
+    <value>DigitalRestriction Template Saved Successfully..ar</value>
+  </data>
+  <data name="SaveFailureMsg" xml:space="preserve">
+    <value>Contract Save Failed..ar</value>
+  </data>
+  <data name="SaveSuccessMsg" xml:space="preserve">
+    <value>Contract Saved Successfully..ar</value>
+  </data>
+  <data name="TemplateSaveFailureMsg" xml:space="preserve">
+    <value>Contract Template Not Saved ..ar</value>
+  </data>
+  <data name="TemplateSaveSuccessMsg" xml:space="preserve">
+    <value>Contract Template Saved Successfully..ar</value>
+  </data>
+  <data name="TemplateUniqueNameMsg" xml:space="preserve">
+    <value>Please enter unique Template name..{0} already exists !.ar</value>
+  </data>
+  <data name="UnableToSaveMsg" xml:space="preserve">
+    <value>Unable To Save Contract.ar</value>
+  </data>
+  <data name="ContractTemplatesHeader" xml:space="preserve">
+    <value>Contract Templates.ar</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete.ar</value>
+  </data>
+  <data name="DigitalRestrictionsTemplatesHeader" xml:space="preserve">
+    <value>Digital Restrictions Templates.ar</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit.ar</value>
+  </data>
+  <data name="RestrictionsColumn" xml:space="preserve">
+    <value>Restrictions.ar</value>
+  </data>
+  <data name="ViewContractButton" xml:space="preserve">
+    <value>View Contract.ar</value>
+  </data>
+  <data name="CreateNewEntryButton" xml:space="preserve">
+    <value>Create New Entry.ar</value>
+  </data>
+  <data name="ExportExcelButton" xml:space="preserve">
+    <value>Export Report.ar</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>Contract ID.ar</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>ClearFilter.ar</value>
+  </data>
+  <data name="CreateNewEntry" xml:space="preserve">
+    <value>CreateNewEntry.ar</value>
+  </data>
+  <data name="Exclude" xml:space="preserve">
+    <value>Exclude.ar</value>
+  </data>
+  <data name="FilterButton" xml:space="preserve">
+    <value>Filter.ar</value>
+  </data>
+  <data name="FilterRoleGroupName" xml:space="preserve">
+    <value>Filter Role/Group Name.ar</value>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Include.ar</value>
+  </data>
+  <data name="ManageAddressBookHeader" xml:space="preserve">
+    <value>Manage Address Book.ar</value>
+  </data>
+  <data name="AddRestrictionLink" xml:space="preserve">
+    <value>Add Restrictions.ar</value>
+  </data>
+  <data name="ErrorHeader" xml:space="preserve">
+    <value>Error.ar</value>
+  </data>
+  <data name="DuplicateSplitDeal" xml:space="preserve">
+    <value>Duplicate.ar</value>
+  </data>
+  <data name="HelpSplitDeal" xml:space="preserve">
+    <value>Help:Clicking on 'Yes' will terminate the new contract creation process..ar</value>
+  </data>
+  <data name="SplitDealContracts" xml:space="preserve">
+    <value>" of Any of the existing contracts listed below?.ar</value>
+  </data>
+  <data name="SplitDealMenu" xml:space="preserve">
+    <value>Is the new contract a ".ar</value>
+  </data>
+  <data name="SplitDealMsg" xml:space="preserve">
+    <value>" with any of the existing contracts listed 
+    above, select all that apply and click "Split Deal".ar</value>
+  </data>
+  <data name="SplitDealName" xml:space="preserve">
+    <value>Split Deal.ar</value>
+  </data>
+  <data name="SplitDealNewContract" xml:space="preserve">
+    <value>If the new contract is part of a ".ar</value>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Yes.ar</value>
+  </data>
+  <data name="LostRightsMessage" xml:space="preserve">
+    <value>:Rights Has Been Lost.ar</value>
+  </data>
+  <data name="WarningMessage" xml:space="preserve">
+    <value>Warning.ar</value>
+  </data>
+  <data name="MaintenanceRightsDataReview" xml:space="preserve">
+    <value>Create / Edit Rights Data Review Condtion.ar</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter.ar</value>
+  </data>
+  <data name="SecondaryExploitationRestricted" xml:space="preserve">
+    <value>Restricted.ar</value>
+  </data>
+  <data name="ExitButton" xml:space="preserve">
+    <value>Exit.ar</value>
+  </data>
+  <data name="DeleteContractTemplate" xml:space="preserve">
+    <value>Contract Template Deleted Successfully</value>
+  </data>
+  <data name="DeleteDigitalRestrictionTemplate" xml:space="preserve">
+    <value>Digital Restriction Template Deleted Successfully</value>
+  </data>
+</root>

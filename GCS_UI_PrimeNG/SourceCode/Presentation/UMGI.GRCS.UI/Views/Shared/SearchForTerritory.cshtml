@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+@model UMGI.GRCS.UI.Rights.Models.ContractInfoManager
+<html>
+<head>
+    <title>@ViewBag.Title="Search For Territory"</title>
+</head>
+<body>
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SearchForArtist.js")" type="text/javascript"></script>
+    <div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.ArtistName):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.ArtistName)
+                @Html.ValidationMessageFor(model => model.Artist.ArtistName)
+                @Html.CheckBoxFor(model => model.Artist.IsSearchNameInAllNameFields)
+                @*<input type="checkbox" runat="server" />*@
+                Search All Name fields
+            </div>
+        </div>
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.ArtistFirstName):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.ArtistFirstName)
+                @Html.ValidationMessageFor(model => model.Artist.ArtistFirstName)
+            </div>
+        </div>
+        <div style="float: left">
+            <div class="editor-label" style="float: left">
+                @Html.LabelFor(model => model.Artist.ArtistLastName):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.ArtistLastName)
+                @Html.ValidationMessageFor(model => model.Artist.ArtistLastName)
+            </div>
+        </div>
+        <div style="float: left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Artist.ArtistId):
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Artist.ArtistId)
+                @Html.ValidationMessageFor(model => model.Artist.ArtistId)
+                <input id="searchForArtist" type="button" value="Search" runat="server" />
+            </div>
+        </div>
+        <div>
+            <div id="searchArtistResult">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

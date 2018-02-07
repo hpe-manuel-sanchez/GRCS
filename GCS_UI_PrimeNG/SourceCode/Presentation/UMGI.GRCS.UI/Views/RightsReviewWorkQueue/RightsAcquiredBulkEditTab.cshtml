@@ -1,0 +1,97 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceRightsWorkQueueModel
+ <link href="@Url.Content("/GCS/Content/SubPages/RightsAcquiredBulkEditTab.css")" rel="stylesheet" type="text/css" />                       
+<div>
+<div class="resetBtnStrip">
+<div class="alignRight resetSelectionBtnContainer">
+<div class="secbutton_left">
+            </div>
+            <div class="alignLeft">
+                <input type="button" id="btnResetRightsAcquired" value="Reset Selection" class="secbutton" />
+            </div>
+            <div class="secbutton_right">
+            </div>
+
+
+    </div>
+</div>
+<div class="rightsAcquiredBody">
+<div class="bottomSeparator">
+    <div class="divLeftControlBulk resourceCtrls">
+        @RepertoireSearch.ActiveForMarketing?</div>
+    <div class="divRightControlBulk resourceCtrls">
+        @Html.DropDownList("ddlactiveMarketing", Model.BooleanDropDown)
+    </div>
+    </div>
+    <div class="clear"></div>
+    <div class="bottomSeparator">
+
+
+
+    <div class="divLeftControlBulk">
+        @RepertoireSearch.RightsPeriod</div>
+    <div class="divRightControlBulk">
+          @Html.DropDownList("ddlrightsPeriod", Model.RightsPeriodDropDownList)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk">
+        @RepertoireSearch.LostRights?</div>
+    <div class="divRightControlBulkNest">
+        @Html.DropDownList("ddllostRights", Model.BooleanDropDown)
+    </div>
+       <div class="divLeftControlBulkNest lostRightsDateLabel">
+        @RepertoireSearch.LostRightsDate</div>
+    <div class="divRightControlBulkNest">
+        @Html.TextBox("lostRightsDate","",new{@class="datefield"})
+    </div>
+        <div class="divLeftControlBulkNest rightsExceptionAppliedLabel">
+        @WorkQueueResource.RightsExceptionsApplied</div>
+    <div class="divRightControlBulkNest">
+        @Html.DropDownList("ddlrightsException", Model.RightsExceptionDropdown)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk">
+        @RepertoireSearch.LostRightsReason</div>
+    <div class="divRightControlBulk">
+        @Html.DropDownList("ddllostRightsReason",Model.LostRightReasonDropDownList)
+    </div>
+
+
+
+    </div>
+
+
+        <div class="clear"></div>
+        <div class="thirdSection">
+    <div class="divLeftControlBulk">
+        @WorkQueueResource.PhysicalExploitation</div>
+    <div class="divRightControlBulk">
+        @Html.DropDownList("ddlphysicalExploitation", Model.BooleanDropDown)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk">
+        @WorkQueueResource.DigitalExploitation</div>
+    <div class="divRightControlBulk">
+        @Html.DropDownList("ddldigitalExploitation", Model.BooleanDropDown)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk resourceCtrls">
+        @RepertoireSearch.DigitalUnbundlingAllowed</div>
+    <div class="divRightControlBulk resourceCtrls">
+        @Html.DropDownList("ddldigitalUnbundling", Model.BooleanDropDown)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk resourceCtrls">
+        @WorkQueueResource.MobileExploitation</div>
+    <div class="divRightControlBulk resourceCtrls">
+        @Html.DropDownList("ddlmobileExploitation", Model.BooleanDropDown)
+    </div>
+        <div class="clear"></div>
+    <div class="divLeftControlBulk resourceCtrls">
+        @RepertoireSearch.PPBRevenueClaim</div>
+    <div class="divRightControlBulk resourceCtrls">
+        @Html.DropDownList("ddlppbClaim", Model.BooleanDropDown)
+    </div>
+    </div>
+</div>
+</div>        

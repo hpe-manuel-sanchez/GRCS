@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Rights" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AdminEntities" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.NotificationEntities" />
+      <xsd:import schemaLocation="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRights_GetSecondaryExploitations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitations" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetSecondaryExploitations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetReasonsForReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonsForReview" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetReasonsForReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReasonsForReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearances_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearances" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearances_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetLostRightsReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRightsReasons" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetLostRightsReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRightsReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsReviewStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsReviewStatuses" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsReviewStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsReviewStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightPeriods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightPeriods" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightPeriods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightPeriodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetResourceType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceType" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetResourceType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReviewedReleaseRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReviewedReleaseRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReviewedReleaseRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReviewedReleaseRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReviewedResourceRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReviewedResourceRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReviewedResourceRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReviewedResourceRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourceSecondaryRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourceSecondaryRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourceSecondaryRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourceSecondaryRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourcePreClearanceRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourcePreClearanceRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourcePreClearanceRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourcePreClearanceRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourceDigitalRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourceDigitalRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveResourceDigitalRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResourceDigitalRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsAcquiredMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsAcquiredMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsAcquiredMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsAcquiredMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadSecondaryRightsMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSecondaryRightsMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadSecondaryRightsMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSecondaryRightsMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadPreClearanceMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPreClearanceMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadPreClearanceMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPreClearanceMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadDigitalRightsMasterData_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDigitalRightsMasterData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadDigitalRightsMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDigitalRightsMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReleaseDigitalRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseDigitalRights" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveReleaseDigitalRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseDigitalRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightCountries" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightCountriesFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightCountriesFilter" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightCountriesFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightCountriesFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsRoleGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsRoleGroups" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsRoleGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsRoleGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsExpiryItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsExpiryItem" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsExpiryItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsExpiryItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsExpiryItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsExpiryItems" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsExpiryItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsExpiryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTerritoryRightsCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryRightsCountry" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTerritoryRightsCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryRightsCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTerritoryRightsCountryFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryRightsCountryFilter" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTerritoryRightsCountryFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoryRightsCountryFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsExpiryResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsExpiryResults" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsExpiryResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsExpiryResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsDataReviewRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsDataReviewRules" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetRightsDataReviewRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRightsDataReviewRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsDataReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsDataReview" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsDataReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsDataReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsDataReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsDataReview" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsDataReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsDataReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsDataReviewResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsDataReviewResult" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsDataReviewResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsDataReviewResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsDefaultRepertoireData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsDefaultRepertoireData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveRightsDefaultRepertoireData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRightsDefaultRepertoireDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsDefaultRepertoireData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsDefaultRepertoireData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_DeleteRightsDefaultRepertoireData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRightsDefaultRepertoireDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsDefaultForRepertorieResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsDefaultForRepertorieResults" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SearchRightsDefaultForRepertorieResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRightsDefaultForRepertorieResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadTerritoryData_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTerritoryData" />
+  </wsdl:message>
+  <wsdl:message name="IRights_LoadTerritoryData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTerritoryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveTerritories_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTerritories" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveTerritories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTerritoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveTerritoriesByContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTerritoriesByContract" />
+  </wsdl:message>
+  <wsdl:message name="IRights_SaveTerritoriesByContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTerritoriesByContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_Notify_InputMessage">
+    <wsdl:part name="parameters" element="tns:Notify" />
+  </wsdl:message>
+  <wsdl:message name="IRights_Notify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NotifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_ValidateIsrcFromFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIsrcFromFile" />
+  </wsdl:message>
+  <wsdl:message name="IRights_ValidateIsrcFromFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIsrcFromFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearedBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearedBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearedBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearedBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTracksBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTracksBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTracksSearchReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksSearchReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetTracksSearchReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTracksSearchReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetSecondaryExploitationBasicSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitationBasicSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetSecondaryExploitationBasicSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitationBasicSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearedReleaseParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearedReleaseParameters" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetPreClearedReleaseParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreClearedReleaseParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetSecondaryExploitationReleaseParameterSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitationReleaseParameterSearch" />
+  </wsdl:message>
+  <wsdl:message name="IRights_GetSecondaryExploitationReleaseParameterSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecondaryExploitationReleaseParameterSearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRights">
+    <wsdl:operation name="GetSecondaryExploitations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitations" message="tns:IRights_GetSecondaryExploitations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitationsResponse" message="tns:IRights_GetSecondaryExploitations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonsForReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetReasonsForReview" message="tns:IRights_GetReasonsForReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetReasonsForReviewResponse" message="tns:IRights_GetReasonsForReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearances">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetPreClearances" message="tns:IRights_GetPreClearances_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetPreClearancesResponse" message="tns:IRights_GetPreClearances_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRightsReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetLostRightsReasons" message="tns:IRights_GetLostRightsReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetLostRightsReasonsResponse" message="tns:IRights_GetLostRightsReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsReviewStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightsReviewStatuses" message="tns:IRights_GetRightsReviewStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightsReviewStatusesResponse" message="tns:IRights_GetRightsReviewStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightPeriods">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightPeriods" message="tns:IRights_GetRightPeriods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightPeriodsResponse" message="tns:IRights_GetRightPeriods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetResourceType" message="tns:IRights_GetResourceType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetResourceTypeResponse" message="tns:IRights_GetResourceType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReviewedReleaseRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveReviewedReleaseRights" message="tns:IRights_SaveReviewedReleaseRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveReviewedReleaseRightsResponse" message="tns:IRights_SaveReviewedReleaseRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReviewedResourceRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveReviewedResourceRights" message="tns:IRights_SaveReviewedResourceRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveReviewedResourceRightsResponse" message="tns:IRights_SaveReviewedResourceRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourceSecondaryRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveResourceSecondaryRights" message="tns:IRights_SaveResourceSecondaryRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveResourceSecondaryRightsResponse" message="tns:IRights_SaveResourceSecondaryRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourcePreClearanceRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveResourcePreClearanceRights" message="tns:IRights_SaveResourcePreClearanceRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveResourcePreClearanceRightsResponse" message="tns:IRights_SaveResourcePreClearanceRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourceDigitalRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveResourceDigitalRights" message="tns:IRights_SaveResourceDigitalRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveResourceDigitalRightsResponse" message="tns:IRights_SaveResourceDigitalRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsAcquiredMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightsAcquiredMasterData" message="tns:IRights_GetRightsAcquiredMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightsAcquiredMasterDataResponse" message="tns:IRights_GetRightsAcquiredMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecondaryRightsMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/LoadSecondaryRightsMasterData" message="tns:IRights_LoadSecondaryRightsMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/LoadSecondaryRightsMasterDataResponse" message="tns:IRights_LoadSecondaryRightsMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPreClearanceMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/LoadPreClearanceMasterData" message="tns:IRights_LoadPreClearanceMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/LoadPreClearanceMasterDataResponse" message="tns:IRights_LoadPreClearanceMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDigitalRightsMasterData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/LoadDigitalRightsMasterData" message="tns:IRights_LoadDigitalRightsMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/LoadDigitalRightsMasterDataResponse" message="tns:IRights_LoadDigitalRightsMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseDigitalRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveReleaseDigitalRights" message="tns:IRights_SaveReleaseDigitalRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveReleaseDigitalRightsResponse" message="tns:IRights_SaveReleaseDigitalRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightCountries" message="tns:IRights_GetRightCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightCountriesResponse" message="tns:IRights_GetRightCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightCountriesFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightCountriesFilter" message="tns:IRights_GetRightCountriesFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightCountriesFilterResponse" message="tns:IRights_GetRightCountriesFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsRoleGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightsRoleGroups" message="tns:IRights_GetRightsRoleGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightsRoleGroupsResponse" message="tns:IRights_GetRightsRoleGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsExpiryItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveRightsExpiryItem" message="tns:IRights_SaveRightsExpiryItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveRightsExpiryItemResponse" message="tns:IRights_SaveRightsExpiryItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsExpiryItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/DeleteRightsExpiryItems" message="tns:IRights_DeleteRightsExpiryItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/DeleteRightsExpiryItemsResponse" message="tns:IRights_DeleteRightsExpiryItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryRightsCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetTerritoryRightsCountry" message="tns:IRights_GetTerritoryRightsCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetTerritoryRightsCountryResponse" message="tns:IRights_GetTerritoryRightsCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryRightsCountryFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetTerritoryRightsCountryFilter" message="tns:IRights_GetTerritoryRightsCountryFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetTerritoryRightsCountryFilterResponse" message="tns:IRights_GetTerritoryRightsCountryFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetCountries" message="tns:IRights_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetCountriesResponse" message="tns:IRights_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetCompanies" message="tns:IRights_GetCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetCompaniesResponse" message="tns:IRights_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsExpiryResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SearchRightsExpiryResults" message="tns:IRights_SearchRightsExpiryResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SearchRightsExpiryResultsResponse" message="tns:IRights_SearchRightsExpiryResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsDataReviewRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetRightsDataReviewRules" message="tns:IRights_GetRightsDataReviewRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetRightsDataReviewRulesResponse" message="tns:IRights_GetRightsDataReviewRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsDataReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveRightsDataReview" message="tns:IRights_SaveRightsDataReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveRightsDataReviewResponse" message="tns:IRights_SaveRightsDataReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsDataReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/DeleteRightsDataReview" message="tns:IRights_DeleteRightsDataReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/DeleteRightsDataReviewResponse" message="tns:IRights_DeleteRightsDataReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsDataReviewResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SearchRightsDataReviewResult" message="tns:IRights_SearchRightsDataReviewResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SearchRightsDataReviewResultResponse" message="tns:IRights_SearchRightsDataReviewResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsDefaultRepertoireData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveRightsDefaultRepertoireData" message="tns:IRights_SaveRightsDefaultRepertoireData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveRightsDefaultRepertoireDataResponse" message="tns:IRights_SaveRightsDefaultRepertoireData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsDefaultRepertoireData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/DeleteRightsDefaultRepertoireData" message="tns:IRights_DeleteRightsDefaultRepertoireData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/DeleteRightsDefaultRepertoireDataResponse" message="tns:IRights_DeleteRightsDefaultRepertoireData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsDefaultForRepertorieResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SearchRightsDefaultForRepertorieResults" message="tns:IRights_SearchRightsDefaultForRepertorieResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SearchRightsDefaultForRepertorieResultsResponse" message="tns:IRights_SearchRightsDefaultForRepertorieResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadTerritoryData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/LoadTerritoryData" message="tns:IRights_LoadTerritoryData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/LoadTerritoryDataResponse" message="tns:IRights_LoadTerritoryData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTerritories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveTerritories" message="tns:IRights_SaveTerritories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveTerritoriesResponse" message="tns:IRights_SaveTerritories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTerritoriesByContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/SaveTerritoriesByContract" message="tns:IRights_SaveTerritoriesByContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/SaveTerritoriesByContractResponse" message="tns:IRights_SaveTerritoriesByContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Notify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/Notify" message="tns:IRights_Notify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/NotifyResponse" message="tns:IRights_Notify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateIsrcFromFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/ValidateIsrcFromFile" message="tns:IRights_ValidateIsrcFromFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/ValidateIsrcFromFileResponse" message="tns:IRights_ValidateIsrcFromFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearedBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetPreClearedBasicSearch" message="tns:IRights_GetPreClearedBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetPreClearedBasicSearchResponse" message="tns:IRights_GetPreClearedBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetTracksBasicSearch" message="tns:IRights_GetTracksBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetTracksBasicSearchResponse" message="tns:IRights_GetTracksBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksSearchReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetTracksSearchReleaseParameters" message="tns:IRights_GetTracksSearchReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetTracksSearchReleaseParametersResponse" message="tns:IRights_GetTracksSearchReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecondaryExploitationBasicSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitationBasicSearch" message="tns:IRights_GetSecondaryExploitationBasicSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitationBasicSearchResponse" message="tns:IRights_GetSecondaryExploitationBasicSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearedReleaseParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetPreClearedReleaseParameters" message="tns:IRights_GetPreClearedReleaseParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetPreClearedReleaseParametersResponse" message="tns:IRights_GetPreClearedReleaseParameters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecondaryExploitationReleaseParameterSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitationReleaseParameterSearch" message="tns:IRights_GetSecondaryExploitationReleaseParameterSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRights/GetSecondaryExploitationReleaseParameterSearchResponse" message="tns:IRights_GetSecondaryExploitationReleaseParameterSearch_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRights" type="tns:IRights">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSecondaryExploitations">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetSecondaryExploitations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReasonsForReview">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetReasonsForReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearances">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetPreClearances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRightsReasons">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetLostRightsReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsReviewStatuses">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightsReviewStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightPeriods">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightPeriods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceType">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetResourceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReviewedReleaseRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveReviewedReleaseRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReviewedResourceRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveReviewedResourceRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourceSecondaryRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveResourceSecondaryRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourcePreClearanceRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveResourcePreClearanceRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveResourceDigitalRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveResourceDigitalRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsAcquiredMasterData">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightsAcquiredMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSecondaryRightsMasterData">
+      <soap:operation soapAction="http://tempuri.org/IRights/LoadSecondaryRightsMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPreClearanceMasterData">
+      <soap:operation soapAction="http://tempuri.org/IRights/LoadPreClearanceMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDigitalRightsMasterData">
+      <soap:operation soapAction="http://tempuri.org/IRights/LoadDigitalRightsMasterData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseDigitalRights">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveReleaseDigitalRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightCountries">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightCountriesFilter">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightCountriesFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsRoleGroups">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightsRoleGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsExpiryItem">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveRightsExpiryItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsExpiryItems">
+      <soap:operation soapAction="http://tempuri.org/IRights/DeleteRightsExpiryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryRightsCountry">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetTerritoryRightsCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritoryRightsCountryFilter">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetTerritoryRightsCountryFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsExpiryResults">
+      <soap:operation soapAction="http://tempuri.org/IRights/SearchRightsExpiryResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRightsDataReviewRules">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetRightsDataReviewRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsDataReview">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveRightsDataReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsDataReview">
+      <soap:operation soapAction="http://tempuri.org/IRights/DeleteRightsDataReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsDataReviewResult">
+      <soap:operation soapAction="http://tempuri.org/IRights/SearchRightsDataReviewResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRightsDefaultRepertoireData">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveRightsDefaultRepertoireData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRightsDefaultRepertoireData">
+      <soap:operation soapAction="http://tempuri.org/IRights/DeleteRightsDefaultRepertoireData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchRightsDefaultForRepertorieResults">
+      <soap:operation soapAction="http://tempuri.org/IRights/SearchRightsDefaultForRepertorieResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadTerritoryData">
+      <soap:operation soapAction="http://tempuri.org/IRights/LoadTerritoryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTerritories">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveTerritories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTerritoriesByContract">
+      <soap:operation soapAction="http://tempuri.org/IRights/SaveTerritoriesByContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notify">
+      <soap:operation soapAction="http://tempuri.org/IRights/Notify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateIsrcFromFile">
+      <soap:operation soapAction="http://tempuri.org/IRights/ValidateIsrcFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearedBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetPreClearedBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetTracksBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTracksSearchReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetTracksSearchReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecondaryExploitationBasicSearch">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetSecondaryExploitationBasicSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreClearedReleaseParameters">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetPreClearedReleaseParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecondaryExploitationReleaseParameterSearch">
+      <soap:operation soapAction="http://tempuri.org/IRights/GetSecondaryExploitationReleaseParameterSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Rights">
+    <wsdl:port name="BasicHttpBinding_IRights" binding="tns:BasicHttpBinding_IRights">
+      <soap:address location="http://ds-485b39062d4e.hclt.corp.hcl.in:1234/Rights/Rights.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

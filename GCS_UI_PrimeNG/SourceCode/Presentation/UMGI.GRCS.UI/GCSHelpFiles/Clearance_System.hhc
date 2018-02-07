@@ -1,0 +1,230 @@
+﻿<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="FrameName" value="bsscright">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Welcome">
+    <param name="Local" value="Welcome.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User Group Administration">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Workgroup">
+      <param name="Local" value="Managing_Workgroup.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Creating Parent Workgroup">
+        <param name="Local" value="Creating_Workgroup.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Creating Child Workgroups">
+        <param name="Local" value="Creating_Child_Workgroups.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Amending Parent Workgroups">
+        <param name="Local" value="Amending_Workgroups.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Amending Child Workgroups">
+        <param name="Local" value="Amending_Child_Workgroups.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Users">
+      <param name="Local" value="Managing_Users.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Deviations">
+      <param name="Local" value="Managing_Deviations.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Managing Artist Contracts">
+        <param name="Local" value="Managing_Artist_Contracts.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Managing Resource Contracts">
+        <param name="Local" value="Managing_Resource_Contracts.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Deactivating Workgroups">
+      <param name="Local" value="Deactivating_Workgroups.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Deleting Workgroups">
+      <param name="Local" value="Deleting_Workgroups.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Administration">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Creating Projects">
+      <param name="Local" value="Creating_Projects.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Creating Master Projects">
+        <param name="Local" value="Creating_Master_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Creating Regular/Non-Traditional Projects">
+        <param name="Local" value="Creating_Regular_Non_Traditional_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Creating Project from Existing Projects">
+        <param name="Local" value="Creating_Project_from_Existing_Projects.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Maintaining Projects ">
+      <param name="Local" value="Maintaining_Projects_at_Project_Level.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Modifying Clearance Projects">
+        <param name="Local" value="Modifying_Clearance_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re-Submitting Clearance Projects">
+        <param name="Local" value="Re-Submitting_Clearance_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Cancelling the Clearance Project ">
+        <param name="Local" value="Cancelling_the_Clearance_Project(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re-Instating Clearance Projects">
+        <param name="Local" value="Re-Instating_Clearance_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Completing Clearance Projects">
+        <param name="Local" value="Completing_Clearance_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re-Opening Clearance Projects">
+        <param name="Local" value="Re-Opening_the_Clearance_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Deleting Projects">
+        <param name="Local" value="Deleting_the_Projects.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Clearance Project Inquiry">
+        <param name="Local" value="Clearance_Project_Inquiry.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Allocating UPC for New Release (s)">
+        <param name="Local" value="Allocating_UPC_for_New_Release_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Push New Release (s) to R2">
+        <param name="Local" value="Push_New_Release_(s)_to_R2.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Free Hand Company Management">
+        <param name="Local" value="Free_Hand_Company_Management.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Free Hand Resource Management">
+        <param name="Local" value="Free_Hand_Resource_Management.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Cancelling the Resource on Clearance Project (s)">
+        <param name="Local" value="Cancelling_the_Resource_on_Clearance_Project_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re-instate the Resource (s)">
+        <param name="Local" value="Re-instate_the_Resource(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re- Apply Track (s)">
+        <param name="Local" value="Re-_Apply_Track_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Re-Submit Resource (s)">
+        <param name="Local" value="Re-Submit_Resource_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Exclude Resource (s)">
+        <param name="Local" value="Exclude_Resource_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Include Resource (s)">
+        <param name="Local" value="Include_Resource_(s).htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Reminder">
+        <param name="Local" value="Reminder.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="User Transfer">
+        <param name="Local" value="User_Transfer.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Inbox Management">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Requestor Inbox">
+      <param name="Local" value="Requestor_Inbox.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Reviewer Inbox">
+      <param name="Local" value="Reviewer_Inbox.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="RCC Admin Inbox">
+      <param name="Local" value="RCC_Admin_Inbox.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Common Services">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Mimic User">
+      <param name="Local" value="Mimic_User.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Un Lock Project (s)">
+      <param name="Local" value="Un_Lock_Project_(s).htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Pre-defined Rejection Reasons">
+      <param name="Local" value="Managing_Pre-defined_Rejection_Reasons.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Routing Variations">
+      <param name="Local" value="Managing_Routing_Variations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Safe Territories">
+      <param name="Local" value="Managing_Safe_Territories1.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="User Preferences">
+      <param name="Local" value="User_Preferences.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Audit Trails and History">
+      <param name="Local" value="Audit_Trails_and_History.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Managing Emails">
+      <param name="Local" value="Managing_Emails.htm">
+    </object>
+    </ul>
+</ul>
+</html>

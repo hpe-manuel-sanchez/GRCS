@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:import schemaLocation="http://localhost:7778/ClearanceProject/ClearanceProject.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" />
+  <xs:complexType name="ClearanceProjectSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q1:FilterCriteria">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LocalReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectId" type="xs:long" />
+          <xs:element minOccurs="0" name="ProjectReferenceId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="ReadOnly" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestingCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Requestor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ThirdPartyCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkgroupID" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listStatus_Type" nillable="true" type="q2:ArrayOfunsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceProjectSearchCriteria" nillable="true" type="tns:ClearanceProjectSearchCriteria" />
+  <xs:complexType name="ProjectSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+      <xs:element minOccurs="0" name="Values" nillable="true" type="tns:ArrayOfClearanceProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectSearchResult" nillable="true" type="tns:ProjectSearchResult" />
+  <xs:complexType name="ArrayOfClearanceProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceProject" nillable="true" type="tns:ClearanceProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceProject" nillable="true" type="tns:ArrayOfClearanceProject" />
+  <xs:complexType name="ClearanceProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClearanceProjectID" type="xs:long" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" minOccurs="0" name="ClearanceResource" nillable="true" type="q3:ArrayOfClearanceResource" />
+      <xs:element minOccurs="0" name="ClrProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExcludedTerritories" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IncludedTerritories" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChangedfromSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMaster" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNewCountriesAddedAfterSubmit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsProjectResubmitted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUMGiMarkettingRoutingRequired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LicenseTerm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocalReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoggedInUser" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="ObjRelease" nillable="true" type="q4:ArrayOfClearanceRelease" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="ObjReleaseSearch" nillable="true" type="q5:ClearanceReleaseSearch" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" minOccurs="0" name="ObjReleaseSearchResult" nillable="true" type="q6:ClearanceReleaseSearchResult" />
+      <xs:element minOccurs="0" name="OneStop" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OneStopReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalReleaseDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectReferenceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectType" type="xs:int" />
+      <xs:element minOccurs="0" name="ProjectTypeDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Rcc_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestCompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestCompanyName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" minOccurs="0" name="RequestInfoList" nillable="true" type="q7:ArrayOfClearanceInboxRequest" />
+      <xs:element minOccurs="0" name="RequestTypeDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequesterCompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequesterUserId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequesterWorkgroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestingCompany" type="xs:int" />
+      <xs:element minOccurs="0" name="ResubmitReasonComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SensitiveExplotation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusType" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusTypeDesc" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Territories" nillable="true" type="q8:ArrayOfTerritorialDisplay" />
+      <xs:element minOccurs="0" name="ThirdPartyCompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="ThirdPartyCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UploadProjectDocuments" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" minOccurs="0" name="listUploadDocument" nillable="true" type="q9:ArrayOfUploadDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearanceProject" nillable="true" type="tns:ClearanceProject" />
+  <xs:complexType name="ClearancePushR2Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArchiveFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClrProjectId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="CreatedDttm" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Error_Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemId" type="xs:long" />
+      <xs:element minOccurs="0" name="ItemType" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ModifiedDttm" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="No_Of_Retries" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ProcessId" type="xs:long" />
+      <xs:element minOccurs="0" name="R2ReleaseID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Status_Type" nillable="true" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClearancePushR2Item" nillable="true" type="tns:ClearancePushR2Item" />
+  <xs:complexType name="MasterProject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ClearanceProject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Advertising" nillable="true" type="tns:Advertising" />
+          <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientWebsite" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedByUser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Film" nillable="true" type="tns:Film" />
+          <xs:element minOccurs="0" name="IsAdvertisingRequest" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFilmRequest" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOtherRequest" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsResubmissionOccured" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSensitiveDataChanged" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTrailerRequest" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Others" nillable="true" type="tns:Others" />
+          <xs:element minOccurs="0" name="Trailer" nillable="true" type="tns:Trailer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MasterProject" nillable="true" type="tns:MasterProject" />
+  <xs:complexType name="Advertising">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestTypeBaseMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdvertisedProducts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DurationFrom" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DurationTo" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NoOfSpots" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Advertising" nillable="true" type="tns:Advertising" />
+  <xs:complexType name="RequestTypeBaseMaster">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cinema" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InitialNoOfVideos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Internet" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MasterRequestType" type="xs:int" />
+      <xs:element minOccurs="0" name="OptionalAdditionalRights" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Other" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Radio" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TV" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Video" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestTypeBaseMaster" nillable="true" type="tns:RequestTypeBaseMaster" />
+  <xs:complexType name="Film">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestTypeBaseMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TrailerInContext" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Film" nillable="true" type="tns:Film" />
+  <xs:complexType name="Others">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestTypeBaseMaster">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Others" nillable="true" type="tns:Others" />
+  <xs:complexType name="Trailer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestTypeBaseMaster">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Trailer" nillable="true" type="tns:Trailer" />
+  <xs:complexType name="ClearanceRegularProject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ClearanceProject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Compilation" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreatedByUser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EstimatedSalesUnit" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HighPriority" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsExisting" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSensitiveDataChanged" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MultiArtist" type="xs:boolean" />
+          <xs:element minOccurs="0" name="R2_Project_Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="R2_Project_Id" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ReleaseDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseNewOrExisting" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScopeAndRequestType" nillable="true" type="tns:RequestTypeRegular" />
+          <xs:element minOccurs="0" name="ThirdParty" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ThirdPartyRepertoire" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="divisionId" type="xs:long" />
+          <xs:element minOccurs="0" name="divisionName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="thirdPartyCompanyDetails" nillable="true" type="q10:CompanyInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceRegularProject" nillable="true" type="tns:ClearanceRegularProject" />
+  <xs:complexType name="RequestTypeRegular">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalMailOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientWebsite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Club" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentPriceLevel_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentPriceLevel_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Digital" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DigitalRevenueToDate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DigitalRevenueWith" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DigitalRevenueWithout" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DigitalSalesSplitSalesToDate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DigitalSalesSplitSalesWith" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DigitalSalesSplitSalesWithout" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DirectResponse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DistributionTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DurationFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DurationTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Educational" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExcludedTerritories" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GiveAwayComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GiveAwayFreeCharge" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludedTerritories" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Internet" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IntroductoryUse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Kiosk" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MailOrder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManufacturedByUMG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MediaPromoSpendComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NonTraditional" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Other" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OthersICLA" nillable="true" type="tns:OthersICLA" />
+      <xs:element minOccurs="0" name="Partwork" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Physical" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PhysicalRevenueToDate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PhysicalRevenueWith" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PhysicalRevenueWithout" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PhysicalSalesSplitSalesToDate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysicalSalesSplitSalesWith" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PhysicalSalesSplitSalesWithout" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Premium" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PremiumComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceReduction" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Promotional" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Radio" nillable="true" type="tns:Radio" />
+      <xs:element minOccurs="0" name="RegularRetail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RequestedPriceLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedPriceLevel_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="SalesChannelAlaCarteDownload" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SalesChannelMobileRealTones" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SalesChannelMobileRingBackTones" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SalesChannelPhysical" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SalesChannelSubscriptionDownload" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Streaming" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TV" nillable="true" type="tns:TV" />
+      <xs:element minOccurs="0" name="TVRadioBreakICLA" type="xs:boolean" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="Territories" nillable="true" type="q11:ArrayOfTerritorialDisplay" />
+      <xs:element minOccurs="0" name="TotalRevenueToDate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalRevenueWith" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalRevenueWithout" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalSalesSplitSalesToDate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalSalesSplitSalesWith" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalSalesSplitSalesWithout" nillable="true" type="xs:int" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="newlyAddedSalesChannelsAfterSubmit" nillable="true" type="q12:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestTypeRegular" nillable="true" type="tns:RequestTypeRegular" />
+  <xs:complexType name="OthersICLA">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TVRadioBreakICLABase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsOthers" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OtherMediaDetails" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OthersICLA" nillable="true" type="tns:OthersICLA" />
+  <xs:complexType name="TVRadioBreakICLABase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Budget" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BudgetInUSD" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductionCostOfCommercial" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TVRadioBreakICLABase" nillable="true" type="tns:TVRadioBreakICLABase" />
+  <xs:complexType name="Radio">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TVRadioBreakICLABase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsRadio" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Radio" nillable="true" type="tns:Radio" />
+  <xs:complexType name="TV">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TVRadioBreakICLABase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsTV" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TV" nillable="true" type="tns:TV" />
+  <xs:complexType name="ClearanceProjectInquirySearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q13:FilterCriteria">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistExactMatch" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISRC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsProjectBlocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LocalReference" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProjectReferenceId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectTypeId" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ReadOnlyMode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReleaseTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestTypeDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="RequestingCompany" type="xs:int" />
+          <xs:element minOccurs="0" name="Requestor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceTitle" nillable="true" type="xs:string" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Lookups" minOccurs="0" name="RoleGroup" type="q14:RoleGroup" />
+          <xs:element minOccurs="0" name="ThirdPartyCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceProjectInquirySearchCriteria" nillable="true" type="tns:ClearanceProjectInquirySearchCriteria" />
+  <xs:complexType name="ArrayOfUserTransfer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserTransfer" nillable="true" type="tns:UserTransfer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserTransfer" nillable="true" type="tns:ArrayOfUserTransfer" />
+  <xs:complexType name="UserTransfer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" base="q15:ClassInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="touserId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserTransfer" nillable="true" type="tns:UserTransfer" />
+  <xs:complexType name="ArrayOfClearanceRegularProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceRegularProject" nillable="true" type="tns:ClearanceRegularProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceRegularProject" nillable="true" type="tns:ArrayOfClearanceRegularProject" />
+  <xs:complexType name="ArrayOfClearancePushR2Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearancePushR2Item" nillable="true" type="tns:ClearancePushR2Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearancePushR2Item" nillable="true" type="tns:ArrayOfClearancePushR2Item" />
+</xs:schema>

@@ -1,0 +1,152 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.ProjectModel
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ProjectTab.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ProjectTab.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    var msg = '@ViewBag.displayMessage';
+    if (msg == "101") {
+        var objProjectConccurencyDialog = $('<div id="relePopup"></div>')
+            .html('<p>' + messageCommon.onLoading + '</p>')
+            .dialog({
+                autoOpen: false,
+                modal: true,
+                title: messageCommon.infoTitle,
+                show: 'clip',
+                hide: 'clip',
+                width: 300
+            });
+        //  Load partial view
+        proplinkingRel.html('<p>Selected project has already been linked to the contract</p>');
+        confirmLinkDialog.dialog({
+            buttons: {
+                'Ok': function (e) {
+                    e.preventDefault();
+                    $(this).dialog('close');
+                }
+            }
+        });
+
+        proplinkingRel.dialog('open');
+    }
+</script>
+
+<div class="searchProjectScroll">
+    <div id="projectTab">
+
+        <div id="projectaccordion">
+
+            <div class="head">
+                <div class="leftRight">
+                    <a href="#" class="header alignLeft iconBottom">@ContractResource.SearchProjectsHeader </a>
+                </div>
+            </div>
+            <div class="accItem accbg">
+                <div class="dvWrapper">
+
+                    <div class="projectLeftDiv">
+                        <div class="projectLeftDivLabel allignLabel">@Html.LabelFor(model => model.ProjectInfo.ArtistName):</div>
+                        <div class="projectLeftDivField">@Html.TextBoxFor(model => model.ProjectInfo.ArtistName)
+                            @Html.ValidationMessageFor(model => model.ProjectInfo.ArtistName)
+                        </div>
+                    </div>
+                    <div class="projectCenterDiv">
+                        <div class="projectCenterDivLabel allignLabel">@Html.LabelFor(model => model.ProjectInfo.Title):</div>
+                        <div class="projectCenterDivField">
+                            @Html.TextBoxFor(model => model.ProjectInfo.Title)
+                            @Html.ValidationMessageFor(model => model.ProjectInfo.Title)
+                        </div>
+                    </div>
+                    <div class="projectRightDiv">
+                        <div class="projectRightDivLabel allignLabel">@Html.LabelFor(model => model.ProjectInfo.ProjectCode):</div>
+                        <div class="projectRightDivField">
+                            @Html.TextBoxFor(model => model.ProjectInfo.ProjectCode)
+                            @Html.ValidationMessageFor(model => model.ProjectInfo.ProjectCode)
+                        </div>
+                    </div>
+
+                    <div class="projectLeftDiv">
+                        <div class="projectLeftDivLabel allignLabel">@Html.LabelFor(model => model.ProjectInfo.DataAdminCompany):</div>
+                        <div class="projectLeftDivField search-button">
+                            @Html.TextBoxFor(model => model.ProjectInfo.DataAdminCompany, new { data_autocomplete_source_manual = @Url.Action("AutoSearchDataAdminCompany", "Project") })
+                            @Html.HiddenFor(model => model.ProjectInfo.AdminCompanyId)
+                            @Html.ValidationMessageFor(model => model.ProjectInfo.DataAdminCompany)
+                        </div>
+                    </div>
+                    <div class="projectCenterDiv">
+                        <div class="projectCenterDivLabel allignLabel">@Html.LabelFor(model => model.ProjectInfo.Label):</div>
+                        <div class="projectCenterDivField search-button">@Html.TextBoxFor(model => model.ProjectInfo.Label, new { data_autocomplete_source_manual = @Url.Action("AutoSearchLabel", "Project") })
+                            @Html.HiddenFor(model => model.ProjectInfo.LabelId)
+                            @Html.ValidationMessageFor(model => model.ProjectInfo.Label)
+                        </div>
+                    </div>
+                    <div class="projectRightDiv">
+                        <div style="float: right;">
+                            <input class="primbutton" id="searchProject"  type="submit" value="@ContractResource.SearchButton" />
+                            <input class="secbutton btnSpacing" id="resetProject" type="submit" value="@ContractResource.ResetButton" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="projectGridDiv">
+                <div class="alignLeft">
+                    <h2 style="color: #143489; margin: 15px 0; padding: 0;">
+                        <span id="projectResultCount" style="float: left;">
+                            @ContractResource.SearchResultsHeader<label>&nbsp;(0)</label></span>
+                        <span class="ui-jtable-loading" style="float: left; margin-top: -1px;"></span>
+                    </h2>
+                </div>
+            </div>
+            <div class="alignRight" style="margin: 15px;">
+                <span id="projectPager">
+                    @ContractResource.ShowDropDown
+                    @Html.DropDownListFor(model => model.ShowItemsPerPage, Model.ShowItemsPerPage)
+                    @ContractResource.itemsperpage
+                </span>
+            </div>
+            <div id="gridContainer" style="clear: both;">
+                <div id="projectgrid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hiddenProjectInfo"></div>
+
+<style>
+    input[type="text"], input[type="password"] {
+        width: 96%;
+    }
+
+    .projectLeftDiv, .projectCenterDiv, .projectRightDiv {
+        width: 33%;
+        float: left;
+        margin: 4px 0;
+    }
+
+    .projectLeftDivLabel, .projectCenterDivLabel, .projectRightDivLabel {
+        float: left;
+        padding-left: 5px;
+        text-align: right;
+        width: 22%;
+    }
+
+    .projectLeftDivField, .projectCenterDivField, .projectRightDivField {
+        float: left;
+        width: 72%;
+    }
+
+    #release_ConfigurationId {
+        width: 100%;
+    }
+
+    .searchRepertoireContainer {
+        width: 100%;
+        overflow: auto;
+        overflow-x: hidden;
+        position: relative;
+    }
+</style>

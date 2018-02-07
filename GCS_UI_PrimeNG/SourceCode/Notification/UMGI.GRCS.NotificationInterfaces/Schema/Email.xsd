@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Email"
+           targetNamespace="UMGI.GRCS.Notification"
+           elementFormDefault="qualified"
+           xmlns="UMGI.GRCS.Notification"
+           xmlns:mstns="UMGI.GRCS.Notification"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Email">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Source System name as “GRS” or “GCS” -->
+        <xs:element name="SourceSystem">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="grs-noreply@umusic.com"/>
+              <xs:enumeration value="gcs-noreply@umusic.com"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <!-- 
+          “To address” are sent as Comma separated values.
+        -->
+        <xs:element name="ToAddress"
+                    minOccurs="1"
+                    maxOccurs="1"
+                    type="xs:string" />
+        <!-- 
+          “Cc address” are sent as Comma separated values. Optional
+        -->
+        <xs:element name="CcAddress"
+                    minOccurs="0"
+                    maxOccurs="1"
+                    type="xs:string" />
+        <!-- 
+          “Bcc address” are sent as Comma separated values. Optional
+        -->
+        <xs:element name="BccAddress"
+                    minOccurs="0"
+                    maxOccurs="1"
+                    type="xs:string" />
+        <!--
+          Should have Subject
+        -->
+        <xs:element name="Subject"
+                    minOccurs="1"
+                    maxOccurs="1"
+                    type="xs:string" />
+
+        <!--
+          Multiple CID's will be provided based on the available Images
+          provided to Biztalk team
+        -->
+        <xs:element name ="CidNames" minOccurs="0"  maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CidName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!--
+          Should have Subject
+        -->
+        <xs:element name="Body"
+                    minOccurs="1"
+                    maxOccurs="1"
+                    type="xs:string" />
+
+        <!--
+          Should have Alternate Text
+        -->
+        <xs:element name="AltText"
+                    minOccurs="1"
+                    maxOccurs="1"
+                    type="xs:string" />
+
+        <!--
+          Attachment is optional
+        -->
+        <xs:element name="Attachment"
+                    minOccurs="0"
+                    maxOccurs="1"
+                    type="xs:string" />
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

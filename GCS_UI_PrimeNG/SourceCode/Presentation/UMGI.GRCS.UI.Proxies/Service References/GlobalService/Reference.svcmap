@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31169635-6737-4441-9f19-f77378075825" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/Global/Global.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Global10.xsd" MetadataType="Schema" ID="e1704343-b847-4d49-aeef-a11057beb354" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd0" />
+    <MetadataFile FileName="Global101.xsd" MetadataType="Schema" ID="adcc5860-5bd9-452e-b5a2-da5f7b17ad2a" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd10" />
+    <MetadataFile FileName="Global102.xsd" MetadataType="Schema" ID="09237669-9515-458d-afa2-4abbe521db28" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd9" />
+    <MetadataFile FileName="Global103.xsd" MetadataType="Schema" ID="b2fb4715-10f9-4b58-b16c-4d23da88368d" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd7" />
+    <MetadataFile FileName="Global104.xsd" MetadataType="Schema" ID="c2a89da5-5773-4e48-8675-ebd11961b491" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd5" />
+    <MetadataFile FileName="Global105.xsd" MetadataType="Schema" ID="4ac5f629-54f4-4429-87b8-5da7c07f2bc9" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd3" />
+    <MetadataFile FileName="GlobalData1.wsdl" MetadataType="Wsdl" ID="198c546c-c919-4292-b193-b469f7af9cde" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?wsdl" />
+    <MetadataFile FileName="Global1.disco" MetadataType="Disco" ID="398f0752-f823-4d3e-ad30-da3ea93ac7f1" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?disco" />
+    <MetadataFile FileName="Global106.xsd" MetadataType="Schema" ID="509ff971-0e24-4c3a-a7cb-6a8ac5d97bcb" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd8" />
+    <MetadataFile FileName="Global107.xsd" MetadataType="Schema" ID="5f94a738-6977-4fed-9873-a6407c669e96" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd6" />
+    <MetadataFile FileName="Global108.xsd" MetadataType="Schema" ID="4f6c0331-37b1-4b89-819c-8550e8a665cb" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd4" />
+    <MetadataFile FileName="Global109.xsd" MetadataType="Schema" ID="50215ead-2447-41b4-88e8-091d588b1aa5" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd2" />
+    <MetadataFile FileName="Global1010.xsd" MetadataType="Schema" ID="0fc3c444-bac3-4ff7-b1cf-75b1d4b64d64" SourceId="1" SourceUrl="http://localhost:7778/Global/Global.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

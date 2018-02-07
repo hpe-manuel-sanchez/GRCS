@@ -1,0 +1,80 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    Layout = "";
+}
+
+
+<!DOCTYPE html>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceProject/ManageCompany.js")" type="text/javascript"></script>
+
+<link href="@Url.Content("/GCS/Content/SubPages/resources.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/ClearanceProject/ManageCompany.min.css")" rel="stylesheet" type="text/css" />
+
+<div id="divErrorMessageOnThirdPartyPage"></div>
+
+<!-- Search Box --->
+<div id="search_by" class="sbox-wrap sbox_grey-background sbox-height1">
+    <div class="search_by-columnthrd-prty-comp floatL text-align-right line-height2 sbox-margin-top1  sbox-pdding-right labelbold">
+        @ClearanceLayout.RegularProjThirdPartyCompanyLabel
+    </div>
+    <div class="search_by-column_pop floatL text-align-left sbox-margin-top1 sbox-pdding-right">
+        @Html.TextBoxFor(model => model.MasterProjectDetails.ThirdPartyCompanyName, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearch", "ClearanceProject"), SearchFor = "ThirdParyCompanyName", id = "name", @class = "width-medium" })
+    </div>
+    <div class="search_by-column_pop floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+        @Html.TextBox("isaccode", "", new { @class = "width-medium" })
+    </div>
+    <div class="search_by-column_pop floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+        @Html.TextBoxFor(model => model.RegularProjectDetails.thirdPartyCompanyDetails.CountryName, new { data_autocomplete_source_manual = @Url.Action("AutoCompleteSearch", "ClearanceProject"), SearchFor = "ThirdParytcountry", id = "country", @class = "width-medium" })
+    </div>
+    <div class="search_by-column_pop_btn floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+        <input id="btnSearchComp" type="button" value="@ClearanceLayout.SearchButton" runat="server" class="primbutton" /><input id="btnReset" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResetButton" runat="server" class="secbutton" />
+    </div>
+</div>
+<!-- Search Box Ends Here -->
+
+<div class="search-wrapper">
+    <div class="search-field-criteria" id="searchResultForCompany">
+        <div class="search-show-all">&nbsp;</div>
+        <div class="search-show-all-val">&nbsp;</div>
+    </div>
+    <div class="search-paging-wrapper" id="SearchCompanyPaging">
+        <div id="divSearchCompanyPaging">
+            <div class="search-show-label-thrd-prty">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown</div>
+            <div class="search-paging-item">@Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlCompanyPaging" })</div>
+            <div class="search-item-per-page">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage</div>
+        </div>
+    </div>
+</div>
+
+<div id="managecompany" class="result-wrapper">
+
+    <div id="freeHandCompany" class="free-hand">
+        <table>
+            <tr id="manageCmpnyNoRecordsMsg" style="display: none;">
+                <td>
+                    @Html.Label(ClearanceLayout.NoRecordsFoundMsg)
+                </td>
+                <td>
+                    <input id="btnAddFreeHand" type="button" value="@ClearanceLayout.AddFreehandButton" runat="server" class="primbutton" />
+                </td>
+            </tr>
+            <tr id="rowCompanyName" style="display: none;">
+                <td>
+                    @Html.Label(ClearanceLayout.CompanyNameLabel)
+                </td>
+                <td>
+                    @Html.Editor("freeHandCompanyName")
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="searchCompanyResults" class="searchcomp-data-wrapper"></div>
+    <div class="search-footer-button">
+        <input id="btnAdd" type="button" value="@ClearanceLayout.AddButton" runat="server" class="primbutton" />
+        <input style="display:none;" id="btnAddFreeHandComp" type="button" value="@ClearanceLayout.AddButton" runat="server" class="primbutton" />
+        <input id="btnCancel" type="button" value="@ClearanceLayout.CancelButton" runat="server" class="secbutton" />
+        <input id="hdnAddedValues" type="hidden" value="" runat="server" />
+    </div>
+</div>

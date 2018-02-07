@@ -1,0 +1,70 @@
+﻿@model UMGI.GRCS.UI.Models.RepertoireRightsSearch.RepertoireRightsSearchModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+ @if (Model.PageName.Contains(@RepertoireSearch.Digital))
+    {
+     <div>
+        <table class="sample mariginTop10" >
+            <thead>
+                <tr>
+                    <th>
+                        @RepertoireSearch.UseType
+                    </th>
+                    <th>
+                        @RepertoireSearch.Commercial
+                    </th>
+                    <th> 
+                        @RepertoireSearch.RestrictionsExists
+                    </th>
+                    <th> 
+                        @RepertoireSearch.RestrictionsDoesntExists
+                    </th>
+                    <th>
+                        @RepertoireSearch.Remove
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.SearchCriteria.DigitalRestrictionList.Any())
+                {
+                    <tr>
+                        <td colSpan="7" ><center>No Digital Restrictions available!</center></td>
+                    </tr>
+                }
+                @for (var index = 0; index < Model.SearchCriteria.DigitalRestrictionList.Count(); index++)
+                {
+                    @Html.HiddenFor(model => model.SearchCriteria.DigitalRestrictionList[index].DigitalRestrictionId)
+                    @Html.HiddenFor(model => model.SearchCriteria.DigitalRestrictionList[index].IsDeleted)
+                    @Html.HiddenFor(model => model.SearchCriteria.DigitalRestrictionList[index].IsInserted)
+            if (!Model.SearchCriteria.DigitalRestrictionList[index].IsDeleted)
+            {
+                                                                                                                      
+                        <tr  class="selector">
+                            <td>
+                                @Html.DropDownListFor(model => model.SearchCriteria.DigitalRestrictionList[index].UseTypeId, new SelectList(Model.UseTypeList, "value", "text", Model.SearchCriteria.DigitalRestrictionList[index].UseTypeId), new { @class = "UseTypeList" })
+                            </td>
+                            <td>
+                                @Html.DropDownListFor(model => model.SearchCriteria.DigitalRestrictionList[index].CommercialModelId, new SelectList(Model.CommercialModelsList, "value", "text", Model.SearchCriteria.DigitalRestrictionList[index].CommercialModelId), new { @class = "CommercialModelList" })
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.SearchCriteria.DigitalRestrictionList[index].RestrictionExist, new { @class = "RestrictionExistOrNot" + index.ToString() })
+                            </td>
+                            <td>
+                                @Html.CheckBoxFor(model => model.SearchCriteria.DigitalRestrictionList[index].RestrictionDoesNotExist, new { @class = "RestrictionExistOrNot" + index.ToString() })
+                            </td>
+                            <td>
+                                <div>
+                                    <a href="javascript:void(0);">
+                                    <img class="btnRemoveDigitalTemplate deleteImage" src="@Url.Content("/GCS/Images/delete.png")" id="@("SearchCriteria_DigitalRestrictionList_" + index + "__DigitalRestrictionIdChecked")" href="javascript:void(0);"/>
+                                    </a>
+                                    @Html.CheckBoxFor(model => model.SearchCriteria.DigitalRestrictionList[index].DigitalRestrictionIdChecked, new { @class = "hideCheckBox" })
+                                </div>
+                            </td>
+                        </tr>
+                                                                                                                      
+            }
+                }
+            </tbody>
+        </table>
+        </div>
+    }

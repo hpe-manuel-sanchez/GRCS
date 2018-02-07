@@ -1,0 +1,31 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout 
+@{
+    ViewBag.Title = "Create New From Existing Project";
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+}
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+
+        var objDialog = $('#SearchDialog').dialog({ title: 'Search Project', modal: true, show: 'clip', width: 1000, hide: 'clip',resizable: false });
+        objDialog.load('/GCS/Search/ClearanceProjectSearch');
+
+        /*
+        Author : mohit srivastava
+        Desc : Code is used to move dialog box toward's top position
+        */
+        var dialogue = $('.ui-dialog');
+
+        dialogue.animate({
+
+            top: "40px"
+
+        }, 0);
+
+        /**** END ***/
+    });
+
+</script>
+
+<div id="SearchDialog"></div>
+
+<h2>@Html.Label(@ClearanceLayout.CreateNewFromExistingProjectHeader)</h2>

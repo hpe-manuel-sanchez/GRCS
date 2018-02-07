@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8480320-3CFF-4304-80F4-AFE151046C86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMGI.GRCS.Proxies</RootNamespace>
+    <AssemblyName>UMGI.GRCS.Proxies</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ANAServiceProxy\WSAuthorization.cs" />
+    <Compile Include="CPRSVanillaServiceProxy\VanillaInterfaceService.cs" />
+    <Compile Include="DShedServiceProxy\WSReleaseInformation.cs" />
+    <Compile Include="GDRSServiceProxy\BizTalkServiceInstance.cs" />
+    <Compile Include="GrcssubscriberProxies\CprsMessageReceiver.cs" />
+    <Compile Include="GrcssubscriberProxies\MessageReceiver.cs" />
+    <Compile Include="MediaPortalServiceProxy\ReleaseRightsService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="R2ServiceProxies\WSCompanySearchService.cs" />
+    <Compile Include="R2ServiceProxies\WSLoaderServiceRequest.cs" />
+    <Compile Include="R2ServiceProxies\WSLoaderServiceResponse.cs" />
+    <Compile Include="R2ServiceProxies\WSLoaderServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSPeopleSearchServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSProjectMaintenanceServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSProjectSearchServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSReleaseSearchServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSResourceMaintenanceServiceService.cs" />
+    <Compile Include="R2ServiceProxies\WSResourceSearchServiceService.cs" />
+    <Compile Include="ServiceMarketProxies\OHIProxy\OHI.cs" />
+    <Compile Include="ServiceMarketProxies\PubSubProxy\PublishSubscribe.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ANAServiceProxy\App.config" />
+    <None Include="CPRSVanillaServiceProxy\output.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DShedServiceProxy\output.config" />
+    <None Include="GDRSServiceProxy\App.config" />
+    <None Include="MediaPortalServiceProxy\output.config" />
+    <None Include="R2ServiceProxies\GenerateProxyClasses\generate_proxy_classes.bat" />
+    <None Include="R2ServiceProxies\output.config" />
+    <None Include="ServiceMarketProxies\OHIProxy\output.config" />
+    <None Include="ServiceMarketProxies\PubSubProxy\output.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="CPRSVanillaServiceProxy\VanillaInterface.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*" "$(SolutionDir)Components"</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\GCS\app\Components" Condition="!Exists('$(SolutionDir)\..\Deliverables\GCS\app\Components')" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+    <MakeDir Directories="$(SolutionDir)\..\Deliverables\app\Components" />
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

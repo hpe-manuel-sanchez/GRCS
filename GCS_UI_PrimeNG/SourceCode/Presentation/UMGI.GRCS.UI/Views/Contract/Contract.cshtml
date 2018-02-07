@@ -1,0 +1,125 @@
+﻿@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+@model ContractModel
+@{
+    ViewBag.Title = @ContractResource.ContractMenu;
+}
+
+
+@section scripts{
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/Contract.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/SearchParentContract.js")" type="text/javascript"></script>
+}
+<script type="text/javascript">
+    var reloadValue = '@ViewBag.LoadTemplate';
+    if (reloadValue != '1') {
+        ReloadTabs();
+        reloadValue = 1;
+    }
+</script>
+
+<div id="tabs">
+<div class="tab-outer">
+    
+    <div id='menuTab' >
+    <!-- <div class="top_header_desc"><span>   
+    </span></div> -->
+        <div class="gr_top_desc">
+            <span id="hiddenContractId" style="display: none; font-weight:normal;">On Save Contract Info will be Generated</span>
+            <div id="hiddenDescription" style="display: none"><span style="font-weight:normal;">
+                @Html.LabelFor(model => model.ContractTabModel.Contract.ContractId):&nbsp;</span><span id="ContractTabModel_Contract_ContractId" style="font-weight:bold; color:#143489;">@Html.DisplayFor(model => model.ContractTabModel.Contract.ContractId)</span>
+        
+                <span class="head alignleftRight">
+                  <span style="padding-left:10px;padding-right:10px;">|</span><span style="font-weight:normal;">@Html.LabelFor(model => model.ContractTabModel.Contract.ArtistName):&nbsp;</span><span id="ContractTabModel_Contract_ArtistName" style="font-weight:bold; color:#143489;">&nbsp;@Html.DisplayFor(model => model.ContractTabModel.Contract.ArtistName)</span></span>
+                <span class="alignleft">
+                  <span style="padding-left:10px;padding-right:10px;">|</span><span style="font-weight:normal;">@Html.LabelFor(model => model.ContractTabModel.Contract.ContractingParty):&nbsp;</span><span id="ContractTabModel_Contract_ContractingParty" style="font-weight:bold; color:#143489;">@Html.DisplayFor(model => model.ContractTabModel.Contract.ContractingParty)</span></span>
+                <span class="leftRight">
+                  <span style="padding-left:10px;padding-right:10px;">|</span><span style="font-weight:normal;">@Html.LabelFor(model => model.ContractTabModel.Contract.ContractCommencementDate):&nbsp;</span><span id="ContractTabModel_Contract_ContractCommencementDate" style="font-weight:bold; color:#143489;">&nbsp;@Html.DisplayFor(model => model.ContractTabModel.Contract.ContractCommencementDate)</span></span>
+            </div>
+            <div style="margin-top:8px;">
+                <div class="alignLefte">
+                    <ul class="tabul">
+                        <li><a href="#divContractTab">
+                                @ContractResource.ContractMenu
+                            </a></li>
+                        <li><a href="#divRightsTab">
+                                @ContractResource.RightsRestrictionsMenu
+                            </a></li>
+                        <li><a href="#divSecTab">
+                                @ContractResource.SecondaryExploitationMenu
+                            </a></li>
+                    </ul>
+                </div>
+
+    
+
+                <div class="alignRighte">
+                    <span class="workFlowStatusHeading">@Html.LabelFor(model => model.ContractTabModel.Contract.WorkflowStatusId)</span>
+                    @Html.DropDownListFor(model => model.ContractTabModel.Contract.WorkflowStatusId, new SelectList(Model.ContractTabModel.WorkFlowStatus, "value", "text", Model.ContractTabModel.Contract.WorkflowStatusId))
+                    @Html.ValidationMessageFor(model => model.ContractTabModel.Contract.WorkflowStatusId)
+                    @Html.HiddenFor(model => model.ContractTabModel.Contract.WorkflowStatus)  @*// Dynamic Assign Workflow status while save contract. *@
+                    @Html.HiddenFor(model => model.ContractTabModel.Contract.WorkFlowIdentifier)    @*// Need to Sent Workflow Identifier while save contract. Based on this work flow status will work *@
+                    @Html.Hidden("templateId", (object)ViewBag.TemplateId) 
+                    @Html.Hidden("templateName", (object)ViewBag.TemplateName)
+                    @Html.Hidden("checkedRadioButton", (object)ViewBag.TemplateName)
+                    @Html.Hidden("EditRequestForm", (object)ViewBag.EditRequestForm)
+                </div>
+            </div>
+    
+    
+        </div>
+    </div></div>   
+    <div id="divContractTab" class="tabStyle">
+        @Html.Partial("ContractTab", ((UMGI.GRCS.UI.Models.ContractModel)Model).ContractTabModel)
+    </div>
+    <div id="divRightsTab" class="tabStyle">
+        @if (ViewBag.LoadTemplate == "1")
+        {
+            @Html.Partial("RightsAndRestrictionsTab", ((UMGI.GRCS.UI.Models.ContractModel)Model).RightsRestrictionTabModel)
+        }
+    </div>
+    <div id="divSecTab" class="tabStyle">
+        @if (ViewBag.LoadTemplate == "1")
+        {
+            @Html.Partial("SecondaryExploitationTab", ((UMGI.GRCS.UI.Models.ContractModel)Model).SecondaryExploitationTabModel)
+        }
+    </div>
+</div>
+
+@section BottomInputs{
+
+    <div class="bottomInputs">
+    <ul>      
+    @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnLinkNCRContractToContract}))
+    {
+          <li><input type="submit" id = "btnUnlinkContract" value="Unlink Repertoire"  class="primbutton" /></li>
+    }
+    @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.CreateNCRContract, GrsTasks.EditNCRAppContract, GrsTasks.UnlinkSplitContractToContract, GrsTasks.LinkSplitContractToContract, GrsTasks.EditCACContract }))
+    {
+        <li><input type="submit" id = "btnContractSave" value="@ContractResource.SaveButton" onclick="return validate();" class="primbutton" /></li>
+    } 
+    @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.CreateNCRContract, GrsTasks.EditNCRAppContract }))
+    {
+
+        <li><input type="submit" value="@ContractResource.CreateChildContractButton" class="childContract primbutton btnSpacing" /></li>
+        <li><input type="submit" id="btnContTemplate" value="@ContractResource.SaveTemplateButton" class="saveContractTemplate primbutton btnSpacing" /></li>
+    }
+    @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkContract }))
+    {
+
+        <li><input type="submit" id="btnLinkToRepertoire" value="Link to Repertoire" class="linkToRepertoire primbutton" /></li>
+    }
+       
+        <li><input type="submit" id = "btnExit" value="@ContractResource.ExitButton" class="ExitButton secbutton" /></li>
+        <li><input type="submit" id = "btnBack" value="@ContractResource.BackPage" class="backButton secbutton btnSpacing" /></li>
+        <li><input type="submit" id = "btnNext" value="@ContractResource.NextPage" class="nextButton secbutton btnSpacing" /></li>
+    </ul> 
+    
+</div>
+}

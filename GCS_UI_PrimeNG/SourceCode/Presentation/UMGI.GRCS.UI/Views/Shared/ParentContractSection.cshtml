@@ -1,0 +1,78 @@
+﻿@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@model UMGI.GRCS.BusinessEntities.Entities.ContractEntities.ContractInfo
+<div id="divParentContract">
+    <table id="AddParent" class="sample">
+        <thead>
+            <tr>
+                <th width="13%">
+                    @ContractResource.artist
+                </th>
+                <th width="12%">
+                    @ContractResource.ContractingParty
+                </th>
+                <th width="14%">
+                    @ContractResource.ContractDescription
+                </th>
+                <th width="13%">
+                    @ContractResource.ClearanceCompanyParent
+                </th>
+                <th width="14%">
+                   @ContractResource.ParentLocalRefNo
+                </th>
+                <th width="10%">
+                    @ContractResource.ContractStatusColumn
+                </th>
+                <th width="11%">
+                    @ContractResource.workflowStatus
+                </th>
+                <th width="8%">
+                    @ContractResource.ContractId
+                </th>
+                @if (PermissionExtension.HasAnyPermission(GrsTasks.UnLinkNCRContractToContract))
+                {
+                    <th width="5%">
+                        @ContractResource.ActionColumn
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => Model.ArtistName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.ContractingParty)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.ContractDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.ClearanceCompanyCountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.LocalContractRefNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.ContractStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.WorkflowStatus)
+                </td>
+                <td>
+                    <div id="addParentContractId">
+                        @Html.DisplayFor(model => Model.ContractId)
+                    </div>
+                </td>
+                @if (PermissionExtension.HasAnyPermission(GrsTasks.UnLinkNCRContractToContract))
+                {
+                    <td>
+                        <a href="javascript:void(0);" class="hyperlink" id="unlink">@ContractResource.UnlinkParent</a>
+                    </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>

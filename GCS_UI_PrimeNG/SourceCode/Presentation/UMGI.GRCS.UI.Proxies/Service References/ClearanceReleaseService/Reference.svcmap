@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7570b8d4-4aa5-45b6-857b-de162fc59afb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClearanceRelease1.wsdl" MetadataType="Wsdl" ID="4784b4a8-65ce-4004-85fc-0f9c6b61e88c" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?wsdl" />
+    <MetadataFile FileName="ClearanceRelease16.xsd" MetadataType="Schema" ID="ca0dd56b-0c99-48f0-a929-629cd453cdc4" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd15" />
+    <MetadataFile FileName="ClearanceRelease161.xsd" MetadataType="Schema" ID="be953eed-3ef6-4f7b-8d46-51906ce8ba58" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd9" />
+    <MetadataFile FileName="ClearanceRelease162.xsd" MetadataType="Schema" ID="effd1825-5e67-40c4-a0c3-2caedfdc6f7b" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd16" />
+    <MetadataFile FileName="ClearanceRelease163.xsd" MetadataType="Schema" ID="bee87830-d017-4d78-942c-36f9806e6f79" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd5" />
+    <MetadataFile FileName="ClearanceRelease164.xsd" MetadataType="Schema" ID="93918602-8d1b-4fe6-959d-9ddc315c48e4" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd7" />
+    <MetadataFile FileName="ClearanceRelease165.xsd" MetadataType="Schema" ID="eb2f9272-499f-4cfb-987b-25a2abb16bb0" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClearanceRelease166.xsd" MetadataType="Schema" ID="cbef6d16-3547-470d-bbbc-a7a7064019b7" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClearanceRelease167.xsd" MetadataType="Schema" ID="1c74aa1e-1a80-4f3d-b01b-5bbdc1ca32cf" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClearanceRelease168.xsd" MetadataType="Schema" ID="614e2672-445d-46d3-953c-30868c13ddce" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd8" />
+    <MetadataFile FileName="ClearanceRelease169.xsd" MetadataType="Schema" ID="0c1a8ef0-b75a-4ae4-bd80-ffdde47b0fc5" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClearanceRelease1610.xsd" MetadataType="Schema" ID="0043f2c7-421e-4261-9671-881fb6276e39" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd14" />
+    <MetadataFile FileName="ClearanceRelease1.disco" MetadataType="Disco" ID="a072f913-555b-4364-97ac-4b601dd142c9" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?disco" />
+    <MetadataFile FileName="ClearanceRelease1611.xsd" MetadataType="Schema" ID="b0cf05ff-5da1-4727-b08e-1b51fdf84d09" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd6" />
+    <MetadataFile FileName="ClearanceRelease1612.xsd" MetadataType="Schema" ID="7b18cb5d-9f5b-4d78-b293-59621dde1dee" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd10" />
+    <MetadataFile FileName="ClearanceRelease1613.xsd" MetadataType="Schema" ID="46e235e2-862c-4356-97f8-790ed7c89620" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd11" />
+    <MetadataFile FileName="ClearanceRelease1614.xsd" MetadataType="Schema" ID="e17f098b-cdc1-4e6c-8f86-6b7280f0ed60" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd12" />
+    <MetadataFile FileName="ClearanceRelease1615.xsd" MetadataType="Schema" ID="0dbc4bce-480d-4157-ac72-fe35e2cd0ac5" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd13" />
+    <MetadataFile FileName="ClearanceRelease1616.xsd" MetadataType="Schema" ID="677ba10d-3743-46b7-9fc0-8408bc91d142" SourceId="1" SourceUrl="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

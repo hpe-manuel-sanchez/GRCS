@@ -1,0 +1,1057 @@
+﻿@using UMGI.GRCS.UI.Extensions
+@model UMGI.GRCS.UI.Models.TerritorialRightsModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+@{
+    ViewBag.Title = @ContractResource.TerritorialRightsHeader;
+}
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <meta http-equiv="X-UA-Compatible" content="IE=4">
+    <meta http-equiv="X-UA-Compatible" content="IE=7.5">
+    <meta http-equiv="X-UA-Compatible" content="IE=a">
+
+    <link href="@Url.Content("/GCS/Content/SubPages/TerritorialRights.min.css")"  rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        //Global Private Variables // reference site //jslinq.codeplex.com/downloads/get/71965
+
+        var sitecollection = @Html.Raw(Json.Encode(ViewBag.siteLinks));
+        var filteredCollection;
+        var include = [];
+        var exclude = [];
+        var searchItems=[];
+        var contractid = $('#Contract_ContractId').val();
+        var pageName = $('#PageName').val();
+        Array.prototype.indexOf = IndexOf;
+
+        //Toggles between two classes for an element
+        function ToggleClass(element, firstClass, secondClass, event) {
+            event.cancelBubble = true;
+            var classes = element.className.split(" ");
+            var firstClassIndex = classes.indexOf(firstClass);
+            var secondClassIndex = classes.indexOf(secondClass);
+            if (firstClassIndex == -1 && secondClassIndex == -1) {
+                classes[classes.length] = firstClass;
+            }
+            else if (firstClassIndex != -1) {
+                classes[firstClassIndex] = secondClass;
+            }
+            else {
+                classes[secondClassIndex] = firstClass;
+            }
+
+            element.className = classes.join(" ");
+        }
+
+        //Finds the index of an item in an array
+        function IndexOf(item) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == item) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        //The toggle event handler for each expandable/collapsable node
+
+        function ToggleNodeStateHandler(event) {
+            ToggleClass($(this).parent()[0], "Collapsed", "Expanded", (event == null) ? window.event : event);
+            ToggleClass($(this).find(".divTree")[0], "Collapsed", "Expanded", (event == null) ? window.event : event);
+
+            // ToggleClass($(this).parent()[0], "CollapsedOdd", "ExpandedOdd", (event == null) ? window.event : event);
+
+            //ToggleClass($(this).parent()[0], "CollapsedEven", "ExpandedEven", (event == null) ? window.event : event);
+        }
+
+        //Prevents the onclick event from bubbling up to parent elements
+        function PreventBubbleHandler(event) {
+            if (!event) event = window.event;
+            event.cancelBubble = true;
+        }
+
+        //Adds the relevant onclick handlers for the nodes in the tree view
+        function SetupTreeView(elementId) {
+            var tree = document.getElementById(elementId);
+            var treeElements = tree.getElementsByTagName("li");
+
+            for (var i = 0; i < treeElements.length; i++) {
+                if (treeElements[i].getElementsByTagName("ul").length > 0) {
+                    $(treeElements[i]).find('div')[0].onclick = ToggleNodeStateHandler;
+                }
+                else {
+                    $(treeElements[i]).find('div')[0].onclick = PreventBubbleHandler;
+                }
+            }
+        }
+        function checkedParentTerritoris(PID,NA,INCLUDE,EXCLUDE)
+        {
+            var parentChecked=JSLINQ(sitecollection).All(function(parent)
+            {
+                if(parent.Id==PID)
+                {
+                    parent.IsNotApplicable=NA;
+                    parent.IsIncluded=INCLUDE;
+                    parent.IsExcluded=EXCLUDE;
+                }
+                return true;
+            });
+            return true;
+        }
+
+        function isTerritorialParentSelected(ID,isNA,isInclude,isExclude)
+        {
+            var countryItems=JSLINQ(sitecollection).Where(function(item) { return item.Id == ID})
+            var terriItems = [];
+            var countryItems123=JSLINQ(countryItems.items).All(function(countryItem)
+            {
+                var testere = JSLINQ(sitecollection).Where(function(item) { return item.Id== countryItem.ParentId });
+                if(testere.items[0] != null)
+                    terriItems.push(testere.items[0]);
+                return true;
+            });
+
+            if(isNA)
+            {
+                return !(JSLINQ(terriItems).Any(function(item) { return item.IsIncluded || item.IsExcluded && item.IsTerritory})==true);
+            }
+            else if(isInclude)
+                return !(JSLINQ(terriItems).Any(function(item) { return item.IsExcluded && item.IsTerritory})==true);
+            else if(isExclude)
+                return true;
+
+            return true;
+        }
+
+        function isParentDuplicate(territories, id)
+        {
+            return (JSLINQ(territories.items).Count(function(item) { return item.Id == id}) > 1);
+        }
+
+        function getDuplicateParent(id)
+        {
+            return JSLINQ(sitecollection).First(function(item) { return item.IsTerritory && item.Id == id});
+        }
+
+        //set/get check box value in UI purpose
+        function RadioButtonClick()
+        {
+            $('input:radio').click(function (e)
+            {
+                e.stopPropagation();
+                var splitvalue = (this.value).split('|');
+                var id = splitvalue[0];
+                var parentid = splitvalue[1];
+
+                //invalid selection part for include and exclude
+                var country=JSLINQ(sitecollection).Where(function(item) { return item.Id==id});
+                if(!isTerritorialParentSelected(id,document.getElementsByName(this.name)[0].checked,document.getElementsByName(this.name)[1].checked,document.getElementsByName(this.name)[2].checked) && document.getElementsByName(this.name)[0].checked)//IsNA
+                {
+                    if(country.items[0].IsNotApplicable)
+                        document.getElementsByName(this.name)[0].checked=true;
+                    else if(country.items[0].IsIncluded)
+                        document.getElementsByName(this.name)[1].checked=true;
+                    else if(country.items[0].IsExcluded)
+                        document.getElementsByName(this.name)[2].checked=true;
+                    alert("This selection is not valid");
+                    return false;
+                }
+
+                if(!isTerritorialParentSelected(id,document.getElementsByName(this.name)[0].checked,document.getElementsByName(this.name)[1].checked,document.getElementsByName(this.name)[2].checked) && document.getElementsByName(this.name)[1].checked)//IsIncluded
+                {
+                    if(country.items[0].IsNotApplicable)
+                        document.getElementsByName(this.name)[0].checked=true;
+                    else if(country.items[0].IsIncluded)
+                        document.getElementsByName(this.name)[1].checked=true;
+                    else if(country.items[0].IsExcluded)
+                        document.getElementsByName(this.name)[2].checked=true;
+                    alert("This selection is not valid");
+                    return false;
+                }
+
+                if(!isTerritorialParentSelected(id,document.getElementsByName(this.name)[0].checked,document.getElementsByName(this.name)[1].checked,document.getElementsByName(this.name)[2].checked) && document.getElementsByName(this.name)[2].checked)//IsExcluded
+                {
+                    if(country.items[0].IsNotApplicable)
+                        document.getElementsByName(this.name)[0].checked=true;
+                    else if(country.items[0].IsIncluded)
+                        document.getElementsByName(this.name)[1].checked=true;
+                    else if(country.items[0].IsExcluded)
+                        document.getElementsByName(this.name)[2].checked=true;
+                    alert("This selection is not valid");
+                    return false;
+                }
+
+                var getParentTerritory=JSLINQ(sitecollection).Where(function(item) { return item.Id == parentid});
+                if(getParentTerritory.items.length!=0)
+                {
+                    var parentName=getParentTerritory.items[0].Name+"|"+getParentTerritory.items[0].Id+getParentTerritory.items[0].ParentId;
+                    var getCountry=JSLINQ(sitecollection).Where(function(item) { return item.ParentId == getParentTerritory.items[0].Id})
+
+                    if(getParentTerritory.items.length!=0 && getCountry.items.length-1 == JSLINQ(getCountry.items).Count(function(item) { return item.IsNotApplicable}) && document.getElementsByName(this.name)[0].checked)
+                    {
+                        if(getParentTerritory.items[0].Id==0)
+                        {
+                            document.getElementsByName("Universe|2-1")[0].checked=true;
+                            checkedParentTerritoris(2,true,false,false);
+                        }
+                        document.getElementsByName(parentName)[0].checked=true;
+                        checkedParentTerritoris(getParentTerritory.items[0].Id,true,false,false);
+                    }
+                    else if(getParentTerritory.items.length!=0 && getCountry.items.length-1 == JSLINQ(getCountry.items).Count(function(item) { return item.IsIncluded}) && document.getElementsByName(this.name)[1].checked)
+                    {
+                        if(getParentTerritory.items[0].Id==0)
+                        {
+                            document.getElementsByName("Universe|2-1")[1].checked=true;
+                            checkedParentTerritoris(2,false,true,false);
+                        }
+                        document.getElementsByName(parentName)[1].checked=true;
+                        checkedParentTerritoris(getParentTerritory.items[0].Id,false,true,false);
+                    }
+                    else if(getParentTerritory.items.length!=0 && getCountry.items.length-1 == JSLINQ(getCountry.items).Count(function(item) { return item.IsExcluded}) && document.getElementsByName(this.name)[2].checked)
+                    {
+                        if(getParentTerritory.items[0].Id==0)
+                        {
+                            document.getElementsByName("Universe|2-1")[2].checked=true;
+                            checkedParentTerritoris(2,false,false,true);
+                        }
+                        document.getElementsByName(parentName)[2].checked=true;
+                        checkedParentTerritoris(getParentTerritory.items[0].Id,false,false,true);
+                    }
+                }
+
+                if (this.checked == false) {
+                    checkChildNode(this);
+                    $($(this).parents('li')[0]).find('ul').find('input[type="radio"][alt='+this.alt+']').each(function () {
+                        this.checked = false;
+                        checkChildNode(this);
+                    });
+                }
+                else {
+                    checkChildNode(this);
+                    $($(this).parents('li')[0]).find('ul').find('input[type="radio"][alt='+this.alt+']').each(function () {
+                        this.checked = true;
+                        checkChildNode(this);
+                    });
+                }
+
+                $("#includeitems").html("");
+                $("#excludeitems").html("");
+                sortAppendedElements();
+                territorialCount();
+
+            });
+        }
+
+        function sortAppendedElements()
+        {
+            include.sort();
+            exclude.sort();
+            jQuery.each(include, function (index, value) {
+                $("#includeitems").append("<option value=\'" + value + "\'>" + value + "</option>");
+            });
+
+            jQuery.each(exclude, function (index, value) {
+                $("#excludeitems").append("<option value=\'" + value + "\'>" + value + "</option>");
+            });
+        }
+
+        function territorialCount()
+        {
+            var objTerritorialList=[];
+            for(radioIndex = 0; radioIndex < sitecollection.length; radioIndex++)
+            {
+                if(sitecollection[radioIndex].IsTerritory==true)
+                {
+                    objTerritorialList.push(sitecollection[radioIndex]);
+                }
+            }
+
+            for (var total=0; total < objTerritorialList.length; total++)
+            {
+                var countryCount = 0;
+                var includeCount=0;
+                for (var territorialCount=0; territorialCount < sitecollection.length;territorialCount++)
+                {
+                    if(sitecollection[territorialCount].ParentId == objTerritorialList[total].Id)
+                    {
+                        countryCount++;
+                    }
+                    if(sitecollection[territorialCount].ParentId == objTerritorialList[total].Id && sitecollection[territorialCount].IsIncluded==true)
+                    {
+                        includeCount++;
+                    }
+                }
+                if (objTerritorialList[total].Id != 2 && objTerritorialList[total].Id != 0)
+                {
+                    objTerritorialList[total].TerritoryCount = includeCount + " of " + countryCount;
+                    $('#TerritorialCount'+objTerritorialList[total].Id).text(objTerritorialList[total].TerritoryCount);
+                }
+                else
+                {
+                    var allIncluded =0;
+                    for (var parent=0; parent < sitecollection.length;parent++)
+                    {
+                        if(sitecollection[parent].IsIncluded==true && sitecollection[parent].IsTerritory==false)
+                        {
+                            allIncluded++;
+                        }
+                    }
+                    var totalCountryCount = JSLINQ(sitecollection).Count(function(totalCountryCounts){ return !totalCountryCounts.IsTerritory});
+                    objTerritorialList[total].TerritoryCount = allIncluded + " of " + totalCountryCount;
+                    $('#TerritorialCount'+objTerritorialList[total].Id).text(objTerritorialList[total].TerritoryCount);
+                }
+            }
+        }
+        function checkChildNode(checkeditem)
+        {
+            var splitvalue = (checkeditem.value).split('|');
+            var id = splitvalue[0];
+            var parentid = splitvalue[1];
+            var radioName;
+            var splitName = (checkeditem.name).split('|');
+            var territoryName= splitName[0];
+            if(checkeditem.alt=="Radio0")
+            {
+                include = jQuery.grep(include, function(value) {
+                    return value != territoryName;
+                });
+                exclude = jQuery.grep(exclude, function(value) {
+                    return value != territoryName;
+                });
+                for(radioIndex = 0; radioIndex < sitecollection.length; radioIndex++)
+                {
+                    radioName = sitecollection[radioIndex].Name+"|"+sitecollection[radioIndex].Id.toString()+sitecollection[radioIndex].ParentId.toString();
+                    if(radioName == checkeditem.name && sitecollection[radioIndex].Id==id && sitecollection[radioIndex].ParentId==parentid ||sitecollection[radioIndex].Id==id)
+                    {
+                        sitecollection[radioIndex].IsNotApplicable=true;
+                        sitecollection[radioIndex].IsIncluded=false;
+                        sitecollection[radioIndex].IsExcluded=false;
+                        if(document.getElementsByName(radioName).length>0)
+                            document.getElementsByName(radioName)[0].checked=true;
+                    }
+                }
+            }
+            else if(checkeditem.alt=="Radio1")
+            {
+                include = jQuery.grep(include, function(value) {
+                    return value != territoryName;
+                });
+                exclude = jQuery.grep(exclude, function(value) {
+                    return value !=territoryName;
+                });
+                for(radioIndex = 0; radioIndex < sitecollection.length; radioIndex++)
+                {
+                    radioName = sitecollection[radioIndex].Name+"|"+sitecollection[radioIndex].Id.toString()+sitecollection[radioIndex].ParentId.toString();
+                    if(radioName == checkeditem.name && sitecollection[radioIndex].Id==id && sitecollection[radioIndex].ParentId==parentid || sitecollection[radioIndex].Id==id)
+                    {
+                        if(sitecollection[radioIndex].IsTerritory==false)
+                        {
+                            var index = jQuery.inArray(territoryName, include);
+                            if(index==-1)
+                            {
+                                include.push(territoryName);
+                            }
+                            sitecollection[radioIndex].IsNotApplicable=false;
+                            sitecollection[radioIndex].IsIncluded=true;
+                            sitecollection[radioIndex].IsExcluded=false;
+                        }
+                        if(sitecollection[radioIndex].IsTerritory==true)
+                        {
+                            sitecollection[radioIndex].IsNotApplicable=false;
+                            sitecollection[radioIndex].IsIncluded=true;
+                            sitecollection[radioIndex].IsExcluded=false;
+                        }
+                        if(document.getElementsByName(radioName).length>0)
+                            document.getElementsByName(radioName)[1].checked=true;
+                    }
+                }
+            }
+            else if(checkeditem.alt=="Radio2")
+            {
+                include = jQuery.grep(include, function(value) {
+                    return value !=territoryName;
+                });
+                exclude = jQuery.grep(exclude, function(value) {
+                    return value != territoryName;
+                });
+                //jQuery.inArray(checkeditem,sitecollection)
+                for(radioIndex = 0; radioIndex < sitecollection.length; radioIndex++)
+                {
+                    radioName = sitecollection[radioIndex].Name+"|"+sitecollection[radioIndex].Id.toString()+sitecollection[radioIndex].ParentId.toString();
+                    if(radioName == checkeditem.name && sitecollection[radioIndex].Id==id && sitecollection[radioIndex].ParentId==parentid ||sitecollection[radioIndex].Id==id)
+                    {
+                        if(sitecollection[radioIndex].IsTerritory==false)
+                        {
+                            var index = jQuery.inArray(territoryName, exclude);
+                            if(index==-1)
+                            {
+                                exclude.push(territoryName);
+                            }
+                            sitecollection[radioIndex].IsNotApplicable=false;
+                            sitecollection[radioIndex].IsIncluded=false;
+                            sitecollection[radioIndex].IsExcluded=true;
+                        }
+
+                        if(sitecollection[radioIndex].IsTerritory==true)
+                        {
+                            sitecollection[radioIndex].IsNotApplicable=false;
+                            sitecollection[radioIndex].IsIncluded=false;
+                            sitecollection[radioIndex].IsExcluded=true;
+                        }
+                        if(document.getElementsByName(radioName).length>0)
+                            document.getElementsByName(radioName)[2].checked=true;
+                    }
+                }
+            }
+        }
+
+        //load time check the checked box checked/unchecked and assign the value for proper item
+        function radio_onload(){
+            searchItems=new Array();
+
+            for(var siteIndex = 0; siteIndex < sitecollection.length; siteIndex++)
+            {
+                //var radioName=sitecollection[siteIndex].Name+sitecollection[siteIndex].ParentId.toString();
+                var index = jQuery.inArray(sitecollection[siteIndex].Name, searchItems);
+                if(index==-1)
+                {
+                    searchItems.push(sitecollection[siteIndex].Name);
+                }
+                if(sitecollection[siteIndex].IsNotApplicable==true)
+                {
+                    sitecollection[siteIndex].IsNotApplicable=true;
+                    sitecollection[siteIndex].IsIncluded=false;
+                    sitecollection[siteIndex].IsExcluded=false;
+                }
+                else if(sitecollection[siteIndex].IsIncluded==true)
+                {
+                    sitecollection[siteIndex].IsNotApplicable=false;
+                    sitecollection[siteIndex].IsIncluded=true;
+                    sitecollection[siteIndex].IsExcluded=false;
+                    if(sitecollection[siteIndex].IsTerritory==false)
+                    {
+                        var index = jQuery.inArray(sitecollection[siteIndex].Name, include);
+                        if(index==-1)
+                        {
+                            include.push(sitecollection[siteIndex].Name);
+                        }
+                    }
+                }
+                else if(sitecollection[siteIndex].IsExcluded==true)
+                {
+                    sitecollection[siteIndex].IsNotApplicable=false;
+                    sitecollection[siteIndex].IsIncluded=false;
+                    sitecollection[siteIndex].IsExcluded=true;
+                    if(sitecollection[siteIndex].IsTerritory==false)
+                    {
+                        var index = jQuery.inArray(sitecollection[siteIndex].Name, exclude);
+                        if(index==-1)
+                        {
+                            exclude.push(sitecollection[siteIndex].Name);
+                        }
+                    }
+                }
+                else
+                {
+                    sitecollection[siteIndex].IsNotApplicable=true;
+                    sitecollection[siteIndex].IsIncluded=false;
+                    sitecollection[siteIndex].IsExcluded=false;
+                }
+            }
+            sortAppendedElements();
+
+            //fill the autocomplete texbox values
+            $("input#autocomplete").autocomplete({
+                source: searchItems
+            });
+        }
+        //document reading
+        $('document').ready(function () {
+            SetupTreeView("TreeView");
+            RadioButtonClick();
+            $("#btnClear").click(function(){
+                Clear();
+            });
+
+            $("#btnSearch").click(function(){
+                Search();
+            });
+
+            //button save
+            $("#btnSave").click(function(){
+                Save();
+            });
+
+            //button re-set
+            $("#btnReSet").click(function(){
+                ReSet();
+            });
+
+            //button cancel
+            $("#btnCancelPopup").click(function(){
+                cancel();
+            });
+
+            $(window).bind("resize", resizeHandler);
+
+            resizeHandler();
+        });
+        function cancel()
+        {
+            $('#Terrirory').dialog('close');
+        }
+        function resizeHandler()
+        {
+            $(".commonParentContainer").css("height", $(window).height() - 100);
+        }
+
+        function Clear()
+        {
+            $("#autocomplete").val('');
+            var request = JSON.stringify(sitecollection);
+            var ajaxUrl="";
+            if(pageName=="Rights")
+            {
+                ajaxUrl='/GCS/RightsDefaultRepertoire/AutocompleteSuggestions/';
+            }
+            else
+            {
+                ajaxUrl='/GCS/Contract/AutocompleteSuggestions/';
+            }
+
+            $.ajax({
+                url: ajaxUrl +  $("#autocomplete").val(),
+                type: 'POST',
+                //dataType: 'json',
+                data: request,
+                async: true,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#mainDiv').html(data);
+                    SetupTreeView("TreeView");
+                    RadioButtonClick();
+                }
+            });
+        }
+        function Search()
+        {
+            var searchText=$("#autocomplete").val();
+            if(searchText.length>2)
+            {
+                var territorialParent=sitecollection;
+                var rootTerritorial = JSLINQ(territorialParent).Where(function(rootParent){ return rootParent.Id == 0});
+                //var territorialFilteredList = JSLINQ(territorialParent).Where(function(parent){return parent.Name==searchText});
+                var territorialFilteredList=jLinq.from(territorialParent).contains("Name",searchText).orderBy("Name").select()
+                var territorial = territorialFilteredList;
+                JSLINQ(territorialFilteredList).All(function(item)
+                {
+                    if (!JSLINQ(territorial).Any(function(rootParent){return rootParent.Id == item.ParentId}))
+                    {
+                        if (JSLINQ(territorialParent).Any(function(sibling){return sibling.Id == item.ParentId}))
+                            territorial.push(JSLINQ(territorialParent).First(function(child){return child.Id == item.ParentId}));
+
+                        if (JSLINQ(territorialParent).Any(function(sibling){return sibling.ParentId == item.Id && sibling.Id != item.ParentId}))
+                            territorial.push(JSLINQ(territorialParent).Where(function(child){return child.ParentId == item.Id && child.Id != item.ParentId}));
+                    }
+                    return true;
+                });
+                if (JSLINQ(rootTerritorial).Any() && !JSLINQ(territorial).Any(function(parent){return parent.Id == rootTerritorial.First().Id}))
+                {
+                    territorial.push(rootTerritorial);
+                }
+
+                var ajaxUrl="";
+                //debugger;
+                if(pageName=="Rights")
+                {
+                    ajaxUrl='/GCS/RightsDefaultRepertoire/AutocompleteSuggestions/';
+                }
+                else
+                {
+                    ajaxUrl='/GCS/Contract/AutocompleteSuggestions/';
+                }
+                var request = JSON.stringify(territorial);
+                $.ajax({
+                    url: ajaxUrl +  $("#autocomplete").val(),
+                    type: 'POST',
+                    //dataType: 'json',
+                    data: request,
+                    async: true,
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $('#mainDiv').html(data);
+                        SetupTreeView("TreeView");
+                        RadioButtonClick();
+                    }
+                });
+            }
+            else if(searchText.length==0)
+            {
+                Clear();
+            }
+        }
+        //Treeview searching area
+        //   $("#autocomplete").keyup(function() {
+        //   Search();
+        //   });
+
+        function Save(){
+            var saveditems=[];
+            //    var territoryString=" ";
+            //     $("#TerritorialItems").html("");
+            for (var siteIndex = 0; siteIndex < sitecollection.length; siteIndex++)
+            {
+                if(sitecollection[siteIndex].IsTerritory==false)
+                {
+                    if(sitecollection[siteIndex].IsIncluded==true||sitecollection[siteIndex].IsExcluded==true)
+                    {
+
+                        saveditems.push(sitecollection[siteIndex]);
+                    }
+                }
+            }
+
+            if(pageName=="Rights")
+            {
+                ajaxUrl='/GCS/RightsDefaultRepertoire/SaveTerritorialRights/';
+            }
+            else
+            {
+                ajaxUrl='/GCS/Contract/SaveTerritorialRights/';
+            }
+            var request = JSON.stringify(sitecollection);
+            $.ajax({
+                url: ajaxUrl +  contractid,
+                type: 'POST',
+                //dataType: 'json',
+                data: request,
+                async:true,
+                data: request,
+                contentType: 'application/json; charset=utf-8'
+            });
+            setStringFormation();
+            $('#Terrirory').dialog('close');
+        }
+
+        var includeString="";
+        var includedCountries=[];
+
+        var excludeString="";
+        var excludedCountries=[];
+        var exdup = [];
+        var exCountrydup = [];
+        function setStringFormation()
+        {
+            //include string
+            var higherLevel=JSLINQ(sitecollection).Where(function(item) { return item.Id==2 || item.Id==0});
+            var includedTerritoryLevel=JSLINQ(sitecollection).Where(function(item) { return item.IsIncluded && item.IsTerritory});
+
+            var excludedTerritories=JSLINQ(sitecollection).Where(function(item) { return item.IsExcluded && item.IsTerritory});
+            var excludedCountries=JSLINQ(sitecollection).Where(function(item) { return item.IsExcluded && !item.IsTerritory});
+            var includedCountries=JSLINQ(sitecollection).Where(function(item) { return item.IsIncluded && !item.IsTerritory});
+
+            //        if(higherLevel.items[0].IsIncluded && higherLevel.items[1].IsIncluded)
+            //            includeString+="], [Universe";
+            //        else if(higherLevel.items[0].IsIncluded && !higherLevel.items[1].IsIncluded)
+            //            includeString+="], [World";
+            if(includedTerritoryLevel.items.length!=0)
+            {
+                var territorialList = JSLINQ(includedTerritoryLevel.items).OrderBy(function(p){return p.Id}).All(function(territorial)
+                {
+                    var parent = getParent(territorial.ParentId);
+                    if(JSLINQ(sitecollection).Count(function(item) { return !item.IsTerritory && item.ParentId == territorial.Id}) //11/3/12
+                        == JSLINQ(sitecollection).Count(function(item) { return item.IsIncluded && !item.IsTerritory && item.ParentId == territorial.Id})
+                        && parent == null && !isParentSelected(includedTerritoryLevel, territorial))
+                    {
+                        includeString+=" "+territorial.Name+" ";
+
+                        var exChildTerritories = JSLINQ(excludedTerritories.items).Where(function(item)
+                        {
+                            if(territorial.Id==2)
+                                return item.ParentId == territorial.Id || item.ParentId == 0;
+
+                            return item.ParentId == territorial.Id;
+                        });
+
+                        var test = "";
+
+                        //--Excluded Territories
+                        if(exChildTerritories.items.length >0)
+                        {
+
+                            if(test =="")
+                                test = " Excluding ";
+
+                            includeString+=" " + test;
+
+                            var exChildTerritoryLoop = JSLINQ(exChildTerritories.items).All(function(items)
+                            {
+                                exdup.push(items.Name);
+                                includeString+=" " + items.Name +", ";
+                                return true;
+                            });
+                            includeString = includeString + '/';
+                        } else {
+                            includeString += "/";
+                        }
+
+                        //--Excluded Territories - sub terri
+                        var exTerritoriesLooping = JSLINQ(excludedTerritories.items).All(function(item3)
+                        {
+
+                            var exParentTerritories = JSLINQ(excludedTerritories.items).Where(function(item2)
+                            {
+                                if(territorial.Id==2)
+                                    return item2.Id == item3.ParentId || item.ParentId == 0;
+
+                                return item2.Id == item3.ParentId;
+                            });
+
+                            var rootParent =getRootParent(null,item3.ParentId,true);
+
+                            //                        if(rootParent!=null && rootParent.IsIncluded==true && rootParent.Id!=territorial.ParentId && exParentTerritories.items.length == 0 && !isParentExcluded(excludedTerritories, item3))
+                            //                       {
+
+                            //                       var index = jQuery.inArray(item3.Name, exdup);
+                            //                        if(index==-1)
+                            //                        {
+                            //                            if(test =="")
+                            //                            test = " Excluding ";
+
+                            //                            includeString+="[EX3] " + test + item3.Name+", ";
+                            //                        }
+                            //                       }
+
+                            return true;
+                        });
+                        //--Excluded countries for this terri
+
+                        //--Excluded Countries
+                        test ="";
+                        var parentTerri= null;
+                        var countryString="";
+                        var exCountryLooping = JSLINQ(excludedCountries.items).Where(function(q){return getParentById(q.ParentId)!= null && getParentById(q.ParentId).IsIncluded}).All(function(item3)
+                        {
+
+                            var exParentTerritories = JSLINQ(excludedCountries.items).Where(function(item2)
+                            {
+                                return item2.Id == item3.ParentId;
+                            });
+                            if(exParentTerritories.items.length == 0 && !isParentExcluded(excludedTerritories, item3))
+                            {
+                                var index = jQuery.inArray(item3.Name, exCountrydup);
+                                if(index==-1)
+                                {
+                                    exCountrydup.push(item3.Name);
+                                    var pterri = getParentById(item3.ParentId);
+                                    if(parentTerri == null)
+                                        parentTerri =  pterri;
+
+                                    if(parentTerri.Id != pterri.Id)
+                                    {
+                                        parentTerri =  pterri;
+                                        test = "";
+                                    }
+                                    var rootParent =getRootParent(null,item3.ParentId,true);
+                                    if(rootParent != null && rootParent.Id == territorial.Id)
+                                    {
+                                        if(test == "")
+                                        {
+                                            if(includeString.indexOf(" Excluding ") == -1)
+                                                test = " Excluding ";
+                                            includeString+= test + " "  + item3.Name +", ";
+                                        }
+                                        else
+                                            includeString+= " "  + item3.Name+", ";
+                                    }
+                                    else
+                                    {
+                                        if(test == "")
+                                        {
+                                            if(countryString.indexOf(parentTerri.Name) == -1 && countryString.indexOf(" Excluding ") == -1)
+                                            {
+                                                test = parentTerri.Name + " Excluding ";
+                                            }
+                                            else  if(countryString.indexOf(parentTerri.Name) != -1 && countryString.indexOf(" Excluding ") == -1)
+                                            {
+                                                test =  " Excluding ";
+                                            }
+
+                                            countryString+= test + " "  + item3.Name +", ";;
+                                        }
+                                        else
+                                            countryString+= " "  + item3.Name +", ";;
+                                    }
+                                }
+                            }
+                            return true;
+                        });
+
+                        if(countryString!='')
+                        {
+                            countryString += '/';
+                        }
+
+                        includeString += countryString;
+                    }
+                    return true;
+                });
+            }
+
+            //One territory partially selected(some included and some excluded)
+            if(includeString == "" && excludedCountries.items.length > 0)
+            {
+
+                var parentTemp = null;
+                var parentStr="";
+                var test="";
+                var count=0;
+                var exCountryLooping = JSLINQ(excludedCountries.items).OrderBy(function(p){return p.ParentId}).Where(function(q){return getParentById(q.ParentId)!= null && getParentById(q.ParentId).IsIncluded}).All(function(item3)
+                {
+
+                    var parent = getParentById(item3.ParentId);
+                    count++;
+
+                    if(parentTemp==null || parentTemp.Id != parent.Id)
+                    {
+                        parentTemp = parent;
+                        parentStr="";
+                        count=0;
+                    }
+
+                    var index = jQuery.inArray(item3.Name, exCountrydup);
+                    if(index==-1)
+                    {
+                        exCountrydup.push(item3.Name);
+                        if(test =="")
+                            test = " Excluding ";
+
+                        if(parentStr =="" )
+                            parentStr = parent.Name;
+
+                        if(count==0)
+                        {
+                            includeString+= parentStr + test + " "  + item3.Name+", ";;
+                        }
+                        else
+                        {
+                            includeString+= " "  + item3.Name+", ";;
+                        }
+                    }
+
+                    return true;
+                });
+                includeString = includeString + '/';
+            }
+
+            var addedIncludeItems =[];
+            var countryList = JSLINQ(includedCountries.items).All(function(territorialCountry)
+            {
+                var countryItems=JSLINQ(sitecollection).Where(function(item) { return item.Id == territorialCountry.Id})
+                var terriItems = [];
+                var countryItems123=JSLINQ(countryItems.items).All(function(countryItem)
+                {
+
+                    var testere = JSLINQ(sitecollection).Where(function(item) { return item.IsIncluded && item.Id== countryItem.ParentId });
+                    if(testere.items[0] != null)
+                        terriItems.push(testere.items[0]);
+                    return true;
+                });
+
+                if(JSLINQ(terriItems).Any(function(item) { return item.IsIncluded && item.IsTerritory}) == false)
+                {
+                    var index = jQuery.inArray(territorialCountry.Name, addedIncludeItems);
+                    if(index==-1)
+                    {
+                        addedIncludeItems.push(territorialCountry.Name);
+                        includeString+=" "+territorialCountry.Name+" , ";
+                    }
+                }
+                return true;
+            });
+
+            includeString = includeString + '/';
+            includeString = includeString.replace(/\/\//, '/');
+            includeString = includeString.replace(/\/\/\//, '/');
+
+            //end include string
+
+            var strTerritory = includeString + excludeString;
+            strTerritory = strTerritory.replace(/, \//, ' /');
+            strTerritory = strTerritory.replace(/\/ Excluding/,' Excluding');
+
+            $('#Contract_TerritorialRightsDefinition').val(strTerritory);
+            $('#RightsDefaultForRepertoire_TerritorialRights').val(strTerritory);
+
+        }
+
+        function getRootParent(element,parentId, IsIncluded)//Pass ParentId
+        {
+            if(JSLINQ(sitecollection).Count(function(item) { return item.IsIncluded && item.IsTerritory && item.Id == parentId})  > 0)
+            {
+                var elem =JSLINQ(sitecollection).First(function(item) { return item.IsIncluded && item.IsTerritory && item.Id == parentId});
+                return getRootParent(elem,elem.ParentId,IsIncluded);
+            }
+            return element;
+        }
+
+        function getParent(parentId)//Pass ParentId
+        {
+            return JSLINQ(sitecollection).First(function(item) { return item.IsIncluded && item.IsTerritory && item.Id == parentId});
+        }
+
+        function getParentExcluded(parentId)//Pass ParentId
+        {
+            return JSLINQ(sitecollection).First(function(item) { return item.IsExcluded && item.IsTerritory && item.Id == parentId});
+        }
+
+        function getParentById(parentId)//Pass ParentId
+        {
+            return JSLINQ(sitecollection).First(function(item) { return item.Id == parentId});
+        }
+
+        function hasParent(parentId)//Pass ParentId
+        {
+            return JSLINQ(sitecollection).Any(function(item) { return item.IsTerritory && item.Id == parentId});
+        }
+
+        function isDuplicate(territories, id)
+        {
+            return (JSLINQ(territories.items).Count(function(item) { return item.IsIncluded && item.IsTerritory && item.Id == id}) > 1);
+        }
+
+        function isDuplicateExcluded(territories, id)
+        {
+            return (JSLINQ(territories.items).Count(function(item) { return item.IsExcluded && item.IsTerritory && item.Id == id}) > 1);
+        }
+
+        function getDuplicateTerritories(territories, id)
+        {
+            return (JSLINQ(territories.items).Where(function(item) { return item.IsIncluded && item.IsTerritory && item.Id == id}));
+        }
+
+        function isParentSelected(territories,terri)
+        {
+            if(isDuplicate(territories,terri.Id)== true)
+            {
+                if(getParentExcluded(terri.ParentId) != null && getParent(terri.ParentId).IsIncluded)
+                    return true;
+
+                var countryItems=JSLINQ(sitecollection).Where(function(item) { return item.Id == terri.Id})
+                var terriItems = [];
+                var countryItems123=JSLINQ(countryItems.items).All(function(countryItem) {
+                    var testere = JSLINQ(sitecollection).Where(function(item) { return item.IsIncluded && item.Id== countryItem.ParentId });
+                    if(testere.items[0] != null)
+                        terriItems.push(testere.items[0]);
+                    return true;
+                });
+
+                return JSLINQ(terriItems).Any(function(item) { return item.IsIncluded && item.IsTerritory});
+            }
+            return false;
+        }
+
+        function isParentExcluded(territories,terri)
+        {
+            if(getParentExcluded(terri.ParentId) != null && getParentExcluded(terri.ParentId).IsExcluded)
+                return true;
+
+            var countryItems=JSLINQ(sitecollection).Where(function(item) { return item.Id == terri.Id})
+            var terriItems = [];
+            var countryItems123=JSLINQ(countryItems.items).All(function(countryItem) {
+                var testere = JSLINQ(sitecollection).Where(function(item) { return item.IsExcluded && item.Id== countryItem.ParentId });
+                if(testere.items[0] != null)
+                    terriItems.push(testere.items[0]);
+                return true;
+            });
+
+            return JSLINQ(terriItems).Any(function(item) { return item.IsExcluded && item.IsTerritory});
+        }
+
+        function ReSet(){
+            for(var siteIndex = 0; siteIndex < sitecollection.length; siteIndex++)
+            {
+                var radioName=sitecollection[siteIndex].Name+"|"+sitecollection[siteIndex].Id.toString()+sitecollection[siteIndex].ParentId.toString();
+                sitecollection[siteIndex].IsNotApplicable=true;
+                sitecollection[siteIndex].IsIncluded=false;
+                sitecollection[siteIndex].IsExcluded=false;
+                if(document.getElementsByName(radioName).length > 0)
+                {
+                    document.getElementsByName(radioName)[0].checked=true;
+                    document.getElementsByName(radioName)[1].checked=false;
+                    document.getElementsByName(radioName)[2].checked=false;
+                }
+            }
+            territorialCount();
+            $("#includeitems").html("");
+            $("#excludeitems").html("");
+            include=new Array();
+            exclude=new Array();
+        }
+
+        $('body').keyup(function(e) {
+            if ($('#btnSave').is(':visible') && e.which == 13) {
+                Save();
+            }
+        });
+    </script>
+</head>
+<div class="commonParentContainer">
+    <div class="autocompleteContainer">
+        <input id="autocomplete" />
+        <input type="button" value="Find" id="btnSearch" class="primbutton" />
+        <a id="btnClear" href="javascript:void(0);">@ContractResource.ClearFilter</a>
+    </div>
+
+    <div class="terrRightsContainer">
+        <div>
+            <table class="terrTableFirstRow">
+                <thead>
+                    <tr>
+                        <th class="firstHeaderColumn"></th>
+                        <th class="columnWithContent">@ContractResource.NotApplicable</th>
+                        <th class="columnWithContent">@ContractResource.Include</th>
+                        <th class="columnWithContent">@ContractResource.Exclude</th>
+                        <th class="lastColumn"></th>
+                        <th class="countryHeader"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div id="mainDiv" style="overflow: scroll;">
+
+            @{
+                bool item = ViewBag.Search;
+            }
+            @Html.SiteMenuAsUnorderedList(ViewBag.siteLinks as List<UMGI.GRCS.BusinessEntities.Entities.ContractEntities.TerritorialDisplay>, item)
+        </div>
+
+        <div class="excludeIncludeList">
+            <div class="includeItemsCont">@ContractResource.IncludeList </div>
+            <select size="6" multiple="multiple" id="includeitems" class="zeroMargin">
+            </select>
+
+            <div class="excludeItems">
+                @ContractResource.ExcludeList
+            </div>
+            <select size="6" multiple="multiple" id="excludeitems" class="zeroMargin">
+            </select>
+        </div>
+    </div>
+
+    <br class="clear" />
+
+    <div id="buttonContainer">
+
+        <div class="btnHolder">
+            <input type="submit" class="primbutton" value="@ContractResource.SaveButton" id="btnSave" />
+            <input type="submit" class="secbutton btnSpacing" value="@ContractResource.ResetButton"  id="btnReSet" />
+            <input type="submit" class="secbutton btnSpacing" value="@ContractResource.CancelButton" id="btnCancelPopup" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // SetupTreeView("TreeView");
+    radio_onload();
+</script>

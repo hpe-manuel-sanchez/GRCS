@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "ManageArtist";
+}
+<h2>
+    ManageArtist</h2>
+<div id="mainDiv" style="width: 100%; float: left;">
+    <table width="100%">
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td style="text-align: left;">
+                            Search by:
+                        </td>
+                        <td style="text-align: left;">
+                            @Html.TextBox("ArtistName")
+                        </td>
+                        <td style="text-align: left">@Html.TextBox("ArtistID")
+                        </td>
+                        <td style="text-align: center;">
+                            <input type="button" value="Search" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="button" value="Reset" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

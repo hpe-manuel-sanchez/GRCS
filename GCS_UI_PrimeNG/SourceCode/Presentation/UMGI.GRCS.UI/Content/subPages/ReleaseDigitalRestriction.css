@@ -1,0 +1,9 @@
+﻿.GridDisplay {
+    margin-top: 5px
+}
+.GridDisplay #jqgrid {
+    margin: 0 15px
+}
+#divReleaseDigitalRestrictionsTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop {
+    background-color: #ffdc25;
+}

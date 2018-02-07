@@ -1,0 +1,425 @@
+﻿@using System.Globalization;
+@model UMGI.GRCS.UI.Models.WorkgroupModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<script type="text/javascript">
+    var hashTerritory = {};
+    var territoryCollection = [];
+    var  territoryList = @Html.Raw(Json.Encode(ViewBag.territoryDisplay));
+  var workGroupKey='@ViewBag.workGroupIdTerritory';
+    hashTerritory = { 'Key': workGroupKey, 'Value': territoryList };
+    territoryCollection.push(hashTerritory);
+    var contractIdListForArtist= '@ViewBag.contractIdListForArtist';
+        var contractIdListForResource = '@ViewBag.contractIdListForResource';
+    var hashmaintainCR = {};
+    var maintainCRCollection = [];
+    if (contractIdListForResource!= '') {
+        $.each(contractIdListForResource.split("|").slice(0, -1), function (i, contractAndResourceId) {
+            var objContractAndResourceId = contractAndResourceId.split(",");
+            hashmaintainCR = { 'ContractId': objContractAndResourceId[0], 'ResourceId': objContractAndResourceId[1] };
+            maintainCRCollection.push(hashmaintainCR);
+        });
+    }
+
+</script>
+<script src="@Url.Content("/GCS/Scripts/JSLINQ/jsLinq.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ViewWorkgroup.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ManageTerritoryExtn.js")" type="text/javascript"></script>
+<style type="text/css">
+    #SearchViewWorkgroup {
+        overflow-y: auto;
+    }
+
+    .contentDv {
+        overflow-x: hidden;
+    }
+
+    .mainContainer {
+        position: relative;
+    }
+</style>
+<div class="headerDiV">
+    <input id="hdnViewCompany" name="hdnViewCompany" type="hidden" value="@ViewBag.ViewCompany" />
+    <input id="hdnModifiedTime" name="hdnModifiedTime" type="hidden" value="@ViewBag.ModifiedDateTime" />
+    <h2>@Html.LabelFor(model => model.Workgroup.Name, Model.Workgroup.Name)</h2>
+</div>
+@*<input id="hdnincludeTerritoryString" name="hdnincludeTerritoryString" type="hidden"
+            value="" />*@
+<div id="mainPanelDv" class="mainPanelDv">
+    <div class="headerDv1">
+        <h5 class="downArrow">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.BasicDetails</h5>
+    </div>
+    <div id="contentDv" class="contentDv">
+        <!--Start searchBoxContainer first -->
+        <div class="workgroup-searchBoxContainer" style="display: block;">
+            <!-- first Div -->
+            <div class="workgroup-firstContentDv">
+                <!-- Name Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        <label class="madatoryField">
+                            *</label>
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.NameLabel
+                    </div>
+                    <div class="workgroup-valueDv" style="margin-top: 4px !important">
+                        @Html.LabelFor(model => model.Workgroup.Name, Model.Workgroup.Name)
+                    </div>
+                </div>
+                <!-- Name Ends Here -->
+            </div>
+            <!-- End first Div -->
+            <!-- Second Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- Role Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.RoleLabel
+                    </div>
+                    <div class="workgroup-valueDv workgroup-lineheight2PX" style="margin-top: 0px !important; margin-top: 1px !important">
+                        <span class="labelbold">
+                            @Html.LabelFor(model => model.Workgroup.RoleName, Model.Workgroup.RoleName)
+                        </span>
+                    </div>
+                </div>
+                <!-- Role Ends Here -->
+            </div>
+            <!-- End Second Div-->
+            <!-- Third Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- StatusLabel Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.StatusLabel
+                    </div>
+                    <div class="workgroup-valueDv workgroup-lineheight2PX" style="margin-top: 0px !important; margin-top: 1px !important">
+                        @Html.LabelFor(model => model.Workgroup.StatusType, Model.Workgroup.StatusType)
+                    </div>
+                </div>
+                <!-- StatusLabel Ends Here -->
+            </div>
+            <!-- End Third Div-->
+        </div>
+        <!-- Close searchBoxContainer first -->
+        <!--Start searchBoxContainer Second -->
+        <div class="workgroup-searchBoxContainer" style="display: block;">
+            <!-- first Div -->
+            <div class="workgroup-firstContentDv">
+                <!-- Company Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CompanyLabel
+                    </div>
+                    <div class="workgroup-valueDv" id="tdcompanyList" style="margin-top: 4px !important">
+                        <div id="jqgridcompany">
+                        </div>
+                    </div>
+                </div>
+                <!-- Company Ends Here -->
+            </div>
+            <!-- End first Div -->
+            <!-- Second Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- Blank Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        &nbsp;
+                    </div>
+                    <div class="workgroup-valueDv">
+                    </div>
+                </div>
+                <!-- Blank Ends Here -->
+            </div>
+            <!-- End Second Div-->
+            <!-- Third Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- Blank Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @if (Model.Workgroup.ParentID == 0)
+                        {
+                            <span style="white-space: nowrap" class="labelbold">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ChildrenWorkgroupsLabel
+                            </span>
+                        }
+                        else
+                        {
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ParentWorkgroupsLabel
+                        }
+                    </div>
+                    <div class="workgroup-valueDv" style="margin-top: 4px !important">
+                        <div id="childWorkGroupList">
+                            @(Model.Workgroup.ParentID == 0 ? Html.LabelFor(model => model.Workgroup.ChildWorkgroupNames, Model.Workgroup.ChildWorkgroupNames ?? "") : Html.LabelFor(model => model.Workgroup.ChildWorkgroupNames, Model.Workgroup.ChildWorkgroupNames ?? ""))
+                        </div>
+                    </div>
+                </div>
+                <!-- Blank Ends Here -->
+            </div>
+            <!-- End Third Div-->
+        </div>
+        <!-- Close searchBoxContainer Second -->
+        <!--Start searchBoxContainer Third -->
+        <div class="workgroup-searchBoxContainer" style="display: block;">
+            <!-- first Div -->
+            <div class="workgroup-firstContentDv">
+                <!-- TerritoryCountryLabel Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.TerritoryCountryLabel
+                    </div>
+                    <div class="workgroup-valueDv labelbold" id="tdcountryList" style="margin-top: 4px !important;">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.IncludedLabel
+                        <div id="selectedCountries">
+                        </div>
+                        <label>@ViewBag.IncludedTerritory</label>
+                    </div>
+                </div>
+                <!-- TerritoryCountryLabel Ends Here -->
+            </div>
+            <!-- End first Div -->
+            <!-- Second Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- Role Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        <br />
+                    </div>
+                    <div class="workgroup-valueDv">
+                        <span class="labelbold">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ExcludedLabel</span>
+                        <div id="excludedCountries">
+                            @* <label>@ViewBag.ExcludedTerritory</label>*@
+                        </div>
+                    </div>
+                </div>
+                <!-- Role Ends Here -->
+            </div>
+            <!-- End Second Div-->
+            <!-- Third Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- Name Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        &nbsp;
+                    </div>
+                    <div class="workgroup-valueDv">
+                        &nbsp;
+                    </div>
+                </div>
+                <!-- Name Ends Here -->
+            </div>
+            <!-- End Third Div-->
+        </div>
+        <!-- Close searchBoxContainer Third -->
+        <!--Start searchBoxContainer Furth -->
+        <div class="workgroup-searchBoxContainer" style="display: block;">
+            <!-- first Div -->
+            <div class="workgroup-firstContentDv">
+                <!-- Users Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        <label class="madatoryField">
+                            *</label>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.UsersLabel
+                    </div>
+                    <div class="workgroup-valueDv" id="tduserList" style="margin-top: 4px !important;">
+                        @*     @Html.LabelFor(model => model.Workgroup.User, Model.Workgroup.User ?? "")*@
+                    </div>
+                </div>
+                <!-- Users Ends Here -->
+            </div>
+            <!-- End first Div -->
+            <!-- Second Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- DefaultUsersLabel Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        @*  <span style="white-space: nowrap">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DefaultUsersLabel</span>*@
+                    </div>
+                    <div class="workgroup-valueDv" id="divDefaultUsers" style="font-weight: normal; margin-top: 4px !important;">
+                        @*    @Html.LabelFor(model => model.DefaultUserName, Model.DefaultUserName ?? "")*@
+                    </div>
+                </div>
+                <!-- DefaultUsersLabel Ends Here -->
+            </div>
+            <!-- End Second Div-->
+            <!-- Third Div -->
+            <div class="workgroup-secondContentDv">
+                <!-- R2 Contact Start Here -->
+                <div class="workgroup-contentWrapper">
+                    <div class="workgroup-divField">
+                        <span style="white-space: nowrap">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.R2ContactLabel</span>
+                    </div>
+                    <div class="workgroup-valueDv" style="margin-top: 3px !important">
+                        @Html.LabelFor(model => model.Workgroup.R2Contract, Model.Workgroup.R2Contract)
+                    </div>
+                </div>
+                <!-- R2 Contact Here -->
+            </div>
+            <!-- End Third Div-->
+        </div>
+        <!-- Close searchBoxContainer Furth -->
+    </div>
+</div>
+<div id="mainPanelDv2" class="mainPanelDv">
+    <div id="divRequestType" class="headerDv1">
+        <h5 class="downArrow">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.WorkgroupDeviationforRequestTypeLabel</h5>
+    </div>
+    @if (Model.GetChildWorkgroup.RequestTypesLookup != null)
+    {
+        <div id="contentDv4" class="contentDv">
+            <table>
+                <tr>
+                    <td style="vertical-align: middle;">
+                        <span class='labelbold' style="white-space: nowrap; margin-left: 42px;">@Html.Label("Request Type: ")
+                        </span>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <table style="border: 0; padding: 0;">
+                            @for (var i = 0; i < Model.GetChildWorkgroup.RequestTypesLookup.Count; i += 2)
+                            {
+                                <tr>
+                                    <td style="vertical-align: top">
+                                        @Html.CheckBox("Chk" + i.ToString(CultureInfo.InvariantCulture), true, new { disabled = "disabled" })
+                                        @Html.Raw("&nbsp; ")
+                                        @Html.Label(Model.GetChildWorkgroup.RequestTypesLookup.ElementAt(i).Value)
+                                        @Html.Raw("&nbsp; &nbsp; &nbsp;")
+                                    </td>
+                                    <td style="vertical-align: top">
+                                        @if (i + 1 < Model.GetChildWorkgroup.RequestTypesLookup.Count)
+                                        {
+                                            @Html.CheckBox("Chk" + (i + 1).ToString(CultureInfo.InvariantCulture), true, new { disabled = "disabled" })
+                                            @Html.Raw("&nbsp; ")
+                                            @Html.Label(Model.GetChildWorkgroup.RequestTypesLookup.ElementAt(i + 1).Value)
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+<div id="mainPanelDv3" class="mainPanelDv">
+    <div class="headerDv1" style="width: 100%;">
+        <table style="border-collapse: collapse; width: 100%; border: 0; padding: 0;">
+            <tr>
+                <td width="320px">
+                    <h5 class="downArrow">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LabelWorkgroupDevArtistContract</h5>
+                </td>
+            </tr>
+        </table>
+        <div style="clear: both">
+        </div>
+    </div>
+    <div class="contentDv">
+        <div class="positinRelative" style="padding-left: 0; min-height: 100px; max-height: 165px; overflow-y: auto; overflow-x: hidden;">
+            <div id="jqgridArtistContract" class="left30px" style="width: 90%; padding-left: 10px; margin-top: 5px;">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="mainPanelDv4" class="mainPanelDv">
+    <div class="headerDv1" style="width: 100%;">
+        <table style="border-collapse: collapse; width: 100%; border: 0; padding: 0;">
+            <tr>
+                <td width="320px">
+                    <h5 class="downArrow">
+                        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LabelWorkgroupDevResContract</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="contentDv">
+        <div class="positinRelative" style="padding-left: 0; min-height: 100px; max-height: 165px; overflow-y: auto; overflow-x: hidden;">
+            <div id="jqgridResourceContract" class="left30px" style="width: 90%; padding-left: 10px; margin-top: 5px;">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="" id="hdnManageResourceIds" name="hdnManageResourceIds" />
+</div>
+<div class="rightwrapperResult">
+    <table class="withoutborder">
+        <tr>
+            <td>
+                <input class="secbutton" id="btnDeleteViewWorkGroup" type="button" value= "@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DeleteButton" />
+            </td>
+            <td>
+                <input class="secbutton" id="btnDeactiveViewWorkGroup" type="button" value= "@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DeactiveButton" />
+            </td>
+            <td>
+                <input class="secbutton" id="btnCancelView" type="button" value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    var msgsuccess = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deleteworkgroupSuccessfulMessage';
+    var msgpendingrequest = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_deactivatePendingRequestMessage';
+
+    var artistContract = {
+        ArtistID: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistId',
+
+        ArtistName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ArtistName',
+        ClrAdminCompany: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ClrAdminCompany',
+        ClrAdminCompanyID: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ClrAdminCompanyId',
+        ContractId: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ContractId',
+        Isrc: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.Isrc',
+        ResourceTitle: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResourceTitle'
+
+
+    };
+    setTerritoryCountry(territoryCollection, 'selectedCountries', 'excludedCountries');
+    LoadCompanies();
+
+    //Manage Users CR - Starts
+    var forDefaultUserName = '@ViewBag.defaultUserName' != "" ? '@ViewBag.defaultUserName' : "&nbsp;";
+    var forMaintainUsersInRole = '@ViewBag.UsersInRole' != "" ? '@ViewBag.UsersInRole' : "&nbsp;";
+    var forMaintainUsersCanMngWkg = '@ViewBag.UsersCanMngworkgroup' != "" ? '@ViewBag.UsersCanMngworkgroup' : "&nbsp;";
+    var forMaintainUsersR2Authorized = '@ViewBag.UsersR2Authorized' != "" ? '@ViewBag.UsersR2Authorized' : "&nbsp;";
+    var forMaintainUsersCanAllocateUPC = '@ViewBag.UsersCanAllocateUPC' != "" ? '@ViewBag.UsersCanAllocateUPC' : "&nbsp;";
+    var mgUserRequestorRights = {
+        Requestor: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Requestor',
+        R2Authorized: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_R2Authorized',
+        UPCAllocation: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_UPCAllocation',
+        Reviewer: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Reviewer',
+        Inquiry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_Inquiry',
+        ManageWorkgroup: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.mngUser_Rights_ManageWorkgroup',
+        DefaultUsers: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DefaultUsersLabel'
+    }
+    var selectedWorkgroupRole = '@ViewBag.workgroupRoleName';
+    var ShowMaintainUsers = "";
+    //    var userRequestorOrInquieryLabel = (selectedWorkgroupRole.match('Reviewer') || selectedWorkgroupRole.match('UMGI Global Clearance')) ? mgUserRequestorRights.Reviewer : mgUserRequestorRights.Inquiry;
+    
+    //	if (selectedWorkgroupRole.match('Requestor')) {
+    //    	ShowMaintainUsers = $('<table id="tblUserRightsInfo"><tr><td>' + mgUserRequestorRights.DefaultUsers + '</td><td>' + forDefaultUserName + '</td></tr><tr><td>' + mgUserRequestorRights.Requestor + '</td><td>' + forMaintainUsersInRole + '</td></tr><tr><td>' + mgUserRequestorRights.R2Authorized + '</td><td>' + forMaintainUsersR2Authorized + '</td></tr><tr><td>' + mgUserRequestorRights.UPCAllocation + '</td><td>' + forMaintainUsersCanAllocateUPC + '</td></tr><tr><td>' + mgUserRequestorRights.ManageWorkgroup + '</td><td>' + forMaintainUsersCanMngWkg + '</td></tr></table>');
+    //    }
+    if ($.trim('@ViewBag.defaultUserName') != "" || $.trim('@ViewBag.UsersInRole') != "") {
+        if (selectedWorkgroupRole.match('Reviewer') || selectedWorkgroupRole.match('UMGI Global Clearance')) {
+            ShowMaintainUsers = $('<ul style=""><li class="mngUserSplRightsLi"><div class="mngUserSplRightsLabelDiv" >' + mgUserRequestorRights.DefaultUsers + '</div><div class="mngUserSplRightsNamesDataDiv">' + forDefaultUserName + '</div></li><li class="mngUserSplRightsLi"><div class="mngUserSplRightsLabelDiv" >' + mgUserRequestorRights.Reviewer + '</div><div class="mngUserSplRightsNamesDataDiv">' + forMaintainUsersInRole + '</div></li></ul>');
+            $("#btnManageUsers").css("margin-top", "5px");
+            //$('<table id="tblUserRightsInfo"><tr><td>' + mgUserRequestorRights.DefaultUsers + '</td><td>' + forDefaultUserName + '</td></tr><tr><td>' + mgUserRequestorRights.Reviewer + '</td><td>' + forMaintainUsersInRole + '</td></tr></table>');
+        }
+
+        window.parent.$("#tduserList").html(ShowMaintainUsers.html());
+    }
+    //Manage Users CR Ends
+    LoadArtistContract();
+    LoadResourceContract();
+    $(document).ready(function () {
+        //$(".contentDv:first").toggle();
+        $(".contentDv").show();
+        $("h5").click(function () {
+            var obj = $(this).closest("div").parent();
+            $(obj).find('.contentDv').toggle();
+            $(this).toggleClass('rightArrow');
+        });
+
+    });
+
+    $('#ViewWorkgroup').css("overflowY", "auto");
+    $('.viewWorkGroupScroll').css("overflowY", "hidden !important");
+    $('#jqgridArtistContract .jtable-main-container').css("width", "auto");
+     
+</script>

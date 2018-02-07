@@ -1,0 +1,512 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.UI.Extensions
+@model UMGI.GRCS.UI.Models.ClearanceResourceModel
+@{
+    ViewBag.Title = "Search for Resource";
+    Layout = "";
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<link href="@VersionExtension.GetFileLastVersion(Url.Content("/GCS/Content/SubPages/search-pa.min.css"))" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    var NoRecordsFoundMsg = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.NoRecordsFoundMsg';
+    var mandatorylinkArtist = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.Js_LinkArtist';
+    var NoRightsInGRS = '@UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.msgNoRightsInGRS';
+
+    $(document).ready(function () {
+        jQuery("#freehandComments").watermark("Comments");
+        MoneyValidator('#freeHandResource_SuggestedFee');
+        TextAreaValidationForMax('#freeHandResource_Comments');
+    });
+
+    function TextAreaValidationForMax(id) {
+        $('textarea').keydown(function (event) {
+            if (event.keyCode == 13) {
+                event.stopPropagation();
+            }
+            else {
+                if (this.value.length >= 1073741824) {
+
+                    return false;
+                }
+            }
+        });
+    }
+
+    function ValidateDuration(id) {
+        var v_text = $(id).val();
+        var v_regex = new RegExp("^[0-9]{1,2}:[0-9]{2}:[0-9]{2}$");
+
+        if ($(id).val() != '') {
+            if (!v_regex.test(v_text)) {
+                $('#warningmessage')[0].innerText = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.DurationAndExcerptTimeMsg';
+                $('#warningmessage').addClass('warning');
+                $('#warningmessage').slideDown(0)
+                $(id).addClass('input-validation-error');
+                $(id).focus();
+                return false;
+            }
+            else {
+                $(id).removeClass('input-validation-error');
+            }
+        }
+        return true;
+    }
+
+    function MoneyValidator(id) {
+        $(id).keyup(function (event) {
+            if ($(id)[0].value > 922337203685477) {
+                $('#warningmessage')[0].innerText = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MoneyRange';
+                    $('#warningmessage').addClass('warning');
+                    $('#warningmessage').slideDown(0)
+                    $(id).focus();
+                    return false;
+                }
+        });
+        }
+
+        function MoneyValidatorOnSubmit(id) {
+            if ($(id)[0].value > 922337203685477) {
+                $('#warningmessage')[0].innerText = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MoneyRange';
+                $('#warningmessage').addClass('warning');
+                $('#warningmessage').slideDown(0)
+                $(id).focus();
+                return false;
+            }
+            return true;
+        }
+
+        function isInt(value) {
+            return !isNaN(parseInt(value, 10)) && (parseFloat(value, 10) == parseInt(value, 10));
+        }
+
+        function OnlyNumeric(event, inputType) {
+            if (window.event) { var charCode = window.event.keyCode; }
+            else if (event) { var charCode = event.which; }
+            else { return true; }
+
+            if (inputType == 'i') {
+                if (window.event.shiftKey == false) {
+                    if ((charCode > 47 && charCode < 58) || (charCode == 8) || (charCode == 56) || (charCode >= 96 && charCode <= 105)) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+
+            }
+
+            else if (inputType == 'c') {
+                if (charCode > 31 && ((charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)))
+                { return false; }
+            }
+            else if (inputType == 'a') {
+                if (charCode > 31 && ((charCode < 48 || charCode > 57) && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122)))
+                { return false; }
+            }
+            else {
+
+                return true;
+            }
+            return true;
+        }
+</script>
+
+<div class="searchBox search-bx-mrgin">
+    <div id="warningmessage" class="error-msg-margin">
+    </div>
+    <div class="wrapper">
+        <!-- Row 1-->
+        <div class="row">
+            <!--Start Artist Title -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchArtistNameLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtArtistNameResource")
+                </div>
+            </div>
+            <!--End Artist Title -->
+            <!--Start ISRC Title -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchISRCLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtISRCResource")
+                </div>
+            </div>
+            <!--END ISRC Title -->
+            <!--Start UPC Title -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchUPCLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtUPCResource")
+                </div>
+            </div>
+            <!--End UPC Title -->
+        </div>
+        <!-- End Row1 -->
+        <!-- Start Row2 -->
+        <div class="row">
+            <!-- txtArtistIdResource Start Here -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchArtistIdLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtArtistIdResource")
+                </div>
+            </div>
+            <!-- txtArtistIdResource End Here -->
+            <!-- txtResourceTitleResource Start Here -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchResourceTitleLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtResourceTitleResource")
+                </div>
+            </div>
+            <!-- txtResourceTitleResource End Here -->
+
+            <!-- AdvResSearchVersionTitleLabel Start Here -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchVersionTitleLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtVersionTitleResource")
+                </div>
+            </div>
+            <!-- AdvResSearchVersionTitleLabel End Here -->
+            <!-- txtReleaseTitleResource Start Here -->
+            <div class="sbox-col floatL" style="display: none;">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchReleaseTitleLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtReleaseTitleResource")
+                </div>
+            </div>
+            <!-- txtReleaseTitleResource End Here -->
+        </div>
+        <!-- End Row2 -->
+        <!-- Start Row3 -->
+        <div class="row">
+            <!-- Blank Cell Start Here -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.R2ProjectIdLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtR2ProjectIDResource")
+                </div>
+            </div>
+            <!-- Blank Cell End Here -->
+
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    &nbsp;
+                </div>
+                <div class="sval floatR text-align-left labelbold">
+                    @Html.CheckBox("chkMob")
+                    @ClearanceLayout.AdvResSearchIncludeMobileChkbox
+                </div>
+            </div>
+            <!-- AdvResSearchResourceTypeDrpdwn Start Here -->
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.AdvResSearchResourceTypeDrpdwn
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.DropDownListFor(model => model.ResourceTypeId, new SelectList(Model.ResourceType, "Value", "Text", Model.ResourceType), new { @id = "ddlResourceType" })
+                </div>
+            </div>
+            <!-- AdvResSearchResourceTypeDrpdwn End Here -->
+        </div>
+        <!-- End Row3 -->
+        <!-- Start Row4 -->
+        <div class="row">
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    &nbsp;
+                </div>
+                <div class="sval floatR text-align-left">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    &nbsp;
+                </div>
+                <div class="sval floatR text-align-left labelbold">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="sbox-col floatL">
+                <div class="slabel floatL text-align-right">
+                    &nbsp;
+                </div>
+                <div class="sval floatR text-align-left">
+                    <input type="hidden" id ="hdnResourceId" value="@ViewData["id"].ToString()" />
+                    <input id="btnSearchResource" class="primbutton" type="button" value="@ClearanceLayout.SearchButton" />
+                    <input id="btnSearchResourceReset" class="secbutton" type="button" value="@ClearanceLayout.ResetButton" />
+                </div>
+            </div>
+        </div>
+        <!-- End Row4 -->
+    </div>
+</div>
+<div id="AdvanceResource">
+    @Html.HiddenFor(model => model.rowIndex, new { id = "hdnRowIndex" })
+</div>
+<div id="ArtistDialog">
+</div>
+<div style="padding: 0 15px !important;">
+    <table style="width: 100%;">
+        <tr id="trNoResults" style="display: none;">
+            <td align="left" colspan="4">
+                @Html.Label(@ClearanceLayout.AdvResSearchNoResultsFoundForMsg)<span id="spnNoResults"
+                    style="font-weight: bold;"></span> &nbsp;
+                <input id="addFreeHand" type="button" value="Add Freehand" class="plbutton" />
+            </td>
+        </tr>
+        <tr id="trShowMessage" style="display: none;">
+            <td align="left" colspan="4">
+                <div class="error" style="margin-top: 5px;">
+                    "<span id="spnIsrc" style="font-weight: bold;">"</span> @Html.Label(@ClearanceLayout.AdvResSearchResourcesAlreadyExistForISRCMsg)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="freeHand" class="adv-search-freehand">
+                    <tr>
+                        <td>
+                            <div id="mainPanelDvPAD1" class="mainPanelDvPAD">
+                                <div class="headerDv1 adv-search-header">
+                                    <table style="margin-top: -1px; margin-left: 10px; color: #fff;">
+                                        <tr>
+                                            <td class="labelbold ver-top adv-searc-label">
+                                                <span class="madatoryField">@mandatory</span>
+                                                @ClearanceLayout.MasterProjectResourcesArtistLabel
+                                            </td>
+                                            <td class="bar">&nbsp;
+                                            </td>
+                                            <td id="divArtistName" class="ver-top adv-searc-artist-list" title=""></td>
+                                            <td class="ver-top">
+                                                <input type="hidden" id="hdnFreehandRowId" value="1" />
+                                                <input id="btnManageArtist" type="button" value="@ClearanceLayout.AdvResSearchManageArtistButton"  class="plbutton" />
+                                            </td>
+                                            <td style="display: none;" id="hdnArtistId" class="ver-top"></td>
+                                            <td class="bar">&nbsp;
+                                            </td>
+                                            <td class="ver-top">
+                                                <span class="madatoryField">@mandatory</span> <span class="labelbold">@ClearanceLayout.AdvResSearchTitleLabel</span>&nbsp;@Html.TextBoxFor(model => model.freeHandResource.Title, new { id = "txtFreeHandResourceTitle", style = "width:90px; !important", maxlength = 275 })
+                                            </td>
+                                            <td class="bar">&nbsp;
+                                            </td>
+                                            <td class="ver-top">
+                                                <span class="labelbold">
+                                                    @ClearanceLayout.AdvResSearchVersionTitleLabel
+                                                </span>&nbsp;@Html.TextBoxFor(model => model.freeHandResource.VersionTitle, new { style = "width:90px; !important", maxlength = 275 })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div style="clear: both">
+                                    </div>
+                                </div>
+                                <div class="contentDv" style="display: block;">
+                                    <div class="wrapper">
+                                        <!-- Start Row missed-->
+                                        <div class="row">
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.AdvResSearchRecordTypeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.DropDownListFor(model => model.RecordingTypeId, new SelectList(Model.RecordingType, "Value", "Text", Model.RecordingType), new { id = "ddlRecordingTypeFreeHand", style = "width:110px !important;" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.AdvResSearchDurationLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.TextBoxFor(model => model.freeHandResource.Duration, new { style = "width:110px !important;", onblur = "return ValidateDuration(this);", title = "Format: HH:MM:SS" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.MasterProjectResourcesSuggestedFeeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.TextBoxFor(model => model.freeHandResource.SuggestedFee, new { onkeydown = "return OnlyNumeric(event, 'i');", style = "width:110px !important;" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row1 -->
+                                        <!-- Start Row1-->
+                                        <div class="row">
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.AdvResSearchResourceTypeDrpdwn
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.DropDownListFor(model => model.ResourceTypeId, new SelectList(Model.ResourceType, "Value", "Text", Model.ResourceType), new { @id = "ResourceTypeFreehand", style = "width:110px !important;" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    <label class="madatoryField" id="excerptTimeMandatory" style="display: none;">@mandatory</label>
+                                                    @ClearanceLayout.MasterProjectResourcesExcerptTimeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.TextBoxFor(model => model.freeHandResource.ExcerptTime, new { style = "width: 110px !important;", onblur = "return ValidateDuration(this);", title = "Format: HH:MM:SS" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    &nbsp;
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row1 -->
+                                        <!-- Start Row2-->
+                                        <div class="row">
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.MasterProjectResourcesMusicTypeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.DropDownListFor(model => model.MusicType, new SelectList(Model.MusicType, "Value", "Text", Model.MusicType), new { style = "width:110px;" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    &nbsp;
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    &nbsp;
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row2 -->
+                                        <!-- Start Row3-->
+                                        <div class="row">
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    @Html.TextAreaFor(model => model.freeHandResource.Comments, new { id = "freehandComments", @class = "small-width-textarea" })
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.MasterProjectResourcesReleaseCountriesIncludeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    <ul class="manu-umg-pi">
+                                                        <li class="adv-wrapText">
+                                                            <div id="selectedCountries_200">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <input type="button" id="btnManageTerritories_200" class="plbutton" value="Manage Territories"
+                                                                onclick="ParentLoadTerritories(200);" />
+                                                            <input id="hdnterritoryDetailsForSave_200" type="hidden" class="hdnManageTerriCls"
+                                                                name="hdnterritoryDetailsForSave_200" />
+                                                            <input id="hdnincludeTerritoryString_200" name="hdnincludeTerritoryString_200" type="hidden" value="" />
+                                                            <input id="hdnExcludeTerritoryString_200" name="hdnExcludeTerritoryString_200" type="hidden" value="" /></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="sbox-col floatL">
+                                                <div class="slabel floatL text-align-right">
+                                                    @ClearanceLayout.MasterProjectResourcesReleaseCountriesExcludeLabel
+                                                </div>
+                                                <div class="sval floatR text-align-left">
+                                                    <ul class="manu-umg-pi">
+                                                        <li class="adv-wrapText">
+                                                            <div id="UnselectedCountries_200">
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row3 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="trShowPaging" style="display: none;">
+            <td align="left" colspan="6" width="50%">
+                <table class="popupTableResult">
+                    <tr>
+                        <td align="left" style="line-height: 24px;">
+                            <b>@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel</b> &nbsp;
+                            "<span id="spnSearchResult" style="font-weight: bold;"></span>"&nbsp;(<span id="resultCnt" style="font-weight: bold;"></span>)
+                        </td>
+                        <td align="right" style="line-height: 24px;">
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown
+                            @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPaging" })
+                            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">
+                <div id="searchProjectList">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="6">
+                <div id="SelectedRowList" style="display: none;">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr id="trAddProject" style="display: none;">
+            <td style="width: 100%; padding-right: 4px; *padding-right: 15px; padding-right: 10px\0;"
+                align="right">
+                <input id="btnaddToProject" class="secbutton" type="button" name="command" value="Add to Project" />
+            </td>
+        </tr>
+    </table>
+    <div id="AddToProjectResult" class="popupTable clear">
+        <div id="AddToProjectList"></div>
+    </div>
+    <div id="DivRolesAndRight">
+    </div>
+</div>
+<script src="@VersionExtension.GetFileLastVersion(Url.Content("/GCS/Scripts/Custom/Resources.js"))" type="text/javascript"></script>

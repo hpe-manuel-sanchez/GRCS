@@ -1,0 +1,680 @@
+﻿@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+@model UMGI.GRCS.UI.Models.ContractTabModel
+@{
+    ViewBag.Title = @ContractResource.ContractMenu;
+}
+<script src="@Url.Content("/GCS/Scripts/Custom/ContractTab.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/contractTab.min.css")"  rel="stylesheet" type="text/css" />
+<style>
+    .ui-autocomplete-loading {
+        background: white url("/GCS/Images/GRS_loading_Circle_icon.gif") right center no-repeat;
+    }
+</style>
+
+<script type="text/javascript">
+    var msg = '@ViewBag.displayMessage';
+    if (msg == "Split" && msg != null) {
+        SplitDealPopup();
+    }
+    else if (msg != null) {
+        displayDialog("Info", msg);
+    }
+    $('#unlink').click(function () {
+        var formValues = GetFormValues();
+        formValues = formValues + '&flag=Unlink';
+        $.post('/GCS/Contract/AddParentContract', formValues, function (data) {
+            $('#divContractTab').html(data);
+            reSize();
+            if ($('.childContract').length > 0)
+                $('.childContract').hide();
+            DecodeTerritorial();
+        }).error(function () {
+            DecodeTerritorial();
+            objDialog.html('<p>Error in loading...</p>');
+            objDialog.dialog('open', { title: 'Warning' });
+        });
+    });
+</script>
+
+@using (Html.BeginForm("ContractCreation", "Contract", FormMethod.Post, new { Id = "ContractTabForm" }))
+{
+
+    <input type="hidden" value="@ViewBag.displaymessage" id="contractTemplateStatus" />
+    <div class="scrollContract">
+        <div class="accordionRightMargin" id="accordion">
+            <div id="collapsed">
+                <div class="headParent">
+                    <div class="leftRight">
+                        @Html.HiddenFor(model => model.Contract.ContractId) @*// To Store contract id for save the contract *@
+                        @Html.Hidden("ParentContract", Model.Contract.ParentContractId)  @*// To Store parent contract id for save the contract *@
+                        @Html.Hidden("UserRoleName", Model.UserRoleName) @*// Role Name used for validate the user role. based user role we will hide and show fields *@
+                        @Html.Hidden("HasChild", Model.Contract.HasChildContract)  @*// Used to identify the parent contract or not. *@
+                        <a class="header alignLeft" href="#">@ContractResource.ParentContractHeading</a>
+                        @{
+    var value = Model.Contract.ParentContractId.HasValue ? Model.Contract.ParentContractId.Value :
+    0;
+                        }
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkNCRContractToContract }) && (value == 0))
+                        {
+                            <a id="linkParent" class="alignRight"
+                                href="javascript:void(0);">@ContractResource.AssignParentContractLink</a>
+                        }
+                    </div>
+                    <!-- <hr class="hrContract" /> -->
+                </div>
+                <div class="accItem">
+                    @if (!Model.AddParentContract.Any())
+                    {
+                    }
+                    else
+                    {
+                        <input type="hidden" id="parentCount" value="@Model.AddParentContract.Count" />
+                        <div id="divParentContract">
+                            <table id="AddParent" class="sample">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            @ContractResource.ArtistName
+                                        </th>
+                                        <th>
+                                            @ContractResource.ContractingParty
+                                        </th>
+                                        <th>
+                                            @ContractResource.ContractDescription
+                                        </th>
+                                        <th>
+                                            @ContractResource.ClearanceCompanyParent
+                                        </th>
+                                        <th>
+                                            @ContractResource.ParentLocalRefNo
+                                        </th>
+
+                                        <th>
+                                            @ContractResource.ParentContractID
+                                        </th>
+                                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnLinkNCRContractToContract }))
+                                        {
+                                            <th>
+                                                @ContractResource.ActionColumn
+                                            </th>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int index = 0; index < Model.AddParentContract.Count(); index++)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayFor(model => model.AddParentContract[index].ArtistName)
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ContractingParty", index), Html.Encode(Model.AddParentContract[index].ContractingParty))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ContractDescription", index), Html.Encode(Model.AddParentContract[index].ContractDescription))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ClearanceCompanyCountry", index), Html.Encode(Model.AddParentContract[index].ClearanceCompanyCountry))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].LocalContractRefNumber", index), Html.Encode(Model.AddParentContract[index].LocalContractRefNumber))
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(model => Model.Contract.ParentContractId)
+                                            </td>
+                                            @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnLinkNCRContractToContract }))
+                                            {
+                                                <td>
+                                                    <a href="javascript:void(0);" id="unlink">@ContractResource.UnlinkParent</a>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    }
+                </div>
+                <div class="headSplit">
+                    <div class="leftRight">
+                        <a href="#" class="header alignLeft">@ContractResource.SplitDealHeader
+                            <img src="/GCS/Images/flag_orange.gif" alt="Split Deal" style="display: none; border: none; vertical-align: top; padding-left: 5px;" id="splitFlag" />
+                        </a>
+                        <!-- <hr class="hrContract" /> -->
+
+                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkSplitContractToContract }) && Model.Contract.ContractId > 0)
+                        {
+                            <a id="linkSplitDeal" class="alignRight"
+                                href="javascript:void(0);">Add Split Deal Contract</a>
+                        }
+                    </div>
+                </div>
+                <div class="accItem" style="clear: both;" id="splitDeal">
+                    @if (!Model.SplitContract.Any())
+                    {
+
+                    }
+                    else
+                    {
+                        <input type="hidden" id="splitCount" value="@Model.SplitContract.Count()" />
+                        <div>
+                            <table class="sample">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            @ContractResource.ArtistName
+                                        </th>
+                                        <th>
+                                            @ContractResource.ContractingParty
+                                        </th>
+                                        <th>
+                                            @ContractResource.ContractDescription
+                                        </th>
+                                        <th>
+                                            @ContractResource.ClearanceCompanyParent
+                                        </th>
+                                        <th>
+                                            @ContractResource.ParentLocalRefNo
+                                        </th>
+
+                                        <th>
+                                            @ContractResource.ContractId
+                                        </th>
+                                        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnlinkSplitContractToContract }))
+                                        {
+                                            <th>
+                                                @ContractResource.ActionColumn
+                                            </th>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int index = 0; index < Model.SplitContract.Count(); index++)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayFor(model => model.SplitContract[index].ArtistName)
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ContractingParty", index), Html.Encode(Model.SplitContract[index].ContractingParty))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ContractDescription", index), Html.Encode(Model.SplitContract[index].ContractDescription))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].ClearanceCompanyCountry", index), Html.Encode(Model.SplitContract[index].ClearanceCompanyCountry))
+                                            </td>
+                                            <td>
+                                                @Html.Label(string.Format("AddParentContract[{0}].LocalContractRefNumber", index), Html.Encode(Model.SplitContract[index].LocalContractRefNumber))
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(model => Model.SplitContract[index].ContractId)
+                                            </td>
+                                            @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnlinkSplitContractToContract }))
+                                            {
+                                                <td>
+                                                    <a href="javascript:void(0);"  id = "@Model.SplitContract[index].ContractId" class ="UnlinkSplit" >@ContractResource.UnlinkParent</a>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="head">
+                <div class="leftRight">
+                    <a href="#" class="header alignLeft">@ContractResource.ContractHead</a>
+                    <!-- <hr class="hrContract" /> -->
+                </div>
+            </div>
+            <div class="accbg">
+                <div class="dvWrapper">
+                    <!--- ROW 6-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ClearanceCompanyCountry):
+                        </div>
+
+                        <div class="leftFieldDiv search-button">
+                            @Html.TextBoxFor(model => model.Contract.ClearanceCompanyCountry, new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Contract") })
+                            @Html.ValidationMessageFor(model => model.Contract.ClearanceCompanyCountry)
+                            @Html.HiddenFor(model => model.Contract.ClearanceCompanyCountryId)   @*// This auto search text box. so need to pass clearanceCompanyCountryId while save *@
+                            @Html.Hidden("ClearanceCompanyId", Model.Contract.ClearanceCompanyId)  @*// This auto search text box. so need to pass ClearanceCompanyId while save *@
+                            @Html.Hidden("ClearanceCountryId", Model.Contract.ClearanceCountryId) @*// This auto search text box. so need to pass ClearanceCountryId while save *@
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.UmgSigningCompany):
+                        </div>
+
+                        <div class="rightFieldDiv search-button">
+                            @Html.TextBoxFor(model => model.Contract.UmgSigningCompany, new { data_autocomplete_source_manual = @Url.Action("AutoSearchUmgSigningCompany", "Contract") })
+                            @Html.ValidationMessageFor(model => model.Contract.UmgSigningCompany)
+                            @Html.HiddenFor(model => model.Contract.UmgSigningCompanyId)  @*// This auto search text box. so need to pass UmgSigningCompanyId while save *@
+                        </div>
+                    </div>
+                    <div class="clearStyle"></div>
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ArtistName):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.TextBoxFor(model => model.Contract.ArtistName, new { disabled = "disabled", @class = "grayColor" })
+                            <input id="openArtistPopup" type="submit" value=" @ContractResource.AddButton" class="primbutton addArtistButton" onclick="return false;" />
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ArtistId):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.TextBoxFor(model => model.Contract.ArtistId, new { disabled = "disabled", @class = "grayColor", col = 60, row = 1 })
+                        </div>
+                    </div>
+                    <!-- END -->
+                    <div class="clearStyle"></div>
+                    <!--- ROW 2-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ContractingParty):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.EditorFor(model => model.Contract.ContractingParty)
+                            @Html.ValidationMessageFor(model => model.Contract.ContractingParty)
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ArtistNameInLocalCharacters):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.EditorFor(model => model.Contract.ArtistNameInLocalCharacters)
+                            @Html.ValidationMessageFor(model => model.Contract.ArtistNameInLocalCharacters)
+                        </div>
+                    </div>
+                    <!-- END -->
+
+                    <!-- END ROW2 -->
+                    <div class="clearStyle"></div>
+                    <!--- ROW 3-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ContractStatusId):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.DropDownListFor(model => model.Contract.ContractStatusId, new SelectList(Model.ContractStatusList, "value", "text", Model.Contract.ContractStatusId))
+                            @Html.ValidationMessageFor(model => model.Contract.ContractStatusId)
+                        </div>
+                        <div class="displayNone">
+                            @Html.DropDownList("ddlWorkflowStatus", new SelectList(Model.WorkFlowStatus, "value", "text", Model.Contract.WorkflowStatusId))
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.LocalContractRefNumber):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.TextBoxFor(model => model.Contract.LocalContractRefNumber, new { maxlength = 20 })
+                            @Html.ValidationMessageFor(model => model.Contract.LocalContractRefNumber)
+                        </div>
+                    </div>
+                    <!-- END -->
+
+                    <!-- END ROW3 -->
+
+                    <div class="clearStyle"></div>
+                    <!--- ROW 4-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel contractDesc">
+                            @Html.LabelFor(model => model.Contract.ContractDescription):
+                        </div>
+                        <div class="leftFieldDiv  contractDescCombo">
+                            @Html.DropDownListFor(model => model.Contract.ContractDescription, new SelectList(Model.ContractDescriptionList, "value", "text", Model.Contract.ContractDescription), new { maxlength = 255 })
+                            @Html.Hidden("ddlContractDescription", Model.Contract.ContractDescription) @*// To Store ContractDescription for save the contract *@
+                            <span class="search-button"></span>
+                            @Html.ValidationMessageFor(model => model.Contract.ContractDescription)
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            &nbsp;
+                        </div>
+                        <div class="rightFieldDiv">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <!-- END -->
+
+                    <!-- END ROW4 -->
+                    <div class="clearStyle"></div>
+                    <!--- ROW 5-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ContractCommencementDate):
+                        </div>
+                        <div class="leftFieldDiv">
+                            <div class="startCommencementDate">
+                                @Html.EditorFor(model => model.Contract.ContractCommencementDate)
+                                @Html.ValidationMessageFor(model => model.Contract.ContractCommencementDate)
+                            </div>
+
+                            <div id="divEndDate" class="endCommencementDate">
+                                <div class="floatLeft" style="margin-top: 0.5em;">@Html.LabelFor(model => model.Contract.ContractEndDate)@Html.Label(":")</div>
+                                <div class="floatLeft" style="margin-left: 5px;">
+                                    @Html.EditorFor(model => model.Contract.ContractEndDate)
+                                    @Html.ValidationMessageFor(model => model.Contract.ContractEndDate)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.IsContractInActiveRoster):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.DropDownList("Contract_IsContractInActiveRoster", new SelectList(Model.OnActiveRosterList, "value", "text", Model.Contract.IsContractInActiveRoster.HasValue ? (Model.Contract.IsContractInActiveRoster.Value ? 2 : 1) : 2))
+                            @Html.ValidationMessageFor(model => model.Contract.IsContractInActiveRoster)
+                        </div>
+                    </div>
+                    <!-- END -->
+
+                    <!-- END ROW5 -->
+                    <div class="clearStyle"></div>
+
+                    <!-- END -->
+                </div>
+                <!-- END ROW6 -->
+            </div>
+            <div class="head">
+                <div class="leftRight">
+                    <a href="#" class="header alignLeft">@ContractResource.TerritorialRightsHeader</a>
+                </div>
+                <div>
+                    <!--  <hr class="hrContract" /> -->
+                </div>
+            </div>
+            <div class="accbg">
+                <div class="accItem terrRightsDef">
+                    <p id="TerritorialItems" class="territorialItems alignLeft">
+                        @ContractResource.TerritorialRightsDefinition
+                    </p>
+
+                    <div class="alignLeft" id="territorialField">@Html.TextAreaFor(model => model.Contract.TerritorialRightsDefinition, new { readOnly = "readOnly" })</div>
+                    @*// Used to save TerritorialRightsDefinition *@
+
+                    <a id="linkTerritorialRights" href="javascript:void(0);">
+                        <img src="/GCS/Images/plus sign.gif" alt="Add" class="addImage" />@ContractResource.AddEditTerritorialRightsLink</a>
+                </div>
+
+                <br style="clear: both;" />
+
+                <hr class="territorialLine" noshade="noshade" />
+
+                <div class="dvWrapper">
+                    <div class="clearStyle"></div>
+                    <!--- ROW 1-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel" style="margin-top: 0.2em;">
+                            @Html.LabelFor(model => model.Contract.RightsPeriodId):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.DropDownListFor(model => model.Contract.RightsPeriodId, new SelectList(Model.RightsPeriodList, "value", "text", Model.Contract.RightsPeriodId))
+                            @Html.ValidationMessageFor(model => model.Contract.RightsPeriodId)
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.RightsReversion):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.EditorFor(model => model.Contract.RightsReversion)
+                            @Html.ValidationMessageFor(model => model.Contract.RightsReversion)
+                        </div>
+                    </div>
+                    <!-- END -->
+                    <!-- END ROW1 -->
+                    <!--- ROW 2-->
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel" style="margin-top: 0.2em;">
+                            @Html.LabelFor(model => model.Contract.RightsExpiryRule):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.TextAreaFor(model => model.Contract.RightsExpiryRule, new { disabled = "disabled", @class = "disabled text-box", col = 60, row = 1 })
+                            @Html.ValidationMessageFor(model => model.Contract.RightsExpiryRule)
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            &nbsp;
+                        </div>
+                        <div class="rightFieldDiv">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <!-- END -->
+                    <!-- END ROW2 -->
+                    <!--- ROW 3-->
+
+                    <br class="clear" />
+
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel" style="margin-top: 0.2em;">
+                            @Html.LabelFor(model => model.Contract.IsLossRightsIndicator):
+                        </div>
+                        <div class="leftFieldDiv">
+                            <div style="float: left; width: 18%;">
+                                @Html.DropDownList("Contract_IsLossRightsIndicator", new SelectList(Model.LostRightsIndicatorList, "value", "text", Model.Contract.IsLossRightsIndicator ? 0 : 1))
+                                <div id="lostRightsValidation" style="background: #ffffff; margin-left: -5.5em; color: Red;">
+                                    <a style="height: 5px; width: .5em;">
+                                        <img src="/GCS/Images/alert.png" alt="Warning" /></a><b>@ContractResource.WarningMessage</b>@ContractResource.LostRightsMessage
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Contract.IsLossRightsIndicator)
+                            </div>
+
+                            <div class="floatLeft" id="divRightsExpiryDate">
+                                <div class="allignLabel floatLeft">
+                                    @Html.LabelFor(model => model.Contract.RightsExpiryDate):
+                                </div>
+                                <div class="floatLeft" style="margin-left: 5px;">
+                                    @Html.EditorFor(model => model.Contract.RightsExpiryDate)
+                                    @Html.ValidationMessageFor(model => model.Contract.RightsExpiryDate)
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="leftMainDiv" style="width: 100%; margin-top: 10px;">
+                            <div class="leftLabelDiv allignLabel" style="margin-top: 0.2em;">
+                                @Html.LabelFor(model => model.Contract.LostRightsReasonId):
+                            </div>
+                            <div class="leftFieldDiv">
+                                @Html.DropDownListFor(model => model.Contract.LostRightsReasonId, new SelectList(Model.LostRightsReasonList, "value", "text", Model.Contract.LostRightsReasonId))
+                                @Html.ValidationMessageFor(model => model.Contract.LostRightsReasonId)
+                            </div>
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.RightsExceptions):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.EditorFor(model => model.Contract.RightsExceptions)
+                            @Html.ValidationMessageFor(model => model.Contract.RightsExceptions)
+                            <div class="clearStyle"></div>
+                            <div style="margin-top: 10px;">
+                                <div style="float: left; width: 5%; vertical-align: top; border: 0px solid red; margin-left: -5px;">
+                                    @Html.EditorFor(model => model.Contract.IsRightsExceptionApplied)
+
+                                    @Html.ValidationMessageFor(model => model.Contract.IsRightsExceptionApplied)
+                                </div>
+                                <div class="floatLeft rightsExceptionApplied">
+                                    <span>@Html.LabelFor(model => model.Contract.IsRightsExceptionApplied)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END -->
+                    <!-- END ROW3 -->
+                </div>
+            </div>
+            <div class="head">
+                <div class="leftRight">
+                    <a href="#" class="header alignLeft">@ContractResource.RepertoireDefaultsHeader</a>
+                    <!-- <hr class="hrContract" /> -->
+                </div>
+            </div>
+            <div class="accbg">
+                <div class="dvWrapper">
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.PcNoticeCountryCompany):
+                        </div>
+                        <div class="leftFieldDiv" style="width: 65%;">
+                            @Html.DropDownListFor(model => model.Contract.PcNoticeCountryCompanyId, new SelectList(Model.PcCompanyCountryList, "value", "text", Model.Contract.PcNoticeCountryCompanyId))
+
+                            @Html.Hidden("ddlPCNoticeCountryCompany", Model.Contract.PcNoticeCountryCompany) @*// Used to save PcNoticeCountryCompany *@
+                            @Html.Hidden("hiddenPCNoticeCountryCompanyId", Model.Contract.PcNoticeCountryCompanyId) @*// Used to save PcNoticeCountryCompanyId *@
+
+                            <span class="search-button"></span>
+                            <input type="submit" value=" @ContractResource.SearchButton" class="smallButton primbutton" id="linkPCNoticeCompany"
+                                   onclick="return false;" />
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.PcNoticeCompanyExtension):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.EditorFor(model => model.Contract.PcNoticeCompanyExtension)
+                            @Html.ValidationMessageFor(model => model.Contract.PcNoticeCompanyExtension)
+                        </div>
+                    </div>
+                    <!-- END -->
+                    <div class="clearStyle"></div>
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.RightsTypeId):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.DropDownListFor(model => model.Contract.RightsTypeId, new SelectList(Model.RightsType, "value", "text", Model.Contract.RightsTypeId))
+                            @Html.ValidationMessageFor(model => model.Contract.RightsTypeId)
+                            @Html.HiddenFor(model => model.Contract.IsRightsTypeChanged)  @*// For validation we used this Hidden variable *@
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.IsLegalRightsReviewRequired):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.DropDownList("Contract_IsLegalRightsReviewRequired", new SelectList(Model.LegalReviewRequiredList, "value", "text", Model.Contract.IsLegalRightsReviewRequired.HasValue ? (Model.Contract.IsLegalRightsReviewRequired.Value ? 0 : 1) : 1))
+                            @Html.ValidationMessageFor(model => model.Contract.IsLegalRightsReviewRequired)
+                        </div>
+                    </div>
+                    <!-- END -->
+                </div>
+            </div>
+            <div class="head">
+                <div class="leftRight">
+                    <a href="#" class="header alignLeft">@ContractResource.ClearanceControlsHeader</a>
+                </div>
+                <!-- <hr class="hrContract" /> -->
+            </div>
+            <div class="accbg">
+                <div class="dvWrapper">
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.IsActiveForMarketing):
+                        </div>
+                        <div class="leftFieldDiv">
+                            <div style="float: left; width: 25%;">
+                                @Html.DropDownList("Contract_IsActiveForMarketing", new SelectList(Model.ActiveForMarketingList, "value", "text", Model.Contract.IsActiveForMarketing.HasValue ? (Model.Contract.IsActiveForMarketing.Value ? 0 : 1) : 0))
+                                @Html.HiddenFor(model => model.Contract.IsActiveForMarketingChanged) @*// For validation we used this Hidden variable *@
+                                @Html.ValidationMessageFor(model => model.Contract.IsActiveForMarketing)
+                            </div>
+                            <div style="float: left; border: 0px solid yellow; width: 67%;">
+                                <div class="allignLabel" style="float: left; text-align: right;">
+                                    @Html.LabelFor(model => model.Contract.IsSensitiveArtist):
+                                </div>
+                                <div style="float: left;">
+                                    @Html.DropDownList("Contract_IsSensitiveArtist", new SelectList(Model.SensitiveArtistList, "value", "text", Model.Contract.IsSensitiveArtist.HasValue ? (Model.Contract.IsSensitiveArtist.Value ? 0 : 1) : 1))
+                                    @Html.ValidationMessageFor(model => model.Contract.IsSensitiveArtist)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.ClearingNotes):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.TextAreaFor(model => model.Contract.ClearingNotes)
+                            @Html.ValidationMessageFor(model => model.Contract.ClearingNotes)
+                            <div class="clearBoth">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END -->
+                </div>
+            </div>
+            <div class="head">
+                <div class="leftRight">
+                    <a href="javascript:void(0);" class="header alignLeft">@ContractResource.NotesNotificationsHeader</a>
+                    <!-- <hr class="hrContract" /> -->
+                </div>
+            </div>
+            <div class="accbg">
+                <div class="dvWrapper">
+                    <div class="leftMainDiv">
+                        <div class="leftLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.EmailReceipients):
+                        </div>
+                        <div class="leftFieldDiv">
+                            @Html.TextAreaFor(model => model.Contract.EmailReceipients, new { disabled = "disabled" })
+                            @Html.HiddenFor(model => model.Contract.EmailReceipientIds)
+                            <div class="clearBoth"></div>
+                            <a id="addressBook" class="displayright hyperlink" href="javascript:void(0);">@ContractResource.AddressBookLink</a>
+                            <div class="clearBoth">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- START rightMainDiv -->
+                    <div class="rightMainDiv">
+                        <div class="rightLabelDiv allignLabel">
+                            @Html.LabelFor(model => model.Contract.Notes):
+                        </div>
+                        <div class="rightFieldDiv">
+                            @Html.EditorFor(model => model.Contract.Notes)
+                            @Html.ValidationMessageFor(model => model.Contract.Notes)
+                        </div>
+                    </div>
+                    <!-- END -->
+                </div>
+            </div>
+        </div>
+    </div>
+}

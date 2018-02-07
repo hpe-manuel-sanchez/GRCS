@@ -1,0 +1,134 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities;
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+@{
+    ViewBag.Title = @ClearanceLayout.UserTransSearchProjectsForUserTransferTitle;
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    
+    string mandatory = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.MandatorySymbol;
+}
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ProjectSearchUserTransfer.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var mandatoryselectProject = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SelectProject';
+    var mandatorySearchCriteria = '@ClearanceLayout.mandatorySearchCriteria';
+    var jHProjectReferenceNumber = '@ClearanceLayout.UserTransProjectReferenceNumberHeader';  //Jtable Header for Project Reference Number
+    var jHProjectTitle = '@ClearanceLayout.UserTransProjectTitleHeader'; //Jtable Header for Project Title
+    var jHLocalReference = '@ClearanceLayout.UserTransLocalReferenceHeader'; //Jtable Header for Local Reference
+    var jHProjectType = '@ClearanceLayout.UserTransProjectTypeHeader'; //Jtable Header for Project Type
+    var jHRequeserType = '@ClearanceLayout.UserTransRequestTypeHeader'; //Jtable Header for Requester Type
+    var jHStatus = '@ClearanceLayout.UserTransStatusHeader'; //Jtable Header for Status
+    var jHRequestingCompany = '@ClearanceLayout.UserTransRequestingCompanyHeader'; //Jtable Header for Requesting Company
+    var jH3rdPartycompany = '@ClearanceLayout.UserTrans3rdPartyCompanyHeader'; //Jtable Header for 3rd Party Company
+    var jHRequestor = '@ClearanceLayout.UserTransRequestorHeader'; //Jtable Header for Requestor
+    var UserTransferPopupTitle = '@ClearanceLayout.UserTransPopupTitle';
+</script>
+
+@using (Html.BeginForm())
+{
+    <div id="divUserTransfer"></div>
+    <div id="divUserTransferErrorMessage" class="warning msg-margin"></div>
+    <div id="divUserTransferSuccessMessage" class="success  msg-margin" style="display: none"></div>
+
+    <div id="searchPanel" class="contentPanel brder-top">
+        <div id="headerScreen">
+            <h5 class="white_font_color">@ClearanceLayout.UserTransSearchProjectsForUserTransferTitle</h5>
+        </div>
+
+        <div class="contentDv editor-field" style="padding-bottom: 2px;">
+
+            <div class="column column1">
+                <ul class="srch_user_trnsfr">
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransProjectReferenceNumberTxtBox</label>
+                        @Html.TextBox("txtPRN") </li>
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransProjectTitleTxtBox</label>@Html.TextBox("txtProjectTitle") </li>
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransLocalReferenceTxtBox</label>@Html.TextBox("txtLocalReference")</li>
+                </ul>
+            </div>
+
+            <div class="column column2">
+                <ul class="srch_user_trnsfr">
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransProjectTypeDrpDwn</label>@Html.DropDownListFor(model => model.ProjectType, new SelectList(Model.ProjectType, "Value", "Text", Model.ProjectType), "Select", new { id = "ddlProjectType", onchange = "ChangeProjectType(event,this);", @class = "createfrom-existing-select" }) </li>
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransRequestTypeDrpDwn</label>@Html.DropDownListFor(model => model.RequestType, new SelectList(Model.RequestType, "Value", "Text", Model.RequestType), @ClearanceLayout.SelectDropDownLabel, new { id = "ddlRequestType", @class = "createfrom-existing-select" })</li>
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransRequestingCompanyTxtBox</label>@Html.TextBox("txtRequestingCompany")</li>
+                </ul>
+            </div>
+
+            <div class="column column3">
+                <ul class="srch_user_trnsfr">
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTrans3rdPartyCompanyTxtBox</label>@Html.TextBox("txtUPC") </li>
+                    <li>
+                        <label class="labelbold">@ClearanceLayout.UserTransRequestorTxtBox</label>@Html.TextBox("txtRequestor") </li>
+                    <li>
+                        <label class="labelbold"><span class="madatoryField">@mandatory</span> @ClearanceLayout.UserTransWorkgroupDrpDwn</label>@Html.DropDownListFor(model => model.ConfigGroupList, new SelectList(Model.ConfigGroupList, "Value", "Text", Model.ConfigGroupList)) </li>
+                    <li>
+                        <label class="labelbold">&nbsp;</label>
+                        <input id="btnSearchProjectUserTransfer" type="button" class="primbutton" value="@ClearanceLayout.SearchButton" />
+                        <input id="btnSearchProjectReset" type="button" class="secbutton" value="@ClearanceLayout.ResetButton" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchContainer dataGridWrapper">
+
+        <div class="title" id="showTitle">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.SearchResultLabel "<span id="spnProjectSearchResult"></span>"  </div>
+        <div class="pageCount" id="showPaging">
+            @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown &nbsp;
+        @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchProjectPagingUserTransfer" }) &nbsp;
+        @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage
+        </div>
+        <div class="clear"></div>
+
+        <div id="searchedProjectList" style=""></div>
+        <div id="SelectedRowList"></div>
+
+        @Html.Hidden("SelectedProjectId")
+        @section BottomInputs{
+            <span id="trAddProject" class="trAddProject" style="display: none;">
+                @Html.Hidden("hdnprojectid")
+                @Html.Hidden("hdnselectWorkgroupId")
+                @Html.Hidden("hdnShowSuccessMessage")
+                <input id="btnTransferProject"  type="button"   value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.UserTransTransferButtonText" class="primbutton" />
+            </span>
+        }
+    </div>
+
+    <div id="loadingDivPA">
+        <img alt="" src="/GCS/images/animated_gcs.gif" class="ajax-loader" />
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        applyCustomTheam();
+
+    });
+
+    function applyCustomTheam() {
+
+        var docHeight = $(window).height();
+        var headerHeight = 60;
+        var footerHeight = 45;
+
+        var mainContainerHeight = docHeight - headerHeight - footerHeight;
+        $(".mainContainer").css("height", mainContainerHeight + "px");
+
+    }
+</script>

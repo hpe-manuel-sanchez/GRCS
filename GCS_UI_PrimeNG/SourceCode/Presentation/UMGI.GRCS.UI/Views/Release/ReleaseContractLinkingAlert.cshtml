@@ -1,0 +1,81 @@
+﻿@model UMGI.GRCS.UI.Models.RepertoireSearchModel
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <script src="@Url.Content("/GCS/Scripts/Custom/ReleaseContractLinkingAlert.js")" type="text/javascript"></script>
+    <style>
+        .linkContractRelease {
+            color: Blue;
+            font-weight: bold;
+        }
+
+        #alignlefte {
+            float: right;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="hidden" value="@ViewBag.displayMessage" id="hiddenReleaseCount" />
+    <input type="hidden" value="@Model.LinkedRepertoireCount.Count" id="hiddenLinkedRepertoireCount" />
+    <input type="hidden" value="@ViewBag.pageMessage" id="sourcePage" />
+    <div style="padding: 10px;">
+        <div style="margin-top: 10px;">
+            <div style="float: left; width: 60%; margin-bottom: 10px;">
+                Below Release(s) have already been Linked to contract: <span class="linkContractRelease">
+                    <span id="artistNameRelAlert"></span>-
+                                                                               <span id="contractingPartyRelAlert"></span>-
+                                                                               <span id="clearanceAdminRelAlert"></span>
+                </span>
+            </div>
+            <div id="alignlefte" style="float: right;">
+                <input type="button" id="btnLinkedReleaseOk" value="Ok" />
+            </div>
+        </div>
+        <div id="linkContractInfo" style="clear: both; padding-top: 10px; height: 120px; position: relative; overflow-x: hidden; overflow-y: scroll; margin-bottom: 10px;">
+            <table class="sample">
+                <thead>
+                    <tr>
+                        <th style="width: 16%;">UPC
+                        </th>
+                        <th style="width: 16%;">Title
+                        </th>
+                        <th style="width: 12%;">Version Title
+                        </th>
+                        <th style="width: 12%;">Artist
+                        </th>
+                        <th style="width: 16%;">UserName
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int index = 0; index < Model.ObjReleaseModel.ReleaseItems.Count(); index++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.ObjReleaseModel.ReleaseItems[index].Upc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ObjReleaseModel.ReleaseItems[index].ReleaseTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ObjReleaseModel.ReleaseItems[index].VersionTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ObjReleaseModel.ReleaseItems[index].ArtistName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ObjReleaseModel.ReleaseItems[index].UserName)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

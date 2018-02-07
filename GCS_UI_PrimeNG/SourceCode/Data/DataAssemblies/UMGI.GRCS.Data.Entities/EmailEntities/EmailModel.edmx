@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmailModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EmailModelStoreContainer">
+          <EntitySet Name="Clr_Email_Queue" EntityType="EmailModel.Store.Clr_Email_Queue" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Email_Queue_Details" EntityType="EmailModel.Store.Clr_Email_Queue_Details" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Clr_Email_Queue_User" EntityType="EmailModel.Store.Clr_Email_Queue_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID" Association="EmailModel.Store.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+            <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+            <End Role="Clr_Email_Queue_Details" EntitySet="Clr_Email_Queue_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID" Association="EmailModel.Store.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+            <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+            <End Role="Clr_Email_Queue_User" EntitySet="Clr_Email_Queue_User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Clr_Email_Queue">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_Id" />
+          </Key>
+          <Property Name="Clr_Email_Queue_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email_Type" Type="tinyint" Nullable="false" />
+          <Property Name="Emailto_Workgroup_Id" Type="bigint" />
+          <Property Name="Emailto_User_Id" Type="bigint" />
+          <Property Name="Emailto_Email_Id" Type="varchar" MaxLength="100" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Emailcc_Email_Id" Type="varchar(max)" />
+          <Property Name="Emailbcc_Email_Id" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Clr_Email_Queue_Details">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_Details_Id" />
+          </Key>
+          <Property Name="Clr_Email_Queue_Details_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Clr_Email_Queue_Id" Type="bigint" />
+          <Property Name="Clr_Project_Id" Type="bigint" />
+          <Property Name="Resource_Id" Type="bigint" />
+          <Property Name="Release_Id" Type="bigint" />
+          <Property Name="Routed_Channel_Type" Type="tinyint" />
+          <Property Name="Contract_Id" Type="bigint" />
+          <Property Name="Action_User_Login_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Action_Type" Type="tinyint" />
+          <Property Name="Upc" Type="varchar" MaxLength="20" />
+          <Property Name="Freehand_Company_Id" Type="bigint" />
+          <Property Name="Optionaldata1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Optionaldata2" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Clr_Email_Queue_User">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_User_Id" />
+          </Key>
+          <Property Name="Clr_Email_Queue_User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Clr_Email_Queue_Id" Type="bigint" Nullable="false" />
+          <Property Name="User_Id" Type="bigint" />
+          <Property Name="Email_Id" Type="varchar" MaxLength="100" />
+          <Property Name="Email_Preference_Type" Type="tinyint" Nullable="false" />
+          <Property Name="Is_Emailsent" Type="bit" Nullable="false" />
+          <Property Name="Is_Error" Type="bit" Nullable="false" />
+          <Property Name="Is_Emailignored" Type="bit" Nullable="false" />
+          <Property Name="Email_Attempts" Type="tinyint" />
+          <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+          <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+          <End Role="Clr_Email_Queue" Type="EmailModel.Store.Clr_Email_Queue" Multiplicity="0..1" />
+          <End Role="Clr_Email_Queue_Details" Type="EmailModel.Store.Clr_Email_Queue_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Email_Queue">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Principal>
+            <Dependent Role="Clr_Email_Queue_Details">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+          <End Role="Clr_Email_Queue" Type="EmailModel.Store.Clr_Email_Queue" Multiplicity="1" />
+          <End Role="Clr_Email_Queue_User" Type="EmailModel.Store.Clr_Email_Queue_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Email_Queue">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Principal>
+            <Dependent Role="Clr_Email_Queue_User">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="USP_EmailArtistManagementGetResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailMasterArtistManagementGetProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailRegularNonTraditionalArtistManagementGetProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSEmailDataForResourceByActionType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+          <Parameter Name="ActionType" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSEmailDataRoutingDetailWithReviewStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CLRPROJECTID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSEmailDataSummaryWithReviewStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CLRPROJECTID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSEmailProjectData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSReleaseEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="USP_GetGCSResourceEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmailModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EmailEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <FunctionImport Name="USP_GetGCSEmailData" ReturnType="Collection(EmailModel.USP_GetGCSEmailData_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="Clr_Email_Queue" EntityType="EmailModel.Clr_Email_Queue" />
+          <EntitySet Name="Clr_Email_Queue_Details" EntityType="EmailModel.Clr_Email_Queue_Details" />
+          <EntitySet Name="Clr_Email_Queue_User" EntityType="EmailModel.Clr_Email_Queue_User" />
+          <AssociationSet Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID" Association="EmailModel.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+            <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+            <End Role="Clr_Email_Queue_Details" EntitySet="Clr_Email_Queue_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID" Association="EmailModel.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+            <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+            <End Role="Clr_Email_Queue_User" EntitySet="Clr_Email_Queue_User" />
+          </AssociationSet>
+          <FunctionImport Name="USP_GetGCSEmailProjectData" ReturnType="Collection(EmailModel.USP_GetGCSEmailProjectData_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetGCSReleaseEmailData" ReturnType="Collection(EmailModel.USP_GetGCSReleaseEmailData_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetGCSResourceEmailData" ReturnType="Collection(EmailModel.USP_GetGCSResourceEmailData_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetGCSEmailDataSummaryWithReviewStatus" ReturnType="Collection(EmailModel.USP_GetGCSEmailDataSummaryWithReviewStatus_Result)">
+          <Parameter Name="CLRPROJECTID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetGCSEmailDataRoutingDetailWithReviewStatus" ReturnType="Collection(EmailModel.USP_GetGCSEmailDataRoutingDetailWithReviewStatus_Result)">
+          <Parameter Name="CLRPROJECTID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailMasterArtistManagementGetProject" ReturnType="Collection(EmailModel.USP_EmailMasterArtistManagementGetProject_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailArtistManagementGetResources" ReturnType="Collection(EmailModel.USP_EmailArtistManagementGetResources_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailRegularNonTraditionalArtistManagementGetProject" ReturnType="Collection(EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetProject_Result1)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease" ReturnType="Collection(EmailModel.USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease" ReturnType="Collection(EmailModel.USP_EmailRegularNonTraditionalNewArtistManagementGetRelease_Result)">
+          <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_GetGCSEmailDataForResourceByActionType" ReturnType="Collection(EmailModel.USP_GetGCSEmailDataForResourceByActionType_Result)">
+            <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+            <Parameter Name="ActionType" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects" ReturnType="Collection(EmailModel.USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects_Result)">
+            <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases" ReturnType="Collection(EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetAllReleases_Result)">
+            <Parameter Name="Clr_Email_queue_Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="USP_GetGCSEmailData_Result">
+          <Property Type="String" Name="Project_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Project_Title" Nullable="true" MaxLength="275" />
+          <Property Type="Int64" Name="Clr_Project_id" Nullable="true" />
+          <Property Type="String" Name="Isrc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Version_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Resource_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Release_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="UPC" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Request_Type" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="Release_Dt" Nullable="true" />
+          <Property Type="Int64" Name="Estimated_Sales_Units" Nullable="true" />
+          <Property Type="String" Name="RequestCompany" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="AdminCompany" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="OptionalData1" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Action_User_Login_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="R2_Project_Code" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="third_party_company_name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Review_Status" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <EntityType Name="Clr_Email_Queue">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Email_Queue_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Byte" Name="Email_Type" Nullable="false" />
+          <Property Type="Int64" Name="Emailto_Workgroup_Id" />
+          <Property Type="Int64" Name="Emailto_User_Id" />
+          <Property Type="String" Name="Emailto_Email_Id" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Emailcc_Email_Id" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Emailbcc_Email_Id" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clr_Email_Queue_Details" Relationship="EmailModel.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID" FromRole="Clr_Email_Queue" ToRole="Clr_Email_Queue_Details" />
+          <NavigationProperty Name="Clr_Email_Queue_User" Relationship="EmailModel.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID" FromRole="Clr_Email_Queue" ToRole="Clr_Email_Queue_User" />
+        </EntityType>
+        <EntityType Name="Clr_Email_Queue_Details">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_Details_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Email_Queue_Details_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Clr_Email_Queue_Id" />
+          <Property Type="Int64" Name="Clr_Project_Id" />
+          <Property Type="Int64" Name="Resource_Id" />
+          <Property Type="Int64" Name="Release_Id" />
+          <Property Type="Byte" Name="Routed_Channel_Type" />
+          <Property Type="Int64" Name="Contract_Id" />
+          <Property Type="String" Name="Action_User_Login_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Action_Type" />
+          <Property Type="String" Name="Upc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="Freehand_Company_Id" />
+          <Property Type="String" Name="Optionaldata1" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Optionaldata2" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Email_Queue" Relationship="EmailModel.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID" FromRole="Clr_Email_Queue_Details" ToRole="Clr_Email_Queue" />
+        </EntityType>
+        <EntityType Name="Clr_Email_Queue_User">
+          <Key>
+            <PropertyRef Name="Clr_Email_Queue_User_Id" />
+          </Key>
+          <Property Type="Int64" Name="Clr_Email_Queue_User_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Clr_Email_Queue_Id" Nullable="false" />
+          <Property Type="Int64" Name="User_Id" />
+          <Property Type="String" Name="Email_Id" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Email_Preference_Type" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Error" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Emailignored" Nullable="false" />
+          <Property Type="Byte" Name="Email_Attempts" />
+          <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Created_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Clr_Email_Queue" Relationship="EmailModel.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID" FromRole="Clr_Email_Queue_User" ToRole="Clr_Email_Queue" />
+          <Property Type="Boolean" Name="Is_Emailsent" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+          <End Type="EmailModel.Clr_Email_Queue" Role="Clr_Email_Queue" Multiplicity="0..1" />
+          <End Type="EmailModel.Clr_Email_Queue_Details" Role="Clr_Email_Queue_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Email_Queue">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Principal>
+            <Dependent Role="Clr_Email_Queue_Details">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+          <End Type="EmailModel.Clr_Email_Queue" Role="Clr_Email_Queue" Multiplicity="1" />
+          <End Type="EmailModel.Clr_Email_Queue_User" Role="Clr_Email_Queue_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clr_Email_Queue">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Principal>
+            <Dependent Role="Clr_Email_Queue_User">
+              <PropertyRef Name="Clr_Email_Queue_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="USP_GetGCSEmailProjectData_Result">
+          <Property Type="String" Name="PROJECT_CODE" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PROJECT_TITLE" Nullable="true" MaxLength="275" />
+          <Property Type="Int64" Name="CLR_PROJECT_ID" Nullable="false" />
+          <Property Type="String" Name="THIRD_PARTY_REPERTOIRE" Nullable="true" />
+          <Property Type="Int64" Name="ESTIMATED_SALES_UNITS" Nullable="true" />
+          <Property Type="String" Name="RELEASE_DT" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="DETAILS" Nullable="true" />
+          <Property Type="String" Name="IS_OTHER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="OTHER_COMMENT" Nullable="true" />
+          <Property Type="String" Name="IS_GIVE_AWAY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Give_Away_Comment" Nullable="true" />
+          <Property Type="String" Name="IS_PREMIUM" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PREMIUM_COMMENT" Nullable="true" />
+          <Property Type="String" Name="IS_EDUCATIONAL" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_DIRECT_RESPONSE" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_INTERNET" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_PARTWORK" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_KIOSK" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_MAIL_ORDER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_UMG_MANUFACTURED" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CLIENT_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CLIENT_WEBSITE" Nullable="true" />
+          <Property Type="String" Name="MEDIA_PROMO_SPEND_COMMENT" Nullable="true" />
+          <Property Type="String" Name="PROMO_DISTRIBUTION_LIST" Nullable="true" />
+          <Property Type="String" Name="IS_CLUB_MAIL_ORDER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_CLUB_INTRODUCTORY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PRICE_LEVEL_CURRENT_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PRICE_LEVEL_REQUESTED_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTCOMPANY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTTYPE" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="SCOPE_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Duration_From" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Duration_To" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Media" Nullable="true" />
+          <Property Type="String" Name="Other_Media_Detail" Nullable="true" />
+          <Property Type="String" Name="Tv_Budget" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tv_Budget_Usd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Radio_Budget" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Radio_Budget_Usd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Other_Budget" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Other_Budget_Usd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rts_To_Date" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Rts_With_Campaign" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Rts_Without_Campaign" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Uds_To_Date" Nullable="true" />
+          <Property Type="Int32" Name="Uds_With_Campaign" Nullable="true" />
+          <Property Type="Int32" Name="Uds_Without_Campaign" Nullable="true" />
+          <Property Type="String" Name="SalesChannel" Nullable="true" />
+          <Property Type="String" Name="License_Term" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="No_Of_Video" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Optional_Additional_Right" Nullable="true" />
+          <Property Type="String" Name="Advertised_Product" Nullable="true" />
+          <Property Type="String" Name="No_Of_Spot" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailSignature" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="USP_GetGCSReleaseEmailData_Result">
+          <Property Type="Int32" Name="No_Components" Nullable="true" />
+          <Property Type="Int32" Name="No_Tracks" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Upc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Label_Name" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="Exact_Ppd_Price" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Estimated_Retail_Price" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="isPackage" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Price_Level" Nullable="true" MaxLength="520" />
+        </ComplexType>
+        <ComplexType Name="USP_GetGCSResourceEmailData_Result">
+          <Property Type="String" Name="Isrc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Version_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Resource_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Comment" Nullable="true" />
+          <Property Type="String" Name="CountryName" Nullable="true" />
+          <Property Type="String" Name="Excerpt_Time" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Suggested_Fee" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_GetGCSEmailDataSummaryWithReviewStatus_Result">
+          <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+          <Property Type="String" Name="Project_Title" Nullable="true" MaxLength="275" />
+          <Property Type="String" Name="Project_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Local_Reference" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UPC" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Artist_Name" Nullable="true" />
+          <Property Type="Int64" Name="Routem_Item_Id" Nullable="false" />
+          <Property Type="Byte" Name="Routed_Channel_Type" Nullable="true" />
+          <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+          <Property Type="String" Name="Resource_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Version_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ISRC" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Excerpt_Time" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Suggested_Fee" Nullable="true" MaxLength="54" />
+          <Property Type="Byte" Name="Resource_Type" Nullable="true" />
+          <Property Type="String" Name="Resource_Type_Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Resource_Comment" Nullable="true" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="Int64" Name="Clearance_Company_Id" Nullable="true" />
+          <Property Type="String" Name="Clearance_Company_Name" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Reviewer_Role_Name" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Reviewer_Name" Nullable="true" />
+          <Property Type="String" Name="Current_Status" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Sales_Channel_Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Submission_Date" Nullable="true" MaxLength="30" />
+          <Property Type="Boolean" Name="Is_Existing" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_GetGCSEmailDataRoutingDetailWithReviewStatus_Result">
+          <Property Type="Int64" Name="Routed_Item_Id" Nullable="false" />
+          <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+          <Property Type="Int64" Name="Routed_Channel_Type" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" />
+          <Property Type="String" Name="Workgroup" Nullable="true" />
+          <Property Type="String" Name="Role" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="String" Name="Status" Nullable="true" />
+          <Property Type="DateTime" Name="Date_Time_Field" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Comments" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailMasterArtistManagementGetProject_Result">
+          <Property Type="Int64" Name="CLR_PROJECT_ID" Nullable="false" />
+          <Property Type="String" Name="PROJECT_CODE" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PROJECT_TITLE" Nullable="true" MaxLength="275" />
+          <Property Type="String" Name="REQUESTCOMPANY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="CLIENT_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CLIENT_WEBSITE" Nullable="true" />
+          <Property Type="String" Name="License_Term" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTTYPE" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Media" Nullable="true" />
+          <Property Type="String" Name="No_Of_Video" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Optional_Additional_Right" Nullable="true" />
+          <Property Type="String" Name="PREMIUM_COMMENT" Nullable="true" />
+          <Property Type="String" Name="DETAILS" Nullable="true" />
+          <Property Type="String" Name="EmailSignature" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Advertised_Product" Nullable="true" />
+          <Property Type="String" Name="Duration_From" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Duration_To" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="No_Of_Spot" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailArtistManagementGetResources_Result">
+          <Property Type="String" Name="Version_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Resource_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Artist" Nullable="true" />
+          <Property Type="String" Name="Comment" Nullable="true" />
+          <Property Type="String" Name="CountryName" Nullable="true" />
+          <Property Type="String" Name="Excerpt_Time" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Suggested_Fee" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="Optionaldata2" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalArtistManagementGetProject_Result">
+          <Property Type="String" Name="PROJECT_CODE" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PROJECT_TITLE" Nullable="true" MaxLength="275" />
+          <Property Type="Int64" Name="CLR_PROJECT_ID" Nullable="false" />
+          <Property Type="String" Name="THIRD_PARTY_REPERTOIRE" Nullable="true" />
+          <Property Type="Int64" Name="ESTIMATED_SALES_UNITS" Nullable="true" />
+          <Property Type="String" Name="RELEASE_DT" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="DETAILS" Nullable="true" />
+          <Property Type="String" Name="IS_OTHER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="OTHER_COMMENT" Nullable="true" />
+          <Property Type="String" Name="IS_GIVE_AWAY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Give_Away_Comment" Nullable="true" />
+          <Property Type="String" Name="IS_PREMIUM" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PREMIUM_COMMENT" Nullable="true" />
+          <Property Type="String" Name="IS_EDUCATIONAL" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_DIRECT_RESPONSE" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_INTERNET" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_PARTWORK" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_KIOSK" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_MAIL_ORDER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_UMG_MANUFACTURED" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CLIENT_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CLIENT_WEBSITE" Nullable="true" />
+          <Property Type="String" Name="MEDIA_PROMO_SPEND_COMMENT" Nullable="true" />
+          <Property Type="String" Name="PROMO_DISTRIBUTION_LIST" Nullable="true" />
+          <Property Type="String" Name="IS_CLUB_MAIL_ORDER" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="IS_CLUB_INTRODUCTORY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PRICE_LEVEL_CURRENT_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PRICE_LEVEL_REQUESTED_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTCOMPANY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTTYPE" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="SCOPE_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Duration_From" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Duration_To" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="Media" Nullable="true" />
+          <Property Type="String" Name="Other_Media_Detail" Nullable="true" />
+          <Property Type="String" Name="Tv_Budget" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Tv_Budget_Usd" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Radio_Budget" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Radio_Budget_Usd" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Other_Budget" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Other_Budget_Usd" Nullable="true" MaxLength="54" />
+          <Property Type="String" Name="Rts_To_Date" Nullable="true" MaxLength="24" />
+          <Property Type="String" Name="Rts_With_Campaign" Nullable="true" MaxLength="24" />
+          <Property Type="String" Name="Rts_Without_Campaign" Nullable="true" MaxLength="24" />
+          <Property Type="Int32" Name="Uds_To_Date" Nullable="true" />
+          <Property Type="Int32" Name="Uds_With_Campaign" Nullable="true" />
+          <Property Type="Int32" Name="Uds_Without_Campaign" Nullable="true" />
+          <Property Type="String" Name="SalesChannel" Nullable="true" />
+          <Property Type="String" Name="License_Term" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="No_Of_Video" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Optional_Additional_Right" Nullable="true" />
+          <Property Type="String" Name="Advertised_Product" Nullable="true" />
+          <Property Type="String" Name="No_Of_Spot" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EmailSignature" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalArtistManagementGetProject_Result1">
+          <Property Type="String" Name="PROJECT_CODE" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SCOPE_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTCOMPANY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTTYPE" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="DETAILS" Nullable="true" />
+          <Property Type="String" Name="RELEASE_DT" Nullable="true" MaxLength="12" />
+          <Property Type="Int64" Name="ESTIMATED_SALES_UNITS" Nullable="true" />
+          <Property Type="String" Name="THIRD_PARTY_REPERTOIRE" Nullable="true" />
+          <Property Type="String" Name="EmailSignature" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="PROJECT_TITLE" Nullable="true" MaxLength="275" />
+          <Property Type="String" Name="Third_Party_Company_Name" Nullable="true" MaxLength="120" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease_Result">
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Upc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Label_Name" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="isPackage" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Price_Level" Nullable="true" MaxLength="521" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="No_Tracks" Nullable="true" />
+          <Property Type="Int32" Name="No_Components" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease_Result">
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Label_Name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="isPackage" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Price_Level" Nullable="true" MaxLength="521" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="No_Tracks" Nullable="true" />
+          <Property Type="Int32" Name="No_Components" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_GetGCSEmailDataForResourceByActionType_Result">
+          <Property Type="String" Name="Project_Code" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Project_Title" Nullable="true" MaxLength="275" />
+          <Property Type="Int64" Name="Clr_Project_id" Nullable="true" />
+          <Property Type="String" Name="Isrc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Version_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Resource_Title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Release_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="UPC" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Request_Type" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="Release_Dt" Nullable="true" />
+          <Property Type="Int64" Name="Estimated_Sales_Units" Nullable="true" />
+          <Property Type="String" Name="RequestCompany" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="AdminCompany" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="OptionalData1" Nullable="true" />
+          <Property Type="String" Name="Action_User_Login_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="R2_Project_Code" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="third_party_company_name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Review_Status" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects_Result">
+          <Property Type="String" Name="PROJECT_CODE" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SCOPE_TYPE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="REQUESTCOMPANY" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PROJECT_TITLE" Nullable="true" MaxLength="275" />
+          <Property Type="String" Name="REQUESTTYPE" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Requested_Included_Territories" Nullable="true" />
+          <Property Type="String" Name="Requested_Excluded_Territories" Nullable="true" />
+          <Property Type="String" Name="CLIENT_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CLIENT_WEBSITE" Nullable="true" />
+          <Property Type="String" Name="License_Term" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Media" Nullable="true" />
+          <Property Type="String" Name="No_Of_Video" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Optional_Additional_Right" Nullable="true" />
+          <Property Type="String" Name="PREMIUM_COMMENT" Nullable="true" />
+          <Property Type="String" Name="DETAILS" Nullable="true" />
+          <Property Type="String" Name="RELEASE_DT" Nullable="true" MaxLength="12" />
+          <Property Type="Int64" Name="ESTIMATED_SALES_UNITS" Nullable="true" />
+          <Property Type="String" Name="THIRD_PARTY_REPERTOIRE" Nullable="true" />
+          <Property Type="String" Name="EmailSignature" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Third_Party_Company_Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Advertised_Product" Nullable="true" />
+          <Property Type="DateTime" Name="Duration_From" Nullable="true" />
+          <Property Type="DateTime" Name="Duration_To" Nullable="true" />
+          <Property Type="String" Name="No_Of_Spot" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="ProjectType_ForEmail" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases_Result">
+          <Property Type="String" Name="Release_Artist" Nullable="true" MaxLength="550" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Release_Version_Title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Upc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Label_Name" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="isPackage" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Price_Level" Nullable="true" MaxLength="521" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="No_Tracks" Nullable="true" />
+          <Property Type="Int32" Name="No_Components" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmailModelStoreContainer" CdmEntityContainer="EmailEntities">
+          <FunctionImportMapping FunctionImportName="USP_GetGCSEmailData" FunctionName="EmailModel.Store.USP_GetGCSEmailData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailData_Result">
+                <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+                <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+                <ScalarProperty Name="Clr_Project_id" ColumnName="Clr_Project_id" />
+                <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+                <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+                <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+                <ScalarProperty Name="Release_Title" ColumnName="Release_Title" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+                <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+                <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+                <ScalarProperty Name="RequestCompany" ColumnName="RequestCompany" />
+                <ScalarProperty Name="AdminCompany" ColumnName="AdminCompany" />
+                <ScalarProperty Name="OptionalData1" ColumnName="OptionalData1" />
+                <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+                <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+                <ScalarProperty Name="third_party_company_name" ColumnName="third_party_company_name" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Review_Status" ColumnName="Review_Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Clr_Email_Queue">
+            <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue">
+              <MappingFragment StoreEntitySet="Clr_Email_Queue">
+                <ScalarProperty Name="Emailbcc_Email_Id" ColumnName="Emailbcc_Email_Id" />
+                <ScalarProperty Name="Emailcc_Email_Id" ColumnName="Emailcc_Email_Id" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Emailto_Email_Id" ColumnName="Emailto_Email_Id" />
+                <ScalarProperty Name="Emailto_User_Id" ColumnName="Emailto_User_Id" />
+                <ScalarProperty Name="Emailto_Workgroup_Id" ColumnName="Emailto_Workgroup_Id" />
+                <ScalarProperty Name="Email_Type" ColumnName="Email_Type" />
+                <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Email_Queue_Details">
+            <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue_Details">
+              <MappingFragment StoreEntitySet="Clr_Email_Queue_Details">
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Optionaldata2" ColumnName="Optionaldata2" />
+                <ScalarProperty Name="Optionaldata1" ColumnName="Optionaldata1" />
+                <ScalarProperty Name="Freehand_Company_Id" ColumnName="Freehand_Company_Id" />
+                <ScalarProperty Name="Upc" ColumnName="Upc" />
+                <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+                <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+                <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+                <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+                <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+                <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+                <ScalarProperty Name="Clr_Email_Queue_Details_Id" ColumnName="Clr_Email_Queue_Details_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clr_Email_Queue_User">
+            <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue_User">
+              <MappingFragment StoreEntitySet="Clr_Email_Queue_User">
+                <ScalarProperty Name="Is_Emailsent" ColumnName="Is_Emailsent" />
+                <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+                <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+                <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+                <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+                <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+                <ScalarProperty Name="Email_Attempts" ColumnName="Email_Attempts" />
+                <ScalarProperty Name="Is_Emailignored" ColumnName="Is_Emailignored" />
+                <ScalarProperty Name="Is_Error" ColumnName="Is_Error" />
+                <ScalarProperty Name="Email_Preference_Type" ColumnName="Email_Preference_Type" />
+                <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+                <ScalarProperty Name="Clr_Email_Queue_User_Id" ColumnName="Clr_Email_Queue_User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSEmailProjectData" FunctionName="EmailModel.Store.USP_GetGCSEmailProjectData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailProjectData_Result">
+                <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+                <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+                <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+                <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+                <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+                <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+                <ScalarProperty Name="IS_OTHER" ColumnName="IS_OTHER" />
+                <ScalarProperty Name="OTHER_COMMENT" ColumnName="OTHER_COMMENT" />
+                <ScalarProperty Name="IS_GIVE_AWAY" ColumnName="IS_GIVE_AWAY" />
+                <ScalarProperty Name="Give_Away_Comment" ColumnName="Give_Away_Comment" />
+                <ScalarProperty Name="IS_PREMIUM" ColumnName="IS_PREMIUM" />
+                <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+                <ScalarProperty Name="IS_EDUCATIONAL" ColumnName="IS_EDUCATIONAL" />
+                <ScalarProperty Name="IS_DIRECT_RESPONSE" ColumnName="IS_DIRECT_RESPONSE" />
+                <ScalarProperty Name="IS_INTERNET" ColumnName="IS_INTERNET" />
+                <ScalarProperty Name="IS_PARTWORK" ColumnName="IS_PARTWORK" />
+                <ScalarProperty Name="IS_KIOSK" ColumnName="IS_KIOSK" />
+                <ScalarProperty Name="IS_MAIL_ORDER" ColumnName="IS_MAIL_ORDER" />
+                <ScalarProperty Name="IS_UMG_MANUFACTURED" ColumnName="IS_UMG_MANUFACTURED" />
+                <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+                <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+                <ScalarProperty Name="MEDIA_PROMO_SPEND_COMMENT" ColumnName="MEDIA_PROMO_SPEND_COMMENT" />
+                <ScalarProperty Name="PROMO_DISTRIBUTION_LIST" ColumnName="PROMO_DISTRIBUTION_LIST" />
+                <ScalarProperty Name="IS_CLUB_MAIL_ORDER" ColumnName="IS_CLUB_MAIL_ORDER" />
+                <ScalarProperty Name="IS_CLUB_INTRODUCTORY" ColumnName="IS_CLUB_INTRODUCTORY" />
+                <ScalarProperty Name="PRICE_LEVEL_CURRENT_TYPE" ColumnName="PRICE_LEVEL_CURRENT_TYPE" />
+                <ScalarProperty Name="PRICE_LEVEL_REQUESTED_TYPE" ColumnName="PRICE_LEVEL_REQUESTED_TYPE" />
+                <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+                <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+                <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+                <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+                <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+                <ScalarProperty Name="Media" ColumnName="Media" />
+                <ScalarProperty Name="Other_Media_Detail" ColumnName="Other_Media_Detail" />
+                <ScalarProperty Name="Tv_Budget" ColumnName="Tv_Budget" />
+                <ScalarProperty Name="Tv_Budget_Usd" ColumnName="Tv_Budget_Usd" />
+                <ScalarProperty Name="Radio_Budget" ColumnName="Radio_Budget" />
+                <ScalarProperty Name="Radio_Budget_Usd" ColumnName="Radio_Budget_Usd" />
+                <ScalarProperty Name="Other_Budget" ColumnName="Other_Budget" />
+                <ScalarProperty Name="Other_Budget_Usd" ColumnName="Other_Budget_Usd" />
+                <ScalarProperty Name="Rts_To_Date" ColumnName="Rts_To_Date" />
+                <ScalarProperty Name="Rts_With_Campaign" ColumnName="Rts_With_Campaign" />
+                <ScalarProperty Name="Rts_Without_Campaign" ColumnName="Rts_Without_Campaign" />
+                <ScalarProperty Name="Uds_To_Date" ColumnName="Uds_To_Date" />
+                <ScalarProperty Name="Uds_With_Campaign" ColumnName="Uds_With_Campaign" />
+                <ScalarProperty Name="Uds_Without_Campaign" ColumnName="Uds_Without_Campaign" />
+                <ScalarProperty Name="SalesChannel" ColumnName="SalesChannel" />
+                <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+                <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+                <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+                <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+                <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+                <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSReleaseEmailData" FunctionName="EmailModel.Store.USP_GetGCSReleaseEmailData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSReleaseEmailData_Result">
+                <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+                <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Upc" ColumnName="Upc" />
+                <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+                <ScalarProperty Name="Exact_Ppd_Price" ColumnName="Exact_Ppd_Price" />
+                <ScalarProperty Name="Estimated_Retail_Price" ColumnName="Estimated_Retail_Price" />
+                <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+                <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSResourceEmailData" FunctionName="EmailModel.Store.USP_GetGCSResourceEmailData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSResourceEmailData_Result">
+                <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+                <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+                <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+                <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataSummaryWithReviewStatus" FunctionName="EmailModel.Store.USP_GetGCSEmailDataSummaryWithReviewStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataSummaryWithReviewStatus_Result">
+                <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+                <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+                <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+                <ScalarProperty Name="Local_Reference" ColumnName="Local_Reference" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+                <ScalarProperty Name="Routem_Item_Id" ColumnName="Routem_Item_Id" />
+                <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+                <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+                <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+                <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+                <ScalarProperty Name="ISRC" ColumnName="ISRC" />
+                <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+                <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+                <ScalarProperty Name="Resource_Type" ColumnName="Resource_Type" />
+                <ScalarProperty Name="Resource_Type_Description" ColumnName="Resource_Type_Description" />
+                <ScalarProperty Name="Resource_Comment" ColumnName="Resource_Comment" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+                <ScalarProperty Name="Clearance_Company_Id" ColumnName="Clearance_Company_Id" />
+                <ScalarProperty Name="Clearance_Company_Name" ColumnName="Clearance_Company_Name" />
+                <ScalarProperty Name="Reviewer_Role_Name" ColumnName="Reviewer_Role_Name" />
+                <ScalarProperty Name="Reviewer_Name" ColumnName="Reviewer_Name" />
+                <ScalarProperty Name="Current_Status" ColumnName="Current_Status" />
+                <ScalarProperty Name="Sales_Channel_Description" ColumnName="Sales_Channel_Description" />
+                <ScalarProperty Name="Submission_Date" ColumnName="Submission_Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataRoutingDetailWithReviewStatus" FunctionName="EmailModel.Store.USP_GetGCSEmailDataRoutingDetailWithReviewStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataRoutingDetailWithReviewStatus_Result">
+                <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+                <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+                <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Workgroup" ColumnName="Workgroup" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date_Time_Field" ColumnName="Date_Time_Field" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailMasterArtistManagementGetProject" FunctionName="EmailModel.Store.USP_EmailMasterArtistManagementGetProject">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailMasterArtistManagementGetProject_Result">
+                <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+                <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+                <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+                <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+                <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+                <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+                <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+                <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+                <ScalarProperty Name="Media" ColumnName="Media" />
+                <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+                <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+                <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+                <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+                <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+                <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+                <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+                <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailArtistManagementGetResources" FunctionName="EmailModel.Store.USP_EmailArtistManagementGetResources">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailArtistManagementGetResources_Result">
+                <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+                <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+                <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalArtistManagementGetProject" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalArtistManagementGetProject">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetProject_Result1">
+                <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+                <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+                <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+                <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+                <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+                <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+                <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+                <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+                <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease_Result">
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Upc" ColumnName="Upc" />
+                <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+                <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+                <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+                <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalNewArtistManagementGetRelease">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalNewArtistManagementGetRelease_Result">
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+                <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+                <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+                <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataForResourceByActionType" FunctionName="EmailModel.Store.USP_GetGCSEmailDataForResourceByActionType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataForResourceByActionType_Result">
+                <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+                <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+                <ScalarProperty Name="Clr_Project_id" ColumnName="Clr_Project_id" />
+                <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+                <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+                <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+                <ScalarProperty Name="Release_Title" ColumnName="Release_Title" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+                <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+                <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+                <ScalarProperty Name="RequestCompany" ColumnName="RequestCompany" />
+                <ScalarProperty Name="AdminCompany" ColumnName="AdminCompany" />
+                <ScalarProperty Name="OptionalData1" ColumnName="OptionalData1" />
+                <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+                <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+                <ScalarProperty Name="third_party_company_name" ColumnName="third_party_company_name" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Review_Status" ColumnName="Review_Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects_Result">
+                <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+                <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+                <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+                <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+                <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+                <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+                <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+                <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+                <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+                <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+                <ScalarProperty Name="Media" ColumnName="Media" />
+                <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+                <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+                <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+                <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+                <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+                <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+                <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+                <ScalarProperty Name="Third_Party_Company_Name" ColumnName="Third_Party_Company_Name" />
+                <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+                <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+                <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+                <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+                <ScalarProperty Name="ProjectType_ForEmail" ColumnName="ProjectType_ForEmail" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalArtistManagementGetAllReleases">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetAllReleases_Result">
+                <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+                <ScalarProperty Name="Upc" ColumnName="Upc" />
+                <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+                <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+                <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+                <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="CopyToOutputDirectory" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EmailModel" ZoomLevel="86">
+        <EntityTypeShape EntityType="EmailModel.Clr_Email_Queue" Width="1.5" PointX="0.75" PointY="4.125" Height="3.7109993489583335" />
+        <EntityTypeShape EntityType="EmailModel.Clr_Email_Queue_Details" Width="1.5" PointX="3" PointY="1.25" Height="4.6725065104166665" />
+        <EntityTypeShape EntityType="EmailModel.Clr_Email_Queue_User" Width="1.5" PointX="3" PointY="6.75" Height="3.9033007812499996" />
+        <AssociationConnector Association="EmailModel.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+          <ConnectorPoint PointX="2.25" PointY="5.0237532552083337" />
+          <ConnectorPoint PointX="3" PointY="5.0237532552083337" />
+        </AssociationConnector>
+        <AssociationConnector Association="EmailModel.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+          <ConnectorPoint PointX="2.25" PointY="7.2929996744791667" />
+          <ConnectorPoint PointX="3" PointY="7.2929996744791667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

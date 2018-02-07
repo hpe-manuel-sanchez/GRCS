@@ -1,0 +1,12 @@
+﻿@model UMGI.GRCS.UI.Models.ContractTabModel  
+@using UMGI.GRCS.Resx.Resource.UIResources
+<script src="@Url.Content("/GCS/Scripts/Custom/ChooseTemplate.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/CreateContract.min.css")"  rel="stylesheet" type="text/css" />
+<div class="chooseTemplateContainer">
+    <p class="chooseTemplateLabel" style="margin: 0; padding: 0; margin-bottom: 15px;">
+        @ContractResource.CreatecontractfromTemplateLbl
+    </p>
+    <p style="margin: 0;">@Html.DropDownListFor(model => model.SelectTemplate, new SelectList(Model.SelectTemplate, "value", "text", Model.SelectTemplate))
+        <input id="ContractBtemplate" runat="server" type="submit" class="primbutton" value= "@ContractResource.OKButton" style="margin-left:10px;" />
+    </p>
+</div>

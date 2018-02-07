@@ -1,0 +1,401 @@
+﻿@using UMGI.GRCS.Resx.Resource.Layout
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+
+@{
+    ViewBag.Title = "Resources";
+    Layout = "";
+}
+
+@{
+    var mandatory = ClearenceResource.MandatorySymbol;
+}
+
+@functions 
+{
+
+    private string substringVal(string inputVal, int length)
+    {
+        if (inputVal == null || string.IsNullOrEmpty(inputVal))
+        {
+            return string.Empty;
+        }
+
+        if (inputVal.Length > length)
+        {
+            inputVal = inputVal.Substring(0, length);
+            inputVal += "...";
+        }
+
+        return inputVal;
+    }
+
+}
+
+<link href="@Url.Content("/GCS/Content/SubPages/resources.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+
+    var atleastsearchcriteriaresource = '@ClearenceResource.js_searchworkgroupInvalidMessage';
+    var watermarkComments = '@ClearenceResource.js_watermarkComments';
+    var watermarkgloballyCleared = '@ClearenceResource.js_watermarkGloballyCleared';
+    var durationExcerptMessage = '@ClearenceResource.DurationAndExcerptTimeMsg';
+
+</script>
+
+<script src="@Url.Content("/GCS/Scripts/Custom/ResourceRegular.js")" type="text/javascript"> </script>
+
+<div id="warningmessageDurationExcerpt" class="error-msg-margin">
+    </div>
+
+<div id="SearchDialog" style="padding: 0;">
+</div>
+<div id="ExistingResources" style="display: none;">
+</div>
+
+<table style="width: 100%;">
+    <tr id="trShowMessageResource" style="display: none;">
+        <td align="left" colspan="4">
+            <div class="error" style="margin-top: 5px;">
+                <span id="spnIsrcResource"
+                      style="font-weight: bold;"></span>  @Html.Label(@ClearanceLayout.AdvResSearchResourcesAlreadyExistForISRCMsg)
+            </div>
+        </td>
+    </tr>
+</table>
+<div id="ResourceDialog" style="display: none;">
+    <table>
+        <tr>
+            <td>@Html.Hidden("resourceListFromSearchPopUp", "")@Html.Hidden("hdnR2ResourceIdList", "")
+                @Html.Hidden("hdnselectedResourceID", "")
+                <div style="display: none" id="hdnrowId"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="sbox-wrap sbox-height sbox_wrapper-margin">
+    <div class="floatL sbox-colum1 text-align-left line-height padding-left3px rqt-bold headFont">
+        @Html.Label(ClearanceLayout.MasterProjectResourcesResourcesLabel)</div>
+    <div class="floatL sbox-colum3 text-align-right">
+        &nbsp;</div>
+    <div class="floatL sbox-colum2 text-align-right">
+        @Html.Hidden("hdnClearanceResourceId", "")
+        <ul class="sbox_ul">
+            <li>@Html.ActionLink("Expand All", "", null, new { onclick = "return OnExpandAllClick('e');" })</li>
+            <li>|</li>
+            <li>@Html.ActionLink("Collapse All", "", null, new { onclick = "return OnExpandAllClick('c');" })</li>
+        </ul>
+    </div>
+</div>
+<div id="search_by" class="sbox-wrap sbox_grey-background sbox-height1 sbox_wrapper-margin gry-bdr">
+    <div class="search_by-column1 floatL text-align-right line-height2 sbox-margin-top1  sbox-pdding-right">
+        @Html.Label(ClearanceLayout.MasterProjectResourcesSearchLabel)
+    </div>
+    <div class="search_by-column2 floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+        @Html.TextBox("txtISRC", null, new { @class = "sbox-input1" })
+    </div>
+    <div class="search_by-column3 floatL text-align-right sbox-margin-top1 ">
+        @Html.TextBox("txtResuorceTitle", null, new { @class = "sbox-input2" })
+    </div>
+    <div class="search_by-column3 floatL text-align-right sbox-margin-top1 ">
+        @Html.TextBox("txtArtistName", null, new { @class = "sbox-input2" })
+    </div>
+    <div class="search_by-column3 floatL text-align-right sbox-margin-top1">
+        @Html.TextBox("txtUPC", null, new { @class = "sbox-input2" })
+    </div>
+    <div class="search_by-column3 floatL text-align-right sbox-margin-top1">
+        @Html.TextBox("txtR2ProjectID", null, new { @class = "sbox-input2" })
+    </div>
+    <div class="search_by-column3 floatL text-align-right sbox-margin-top1 sbox-pdding-right"
+         style="display: none;">
+        @Html.TextBox("txtReleaseTitle", null, new { @class = "sbox-input2" })
+    </div>
+    <div class="search_by-column4 floatL text-align-right sbox-margin-top1 sbox-pdding-right">
+        <input id="btnSearch" class="plbutton" type="button" value="@ClearanceLayout.MasterProjectResourcesSearchButton" />
+    </div>
+</div>
+<div id="mainDivReleaseRegular" class="sbox_wrapper-margin">
+    <div id="SearchResourceList">
+    </div>
+    <div id="NoResultsFound" style="display: none; text-align: center;">No Data available!</div>
+    <div id="tblResource">
+        @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource.Count, new { id = "hdnResourceListCount" })
+        <!-- Search results will start loop from here -->
+        @if (Model.RegularProjectDetails.ClearanceResource == null)
+        {
+            <p>
+                &nbsp;</p>
+        }
+        else
+        {
+            for (var i = 0; i < Model.RegularProjectDetails.ClearanceResource.Count; i++)
+            {
+                <div id="MasterProjectRow @i Hide @Model.RegularProjectDetails.ClearanceResource[i].ReplaceFreeHandFlag">
+                    <div id="resourceTab">
+                        <div id = "ResourceRegular@(i)"  class="mainPanelDvPADSub1 reqty-gry-brder" style="overflow: hidden; @(Model.RegularProjectDetails.ClearanceResource[i].Rights_TypeId == 3 || Model.RegularProjectDetails.ClearanceResource[i].Rights_TypeId == 5 || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "NONUMG" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "NONEXC" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-Exclusive License" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-UMG" ? "Border-color:#FF0000" : "")">
+                            <div class="headerDv1" style="height: auto; width: 100%;">
+                                <div style="float: left; margin: 0px; padding: 0px; width: 90%;" id="headerResorucetable">
+                                    <ul class="upper_header_release">
+                                        <li style="width: 16px;">
+                                            @if (Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0)
+                                            {
+                                                <img src="@Url.Content("/GCS/Images/project.png")" alt="FreeHand" id ="imgFreeHand" title="Freehand Resource"/>
+                                            }
+                                        </li>
+                                        <li>
+                                            <h5 class="downArrow" id="Header@(i)">
+                                                &nbsp;</h5>
+                                        </li>
+                                        <li class="label_header">@ClearanceLayout.MasterProjectResourcesArtistLabel</li>
+                                        <li class="field_header">
+                                            <div style="word-wrap: break-word;" id="Artist @i">
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ReplaceFreeHandFlag, new { id = "hdnreplacefreehandresc" + i })
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].IsMobileResource)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].EarilerReleaseDate)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].GenreId)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].HasSideArtist)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].HasSample)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].PCompanyId)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].PLicensingExtension)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].PYear)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].LabelId)                
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].R2ResourceCompanyLinkId)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].Rights_TypeId)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].SampleCredit)
+                                                @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].SourceUpc)
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ArtistName, new { id = "hdnRegularResourceArtistName" + i })                                                
+                                                <span title ='@Model.RegularProjectDetails.ClearanceResource[i].ArtistName' id="divArtistNameRegular@(i)">
+                                                    @{ var ArtistNameSubstring = @substringVal(Model.RegularProjectDetails.ClearanceResource[i].ArtistName, 25); }
+                                                    @ArtistNameSubstring</span>
+                                                @if (Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0)
+                                                {
+                                                    <input class="plbutton " type="button"  value="Manage Artist" id="BtnManagerArtistFreeHandRegular@(i)" onclick = " OpenArtistSearchPopupRegular(this); "/>
+                                                    <span style="display: none" id="spnartistIdRegular@(i)"></span>
+                                                }
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].FreeHandResourceStatus, new { id = "hdnR2ApprovedFreeHandResource" + i })
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceIdToUpdate, new { id = "hdnClearanceResourceIdToUpdate" + i })
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].IsNewlyAddedAfterSubmit, new { id = "hdnIsNewAdded" + i })
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].IsRouted, new { id = "hdnIsResourceRouted" + i })
+                                                @for (var k = 0; k < Model.RegularProjectDetails.ClearanceResource[i].ArtistInfo.Count; k++)
+                                                {
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ArtistInfo.Count, new { id = "hdnArtistCountRegular" + i })
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ArtistInfo[k].Name, new { id = "hdnArtistNameRegular" + i + '_' + k })
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ArtistInfo[k].NameId, new { id = "hdnArtistIdRegular" + i + '_' + k })
+                                                     @Html.HiddenFor(model => model.RegularProjectDetails.ClearanceResource[i].ArtistInfo[k].Id, new { id = "hdnArtistRegularTalentId" + i + '_' + k })
+                                                }
+                                                @Html.Hidden("hdnArtistRegular" + @i)
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceResubmitReasonComments, new { id = "hdnResourceResubmitReasonComments_" + Model.RegularProjectDetails.ClearanceResource[i].ResourceId })
+                                            </div>
+                                            <div style="display: none" id="hdnArtistIdRegular@(i)"></div>
+                                        </li>
+                                        <li class="label_header">| @ClearanceLayout.MasterProjectResourcesTitleLabel</li>
+                                        <li class="field_header">
+                                            <div style="word-wrap: break-word;" id="Title @i">
+                                            
+                                                @if ((Model.RegularProjectDetails.StatusType == 2 || Model.RegularProjectDetails.StatusType == 5 || Model.RegularProjectDetails.StatusType == 6) && (Model.RegularProjectDetails.ClearanceResource[i].FreeHandResourceStatus == "Y") && (Model.RegularProjectDetails.ClearanceResource[i].ClearanceResourceId == 0))
+                                                {
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title, new { id = "hdnResourceTitle" + i })
+                                                    <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'>@Html.ActionLink(Model.RegularProjectDetails.ClearanceResource[i].Title, "", null, new { onclick = "return OpenAdvanceResourceSearchandUpdatePopup(" + i + ");", @Href = "#", @id = (Model.RegularProjectDetails.ClearanceResource[i].ResourceId + "titleval"), style = "text-decoration:underline" })</span>
+                                                }
+
+                                                else if (Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId != 0)
+                                                {
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title, new { id = "hdnResourceTitle" + i })
+                                                    <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'>
+                                                        @{ Model.RegularProjectDetails.ClearanceResource[i].Title = @substringVal(Model.RegularProjectDetails.ClearanceResource[i].Title, 25); }
+                                                        @Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title)</span>
+                                                }
+                                                else
+                                                {
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title, new { id = "hdnResourceTitle" + i })
+                                                    <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'> @Html.TextBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title, new { onblur = "return setTitleInHidden(" + i + ");" })</span>
+                                                    if ((Model.RegularProjectDetails.StatusType == 2 || Model.RegularProjectDetails.StatusType == 5 || Model.RegularProjectDetails.StatusType == 6) && (Model.RegularProjectDetails.ClearanceResource[i].FreeHandResourceStatus == "Y"))
+                                                    {
+                                                        if ((Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0) && (Model.RegularProjectDetails.ClearanceResource[i].ClearanceResourceId != 0))
+                                                        {
+                                                            <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'>@Html.ActionLink(Model.RegularProjectDetails.ClearanceResource[i].Title, "", null, new { onclick = "return OpenAdvanceResourceSearchandUpdatePopup(" + i + ");", @Href = "#", @id = (Model.RegularProjectDetails.ClearanceResource[i].ResourceId + "titleval"), style = "text-decoration:underline" })</span>
+                                                        }
+                                                        else if ((Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId != 0) && (Model.RegularProjectDetails.ClearanceResource[i].ClearanceResourceId == 0))
+                                                        {
+                                                            <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'>@Html.ActionLink(Model.RegularProjectDetails.ClearanceResource[i].Title, "", null, new { onclick = "return OpenAdvanceResourceSearchandUpdatePopup(" + i + ");", @Href = "#", @id = (Model.RegularProjectDetails.ClearanceResource[i].ResourceId + "titleval"), style = "text-decoration:underline" })</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span title ='@Model.RegularProjectDetails.ClearanceResource[i].Title'>
+                                                                @{ Model.RegularProjectDetails.ClearanceResource[i].Title = @substringVal(Model.RegularProjectDetails.ClearanceResource[i].Title, 25); }
+                                                                @Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].Title)</span>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        </li>
+                                        <li class="label_header">| @ClearanceLayout.MasterProjectResourcesVersionTitleLabel</li>
+                                        <li class="field_header">
+                                            <div style="word-wrap: break-word;" id="VTitle @i">
+                                            
+                                                @if (Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId != 0)
+                                                {
+                                                    @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].VersionTitle, new { id = "hdnVersionTitle" + i })
+                                                    <span title ='@Model.RegularProjectDetails.ClearanceResource[i].VersionTitle'>
+                                                        @{ Model.RegularProjectDetails.ClearanceResource[i].VersionTitle = @substringVal(Model.RegularProjectDetails.ClearanceResource[i].VersionTitle, 25); }
+                                                        @Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].VersionTitle)</span>
+                                                }
+                                                else
+                                                {
+                                                     @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].VersionTitle, new { id = "hdnVersionTitle" + i })
+                                                    <span title ='@Model.RegularProjectDetails.ClearanceResource[i].VersionTitle'>@Html.TextBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].VersionTitle, new { onblur = "return setVersionTitleInHidden(" + i + ");" })</span>
+                                                }
+                                            </div>
+                                        </li>
+                                        <li class="label_header">| @ClearanceLayout.MasterProjectResourcesISRCLabel</li>
+                                        <li class="field_header">
+                                            <div style="word-wrap: break-word;" id="ISRC @i">
+                                                <span>@Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].Isrc)</span>
+                                                &nbsp;
+                                                @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].Isrc, new { id = "hdnIsrc" + i })
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div  style="margin: 0px; float: left; padding: 0px; width: 5%; color: #fff; text-align: left; text-decoration: underline;">
+                                        @if (Model.RegularProjectDetails.StatusType == 1 ||
+                                            (Model.RegularProjectDetails.ClearanceResource[i].IsRouted != true && Model.RegularProjectDetails.StatusType != 3 && Model.RegularProjectDetails.StatusType != 4))
+                                        {
+                                            @Html.ActionLink(ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { onclick = "return OnDeleteClick(" + i + ");" })
+                                        }
+                                        else if (Model.RegularProjectDetails.ClearanceResource[i].ClearanceResourceId == 0 && Model.RegularProjectDetails.StatusType != 1 && Model.RegularProjectDetails.ClearanceResource[i].ResourceIdToUpdate == 0)
+                                        {
+                                            @Html.ActionLink(ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { onclick = "return OnDeleteClick(" + i + ");" })
+                                        }
+                                        else
+                                        {
+                                            ViewBag.ShowResources = "yes";
+                                            @Html.ActionLink(ClearanceLayout.ResourceTabRemoveLinkButton, "", null, new { disabled = "disabled", @class = "disabledRemovelnk" })
+                                        }
+                                    </div>
+                                    @if (ViewBag.ShowResources == "yes")
+                                    {
+                                        <div style="text-decoration: underline; width: 5%; color: #fff; float: right;">@Html.ActionLink("History", "", null, new { onclick = "return triggerRegularResourceAuditHistory(" + i + ");" }) </div>
+                                        <div style="clear: both;"></div>
+                                    }
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div class="contentDv" id="contentDv@(i)" style="display: block; @(Model.RegularProjectDetails.ClearanceResource[i].Rights_TypeId == 3 || Model.RegularProjectDetails.ClearanceResource[i].Rights_TypeId == 5 || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "NONUMG" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "NONEXC" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-Exclusive License" || Model.RegularProjectDetails.ClearanceResource[i].RightsTypeCode == "Non-UMG" ? "border-color:#FF0000" : "")">
+                                <table style="width: 100%;" class="tblChild" id ="tblChild @i">
+                                    <tr style="background-color: silver; font-weight: bold;">
+                                        <td id="RecType @i">@Html.Label(ClearanceLayout.MasterProjectResourcesRecordingTypeLabel)
+                                        </td>
+                                        <td id="ResType @i">@Html.Label(ClearanceLayout.MasterProjectResourcesResourceTypeLabel)
+                                        </td>
+                                        <td id="MusType @i">@Html.Label(ClearanceLayout.MasterProjectResourcesMusicTypeLabel)
+                                        </td>
+                                        <td>@Html.Label(ClearanceLayout.MasterProjectResourcesDurationLabel)
+                                        </td>
+                                        <td style="display: none">@Html.Label(ClearanceLayout.MasterProjectResourcesExcerptTimeLabel)<label
+                                                                                                                                         class="madatoryField">@mandatory</label>
+                                        </td>
+                                        <td style="display: none">@Html.Label(ClearanceLayout.MasterProjectResourcesSuggestedFeeLabel)<label
+                                                                                                                                          class="madatoryField">@mandatory</label>
+                                        </td>
+                                        <td width="210px">@Html.Label(ClearanceLayout.RegularProjectResourcesGloaballyClearedLabel)
+                                        </td>
+                                        <td>@Html.Label(ClearanceLayout.MasterProjectResourcesCommentsLabel)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        @if (Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0)
+                                        {
+                                            <td align="left">@Html.DropDownListFor(model => Model.RegularProjectDetails.ClearanceResource[i].RecordingTypeDesc, new SelectList(Model.RecordingTypeResourceTab, "text", "text", Model.RegularProjectDetails.ClearanceResource[i].RecordingTypeDesc), new { id = "ddlRecordingTypeResourceTab_" + i, style = "width:90px;" })
+                                            </td>
+                                            <td align="left">@Html.DropDownListFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceTypeDesc, new SelectList(Model.ResourceTypeResourceTab, "text", "text", Model.RegularProjectDetails.ClearanceResource[i].ResourceTypeDesc), new { id = "ddlResourceTypeResourceTab_" + i, style = "width:90px;" })
+                                            </td>
+                                            <td align="left">@Html.DropDownListFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTypeDesc, new SelectList(Model.MusicTypeResourceTab, "text", "text", Model.RegularProjectDetails.ClearanceResource[i].MusicTypeDesc), new { id = "ddlMusicTypeResourceTab_" + i, style = "width:90px;" })
+                                            </td>
+                                            <td align="left">@Html.TextBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTime, new { style = "width:75px;", onblur = "return ValidateDurationAndExcerpt(this);", title = "Format: HH:MM:SS" })
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td align="left">@Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].RecordingTypeDesc)@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].RecordingTypeDesc)
+                                            </td>
+                                            <td align="left">@Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceTypeDesc)@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceTypeDesc)
+                                            </td>
+                                            <td align="left">@Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTypeDesc)@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTypeDesc)
+                                            </td>
+                                            <td align="left">@Html.DisplayFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTime)
+                                            </td>
+                                        }
+                                        @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].MusicTime)
+                                        <td align="left" style="display: none">@Html.TextBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].ExcerptTime, new { id = "txtExcerptTime" + i, style = "width:50px;", title = "Format: HH:MM:SS", onblur = "return ValidateDurationAndExcerpt(this);" })@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ExcerptTime)
+                                        </td>
+                                        <td align="left" style="display: none">@Html.TextBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].SuggestedFee, new { id = "txtSuggestedFee" + i, style = "width:50px;" })@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].SuggestedFee)
+                                        </td>
+                                        <td align="left">@Html.CheckBoxFor(model => Model.RegularProjectDetails.ClearanceResource[i].IsGloballyCleared, new { id = "chkGloballyCleared" + i, style = "float:left;", onclick = "return OnGlobalClick(" + i + ");" })@Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].IsGloballyCleared)
+                                            <div id="tdTxtboxGlobalClearedComments@(i)" style="display: none; float: left;"><span class="madatoryField" style="padding-left: 5px;">@mandatory</span>@Html.TextAreaFor(model => Model.RegularProjectDetails.ClearanceResource[i].GloballyClearedComments, new { style = "width:150px !important;", id = "txtGloballyCleared" + i, onkeydown = " return TextAreaValidationForMax('#'+this.id);" })
+                                            </div></td>
+                                        <td id="hdnFields @i">
+                                            @Html.TextAreaFor(model => Model.RegularProjectDetails.ClearanceResource[i].Comments, new { id = "txtRegRComment" + i, onkeydown = " return TextAreaValidationForMax('#'+this.id);" })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ArchiveFlag, new { id = "hdnArchiveFlagRegular" + i })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ClearanceResourceId, new { id = "hdnClearanceResourceId" + i })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].ResourceId, new { id = "ResourceId" + i })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId, new { id = "hdnR2ResourceId" + i })
+                                            @Html.HiddenFor(model => Model.RegularProjectDetails.ClearanceResource[i].AdminCompanyId)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9">
+                                            <div class="resourceleft" id="DVresourceleft@(i + 3)" >
+                                                <div class="resource-country-label">
+                                                    @(Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0 ? ClearenceResource.CountriesInclude : ClearenceResource.ReleaseCountriesInclude)
+                                                </div>
+                                                <div id="selectedCountries_@(i + 3)" class="resource-country-val">
+                                                </div>
+                                            </div>
+                                            <div class="resourceright" id="DVresourceRight@(i + 3)"  >
+                                                <div class="resource-country-label">
+                                                    @(Model.RegularProjectDetails.ClearanceResource[i].R2_ResourceId == 0 ? ClearenceResource.CountriesExclude : ClearenceResource.ReleaseCountriesExclude)
+                                                </div>
+                                                <div id="UnselectedCountries_@(i + 3)" class="resource-country-val" >
+                                                </div>
+                                            </div>
+
+                                            <div class="clearBoth1">
+                                                <input type="button" id="btnManageTerritories_@(i + 3)" class="plbutton" value="Manage Territories" onclick=" ParentLoadTerritories(@(i + 3)); " />
+                                                <input id="hdnterritoryDetailsForSave_@(i + 3)"  type="hidden" class="hdnManageTerriCls"  name ="hdnterritoryDetailsForSave_@(i + 3)"  />
+                                                <input id="hdnincludeTerritoryString_@(i + 3)" name="hdnincludeTerritoryString_@(i + 3)" type="hidden" value="" />
+                                                <input id="hdnExcludeTerritoryString_@(i + 3)" name="hdnExcludeTerritoryString_@(i + 3)" type="hidden" value="" />
+                                            </div>
+                                        </td>
+                                        <td align="left" colspan="1">&nbsp;
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        }
+    </div>
+</div>
+@if (ViewBag.ProjectTerritories != null)
+{
+    foreach (int index in ViewBag.ProjectTerritories.Keys)
+    {
+        <script type="text/javascript">
+            var territorycountryList = @Html.Raw(Json.Encode(ViewBag.ProjectTerritories[index]));
+
+            if (territorycountryList != null) {
+                if (document.getElementById('hdnterritoryDetailsForSave_' + @Html.Raw(Json.Encode(index))) != null) {
+                    document.getElementById('hdnterritoryDetailsForSave_' + @Html.Raw(Json.Encode(index))).value = JSON.stringify(@Html.Raw(Json.Encode(ViewBag.ProjectTerritories[index])));
+                }
+            }
+        </script>
+    }
+}

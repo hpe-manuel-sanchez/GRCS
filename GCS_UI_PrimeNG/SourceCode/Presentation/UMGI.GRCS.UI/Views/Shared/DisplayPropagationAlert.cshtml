@@ -1,0 +1,33 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+<div>
+    <script src="@Url.Content("/GCS/Scripts/Custom/DisplaypropogationAlert.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var propagationAlertMessages = {
+            childContractPropAlert: '@ContractResource.ChildContractPropAlert'
+        };
+    </script>
+    <div>
+        @if (ViewBag.ChildContractIds != string.Empty)
+        {
+             <br/>
+            <label>@ContractResource.ChildContractPropAlert</label>
+            <br/>
+            <br/>
+           <label>@ViewBag.ChildContractIds</label>
+            <br/>
+        }
+        @if (ViewBag.HasRepertoire == true)
+        {
+            <br/>
+            <label>@ContractResource.LinkedContractPropAlert</label>
+            <br/>
+        }
+    </div>
+    <div class="alignRight">
+        <div class="primbutton_left">
+        </div>
+        <div class="alignLeft">
+            <input type="submit" class="primbutton" id="propAlertOk" value="@ContractResource.OKButton" />
+        </div>
+    </div>
+</div>

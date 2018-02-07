@@ -1,0 +1,333 @@
+﻿@using System.Text;
+@using UMGI.GRCS.BusinessEntities.Lookups
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities;
+@using UIConstant = UMGI.GRCS.UI.Utilities.Constants;
+@using BLConstant = UMGI.GRCS.BusinessEntities.Constants.Constants;
+@using UMGI.GRCS.UI.ViewModels.ClearanceInbox;
+
+@model InboxViewModel
+@{
+    Dictionary<long, Dictionary<long, string>> userWorkgroups = ViewBag.UserWorkgroups;
+    RoleGroup roleGroup = (RoleGroup)ViewBag.RoleGroup;
+}
+
+@Html.HiddenFor(model => model.SearchResult.ErrorMsg, new { id = "hdnConcurrencyError" })
+@Html.HiddenFor(model => model.FolderToExpandByDefault, new { id = "hdnFolderToExpandByDefault-" + roleGroup.ToString() })
+
+<div class="divLeftPanel inboxHeader inboxContent">
+    @{        
+        Html.Syncfusion().Grid<InboxViewModel.InboxProject>("grdFolder-" + roleGroup.ToString() + "-Projects")
+        .Datasource(Model.Projects)
+        .EnableAlternateRowStyling()
+        .EnableSorting()
+        .ColumnMinimumWidth(50)
+        .SortSettings(s => s
+            .AllowMultiSorting(false)
+            .AllowSorting(true)
+            .SortDescriptors(sd => sd
+                .Add(Model.State.SortDescriptor)
+                )
+        )
+        .ShowRowHeader(false)
+        .EnableRowHover(false)
+        .AllowResizing(true)
+        .ClientSideEvents(events =>
+        {
+            events.OnRecordSelectionEvent("onGridRecordSelected");
+            events.OnActionBegin("onActionBegin");
+            events.Resized("inboxColumnSetting._resized");
+        })
+        .Grouping(group => group
+            .GroupDescriptors(
+                g => g.Add(c => c.FolderViewId)
+            )
+            .IsExpanded(false)
+            .ShowGroupDropArea(false)
+            )
+       .Column(column =>
+       {
+           column.Add(c => c.FolderViewId).Width(0).Visible(false);
+           column.Add(c => c.ShowInformation).Width(0).Visible(false);
+           column.Add(c => c.FolderId).Width(0).CssClass("FolderId").Visible(false);
+           column.Add(c => c.IsSystemFolder).CssClass("IsSystemFolder").Width(0).Visible(false);
+           column.Add(c => c.FolderName).Width(0).Visible(false);
+           column.Add(c => c.ClearanceProjectId).CssClass("clearanceProjectId").Width(0).Visible(false);
+           column.Add(c => c.WorkgroupId).CssClass("workgroupId").Width(0).Visible(false);
+           column.Add(c => c.RoleId).CssClass("roleId").Width(0).Visible(false);
+           column.Add(c => c.ProjectStatusId).Width(0).Visible(false);
+           column.Add(c => c.ProjectTypeId).Width(0).Visible(false);
+           column.Add(c => c.CurrentFolderId).CssClass("currentFolderId").Width(0).Visible(false);
+           column.Add(c => c.OriginalSystemFolderId).CssClass("originalSystemFolderId").Width(0).Visible(false);
+           column.Add(c => c.ModifiedUserAssignedTo).CssClass("modifiedUserAssignedTo").Width(0).Visible(false);
+           column.Add(c => c.ModifiedDateAssignedTo).HeaderText("Modified Date Assigned To").CssClass("modifiedDateAssignedTo").Format("{0:yyyy-MM-dd HH:mm:ss.fff}").Width(0).Visible(false);
+
+           switch ((RoleGroup)ViewBag.RoleGroup)
+           {
+               case RoleGroup.Reviewer:
+
+                   column.Add(c => c.IsThirdParty).HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.IsUnread).HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.ProjectType).HeaderText("Project Type").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectType", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ProjectReferenceNumber).HeaderText("Project Ref. No.").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectReferenceNumber", "grdFolder-" + roleGroup.ToString() + "-Projects", 115));
+                   column.Add(c => c.ProjectTitle).HeaderText("Project Title").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectTitle", "grdFolder-" + roleGroup.ToString() + "-Projects", 152));
+                   column.Add(c => c.NotificationRecieved).HeaderText("Notification Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "NotificationRecieved", "grdFolder-" + roleGroup.ToString() + "-Projects", 110));
+                   column.Add(c => c.AssignedToUser).HeaderText("Assigned To").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "AssignedToUser", "grdFolder-" + roleGroup.ToString() + "-Projects", 154));
+                   column.Add(c => c.RequestorName).HeaderText("Requestor Name").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "RequestorName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ReleaseDate).HeaderText("Release Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ReleaseDate", "grdFolder-" + roleGroup.ToString() + "-Projects", 95));
+                   column.Add(c => c.EstimatedSalesUnit).HeaderText("Estimated Sales").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "EstimatedSalesUnit", "grdFolder-" + roleGroup.ToString() + "-Projects", 110));
+                   column.Add(c => c.RoleName).HeaderText("Role").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "RoleName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.WorkGroupName).HeaderText("Workgroup").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "WorkGroupName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+
+                   break;
+
+               case RoleGroup.RCCAdmin:
+
+                   column.Add(c => c.IsUnread).HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.ProjectType).HeaderText("Project Type").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectType", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ProjectReferenceNumber).HeaderText("Project Ref. No.").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectReferenceNumber", "grdFolder-" + roleGroup.ToString() + "-Projects", 115));
+                   column.Add(c => c.ProjectTitle).HeaderText("Project Title").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectTitle", "grdFolder-" + roleGroup.ToString() + "-Projects", 152));
+                   column.Add(c => c.NotificationRecieved).HeaderText("Notification Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "NotificationRecieved", "grdFolder-" + roleGroup.ToString() + "-Projects", 110));
+                   column.Add(c => c.ProjectSubmissionDate).HeaderText("Submission Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectSubmissionDate", "grdFolder-" + roleGroup.ToString() + "-Projects", 120));
+                   column.Add(c => c.ReleaseDate).HeaderText("Release Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ReleaseDate", "grdFolder-" + roleGroup.ToString() + "-Projects", 95));
+                   column.Add(c => c.EstimatedSalesUnit).HeaderText("Estimated Sales").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "EstimatedSalesUnit", "grdFolder-" + roleGroup.ToString() + "-Projects", 110));
+                   column.Add(c => c.RccHandlerName).HeaderText("RCC Handler").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "RccHandlerName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+
+                   break;
+
+               case RoleGroup.Requestor:
+
+                   column.Add("UnsubmittedRequest").HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.IsAllRequestReviewed).HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.IsUnread).HeaderText(" ").Width(30).AllowSorting(false).TextAlign(TextAlignment.Right);
+                   column.Add(c => c.ProjectType).HeaderText("Project Type").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectType", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ProjectReferenceNumber).HeaderText("Project Ref. No.").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectReferenceNumber", "grdFolder-" + roleGroup.ToString() + "-Projects", 115));
+                   column.Add(c => c.ProjectTitle).HeaderText("Project Title").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectTitle", "grdFolder-" + roleGroup.ToString() + "-Projects", 152));
+                   column.Add(c => c.ProjectSubmissionDate).HeaderText("Submission Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ProjectSubmissionDate", "grdFolder-" + roleGroup.ToString() + "-Projects", 120));
+                   column.Add(c => c.NotificationRecieved).HeaderText("Notification Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "NotificationRecieved", "grdFolder-" + roleGroup.ToString() + "-Projects", 110));
+                   column.Add(c => c.RequestorName).HeaderText("Requestor Name").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "RequestorName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.RequestingCompanyName).HeaderText("Requesting Company").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "RequestingCompanyName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ThirdPartyCompanyName).HeaderText("Third Party Company").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ThirdPartyCompanyName", "grdFolder-" + roleGroup.ToString() + "-Projects", 150));
+                   column.Add(c => c.ReleaseDate).HeaderText("Release Date").Format("{0:dd MMM yyyy}").Width(CustomExtensions.Inbox.GetColumnWidth(Model.ColumnSettings, "ReleaseDate", "grdFolder-" + roleGroup.ToString() + "-Projects", 95));
+
+                   break;
+           }
+       })
+        .QueryCellInfo(c =>
+        {
+            switch (c.TableCellType)
+            {
+                case GridTableCellType.GroupCaptionCell:                    
+                    int id = CustomExtensions.Inbox.GetFolderId(c.Text);
+                    if (id == 0) return;
+
+                    InboxViewModel.InboxProject project = Model.Projects.Where(i => i.FolderViewId == id).First();
+
+                    string folderName = project.FolderName;
+                    long folderId = project.FolderId;
+                    bool IsSystemFolder = project.IsSystemFolder.Value;
+                    long projectCount = project.TotalRecordCount;
+                    long? selectedFolderId = Model.State.SelectedFolderId;
+                    bool showAllProjects = Model.State.ShowAllProjects;
+                    string roleGroupDescripcion = roleGroup.ToString();
+
+                    if ((folderId == (long)SystemFolder.ReviewerArtistConsent) && ((bool)ViewBag.DisplayArtistConsentFolder == false))
+                    {
+                        break;
+                    }
+
+                    c.Text =
+                        String.Format("<div id=folder-{0} class='folder-Container {1}'>", folderId, IsSystemFolder ? "isSystemFolder" : "") +
+                        String.Format("<input type=hidden id=folderName_{0} name=folderName_{0} value={1}>", folderId, '"' + folderName + '"') +
+                        String.Format("<div class='nodeWrapper'>");
+                    if (projectCount > 0)
+                    {
+                        c.HtmlAttributes["class"] = "GroupCaption Collapse";
+                        c.Text = c.Text +
+                        String.Format("<div class='parentNode floatL text-align-left cursorPointer' title='{0}' onclick='folderClickEvent(this,{1},{2})''>", folderName, folderId, '"' + roleGroupDescripcion + '"') +
+                            String.Format("{0} ({1})", folderName, projectCount) +
+                        String.Format("</div>");
+                    }
+                    else
+                    {
+                        c.HtmlAttributes["class"] = "GroupCaption Collapse EmptyFolder";
+                        c.Text = c.Text +
+                        String.Format("<div class='parentNode floatL text-align-left cursorPointer' title='{0}'>", folderName) +
+                            String.Format("{0} ({1})", folderName, projectCount) +
+                        String.Format("</div>");
+                    }
+                    if (roleGroup == RoleGroup.Reviewer)
+                    {
+                        c.Text = c.Text +
+                        String.Format("<div id='inboxSaveWrapper' class='folder-Save floatL marginLeft displayBlock' title='Save all projects' onclick='saveInboxFolder({0});'></div>", folderId);
+                    }
+
+                    if (IsSystemFolder == false)
+                    {
+                        c.Text = c.Text +
+                        String.Format("<div class='floatL folderAction'>") +
+                            String.Format("<a class='displayAsHyperlink' title='Edit folder name' onclick='manageFolder({0},{1},{2},{3});'>Edit</a>", folderId, '"' + folderName + '"', "null", '"' + FolderAction.Edit.ToString() + '"') +
+                            String.Format("<span class=seperator>|</span>") +
+                            String.Format("<a class='displayAsHyperlink' title='Delete folder' onclick='manageFolder({0},{1},{2},{3});'>Delete</a>", folderId, '"' + folderName + '"', projectCount, '"' + FolderAction.Delete.ToString() + '"') +
+                        String.Format("</div>");
+                    }
+                    if ((folderId == (long)SystemFolder.RequestorUnsubmitted) && (projectCount > 0))
+                    {
+                        c.Text = c.Text +
+                        String.Format("<div class='floatL folderAction'><a class='displayAsHyperlink' title='Delete selected projects' onclick='deleteUnsubmittedProjects();'>Delete</a></div>");
+                    }
+                    if (projectCount > UIConstant.DefaultFolderSize)
+                    {
+                        var displayShowAll = true;
+                        var displayShowDefault = false;
+
+                        if ((folderId == selectedFolderId) && (showAllProjects != null))
+                        {
+                            if (showAllProjects == true)
+                            {
+                                displayShowAll = false;
+                                displayShowDefault = true;
+                            }
+                            else
+                            {
+                                displayShowAll = true;
+                                displayShowDefault = false;
+                            }
+                        }
+
+                        c.Text = c.Text +
+                        String.Format("<div class='floatL folderAction'>");
+                        if (displayShowAll)
+                            c.Text = c.Text + String.Format("<a class='showAllProjects displayAsHyperlink displayBlock' title='Show all projects' onclick='showAllProjects({0},true);'>Show All</a>", folderId);
+                        if (displayShowDefault)
+                            c.Text = c.Text + String.Format("<a class='showDefault displayAsHyperlink displayBlock' title='Show default' onclick='showAllProjects({0}, false);'>Show Default</a>", folderId);
+                        c.Text = c.Text + String.Format("</div>");
+                    }
+
+                    c.Text = c.Text +
+                    String.Format("</div>") +
+                    String.Format("</div>");
+                    break;
+
+                case GridTableCellType.ColumnHeaderCell:
+
+                    c.HtmlAttributes["id"] = c.Column.MappingName;
+                    switch (c.Column.MappingName)
+                    {
+                        case "IsThirdParty":
+                        case "IsUnread":
+                        case "UnsubmittedRequest":
+                        case "IsAllRequestReviewed":
+
+                            c.HtmlAttributes["class"] = "HeaderCell noHeaderText";
+                            break;
+                        case "":
+                            c.HtmlAttributes["style"] = "width: 0px !important";
+                            break;
+                    }
+
+                    break;
+
+                case GridTableCellType.RecordFieldCell:
+                case GridTableCellType.AlternateRecordFieldCell:
+                    if (c.Data.ShowInformation == true)
+                    {
+                        switch (c.Column.MappingName)
+                        {
+                            case "UnsubmittedRequest":
+                                c.Text = c.Data.FolderId == (long)SystemFolder.RequestorUnsubmitted ? String.Format(@"<input class=""unsubmittedRequest preventRowSelection"" type=""checkbox"" value=""{0}""></input>", c.Data.ClearanceProjectId) : String.Empty;
+                                break;
+
+                            case "IsAllRequestReviewed":
+                                c.Text = c.Data.IsAllRequestReviewed ? String.Format(@"<div class=""isAllRequestReviewed"" title=""{0}""></div>", "All requests reviewed") : String.Empty;
+                                break;
+
+                            case "IsThirdParty":
+                                c.Text = c.Data.IsThirdParty ? String.Format(@"<div class=""isThirdParty"" title=""{0}""></div>", "Third party company") : String.Empty;
+                                break;
+
+                            case "IsUnread":
+
+                                if (c.Data.FolderId != (long)SystemFolder.RequestorUnsubmitted)
+                                    c.Text = String.Format(@"<div class=""isUnread preventRowSelection {0}"" title=""{1}"" onclick=""updateProjectReadStatus(($(this).closest('tr')), false, {2}, {3}, {4});""></div>", (c.Data.IsUnread ? "displayNone" : "displayBlock"), "Mark as unread", c.Data.ClearanceProjectId, c.Data.WorkgroupId, c.Data.CurrentFolderId);
+                                else
+                                    c.Text = string.Empty;
+                                break;
+
+                            case "ProjectType":
+                                c.Text = String.Format(@"<div class=""projectType"" title=""{0}"">{1}</div>", c.Data.ProjectType, c.Data.ProjectType);
+                                break;
+
+                            case "ProjectReferenceNumber":
+                                c.Text = String.Format(@"<div class=""projectReferenceNumber preventRowSelection""><a class=""displayAsHyperlink"" target=""_blank"" onclick=""viewProject({0}, {1}, {2});"">{3}</a></div>", c.Data.ClearanceProjectId, c.Data.ProjectTypeId, c.Data.ProjectStatusId, c.Data.ProjectReferenceNumber);
+                                break;
+
+                            case "ProjectTitle":
+                                c.Text = String.Format(@"<div class=""projectTitle"" title=""{0}"">{1}</div>", c.Data.ProjectTitle, c.Data.ProjectTitle);
+                                break;
+
+                            case "AssignedToUser":
+
+                                var workgroupUsers = (from w in userWorkgroups
+                                                      where w.Key == c.Data.WorkgroupId
+                                                      select w.Value).FirstOrDefault();
+
+                                var selectList = new StringBuilder(@"<option value=""0"" " + (c.Data.AssignedToUserId == 0 ? "selected" : String.Empty) + "></option>");
+
+
+                                foreach (var w in workgroupUsers)
+                                {
+                                    selectList.Append(String.Format(@"<option value=""{0}"" title=""{1}"" {2}>{3}</option>", w.Key, w.Value, (w.Key == c.Data.AssignedToUserId ? "selected" : String.Empty), w.Value));
+                                }
+
+
+                                c.Text = String.Format(@"<div class=""preventRowSelection""><select style='width:135px' class=""assignedToUser"" onchange=""markDataAsChanged($(this), {0});"">{1}</select></div>", c.Data.AssignedToUserId, selectList);
+                                break;
+
+                            case "RequestorName":
+                                c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.RequestorName, c.Data.RequestorName);
+                                break;
+
+                            case "RequestingCompanyName":
+                                if (c.Data.RequestingCompanyName != null)
+                                {
+                                    c.Data.RequestingCompanyName = String.Format("{0}({1})", c.Data.RequestingCompanyName, c.Data.RequestingCompanyIsoName);
+                                    c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.RequestingCompanyName, c.Data.RequestingCompanyName);
+                                }
+                                break;
+
+                            case "ThirdPartyCompanyName":
+                                if (c.Data.ThirdPartyCompanyName != null)
+                                {
+                                    c.Data.ThirdPartyCompanyName = String.Format("{0}({1})", c.Data.ThirdPartyCompanyName, c.Data.ThirdPartyCompanyIsoName);
+                                    c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.ThirdPartyCompanyName, c.Data.ThirdPartyCompanyName);
+                                }
+                                break;
+
+                            case "RoleName":
+                                c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.RoleName, c.Data.RoleName);
+                                break;
+
+                            case "WorkGroupName":
+                                c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.WorkGroupName, c.Data.WorkGroupName);
+                                break;
+
+                            case "RccHandlerName":
+                                c.Text = String.Format(@"<div title=""{0}"">{1}</div>", c.Data.RccHandlerName, c.Data.RccHandlerName);
+                                break;
+                        }
+                    }
+                    else { c.HtmlAttributes["style"] = "visibility: hidden"; }
+                    break;
+            }
+
+        })
+       .RowDataBound(r =>
+       {
+           if (r.Data.FolderId != (long)SystemFolder.RequestorUnsubmitted && r.Data.IsUnread)
+           {
+               r.HtmlAttributes["class"] = r.IsAlternate ? "Alt_Row displayBold" : "displayBold";
+           }
+       }).Render();
+    }
+</div>

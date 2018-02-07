@@ -1,0 +1,49 @@
+﻿.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+input[type="text"], input[type="password"] {
+    width: 79%;
+}
+
+.leftMainDiv {
+    width: 100%;
+}
+
+.accbg .leftMainDiv {
+    width: 100%;
+}
+
+.accbg .leftLabelDiv, .accbg .rightLabelDiv {
+    width: 8%;
+}
+
+#addRoleGroup .leftFieldDiv {
+    width: 87%;
+}
+
+#addRoleGroup textarea {
+    width: 100%;
+    height: 200px;
+}
+
+#addRoleGroup .roleName textarea {
+    height: 26px;
+}
+
+.search-button input[type="text"] {
+    width: 75.5%;
+}
+
+.btnsPadding {
+    margin: 0 15px 15px 0;
+}
+
+.allignLabel {
+    margin-right: 0.8em;
+    margin-top: 0.2em;
+}
+
+#addRoleGroup {
+    padding: 8px 8px;
+}

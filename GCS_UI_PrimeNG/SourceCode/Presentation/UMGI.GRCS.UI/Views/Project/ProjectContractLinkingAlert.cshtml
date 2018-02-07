@@ -1,0 +1,48 @@
+﻿
+@model UMGI.GRCS.UI.Models.RepertoireSearchModel
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    var msg = '@ViewBag.displayMessage';
+    $(document).ready(function () {
+        $('#artistNameProjAlert').html($('#loadArtistName').val());
+        $('#contractingPartyProjAlert').html($('#loadContractingParty').val());
+        $('#clearanceAdminProjAlert').html($('#loadClearanceCompanyName').val());
+        $('#projectLinkOk').click(function () {
+            $('#projectPopup').dialog('close');
+        });
+    });
+</script>
+
+<style>
+.linkContractResource
+{
+    color:Blue;
+    font-weight:bold;
+}
+</style>    
+
+  
+        <div style="padding: 10px;" >
+        
+        
+@*<div id="hid">
+        <input type="hidden"  value="@ViewBag.displayMessage" id="hiddenCount"/>
+       <input type="hidden"  value="@Model.ObjResourceModel.TotalRows" id="hiddeCounValidation"/>
+   </div>*@  
+<div style="margin-top: 10px;">
+            <div style="float: left; width: 60%; margin-bottom: 10px;">
+                The selected project has already been Linked to contract: "<span class="linkContractResource">
+                                                                           <span id="artistNameProjAlert"></span>-
+                                                                           <span id="contractingPartyProjAlert"></span>-
+                                                                           <span id="clearanceAdminProjAlert"></span>
+                                                                       </span>"
+            </div>  
+       
+    
+            <div id="alinLeft" style="float: right;"><input type="submit" id="projectLinkOk" value="Ok" class="primbutton"/></div>
+        
+        </div>
+        

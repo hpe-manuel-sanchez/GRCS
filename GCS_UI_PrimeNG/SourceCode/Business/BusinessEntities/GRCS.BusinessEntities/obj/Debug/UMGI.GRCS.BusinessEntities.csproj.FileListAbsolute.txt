@@ -1,0 +1,17 @@
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\Schema\EmailTemplate.xml
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.dll.CodeAnalysisLog.xml
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.dll.lastcodeanalysissucceeded
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Core.Utilities.Helper.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Proxies.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Core.Utilities.logger.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\log4net.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.Proxies.pdb
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\obj\Debug\UMGI.GRCS.BusinessEntities.csprojResolveAssemblyReference.cache
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\obj\Debug\UMGI.GRCS.BusinessEntities.dll
+C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\obj\Debug\UMGI.GRCS.BusinessEntities.pdb

@@ -1,0 +1,166 @@
+﻿@model UMGI.GRCS.UI.ViewModels.Search.ViewResourceRolesAndRights
+@using UMGI.GRCS.Resx.Resource.Layout
+
+<link href="@Url.Content("/GCS/Content/SubPages/Search/ResourceRolesAndRights.css")" rel="stylesheet" />
+
+@if (Model.ContractRolesAndRights != null)
+{
+    for (int i = 0; i < Model.ContractRolesAndRights.Count; i++)
+    {
+    <br />
+        //
+    <table class="rr-and-right">
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.ClearanceAdminCompany):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].PcNoticeCountryCompany)</span>
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.ClearanceNotes):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].ClearingNotes)</span>
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.PhysicalRights):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsPhysicalRights)</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.LossRightIndicator):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsLossRightsIndicator)</span>
+            </td>
+            <td>&nbsp;
+            </td>
+            <td>&nbsp;
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.DigitalRights):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsDigitalRights)</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.ActiveMarketing):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsActiveForMarketing)</span>
+            </td>
+            <td>&nbsp;
+            </td>
+            <td>&nbsp;
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.DigitalUnbundlingAllowed):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsDigitalUnbundle)</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.Senstive):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].IsSensitiveArtist)</span>
+            </td>
+            <td>&nbsp;
+            </td>
+            <td>&nbsp;
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.TerritorialRights):</b>
+            </td>
+            <td align="left">
+                <span>@Html.DisplayFor(model => model.ContractRolesAndRights[i].TerritorialRightsDefinition)</span>
+            </td>
+        </tr>
+    </table>
+    <br />
+        //Pre Clearance Information   
+    <b>@Html.Label(@ClearanceLayout.PreClearanceInformation)</b>
+    <table width="100%">
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.PreclearanceType)</b>
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.Precleared)</b>
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.PreclearanceTerritoryExclusions)</b>
+            </td>
+        </tr>
+
+        @if (Model.ContractRolesAndRights[i].ContractPreClearanceInformation != null)
+        {
+            for (int j = 0; j < Model.ContractRolesAndRights[i].ContractPreClearanceInformation.Count; j++)
+            { 
+            <tr>
+                <td align="left">
+                    <span>
+                        @Html.DisplayFor(model => model.ContractRolesAndRights[i].ContractPreClearanceInformation[j].PreclearanceTypeDesc)
+                        <br />
+                    </span>
+                </td>
+                <td align="left">
+                    <span>
+                        @Html.DisplayFor(model => model.ContractRolesAndRights[i].ContractPreClearanceInformation[j].IsPreclearance)
+                        <br />
+                    </span>
+                </td>
+                <td align="left">
+                    <span>
+                        @Html.DisplayFor(model => model.ContractRolesAndRights[i].ContractPreClearanceInformation[j].PreClearedTerritoryExclusion)
+                        <br />
+                    </span>
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    <br />
+        //Secondary Exploitation Rights    
+    <b>@Html.Label(@ClearanceLayout.SecondaryExploitationRights)</b>
+    <table width="100%">
+        <tr>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.ExploitationType)</b>
+            </td>
+            <td align="left">
+                <b>@Html.Label(@ClearanceLayout.Rights)</b>
+            </td>
+        </tr>
+        @if (Model.ContractRolesAndRights[i].ContractExploitationRestrictionsList != null)
+        {
+            for (int j = 0; j < Model.ContractRolesAndRights[i].ContractExploitationRestrictionsList.Count; j++)
+            {  
+            <tr>
+                <td align="left">
+                    <span>
+                        @Html.DisplayFor(model => model.ContractRolesAndRights[i].ContractExploitationRestrictionsList[j].ExploitaionTypeName)
+                        <br />
+                    </span>
+                </td>
+                <td align="left">
+                    <span>
+                        @Html.DisplayFor(model => model.ContractRolesAndRights[i].ContractExploitationRestrictionsList[j].Rights)
+                        <br />
+                    </span>
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    <br />
+    }
+}

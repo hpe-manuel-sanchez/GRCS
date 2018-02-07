@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="893a0a19-17ce-4803-ad44-9e23d86f0da0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:7778/Workgroup/Workgroup.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Workgroup10.xsd" MetadataType="Schema" ID="da32cd44-2835-4541-b39b-2c94c5e3c9d5" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd7" />
+    <MetadataFile FileName="Workgroup101.xsd" MetadataType="Schema" ID="01f27462-3213-48c2-9175-9bb26c9383b1" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd3" />
+    <MetadataFile FileName="Workgroup102.xsd" MetadataType="Schema" ID="422b59fa-2feb-4ea2-a5a6-f5bdebfb95b1" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd4" />
+    <MetadataFile FileName="Workgroup103.xsd" MetadataType="Schema" ID="6d25facc-34b3-4dfd-abec-8bbdb17465a1" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd0" />
+    <MetadataFile FileName="Workgroup104.xsd" MetadataType="Schema" ID="96145e5f-7c0d-427d-ba1c-fedcffc81773" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd8" />
+    <MetadataFile FileName="Workgroup1.disco" MetadataType="Disco" ID="5e26e77f-1364-4689-96aa-aea95da46679" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?disco" />
+    <MetadataFile FileName="Workgroup105.xsd" MetadataType="Schema" ID="505e707d-7931-48a5-81c5-fcb5dc191f07" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd5" />
+    <MetadataFile FileName="Workgroup106.xsd" MetadataType="Schema" ID="f0977030-085e-415f-8a96-a5224d922d13" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd1" />
+    <MetadataFile FileName="Workgroup107.xsd" MetadataType="Schema" ID="dd31341b-06e0-4a1a-8142-f7ad4aee6d11" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd9" />
+    <MetadataFile FileName="Workgroup108.xsd" MetadataType="Schema" ID="6b022ff0-5d43-4ba5-b0cf-d215e37c8391" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd6" />
+    <MetadataFile FileName="Workgroup109.xsd" MetadataType="Schema" ID="da62fb1f-19a7-4cbb-9c5d-91d2b589de1d" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd2" />
+    <MetadataFile FileName="Workgroup1.wsdl" MetadataType="Wsdl" ID="0ebc1b1e-3bc0-49df-ab66-5b0490b6aa5b" SourceId="1" SourceUrl="http://localhost:7778/Workgroup/Workgroup.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

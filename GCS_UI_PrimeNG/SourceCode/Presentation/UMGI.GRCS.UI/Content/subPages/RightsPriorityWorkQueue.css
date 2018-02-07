@@ -1,0 +1,406 @@
+﻿
+#spanResourceAudio {
+float: left;
+margin-top: 10px;
+}
+
+#spanAudioVideo {
+float: left;
+margin-top: 10px;
+}
+
+#spanReviewField {
+float: left;
+margin-top: 10px;
+}
+
+#divResourceTrackData,#divUseType
+{
+padding: 15px;
+width: 20%;
+float: left;
+border-right: #cccccc medium solid;
+}
+
+#divResourceType ,#divCommercialModel{
+padding: 15px;
+width: 20%;
+float: left;
+border-right: #cccccc medium solid;
+}
+
+#divReviewStatus ,#divRestriction{
+padding: 15px;
+width: 25%;
+float: left;
+border-right: #cccccc medium solid;
+}
+
+#divExists,#divConsentPeriod {
+padding: 15px;
+width: 20%;
+float: left;
+}
+
+#spanHeaderRights,#spanChkBoxesUseType {
+float: left;
+margin-left: 50px;
+width: 100%;
+}
+
+#spanResourceType ,#spanHeaderCommercial{
+float: left;
+margin-left: 50px;
+width: 100%;
+}
+
+#spanReviewStatus,#spanHeaderRestriction,#spanHeaderConsentPeriod {
+float: left;
+margin-left: 50px;
+width: 100%;
+}
+
+#hrRightsDataField
+{
+float: left;
+width: 100%;
+}
+
+#divDataField
+{
+padding: 5px 10px;
+clear:both;
+/*width: 100%;*/
+}
+
+.divLeftFields
+{
+float: left;
+position: relative;
+width: 48%;
+margin:5px 0;
+}
+
+.divRightFields
+{
+float: right;
+position: relative;
+width: 52%;
+margin:5px 0;
+}
+
+#aAccordionRightsReview
+{
+/* ReSharper disable Html.PathError */
+background: url("/GCS/Images/grs_sprite_img.png") repeat-x scroll 0 -1969px transparent !important;
+/* ReSharper restore Html.PathError */
+height: 20px;
+    
+}
+
+#divRightsReviewFilterAccordion
+{
+clear: both;
+height: 20px;
+margin-top: 4px;
+}
+
+#divRightsReviewFilterAccordion .head {
+/* ReSharper disable Html.PathError */
+background: url("/GCS/Images/grs_sprite_img.png") repeat-x scroll 0 -1969px #FFFFFF;
+/* ReSharper restore Html.PathError */
+border: 1px solid #C8C8C8;
+cursor: pointer;
+display: block;
+font-weight: bold;
+height: 20px;
+margin: 10px 0 0;
+padding: 0;
+text-decoration: none;
+text-indent: 14px;
+width:100%;
+}
+
+#divRightsReviewFilterAccordion a.header {
+background: url("/GCS/Images/Acc_Arrow_Down.png") no-repeat scroll 0 4px transparent;
+border: medium none;
+color: #143489;
+font-size: 12px;
+margin-left: 5px;
+margin-top:3px;
+text-decoration: none;
+}
+
+#divRightsReviewFilterAccordion a.iconBottom {
+/*background: url("/GCS/Images/Acc_Arrow_RIght.png") no-repeat scroll 0px 3px transparent;*/
+background: url(/Images/grs_sprite_img.png) no-repeat transparent -10px -1859px;/* Right Arrow */ 
+}
+
+#divReviewFilterButtons {
+float: right;
+margin-right:8px;
+}
+
+#divHiddenDigitalRestrictionContainer {
+display: none;
+padding-top:10px;
+}
+#divHiddenDigitalRestrictionContainer .head
+{
+   margin:0 !important; }
+
+
+.tab-outer 
+{
+border-bottom: none;}
+        
+
+
+#divRightsReviewFilter .rrfChkContainer{
+float:left;width: 100%; padding-top:10px; font-weight: bold;}
+#divDigitalRestrictionFilterAccordion .rrfChkContainer{
+float:left;padding-bottom:10px;width: 100%; padding-top:10px; font-weight:bold;}
+.rrf_Rtrd_Container{
+float:left; padding-left:10px; padding-right:10px;height:40px; width:17%;}
+.rrfChkLabel{
+float:left;
+font-weight:bold;
+color: #143489;}   
+.clearFloat{
+clear:both;}
+.rrf_OneColumnChkBox{
+float:left; padding-top:4px;}
+.rrf_Rt_Container{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:40px;width:21%;
+}  
+.rrf_Rs_Container{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:40px;width:24%;
+}  
+.rrfChkLastContainer{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:40px;width:26%;
+}      
+.rrf_TwoColumnChkBox{
+float:left; margin-left:10px;padding-top:4px;}
+#divRightsPriorityWorkQueueTab #jsddm li ul
+{
+margin:0;}
+.digiRestrictionAcc .rrf_Rtrd_Container{
+float:left; padding-left:1%; padding-right:1%;height:85px;width:18%;}
+.digiRestrictionAcc .rrf_Rt_Container{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:85px;width:23%;
+}  
+.digiRestrictionAcc .rrf_Rs_Container{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:85px;width:28%;
+}  
+.digiRestrictionAcc .rrfChkLastContainer{
+float:left; padding-left:1%; padding-right:1%; border-left:1px solid #c8c8c8;height:85px;width:21%;
+}      
+
+.divLeftControl
+{
+float: left;
+margin-left: 5px;
+margin-top: 5px;
+position: relative;
+width: 40%;
+font-size:11px;
+}
+
+.divRightControl
+{
+float: left;
+margin-left: 5px;
+position: relative;
+width: 30%;
+margin-bottom:15px;
+}
+.divLeftControlBulk
+{
+float: left;
+position: relative;
+width: 17%;
+font-size:11px;
+text-align:right;
+ padding-left: 5px;
+    padding-top: 13px;
+}
+
+.divRightControlBulk
+{
+float: left;
+position: relative;
+width: 22%;
+ padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+
+}
+.divLeftControlBulkNest
+{
+float: left;
+ padding: 13px 0 0 5px;
+position: relative;
+width: 16%;
+text-align:right;
+font-size:11px;
+font-weight:bold;
+}
+
+.divRightControlBulkNest
+{
+float: left;
+padding-left:5px;
+position: relative;
+width: 16%;
+padding-top:10px;
+}
+.rightsReviewContainer .isrcInputText input[type="text"]
+{
+width: 100%;
+}
+.rightsReviewContainer .upcInputText input[type="text"]
+{
+width: 96%;
+}
+.rightsReviewContainer .artistInputText input[type="text"]
+{
+width: 70%;
+}
+.rightsReviewContainer .titleInputText input[type="text"]
+{
+width: 98%;
+}
+.rightsReviewContainer .cacInputText input[type="text"]
+{
+width: 96% !important;
+}
+.rightsReviewContainer .linkContractInputText textarea
+{
+width: 91%;margin:0; height:29px !important;
+height:27px\9 !important;
+height: 27px \0/IE9;
+}
+.rightsReviewContainer .reasonDropDown select
+{
+width: 98%;
+}
+.rightsReviewContainer #jqgrid
+{
+padding: 0px 15px;
+}
+.rightsReviewContainer .leftLabelDiv
+{width: 68px; text-align: right; float: left;
+font-weight: bold; margin: 0.4em 0.8em 4px 4px;
+}
+.rightsReviewContainer .leftFieldDiv
+{
+width: 82%; float: left; }
+.rightsReviewContainer .rightLabelDiv
+{width: 153px; text-align: right; float: left;
+font-weight: bold; margin: 0.4em 0.8em 4px 4px;
+}
+.rightsReviewContainer .rightFieldDiv
+{
+width: 66%; float: left;}
+.rightsReviewContainer #divRightsReviewFilter
+{
+width:100%;}
+.rightsReviewContainer .filterBody
+{
+background-color: #fafafa; border: 1px solid #c8c8c8; float:left;width:100%;}
+.rightsReviewContainer .rightsReviewAcc
+{
+padding: 0px 15px;                     }
+.rightsReviewContainer
+{
+overflow:scroll; 
+}
+.rightsReviewContainer .isrcContainer
+{
+width: 188px; float: left;
+}
+        
+.rightsReviewContainer .isrcInputText {width: 105px; float: left;}
+.rightsReviewContainer .upcContainer{width: 150px; float: left;}
+.rightsReviewContainer .upcInputText{width: 105px; float: left;}
+#divDigitalRestrictionFilterAccordion
+{
+border: 1px solid #ccc;
+float: left;
+width: 100%;
+background-color: #fff;}
+.filterResetCont
+{
+float:right;
+margin:10px 0 5px 0;}
+.linkContractSearchIcon
+{
+background-image: url('/GCS/Images/grs_sprite_img.png');background-position: 23px -614px;width: 20px;float:right;padding-left:1px; height:32px;
+    
+}
+.filterResetSpace
+{
+margin-right:10px;}
+.rightsReviewContainer
+{
+overflow: hidden;}
+#divScrollPriorityWorkQueue
+{
+overflow-y: auto; overflow-x: hidden;}    
+    
+.digiRestrictionAcc{ 
+padding-left:5px; padding-right:7px;}
+.upcContainerLabel
+{
+width: 30px; text-align: right; float: left;font-weight: bold;
+margin: 0.4em 0.8em 4px 4px;}
+.rrfChkContainer input[type=checkbox]
+{
+vertical-align:middle;}
+.rightsReviewAcc #chkBoxArtistExact
+{
+vertical-align:sub;}    
+#spanReviewFilter
+{
+margin-right:15px;
+margin-top:3px;} 
+#clearReviewFilter
+{
+background: url('/GCS/Images/grs_sprite_img.png') no-repeat scroll -6px -917px transparent !important;
+padding:0 0 3px 5px;} 
+#rightsAcquiredBulkEditTab .trContainer .terrRightsContainer          
+{
+height:73%;
+margin-top: 0 !important;
+    padding-top: 1em;}
+#rightsAcquiredBulkEditTab .trContainer #includeitems
+{
+height:43%;}
+.digiRestrictionAcc a.iconBottom
+{
+    margin-top:0 !important;
+}
+.digiRestrictionAcc a.header
+{
+      margin-top:0 !important; }
+#lostRightsDate
+{
+    width:102px !important;}      
+        
+
+.trContainer .autocompleteContainer {
+    margin-top: 15px;
+    padding-bottom: 0px !important;
+}     
+#imgClearFilter {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    left: -88px;
+    top: 4px;
+    background-image: url('/GCS/Images/close_support.png');
+    background-position:right;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }   

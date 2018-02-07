@@ -1,0 +1,122 @@
+﻿@model HandleErrorInfo
+@using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using System.Configuration
+@{
+    ViewBag.Title = @ContractResource.ErrorHeader;
+    if (ConfigurationManager.AppSettings["ApplicationName"] != AnaTargetApplication.Grs.ToString())
+    {
+        //Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+        Layout = null;
+    }
+    var isErrorInfoEnabled = @ConfigurationManager.AppSettings["IsErrorInfoEnabled"];
+}
+
+@*<h2>
+     @ContractResource.ErrorMsg
+</h2>*@
+
+@*<h3>Exception:</h3>
+<p> @Model.Exception.Message;</p>*@
+
+<head>
+    <title>Error Page</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+    <style type="text/css">
+        #errorOnPage {
+            background-color: #f4fbff;
+            font-family: Arial,Verdana,sans-serif;
+        }
+
+            #errorOnPage ul {
+                list-style: none;
+            }
+
+                #errorOnPage ul li {
+                    font-size: 12px;
+                    color: #6e7070;
+                    line-height: 2.5em;
+                }
+
+            #errorOnPage .errorHeader {
+                color: #4963a4;
+                font-size: 14px;
+            }
+
+        #errorContainer {
+            position: absolute;
+            top: 10%;
+        }
+
+        .goPrevious, .supportAdmin {
+            text-decoration: underline;
+            color: #4963a4;
+        }
+
+        .supportPhone {
+            font-weight: bold;
+            color: #575858;
+        }
+    </style>
+</head>
+
+<div id="errorOnPage">
+    <div id="errorContainer">
+        <ul>
+            <li>
+                <h3><span class="errorHeader">Sorry, an error has occured.</span></h3>
+            </li>
+            <li>We apologize for the inconvenience caused.</li>
+            <li>Please 
+                <a class="goPrevious" href="#" onclick="javascript:location.reload();">Go back to previous page</a> and try again.
+            </li>
+            <li class="errorLinkDiv" style="@(isErrorInfoEnabled == "true" ? "dispay:block" : "display:none")">
+                <h5>Click <a href="#" style="text-decoration: underline;" class="goPrevious">Error Information</a> for error details.
+                </h5>
+
+                <div id="errorInfoDiv" style="display: none; border: 1px solid black; padding-left: 5px; height: 400px; overflow: auto; width: 550px;">
+                    <b style="text-decoration: underline;">Action:</b> @Html.DisplayFor(model => model.ActionName)
+                    <br />
+                    <b style="text-decoration: underline;">Controller:</b> @Html.DisplayFor(model => model.ControllerName)<br />
+                    <b style="text-decoration: underline;">Message:</b> @Html.DisplayFor(model => model.Exception.Message)<br />
+                    <b style="text-decoration: underline;">Inner Exception:</b> @Html.DisplayFor(model => model.Exception.InnerException)<br />
+                    <b style="text-decoration: underline;">Stack Trace:</b> @Html.DisplayFor(model => model.Exception.StackTrace)<br />
+                </div>
+            </li>
+
+            <li>If the issue persists please do write to us at </li>
+            <li>Business Support:&nbsp; <a href="#" class="supportAdmin">"gcs@umusic.com"</a> &nbsp;|&nbsp;Application Support: &nbsp; <a href="#" class="supportAdmin">"applicationsupport@umusic.com"</a></li>
+            <li>or reach us at:&nbsp; </li>
+            <li>Business Support:&nbsp;<span class="supportPhone">+31-35-5489-145&nbsp; </span>&nbsp;| Application Support: &nbsp; <span class="supportPhone">+1-818-286-4643</span></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var isErrorInfoEnabled = '@ConfigurationManager.AppSettings["IsErrorInfoEnabled"]';
+    function reloadThePage() {
+        location.reload();
+    }
+
+    $(document).ready(function ($) {
+        $(window).bind("resize", resetErrorPage);
+        function resetErrorPage() {
+            $("#errorContainer").css("marginLeft", ($(window).width() - $("#errorContainer").width()) / 2);
+        }
+        resetErrorPage();
+
+        $(".errorLinkDiv h5").click(function () {
+            var obj = $(this).parent();
+            $(obj).find('#errorInfoDiv').toggle();
+        });
+
+        $('#ErrorInformation').click(function () {
+            //        Copied = errorInfo.createTextRange();
+            //        Copied.execCommand("Copy");
+            if (window.clipboardData && clipboardData.setData) {
+                clipboardData.setData("Text", errorInfo);
+            }
+        });
+    });
+</script>

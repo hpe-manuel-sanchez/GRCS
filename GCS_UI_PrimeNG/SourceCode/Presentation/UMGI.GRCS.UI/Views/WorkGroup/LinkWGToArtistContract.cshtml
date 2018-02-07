@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "/GCS/Views/Shared/_ClearenceLayout.cshtml";
+    ViewBag.Title = "Link Workgroup To Artist Contract";
+}
+<script type="text/javascript">
+    var pageName = 'LinkWGToArtistContract';
+</script>
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+
+<br />
+
+<div id="linkWorkgroupToArtistContract" style="margin: 0 15px;">
+    @Html.Partial("ManageArtistContract", ((UMGI.GRCS.UI.Models.WorkgroupModel)Model))
+</div>
+
+@section BottomInputs
+{
+    <input id="btnLinkArtistContractToWorkgroup" type="button" class="secbutton" style="visibility:hidden"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LinkToWorkgroup" />
+    <input id="btnCancelArtistContractLinkToWG" type="button" style="visibility:hidden" class="secbutton"  value="@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.CancelButton" />
+}
+
+<script type="text/javascript">
+    var divSearchHeader = 'Link Workgroup To Artist Contracts';
+    var watermarkname = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkWorkgroupName';
+    var watermarkcompany = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCompany';
+    var watermarkuser = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser';
+    var watermarkcountry = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkCountry';
+
+    var searchforArtistContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SearchforArtistContract';
+    var searchforResourceContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_SearchforResourceContract';
+    var linkToContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LinkToContract';
+    var linkToWorkgroup = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LinkToWorkgroup';
+    var linkWorkgroupToContract = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.LinkWorkgroupToContract';
+    var linkContractToWorkgroupstatuspopupTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_linkContractToWorkgroupstatuspopupTitle';
+    var linkWgToContract_Atleast = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_LinkWgToContract_Atleast';
+    var linkWgToContract_SameCompanyMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_LinkWgToContract_SameCompanyMsg';
+    var manageArtistTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_ManageArtistTitle';
+    var manageResourceTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_ManageResourceTitle';
+    var contractcannotLinkMsg = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_ContractcannotLinkMsg';
+    var artistNotLinkedInfo = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.artistNotLinkedInfo';
+    var resourceNotLinkedInfo = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.resourceNotLinkedInfo';
+    var resourceTitle = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ResourceTitle';
+    var searchInValid = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_searchworkgroupInvalidMessage';
+    var contractTitleRed = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_contractTitleRed';
+    var contractTitleGreen = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_contractTitleGreen';
+
+    var wgSearchJtableColNames = {
+        wgName: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpNameLabel',
+        wgType: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpTypeLabel',
+        wgRole: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_RoleLabel',
+        wgStatus: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_WgpStatusLabel',
+        company: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_MgComp_CompLabel',
+        user: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.js_watermarkUser',
+        territoryCountry: '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.jsJtable_SearchWgp_TerritoryCountryLabel'
+    };
+
+    /**** CODE to remove dual scroll [By Mohit]****/
+    $("#main").css("overflowY", "hidden");
+</script>

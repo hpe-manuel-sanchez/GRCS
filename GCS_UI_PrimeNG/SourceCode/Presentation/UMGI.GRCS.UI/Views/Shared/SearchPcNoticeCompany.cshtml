@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+@model UMGI.GRCS.UI.Models.ContractTabModel
+@using UMGI.GRCS.Resx.Resource.UIResources
+<head>
+    <title>@ViewBag.Title= @ContractResource.SearchPCNoticeCompanyTitle</title>
+    <style>
+        .jtable-main-container {
+            overflow-y: scroll;
+        }
+
+        .ui-dialog .ui-dialog-content {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/SearchPcNoticeCompany.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SearchPcNoticeCompany.js")" type="text/javascript"></script>
+<div id="splitWarning">
+    <div class="warningContainer">
+        <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+    </div>
+    <div id="SplitAlert"></div>
+</div>
+<div>
+    <div class="popupBackground">
+        <div class="alignLeft pcCountryName">
+            <div class="pcnoticeEditor-label alignLeft">
+                @Html.LabelFor(model => model.PcCompany.CountryName):
+            </div>
+            <div class="pcnoticeEditor-field alignLeft search-button" style="width: 50%;">
+                @Html.TextBoxFor(model => model.PcCompany.CountryName, new { data_autocomplete_source_manual = @Url.Action("AutoSearchCountries", "Contract") })
+                @Html.Hidden("hiddenPcNoticeCountryId", Model.PcCompany.CountryId)
+                @Html.ValidationMessageFor(model => model.PcCompany.CountryName)
+            </div>
+        </div>
+        <div class="alignLeft pcCompanyNameLabel">
+            <div class="pcnoticeEditor-label alignLeft">
+                @Html.LabelFor(model => model.PcCompany.CompanyName):
+            </div>
+            <div class="pcnoticeEditor-field alignLeft pcCompanyNameValidation">
+                @Html.EditorFor(model => model.PcCompany.CompanyName)
+                @Html.ValidationMessageFor(model => model.PcCompany.CompanyName)
+            </div>
+        </div>
+        <div class="alignLeft pcNoticeBtnContainer">
+            <input id="searchPCNoticeResult" class="primbutton" type="submit" runat="server" value="@ContractResource.SearchButton" />
+            <input id="resetButton" type="submit" class="secbutton btnSpacing" value="@ContractResource.ResetButton" runat="server" />
+        </div>
+    </div>
+</div>
+<div class="Clear">
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+        <div>
+            <h2 class="searchPcResult alignLeft" style="margin-left: 15px; color: #143489;">
+                <span id="searchPcResultCount">Search Result (0)</span>
+                <span class="ui-jtable-loading alignLeft" style="display: none; margin-top: -1px;"></span>
+            </h2>
+        </div>
+        <div id="PCNoticeCompanyPaging" class="alignRight displayNone">
+            @ContractResource.ShowDropDown
+            @Html.DropDownListFor(model => model.ItemsPerPage, new SelectList(Model.ItemsPerPage, "value", "text", Model.ItemsPerPage))
+            @ContractResource.itemsperpage
+        </div>
+    </div>
+</div>
+<div id="searchPCNoticeList" class="popupTable Clear searchNoticeListTop">
+</div>
+<style type="text/css">
+    .pcnoticeEditor-label {
+        width: 25% !important;
+    }
+
+    .pcnoticeEditor-field {
+        width: 68% !important;
+    }
+
+    .pcnoticeDisplay-label, .pcnoticeEditor-label {
+        float: left;
+        font-size: 11px;
+        line-height: normal;
+        margin: 0.5em 0 0;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .pcnoticeDisplay-field, .pcnoticeEditor-field {
+        margin: 0.5em 0.3em 0.3em 0.3em;
+    }
+
+    .pcCountryName, .pcCompanyNameLabel {
+        margin-top: 4px;
+    }
+
+    .popupBackground {
+        height: 40px !important;
+    }
+
+    .pcNoticeBtnContainer {
+        margin-top: 10px;
+    }
+</style>

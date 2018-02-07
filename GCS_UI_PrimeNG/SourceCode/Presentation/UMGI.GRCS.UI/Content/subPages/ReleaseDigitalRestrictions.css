@@ -1,0 +1,16 @@
+﻿#divReleaseDigitalRestrictionsStrip
+{
+    background-color: #D6C44D; height: 15px; width: 100%; display:none;}
+.Syncfusion-Grid-Core div.ParentMsgBar
+{
+    padding-left:15px !important;
+    padding-bottom: 0 !important;}    
+.GridDisplay #jqgrid {
+    margin: 0 15px 0 13px;
+}        
+.GridDisplay {
+    margin-top: 5px
+}
+#divReleaseDigitalRestrictionsTab #jqgrid .Syncfusion-Grid-Core .GridPagerTop {
+    background-color: #ffdc25;
+}

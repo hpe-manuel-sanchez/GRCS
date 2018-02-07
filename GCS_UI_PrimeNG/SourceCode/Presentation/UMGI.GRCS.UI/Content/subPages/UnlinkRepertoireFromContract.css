@@ -1,0 +1,86 @@
+﻿#footer {
+    height: 25px;
+    background-color: Gray;
+}
+
+#bottomButtons {
+    float: right;
+    width: 17%;
+}
+
+#dataField {
+    float: left;
+    width: 50%;
+}
+
+#topbuttons {
+    float: right;
+    width: 50%;
+}
+
+#accordion {
+    padding-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+}
+
+input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+div.jtable-main-container {
+    overflow: hidden;
+}
+
+.scrollUnlinkRep {
+    position: relative;
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.unlinkFooter {
+    text-align: center;
+    height: 42px;
+    font-size: 1em;
+    background-color: #ccc;
+}
+
+#containerTop {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+    #containerTop p {
+        margin-bottom: 10px;
+    }
+
+#unlinkFooterBtnContainer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+    margin-right: 30px;
+}
+
+.jtable {
+    width: 100%;
+}
+
+#unlinkWarning {
+    width: 100%;
+    background-color: #fdf5b5;
+    border-bottom: 2px solid #fbe758;
+    font-weight: bold;
+    font-size: 1em;
+    display: none;
+    height: 35px;
+}
+
+#UnlinkAlert {
+    padding: 10px 0;
+    float: left;
+}

@@ -1,0 +1,201 @@
+﻿@model UMGI.GRCS.UI.Models.Admin.RightsExpiryReportWindowModel
+@{
+    ViewBag.Title = "Linking Progress Report";
+    Layout = "/GCS/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/BackgroundDemo.js")" type="text/javascript"></script>
+
+
+
+<style type="text/css">
+       
+        label {
+
+            width: 150px;
+            text-align: right;
+            font-weight: bold;
+            margin: 5px;
+        }
+      
+        .jtable-left-area {
+            white-space: normal!important;
+       }
+       .backgroundDemoContainer {
+          margin:0px 0px 0px 15px;
+           width: 600px;
+       }
+       .firstBox {
+           
+           float:left; margin: 10px 0px 10px 50px;
+       }
+       .secondBox {
+         
+           margin:  10px 0px 10px 50px;float: left;
+       }
+       .thirdBox {
+          
+           float:left;margin: 10px 0px 10px 10px;
+       }
+       .fromBackContainer {
+           float:left; width: 60px;
+       }
+       .toBackContainer {
+           float:left; width:25px;
+       }
+     input[type="text"] {
+         width: 115px;
+     }
+     #jqPager {
+         float: right;
+         margin-right: 15px;
+         margin-bottom: 5px;
+     }
+     .searchBackgroundContainer {
+       margin-left: 10px; float:left;margin-top: 8px;  
+     }
+    </style>
+
+
+<div>
+        <br />
+    <br />
+    
+    <div class="backgroundDemoContainer">
+        <form><fieldset>
+                  <legend>Search Conditions:</legend>
+
+                      <div class="firstBox">
+                          <div class="alignLeft">
+                              <label>Contract ID</label>
+                          </div>
+                          <div class="alignLeft">
+                              @Html.TextBox("contractId")
+                          </div>
+
+                      </div>
+                  <div class="clearBoth"><label>Linking Date:</label></div>
+            
+                      <div class="clearBoth">
+                          <div class="secondBox">
+                              <div>
+                                  <label class="fromBackContainer">From</label>
+                              </div>
+                              <div class="alignLeft dateContainer">
+                                    @Html.TextBox("from") (DD/MM/YYYY)
+                            
+                              </div>
+
+                          </div>
+                          <div class="thirdBox">
+                              <div class="toBackContainer">
+                                  <label>To</label>
+                              </div>
+                              <div class="alignLeft dateContainer">
+                                  @Html.TextBox("to") (DD/MM/YYYY) 
+                                 
+                              </div>
+                              
+                              
+                              
+                              
+                              
+
+                              
+                              
+
+                          </div>
+                      </div>
+                      <!--div class="fourthBox"  style="clear: both;margin: 5px 0;">
+                          <div style="float:left;">
+                              <span id="asterisk2">*</span>
+                              <label>User Name</label>
+                          </div>
+                          <div style="float:left;">
+                              @Html.TextBox("userName")
+                          </div>
+
+                      </div-->
+            
+                      <div class="searchBackgroundContainer">
+                          <div class="primbutton_left"></div>
+                          <div class="alignLeft">
+                              <input type="button" id="backgroundSubmit" value="Search" class="primbutton"/> 
+                               <input type="button" id="backgroundReset" value="Reset" class="primbutton"/> 
+                          </div>
+                          <div class="primbutton_right"></div>
+                      </div> 
+           
+                 
+            
+
+                  
+              </fieldset>
+              
+        </form>
+        
+        
+        
+        
+       
+       
+    
+    
+    
+
+    <!--table class="style1">
+    <tr>
+        <td class="style3">
+            Contract Id
+        </td>
+        <td class="style2">
+            @Html.TextBox("contractId")
+        </td>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td class="style3">
+            From
+        </td>
+        <td class="style2">
+            @Html.TextBox("from")
+        </td>
+        <td>
+            To
+        </td>
+        <td>
+            @Html.TextBox("to")
+        </td>
+    </tr>
+    <tr>
+        <td class="style3">
+            User Name
+        </td>
+        <td class="style2">
+            @Html.TextBox("userName")
+        </td>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+</table-->
+</div>
+            <span id="jqPager" class="paging">
+                @UMGI.GRCS.Resx.Resource.UIResources.AdminResource.ShowDropDown
+                @Html.DropDownList("ddlShowPageItems", Model.ShowItemsPerPage)
+                @UMGI.GRCS.Resx.Resource.UIResources.AdminResource.itemsperpage
+            </span>
+    <div id="jqgrid" style="clear: both; margin: 10px 15px 10px
+                                                                                                                                                                                                                                                            15px;">
+    </div>
+    </div>

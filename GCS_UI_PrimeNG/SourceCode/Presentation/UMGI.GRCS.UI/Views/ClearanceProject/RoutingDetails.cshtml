@@ -1,0 +1,63 @@
+﻿@model List<UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities.ClearanceRoutingDetails>
+@using UMGI.GRCS.Resx.Resource.Layout
+@using System.Globalization;
+@*<link href="@Url.Content("/GCS/Content/request_summary.css")" rel="stylesheet" />*@
+
+@*<h4 style="height:10px;margin-top:5px">Resource Title:  @ViewBag.ResourceTitle</h4><hr />*@
+@*<p style="height:10px;margin-top:5px"></p><hr />*@
+@{
+string color=""; 
+<div id="routingPopupDiv"  title="Routing Details" class="ui-dialog-titlebar" style="height:340px;overflow-y:auto !important;"><br />
+            <label style="font-size:12px;font-family:Arial;"><b>@ClearanceLayout.AdvResSearchResourceTitleLabel</b></label> @ViewBag.ResourceTitle<hr />
+            <table id="routindDetailsPopup" class="reqSum-tbl reqSum-line-height">
+            <thead class="grey-header-background">
+            <tr style="background-color:">
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryWorkgroup</th>
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryRole</th>
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryName</th>
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryStatus</th>
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryDate</th>
+                <th class="reqSum-label-bold text-align-left reqSum-Width10Per">
+                    @ClearanceLayout.ReqSummaryComments</th>
+            </tr>
+            </thead>
+              
+             @for (int i = 0; i < Model.Count; i++)
+             {                            
+                 if(Model[i].Status.ToString().ToUpper() == "WAITING")
+                 {                    
+                    color="#F2F5A9"; 
+                 }            
+                <tr style= "background-color:@(color)">
+             
+                <td class="text-align-left">
+                    @Html.DisplayFor(model => Model[i].Workgroup)</td>
+                <td class="text-align-left">
+                    @Html.DisplayFor(model => Model[i].WorkgroupRole)</td>
+                <td class="text-align-left">
+                    @Html.DisplayFor(model => Model[i].Name)</td>
+                <td class="text-align-left">
+                    @Html.DisplayFor(model => Model[i].Status)</td>
+                <td class="text-align-left">
+                    @if(Model[i].ReviewDate==DateTime.Parse("01/01/0001 00:00:00"))
+                    {
+                    @Html.Label("")
+                    }
+                    else
+                    {
+                    @Html.DisplayFor(model => Model[i].ReviewDate)
+                    }
+                    </td>
+                <td class="text-align-left">
+                    @Html.DisplayFor(model => Model[i].Comments)</td>
+            </tr>
+             }
+       </table>
+</div>
+    }
+

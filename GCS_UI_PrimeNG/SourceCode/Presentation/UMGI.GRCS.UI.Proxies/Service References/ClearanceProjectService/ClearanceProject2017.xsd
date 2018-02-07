@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.umusic.com" elementFormDefault="qualified" targetNamespace="http://schemas.umusic.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ClrProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ProjectReference" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ProjectType" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="CreatedDate" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ProjectTitle" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="LocalReference" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RequestingCompanyID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Status" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Currency" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SensitiveExploitationFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ReleaseTerritories" type="tns:ArrayOfString" />
+            <xs:element minOccurs="0" maxOccurs="1" name="EstimatedSalesOrUnits" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ReleaseDate" type="xs:date" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MultiArtistFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CompilationFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="HighPriority" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ThirdParty">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="LicenseTerm" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ThirdPartyFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ThirdPartyCompany" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ThirdPartyCountry" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ClientName" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Advertising">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="MediaType" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="InitialNoOfVideos" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DurationFrom" type="xs:date" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DurationTo" type="xs:date" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="NumberOfSpots" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Film">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="MediaType" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="InitialNoOfVideos" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Trailer">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="MediaType" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="InitialNoOfVideos" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Others">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="MediaType" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="InitialNoOfVideos" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="ScopeFlag" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ReleaseType" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RegularRetail" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Club">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="AdditionalClub" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="IntroductoryUse" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="NonTradition">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ManufacturedByUMG" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Partwork" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Kiosk" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="MailOrder" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Internet" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DirectResponse" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Educational" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="GiveAwayFOC" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Premium" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="Other" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Promotional" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TVRadioBreakICLA">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="TVRadioOthers" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="TVRadioOtherBudget">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="MediaType" type="xs:string" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="Budget" type="xs:integer" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="BudgetInUSD" type="xs:integer" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ProductionCostOfCommercial" type="xs:integer" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="1" name="SalesChannel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalSplitSalesToDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalSplitSalesWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalSplitSalesWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalSplitSalesDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalSplitSalesWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalSplitSalesWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalSplitSalesToDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalSplitSalesWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalSplitSalesWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalRevenueSplitToDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalRevenueSplitWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="PhysicalRevenueSplitWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalRevenueSplitToDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalRevenueSplitWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DigitalRevenueSplitWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalRevenueSplitToDate" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalRevenueSplitWith" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="TotalRevenueSplitWithout" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="CampaignTerritoriesIncludeExclude" type="tns:ArrayOfString" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="PriceReduction">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="CurrentPriceLevel" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="RequestedPriceLevel" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClrRelease">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RepertoireDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GCSProjectID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GCSReleaseID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="UPC" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VersionTitle" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Artist" type="tns:ArrayOfPositiveInteger" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Label" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MusicType" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SoundTrack" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NumberOfTracks" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Package" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="NumberOfComponents" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Configuration" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ConfigurationGroup" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="R2ReleaseID" type="xs:integer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClearanceDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="RegularRetail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="PriceLevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Club">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="PriceLevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="NonTradition">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLAFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="SuggestedFeeFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="InvoicePrice" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="SellingPriceLessVAT" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLAAccountingBase" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ResourceFee" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeemedPPD" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Promotional">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="PriceLevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="TVRadioBreakICLA">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="PriceLevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ExactPPD" type="xs:integer" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="EstimatedRetail" type="xs:integer" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="PriceReduction">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="PriceLevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ICLALevel" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevelFlag" type="xs:boolean" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="DeviatedICLAlevel" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPositiveInteger">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="R2TalentNameID" type="xs:positiveInteger" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClrResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RepertoireDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GCSProjectID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="R2ReleaseID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="R2ResourceID" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RequestedCountries" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClearanceDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SuggestedFee" type="xs:decimal" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ExcerptTime" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SensitiveExploitationFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GloballyClearedFlag" type="xs:boolean" />
+            <xs:element minOccurs="0" maxOccurs="1" name="status" type="tns:ArrayOfClearanceResourceStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfClearanceResourceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceResourceStatus" nillable="true" type="tns:ClearanceResourceStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClearanceResourceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Resource_ID" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Sale_Channel_Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Status_Description" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

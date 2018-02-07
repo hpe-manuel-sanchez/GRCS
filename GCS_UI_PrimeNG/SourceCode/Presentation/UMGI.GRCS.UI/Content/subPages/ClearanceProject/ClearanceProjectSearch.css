@@ -1,0 +1,12 @@
+﻿table td {
+    border: 0;
+}
+
+input[type="text"] {
+    width: 150px;
+}
+
+#txtProjectTitle, #txtRequestingCompany, #txtUPC {
+    padding-left: 18px;
+    width: 135px;
+}

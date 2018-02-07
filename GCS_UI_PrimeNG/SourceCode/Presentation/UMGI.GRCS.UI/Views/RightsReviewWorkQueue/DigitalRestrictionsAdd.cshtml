@@ -1,0 +1,68 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ResourceDigitalRightsReviewModel
+@{
+    Layout = null;
+}
+
+  <table class="sampleaddDR sample" id ="divDigitalSection" style="margin:5px; width:98.9% !important;">
+             <thead>
+                    <tr>
+                        
+                        <th style="width: 13%;">
+                             @RepertoireSearch.UseType
+                        </th>
+                        <th style="width: 20%;">
+                            @RepertoireSearch.CommercialModels
+                        </th>
+                        <th style="width: 20%;">
+                            @RepertoireSearch.Restrictions
+                        </th>
+                         <th style="width: 20%;">
+                           @RepertoireSearch.RestrictionReason
+                        </th>
+                        <th style="width: 20%;">
+                            @RepertoireSearch.ConsentPeriod
+                        </th>
+                        <th style="width: 20%;">
+                            @RepertoireSearch.Notes
+                        </th>
+                        <th style="width: 7%;">
+                            @ContractResource.ActionColumn
+                        </th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                   @for (int index = 0; index < Model.DigitalRestriction.Count; index++)
+                    {
+                    <tr>
+                        
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].UseTypeId", new SelectList(Model.DigitalRightsMasterData.UseTypes, "Key", "Value"), String.Empty, new { @class = "UseTypes", @id = "ddlUserType" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].CommercialModelId", new SelectList(Model.DigitalRightsMasterData.CommercialModelTypes, "Key", "Value"), String.Empty, new { @class = "CommercialModelTypes", @id = "ddlCommercialModelTypes" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].RestrictionId", new SelectList(Model.DigitalRightsMasterData.RestrictionTypes, "Key", "Value"), String.Empty, new { @class = "RestrictionTypes", @id = "ddlRestrictionTypes" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].RestrictionReasonId", new SelectList(Model.DigitalRightsMasterData.RestrictionReason, "Key", "Value"), String.Empty, new { @class = "RestrictionReason", @id = "ddlConsentPeriodTypes" })
+                            @Html.TextBox("Restriction", "", new { @class = "txtRestrictionReason", @id = "txtRestrictionReason", style = "display:none" })
+                        </td>
+                        <td>
+                            @Html.DropDownList("DigitalRestriction[k].ConsentPeriodId", new SelectList(Model.DigitalRightsMasterData.ConsentPeriodTypes, "Key", "Value"), String.Empty, new { @class = "ConsentPeriodTypes", @id = "ddlConsentPeriodTypes" })
+                        </td>
+                        <td>
+                            @Html.Editor("DigitalRestriction[k].Notes", new { @class = "Notes", @id = "txtNotes" })
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img class="deleteImage" alt="Delete" src="@Url.Content("/GCS/Images/delete.png")" /></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+                       
+            </table>

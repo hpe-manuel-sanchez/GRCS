@@ -1,0 +1,19 @@
+﻿.imgBorder {
+    border: 0 0 0 0 !important;
+    background-color: #ffffff !important;
+    vertical-align: middle !important;
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+}
+
+#newResourcesList input[type='button'] {
+    width: 80px !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#existingResourcesList input[type='button'] {
+    width: 80px !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

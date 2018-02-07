@@ -1,0 +1,54 @@
+﻿@model UMGI.GRCS.UI.Interfaces.IContractLinkingWorkQueueModel
+  @using UMGI.GRCS.BusinessEntities.Entities.AnaEntities  @using UMGI.GRCS.Resx.Resource.UIResources
+@using UMGI.GRCS.UI.Extensions
+@section scripts{
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <link href="@Url.Content("/GCS/Content/SubPages/PriorityWorkQueue.min.css")"  rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/Contract.js")" type="text/javascript"></script>
+}
+@{
+               
+    ViewBag.Title = @WorkQueueResource.ContractLinkingHeader;
+}
+<input type="hidden" value="@ViewBag.displayMessage" id="resourceCheck"/>
+<div id="tabs">
+    <div>
+        <div id='menuuTab'>
+            <div class="top_desc">
+                <div>
+                    <div>
+                        <ul class="tabul">
+                            <li><a href="#divPriority"> @WorkQueueResource.PriorityLinkingWorkQueue </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.Partial("PriorityWorkQueue", ((UMGI.GRCS.UI.Models.ContractLinkingWorkQueueModel)Model).PriorityWorkQueueModel)
+    </div>
+</div>
+@section BottomInputs{
+    <div style="float:right;margin-right:-40px;margin-bottom: 10px;">
+        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkContract}))
+        {
+            <input id="LinkContract" type="submit" class="primbutton" value= "@WorkQueueResource.LinkContract"/>
+        }
+        
+        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.LinkContract,GrsTasks.UnlinkContract  }))
+        {
+            <input id="ChangeLink" type="submit" class="primbutton btnSpacing" value= "@WorkQueueResource.ChangeLink" />
+        }
+        @if (PermissionExtension.HasAnyPermission(new[] { GrsTasks.UnlinkContract  }))
+        {
+            <input id="UnLinkContract" type="submit" class="primbutton btnSpacing" value= "@WorkQueueResource.UnLinkContract "/>
+        }
+        <input id="ReviewRight" type="submit" class="primbutton btnSpacing" value= "@WorkQueueResource.ReviewRights "/>
+        <input id="ReRoute" type="submit" class="primbutton btnSpacing" value= "@WorkQueueResource.ReRoute" />
+        <input id="Remove" type="submit" class="secbutton" value= "@WorkQueueResource.Remove" />
+    </div>
+}
+

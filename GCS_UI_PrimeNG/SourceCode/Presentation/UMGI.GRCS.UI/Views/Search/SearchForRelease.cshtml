@@ -1,0 +1,122 @@
+﻿@using UMGI.GRCS.UI.Models
+@using UMGI.GRCS.UI.Extensions
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities;
+@using UMGI.GRCS.Resx.Resource.UIResources
+@model ClearanceProjectModel
+@using UMGI.GRCS.Resx.Resource.Layout
+@{
+    ViewBag.Title = "Search For Release";
+    Layout = "";
+}
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/Custom/Search/SearchForRelease.js")" type="text/javascript"></script>
+<link href="@Url.Content("/GCS/Content/SubPages/resources.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/search-pa.min.css")" rel="stylesheet" type="text/css" />
+<!-- New Css Added -->
+<!-- Search Box Start Here --->
+<div class="searchBox search-bx-mrgin">
+    <div id="warningmessage" class="error-msg-margin warning" style="display: none;">Please enter at least one search criteria</div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.SearchForRelUPCTxtbox
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtUpcChild")
+                </div>
+            </div>
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.SearchForRelArtistNameTxtbox
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtArtistNameChild")
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.SearchForRelReleaseTitleTxtbox
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtReleaseTitleChild")
+                </div>
+            </div>
+
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.SearchForRelArtistIDTxtbox
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtArtistIDChild")
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    @ClearanceLayout.R2ProjectIdLabel
+                </div>
+                <div class="sval floatR text-align-left">
+                    @Html.TextBox("txtR2ProjectIdChild")
+                </div>
+            </div>
+
+            <div class="col_search_for_release floatL">
+                <div class="slabel floatL text-align-right">
+                    &nbsp;
+                </div>
+                <div class="sval floatR text-align-left">
+                    <input type="button" value="Search" class="primbutton" id="SearchReleaseExisting" />
+
+                    <input type="button" class="secbutton" value="Reset" runat="server" id="btnSearchReset" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Box Ends Here -->
+<!-- PAGING SECTION -->
+<div class="search-wrapper error-msg-margin" id="trShowPaging">
+    <div class="search-field-criteria">
+        <div class="search-show-all1">@ClearanceLayout.SearchForRelSearchResultFor </div>
+        <div class="search-show-all-val1"><span id="spnSearchResult" style="font-weight: bold;"></span></div>
+    </div>
+    <div class="search-paging-wrapper">
+        <div id="divSearchCompanyPaging">
+            <div class="search-show-label">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ShowDropDown</div>
+            <div class="search-paging-item">@Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPage, new { @id = "ddlSearchReleasePaging" })</div>
+            <div class="search-item-per-page">@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.itemsperpage</div>
+        </div>
+    </div>
+</div>
+
+<!-- END PAGING SECTION -->
+<div id="trNoResults" class="error-msg-margin">@ClearanceLayout.SearchForRelResultNotFoundForMsg "<span id="spnNoResults" style="font-weight: bold;"></span>"</div>
+
+<div class="search-wrapper error-msg-margin error" id="trShowMessage">
+    <span id="spnIsrc" style="font-weight: bold;"></span>
+    @ClearanceLayout.SearchForRelRecordsAreAlreadyAddedMsg
+</div>
+
+<div class="search-wrapper error-msg-margin" id="trNotSelected">
+    <span id="spnNotSelected" style="font-weight: bold;"></span>
+</div>
+
+<div id="searchProjectList" class="search-wrapper">
+</div>
+
+<div id="SelectedRowList" class="search-wrapper error-msg-margin">
+</div>
+<div id="SelectedRowListResource" class="search-wrapper error-msg-margin">
+</div>
+<div class="floatR result-wrapper btn-popup-height disply-none" id="trAddProject">
+    <input id="BtnAddReleaseToProject" class="secbutton" type="button" value="@ClearanceLayout.SearchForRelAddToProjectButton" />
+</div>

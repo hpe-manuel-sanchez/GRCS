@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Workgroup" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.WorkgroupEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/Workgroup/Workgroup.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWorkgroup_GetCompaniesOfWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesOfWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetCompaniesOfWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesOfWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_DeactivateWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_DeactivateWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_RequestReassignToWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestReassignToWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_RequestReassignToWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestReassignToWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroupByChild_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroupByChild" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroupByChild_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroupByChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUsersList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersList" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUsersList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchSingleWorgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleWorgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchSingleWorgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleWorgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchSingleChildWorgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleChildWorgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchSingleChildWorgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleChildWorgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetTerritories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritories" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetTerritories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerritoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_DeleteWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_DeleteWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_UpdateWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_UpdateWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorgroupForContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorgroupForContract" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorgroupForContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorgroupForContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_LinkArtistContractToWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkArtistContractToWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_LinkArtistContractToWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkArtistContractToWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_LinkResourceContractToWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkResourceContractToWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_LinkResourceContractToWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkResourceContractToWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddChildWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddChildWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddChildWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddChildWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetRequestType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestType" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetRequestType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRequestTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetResourceType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceType" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetResourceType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourceTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_UpdateChildWorkGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChildWorkGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_UpdateChildWorkGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChildWorkGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroupNamesForAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroupNamesForAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroupNamesForAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroupNamesForAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUsersForAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersForAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUsersForAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersForAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorkgroupForRemoveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorkgroupForRemoveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorkgroupForRemoveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorkgroupForRemoveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorkgroupToAddUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorkgroupToAddUsers" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_SearchWorkgroupToAddUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWorkgroupToAddUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_RemoveUserFromMultipleWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromMultipleWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_RemoveUserFromMultipleWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromMultipleWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddUserInMultipleWorkgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserInMultipleWorkgroup" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_AddUserInMultipleWorkgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserInMultipleWorkgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetEmailPreferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailPreferences" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetEmailPreferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailPreferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUserPreferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPreferences" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetUserPreferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPreferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_InsertUserPreferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserPreferences" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_InsertUserPreferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserPreferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroups" />
+  </wsdl:message>
+  <wsdl:message name="IWorkgroup_GetWorkgroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkgroupsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWorkgroup">
+    <wsdl:operation name="GetCompaniesOfWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetCompaniesOfWorkgroup" message="tns:IWorkgroup_GetCompaniesOfWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetCompaniesOfWorkgroupResponse" message="tns:IWorkgroup_GetCompaniesOfWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorgroup" message="tns:IWorkgroup_SearchWorgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorgroupResponse" message="tns:IWorkgroup_SearchWorgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/DeactivateWorkGroup" message="tns:IWorkgroup_DeactivateWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/DeactivateWorkGroupResponse" message="tns:IWorkgroup_DeactivateWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetCompanies" message="tns:IWorkgroup_GetCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetCompaniesResponse" message="tns:IWorkgroup_GetCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/AddWorkGroup" message="tns:IWorkgroup_AddWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/AddWorkGroupResponse" message="tns:IWorkgroup_AddWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetRoles" message="tns:IWorkgroup_GetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetRolesResponse" message="tns:IWorkgroup_GetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestReassignToWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/RequestReassignToWorkgroup" message="tns:IWorkgroup_RequestReassignToWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/RequestReassignToWorkgroupResponse" message="tns:IWorkgroup_RequestReassignToWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroupByChild">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroupByChild" message="tns:IWorkgroup_GetWorkgroupByChild_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroupByChildResponse" message="tns:IWorkgroup_GetWorkgroupByChild_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetUsersList" message="tns:IWorkgroup_GetUsersList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetUsersListResponse" message="tns:IWorkgroup_GetUsersList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleWorgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchSingleWorgroup" message="tns:IWorkgroup_SearchSingleWorgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchSingleWorgroupResponse" message="tns:IWorkgroup_SearchSingleWorgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleChildWorgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchSingleChildWorgroup" message="tns:IWorkgroup_SearchSingleChildWorgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchSingleChildWorgroupResponse" message="tns:IWorkgroup_SearchSingleChildWorgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetTerritories" message="tns:IWorkgroup_GetTerritories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetTerritoriesResponse" message="tns:IWorkgroup_GetTerritories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/DeleteWorkgroup" message="tns:IWorkgroup_DeleteWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/DeleteWorkgroupResponse" message="tns:IWorkgroup_DeleteWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/UpdateWorkGroup" message="tns:IWorkgroup_UpdateWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/UpdateWorkGroupResponse" message="tns:IWorkgroup_UpdateWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorgroupForContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorgroupForContract" message="tns:IWorkgroup_SearchWorgroupForContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorgroupForContractResponse" message="tns:IWorkgroup_SearchWorgroupForContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkArtistContractToWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/LinkArtistContractToWorkgroup" message="tns:IWorkgroup_LinkArtistContractToWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/LinkArtistContractToWorkgroupResponse" message="tns:IWorkgroup_LinkArtistContractToWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkResourceContractToWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/LinkResourceContractToWorkgroup" message="tns:IWorkgroup_LinkResourceContractToWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/LinkResourceContractToWorkgroupResponse" message="tns:IWorkgroup_LinkResourceContractToWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddChildWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/AddChildWorkGroup" message="tns:IWorkgroup_AddChildWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/AddChildWorkGroupResponse" message="tns:IWorkgroup_AddChildWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetRequestType" message="tns:IWorkgroup_GetRequestType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetRequestTypeResponse" message="tns:IWorkgroup_GetRequestType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetResourceType" message="tns:IWorkgroup_GetResourceType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetResourceTypeResponse" message="tns:IWorkgroup_GetResourceType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChildWorkGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/UpdateChildWorkGroup" message="tns:IWorkgroup_UpdateChildWorkGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/UpdateChildWorkGroupResponse" message="tns:IWorkgroup_UpdateChildWorkGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroupNamesForAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroupNamesForAutoComplete" message="tns:IWorkgroup_GetWorkgroupNamesForAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroupNamesForAutoCompleteResponse" message="tns:IWorkgroup_GetWorkgroupNamesForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersForAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetUsersForAutoComplete" message="tns:IWorkgroup_GetUsersForAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetUsersForAutoCompleteResponse" message="tns:IWorkgroup_GetUsersForAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorkgroupForRemoveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorkgroupForRemoveUsers" message="tns:IWorkgroup_SearchWorkgroupForRemoveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorkgroupForRemoveUsersResponse" message="tns:IWorkgroup_SearchWorkgroupForRemoveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorkgroupToAddUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorkgroupToAddUsers" message="tns:IWorkgroup_SearchWorkgroupToAddUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/SearchWorkgroupToAddUsersResponse" message="tns:IWorkgroup_SearchWorkgroupToAddUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromMultipleWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/RemoveUserFromMultipleWorkgroup" message="tns:IWorkgroup_RemoveUserFromMultipleWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/RemoveUserFromMultipleWorkgroupResponse" message="tns:IWorkgroup_RemoveUserFromMultipleWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInMultipleWorkgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/AddUserInMultipleWorkgroup" message="tns:IWorkgroup_AddUserInMultipleWorkgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/AddUserInMultipleWorkgroupResponse" message="tns:IWorkgroup_AddUserInMultipleWorkgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailPreferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetEmailPreferences" message="tns:IWorkgroup_GetEmailPreferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetEmailPreferencesResponse" message="tns:IWorkgroup_GetEmailPreferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPreferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetUserPreferences" message="tns:IWorkgroup_GetUserPreferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetUserPreferencesResponse" message="tns:IWorkgroup_GetUserPreferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserPreferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/InsertUserPreferences" message="tns:IWorkgroup_InsertUserPreferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/InsertUserPreferencesResponse" message="tns:IWorkgroup_InsertUserPreferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroups" message="tns:IWorkgroup_GetWorkgroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkgroup/GetWorkgroupsResponse" message="tns:IWorkgroup_GetWorkgroups_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWorkgroup" type="tns:IWorkgroup">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompaniesOfWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetCompaniesOfWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchWorgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/DeactivateWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/AddWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestReassignToWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/RequestReassignToWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroupByChild">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetWorkgroupByChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersList">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetUsersList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleWorgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchSingleWorgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleChildWorgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchSingleChildWorgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerritories">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetTerritories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/DeleteWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/UpdateWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorgroupForContract">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchWorgroupForContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkArtistContractToWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/LinkArtistContractToWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkResourceContractToWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/LinkResourceContractToWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddChildWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/AddChildWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestType">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetRequestType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceType">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetResourceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChildWorkGroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/UpdateChildWorkGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroupNamesForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetWorkgroupNamesForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersForAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetUsersForAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorkgroupForRemoveUsers">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchWorkgroupForRemoveUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWorkgroupToAddUsers">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/SearchWorkgroupToAddUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromMultipleWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/RemoveUserFromMultipleWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInMultipleWorkgroup">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/AddUserInMultipleWorkgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailPreferences">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetEmailPreferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPreferences">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetUserPreferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserPreferences">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/InsertUserPreferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkgroups">
+      <soap:operation soapAction="http://tempuri.org/IWorkgroup/GetWorkgroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Workgroup">
+    <wsdl:port name="BasicHttpBinding_IWorkgroup" binding="tns:BasicHttpBinding_IWorkgroup">
+      <soap:address location="http://localhost:7778/Workgroup/Workgroup.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

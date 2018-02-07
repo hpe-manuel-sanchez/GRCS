@@ -1,0 +1,84 @@
+﻿.tab-outer {
+    border: none;
+}
+
+#divTop {
+    width: 100%;
+    padding-bottom: 3em;
+}
+
+.topField {
+    float: left;
+    position: relative;
+    width: 30%;
+}
+
+.checkField {
+    float: left;
+    position: relative;
+    width: 10%;
+}
+
+.secondField {
+    float: left;
+    position: relative;
+    width: 33.3%;
+}
+
+#resourceaccordion {
+    border: 0px;
+}
+
+    #resourceaccordion .head {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/Acc_White.png') repeat-x top;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+        border: 1px solid #dcdcdc;
+        height: 25px;
+    }
+
+    #resourceaccordion .iconBottom {
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 8px;
+    }
+
+    #resourceaccordion a.header {
+        margin-left: 5px;
+        text-decoration: none;
+        border: none;
+        font-size: 12px;
+        background: #f0f0f0 url('/Gcs/Images/Acc_Arrow_RIght.png') no-repeat scroll 0px 5px;
+        margin-top: 2px;
+    }
+
+    #resourceaccordion a.alignRight {
+        background: none !important;
+    }
+
+    #resourceaccordion a.iconBottom {
+        background: url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat transparent 0px 4px;
+    }
+
+    #resourceaccordion .selected {
+        cursor: pointer;
+        background: #ffffff url('/Gcs/Images/Acc_Arrow_Down.png') no-repeat scroll 0px 0px;
+        display: block;
+        font-weight: bold;
+        margin: 0px;
+        margin-top: -2px;
+        padding: 0px;
+        text-indent: 14px;
+        text-decoration: none;
+    }
+
+    #resourceaccordion a.current {
+        background-color: #cccccc;
+    }
+
+#searchContractBtnContainer {
+    float: right;
+}

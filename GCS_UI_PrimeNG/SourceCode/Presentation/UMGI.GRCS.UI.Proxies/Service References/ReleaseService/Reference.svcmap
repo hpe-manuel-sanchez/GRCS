@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9ced0eaa-1ce7-4d41-9a58-3890b49c777f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1234/Release/Release.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Release.xsd" MetadataType="Schema" ID="1ac0dd58-a4b5-4c28-9e63-3167555d657d" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd3" />
+    <MetadataFile FileName="Release1.xsd" MetadataType="Schema" ID="9d6ca3f2-5bb8-42ec-8d5a-c2a2d99c859d" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd7" />
+    <MetadataFile FileName="Release12.xsd" MetadataType="Schema" ID="d4eeb5bc-df43-4867-b2bd-ec71693b2fbf" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd12" />
+    <MetadataFile FileName="Release11.xsd" MetadataType="Schema" ID="af3ab1b4-b4af-4bb9-a90f-7748aa774365" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd11" />
+    <MetadataFile FileName="Release2.xsd" MetadataType="Schema" ID="09943263-a138-4406-aa27-eab34ce18a31" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd2" />
+    <MetadataFile FileName="Release3.xsd" MetadataType="Schema" ID="fd4c88a5-74cf-4a53-8e0f-c8fb4eaa966a" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd6" />
+    <MetadataFile FileName="Release.disco" MetadataType="Disco" ID="5d72f00f-67d8-4a74-aca3-9c8ac10ab5bc" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?disco" />
+    <MetadataFile FileName="Release4.xsd" MetadataType="Schema" ID="10e00966-3e4a-4a86-bdf2-b39fcb8ee4ed" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd1" />
+    <MetadataFile FileName="Release5.xsd" MetadataType="Schema" ID="baebec17-0113-4162-833a-27682e004079" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd5" />
+    <MetadataFile FileName="Release6.xsd" MetadataType="Schema" ID="efb73c09-1933-4e42-ac18-d8cbf775850b" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd9" />
+    <MetadataFile FileName="Release7.xsd" MetadataType="Schema" ID="ec01521c-c5f1-4235-a8fc-23a0b13d4ce9" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd10" />
+    <MetadataFile FileName="Release8.xsd" MetadataType="Schema" ID="f8ba3282-d1fa-4f7f-99db-accccefd9411" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd0" />
+    <MetadataFile FileName="Release9.xsd" MetadataType="Schema" ID="eac3357b-3972-4a3a-95bf-f7d06babb799" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd4" />
+    <MetadataFile FileName="Release10.xsd" MetadataType="Schema" ID="b49436a1-8994-4129-bc64-6e3559cfef09" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?xsd=xsd8" />
+    <MetadataFile FileName="Release.wsdl" MetadataType="Wsdl" ID="9d68c287-765b-4d4c-907d-5ee1040e7d29" SourceId="1" SourceUrl="http://localhost:1234/Release/Release.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

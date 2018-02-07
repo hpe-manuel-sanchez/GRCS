@@ -1,0 +1,66 @@
+﻿@model UMGI.GRCS.UI.Models.CustomWorkQueueModel
+<div >
+    <div>
+        @Html.LabelFor(model => model.CustomWorkQueueSetting.Id):
+    </div>
+    <div class="textBoxControl">
+        @Html.TextBoxFor(model => model.CustomWorkQueueSetting.Id)
+    </div>
+</div>
+<div class="labelControl">
+    <div>
+        @Html.LabelFor(model => model.CustomWorkQueueSetting.Description):
+    </div>
+    <div class="textBoxControl">
+        @Html.TextBoxFor(model => model.CustomWorkQueueSetting.Description)
+    </div>
+</div>
+<div>
+    <div>
+        @Html.LabelFor(model => model.CustomWorkQueueSetting.ArtistName):
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.CustomWorkQueueSetting.ArtistName)
+    </div>
+</div>
+<div>
+    <div>
+        @Html.LabelFor(model => model.CustomWorkQueueSetting.DataAdminCompany):
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.CustomWorkQueueSetting.DataAdminCompany)
+    </div>
+</div>
+<div class="LostRightsDateReportWindowDiv">
+    <div>
+        <p class="LostRightsDateReportWindowLabel">
+            LostRightsDateReportingWindow</p>
+    </div>
+    <br style="clear: both;" />
+    <div class="startDateStyle">
+        <div class="allignLabel">
+            .StartDateXLabel</div>
+        <div class="marginTop10px">
+            @Html.DropDownList("LostRightsDateWindowStartDate", Model.LostRightsStartDate)
+            <div id="startDateValidation" class="displayNone">
+                <img src="/GCS/Images/alert.png" class="alertImageField" alt="Warning" />
+                <a class="colorRed">ValidationStartDate </a>
+            </div>
+        </div>
+    </div>
+    <div class="endDateStyle">
+        <div class="allignLabel">
+            EndDateYLabel</div>
+        <div class="marginTop10px">
+            @Html.DropDownList("LostRightsDateWindowEndDate", Model.LostRightsEndDate)
+            <div id="endDateValidation" class="displayNone">
+                <img src="/GCS/Images/alert.png" class="alertImageField" alt="Warning" />
+                <a class="colorRed">ValidationEndDate </a>
+            </div>
+        </div>
+    </div>
+    <div id="lostRightsValidation" class="displayNone">
+        <img src="/GCS/Images/alert.png" class="alertImage" alt="Warning" />
+        <a class="colorRed">ValidationStartGreaterThanEndDate </a>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+﻿Notes:
+	Model Classes will be in separate class library and will be added as reference.
+	GRCS.UI.Rights.Models.Contract
+	UMGI.GRCS.UI.Interfaces

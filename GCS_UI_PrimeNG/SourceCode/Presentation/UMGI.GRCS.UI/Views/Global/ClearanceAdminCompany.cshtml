@@ -1,0 +1,41 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.PriorityWorkQueueModel
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceAdminCompany.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.js")" type="text/javascript"></script>
+<div class="">
+    <!-- TODO: Remove label hardcoding-->
+    <div>
+        <div class="CAC_Sfc">
+            Search for Company
+        </div>
+        <div class="search-button CAC_Sfc_Autocomplete">
+            @Html.TextBox("txtClearanceAdminComp", Model.WorkQueues.CompanyName, new { data_autocomplete_source_manual = @Url.Action("AutoSearchClearanceCompCountry", "Global"), @class = "ui-autocomplete-input" })
+            @Html.ValidationMessageFor(model => model.WorkQueues.CompanyName)
+            @Html.HiddenFor(model => model.WorkQueues.CompanyId)   @*// This auto search text box. so need to pass clearanceCompanyCountryId while save *@
+            <span class="hyperlink"><a id="linkClear" href="javascript:void(0);">@ContractResource.Clear</a></span>
+        </div>
+        <span class="CAC_Scr">
+            <label>@ContractResource.SelectedCompany</label>(<label id="labelSelCount"></label>)</span>
+        <span class="hyperlink"><a id="linkRemoveAll" class="alignRight"
+            href="javascript:void(0);">@ContractResource.RemoveAll</a></span>
+    </div>
+    <div class="cacTableContainer">
+        <div class="cacTable">
+
+            <table id="ClearenceList">
+            </table>
+        </div>
+        <div class="cacTable selectedListTable">
+            <table id="SelectedList">
+            </table>
+        </div>
+    </div>
+    <div class="CAC_Btn_Container">
+        <input type="submit" id="subOk"  class="primbutton" value="@ContractResource.OKButton" />
+        <input type="submit" id="subCancel" class="secbutton btnSpacing" value="@ContractResource.CancelButton" />
+    </div>
+</div>
+
+<div>
+    @Html.ListBoxFor(model => model.WorkQueues.CompanyName, new MultiSelectList(Model.ClearanceAdminList, "value", "text"), new { @class = "hide" })
+</div>

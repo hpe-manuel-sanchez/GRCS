@@ -1,0 +1,108 @@
+﻿@using resFile = UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox
+@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@{
+    ViewBag.Title = "Create Contract";
+    Layout = "";
+
+}
+<script src="@Url.Content("/GCS/Scripts/Custom/CreateClearanceContract.js")" type="text/javascript"></script>
+<style type="text/css">
+    .contract-creation-wrapper {
+        width: 800px;
+        height: 190px;
+    }
+
+    .contract-creation-clearence-wrapper-cmpny {
+        width: 800px;
+        height: 27px;
+        margin-top: 15px;
+    }
+
+    .contract-creation-clearence-admin-cmpny {
+        float: left;
+        width: 25%;
+        font-size: 11px;
+        font-weight: bold;
+        padding-left: 25px;
+    }
+
+    .contract-creation-clearence-srch-cmpny {
+        float: right;
+        width: 50%;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .clearBoth1 {
+        margin: 0 2px;
+        clear: both;
+        height: 10px;
+    }
+
+    .contract-creation-clearence-notes {
+        float: left;
+        width: 35%;
+        font-size: 11px;
+        font-weight: bold;
+        clear: both;
+        padding-left: 25px;
+        padding-bottom: 15px;
+    }
+
+    .contract-creation-clearence-textarea {
+        float: left;
+        width: 888px;
+        font-size: 11px;
+        font-weight: bold;
+        clear: both;
+        padding-left: 25px;
+    }
+
+        .contract-creation-clearence-textarea textarea {
+            width: 850px;
+        }
+</style>
+<div id="divContractErrorMessage"></div>
+<div class="contract-creation-wrapper">
+    <div class="contract-creation-clearence-wrapper-cmpny">
+        <div class="contract-creation-clearence-admin-cmpny">
+            Clearence Admin Company:
+        </div>
+        <div id="divAdminCompany" style="display: none; font-size: 11px; font-weight: bold; float: left;"></div>
+        <div class="contract-creation-clearence-srch-cmpny" style="align: left;">
+            <input type="button" name="btnSearchCompany" value="Search Company" id="btnSearchCompany" class="plbutton" />
+            <input type="hidden" id="hdnAdminCompany" />
+        </div>
+    </div>
+    <div class="contract-creation-clearence-wrapper-cmpny">
+        <div class="contract-creation-clearence-admin-cmpny">
+            Artist:
+        </div>
+        <div id="divArtistName" style="display: none; font-size: 11px; font-weight: bold; float: left;">
+        </div>
+        <div id="hdnArtistId" style="display: none;">
+        </div>
+        <div class="contract-creation-clearence-srch-cmpny">
+            <input type="button" name="btnSearchArtist" id="btnSearchArtist" value="Search Artist" class="plbutton" />
+        </div>
+    </div>
+    <div class="clearBoth1">
+        <hr />
+    </div>
+    <div class="contract-creation-clearence-wrapper-cmpny">
+        <div class="contract-creation-clearence-notes">
+            Clearence Notes:
+        </div>
+        <div class="contract-creation-clearence-textarea">
+            <textarea id="txtContractNotes" cols="10" rows="3" style="width: 760px !important;"></textarea>
+        </div>
+    </div>
+    <div class="clearancecontractsearch-contentWrapper">
+        <div class="clearancecontractsearch-valueDv" style="float: right !important; width: auto; min-height: 30px; margin-right: 8px; margin-top: 2px;">
+            <div class="btnAction">
+                <input type="button" name="btnCreate" id="btnCreate" value="Create" class="primbutton" />
+                <input type="button" name="btnCancelContract" id="btnCancelContract" value="Cancel" class="secbutton" />
+            </div>
+        </div>
+    </div>
+</div>

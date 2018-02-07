@@ -1,0 +1,62 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<browsesequencelist version="1.0">
+	
+	<browsesequence name="Common Services" >
+		<item name="Mimic User" link="Mimic_User.htm" />
+		<item name="Un Lock Project (s)" link="Un_Lock_Project_(s).htm" />
+		<item name="Managing Pre-defined Rejection Reasons" link="Managing_Pre-defined_Rejection_Reasons.htm" />
+		<item name="Managing Routing Variations" link="Managing_Routing_Variations.htm" />
+		<item name="Managing Safe Territories1" link="Managing_Safe_Territories1.htm" />
+	</browsesequence>
+	<browsesequence name="Inbox Management" >
+		<item name="RCC Admin Inbox" link="RCC_Admin_Inbox.htm" />
+		<item name="Reviewer Inbox" link="Reviewer_Inbox.htm" />
+		<item name="Requestor Inbox" link="Requestor_Inbox.htm" />
+	</browsesequence>
+	<browsesequence name="Project Administration" >
+		<item name="Creating Projects" link="Creating_Projects.htm" />
+		<item name="Maintaining Projects at Project Level" link="Maintaining_Projects_at_Project_Level.htm" />
+		<item name="Maintaining Projects at Resource Level" link="Maintaining_Projects_at_Resource_Level.htm" />
+		<item name="Clearance Project Inquiry" link="Clearance_Project_Inquiry.htm" />
+		<item name="Allocating UPC for New Release (s)" link="Allocating_UPC_for_New_Release_(s).htm" />
+		<item name="Push New Release (s) to R2" link="Push_New_Release_(s)_to_R2.htm" />
+		<item name="Free Hand Company Management" link="Free_Hand_Company_Management.htm" />
+		<item name="Free Hand Resource Management" link="Free_Hand_Resource_Management.htm" />
+		<item name="Creating Master Projects" link="Creating_Master_Projects.htm" />
+		<item name="Creating Regular/Non Traditional Projects" link="Creating_Regular_Non_Traditional_Projects.htm" />
+		<item name="Modifying Clearance Projects" link="Modifying_Clearance_Projects.htm" />
+		<item name="Submitting Clearance Projects" link="Submitting_Clearance_Projects.htm" />
+		<item name="Re-Submitting Clearance Projects" link="Re-Submitting_Clearance_Projects.htm" />
+		<item name="Cancelling the Clearance Project(s)" link="Cancelling_the_Clearance_Project(s).htm" />
+		<item name="Re-Instating Clearance Projects" link="Re-Instating_Clearance_Projects.htm" />
+		<item name="Completing Clearance Projects" link="Completing_Clearance_Projects.htm" />
+		<item name="Re-Opening the Clearance Projects" link="Re-Opening_the_Clearance_Projects.htm" />
+		<item name="Deleting the Projects" link="Deleting_the_Projects.htm" />
+		<item name="Add Release(s)/Resource(s)" link="Add_Release(s)_Resource(s).htm" />
+		<item name="Cancelling the Resource on Clearance Project (s)" link="Cancelling_the_Resource_on_Clearance_Project_(s).htm" />
+		<item name="Re-instate the Resource(s)" link="Re-instate_the_Resource(s).htm" />
+		<item name="Re- Apply Track (s)" link="Re-_Apply_Track_(s).htm" />
+		<item name="Re-Submit Resource (s)" link="Re-Submit_Resource_(s).htm" />
+		<item name="Exclude Resource (s)" link="Exclude_Resource_(s).htm" />
+		<item name="Include Resource (s)" link="Include_Resource_(s).htm" />
+		<item name="Reminder" link="Reminder.htm" />
+	</browsesequence>
+	<browsesequence name="Untitled" >
+		<item name="Welcome" link="Welcome.htm" />
+		<item name="User Preferences" link="User_Preferences.htm" />
+	</browsesequence>
+	<browsesequence name="User Group Administration" >
+		<item name="Managing Workgroup" link="Managing_Workgroup.htm" />
+		<item name="Managing Users" link="Managing_Users.htm" />
+		<item name="Managing Deviations" link="Managing_Deviations.htm" />
+		<item name="Deactivating Workgroups" link="Deactivating_Workgroups.htm" />
+		<item name="Deleting Workgroups" link="Deleting_Workgroups.htm" />
+		<item name="Creating Parent Workgroup" link="Creating_Workgroup.htm" />
+		<item name="Creating Child Workgroups" link="Creating_Child_Workgroups.htm" />
+		<item name="Amending Parent Workgroups" link="Amending_Workgroups.htm" />
+		<item name="Amending Child Workgroups" link="Amending_Child_Workgroups.htm" />
+		<item name="Managing Artist Contracts" link="Managing_Artist_Contracts.htm" />
+		<item name="Managing Resource Contracts" link="Managing_Resource_Contracts.htm" />
+	</browsesequence>
+</browsesequencelist>
+

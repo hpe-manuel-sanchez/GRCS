@@ -1,0 +1,127 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+@model UMGI.GRCS.UI.Models.PriorityWorkQueueModel
+    <script src="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.filter.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("/GCS/Scripts/Custom/PriorityWorkQueue.js")" type="text/javascript"></script>
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Scripts/MultiSelectDropdown/jquery.multiselect.filter.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/GCS/Content/SubPages/PriorityWorkQueue.min.css")"  rel="stylesheet" type="text/css" />
+<div class="scrollWorkQueue">
+    <div>
+        <h2  class="PriotrtyWorkQueue alignLeft " title="WorkQueue Filter (0)">
+            <span id="PriorWorkQueueCount" >WorkQueue Filter (0)</span>
+        </h2>
+    </div>
+    
+    <div class="ui-jtable-loading " style="float: left;">
+    </div>
+    <input type="hidden" value="@ViewBag.displayMessage" id="resourceCheck"/> 
+
+    <div class="alignRight refreshBtnContainer">
+        <input type="hidden" value="@ViewBag.displayMessage" class="removeDisplayMessage" id="displayMessage"/>
+        <input type="hidden" value="@ViewBag.message" id="hidAlreadyLinked"/>
+       
+        <input type="submit" id="refreshWorkQueue" value="@WorkQueueResource.RefreshButton" class="secbutton" />
+        <span id="WorkQueueSelect">
+        @WorkQueueResource.ShowDropDown
+        @Html.DropDownListFor(model => model.ShowItemsPerPage, Model.ShowItemsPerPage)
+        @WorkQueueResource.itemsperpage
+        </span>
+    </div>
+       
+    <div id="accordion" class="blueAccordion priorityWorkQueueAccordion">
+        <div id="DefaultCollapsed"></div>
+         <div class="head leftRight">
+            <a class="header alignLeft headerColor" href="#">@WorkQueueResource.WorkQueueFilter <span id="FilterApp" >@WorkQueueResource.FilterApplied </span>
+            </a>  <span id="clrfilter" class="alignRight" style="margin-right:15px;"><img src="/GCS/Images/Filter.gif" style="height: 15px; width: 15px; padding-top:4px" alt="Filter" /><a id="clearFilter" class="alignRight" href="javascript:void(0);" style="text-decoration:underline;padding-top: 4px; ">@WorkQueueResource.ClearFilter</a></span>
+        </div>
+   
+         <div class="accItem worQueueAccBody">
+                <div class="alignLeft workQueueBodyCont">
+                    <div class="alignLeft labelCont">
+                <div class="alignLeft labelControl">
+                    @Html.LabelFor(model => model.WorkQueues.ArtistName):
+                </div>
+                <div class="fieldControl">
+                    <div class="alignLeft dropDownControl">
+                        @Html.DropDownListFor(model => model.WorkQueues.ArtistName, new SelectList(Model.WorkQueueFilterItems, "value", "text", Model.WorkQueues.ArtistName))
+                    </div>
+                    <div class="alignLeft textBoxControl">
+                        @Html.TextBox("ArtistName", Model.WorkQueues.ArtistName)
+                    </div>
+                </div>
+            </div>
+                    <div class="alignLeft contractDescCont">
+                <div class="alignLeft labelControl">
+                    @Html.LabelFor(model => model.WorkQueues.ContractDescription):
+                </div>
+                <div class="fieldControl">
+                    <div class="alignLeft dropDownControl">
+                        @Html.DropDownListFor(model => model.WorkQueues.ContractDescription, new SelectList(Model.WorkQueueFilterItems, "value", "text", Model.WorkQueues.ContractDescription))
+                    </div>
+                    <div class="alignLeft textBoxControl">
+                        @Html.TextBox("ContractDescription", Model.WorkQueues.ContractDescription)
+                    </div>
+                </div>
+            </div>
+                </div>
+        
+                <div class="titleCont">
+            <div class="alignLeft titleInnerCont">
+                <div class="alignLeft labelControl">
+                    @Html.LabelFor(model => model.WorkQueues.Title):
+                </div>
+                <div class="fieldControl">
+                    <div class="alignLeft dropDownControl">
+                        @Html.DropDownListFor(model => model.WorkQueues.Title, new SelectList(Model.WorkQueueFilterItems, "value", "text", Model.WorkQueues.Title))
+                    </div>
+                    <div class="alignLeft textBoxControl">
+                   
+                        @Html.TextBox("Titles", Model.WorkQueues.Title)
+                    </div>
+                </div>
+            </div>
+            <div class="alignLeft reviewReason">
+                <div class="alignLeft labelControl">
+                    @Html.LabelFor(model => model.WorkQueues.ContractReviewReason):
+                </div>
+                <div class="fieldControl">
+                    <div class="alignLeft dropDownControl">
+                        @Html.DropDownListFor(model => model.WorkQueues.ContractReviewReason, new SelectList(Model.ReviewReasonItems, "value", "text", Model.WorkQueues.ContractReviewReason))
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+                <div class="workQueueCompanyName">
+                       
+                        <div class="alignLeft labelControl">
+                                @Html.LabelFor(model => model.WorkQueues.CompanyName):
+                        </div>
+                        <div class="alignLeft workqueueAdminCompany">
+                               @Html.TextBox("AdminCompanyNames", Model.WorkQueues.CompanyName, new { readOnly = "readOnly", onfocus = "this.blur()" })
+                               <input id="AdminCompany" type="hidden"/>
+                     </div>
+                    <a id="ClearanceAdminPopUp" class="alignLeft"
+                           href="javascript:void(0);"> @WorkQueueResource.SelectRemoveCompany</a>
+                </div> <!------ End of workQueueCompanyName ---------->
+        
+                <div class="alignRight workqueueFilterReset">
+            <input type="submit" id="filterWorkQueue" value="@WorkQueueResource.FilterButton" class="primbutton" />
+            <input type="submit" id="resetWorkQueue" value="@WorkQueueResource.ResetButton" class="secbutton" />
+        </div>
+        </div>   <!-------- End of accItem ---------------->
+    
+     </div> <!-------- End of accordion ---------------->
+   
+    
+      
+    <div class="clear"></div>
+    <div id="workQueueGrid">
+    </div>
+    <input id="hiddenContractId" type="hidden"/>
+</div> <!------------ End of scrollWorkQueue --------------------->
+

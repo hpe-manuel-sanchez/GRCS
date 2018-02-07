@@ -1,0 +1,1827 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+	<Header>
+		<![CDATA[
+				 <html>
+					<head>
+						<style>
+							.Footer{color: #000;height: 21px;margin-top: 20px;width: 100%;font-weight: bold;font-family: Arial, Verdana, Sans-Serif;background: #ebffb4 repeat-x left top;}
+							.txt{text-align: left; clear: both; padding: 10px 0 0 0; font-size: 12px; font-family: Arial, Verdana, Sans-Serif;}
+							.lnk{float: left; font-size: 11px; text-align: left; font-weight: bold; font-family: Arial, Verdana, Sans-Serif; margin-top: 10px;}
+							.table{padding: 0; margin: 0; border: 1px solid grey; border-collapse: collapse;width: 60%;}
+							#tblEmail{padding: 0; margin: 0; border: 1px solid grey; border-collapse: collapse;width: 90%;}
+							#tblEmail thead{background-color: #485472; color: #fff; height: 21px;}
+							#tblEmail .bg{background-color: #485472; color: #fff; height: 21px; width:300px;}
+							#tblEmail th{text-align: left;vertical-align: middle;font-size: 11px;padding-left: 5px;font-family: Arial, Verdana, Sans-Serif;}
+							#tblEmail td{text-align: left;vertical-align: middle;font-size: 11px;padding-left: 5px;font-family: Arial, Verdana, Sans-Serif;}
+							.table thead{background-color: #485472; color: #fff; height: 21px;}
+							.table .bg{background-color: #485472; color: #fff; height: 21px; width:300px;}
+							.table th{text-align: left;vertical-align: middle;font-size: 11px;padding-left: 5px;font-family: Arial, Verdana, Sans-Serif;}
+							.table td{text-align: left;vertical-align: middle;font-size: 11px;padding-left: 5px;font-family: Arial, Verdana, Sans-Serif;}
+							.space{height:10px; width:100%;}
+							.artistManagement .bg{background-color: #485472; color: #fff; height: 21px; width:180px !important;}
+							#resourcesArtistManagement th{width:12.5%;}
+							.lnkProjectCode{float: left; font-size: 11px; text-align: left; font-weight: bold; font-family: Arial, Verdana, Sans-Serif;}
+							.fontBold{font-weight: bold;}
+							#releaseArtistManagement th{width:11.11%;}
+						</style>
+					</head>
+					<body class='txt'>
+					<div>&nbsp;</div>
+					<div class='space'>&nbsp;</div>
+					<div style="width: 100%;" class='txt'>#~WelcomeNote#~,</div>
+					<div class='space'>&nbsp;</div>
+		]]>
+	</Header>
+	<WelcomeNote>
+		<![CDATA[Dear User]]>
+	</WelcomeNote>
+	<ConsolidatedEmailSubject>
+		<![CDATA[Message from GCS]]>
+	</ConsolidatedEmailSubject>
+	<ConsolidatedProjectReferece><![CDATA[<br/><div class='txt'>Subject: Reference</div>]]></ConsolidatedProjectReferece>
+	<Footer>
+		<![CDATA[
+						<div class='space'>&nbsp;</div>
+						<div style="width: 100%;" class='txt'>
+							Thanks,<br />
+							#~EmailSignature#~
+						</div>
+						<div class="Footer">
+							Disclaimer
+						</div>
+						<div style="font-style:italic" class='txt'>
+							This is an auto-generated mail please do not reply back.<br/>
+							This message and any attachment(s) contained here are information that is confidential, proprietary to GRCS and its customers.<br/>
+							This communication is for the sole use of the intended recipient(s) and may contain confidential and privileged information.<br/>
+							Any unauthorized review, use, disclosure or distribution of this information is prohibited.<br/>
+							If you have received this email in error or if you are not the intended recipient, please notify the sender by email (GCS@umusic.com)
+							and delete all copies of the message.
+						</div>
+					</body>
+				</html>
+				]]>
+	</Footer>
+
+	<R2ProjectCreated>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The Following R2 Project has been created: #~R2ProjectId#~
+					</div>
+					]]>
+		</Body>
+	</R2ProjectCreated>
+	<R2ReleasePushFailed>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following releases have not been successfully pushed to R2
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Release Title</th><th>Version Title</th><th>UPC</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~ReleaseArtist#~</td><td>#~ReleaseTitle#~</td><td>#~ReleaseVersionTitle#~</td><td>#~UPC#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</R2ReleasePushFailed>
+	<R2ResoucePushFailed>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following resources have not been successfully pushed to R2
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</R2ResoucePushFailed>
+	<CreateCompanyByGta>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following company is to be set up in GTA: #~freehandCompanyName#~
+					</div>
+					 <div class='txt'>
+						The name of the requestor :  #~User_Name#~
+					</div>
+					]]>
+		</Body>
+	</CreateCompanyByGta>
+	<FreeHandResourceApproved>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following freehand resources have been approved and can be set up in R2
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>Requestor</th><th>Approved By</th><th>Clearance Admin Company</th><th>Comments</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~User_Name#~</td><td>#~Action_User_Login_Name#~</td><td>#~AdminCompanyName#~</td><td>#~OptionalData1#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</FreeHandResourceApproved>
+	<ResourceCompletenessCheckFailed>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following resources have been approved on GCS and have failed completeness check in R2
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>Approved By</th><th>Clearance Admin Company</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~Action_User_Login_Name#~</td><td>#~AdminCompanyName#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceCompletenessCheckFailed>
+	<UPCReducedBelow300>
+		<Subject>
+			<![CDATA[UPCs to be updated]]>
+		</Subject>
+		<Body>
+			<![CDATA[<div class='txt'>The number of UPCs in the #~OptionalData1#~ have reduced below 300</div>]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[]]>
+			</Header>
+			<List>
+				<![CDATA[]]>
+			</List>
+			<Footer>
+				<![CDATA[]]>
+			</Footer>
+		</Table>
+	</UPCReducedBelow300>
+	<RequestTypeRemoved>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</RequestTypeRemoved>
+	<ProjectCompletedAutomatically>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectCompletedAutomatically>
+	<ProjectCompletedManually>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectCompletedManually>
+	<ProjectCancelledForPendingUsers>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectCancelledForPendingUsers>
+
+	<ResourceCancelled>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceCancelled>
+	<ResourceCancelledAutomatic>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceCancelledAutomatic>
+	<ProjectCompletedAutomaticallyAndApproved>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					The following (conditionally) approved resources have not been used
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectCompletedAutomaticallyAndApproved>
+	<ProjectCancelledForApprovedUsers>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					The following (conditionally) approved resources have not been used
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectCancelledForApprovedUsers>
+	<ResourceExcluded>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following (conditionally) approved resources have not been used
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceExcluded>
+	<ResourceIncluded>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					The following previously excluded resources have now been included
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceIncluded>
+	<ProjectReInstatedForApprovedUsers>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The project with following (conditionally) approved resources has been re-instated
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectReInstatedForApprovedUsers>
+	<ResourceAutoRejected>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The final review status of the resource is:
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+					<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+					<thead>
+						 <tr>
+								<th>Artist</th>
+								<th>Resource Title</th>
+								<th>Version Title</th>
+								<th>ISRC</th>
+								<th>RequestType</th>
+								<th>Review Status</th>
+								<th>Comments</th>
+						 </tr>
+					</thead>
+				]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~ResourceTitle#~</td>
+						<td>#~VersionTitle#~</td>
+						<td>#~Isrc#~</td>
+						<td>#~RequestType#~</td>
+						<td>#~ActionType#~</td>
+						<td>#~OptionalData1#~</td>
+					</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceAutoRejected>
+	<ResourceAutoApproved>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following resources are pre cleared and have been auto-approved
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+					<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+					<thead>
+						 <tr>
+								<th>Artist</th>
+								<th>Resource Title</th>
+								<th>Version Title</th>
+								<th>ISRC</th>
+								<th>RequestType</th>
+						 </tr>
+					</thead>
+				]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~ResourceTitle#~</td>
+						<td>#~VersionTitle#~</td>
+						<td>#~Isrc#~</td>
+						<td>#~RequestType#~</td>
+					</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceAutoApproved>
+	<ResourceAutoApprovedPreCleared>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The final review status of the resource is:
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+					<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+					<thead>
+						 <tr>
+								<th>Artist</th>
+								<th>Resource Title</th>
+								<th>Version Title</th>
+								<th>ISRC</th>
+								<th>RequestType</th>
+								<th>Review Status</th>
+								<th>Comments</th>
+						 </tr>
+					</thead>
+				]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~ResourceTitle#~</td>
+						<td>#~VersionTitle#~</td>
+						<td>#~Isrc#~</td>
+						<td>#~RequestType#~</td>
+						<td>#~ActionType#~</td>
+						<td>#~OptionalData1#~</td>
+					</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceAutoApprovedPreCleared>
+	<ResourceReInstated>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following cancelled resources have been reinstated
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ResourceReInstated>
+	<ProjectReInstatedForPendingUsers>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following cancelled resources have been reinstated
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ProjectReInstatedForPendingUsers>
+	<RequestReApplied>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The following rejected resources have been reapplied for review
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</RequestReApplied>
+	<RequestRemainder>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The requester would like to remind you of the below pending requests
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>Requesting Company</th><th>Release Date</th><th>Estimated Sales/Units</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestCompany#~</td><td>#~Release_Dt#~</td><td>#~Estimated_Sales_Units#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</RequestRemainder>
+	<ApprovalPendingForRequest>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following resources have been submitted for your review
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ApprovalPendingForRequest>
+	<UmgiApprovalPendingForRequest>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						This project has been submitted for your review
+					</div>
+					]]>
+		</Body>
+	</UmgiApprovalPendingForRequest>
+	<RequestReviewCompleted>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+					 The final review status of the resource is:
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+					<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead>
+							 <tr>
+									<th>Artist</th>
+									<th>Resource Title</th>
+									<th>Version Title</th>
+									<th>ISRC</th>
+									<th>RequestType</th>
+									<th>Review Status</th>
+									<th>Comments</th>
+							 </tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~ResourceTitle#~</td>
+						<td>#~VersionTitle#~</td>
+						<td>#~Isrc#~</td>
+						<td>#~RequestType#~</td>
+						<td>#~ActionType#~</td>
+						<td>#~OptionalData1#~</td>
+					</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</RequestReviewCompleted>
+
+	<InterNationalMarketingSkipped>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The Following Resource(s) have skipped international marketing review for #~OptionalData1#~
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</InterNationalMarketingSkipped>
+
+	<AutoApprovedMAEmail>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following resources have been auto-approved because per the contract no consent is required.
+			This approval is subject to the 10-days withholding period for marketing appeal.
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</AutoApprovedMAEmail>
+
+	<RequestPendingInArtistConsent>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following requests have been cancelled in GCS by either the requester or automatically
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</RequestPendingInArtistConsent>
+	<ArtistManagementFlagUpdated>
+		<Subject>
+			<![CDATA[Project: #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~ProjectCode#~</a></div>
+					</div>
+					<div class='txt'>
+						The following resources have been marked for artist consent
+					</div>
+					]]>
+		</Body>
+		<Table>
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table class='table' border='1'>
+						<thead><tr><th>Artist</th><th>Resource Title</th><th>Version Title</th><th>ISRC</th><th>RequestType</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~ResourceTitle#~</td><td>#~VersionTitle#~</td><td>#~Isrc#~</td><td>#~RequestType#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ArtistManagementFlagUpdated>
+
+	<RegularNonTraditionalNonTVRadioBreak>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~PROJECT_CODE#~</a></div>
+					</div>
+					<div class='txt'>
+					 <b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+						<#####>
+				 </br> <div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr><th>Artist</th><th>Requested Resource</th><th>Version Title</th><th>ISRC</th><th>Resource Comments</th><th>Requested Territories(Included)</th><th>Requested Territories(Excluded)</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~Resource_Title#~</td><td>#~Version_Title#~</td><td>#~Isrc#~</td><td>#~Comment#~</td><td>#~Requested_Included_Territories#~</td><td>#~Requested_Excluded_Territories#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr><th>Artist</th><th>Requested Product</th><th>Version Title</th><th>UPC</th><th>Release Label</th><th>Price Level</th><th>Configuration</th><th>Estimated No Of Tracks</th><th>No of Components</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Release_Artist#~</td><td>#~Title#~</td><td>#~Release_Version_Title#~</td><td>#~Upc#~</td><td>#~Label_Name#~</td><td>#~Price_Level#~</td><td>#~Description#~</td><td>#~No_Tracks#~</td><td>#~No_Components#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</RegularNonTraditionalNonTVRadioBreak>
+	<TVRadioBreakICLA>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~PROJECT_CODE#~</a></div>
+					</div>
+					<div class='txt'>
+					 <b> Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+						<#####>
+
+					]]>
+		</Body>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr><th>Artist</th><th>Requested Release Title</th><th>Version Title</th><th>UPC</th><th> Exact PPD</th><th>Number of components</th><th>Configuration </th><th>Estimated Retail Price</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Release_Artist#~</td><td>#~Title#~</td><td>#~Release_Version_Title#~</td><td>#~Upc#~</td><td>#~Exact_Ppd_Price#~</td><td>#~No_Components#~</td><td>#~Description#~</td><td>#~Estimated_Retail_Price#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</TVRadioBreakICLA>
+	<ReminderRegularNonTraditionalNew>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+					 The requester would like to remind you of the below pending requests
+					</div>
+					<br/>
+					<div class='txt'>
+						<b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					<br/>
+					<div class='txt'>
+						<b> Project Details</b>
+					</div>
+					<#####>
+					<br/>
+					<div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					<br/>
+					]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='resourcesArtistManagement'>
+							 <th>Artist</th>
+							 <th>Requested Resource</th>
+							 <th>Version Title</th>
+							 <th>Resource Comments</th>
+							 <th>Requested Territories (Included)</th>
+							 <th>Requested Territories (Excluded)</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~Resource_Title#~</td>
+						<td>#~Version_Title#~</td>
+						<td>#~Comment#~</td>
+						<td>#~Requested_Included_Territories#~</td>
+						<td>#~Requested_Excluded_Territories#~</td>
+					</tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='releaseArtistManagement'>
+								<th>Artist</th>
+								<th>Title (tentative)</th>
+								<th>Version Title</th>
+								<th>Label</th>
+								<th>Price Level</th>
+								<th>Configuration</th>
+								<th>Estimated No Of Tracks</th>
+								<th>No of Components</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+				<tr class='collectionTable'>
+					<td>#~Release_Artist#~</td>
+					<td class='fontBold'>#~Title#~</td>
+					<td>#~Release_Version_Title#~</td>
+					<td>#~Label_Name#~</td>
+					<td>#~Price_Level#~</td>
+					<td>#~Description#~</td>
+					<td>#~No_Tracks#~</td>
+					<td>#~No_Components#~</td>
+				</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</ReminderRegularNonTraditionalNew>
+	<RegularNonTraditionalNewArtistManagement>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					<br/>
+					<div class='txt'>
+						<b> Project Details</b>
+					</div>
+					<#####>
+					<br/>
+					<div class='txt'>
+						<b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					<br/>
+					]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='resourcesArtistManagement'>
+							 <th>Artist</th>
+							 <th>Requested Resource</th>
+							 <th>Version Title</th>
+							 <th>Resource Comments</th>
+							 <th>Requested Territories (Included)</th>
+							 <th>Requested Territories (Excluded)</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~Resource_Title#~</td>
+						<td>#~Version_Title#~</td>
+						<td>#~Comment#~</td>
+						<td>#~Requested_Included_Territories#~</td>
+						<td>#~Requested_Excluded_Territories#~</td>
+					</tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='releaseArtistManagement'>
+								<th>Artist</th>
+								<th>Title (tentative)</th>
+								<th>Version Title</th>
+								<th>Label</th>
+								<th>Price Level</th>
+								<th>Configuration</th>
+								<th>Estimated No Of Tracks</th>
+								<th>No of Components</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+				<tr class='collectionTable'>
+					<td>#~Release_Artist#~</td>
+					<td class='fontBold'>#~Title#~</td>
+					<td>#~Release_Version_Title#~</td>
+					<td>#~Label_Name#~</td>
+					<td>#~Price_Level#~</td>
+					<td>#~Description#~</td>
+					<td>#~No_Tracks#~</td>
+					<td>#~No_Components#~</td>
+				</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</RegularNonTraditionalNewArtistManagement>
+	<RegularNonTraditionalNewArtistManagementWithSelectedResources>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+						<b> Requested Resource </b>
+					</div>
+					#~ResourceSelectedTable#~
+					<br/>
+					<div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					<br/>
+					<div class='txt'>
+						<b> Project Details</b>
+					</div>
+					<#####>
+					<br/>
+					<div class='txt'>
+						<b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					<br/>
+					]]>
+		</Body>
+		<Table Key="ResourceSelectedTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='resourcesArtistManagement'>
+							 <th>Artist</th>
+							 <th>Requested Resource</th>
+							 <th>Version Title</th>
+							 <th>Resource Comments</th>
+							 <th>Requested Territories (Included)</th>
+							 <th>Requested Territories (Excluded)</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~Resource_Title#~</td>
+						<td>#~Version_Title#~</td>
+						<td>#~Comment#~</td>
+						<td>#~Requested_Included_Territories#~</td>
+						<td>#~Requested_Excluded_Territories#~</td>
+					</tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='resourcesArtistManagement'>
+							 <th>Artist</th>
+							 <th>Requested Resource</th>
+							 <th>Version Title</th>
+							 <th>Resource Comments</th>
+							 <th>Requested Territories (Included)</th>
+							 <th>Requested Territories (Excluded)</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~Resource_Title#~</td>
+						<td>#~Version_Title#~</td>
+						<td>#~Comment#~</td>
+						<td>#~Requested_Included_Territories#~</td>
+						<td>#~Requested_Excluded_Territories#~</td>
+					</tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='releaseArtistManagement'>
+								<th>Artist</th>
+								<th>Title (tentative)</th>
+								<th>Version Title</th>
+								<th>Label</th>
+								<th>Price Level</th>
+								<th>Configuration</th>
+								<th>Estimated No Of Tracks</th>
+								<th>No of Components</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+				<tr class='collectionTable'>
+					<td>#~Release_Artist#~</td>
+					<td class='fontBold'>#~Title#~</td>
+					<td>#~Release_Version_Title#~</td>
+					<td>#~Label_Name#~</td>
+					<td>#~Price_Level#~</td>
+					<td>#~Description#~</td>
+					<td>#~No_Tracks#~</td>
+					<td>#~No_Components#~</td>
+				</tr>
+				]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</RegularNonTraditionalNewArtistManagementWithSelectedResources>
+	<RegularNonTraditionalExistingArtistManagement>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					<br/>
+					<div class='txt'>
+						<b>Project Details</b>
+					</div>
+					<#####>
+					]]>
+		</Body>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr>
+								<th>Artist</th>
+								<th>Requested Product</th>
+								<th>Version Title</th>
+								<th>UPC</th>
+								<th>Label</th>
+								<th>Price Level</th>
+								<th>Configuration</th>
+								<th>Estimated No Of Tracks</th>
+								<th>No of Components</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Release_Artist#~</td>
+						<td>#~Title#~</td>
+						<td>#~Release_Version_Title#~</td>
+						<td>#~Upc#~</td>
+						<td>#~Label_Name#~</td>
+						<td>#~Price_Level#~</td>
+						<td>#~Description#~</td>
+						<td>#~No_Tracks#~</td>
+						<td>#~No_Components#~</td>
+					</tr>
+					]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</RegularNonTraditionalExistingArtistManagement>
+	<ReminderRegularNonTraditionalExisting>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+					 The requester would like to remind you of the below pending requests
+					</div>
+					<br/>
+					<div class='txt'>
+						<b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					<br/>
+					<div class='txt'>
+						<b>Project Details</b>
+					</div>
+					<#####>
+					<br/>
+					<div class='txt'>
+						<b>Release Details </b>
+					</div>
+					#~ReleaseTable#~
+					]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr id='resourcesArtistManagement'>
+							 <th>Artist</th>
+							 <th>Requested Resource</th>
+							 <th>Version Title</th>
+							 <th>Resource Comments</th>
+							 <th>Requested Territories (Included)</th>
+							 <th>Requested Territories (Excluded)</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Artist#~</td>
+						<td>#~Resource_Title#~</td>
+						<td>#~Version_Title#~</td>
+						<td>#~Comment#~</td>
+						<td>#~Requested_Included_Territories#~</td>
+						<td>#~Requested_Excluded_Territories#~</td>
+					</tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead>
+							<tr>
+								<th>Artist</th>
+								<th>Requested Product</th>
+								<th>Version Title</th>
+								<th>UPC</th>
+								<th>Label</th>
+								<th>Price Level</th>
+								<th>Configuration</th>
+								<th>Estimated No Of Tracks</th>
+								<th>No of Components</th>
+							</tr>
+						</thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[
+					<tr class='collectionTable'>
+						<td>#~Release_Artist#~</td>
+						<td>#~Title#~</td>
+						<td>#~Release_Version_Title#~</td>
+						<td>#~Upc#~</td>
+						<td>#~Label_Name#~</td>
+						<td>#~Price_Level#~</td>
+						<td>#~Description#~</td>
+						<td>#~No_Tracks#~</td>
+						<td>#~No_Components#~</td>
+					</tr>
+					]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</ReminderRegularNonTraditionalExisting>
+	<ReminderMaster>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+					 The requester would like to remind you of the below pending requests
+					</div>
+					<br/>
+					<div class='txt'>
+					 <b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+					<#####>
+			]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr id='resourcesArtistManagement' ><th>Artist</th><th>Requested Resource</th><th>Version Title</th><th>Excerpt Time </th><th>Master Use Fee From Client</th><th>Requested Territories (Included) </th><th>Requested Territories (Excluded) </th><th>Resource Comments</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~Resource_Title#~</td><td>#~Version_Title#~</td><td>#~Excerpt_Time#~</td><td>#~Suggested_Fee#~</td><td>#~Requested_Included_Territories#~</td><td>#~Requested_Excluded_Territories#~</td><td>#~Comment#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</ReminderMaster>
+	<Master>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~PROJECT_CODE#~</a></div>
+					</div>
+					<div class='txt'>
+					 <b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+					<#####>
+
+					]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr><th>Artist</th><th>Requested Resource</th><th>Version Title</th><th>ISRC</th><th>Excerpt Time </th><th>Master Use Fee</th><th>Requested Territories(Included) </th><th>Requested Territories(Excluded) </th><th>Resource Comments</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~Resource_Title#~</td><td>#~Version_Title#~</td><td>#~Isrc#~</td><td>#~Excerpt_Time#~</td><td>#~Suggested_Fee#~</td><td>#~Requested_Included_Territories#~</td><td>#~Requested_Excluded_Territories#~</td><td>#~Comment#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</Master>
+	<MasterArtistManagement>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+					 <b> Resource Details </b>
+					</div>
+					#~ResourceTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+					<#####>
+			]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr id='resourcesArtistManagement' ><th>Artist</th><th>Requested Resource</th><th>Version Title</th><th>Excerpt Time </th><th>Master Use Fee From Client</th><th>Requested Territories (Included) </th><th>Requested Territories (Excluded) </th><th>Resource Comments</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~Resource_Title#~</td><td>#~Version_Title#~</td><td>#~Excerpt_Time#~</td><td>#~Suggested_Fee#~</td><td>#~Requested_Included_Territories#~</td><td>#~Requested_Excluded_Territories#~</td><td>#~Comment#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</MasterArtistManagement>
+	<MasterArtistManagementWithSelectedResources>
+		<Subject>
+			<![CDATA[Clearance request for #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div class='txt'>
+					 <b> Requested Resource </b>
+					</div>
+					#~ResourceTable#~
+					 <br/><div class='txt'>
+					 <b> Project Details</b>
+					</div>
+					<#####>
+			]]>
+		</Body>
+		<Table Key="ResourceTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr id='resourcesArtistManagement' ><th>Artist</th><th>Requested Resource</th><th>Version Title</th><th>Excerpt Time </th><th>Master Use Fee From Client</th><th>Requested Territories (Included) </th><th>Requested Territories (Excluded) </th><th>Resource Comments</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Artist#~</td><td>#~Resource_Title#~</td><td>#~Version_Title#~</td><td>#~Excerpt_Time#~</td><td>#~Suggested_Fee#~</td><td>#~Requested_Included_Territories#~</td><td>#~Requested_Excluded_Territories#~</td><td>#~Comment#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+	</MasterArtistManagementWithSelectedResources>
+	<UPCAllocation>
+		<Subject>
+			<![CDATA[UPC Allocation – #~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~PROJECT_CODE#~</a></div>
+					</div>
+					<div class='txt'>
+					 Please allocate UPC for the following releases
+					</div>
+					#~ReleaseTable#~
+					]]>
+		</Body>
+
+		<Table Key="ReleaseTable">
+			<Header>
+				<![CDATA[
+				<div style='padding: 10px 0 0 0;'>
+					<table id='tblEmail' border='1'>
+						<thead><tr><th>Artist</th><th>Requested Release Title</th><th>Version Title</th><th>Configuration</th><th>Package</th></tr></thead>
+					]]>
+			</Header>
+			<List>
+				<![CDATA[<tr class='collectionTable'><td>#~Release_Artist#~</td><td>#~Title#~</td><td>#~Release_Version_Title#~</td><td>#~Description#~</td><td>#~isPackage#~</td></tr>]]>
+			</List>
+			<Footer>
+				<![CDATA[</table></div>]]>
+			</Footer>
+		</Table>
+
+	</UPCAllocation>
+	<General>
+		<Subject>
+			<![CDATA[#~PROJECT_CODE#~ - #~PROJECT_TITLE#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+					<div style='width: 100%; clear: both;'>
+							<div class='lnk'><a href='#~ClrProjectUrl#~'>#~PROJECT_CODE#~</a></div>
+					</div>
+
+					]]>
+		</Body>
+	</General>
+	<RoutingFailed>
+		<Subject>
+			<![CDATA[Routing Failure : #~ProjectCode#~ - #~ProjectTitle#~]]>
+		</Subject>
+		<Body>
+			<![CDATA[
+
+					<div class='txt'>
+						Failure in routing for #~ProjectCode#~.
+					</div>
+					<div class='txt'>
+						Please investigate on high priority. RCC admin and requestor should be informed of the progress.
+					</div>
+					]]>
+		</Body>
+	</RoutingFailed>
+
+</Root>

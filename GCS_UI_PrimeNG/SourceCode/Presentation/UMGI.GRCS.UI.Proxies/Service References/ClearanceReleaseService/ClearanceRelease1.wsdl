@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClearanceRelease" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ReleaseEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.RepertoireEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ArtistEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.R2Entities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceProjectEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ClearanceResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ResourceEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc?xsd=xsd16" namespace="http://schemas.umusic.com" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClearanceRelease_GetReleaseLabelList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseLabelList" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseLabelList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseLabelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseConfigList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseConfigList" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseConfigList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseConfigListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseConfigGroupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseConfigGroupList" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseConfigGroupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseConfigGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_SaveReleaseNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseNew" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_SaveReleaseNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReleaseNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingReleases" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingReleasesSaveMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingReleasesSaveMode" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingReleasesSaveMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingReleasesSaveModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_SaveExistingReleases_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExistingReleases" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_SaveExistingReleases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExistingReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GeDeviatedIclaLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeDeviatedIclaLevel" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GeDeviatedIclaLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeDeviatedIclaLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetPriceLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceLevel" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetPriceLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_BG_ReleaseDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:BG_ReleaseDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_BG_ReleaseDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BG_ReleaseDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GCSReleaseSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GCSReleaseSearch" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GCSReleaseSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GCSReleaseSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_R2GetReleaseAdditionalDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:R2GetReleaseAdditionalDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_R2GetReleaseAdditionalDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:R2GetReleaseAdditionalDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetUPCNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUPCNumber" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetUPCNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUPCNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetUpc_Check_Digit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpc_Check_Digit" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetUpc_Check_Digit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpc_Check_DigitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_RemoveUPCNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUPCNumber" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_RemoveUPCNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUPCNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseAdditionalDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseAdditionalDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseAdditionalDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseAdditionalDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseDetailsGCS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseDetailsGCS" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseDetailsGCS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseDetailsGCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingR2ReleaseIdFromGcs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingR2ReleaseIdFromGcs" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingR2ReleaseIdFromGcs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingR2ReleaseIdFromGcsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingR2ReleaseIdForPackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingR2ReleaseIdForPackage" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetExistingR2ReleaseIdForPackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExistingR2ReleaseIdForPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_UpdatePackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackage" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_UpdatePackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetPackageDetailsforProjectRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageDetailsforProjectRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetPackageDetailsforProjectRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageDetailsforProjectReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_getLabelNmForExistingRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLabelNmForExistingRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_getLabelNmForExistingRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLabelNmForExistingReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_UpdateManualUpc_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManualUpc" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_UpdateManualUpc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateManualUpcResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseDetailsBasedonR2ReleaseId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseDetailsBasedonR2ReleaseId" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceRelease_GetReleaseDetailsBasedonR2ReleaseId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReleaseDetailsBasedonR2ReleaseIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceReleaseDataProvider_GetGCSRelease_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSRelease" />
+  </wsdl:message>
+  <wsdl:message name="IClearanceReleaseDataProvider_GetGCSRelease_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGCSReleaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClearanceRelease">
+    <wsdl:operation name="GetReleaseLabelList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseLabelList" message="tns:IClearanceRelease_GetReleaseLabelList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseLabelListResponse" message="tns:IClearanceRelease_GetReleaseLabelList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseConfigList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseConfigList" message="tns:IClearanceRelease_GetReleaseConfigList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseConfigListResponse" message="tns:IClearanceRelease_GetReleaseConfigList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseConfigGroupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseConfigGroupList" message="tns:IClearanceRelease_GetReleaseConfigGroupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseConfigGroupListResponse" message="tns:IClearanceRelease_GetReleaseConfigGroupList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/SaveReleaseNew" message="tns:IClearanceRelease_SaveReleaseNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/SaveReleaseNewResponse" message="tns:IClearanceRelease_SaveReleaseNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingReleases" message="tns:IClearanceRelease_GetExistingReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingReleasesResponse" message="tns:IClearanceRelease_GetExistingReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingReleasesSaveMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingReleasesSaveMode" message="tns:IClearanceRelease_GetExistingReleasesSaveMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingReleasesSaveModeResponse" message="tns:IClearanceRelease_GetExistingReleasesSaveMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveExistingReleases">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/SaveExistingReleases" message="tns:IClearanceRelease_SaveExistingReleases_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/SaveExistingReleasesResponse" message="tns:IClearanceRelease_SaveExistingReleases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GeDeviatedIclaLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GeDeviatedIclaLevel" message="tns:IClearanceRelease_GeDeviatedIclaLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GeDeviatedIclaLevelResponse" message="tns:IClearanceRelease_GeDeviatedIclaLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetPriceLevel" message="tns:IClearanceRelease_GetPriceLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetPriceLevelResponse" message="tns:IClearanceRelease_GetPriceLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BG_ReleaseDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/BG_ReleaseDetails" message="tns:IClearanceRelease_BG_ReleaseDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/BG_ReleaseDetailsResponse" message="tns:IClearanceRelease_BG_ReleaseDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GCSReleaseSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GCSReleaseSearch" message="tns:IClearanceRelease_GCSReleaseSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GCSReleaseSearchResponse" message="tns:IClearanceRelease_GCSReleaseSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="R2GetReleaseAdditionalDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/R2GetReleaseAdditionalDetails" message="tns:IClearanceRelease_R2GetReleaseAdditionalDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/R2GetReleaseAdditionalDetailsResponse" message="tns:IClearanceRelease_R2GetReleaseAdditionalDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetUPCNumber" message="tns:IClearanceRelease_GetUPCNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetUPCNumberResponse" message="tns:IClearanceRelease_GetUPCNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpc_Check_Digit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetUpc_Check_Digit" message="tns:IClearanceRelease_GetUpc_Check_Digit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetUpc_Check_DigitResponse" message="tns:IClearanceRelease_GetUpc_Check_Digit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUPCNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/RemoveUPCNumber" message="tns:IClearanceRelease_RemoveUPCNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/RemoveUPCNumberResponse" message="tns:IClearanceRelease_RemoveUPCNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseAdditionalDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseAdditionalDetails" message="tns:IClearanceRelease_GetReleaseAdditionalDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseAdditionalDetailsResponse" message="tns:IClearanceRelease_GetReleaseAdditionalDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseDetailsGCS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseDetailsGCS" message="tns:IClearanceRelease_GetReleaseDetailsGCS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseDetailsGCSResponse" message="tns:IClearanceRelease_GetReleaseDetailsGCS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingR2ReleaseIdFromGcs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdFromGcs" message="tns:IClearanceRelease_GetExistingR2ReleaseIdFromGcs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdFromGcsResponse" message="tns:IClearanceRelease_GetExistingR2ReleaseIdFromGcs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingR2ReleaseIdForPackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdForPackage" message="tns:IClearanceRelease_GetExistingR2ReleaseIdForPackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdForPackageResponse" message="tns:IClearanceRelease_GetExistingR2ReleaseIdForPackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/UpdatePackage" message="tns:IClearanceRelease_UpdatePackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/UpdatePackageResponse" message="tns:IClearanceRelease_UpdatePackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageDetailsforProjectRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetPackageDetailsforProjectRelease" message="tns:IClearanceRelease_GetPackageDetailsforProjectRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetPackageDetailsforProjectReleaseResponse" message="tns:IClearanceRelease_GetPackageDetailsforProjectRelease_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLabelNmForExistingRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/getLabelNmForExistingRelease" message="tns:IClearanceRelease_getLabelNmForExistingRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/getLabelNmForExistingReleaseResponse" message="tns:IClearanceRelease_getLabelNmForExistingRelease_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManualUpc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/UpdateManualUpc" message="tns:IClearanceRelease_UpdateManualUpc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/UpdateManualUpcResponse" message="tns:IClearanceRelease_UpdateManualUpc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseDetailsBasedonR2ReleaseId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseDetailsBasedonR2ReleaseId" message="tns:IClearanceRelease_GetReleaseDetailsBasedonR2ReleaseId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceRelease/GetReleaseDetailsBasedonR2ReleaseIdResponse" message="tns:IClearanceRelease_GetReleaseDetailsBasedonR2ReleaseId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IClearanceReleaseDataProvider">
+    <wsdl:operation name="GetGCSRelease">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClearanceReleaseDataProvider/GetGCSRelease" message="tns:IClearanceReleaseDataProvider_GetGCSRelease_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClearanceReleaseDataProvider/GetGCSReleaseResponse" message="tns:IClearanceReleaseDataProvider_GetGCSRelease_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClearanceRelease" type="tns:IClearanceRelease">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReleaseLabelList">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseLabelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseConfigList">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseConfigList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseConfigGroupList">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseConfigGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReleaseNew">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/SaveReleaseNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingReleases">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetExistingReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingReleasesSaveMode">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetExistingReleasesSaveMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExistingReleases">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/SaveExistingReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeDeviatedIclaLevel">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GeDeviatedIclaLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceLevel">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetPriceLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BG_ReleaseDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/BG_ReleaseDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GCSReleaseSearch">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GCSReleaseSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="R2GetReleaseAdditionalDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/R2GetReleaseAdditionalDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUPCNumber">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetUPCNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpc_Check_Digit">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetUpc_Check_Digit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUPCNumber">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/RemoveUPCNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseAdditionalDetails">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseAdditionalDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseDetailsGCS">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseDetailsGCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingR2ReleaseIdFromGcs">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdFromGcs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingR2ReleaseIdForPackage">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetExistingR2ReleaseIdForPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackage">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/UpdatePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageDetailsforProjectRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetPackageDetailsforProjectRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLabelNmForExistingRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/getLabelNmForExistingRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManualUpc">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/UpdateManualUpc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseDetailsBasedonR2ReleaseId">
+      <soap:operation soapAction="http://tempuri.org/IClearanceRelease/GetReleaseDetailsBasedonR2ReleaseId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IClearanceReleaseDataProvider" type="tns:IClearanceReleaseDataProvider">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGCSRelease">
+      <soap:operation soapAction="http://tempuri.org/IClearanceReleaseDataProvider/GetGCSRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClearanceRelease">
+    <wsdl:port name="BasicHttpBinding_IClearanceRelease" binding="tns:BasicHttpBinding_IClearanceRelease">
+      <soap:address location="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IClearanceReleaseDataProvider" binding="tns:BasicHttpBinding_IClearanceReleaseDataProvider">
+      <soap:address location="http://localhost:7778/ClearanceRelease/ClearanceRelease.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+﻿.divobjBulkEditRightsAcquired .divLeftControlBulk
+{
+font-weight:bold;}
+.divobjBulkEditRightsAcquired #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active a, #rightsAcquiredBulkEditTab #popUpTabs li.ui-widget-content a #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active a, #rightsAcquiredBulkEditTab #popUpTabs li.ui-widget-header a #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active a{
+background: url("/GCS/Images/blueRight.png") no-repeat scroll right top transparent !important;
+font-weight:bold;
+
+}
+.divobjBulkEditRightsAcquired #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active, #rightsAcquiredBulkEditTab #rightsAcquiredBulkEditTab #popUpTabs li.ui-widget-content #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active, #rightsAcquiredBulkEditTab #popUpTabs li.ui-widget-header #rightsAcquiredBulkEditTab #popUpTabs li.ui-state-active
+{
+background: url("/GCS/Images/blueLeft.png") no-repeat scroll left top transparent;
+font-weight:bold;}    
+.divobjBulkEditRightsAcquired #rightsAcquiredBulkEditTab #menuTab
+{
+background-color: #F0F0F0 !important; }      
+.divobjBulkEditRightsAcquired #rightsAcquiredBulkEditTab .alignLefte
+{
+padding-top: 0 !important;}  
+.divobjBulkEditRightsAcquired .bottomSeparator
+{
+border-bottom:1px solid #ccc;
+float: left;
+width: 96.5%;margin-right:15px; margin-left:15px;}
+.divobjBulkEditRightsAcquired .thirdSection
+{
+margin-left:12px;}
+.divobjBulkEditRightsAcquired .resetBtnStrip
+{
+width: 100%; background-color: #AFDBFE; float:left;}
+.divobjBulkEditRightsAcquired .resetSelectionBtnContainer
+{
+margin-right:15px; margin-top:5px; margin-bottom:5px;}
+.divobjBulkEditRightsAcquired .rightsAcquiredBody
+{
+float: left; width: 100%; margin-top: 10px}
+.divobjBulkEditRightsAcquired .lostRightsDateLabel
+{
+width:115px;}
+.divobjBulkEditRightsAcquired .rightsExceptionAppliedLabel
+{
+width:145px;}

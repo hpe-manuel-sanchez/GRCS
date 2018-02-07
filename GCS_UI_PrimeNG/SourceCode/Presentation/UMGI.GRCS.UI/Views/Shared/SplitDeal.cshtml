@@ -1,0 +1,41 @@
+﻿@using UMGI.GRCS.Resx.Resource.UIResources
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/blue/jtable_blue.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/SplitDeal.min.css")"  rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/SplitDealGrid.js")" type="text/javascript"></script>
+
+
+
+<div id="splitWarning">
+    <div class="warningContainer">
+        <img class="alertImage" src="/GCS/Images/Alert.png" alt="Warning" />
+    </div>
+    <div id="SplitAlert"></div>
+</div>
+<div id="splitDealDiv">
+    <div class="splitdealContainer">
+        <div id="duplicateDiv">
+            <p>@ContractResource.SplitDealMenu<b>@ContractResource.DuplicateSplitDeal</b>@ContractResource.SplitDealContracts<br />
+                <i>@ContractResource.HelpSplitDeal</i>
+                <span class="alignRight">
+                    <input type="submit" class="duplicateButton primbutton " value="@ContractResource.YesButton" />
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div id="splitdealGridDiv">
+        <div id="splitGrid"></div>
+    </div>
+
+    <div class="container">
+        <div id="splitdealDiv">
+            <p class="splitdealField">@ContractResource.SplitDealNewContract<b>@ContractResource.SplitDealName</b> @ContractResource.SplitDealMsg<span class="alignRight" style="margin-right: 15px;"><input type="submit" class="primbutton" id="splitDealBtn" value="@ContractResource.SplitDealName" />
+                <input type="submit" class="secbutton" id="splitCancel" value="@ContractResource.CancelButton" /></span>
+            </p>
+            <div id="splitList"></div>
+            <div id="splitActualParent"></div>
+            <div id="splitDummyParent"></div>
+        </div>
+    </div>
+</div>

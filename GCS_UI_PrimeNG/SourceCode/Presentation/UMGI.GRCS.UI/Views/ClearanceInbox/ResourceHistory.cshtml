@@ -1,0 +1,83 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+
+<script src="@Url.Content("/GCS/Scripts/Custom/ResourceHistory.js")" type="text/javascript"></script>
+@Html.Hidden("GridDetails", ViewData["data"].SerializeToJSON(), new { id = "GrdDetails" })
+<script type="text/javascript">
+    var resourceId = '@ViewBag.ResourceId';
+</script>
+<div id="syncResourceHistoryGrid">
+    @(Html.Syncfusion().Grid<ClearanceInboxResourceHistoryItem>("TblResourceHistory")
+        .Datasource((IEnumerable<ClearanceInboxResourceHistoryItem>)ViewData["data"])
+        .Caption("Review History")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopRight);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .EnableScrolling()
+            //.EnableOnDemand()
+        .EnableAlternateRowStyling()
+        .ActionMode(ActionMode.Server)
+            //.AllowAutoWrap(true)
+        .TotalRecordCount((int)ViewData["TotalRecCount"])
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBegin"))
+        .ClientSideEvents(evt => evt.OnToolbarClickEvent("ExportExcelClick"))
+        .Column(cols =>
+        {
+            cols.Add(c => c.ProjectReferenceNumber).HeaderText("Project Reference No");
+            cols.Add(c => c.ProjectTitle).HeaderText("Project Title").Width(150);
+            cols.Add(c => c.ReleaseType).HeaderText("Release Type");
+            cols.Add(c => c.RequestType).HeaderText("Request Type");
+            cols.Add(c => c.ReviewStatus).HeaderText("Review Status");
+            cols.Add(c => c.ReviewComments).HeaderText("Review Comments");
+        })
+         .ToolBar(toolbar =>
+        {
+            toolbar.Add(GridToolBarItems.ExcelExport, "Excel Export");
+        })
+
+        .Mappers(map =>
+        {
+            map.ExportExcelAction("ExportToExcel");
+        })
+        .QueryCellInfo(cell =>
+        {
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Column.MappingName == "ProjectTitle")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.ProjectTitle;
+                }
+            }
+        }))
+    <style type="text/css">
+        #TblResourceHistory .TblResourceHistory_ManualPager, #TblResourceHistory .RefreshPager {
+            display: none !important;
+        }
+
+        .ui-jtable-loading {
+            float: left !important;
+        }
+
+        #TblResourceHistory {
+            margin: 5px !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        #TblResourceHistory_toolbar {
+            background: #fff !important;
+        }
+
+        #TblResourceHistory .Syncfusion-Grid-Core .RowCell {
+            line-height: 1em !important;
+        }
+    </style>
+    @{
+        ViewBag.syncFusionData = ViewData["data"];
+    }
+</div>

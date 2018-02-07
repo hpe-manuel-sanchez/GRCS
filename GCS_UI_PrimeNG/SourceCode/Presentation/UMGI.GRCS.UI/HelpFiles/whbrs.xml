@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<browsesequencelist version="1.0">
+	
+	<browsesequence name="Contract Maintenance Work Queue" >
+		<item name="Viewing Contracts in the Work Queue" link="Viewing_Contracts_in_the_Work_Queue.htm" />
+		<item name="Editing and Approving Contracts in the Work Queue" link="Editing_and_Approving_Contracts_in_the_Work_Queue.htm" />
+	</browsesequence>
+	<browsesequence name="Creating Contracts" >
+		<item name="Creating New Contract Templates" link="Creating_New_Contract_Templates.htm" />
+		<item name="Creating Contracts Using Templates" link="Creating_Contracts_Using_Templates.htm" />
+		<item name="Creating a New Contract" link="Creating_a_New_Contract.htm" />
+	</browsesequence>
+	<browsesequence name="Custom Release Rights Review Work Queue" >
+		<item name="Creation of Custom Release WQ from Custom Parameters" link="Creation_of_Custom_Release_WQ_from_Custom_Parameters.htm" />
+		<item name="Creation of Custom Release WQ from Pre deifined Parameters" link="Creation_of_Custom_Release_WQ_from_Pre_deifined_Parameters.htm" />
+		<item name="Reviewing the Rights Data sets for Releases" link="Reviewing_the_Rights_Data_sets_for_Releases.htm" />
+		<item name="Amending the Rights Data for Releases" link="Amending_the_Rights_Data_for_Releases.htm" />
+		<item name="Mass Update Release Rights Data Sets by Bulk edit" link="Mass_Update_Release_Rights_Data_Sets_by_Bulk_edit.htm" />
+		<item name="Change the Linked Contract from the Release" link="Change_the_Linked_Contract_from_the_Release.htm" />
+		<item name="Unlink the contract from the Linked Release" link="Unlink_the_contract_from_the_Linked_Release.htm" />
+	</browsesequence>
+	<browsesequence name="Custom Rights Review Work Queue" >
+		<item name="Creation of Custom Work queue from Custom Parameters" link="Creation_of_Custom_Work_queue_from_Custom_Parameters.htm" />
+		<item name="Creation of Custom WQ from Pre-defined Parameters" link="Creation_of_Custom_WQ_from_Pre-defined_Parameters.htm" />
+		<item name="reviewing custom" link="reviewing_custom.htm" />
+		<item name="Amending Rights Data for Resource(s)/Track(s)" link="Amending_Rights_Data_for_Resource(s)_Track(s).htm" />
+		<item name="Mass update Rights data by Bulk Edit" link="Mass_update_Rights_data_by_Bulk_Edit.htm" />
+		<item name="Change the Linked Contract from Linked Resource" link="Change_the_Linked_Contract_from_Linked_Resource.htm" />
+		<item name="Unlink the linked contract from Resource" link="Unlink_the_linked_contract_from_Resource.htm" />
+	</browsesequence>
+	<browsesequence name="Managing Address Books" >
+		<item name="Creating Address Books" link="Creating_Address_Books.htm" />
+		<item name="Editing Address Books" link="Editing_Address_Books.htm" />
+		<item name="Deleting Address Books" link="Deleting_Address_Books.htm" />
+	</browsesequence>
+	<browsesequence name="Managing Templates" >
+		<item name="Editing Contract Templates" link="Editing_Contract_Templates.htm" />
+		<item name="Deleting Contracts Templates" link="Deleting_Contracts_Templates.htm" />
+		<item name="Editing Digital Restrictions Templates" link="Editing_Digital_Restrictions_Templates.htm" />
+		<item name="Deleting Digital Restrictions Templates" link="Deleting_Digital_Restrictions_Templates.htm" />
+	</browsesequence>
+	<browsesequence name="Priority Rights Review Work Queue" >
+		<item name="Reviewing the Rights Data sets for Resources/Tracks" link="Reviewing_the_Rights_Data_sets_for_Resources_Tracks.htm" />
+		<item name="Amending Rights Data sets for Resources/Tracks" link="Amending_Rights_Data_sets_for_Resources_Tracks.htm" />
+		<item name="Mass update Rights Data sets by Bulk Edit" link="Mass_update_Rights_Data_sets_by_Bulk_Edit.htm" />
+		<item name="Change the Linked Contract" link="Change_the_Linked_Contract.htm" />
+		<item name="Unlink the contract from Linked Resource" link="Unlink_the_contract_from_Linked_Resource.htm" />
+	</browsesequence>
+	<browsesequence name="Repertoire Rights Search" >
+		<item name="Rights Resources Basic Search" link="Rights_Resources_Basic_Search.htm" />
+		<item name="Rights Resources Search Using Release Parameters" link="Rights_Resources_Search_Using_Release_Parameters.htm" />
+		<item name="Rights Tracks Basic Search" link="Rights_Tracks_Basic_Search.htm" />
+		<item name="Rights Tracks Search Using Release Parameters" link="Rights_Tracks_Search_Using_Release_Parameters.htm" />
+		<item name="Rights Resources &amp; Tracks Basic Search" link="Rights_Resources_Tracks_Basic_Search.htm" />
+		<item name="Rights Resources &amp; Tracks Search using Release Parameters" link="Rights_Resources_Tracks_Search_using_Release_Parameters.htm" />
+		<item name="Rights Release Search" link="Rights_Release_Search.htm" />
+		<item name="Rights &amp; Digital Restriction Resources Basic Search" link="Rights_Digital_Restriction_Resources_Basic_Search.htm" />
+		<item name="Rights &amp; Digital Restrictions Resources Search using Release Parameters" link="Rights_Digital_Restrictions_Resources_Search_using_Release_Parameters.htm" />
+		<item name="Rights &amp; Digital Restrictions Tracks Basic Search" link="Rights_Digital_Restrictions_Tracks_Basic_Search_.htm" />
+		<item name="Rights &amp; Digital Restrictions Tracks Search Using Release Parameters" link="Rights_Digital_Restrictions_Tracks_Search_Using_Release_Parameters.htm" />
+		<item name="Rights &amp; Digital Restrictions Resources &amp; Tracks Basic Search" link="Rights_Digital_Restrictions_Resources_Tracks_Basic_Search.htm" />
+		<item name="Rights &amp; Digital Restrictions Resources &amp; Tracks Search Using Release Parameters" link="Rights_Digital_Restrictions_Resources_Tracks_Search_Using_Release_Parameters.htm" />
+		<item name="Rights &amp; Digital Restrictions Show Releases" link="Rights_Digital_Restrictions_Show_Releases.htm" />
+		<item name="Rights &amp; Secondary Exploitation Basic Search" link="Rights_Secondary_Exploitation_Basic_Search.htm" />
+		<item name="Rights &amp; Secondary Exploitation Search Using Release Parameters" link="Rights_Secondary_Exploitation_Search_Using_Release_Parameters.htm" />
+		<item name="Rights &amp; Pre-Cleared Basic Search" link="Rights_Pre-Cleared_Basic_Search.htm" />
+		<item name="Rights &amp; Pre-cleared Search Using Release Parameters" link="Rights_Pre-cleared_Search_Using_Release_Parameters.htm" />
+	</browsesequence>
+	<browsesequence name="Search for Contract" >
+		<item name="Searching for Contracts" link="Searching_for_Contracts.htm" />
+		<item name="Viewing Contracts" link="Viewing_Contracts.htm" />
+		<item name="Editing Contracts" link="Editing_Contracts.htm" />
+		<item name="Creating Child Contracts" link="Creating_Child_Contracts.htm" />
+		<item name="Copying Contracts" link="Copying_Contracts.htm" />
+		<item name="Deleting Contracts" link="Deleting_Contracts.htm" />
+	</browsesequence>
+	<browsesequence name="Untitled" >
+		<item name="First Topic" link="First_Topic.htm" />
+	</browsesequence>
+</browsesequencelist>
+

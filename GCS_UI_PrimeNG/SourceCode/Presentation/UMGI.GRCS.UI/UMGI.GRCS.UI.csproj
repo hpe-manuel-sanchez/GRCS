@@ -1,0 +1,1540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD91EF78-4131-4E29-9059-5788C7D4ADFC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UMGI.GRCS.UI</RootNamespace>
+    <AssemblyName>UMGI.GRCS.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client">
+      <HintPath>..\..\References\Microsoft.ApplicationServer.Caching.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core">
+      <HintPath>..\..\References\Microsoft.ApplicationServer.Caching.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Common">
+      <HintPath>..\..\References\Microsoft.WindowsFabric.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Data">
+      <HintPath>..\..\References\Microsoft.WindowsFabric.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsFabric.Data.Common">
+      <HintPath>..\..\References\Microsoft.WindowsFabric.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core">
+      <HintPath>..\..\References\Syncfusion.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Mvc">
+      <HintPath>..\..\References\Syncfusion.Grid.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base">
+      <HintPath>..\..\References\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Mvc">
+      <HintPath>..\..\References\Syncfusion.Shared.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Theme.Base">
+      <HintPath>..\..\References\Syncfusion.Theme.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Mvc">
+      <HintPath>..\..\References\Syncfusion.Tools.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Mvc">
+      <HintPath>..\..\References\Syncfusion.XlsIO.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UMGI.GRCS.Core.Utilities.Helper, Version=1.0.6449.31651, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\UMGI.GRCS.Core.Utilities.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="UMGI.GRCS.Core.Utilities.logger, Version=1.0.6449.31649, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\UMGI.GRCS.Core.Utilities.logger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClearanceInboxController.cs" />
+    <Compile Include="Controllers\ClearanceProjectController.cs" />
+    <Compile Include="Controllers\ClearanceProjectControllerExtended.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ClearanceReleaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GlobalController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoutingController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TerritoryController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\WorkGroupController.cs" />
+    <Compile Include="Extensions\CloneExtension.cs" />
+    <Compile Include="Extensions\ControlsModelBinder.cs" />
+    <Compile Include="Extensions\CustomExtensions.cs" />
+    <Compile Include="Extensions\DatePickerHelper.cs" />
+    <Compile Include="Extensions\PermissionExtension.cs" />
+    <Compile Include="Constants\ViewConstant.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ContractListExcel.cs" />
+    <Compile Include="Helper\ControlPermissions.cs" />
+    <Compile Include="Helper\EncryptionHelper.cs" />
+    <Compile Include="Helper\ExcelAndWordOpenXmlConstants.cs" />
+    <Compile Include="Helper\ExcelHelper.cs" />
+    <Compile Include="Helper\ManageAddressBookExcel.cs" />
+    <Compile Include="Helper\QueryStringEncryptorModule.cs" />
+    <Compile Include="Helper\ResourceFileHelper.cs" />
+    <Compile Include="Helper\TreeViewHelper.cs" />
+    <Compile Include="Helper\HttpContextSessionWrapper.cs" />
+    <Compile Include="Helper\WordHelperOpenXml.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClearanceInboxViewModel.cs" />
+    <Compile Include="ViewModels\ControlViewModel.cs" />
+    <Compile Include="ViewModels\DefaultControlsViewModel.cs" />
+    <Compile Include="ViewModels\Search\ResourceRolesAndRights.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ClearenceSite.css" />
+    <Content Include="Content\ClearenceSite.min.css">
+      <DependentUpon>ClearenceSite.css</DependentUpon>
+    </Content>
+    <Content Include="Content\DynamicMenu.min.css">
+      <DependentUpon>DynamicMenu.css</DependentUpon>
+    </Content>
+    <Content Include="Content\DynamicTreeview.css" />
+    <Content Include="Content\DynamicTreeview.min.css">
+      <DependentUpon>DynamicTreeview.css</DependentUpon>
+    </Content>
+    <Content Include="Content\index.css" />
+    <Content Include="Content\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="Content\jquerycssmenu.css" />
+    <Content Include="Content\jquerycssmenu.min.css">
+      <DependentUpon>jquerycssmenu.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ManageTerritory.css" />
+    <Content Include="Content\ManageTerritory.min.css">
+      <DependentUpon>ManageTerritory.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\DynamicMenu.css" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Splitter.css" />
+    <Content Include="Content\Splitter.min.css">
+      <DependentUpon>Splitter.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\AddRoleGroup.css" />
+    <Content Include="Content\SubPages\AddRoleGroup.min.css">
+      <DependentUpon>AddRoleGroup.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\AuditTrail.min.css">
+      <DependentUpon>AuditTrail.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ClearanceInbox.css" />
+    <Content Include="Content\SubPages\ClearanceInbox.min.css">
+      <DependentUpon>ClearanceInbox.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ClearanceProject\ClearanceProjectSearch.css" />
+    <Content Include="Content\SubPages\ClearanceProject\ClearanceProjectSearch.min.css">
+      <DependentUpon>ClearanceProjectSearch.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ClearanceProject\ManageCompany.css" />
+    <Content Include="Content\SubPages\ClearanceProject\ManageCompany.min.css">
+      <DependentUpon>ManageCompany.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ClearanceProject\RequestSummary.css" />
+    <Content Include="Content\SubPages\ClearanceProject\RequestSummaryRegular.css" />
+    <Content Include="Content\SubPages\Contract.css" />
+    <Content Include="Content\SubPages\Contract.min.css">
+      <DependentUpon>Contract.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ContractSearchPopup.min.css">
+      <DependentUpon>ContractSearchPopup.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\contractTab.css" />
+    <Content Include="Content\SubPages\contractTab.min.css">
+      <DependentUpon>contractTab.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\AuditTrail.css" />
+    <Content Include="Content\SubPages\CreateContract.css" />
+    <Content Include="Content\SubPages\CreateContract.min.css">
+      <DependentUpon>CreateContract.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\CustomSetting.css" />
+    <Content Include="Content\SubPages\CustomSetting.min.css">
+      <DependentUpon>CustomSetting.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\Error\Error.css" />
+    <Content Include="Content\SubPages\Inbox\RightPanel-RccAdmin.css" />
+    <Content Include="Content\SubPages\Inbox\RightPanel-RccAdmin.min.css">
+      <DependentUpon>RightPanel-RccAdmin.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\Inbox\RightPanel-Requestor.css" />
+    <Content Include="Content\SubPages\Inbox\RightPanel-Requestor.min.css">
+      <DependentUpon>RightPanel-Requestor.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\Inbox\RightPanel-Reviewer.css" />
+    <Content Include="Content\SubPages\Inbox\RightPanel-Reviewer.min.css">
+      <DependentUpon>RightPanel-Reviewer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ManageAddressBook.min.css">
+      <DependentUpon>ManageAddressBook.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\masterProjectInformation.css" />
+    <Content Include="Content\SubPages\masterProjectInformation.min.css">
+      <DependentUpon>masterProjectInformation.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\pi-regular.css" />
+    <Content Include="Content\SubPages\pi-regular.min.css">
+      <DependentUpon>pi-regular.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\PriorityWorkQueue.css" />
+    <Content Include="Content\SubPages\ProjectTab.css" />
+    <Content Include="Content\SubPages\ProjectTab.min.css">
+      <DependentUpon>ProjectTab.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\PropagateLinkingFromProjectToRepertoire.css" />
+    <Content Include="Content\SubPages\PropagateLinkingFromProjectToRepertoire.min.css">
+      <DependentUpon>PropagateLinkingFromProjectToRepertoire.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ReleaseNewRegular.css" />
+    <Content Include="Content\SubPages\ReleaseNewRegular.min.css">
+      <DependentUpon>ReleaseNewRegular.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ReleaseRegular.css" />
+    <Content Include="Content\SubPages\ReleaseRegular.min.css">
+      <DependentUpon>ReleaseRegular.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ReleaseRegularReadOnly.css" />
+    <Content Include="Content\SubPages\ReleaseRegularReadOnly.min.css">
+      <DependentUpon>ReleaseRegularReadOnly.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ReleaseTab.min.css">
+      <DependentUpon>ReleaseTab.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\resources.css" />
+    <Content Include="Content\SubPages\resources.min.css">
+      <DependentUpon>resources.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\ResourceTab.min.css">
+      <DependentUpon>ResourceTab.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\RightsAndRestrictionsTab.min.css">
+      <DependentUpon>RightsAndRestrictionsTab.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\search-pa.css" />
+    <Content Include="Content\SubPages\search-pa.min.css">
+      <DependentUpon>search-pa.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\searchContract.min.css">
+      <DependentUpon>searchContract.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\SearchForArtist.min.css">
+      <DependentUpon>SearchForArtist.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\SearchParentContract.min.css">
+      <DependentUpon>SearchParentContract.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\SearchPcNoticeCompany.min.css">
+      <DependentUpon>SearchPcNoticeCompany.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\SearchRepertoire.min.css">
+      <DependentUpon>SearchRepertoire.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\Search\ResourceRolesAndRights.css" />
+    <Content Include="Content\SubPages\SplitDeal.min.css">
+      <DependentUpon>SplitDeal.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\Syncfusion-Grid-Greenish.css" />
+    <Content Include="Content\SubPages\Syncfusion.css" />
+    <Content Include="Content\SubPages\Syncfusion.min.css">
+      <DependentUpon>Syncfusion.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\TerritorialRights.min.css">
+      <DependentUpon>TerritorialRights.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\UnlinkRepertoireFromContract.css" />
+    <Content Include="Content\SubPages\ReleaseTab.css" />
+    <Content Include="Content\SubPages\ResourceTab.css" />
+    <Content Include="Content\SubPages\RightsAndRestrictionsTab.css" />
+    <Content Include="Content\SubPages\searchContract.css" />
+    <Content Include="Content\SubPages\ManageAddressBook.css" />
+    <Content Include="Content\SubPages\GlobalAddressList.css" />
+    <Content Include="Content\SubPages\GlobalAddressList.min.css">
+      <DependentUpon>GlobalAddressList.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\SearchForArtist.css" />
+    <Content Include="Content\SubPages\SearchPcNoticeCompany.css" />
+    <Content Include="Content\SubPages\SearchRepertoire.css" />
+    <Content Include="Content\SubPages\SplitDeal.css" />
+    <Content Include="Content\SubPages\SearchParentContract.css" />
+    <Content Include="Content\SubPages\ContractSearchPopup.css" />
+    <Content Include="Content\SubPages\TerritorialRights.css" />
+    <Content Include="Content\SubPages\UnlinkRepertoireFromContract.min.css">
+      <DependentUpon>UnlinkRepertoireFromContract.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SubPages\UserPreference.css" />
+    <Content Include="Content\SubPages\UserPreference.min.css">
+      <DependentUpon>UserPreference.css</DependentUpon>
+    </Content>
+    <Content Include="Content\themes\base\images\Greenish_sprite.png" />
+    <Content Include="Content\themes\base\jquery-ui-1.8.21.custom.min.css">
+      <DependentUpon>jquery-ui-1.8.21.custom.css</DependentUpon>
+    </Content>
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui-1.8.21.custom.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="App_Data\ControlPermissions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\themes\Grid\Grid.css" />
+    <Content Include="Content\themes\Grid\Grid.min.css">
+      <DependentUpon>Grid.css</DependentUpon>
+    </Content>
+    <Content Include="GCSHelpFiles\1.JPG" />
+    <Content Include="GCSHelpFiles\10.JPG" />
+    <Content Include="GCSHelpFiles\100.JPG" />
+    <Content Include="GCSHelpFiles\101.JPG" />
+    <Content Include="GCSHelpFiles\103.JPG" />
+    <Content Include="GCSHelpFiles\104.jpg" />
+    <Content Include="GCSHelpFiles\105.JPG" />
+    <Content Include="GCSHelpFiles\106.JPG" />
+    <Content Include="GCSHelpFiles\107.JPG" />
+    <Content Include="GCSHelpFiles\108.JPG" />
+    <Content Include="GCSHelpFiles\11.JPG" />
+    <Content Include="GCSHelpFiles\110.JPG" />
+    <Content Include="GCSHelpFiles\111.JPG" />
+    <Content Include="GCSHelpFiles\112.JPG" />
+    <Content Include="GCSHelpFiles\113.JPG" />
+    <Content Include="GCSHelpFiles\114.JPG" />
+    <Content Include="GCSHelpFiles\115.JPG" />
+    <Content Include="GCSHelpFiles\116.JPG" />
+    <Content Include="GCSHelpFiles\117.JPG" />
+    <Content Include="GCSHelpFiles\120.JPG" />
+    <Content Include="GCSHelpFiles\121.JPG" />
+    <Content Include="GCSHelpFiles\124.JPG" />
+    <Content Include="GCSHelpFiles\125.JPG" />
+    <Content Include="GCSHelpFiles\126.JPG" />
+    <Content Include="GCSHelpFiles\127.JPG" />
+    <Content Include="GCSHelpFiles\128.JPG" />
+    <Content Include="GCSHelpFiles\129.JPG" />
+    <Content Include="GCSHelpFiles\130.JPG" />
+    <Content Include="GCSHelpFiles\131.JPG" />
+    <Content Include="GCSHelpFiles\132.JPG" />
+    <Content Include="GCSHelpFiles\133.JPG" />
+    <Content Include="GCSHelpFiles\134.JPG" />
+    <Content Include="GCSHelpFiles\135.JPG" />
+    <Content Include="GCSHelpFiles\136.JPG" />
+    <Content Include="GCSHelpFiles\137.jpg" />
+    <Content Include="GCSHelpFiles\138.JPG" />
+    <Content Include="GCSHelpFiles\139.JPG" />
+    <Content Include="GCSHelpFiles\140.jpg" />
+    <Content Include="GCSHelpFiles\141.jpg" />
+    <Content Include="GCSHelpFiles\142.JPG" />
+    <Content Include="GCSHelpFiles\144.jpg" />
+    <Content Include="GCSHelpFiles\145.jpg" />
+    <Content Include="GCSHelpFiles\146.jpg" />
+    <Content Include="GCSHelpFiles\147.jpg" />
+    <Content Include="GCSHelpFiles\148.jpg" />
+    <Content Include="GCSHelpFiles\149.jpg" />
+    <Content Include="GCSHelpFiles\15.jpg" />
+    <Content Include="GCSHelpFiles\150.jpg" />
+    <Content Include="GCSHelpFiles\151.jpg" />
+    <Content Include="GCSHelpFiles\152.jpg" />
+    <Content Include="GCSHelpFiles\153.jpg" />
+    <Content Include="GCSHelpFiles\154.jpg" />
+    <Content Include="GCSHelpFiles\155.jpg" />
+    <Content Include="GCSHelpFiles\157.jpg" />
+    <Content Include="GCSHelpFiles\158.JPG" />
+    <Content Include="GCSHelpFiles\159.JPG" />
+    <Content Include="GCSHelpFiles\16.JPG" />
+    <Content Include="GCSHelpFiles\160.JPG" />
+    <Content Include="GCSHelpFiles\161.JPG" />
+    <Content Include="GCSHelpFiles\162.JPG" />
+    <Content Include="GCSHelpFiles\163.JPG" />
+    <Content Include="GCSHelpFiles\164.JPG" />
+    <Content Include="GCSHelpFiles\165.JPG" />
+    <Content Include="GCSHelpFiles\166.JPG" />
+    <Content Include="GCSHelpFiles\167.JPG" />
+    <Content Include="GCSHelpFiles\168.JPG" />
+    <Content Include="GCSHelpFiles\169.JPG" />
+    <Content Include="GCSHelpFiles\17.jpg" />
+    <Content Include="GCSHelpFiles\170.JPG" />
+    <Content Include="GCSHelpFiles\171.JPG" />
+    <Content Include="GCSHelpFiles\172.JPG" />
+    <Content Include="GCSHelpFiles\173.JPG" />
+    <Content Include="GCSHelpFiles\174.JPG" />
+    <Content Include="GCSHelpFiles\175.JPG" />
+    <Content Include="GCSHelpFiles\176.JPG" />
+    <Content Include="GCSHelpFiles\177.JPG" />
+    <Content Include="GCSHelpFiles\178.JPG" />
+    <Content Include="GCSHelpFiles\179.JPG" />
+    <Content Include="GCSHelpFiles\18.JPG" />
+    <Content Include="GCSHelpFiles\181.JPG" />
+    <Content Include="GCSHelpFiles\183.JPG" />
+    <Content Include="GCSHelpFiles\184.JPG" />
+    <Content Include="GCSHelpFiles\186.jpg" />
+    <Content Include="GCSHelpFiles\187.JPG" />
+    <Content Include="GCSHelpFiles\188.JPG" />
+    <Content Include="GCSHelpFiles\189.JPG" />
+    <Content Include="GCSHelpFiles\19.JPG" />
+    <Content Include="GCSHelpFiles\190.JPG" />
+    <Content Include="GCSHelpFiles\191.JPG" />
+    <Content Include="GCSHelpFiles\192.JPG" />
+    <Content Include="GCSHelpFiles\193.JPG" />
+    <Content Include="GCSHelpFiles\194.JPG" />
+    <Content Include="GCSHelpFiles\195.JPG" />
+    <Content Include="GCSHelpFiles\196.JPG" />
+    <Content Include="GCSHelpFiles\197.JPG" />
+    <Content Include="GCSHelpFiles\199.JPG" />
+    <Content Include="GCSHelpFiles\2.jpg" />
+    <Content Include="GCSHelpFiles\20.JPG" />
+    <Content Include="GCSHelpFiles\200.JPG" />
+    <Content Include="GCSHelpFiles\201.JPG" />
+    <Content Include="GCSHelpFiles\202.JPG" />
+    <Content Include="GCSHelpFiles\203.JPG" />
+    <Content Include="GCSHelpFiles\204.JPG" />
+    <Content Include="GCSHelpFiles\21.JPG" />
+    <Content Include="GCSHelpFiles\210.JPG" />
+    <Content Include="GCSHelpFiles\211.JPG" />
+    <Content Include="GCSHelpFiles\212.JPG" />
+    <Content Include="GCSHelpFiles\213.JPG" />
+    <Content Include="GCSHelpFiles\214.JPG" />
+    <Content Include="GCSHelpFiles\215.jpg" />
+    <Content Include="GCSHelpFiles\216.JPG" />
+    <Content Include="GCSHelpFiles\217.JPG" />
+    <Content Include="GCSHelpFiles\218.jpg" />
+    <Content Include="GCSHelpFiles\219.JPG" />
+    <Content Include="GCSHelpFiles\220.JPG" />
+    <Content Include="GCSHelpFiles\228.jpg" />
+    <Content Include="GCSHelpFiles\229.JPG" />
+    <Content Include="GCSHelpFiles\23.JPG" />
+    <Content Include="GCSHelpFiles\230.JPG" />
+    <Content Include="GCSHelpFiles\231.JPG" />
+    <Content Include="GCSHelpFiles\232.JPG" />
+    <Content Include="GCSHelpFiles\233.JPG" />
+    <Content Include="GCSHelpFiles\234.jpg" />
+    <Content Include="GCSHelpFiles\236.JPG" />
+    <Content Include="GCSHelpFiles\237.JPG" />
+    <Content Include="GCSHelpFiles\238.JPG" />
+    <Content Include="GCSHelpFiles\239.JPG" />
+    <Content Include="GCSHelpFiles\24.jpg" />
+    <Content Include="GCSHelpFiles\240.JPG" />
+    <Content Include="GCSHelpFiles\241.JPG" />
+    <Content Include="GCSHelpFiles\242.JPG" />
+    <Content Include="GCSHelpFiles\243.JPG" />
+    <Content Include="GCSHelpFiles\244.JPG" />
+    <Content Include="GCSHelpFiles\245.JPG" />
+    <Content Include="GCSHelpFiles\246.JPG" />
+    <Content Include="GCSHelpFiles\247.JPG" />
+    <Content Include="GCSHelpFiles\248.jpg" />
+    <Content Include="GCSHelpFiles\249.JPG" />
+    <Content Include="GCSHelpFiles\25.JPG" />
+    <Content Include="GCSHelpFiles\250.JPG" />
+    <Content Include="GCSHelpFiles\251.jpg" />
+    <Content Include="GCSHelpFiles\252.JPG" />
+    <Content Include="GCSHelpFiles\253.JPG" />
+    <Content Include="GCSHelpFiles\254.JPG" />
+    <Content Include="GCSHelpFiles\255.jpg" />
+    <Content Include="GCSHelpFiles\256.JPG" />
+    <Content Include="GCSHelpFiles\257.JPG" />
+    <Content Include="GCSHelpFiles\258.JPG" />
+    <Content Include="GCSHelpFiles\259.jpg" />
+    <Content Include="GCSHelpFiles\26.jpg" />
+    <Content Include="GCSHelpFiles\260.JPG" />
+    <Content Include="GCSHelpFiles\261.JPG" />
+    <Content Include="GCSHelpFiles\262.JPG" />
+    <Content Include="GCSHelpFiles\263.JPG" />
+    <Content Include="GCSHelpFiles\264.JPG" />
+    <Content Include="GCSHelpFiles\265.JPG" />
+    <Content Include="GCSHelpFiles\266.JPG" />
+    <Content Include="GCSHelpFiles\268.jpg" />
+    <Content Include="GCSHelpFiles\269.JPG" />
+    <Content Include="GCSHelpFiles\27.JPG" />
+    <Content Include="GCSHelpFiles\270.jpg" />
+    <Content Include="GCSHelpFiles\271.JPG" />
+    <Content Include="GCSHelpFiles\273.JPG" />
+    <Content Include="GCSHelpFiles\274.JPG" />
+    <Content Include="GCSHelpFiles\275.jpg" />
+    <Content Include="GCSHelpFiles\276.jpg" />
+    <Content Include="GCSHelpFiles\277.jpg" />
+    <Content Include="GCSHelpFiles\278.JPG" />
+    <Content Include="GCSHelpFiles\279.JPG" />
+    <Content Include="GCSHelpFiles\28.jpg" />
+    <Content Include="GCSHelpFiles\280.JPG" />
+    <Content Include="GCSHelpFiles\281.JPG" />
+    <Content Include="GCSHelpFiles\282.JPG" />
+    <Content Include="GCSHelpFiles\283.JPG" />
+    <Content Include="GCSHelpFiles\284.JPG" />
+    <Content Include="GCSHelpFiles\29.JPG" />
+    <Content Include="GCSHelpFiles\3.JPG" />
+    <Content Include="GCSHelpFiles\30.JPG" />
+    <Content Include="GCSHelpFiles\31.JPG" />
+    <Content Include="GCSHelpFiles\32.JPG" />
+    <Content Include="GCSHelpFiles\33.JPG" />
+    <Content Include="GCSHelpFiles\34.jpg" />
+    <Content Include="GCSHelpFiles\35.JPG" />
+    <Content Include="GCSHelpFiles\36.JPG" />
+    <Content Include="GCSHelpFiles\37.JPG" />
+    <Content Include="GCSHelpFiles\38.jpg" />
+    <Content Include="GCSHelpFiles\39.JPG" />
+    <Content Include="GCSHelpFiles\4.JPG" />
+    <Content Include="GCSHelpFiles\40.JPG" />
+    <Content Include="GCSHelpFiles\41.JPG" />
+    <Content Include="GCSHelpFiles\42.JPG" />
+    <Content Include="GCSHelpFiles\43.JPG" />
+    <Content Include="GCSHelpFiles\44.JPG" />
+    <Content Include="GCSHelpFiles\45.JPG" />
+    <Content Include="GCSHelpFiles\47.JPG" />
+    <Content Include="GCSHelpFiles\48.JPG" />
+    <Content Include="GCSHelpFiles\49.jpg" />
+    <Content Include="GCSHelpFiles\5.JPG" />
+    <Content Include="GCSHelpFiles\50.JPG" />
+    <Content Include="GCSHelpFiles\51.JPG" />
+    <Content Include="GCSHelpFiles\52.JPG" />
+    <Content Include="GCSHelpFiles\53.JPG" />
+    <Content Include="GCSHelpFiles\54.jpg" />
+    <Content Include="GCSHelpFiles\55.JPG" />
+    <Content Include="GCSHelpFiles\56.JPG" />
+    <Content Include="GCSHelpFiles\57.JPG" />
+    <Content Include="GCSHelpFiles\58.JPG" />
+    <Content Include="GCSHelpFiles\59.JPG" />
+    <Content Include="GCSHelpFiles\6.JPG" />
+    <Content Include="GCSHelpFiles\60.JPG" />
+    <Content Include="GCSHelpFiles\63.JPG" />
+    <Content Include="GCSHelpFiles\66.JPG" />
+    <Content Include="GCSHelpFiles\67.JPG" />
+    <Content Include="GCSHelpFiles\68.JPG" />
+    <Content Include="GCSHelpFiles\69.JPG" />
+    <Content Include="GCSHelpFiles\7.JPG" />
+    <Content Include="GCSHelpFiles\70.JPG" />
+    <Content Include="GCSHelpFiles\71.JPG" />
+    <Content Include="GCSHelpFiles\72.JPG" />
+    <Content Include="GCSHelpFiles\73.JPG" />
+    <Content Include="GCSHelpFiles\74.JPG" />
+    <Content Include="GCSHelpFiles\75.JPG" />
+    <Content Include="GCSHelpFiles\76.JPG" />
+    <Content Include="GCSHelpFiles\77.JPG" />
+    <Content Include="GCSHelpFiles\79.JPG" />
+    <Content Include="GCSHelpFiles\8.JPG" />
+    <Content Include="GCSHelpFiles\83.JPG" />
+    <Content Include="GCSHelpFiles\84.JPG" />
+    <Content Include="GCSHelpFiles\85.JPG" />
+    <Content Include="GCSHelpFiles\86.JPG" />
+    <Content Include="GCSHelpFiles\9.JPG" />
+    <Content Include="GCSHelpFiles\90.JPG" />
+    <Content Include="GCSHelpFiles\91.JPG" />
+    <Content Include="GCSHelpFiles\92.JPG" />
+    <Content Include="GCSHelpFiles\93.JPG" />
+    <Content Include="GCSHelpFiles\94.JPG" />
+    <Content Include="GCSHelpFiles\95.JPG" />
+    <Content Include="GCSHelpFiles\96.JPG" />
+    <Content Include="GCSHelpFiles\97.JPG" />
+    <Content Include="GCSHelpFiles\98.JPG" />
+    <Content Include="GCSHelpFiles\99.JPG" />
+    <Content Include="GCSHelpFiles\Add_Release%28s%29_Resource%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Allocating_UPC_for_New_Release_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Amending_Child_Workgroups.htm" />
+    <Content Include="GCSHelpFiles\Amending_Workgroups.htm" />
+    <Content Include="GCSHelpFiles\Audit_Trails_and_History.htm" />
+    <Content Include="GCSHelpFiles\Cancelling_the_Clearance_Project%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Cancelling_the_Resource_on_Clearance_Project_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Clearance_Project_Inquiry.htm" />
+    <Content Include="GCSHelpFiles\Clearance_System.htm" />
+    <Content Include="GCSHelpFiles\Clearance_System_csh.htm" />
+    <Content Include="GCSHelpFiles\Clearance_System_rhc.htm" />
+    <Content Include="GCSHelpFiles\Completing_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Creating_Child_Workgroups.htm" />
+    <Content Include="GCSHelpFiles\Creating_Master_Projects.htm" />
+    <Content Include="GCSHelpFiles\Creating_Projects.htm" />
+    <Content Include="GCSHelpFiles\Creating_Project_from_Existing_Projects.htm" />
+    <Content Include="GCSHelpFiles\Creating_Regular_Non_Traditional_Projects.htm" />
+    <Content Include="GCSHelpFiles\Creating_Workgroup.htm" />
+    <Content Include="GCSHelpFiles\cshdat_robohelp.htm" />
+    <Content Include="GCSHelpFiles\cshdat_webhelp.htm" />
+    <Content Include="GCSHelpFiles\Deactivating_Workgroups.htm" />
+    <Content Include="GCSHelpFiles\default.css" />
+    <Content Include="GCSHelpFiles\Deleting_the_Projects.htm" />
+    <Content Include="GCSHelpFiles\Deleting_Workgroups.htm" />
+    <Content Include="GCSHelpFiles\ehlpdhtm.js" />
+    <Content Include="GCSHelpFiles\Exclude_Resource_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Free_Hand_Company_Management.htm" />
+    <Content Include="GCSHelpFiles\Free_Hand_Resource_Management.htm" />
+    <Content Include="GCSHelpFiles\Help_Icon.gif" />
+    <Content Include="GCSHelpFiles\image2.gif" />
+    <Content Include="GCSHelpFiles\Include_Resource_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Maintaining_Projects_at_Project_Level.htm" />
+    <Content Include="GCSHelpFiles\Maintaining_Projects_at_Resource_Level.htm" />
+    <Content Include="GCSHelpFiles\Managing_Artist_Contracts.htm" />
+    <Content Include="GCSHelpFiles\Managing_Deviations.htm" />
+    <Content Include="GCSHelpFiles\Managing_Emails.htm" />
+    <Content Include="GCSHelpFiles\Managing_Pre-defined_Rejection_Reasons.htm" />
+    <Content Include="GCSHelpFiles\Managing_Resource_Contracts.htm" />
+    <Content Include="GCSHelpFiles\Managing_Routing_Variations.htm" />
+    <Content Include="GCSHelpFiles\Managing_Safe_Territories1.htm" />
+    <Content Include="GCSHelpFiles\Managing_Users.htm" />
+    <Content Include="GCSHelpFiles\Managing_Workgroup.htm" />
+    <Content Include="GCSHelpFiles\Mimic_User.htm" />
+    <Content Include="GCSHelpFiles\Modifying_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Push_New_Release_%28s%29_to_R2.htm" />
+    <Content Include="GCSHelpFiles\RCC_Admin_Inbox.htm" />
+    <Content Include="GCSHelpFiles\Re-instate_the_Resource%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Re-Instating_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Re-Opening_the_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Re-Submitting_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Re-Submit_Resource_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\Re-_Apply_Track_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\RefSS.css" />
+    <Content Include="GCSHelpFiles\Reminder.htm" />
+    <Content Include="GCSHelpFiles\Requestor_Inbox.htm" />
+    <Content Include="GCSHelpFiles\resource\resource.xml" />
+    <Content Include="GCSHelpFiles\Reviewer_Inbox.htm" />
+    <Content Include="GCSHelpFiles\Submitting_Clearance_Projects.htm" />
+    <Content Include="GCSHelpFiles\Un_Lock_Project_%28s%29.htm" />
+    <Content Include="GCSHelpFiles\User_Group_Administration.htm" />
+    <Content Include="GCSHelpFiles\User_Preferences.htm" />
+    <Content Include="GCSHelpFiles\User_Transfer.htm" />
+    <Content Include="GCSHelpFiles\Welcome.htm" />
+    <Content Include="GCSHelpFiles\welcome.jpg" />
+    <Content Include="GCSHelpFiles\whbrs.xml" />
+    <Content Include="GCSHelpFiles\whcshdata.htm" />
+    <Content Include="GCSHelpFiles\whcsh_home.htm" />
+    <Content Include="GCSHelpFiles\whdata\whgdata.js" />
+    <Content Include="GCSHelpFiles\whdata\whglo.htm" />
+    <Content Include="GCSHelpFiles\whdata\whglo.js" />
+    <Content Include="GCSHelpFiles\whdata\whidata.js" />
+    <Content Include="GCSHelpFiles\whdata\whidx.htm" />
+    <Content Include="GCSHelpFiles\whdata\whidx.js" />
+    <Content Include="GCSHelpFiles\whdata\whtdata.js" />
+    <Content Include="GCSHelpFiles\whdata\whtdata0.htm" />
+    <Content Include="GCSHelpFiles\whdata\whtoc.htm" />
+    <Content Include="GCSHelpFiles\whdata\whtoc.js" />
+    <Content Include="GCSHelpFiles\whestart.ico" />
+    <Content Include="GCSHelpFiles\whfbody.htm" />
+    <Content Include="GCSHelpFiles\whfdhtml.htm" />
+    <Content Include="GCSHelpFiles\whfform.htm" />
+    <Content Include="GCSHelpFiles\whfhost.js" />
+    <Content Include="GCSHelpFiles\whform.js" />
+    <Content Include="GCSHelpFiles\whframes.js" />
+    <Content Include="GCSHelpFiles\whgbody.htm" />
+    <Content Include="GCSHelpFiles\whgdef.htm" />
+    <Content Include="GCSHelpFiles\whgdhtml.htm" />
+    <Content Include="GCSHelpFiles\whghost.js" />
+    <Content Include="GCSHelpFiles\whhost.js" />
+    <Content Include="GCSHelpFiles\whibody.htm" />
+    <Content Include="GCSHelpFiles\whidhtml.htm" />
+    <Content Include="GCSHelpFiles\whiform.htm" />
+    <Content Include="GCSHelpFiles\whihost.js" />
+    <Content Include="GCSHelpFiles\whlang.js" />
+    <Content Include="GCSHelpFiles\whmozemu.js" />
+    <Content Include="GCSHelpFiles\whmsg.js" />
+    <Content Include="GCSHelpFiles\whnjs.htm" />
+    <Content Include="GCSHelpFiles\whphost.js" />
+    <Content Include="GCSHelpFiles\whproj.htm" />
+    <Content Include="GCSHelpFiles\whproj.js" />
+    <Content Include="GCSHelpFiles\whproj.xml" />
+    <Content Include="GCSHelpFiles\whproxy.js" />
+    <Content Include="GCSHelpFiles\whres.xml" />
+    <Content Include="GCSHelpFiles\whrstart.ico" />
+    <Content Include="GCSHelpFiles\whskin_banner.htm" />
+    <Content Include="GCSHelpFiles\whskin_blank.htm" />
+    <Content Include="GCSHelpFiles\whskin_ep_ins.xml" />
+    <Content Include="GCSHelpFiles\whskin_ep_start.htm" />
+    <Content Include="GCSHelpFiles\whskin_frmset01.htm" />
+    <Content Include="GCSHelpFiles\whskin_frmset010.htm" />
+    <Content Include="GCSHelpFiles\whskin_homepage.htm" />
+    <Content Include="GCSHelpFiles\whskin_info.htm" />
+    <Content Include="GCSHelpFiles\whskin_mbars.htm" />
+    <Content Include="GCSHelpFiles\whskin_pdhtml.htm" />
+    <Content Include="GCSHelpFiles\whskin_pickup.htm" />
+    <Content Include="GCSHelpFiles\whskin_plist.htm" />
+    <Content Include="GCSHelpFiles\whskin_tbars.htm" />
+    <Content Include="GCSHelpFiles\whskin_tw.htm" />
+    <Content Include="GCSHelpFiles\whstart.ico" />
+    <Content Include="GCSHelpFiles\whstart.js" />
+    <Content Include="GCSHelpFiles\whstub.js" />
+    <Content Include="GCSHelpFiles\whst_topics.xml" />
+    <Content Include="GCSHelpFiles\whtbar.js" />
+    <Content Include="GCSHelpFiles\whtdhtml.htm" />
+    <Content Include="GCSHelpFiles\whthost.js" />
+    <Content Include="GCSHelpFiles\whtopic.js" />
+    <Content Include="GCSHelpFiles\wht_abge.jpg" />
+    <Content Include="GCSHelpFiles\wht_abgi.jpg" />
+    <Content Include="GCSHelpFiles\wht_abgw.jpg" />
+    <Content Include="GCSHelpFiles\wht_abte.jpg" />
+    <Content Include="GCSHelpFiles\wht_abti.jpg" />
+    <Content Include="GCSHelpFiles\wht_abtw.jpg" />
+    <Content Include="GCSHelpFiles\wht_fts_h.gif" />
+    <Content Include="GCSHelpFiles\wht_fts_n.gif" />
+    <Content Include="GCSHelpFiles\wht_glo_h.gif" />
+    <Content Include="GCSHelpFiles\wht_glo_n.gif" />
+    <Content Include="GCSHelpFiles\wht_go.gif" />
+    <Content Include="GCSHelpFiles\wht_hide.gif" />
+    <Content Include="GCSHelpFiles\wht_idx_h.gif" />
+    <Content Include="GCSHelpFiles\wht_idx_n.gif" />
+    <Content Include="GCSHelpFiles\wht_logo1.gif" />
+    <Content Include="GCSHelpFiles\wht_logo2.gif" />
+    <Content Include="GCSHelpFiles\wht_next.gif" />
+    <Content Include="GCSHelpFiles\wht_next_g.gif" />
+    <Content Include="GCSHelpFiles\wht_prev.gif" />
+    <Content Include="GCSHelpFiles\wht_prev_g.gif" />
+    <Content Include="GCSHelpFiles\wht_spac.gif" />
+    <Content Include="GCSHelpFiles\wht_sync.gif" />
+    <Content Include="GCSHelpFiles\wht_tab0.gif" />
+    <Content Include="GCSHelpFiles\wht_tab1.gif" />
+    <Content Include="GCSHelpFiles\wht_tab2.gif" />
+    <Content Include="GCSHelpFiles\wht_tab3.gif" />
+    <Content Include="GCSHelpFiles\wht_tab4.gif" />
+    <Content Include="GCSHelpFiles\wht_tab5.gif" />
+    <Content Include="GCSHelpFiles\wht_tab6.gif" />
+    <Content Include="GCSHelpFiles\wht_tab7.gif" />
+    <Content Include="GCSHelpFiles\wht_tab8.gif" />
+    <Content Include="GCSHelpFiles\wht_toc1.gif" />
+    <Content Include="GCSHelpFiles\wht_toc2.gif" />
+    <Content Include="GCSHelpFiles\wht_toc3.gif" />
+    <Content Include="GCSHelpFiles\wht_toc4.gif" />
+    <Content Include="GCSHelpFiles\wht_toc_h.gif" />
+    <Content Include="GCSHelpFiles\wht_toc_n.gif" />
+    <Content Include="GCSHelpFiles\wht_ws.gif" />
+    <Content Include="GCSHelpFiles\wht_ws_g.gif" />
+    <Content Include="GCSHelpFiles\whutils.js" />
+    <Content Include="GCSHelpFiles\whver.js" />
+    <Content Include="GCSHelpFiles\whxdata\packageindex.xml" />
+    <Content Include="GCSHelpFiles\whxdata\package_0.xml" />
+    <Content Include="GCSHelpFiles\whxdata\synonym.xml" />
+    <Content Include="GCSHelpFiles\whxdata\topictableindex.xml" />
+    <Content Include="GCSHelpFiles\whxdata\topictable_0.xml" />
+    <Content Include="GCSHelpFiles\whxdata\whfts.xml" />
+    <Content Include="GCSHelpFiles\whxdata\whglo.xml" />
+    <Content Include="GCSHelpFiles\whxdata\whidx.xml" />
+    <Content Include="GCSHelpFiles\whxdata\whtdata0.xml" />
+    <Content Include="GCSHelpFiles\whxdata\whtoc.xml" />
+    <Content Include="Images\1_btn_bg.png" />
+    <Content Include="Images\2_btn_bg.png" />
+    <Content Include="Images\3_btn_bg.png" />
+    <Content Include="Images\alert.png" />
+    <Content Include="Images\Alert_16x16.png" />
+    <Content Include="Images\animated_gcs.gif" />
+    <Content Include="Images\Apply_All.png" />
+    <Content Include="Images\arrow-down.png" />
+    <Content Include="Images\Arrow-right-new_trn.png" />
+    <Content Include="Images\arrow-up.png" />
+    <Content Include="Images\blueAccordionBg.png" />
+    <Content Include="Images\blueAccordionHeaderBg.png" />
+    <Content Include="Images\ClearanceInbox\approved.png" />
+    <Content Include="Images\ClearanceInbox\conditionallyApproved.png" />
+    <Content Include="Images\ClearanceInbox\filtersInactive.png" />
+    <Content Include="Images\ClearanceInbox\filtersActive.png" />
+    <Content Include="Images\ClearanceInbox\rejected.png" />
+    <Content Include="Images\ClearanceInbox\routingStopped.png" />
+    <Content Include="Images\ClearanceInbox\thirdPartyText.png" />
+    <Content Include="Images\ClearanceInbox\allRequestReviewed.png" />
+    <Content Include="Images\ClearanceInbox\collapse.png" />
+    <Content Include="Images\ClearanceInbox\expand.png" />
+    <Content Include="Images\ClearanceInbox\folder.gif" />
+    <Content Include="Images\ClearanceInbox\inboxArrowDown.png" />
+    <Content Include="Images\ClearanceInbox\loading.gif" />
+    <Content Include="Images\ClearanceInbox\notification.png" />
+    <Content Include="Images\ClearanceInbox\refresh.png" />
+    <Content Include="Images\ClearanceInbox\reinstated.png" />
+    <Content Include="Images\ClearanceInbox\reminder.png" />
+    <Content Include="Images\ClearanceInbox\resourceHistory.png" />
+    <Content Include="Images\ClearanceInbox\revResourceHistory.png" />
+    <Content Include="Images\ClearanceInbox\thirdparty.png" />
+    <Content Include="Images\ClearanceInbox\undo.png" />
+    <Content Include="Images\ClearanceInbox\unread.png" />
+    <Content Include="Images\ClearanceInbox\vgrabber.gif" />
+    <Content Include="Images\Clearance_Separator.png" />
+    <Content Include="Images\clearence_pop_up-Close-But.png" />
+    <Content Include="Images\close_support.png" />
+    <Content Include="Images\cl_search_bg.gif" />
+    <Content Include="Images\contract_blue.png" />
+    <Content Include="Images\contract_green.png" />
+    <Content Include="Images\contract_red.png" />
+    <Content Include="Images\cor-sub-nav-left-hvr.png" />
+    <Content Include="Images\cor-sub-nav-left.png" />
+    <Content Include="Images\cor-sub-nav-rgt-hvr.png" />
+    <Content Include="Images\cor-sub-nav-rgt.png" />
+    <Content Include="Images\cor-top-nav-left-alt.png" />
+    <Content Include="Images\cor-top-nav-left-hvr-alt.png" />
+    <Content Include="Images\cor-top-nav-left-hvr.png" />
+    <Content Include="Images\cor-top-nav-left-sprite.png" />
+    <Content Include="Images\cor-top-nav-left.png" />
+    <Content Include="Images\cor-top-nav-rgt-alt.png" />
+    <Content Include="Images\cor-top-nav-rgt-hvr-alt.png" />
+    <Content Include="Images\cor-top-nav-rgt-hvr.png" />
+    <Content Include="Images\cor-top-nav-rgt-sprite.png" />
+    <Content Include="Images\cor-top-nav-rgt.png" />
+    <Content Include="Images\createcontract.png" />
+    <Content Include="Images\delete.gif" />
+    <Content Include="Images\Close.png" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\downClearene.png" />
+    <Content Include="Images\draw-arrow.png" />
+    <Content Include="Images\draw-arrow1.png" />
+    <Content Include="Images\draw-arrow3.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\error.gif" />
+    <Content Include="Images\Error_16x16.png" />
+    <Content Include="Images\excel_export.gif" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\Filter.gif" />
+    <Content Include="Images\flag_orange.gif" />
+    <Content Include="Images\gcs-logo-bg.png" />
+    <Content Include="Images\gcs-logo-large.png" />
+    <Content Include="Images\gcs-logo-session.png" />
+    <Content Include="Images\gcs-logo-transparent.png" />
+    <Content Include="Images\gcs-logo-without-shad.png" />
+    <Content Include="Images\gcs-logo.png" />
+    <Content Include="Images\gcs_Acc_Arrow_Down.png" />
+    <Content Include="Images\gcs_Acc_Arrow_RIght.png" />
+    <Content Include="Images\GCS_Calender_Icon_img.png" />
+    <Content Include="Images\gcs_Header_Bg.png" />
+    <Content Include="Images\gcs_Header_Bg_small.png" />
+    <Content Include="Images\gcs_Pri_btn_bg_1px.png" />
+    <Content Include="Images\Grid_Loading.gif" />
+    <Content Include="Images\GRS-Illus_ver2.png" />
+    <Content Include="Images\GRS_loading_Circle_icon.gif" />
+    <Content Include="Images\hdr-bg-btm.jpg" />
+    <Content Include="Images\Help_active.png" />
+    <Content Include="Images\Help_inactive.png" />
+    <Content Include="Images\icon-alert.png" />
+    <Content Include="Images\icon-cross.png" />
+    <Content Include="Images\icon-info.png" />
+    <Content Include="Images\icon-tick.png" />
+    <Content Include="Images\icon-warning.png" />
+    <Content Include="Images\icon_error.png" />
+    <Content Include="Images\icon_error16x16.png" />
+    <Content Include="Images\icon_review.jpg" />
+    <Content Include="Images\icon_success.png" />
+    <Content Include="Images\Image.png" />
+    <Content Include="Images\i_ar_down.png" />
+    <Content Include="Images\i_ar_up.png" />
+    <Content Include="Images\i_flag_blue.png" />
+    <Content Include="Images\i_flag_green.png" />
+    <Content Include="Images\i_flag_grey.png" />
+    <Content Include="Images\i_flag_orange.png" />
+    <Content Include="Images\leftClearene.png" />
+    <Content Include="Images\leftedge.gif" />
+    <Content Include="Images\linked_Contract.png" />
+    <Content Include="Images\link_contract.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\Logo_GRS_New-2_png.png" />
+    <Content Include="Images\Logo_GRS_New_png.png" />
+    <Content Include="Images\Main-Menu_Arrow_white %282%29.png" />
+    <Content Include="Images\Main-Menu_Arrow_white.png" />
+    <Content Include="Images\Main-Menu_Arrow_white1.jpg" />
+    <Content Include="Images\medlyaudio.png" />
+    <Content Include="Images\medlyvideo.png" />
+    <Content Include="Images\menu_arrow_white_trns111.png" />
+    <Content Include="Images\menu_arrow_white_trns_header.png" />
+    <Content Include="Images\merchandise.png" />
+    <Content Include="Images\multiselect-hover.gif" />
+    <Content Include="Images\multiselect.gif" />
+    <Content Include="Images\others.jpg" />
+    <Content Include="Images\page.gif" />
+    <Content Include="Images\panel_arrow_right_dbl.gif" />
+    <Content Include="Images\Pg_lv_btn_bg.png" />
+    <Content Include="Images\phone_White.png" />
+    <Content Include="Images\pin_blue.png" />
+    <Content Include="Images\pin_green.png" />
+    <Content Include="Images\pin_red.png" />
+    <Content Include="Images\plus sign.gif" />
+    <Content Include="Images\pre_inactive_left.png" />
+    <Content Include="Images\pre_inactive_right.png" />
+    <Content Include="Images\pri_act_left.png" />
+    <Content Include="Images\pri_act_right.png" />
+    <Content Include="Images\pri_btn_bg_3px.png" />
+    <Content Include="Images\project.png" />
+    <Content Include="Images\release_undo_changes.png" />
+    <Content Include="Images\ResourceAudio.gif" />
+    <Content Include="Images\Resourceaudio.png" />
+    <Content Include="Images\Resourcegroup.png" />
+    <Content Include="Images\ResourceImage.gif" />
+    <Content Include="Images\Resourceimage.png" />
+    <Content Include="Images\ResourceVideo.gif" />
+    <Content Include="Images\Resourcevideo.png" />
+    <Content Include="Images\review-completed.png" />
+    <Content Include="Images\Reviewer_Dashboard_10Dec12-v2.png" />
+    <Content Include="Images\rightClearene.png" />
+    <Content Include="Images\rightedge.gif" />
+    <Content Include="Images\save.gif" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\script_Text.png" />
+    <Content Include="Images\search-bg.jpg" />
+    <Content Include="Images\sec_btn_bg.png" />
+    <Content Include="Images\sound.png" />
+    <Content Include="Images\Sucess.png" />
+    <Content Include="Images\project.-2png.png" />
+    <Content Include="Images\Release.gif" />
+    <Content Include="Images\resource_group.gif" />
+    <Content Include="Images\Support_triangle.png" />
+    <Content Include="Images\tabBtmBg.gif" />
+    <Content Include="Images\tb-bg-btm.jpg" />
+    <Content Include="Images\text.png" />
+    <Content Include="Images\tintblue.gif" />
+    <Content Include="Images\tintbluedark.gif" />
+    <Content Include="Images\treeview-default-line.gif" />
+    <Content Include="Images\treeview-default.gif" />
+    <Content Include="Images\ui-icons_222222_256x240.png" />
+    <Content Include="Images\video.png" />
+    <Content Include="Images\Zoom-Icon2_12x12.png" />
+    <Content Include="Scripts\CheckBoxDropDown\jquery.multiSelect.css" />
+    <Content Include="Scripts\CheckBoxDropDown\jquery.multiSelect.js" />
+    <Content Include="Scripts\Custom\AuditTrail.js" />
+    <Content Include="Scripts\Custom\AllocateUPC.js" />
+    <Content Include="Scripts\Custom\arc90_multiselect.js" />
+    <Content Include="Scripts\Custom\CancelRejectedResource.js" />
+    <Content Include="Scripts\Custom\ClearanceAdminCompany.js" />
+    <Content Include="Scripts\Custom\ClearanceInbox\ClearanceInbox.js" />
+    <Content Include="Scripts\Custom\ClearanceInbox\ClearanceInboxUI.js" />
+    <Content Include="Scripts\Custom\ClearanceInbox\RightPanelReviewer.js" />
+    <Content Include="Scripts\Custom\ClearanceInbox\RightPanelRequestor.js" />
+    <Content Include="Scripts\Custom\ClearanceManageCompany.js" />
+    <Content Include="Scripts\Custom\ClearanceProjectInquirySearch.js" />
+    <Content Include="Scripts\Custom\ClearanceProjectLocking.js" />
+    <Content Include="Scripts\Custom\ClearanceProjectSearch.js" />
+    <Content Include="Scripts\Custom\ClearanceProject\ManageCompany.js" />
+    <Content Include="Scripts\Custom\ClearanceProject\RequestSummary.js" />
+    <Content Include="Scripts\Custom\ClearanceProject\RequestSummaryRegular.js" />
+    <Content Include="Scripts\Custom\ClearanceSearchContract.js" />
+    <Content Include="Scripts\Custom\ClearenceLayout.js" />
+    <Content Include="Scripts\Custom\ClrR2ProjectsSearch.js" />
+    <Content Include="Scripts\Custom\Error\Error.js" />
+    <Content Include="Scripts\Custom\MasterProjectInformationExtended.js" />
+    <Content Include="Scripts\Custom\MasterResources.js" />
+    <Content Include="Scripts\Custom\ProjectInformationRegularExtended.js" />
+    <Content Include="Scripts\Custom\ResourceRegular.js" />
+    <Content Include="Scripts\Custom\RoutingVariations.js" />
+    <Content Include="Scripts\Custom\CreateClearanceContract.js" />
+    <Content Include="Scripts\Custom\ManageRejectReason.js" />
+    <Content Include="Scripts\Custom\ManageTerritoryExtn.js" />
+    <Content Include="Scripts\Custom\MassReminders.js" />
+    <Content Include="Scripts\Custom\MimicUser.js" />
+    <Content Include="Scripts\Custom\SafeTerritory.js" />
+    <Content Include="Scripts\Custom\Search\SearchForRelease.js" />
+    <Content Include="Scripts\Custom\SelectSingleUser.js" />
+    <Content Include="Scripts\Custom\CreateChildWorkgroup.js" />
+    <Content Include="Scripts\Custom\CreateMasterProject.js" />
+    <Content Include="Scripts\Custom\CreateParentWorkgroup.js" />
+    <Content Include="Scripts\Custom\CreateRegularProject.js" />
+    <Content Include="Scripts\Custom\CreateRegularProjectPartialView.js" />
+    <Content Include="Scripts\Custom\DeactiveWorkgroup.js" />
+    <Content Include="Scripts\Custom\jquery.idletimeout.js" />
+    <Content Include="Scripts\Custom\jquery.idletimer.js" />
+    <Content Include="Scripts\Custom\jquerycssmenu.js" />
+    <Content Include="Scripts\Custom\ManageArtistContract.js" />
+    <Content Include="Scripts\Custom\ManageResourceContract.js" />
+    <Content Include="Scripts\Custom\RequestSummaryRegular.js" />
+    <Content Include="Scripts\Custom\ManageArtist.js" />
+    <Content Include="Scripts\Custom\ManageCompany.js" />
+    <Content Include="Scripts\Custom\ManageTerritory.js" />
+    <Content Include="Scripts\Custom\ManageUsers.js" />
+    <Content Include="Scripts\Custom\MasterProjectInformation.js" />
+    <Content Include="Scripts\Custom\PendingRequest.js" />
+    <Content Include="Scripts\Custom\popup.js" />
+    <Content Include="Scripts\Custom\ProjectInformationRegular.js" />
+    <Content Include="Scripts\Custom\ProjectSearchUserTransfer.js" />
+    <Content Include="Scripts\Custom\PropagateLinkingFromReleasesToResources.js" />
+    <Content Include="Scripts\Custom\PropagateLinkingProjectToRepertoire.js" />
+    <Content Include="Scripts\Custom\PropagateLinkingReleaseToResource.js" />
+    <Content Include="Scripts\Custom\PriorityWorkQueue.js" />
+    <Content Include="Scripts\Custom\ReleaseContractLinkingAlert.js" />
+    <Content Include="Scripts\Custom\ReleaseNewRegular.js" />
+    <Content Include="Scripts\Custom\ReleaseRegular.js" />
+    <Content Include="Scripts\Custom\ReleaseTab.js" />
+    <Content Include="Scripts\Custom\ProjectTab.js" />
+    <Content Include="Scripts\Custom\RequestSummary.js" />
+    <Content Include="Scripts\Custom\RequestTypeRegular.js" />
+    <Content Include="Scripts\Custom\RequestTypeRegularReadOnly.js" />
+    <Content Include="Scripts\Custom\Reroute.js" />
+    <Content Include="Scripts\Custom\ResourceContractLinkingAlert.js" />
+    <Content Include="Scripts\Custom\ResourceHistory.js" />
+    <Content Include="Scripts\Custom\Resources.js" />
+    <Content Include="Scripts\Custom\ResourceTab.js" />
+    <Content Include="Scripts\Custom\scroll-startstop.events.jquery.js" />
+    <Content Include="Scripts\Custom\SearchCancelledProject.js" />
+    <Content Include="Scripts\Custom\SearchRepertoire.js" />
+    <Content Include="Scripts\Custom\PropagateLinkingFromProjectToRepertoire.js" />
+    <Content Include="Scripts\Custom\SearchWorkgroup.js" />
+    <Content Include="Scripts\Custom\SearchWorkGroupForUsersChange.js" />
+    <Content Include="Scripts\Custom\SelectSingleUser.js" />
+    <Content Include="Scripts\Custom\Shared\ClearanceMenu.js" />
+    <Content Include="Scripts\Custom\UnlinkAssociatedResources.js" />
+    <Content Include="Scripts\Custom\UnlinkRepertoireFromContract.js" />
+    <Content Include="Scripts\Custom\UserPreference.js" />
+    <Content Include="Scripts\Custom\UserTransfer.js" />
+    <Content Include="Scripts\Custom\ViewComponent.js" />
+    <Content Include="Scripts\Custom\ViewWorkgroup.js" />
+    <Content Include="Scripts\JLinq\jLinq-2.2.1.js" />
+    <Content Include="Scripts\JLinq\jLinq-2.2.1.packed.js">
+      <DependentUpon>jLinq-2.2.1.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.jstree.js" />
+    <Content Include="Scripts\jquery.nicescroll.js" />
+    <Content Include="Scripts\jquery.watermark.js" />
+    <Content Include="Scripts\JSLinq\JSLINQ.js" />
+    <Content Include="Scripts\jtable\scroll.js" />
+    <Content Include="Scripts\jtable\themes\standard\blue\jtable_blue.min.css">
+      <DependentUpon>jtable_blue.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jtable\themes\standard\green\jtable_green.min.css">
+      <DependentUpon>jtable_green.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jtable\themes\standard\jtable_standard_base.min.css">
+      <DependentUpon>jtable_standard_base.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jtable\themes\standard\silver\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\silver\jtable_silver.css" />
+    <Content Include="Scripts\jtable\themes\standard\silver\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\silver\title-bg.png" />
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.css" />
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.filter.css" />
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.filter.js" />
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.filter.min.css">
+      <DependentUpon>jquery.multiselect.filter.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.js" />
+    <Content Include="Scripts\MultiSelectDropdown\jquery.multiselect.min.css">
+      <DependentUpon>jquery.multiselect.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Splitter.js" />
+    <Content Include="Scripts\Tooltip\jquery.bgiframe.js" />
+    <Content Include="Scripts\Tooltip\jquery.tooltip.js" />
+    <Content Include="Scripts\TreeView\themes\default\d.gif" />
+    <Content Include="Scripts\TreeView\themes\default\d.png" />
+    <Content Include="Scripts\TreeView\themes\default\style.css" />
+    <Content Include="Scripts\TreeView\themes\default\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\TreeView\themes\default\throbber.gif" />
+    <Content Include="Scripts\Utilities\Utilities.js" />
+    <Content Include="SessionTimeout.html" />
+    <Content Include="UnAuthorized.htm" />
+    <Content Include="Error.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Acc_Arrow_Down.png" />
+    <Content Include="Images\Acc_Arrow_RIght.png" />
+    <Content Include="Images\Acc_White.png" />
+    <Content Include="Images\Apply_all_16x16.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\Calender_Icon_img.png" />
+    <Content Include="Images\childcontract.png" />
+    <Content Include="Images\Down.png" />
+    <Content Include="Images\Excel-16.png" />
+    <Content Include="Images\Footer_Phone.png" />
+    <Content Include="Images\GRS-Logo-lines-146.png" />
+    <Content Include="Images\GRS_loading_icon.gif" />
+    <Content Include="Images\Header_Bg.jpg" />
+    <Content Include="Images\Left.png" />
+    <Content Include="Images\Mail.png" />
+    <Content Include="Images\Main-Menu_Arrow.png" />
+    <Content Include="Images\parentcontract.png" />
+    <Content Include="Images\pop_up-Close-But.png" />
+    <Content Include="Images\pop_up-Field-BG.png" />
+    <Content Include="Images\Pri_btn_bg_1px.png" />
+    <Content Include="Images\searchImage.jpg" />
+    <Content Include="Images\Sec_btn_bg_1px.png" />
+    <Content Include="Images\UMG_Logo.png" />
+    <Content Include="Images\UniversalLogo.png" />
+    <Content Include="Images\Word-16.png" />
+    <Content Include="Images\Zoom-Icon1_12x12.png" />
+    <Content Include="Models\Notes.txt" />
+    <Content Include="PageNotFound.htm" />
+    <Content Include="Scripts\ColumnFilter\jquery.columnfilters.js" />
+    <Content Include="Scripts\Custom\AddressBook.js" />
+    <Content Include="Scripts\Custom\AutoCompleteComboBox.js" />
+    <Content Include="Scripts\Custom\Contract.js" />
+    <Content Include="Scripts\Custom\ChooseTemplate.js" />
+    <Content Include="Scripts\Custom\ContractTab.js" />
+    <Content Include="Scripts\Custom\ContractMaintenceWorkQueue.js" />
+    <Content Include="Scripts\Custom\GlobalAddressListSearch.js" />
+    <Content Include="Scripts\Custom\LayoutRoot.js" />
+    <Content Include="Scripts\Custom\ManageAddressBook.js" />
+    <Content Include="Scripts\Custom\RightsAndRestriction.js" />
+    <Content Include="Scripts\Custom\SearchContract.js" />
+    <Content Include="Scripts\Custom\SearchContractPopup.js" />
+    <Content Include="Scripts\Custom\SearchForArtist.js" />
+    <Content Include="Scripts\Custom\SearchPcNoticeCompany.js" />
+    <Content Include="Scripts\Custom\SecondaryExploitation.js" />
+    <Content Include="Scripts\Custom\SplitDealGrid.js" />
+    <Content Include="Scripts\Custom\TemplateMaintenance.js" />
+    <Content Include="Scripts\jquery-ui-1.8.21.custom.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\jtable\extensions\jquery.jtable.aspnetpagemethods.js" />
+    <Content Include="Scripts\jtable\jquery.jtable.js" />
+    <Content Include="Scripts\jtable\themes\standard\blue\header-bg-new.gif" />
+    <Content Include="Scripts\jtable\themes\standard\blue\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\blue\jtable_blue.css" />
+    <Content Include="Scripts\jtable\themes\standard\blue\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\blue\title-bg.png" />
+    <Content Include="Scripts\jtable\themes\standard\close.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-asc.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-desc.png" />
+    <Content Include="Scripts\jtable\themes\standard\column-sortable.png" />
+    <Content Include="Scripts\jtable\themes\standard\delete.png" />
+    <Content Include="Scripts\jtable\themes\standard\edit.png" />
+    <Content Include="Scripts\jtable\themes\standard\green\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\green\jtable_green.css" />
+    <Content Include="Scripts\jtable\themes\standard\green\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\green\title-bg.png" />
+    <Content Include="Scripts\jtable\themes\standard\jtable_standard_base.css" />
+    <Content Include="Scripts\jtable\themes\standard\purple\jtable_purple.css" />
+    <Content Include="Scripts\jtable\themes\standard\purple\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\header-bg.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\jtable_red.css" />
+    <Content Include="Scripts\jtable\themes\standard\red\loading.gif" />
+    <Content Include="Scripts\jtable\themes\standard\red\title-bg.png" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\Custom\SearchParentContract.js" />
+    <Content Include="Scripts\Custom\DynamicMenu.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js">
+      <DependentUpon>MicrosoftAjax.js</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="Views\RepertoireRightsSearch\" />
+    <Folder Include="Views\Report\" />
+    <Folder Include="Views\Resource\" />
+    <Folder Include="Views\RightsReviewWorkQueue\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessResources\UMGI.GRCS.Resx.Resources.csproj">
+      <Project>{A227DF1F-44D4-4727-B734-0B063B2489A4}</Project>
+      <Name>UMGI.GRCS.Resx.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\BusinessEntities\GRCS.BusinessEntities\UMGI.GRCS.BusinessEntities.csproj">
+      <Project>{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF}</Project>
+      <Name>UMGI.GRCS.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\GRCS.Utilities.ExceptionHandler.csproj">
+      <Project>{1914E70E-1EAE-4F2F-A1E7-C82F5E9A9960}</Project>
+      <Name>GRCS.Utilities.ExceptionHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UMGI.GRCS.UI.Interfaces\UMGI.GRCS.UI.Interfaces.csproj">
+      <Project>{697940BE-3D6D-4C9A-8B46-DCF892E44816}</Project>
+      <Name>UMGI.GRCS.UI.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UMGI.GRCS.UI.Models\UMGI.GRCS.UI.Models.csproj">
+      <Project>{8224AF96-D311-4952-B834-901E5E8FDE46}</Project>
+      <Name>UMGI.GRCS.UI.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UMGI.GRCS.UI.Utilities\UMGI.GRCS.UI.Utilities.csproj">
+      <Project>{2100DF6D-12C6-4D9E-90D3-5D43C27926F6}</Project>
+      <Name>UMGI.GRCS.UI.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\Contract.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\ContractTab.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\RightsAndRestrictionsTab.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\SecondaryExploitationTab.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SearchParentContract.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SearchForArtist.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SearchPcNoticeCompany.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\GlobalAddressList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\SearchContract.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CreateContract.cshtml" />
+    <Content Include="Views\Shared\TerritorialRights.cshtml" />
+    <Content Include="Views\Contract\RightsAcquired.cshtml" />
+    <Content Include="Views\Contract\DigitalRestriction.cshtml" />
+    <Content Include="Views\Contract\RccClearanceContract.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\ContractMaintenanceWorkQueue.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\GlobalConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\PropagateLinking.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\ContractTemplates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\DigitalRestrictionTemplates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contract\ManageAddressBook.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\AddRoleGroup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SplitDeal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ContractSearchPopup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="GCSHelpFiles\Clearance System.log" />
+    <None Include="GCSHelpFiles\Clearance_System.glo" />
+    <None Include="GCSHelpFiles\Clearance_System.hhc" />
+    <None Include="GCSHelpFiles\Clearance_System.hhk" />
+    <None Include="GCSHelpFiles\Clearance_System.lng" />
+    <None Include="GCSHelpFiles\Clearance_System.ppf" />
+    <None Include="GCSHelpFiles\Clearance_System.stp" />
+    <None Include="GCSHelpFiles\Clearance_System.syn" />
+    <None Include="GCSHelpFiles\Clearance_System_hha.hhk" />
+    <None Include="GCSHelpFiles\default.skn" />
+    <None Include="GCSHelpFiles\RoboHHRE.lng" />
+    <None Include="GCSHelpFiles\WebHelp_Skin_Files\Default\Default.skn" />
+    <Content Include="Views\Project\SearchRepertoire.cshtml" />
+    <Content Include="Views\Project\ProjectTab.cshtml" />
+    <Content Include="Views\Project\ResourceTab.cshtml" />
+    <Content Include="Views\Shared\UnlinkRepertoireFromContract.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\WorkQueue\ContractLinkingWorkQueue.cshtml" />
+    <Content Include="Views\Shared\RerouteResource.cshtml" />
+    <Content Include="Views\WorkQueue\PriorityWorkQueue.cshtml" />
+    <Content Include="Views\Shared\PropagateLinkingReleaseToResource.cshtml" />
+    <Content Include="Views\Release\ReleaseContractLinkingAlert.cshtml" />
+    <Content Include="Views\Project\ResourceContractLinkingAlert.cshtml" />
+    <Content Include="Views\Shared\UnlinkAssociatedResources.cshtml" />
+    <Content Include="Views\Shared\PropagateLinkingFromProjectToRepertoire.cshtml" />
+    <Content Include="Views\Global\ClearanceAdminCompany.cshtml" />
+    <Content Include="Views\Shared\WorkQueueLinkingAlert.cshtml" />
+    <Content Include="Views\Shared\ReleaseTab.cshtml" />
+    <Content Include="Views\Test\Test.cshtml" />
+    <Content Include="Views\WorkQueue\OtherParameterTab.cshtml" />
+    <Content Include="Views\ClearanceProject\CopyProject.cshtml" />
+    <Content Include="Views\ClearanceProject\CreateMasterProject.cshtml" />
+    <Content Include="Views\ClearanceProject\CreateNewFromExisting.cshtml" />
+    <Content Include="Views\ClearanceProject\CreateRegularProject.cshtml" />
+    <Content Include="Views\ClearanceProject\ManageArtist.cshtml" />
+    <Content Include="Views\ClearanceProject\ManageCompany.cshtml" />
+    <Content Include="Views\ClearanceProject\MasterProjectInformation.cshtml" />
+    <Content Include="Views\ClearanceProject\MasterProjectInformationReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\ProjectInformationRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\ProjectInformationRegularReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\ProjectOwnershipTransfer.cshtml" />
+    <Content Include="Views\ClearanceProject\ProjectSearchUserTransfer.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseNewRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseNewRegularData.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseRegularData.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseRegularReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\RequestSummary.cshtml" />
+    <Content Include="Views\ClearanceProject\RequestSummaryRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\RequestTypeRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\RequestTypeRegularReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\ResourceRegularReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\Resources.cshtml" />
+    <Content Include="Views\ClearanceProject\ResourcesReadOnly.cshtml" />
+    <Content Include="Views\ClearanceProject\ResourcesRegular.cshtml" />
+    <Content Include="Views\ClearanceProject\SearchCancelledProject.cshtml" />
+    <Content Include="Views\ClearanceProject\ThirdPartySearch.cshtml" />
+    <Content Include="Views\Artist\SearchForArtist.cshtml" />
+    <Content Include="Views\Search\AdvanceResourceSearch.cshtml" />
+    <Content Include="Views\Search\ClearanceProjectSearch.cshtml" />
+    <Content Include="Views\Search\ClearanceResourceRights.cshtml" />
+    <Content Include="Views\Search\InquirySearch.cshtml" />
+    <Content Include="Views\Search\SearchForRelease.cshtml" />
+    <Content Include="Views\Search\SearchForReleaseData.cshtml" />
+    <Content Include="Views\WorkGroup\ContractInformation.cshtml" />
+    <Content Include="Views\WorkGroup\CreateChildWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\CreateChildWorkgroupPartial.cshtml" />
+    <Content Include="Views\WorkGroup\CreateParentWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\DeactiveWorkGroup.cshtml" />
+    <Content Include="Views\WorkGroup\DeleteWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\LinkWGToArtistContract.cshtml" />
+    <Content Include="Views\WorkGroup\LinkWGToResourceContract.cshtml" />
+    <Content Include="Views\WorkGroup\MaintainChildWorkGroup.cshtml" />
+    <Content Include="Views\WorkGroup\MaintainParentWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\MaintainParentWorkgroupEditView.cshtml" />
+    <Content Include="Views\WorkGroup\ManageArtistContract.cshtml" />
+    <Content Include="Views\WorkGroup\ManageCompany.cshtml" />
+    <Content Include="Views\WorkGroup\ManageResourceContract.cshtml" />
+    <Content Include="Views\WorkGroup\ManageUser.cshtml" />
+    <Content Include="Views\WorkGroup\ManageUsers.cshtml" />
+    <Content Include="Views\WorkGroup\PendingRequest.cshtml" />
+    <Content Include="Views\WorkGroup\SearchWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\ViewChildWorkgroup.cshtml" />
+    <Content Include="Views\WorkGroup\ViewWorkgroup.cshtml" />
+    <Content Include="Views\Shared\ManageTerritory.cshtml" />
+    <Content Include="Views\Shared\SearchForTerritory.cshtml" />
+    <Content Include="Views\Shared\_ClearenceLayout.cshtml" />
+    <Content Include="Views\Shared\_ClearenceLayoutForPopUp.cshtml" />
+    <Content Include="Views\Search\ResourceRolesAndRights.cshtml" />
+    <Content Include="Views\ClearanceProject\CreateRegularProjectPartialView.cshtml" />
+    <Content Include="Views\Search\ClrPushToR2.cshtml" />
+    <Content Include="Views\Search\ClrR2ProjectsSearch.cshtml" />
+    <Content Include="Views\ClearanceProject\RoutingDetails.cshtml" />
+    <Content Include="Views\ClearanceRelease\ReleaseDetailsViewComponent.cshtml" />
+    <Content Include="Views\ClearanceRelease\TreeviewViewComponent.cshtml" />
+    <Content Include="Views\ClearanceRelease\ViewPackageComponents.cshtml" />
+    <Content Include="Views\ClearanceProject\ReleaseRegularTracks.cshtml" />
+    <Content Include="Views\ClearanceProject\CancelledRejResource.cshtml" />
+    <Content Include="Views\WorkGroup\SelectSingleUser.cshtml" />
+    <Content Include="Views\ClearanceProject\AllocateUPC.cshtml" />
+    <Content Include="Views\ClearanceInbox\Index.cshtml" />
+    <Content Include="Views\ClearanceProject\ClearanceProjectLocking.cshtml" />
+    <Content Include="Views\ClearanceInbox\ManageRejectReason.cshtml" />
+    <Content Include="Views\ClearanceInbox\UserPreferences.cshtml" />
+    <Content Include="Views\ClearanceInbox\ResourceHistory.cshtml" />
+    <Content Include="Views\Shared\ClearanceMenu.cshtml" />
+    <Content Include="Views\ClearanceInbox\Header.cshtml" />
+    <Content Include="Views\ClearanceInbox\Inbox.cshtml" />
+    <Content Include="Views\ClearanceInbox\RightPanel-RccAdmin.cshtml" />
+    <Content Include="Views\ClearanceInbox\RightPanel-Requestor.cshtml" />
+    <Content Include="Views\ClearanceInbox\RightPanel-Reviewer.cshtml" />
+    <Content Include="Views\WorkGroup\SearchWorkGroupToAddRemoveUsersPartial.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\WorkGroup\SearchWorkGroupToAddRemoveUsers.cshtml" />
+    <Content Include="Views\Shared\SafeTerritory.cshtml" />
+    <Content Include="Views\ClearanceInbox\Filters.cshtml" />
+    <Content Include="Views\ClearanceInbox\MassReminders.cshtml" />
+    <Content Include="Views\WorkGroup\UserPreference.cshtml" />
+    <Content Include="Views\ClearanceInbox\CreateClearanceContract.cshtml" />
+    <Content Include="Views\ClearanceInbox\ClearanceManageCompany.cshtml" />
+    <Content Include="Views\ClearanceInbox\ClearanceSearchContract.cshtml" />
+    <Content Include="Views\ClearanceInbox\FolderProjects.cshtml" />
+    <Content Include="Views\Global\AuditTrail.cshtml" />
+    <Content Include="Views\Global\AuditTrailResult.cshtml" />
+    <Content Include="Views\Global\AuditTrailFilters.cshtml" />
+    <Content Include="Views\WorkGroup\MimicUser.cshtml" />
+    <Content Include="Views\Routing\ManageRoutingRules.cshtml" />
+    <Content Include="Views\ClearanceProject\ShowClearanceLockingMessage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>60078</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:80/GCS</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,1315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddDigitalRestrictionLink" xml:space="preserve">
+    <value>Add Digital Restriction</value>
+  </data>
+  <data name="AddEditTerritorialRightsLink" xml:space="preserve">
+    <value>View/Edit Territorial Rights</value>
+  </data>
+  <data name="AdvancedSearchHeader" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="AvailableRightsAcquistionHeader" xml:space="preserve">
+    <value>Rights </value>
+  </data>
+  <data name="BackPage" xml:space="preserve">
+    <value>&lt;&lt; Back</value>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ClearanceControlsHeader" xml:space="preserve">
+    <value>Clearance Controls</value>
+  </data>
+  <data name="ClearFilterLink" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="CommercialModelColumn" xml:space="preserve">
+    <value>Commercial Model</value>
+  </data>
+  <data name="ConsentPeriodColumn" xml:space="preserve">
+    <value>Consent/Consult Period</value>
+  </data>
+  <data name="ContentTypeColumn" xml:space="preserve">
+    <value>Content Type</value>
+  </data>
+  <data name="ContractHead" xml:space="preserve">
+    <value>Contract Header</value>
+  </data>
+  <data name="ContractMenu" xml:space="preserve">
+    <value>Create New Contract</value>
+  </data>
+  <data name="CopyContractButton" xml:space="preserve">
+    <value>Copy Contract</value>
+  </data>
+  <data name="CreateChildContractButton" xml:space="preserve">
+    <value>Create Child Contract</value>
+  </data>
+  <data name="CreatecontractfromTemplate" xml:space="preserve">
+    <value>Create contract from Template </value>
+  </data>
+  <data name="DeleteContractButton" xml:space="preserve">
+    <value>Delete Contract</value>
+  </data>
+  <data name="EditContractButton" xml:space="preserve">
+    <value>Edit Contract</value>
+  </data>
+  <data name="ExcludeTerritoryRights" xml:space="preserve">
+    <value>Exclude</value>
+  </data>
+  <data name="ExploitationTypeColumn" xml:space="preserve">
+    <value>Exploitation Type</value>
+  </data>
+  <data name="FindButton" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="HoldbackPeriodColumn" xml:space="preserve">
+    <value>Holdback Period</value>
+  </data>
+  <data name="IncludeTerritoryRights" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next &gt;&gt;</value>
+  </data>
+  <data name="NotAvailableDisplay" xml:space="preserve">
+    <value>Not Available</value>
+  </data>
+  <data name="NotesColumn" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NotesNotificationsHeader" xml:space="preserve">
+    <value>Notes &amp; Notifications</value>
+  </data>
+  <data name="OKButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ParentContractHeading" xml:space="preserve">
+    <value>Parent Contract</value>
+  </data>
+  <data name="ParentContractID" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="RemoveRestrictionLink" xml:space="preserve">
+    <value>Remove Restriction</value>
+  </data>
+  <data name="RepertoireDefaultsHeader" xml:space="preserve">
+    <value>Repertoire Defaults</value>
+  </data>
+  <data name="ResetButton" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResetSelectionButton" xml:space="preserve">
+    <value>Reset Selection</value>
+  </data>
+  <data name="RestrictedColumn" xml:space="preserve">
+    <value>Rights Acquired</value>
+  </data>
+  <data name="RestrictionColumn" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="RightsRestrictionsMenu" xml:space="preserve">
+    <value>Rights &amp; Restrictions</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAsRestrictionTemplateLink" xml:space="preserve">
+    <value>Save As Restriction Template</value>
+  </data>
+  <data name="SaveTemplateButton" xml:space="preserve">
+    <value>Save as a Template</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SecondaryExploitationMenu" xml:space="preserve">
+    <value>Secondary Exploitation</value>
+  </data>
+  <data name="SelectCheckBox" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="SplitDealHeader" xml:space="preserve">
+    <value>Split Deal</value>
+  </data>
+  <data name="TerritorialRightsHeader" xml:space="preserve">
+    <value>Territorial Rights &amp; Rights Period</value>
+  </data>
+  <data name="Header360Deal" xml:space="preserve">
+    <value>360° Deal</value>
+  </data>
+  <data name="UnlinkParent" xml:space="preserve">
+    <value>Unlink</value>
+  </data>
+  <data name="UseTypeColumn" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddressBookLink" xml:space="preserve">
+    <value>Address Book</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="AssignParentContractLink" xml:space="preserve">
+    <value>Assign Parent Contract</value>
+  </data>
+  <data name="ClearanceAdminCompanyCountry" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ContractingParty" xml:space="preserve">
+    <value>Contracting Party</value>
+  </data>
+  <data name="LocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref. No</value>
+  </data>
+  <data name="ActionColumn" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="ClearanceCompanyParent" xml:space="preserve">
+    <value>Clearance Admin Co.</value>
+  </data>
+  <data name="ContractMaintenanceWorkQueueHeader" xml:space="preserve">
+    <value>Contract Maintenance Work Queue</value>
+  </data>
+  <data name="DigitalRestrictionsHeader" xml:space="preserve">
+    <value>Digital Restrictions</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="itemsperpage" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="ParentLocalRefNo" xml:space="preserve">
+    <value>Local Contract Ref.  No.</value>
+  </data>
+  <data name="RightsAcquisitionHeader" xml:space="preserve">
+    <value>Rights Acquisition</value>
+  </data>
+  <data name="SearchContractMenu" xml:space="preserve">
+    <value>Search For Contract</value>
+  </data>
+  <data name="SecondaryExploitationHeader" xml:space="preserve">
+    <value>SecondaryExploitation Restrictions</value>
+  </data>
+  <data name="ShowDropDown" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="IncludeList" xml:space="preserve">
+    <value>Include List</value>
+  </data>
+  <data name="ContractDescription" xml:space="preserve">
+    <value>Contract Description</value>
+  </data>
+  <data name="CreatecontractfromTemplateLbl" xml:space="preserve">
+    <value>Choose Template</value>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Sorry, an error occurred while processing your request.</value>
+  </data>
+  <data name="ExcludeList" xml:space="preserve">
+    <value>Exclude List</value>
+  </data>
+  <data name="TerritorialRightsPageHeader" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="GlobalAddressList" xml:space="preserve">
+    <value>Global Address List</value>
+  </data>
+  <data name="LinktoRepertoireButton" xml:space="preserve">
+    <value>Link to Repertoire</value>
+  </data>
+  <data name="SearchForArtistTitle" xml:space="preserve">
+    <value>Search For Artist</value>
+  </data>
+  <data name="SearchPCNoticeCompanyTitle" xml:space="preserve">
+    <value>Search P\C Notice Company</value>
+  </data>
+  <data name="AuthorizedMsg" xml:space="preserve">
+    <value>Not Authorized for this action</value>
+  </data>
+  <data name="ContractErrorMsg" xml:space="preserve">
+    <value>Editor cannot Apporve the Contract</value>
+  </data>
+  <data name="DigitalTemplateFailureMsg" xml:space="preserve">
+    <value>Digital restriction template not saved</value>
+  </data>
+  <data name="DigitalTemplateSuccessMsg" xml:space="preserve">
+    <value>Digital restriction template saved successfully.</value>
+  </data>
+  <data name="SaveFailureMsg" xml:space="preserve">
+    <value>Contract Save Failed.</value>
+  </data>
+  <data name="SaveSuccessMsg" xml:space="preserve">
+    <value>Contract Saved Successfully.</value>
+  </data>
+  <data name="TemplateSaveFailureMsg" xml:space="preserve">
+    <value>Contract Template Not Saved .</value>
+  </data>
+  <data name="TemplateSaveSuccessMsg" xml:space="preserve">
+    <value>Contract Template Saved Successfully.</value>
+  </data>
+  <data name="TemplateUniqueNameMsg" xml:space="preserve">
+    <value>This Template Name already exists! Please provide a unique Template Name</value>
+  </data>
+  <data name="UnableToSaveMsg" xml:space="preserve">
+    <value>Unable To Save Contract</value>
+  </data>
+  <data name="ContractTemplatesHeader" xml:space="preserve">
+    <value>Contract Templates</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DigitalRestrictionsTemplatesHeader" xml:space="preserve">
+    <value>Digital Restrictions Templates</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="RestrictionsColumn" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="ViewContractButton" xml:space="preserve">
+    <value>View Contract</value>
+  </data>
+  <data name="CreateNewEntryButton" xml:space="preserve">
+    <value>Create New Entry</value>
+  </data>
+  <data name="ExportExcelButton" xml:space="preserve">
+    <value>Export Report</value>
+  </data>
+  <data name="ContractId" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Clear Filter</value>
+  </data>
+  <data name="CreateNewEntry" xml:space="preserve">
+    <value>CreateNewEntry</value>
+  </data>
+  <data name="Exclude" xml:space="preserve">
+    <value>Exclude</value>
+  </data>
+  <data name="FilterButton" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterRoleGroupName" xml:space="preserve">
+    <value>Filter Role/Group Name</value>
+  </data>
+  <data name="Include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="ManageAddressBookHeader" xml:space="preserve">
+    <value>Manage Address Book</value>
+  </data>
+  <data name="AddRestrictionLink" xml:space="preserve">
+    <value>Add Restrictions</value>
+  </data>
+  <data name="ErrorHeader" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="DuplicateSplitDeal" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
+  <data name="HelpSplitDeal" xml:space="preserve">
+    <value>Help:Clicking on 'Yes' will terminate the new contract creation process.</value>
+  </data>
+  <data name="SplitDealContracts" xml:space="preserve">
+    <value>" of Any of the existing contracts listed below?</value>
+  </data>
+  <data name="SplitDealMenu" xml:space="preserve">
+    <value>Is the new contract a "</value>
+  </data>
+  <data name="SplitDealMsg" xml:space="preserve">
+    <value>" with any of the existing contracts listed 
+    above, select all that apply and click &lt;Split Deal&gt;</value>
+  </data>
+  <data name="SplitDealName" xml:space="preserve">
+    <value>Split Deal</value>
+  </data>
+  <data name="SplitDealNewContract" xml:space="preserve">
+    <value>Alternatively, if new contract is part of a "</value>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="LostRightsMessage" xml:space="preserve">
+    <value>Rights Has Been Lost</value>
+  </data>
+  <data name="WarningMessage" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="MaintenanceRightsDataReview" xml:space="preserve">
+    <value>Create / Edit Rights Data Review Condition</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="SecondaryExploitationRestricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
+  <data name="ChangeLink" xml:space="preserve">
+    <value>Change Link</value>
+  </data>
+  <data name="ClearanceCompanyProject" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="ContractStatusColumn" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="LinkToContractButton" xml:space="preserve">
+    <value>Link To Contract</value>
+  </data>
+  <data name="ProjectHeader" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ReleaseHeader" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="ResourceHeader" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="RightsTypeColumn" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="SearchProjectsHeader" xml:space="preserve">
+    <value>Search Projects</value>
+  </data>
+  <data name="SearchReleasesHeader" xml:space="preserve">
+    <value>Search Release</value>
+  </data>
+  <data name="SearchRepertoireHeader" xml:space="preserve">
+    <value>Search Repertoire</value>
+  </data>
+  <data name="SearchResourcesHeader" xml:space="preserve">
+    <value>Search Resource</value>
+  </data>
+  <data name="SearchResultsHeader" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="SigningCompanyColumn" xml:space="preserve">
+    <value>Signing Co.</value>
+  </data>
+  <data name="WorkflowStatusColumn" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="AllCheckBox" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllRepertoireCheckBox" xml:space="preserve">
+    <value>Select/Deselect All Repertoire</value>
+  </data>
+  <data name="ConfirmLinkButton" xml:space="preserve">
+    <value>Confirm Link</value>
+  </data>
+  <data name="ConfirmUnlinkButton" xml:space="preserve">
+    <value>Confirm Unlink</value>
+  </data>
+  <data name="ProjectToRepertoireHeader" xml:space="preserve">
+    <value>Please select all repertoire to be linked to the project selected</value>
+  </data>
+  <data name="SelectProjectRepertoireHeader" xml:space="preserve">
+    <value>Please Select projects/repertoire to unlink from the contract</value>
+  </data>
+  <data name="ReleaseCountHeader" xml:space="preserve">
+    <value>Release (  )</value>
+  </data>
+  <data name="ResourceCountHeader" xml:space="preserve">
+    <value>Resource (  )</value>
+  </data>
+  <data name="TerritorialRightsDefinition" xml:space="preserve">
+    <value>Territorial Rights Definition: </value>
+  </data>
+  <data name="ExitButton" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="RemoveAll" xml:space="preserve">
+    <value>Remove All</value>
+  </data>
+  <data name="SelectedCompany" xml:space="preserve">
+    <value>Selected Company</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Reset Selection</value>
+  </data>
+  <data name="BackgroundLinkMessage" xml:space="preserve">
+    <value>The system will now link the Repertoire to the Contract in the background. This may take a few minutes if you are linking many Releases/Resources.</value>
+  </data>
+  <data name="ConfirmDeletion" xml:space="preserve">
+    <value>Do you want to delete the selected rows from the system?</value>
+  </data>
+  <data name="ConfirmMsg" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="deleteValid" xml:space="preserve">
+    <value>Please select a row to delete template</value>
+  </data>
+  <data name="editDigitalTemplateHeader" xml:space="preserve">
+    <value>Edit Digital Restriction Template</value>
+  </data>
+  <data name="editValid" xml:space="preserve">
+    <value>Please select only one Digital Restriction Template</value>
+  </data>
+  <data name="templateNameHeader" xml:space="preserve">
+    <value>Template Name</value>
+  </data>
+  <data name="viewValid" xml:space="preserve">
+    <value>Please select a single Contract Template record to edit</value>
+  </data>
+  <data name="DeleteRoleGroup" xml:space="preserve">
+    <value>Record  deleted successfully</value>
+  </data>
+  <data name="DeleteRow" xml:space="preserve">
+    <value>Please select at least one Group</value>
+  </data>
+  <data name="EditTitle" xml:space="preserve">
+    <value>Edit Role/Group</value>
+  </data>
+  <data name="fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="FilterFields" xml:space="preserve">
+    <value>Please enter the fields for filter criteria</value>
+  </data>
+  <data name="Minlength" xml:space="preserve">
+    <value>Please provide 3 characters for filter criteria</value>
+  </data>
+  <data name="NameValidation" xml:space="preserve">
+    <value>Please enter minimum 3 characters</value>
+  </data>
+  <data name="SelectRow" xml:space="preserve">
+    <value>Please select a row to Edit</value>
+  </data>
+  <data name="SelectRowForEdit" xml:space="preserve">
+    <value>Please select only a single record to Edit</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Add Role/Group</value>
+  </data>
+  <data name="ApprovedLinkValid" xml:space="preserve">
+    <value>Please first set the contract status to Approved in order to Link Repertoire</value>
+  </data>
+  <data name="ApprovedUnlinkValid" xml:space="preserve">
+    <value>Please select an Approved contract to Unlink</value>
+  </data>
+  <data name="confirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete ?</value>
+  </data>
+  <data name="copyAccess" xml:space="preserve">
+    <value>You are not authorised to copy the selected Contract(s)</value>
+  </data>
+  <data name="CopyContractValid" xml:space="preserve">
+    <value>Only one contract can be copied at a time</value>
+  </data>
+  <data name="copyValid" xml:space="preserve">
+    <value>Please select a contract </value>
+  </data>
+  <data name="dateValid" xml:space="preserve">
+    <value>Please enter From and To date</value>
+  </data>
+  <data name="deleteAccess" xml:space="preserve">
+    <value>You are not authorised to delete the selected Contract(s)</value>
+  </data>
+  <data name="deleteLinkRepertoire" xml:space="preserve">
+    <value>The selected Contracts cannot be deleted as they are currently linked to a Project/Repertoire in the system</value>
+  </data>
+  <data name="deleteValidContract" xml:space="preserve">
+    <value>Please select a contract </value>
+  </data>
+  <data name="deleteValidParent" xml:space="preserve">
+    <value>This contract cannot be deleted as it is a Parent Contract.</value>
+  </data>
+  <data name="editAccess" xml:space="preserve">
+    <value>You are not authorised to edit the selected Contract(s)</value>
+  </data>
+  <data name="linkAccess" xml:space="preserve">
+    <value>You are not authorised to link the selected Contract(s)</value>
+  </data>
+  <data name="LinkContractValid" xml:space="preserve">
+    <value>Only one contract can be linked at a time</value>
+  </data>
+  <data name="linkValid" xml:space="preserve">
+    <value>Please select a contract </value>
+  </data>
+  <data name="oneEditValid" xml:space="preserve">
+    <value>Please select only a single record to Edit</value>
+  </data>
+  <data name="oneviewValid" xml:space="preserve">
+    <value>Only one row can be viewed at a time</value>
+  </data>
+  <data name="SearchResultWarning" xml:space="preserve">
+    <value>Search yielded more than 200 results. Please refine</value>
+  </data>
+  <data name="unlinkAccess" xml:space="preserve">
+    <value>You are not authorised to unlink the selected Contract(s).</value>
+  </data>
+  <data name="unlinkValid" xml:space="preserve">
+    <value>Please select a contract </value>
+  </data>
+  <data name="viewAccess" xml:space="preserve">
+    <value>You are not authorised to view the selected Contract(s)</value>
+  </data>
+  <data name="addressAlreadyExist" xml:space="preserve">
+    <value>This Group name already exists in the system. Please provide a unique name.</value>
+  </data>
+  <data name="allFeildsValidation" xml:space="preserve">
+    <value>Please complete all fields</value>
+  </data>
+  <data name="CountryNameValidation" xml:space="preserve">
+    <value>Please select a Country</value>
+  </data>
+  <data name="EmailCorrectValidation" xml:space="preserve">
+    <value>Please enter valid E-mail ID</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Please provide at least one email address</value>
+  </data>
+  <data name="failvalid" xml:space="preserve">
+    <value>Please provide a valid Country</value>
+  </data>
+  <data name="GroupNameValidation" xml:space="preserve">
+    <value>Please provide a Group Name.</value>
+  </data>
+  <data name="SaveAddress" xml:space="preserve">
+    <value>Role/Group Successfully saved</value>
+  </data>
+  <data name="changedDate" xml:space="preserve">
+    <value>Last Change Date</value>
+  </data>
+  <data name="created" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="editCriteria" xml:space="preserve">
+    <value>Click on one row to edit contract</value>
+  </data>
+  <data name="repLink" xml:space="preserve">
+    <value>Repertoire Linked</value>
+  </data>
+  <data name="saveTemplateTitle" xml:space="preserve">
+    <value>Save Template</value>
+  </data>
+  <data name="selectDigital" xml:space="preserve">
+    <value>Please add  at least one digital restriction</value>
+  </data>
+  <data name="servererror" xml:space="preserve">
+    <value>Error updating server...</value>
+  </data>
+  <data name="Templateheader" xml:space="preserve">
+    <value>Template Name</value>
+  </data>
+  <data name="templateName" xml:space="preserve">
+    <value>Please enter digital restriction template name</value>
+  </data>
+  <data name="templateTitle" xml:space="preserve">
+    <value>Enter Digital Restriction Template Name</value>
+  </data>
+  <data name="templateValidation" xml:space="preserve">
+    <value>Please select a Clearance Admin Company</value>
+  </data>
+  <data name="clearanceCompArtistVal" xml:space="preserve">
+    <value>Please select a Clearance Admin Company before selecting an Artist</value>
+  </data>
+  <data name="contractInfo" xml:space="preserve">
+    <value>On Save Contract Info will be Generated</value>
+  </data>
+  <data name="lostRightsDateBold" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="lostRightsOnNo" xml:space="preserve">
+    <value>Please select a Lost Rights Date which is in the future</value>
+  </data>
+  <data name="lostRightsOnYes" xml:space="preserve">
+    <value>Please select a Lost Rights Date which is in the past</value>
+  </data>
+  <data name="searchParentTitle" xml:space="preserve">
+    <value>Search Parent Contract</value>
+  </data>
+  <data name="searchPCNotice" xml:space="preserve">
+    <value>Search P/C Notice Company</value>
+  </data>
+  <data name="addInfo" xml:space="preserve">
+    <value>Additional Info</value>
+  </data>
+  <data name="aliasIndicator" xml:space="preserve">
+    <value>Alias Indicator</value>
+  </data>
+  <data name="artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="childCtrctValid" xml:space="preserve">
+    <value>Child Contract cannot be created</value>
+  </data>
+  <data name="clearanceAdm" xml:space="preserve">
+    <value>Clearance Admin Company</value>
+  </data>
+  <data name="cntrctCmncment" xml:space="preserve">
+    <value>Contract Commencement Date</value>
+  </data>
+  <data name="cntrctDesc" xml:space="preserve">
+    <value>Contract Description</value>
+  </data>
+  <data name="cntrctParty" xml:space="preserve">
+    <value>Contracting Party</value>
+  </data>
+  <data name="cntrctStatus" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="companyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="companyValid" xml:space="preserve">
+    <value>Enter a valid company name</value>
+  </data>
+  <data name="ContractTemplateName" xml:space="preserve">
+    <value>Please provide a Contract Template Name</value>
+  </data>
+  <data name="ContracttemplateTitle" xml:space="preserve">
+    <value>Enter Contract Template Name</value>
+  </data>
+  <data name="countryName" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="dataAdmnCmpny" xml:space="preserve">
+    <value>R2 Data Admin Company</value>
+  </data>
+  <data name="displayName" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+  <data name="emailLocation" xml:space="preserve">
+    <value>Email Addresses</value>
+  </data>
+  <data name="emailName" xml:space="preserve">
+    <value>Role/ Group Name</value>
+  </data>
+  <data name="emailTitle" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="endDateGreater" xml:space="preserve">
+    <value>Please select a Commencement Date which is earlier than the End of Term Date</value>
+  </data>
+  <data name="exploitHoldPeriod" xml:space="preserve">
+    <value>Please provide a Holdback Period</value>
+  </data>
+  <data name="exploitPeriod" xml:space="preserve">
+    <value>Please select a Consent/Consult Period</value>
+  </data>
+  <data name="Filtermessage" xml:space="preserve">
+    <value>The search results matching the search criteria exceed from 1000 results. Please refine your search criteria and try again</value>
+  </data>
+  <data name="firstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="lastName" xml:space="preserve">
+    <value>Last Name/Group</value>
+  </data>
+  <data name="localCtrctNo" xml:space="preserve">
+    <value>Local Contract Ref. No</value>
+  </data>
+  <data name="lostRightsValid" xml:space="preserve">
+    <value>Please select a Lost Rights Reason</value>
+  </data>
+  <data name="MandatoryFieldvalidation" xml:space="preserve">
+    <value>Please provide a Contract Admin Company and Artist/Contracting Party</value>
+  </data>
+  <data name="narrowSearch" xml:space="preserve">
+    <value>Auto search returned more than 200 records. Please narrow your search.</value>
+  </data>
+  <data name="rightsPeriod" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="rightsProp" xml:space="preserve">
+    <value>Do you want to propagate the rights data from parent contract to this contract?</value>
+  </data>
+  <data name="rightsType" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="rolesPerformed" xml:space="preserve">
+    <value>Roles Performed</value>
+  </data>
+  <data name="saveContractCnfrm" xml:space="preserve">
+    <value>Please check whether all contract information is filled</value>
+  </data>
+  <data name="saveContractValid" xml:space="preserve">
+    <value>Please complete all the mandatory fields. These are highlighted and may appear on subsequent pages</value>
+  </data>
+  <data name="saveTemplateName" xml:space="preserve">
+    <value>Template Name</value>
+  </data>
+  <data name="searchGlobalAddr" xml:space="preserve">
+    <value>Address Book</value>
+  </data>
+  <data name="searchValid" xml:space="preserve">
+    <value>Please provide search criteria</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="splitDealTitle" xml:space="preserve">
+    <value>Please Confirm</value>
+  </data>
+  <data name="splitDealValid" xml:space="preserve">
+    <value>Please select a contract to link as a split deal</value>
+  </data>
+  <data name="talentTitle" xml:space="preserve">
+    <value>Talent Name ID</value>
+  </data>
+  <data name="territorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="titleHeader" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="titlePrefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="umgSigning" xml:space="preserve">
+    <value>Signing Co.</value>
+  </data>
+  <data name="validMsg" xml:space="preserve">
+    <value>Please specify at least one search criteria</value>
+  </data>
+  <data name="workflowStatus" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="ArtistNameInLocalCharacters" xml:space="preserve">
+    <value>Artist Name In Local Characters</value>
+  </data>
+  <data name="ClearingNotes" xml:space="preserve">
+    <value>Clearance Notes</value>
+  </data>
+  <data name="ContractCommencementDate" xml:space="preserve">
+    <value>Contract Commencement Date</value>
+  </data>
+  <data name="ContractEndDate" xml:space="preserve">
+    <value>End of Term</value>
+  </data>
+  <data name="EmailReceipients" xml:space="preserve">
+    <value>Email Notification Recipients</value>
+  </data>
+  <data name="IsActiveForMarketing" xml:space="preserve">
+    <value>Active For Marketing?</value>
+  </data>
+  <data name="IsLegalRightsReviewRequired" xml:space="preserve">
+    <value>Legal Rights Review Required?</value>
+  </data>
+  <data name="IsLossRightsIndicator" xml:space="preserve">
+    <value>Lost Rights?</value>
+  </data>
+  <data name="IsRightsExceptionApplied" xml:space="preserve">
+    <value>Rights Exception Applied</value>
+  </data>
+  <data name="IsSensitiveArtist" xml:space="preserve">
+    <value>Sensitive Artist?</value>
+  </data>
+  <data name="LocalContractRefNumber" xml:space="preserve">
+    <value>Local Contract Reference No</value>
+  </data>
+  <data name="LostRightsReasonId" xml:space="preserve">
+    <value>Lost Rights Reason</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>General Notes</value>
+  </data>
+  <data name="OtherRights" xml:space="preserve">
+    <value>Other Rights</value>
+  </data>
+  <data name="PcNoticeCountryCompany" xml:space="preserve">
+    <value>P/C Notice Company</value>
+  </data>
+  <data name="RightsExpiryDate" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="RightsExpiryRule" xml:space="preserve">
+    <value>Rights Expiry Rule</value>
+  </data>
+  <data name="RightsPeriodId" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="RightsReversion" xml:space="preserve">
+    <value>Release Commitment &amp; Rights Reversion</value>
+  </data>
+  <data name="RightsTypeId" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="UmgSigningCompany" xml:space="preserve">
+    <value>UMG Signing Company</value>
+  </data>
+  <data name="WorkflowStatusId" xml:space="preserve">
+    <value>Workflow Status:</value>
+  </data>
+  <data name="PcNoticeCountryCompanyExtension" xml:space="preserve">
+    <value>P/C Notice Company Extension</value>
+  </data>
+  <data name="ArtistId" xml:space="preserve">
+    <value>Artist ID</value>
+  </data>
+  <data name="ContractStatusId" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="EmailIds" xml:space="preserve">
+    <value>Email Addresses</value>
+  </data>
+  <data name="NameHeader" xml:space="preserve">
+    <value>Role/Group Name</value>
+  </data>
+  <data name="onactiveroster" xml:space="preserve">
+    <value>On Active Roster?</value>
+  </data>
+  <data name="RightsExceptions" xml:space="preserve">
+    <value>Rights Exceptions</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Talent Name ID</value>
+  </data>
+  <data name="ArtistHeader" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="SplitDealHeaderMsg" xml:space="preserve">
+    <value>If it is duplicate or if Artist/Contracting Party details are incorrect, please click &lt;Cancel&gt; to return to the contract without saving (from where you can change or discard the contract as necessary).</value>
+  </data>
+  <data name="SplitDealFooterMsg" xml:space="preserve">
+    <value>Otherwise, if you are satisfied that this contract is not a duplicate or split deal, click &lt;Save&gt; to continue</value>
+  </data>
+  <data name="DateFormat" xml:space="preserve">
+    <value>{0:dd/MM/yyyy}</value>
+  </data>
+  <data name="clearCompPcAddValidate" xml:space="preserve">
+    <value>Please select a Clearance Admin Company before selecting a P/C Notice Company</value>
+  </data>
+  <data name="ClearanceAdminCompHeader" xml:space="preserve">
+    <value>Clearance Admin Co.</value>
+  </data>
+  <data name="CommencementDateHeader" xml:space="preserve">
+    <value>Contract Commencement Date</value>
+  </data>
+  <data name="ContractIdHeader" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="ContractImage" xml:space="preserve">
+    <value>ContractImage</value>
+  </data>
+  <data name="ImageHeader" xml:space="preserve">
+    <value>Traits</value>
+  </data>
+  <data name="DeleteContractTemplate" xml:space="preserve">
+    <value>Contract Template Deleted Successfully</value>
+  </data>
+  <data name="DeleteDigitalRestrictionTemplate" xml:space="preserve">
+    <value>Digital restriction template deleted successfully</value>
+  </data>
+  <data name="editValidDigital" xml:space="preserve">
+    <value>Please select only one Digital Restriction Template</value>
+  </data>
+  <data name="ArtistFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ArtistLastGroupName" xml:space="preserve">
+    <value>Last/Group Name</value>
+  </data>
+  <data name="SearchAllFields" xml:space="preserve">
+    <value>Search all Name Fields</value>
+  </data>
+  <data name="ExactMatch" xml:space="preserve">
+    <value>Exact Match</value>
+  </data>
+  <data name="ArtistDeletion" xml:space="preserve">
+    <value>Are you sure you want to delete the artist?</value>
+  </data>
+  <data name="UninkLinkedContract" xml:space="preserve">
+    <value>Please select a linked Contract to Unlink</value>
+  </data>
+  <data name="XlHdrActiveForMarketing" xml:space="preserve">
+    <value>Active For Marketing</value>
+  </data>
+  <data name="XlHdrAdvertRoyaltyBreaks" xml:space="preserve">
+    <value>Advert Royalty Breaks</value>
+  </data>
+  <data name="XlHdrArtist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="XlHdrArtistName" xml:space="preserve">
+    <value>Artist Name</value>
+  </data>
+  <data name="XlHdrBudgetCompilation" xml:space="preserve">
+    <value>Budget Compilation</value>
+  </data>
+  <data name="XlHdrBudjet" xml:space="preserve">
+    <value>Budjet</value>
+  </data>
+  <data name="XlHdrClearanceAdminCompany" xml:space="preserve">
+    <value>Clearance Admin Co.</value>
+  </data>
+  <data name="XlHdrClearanceDataComp" xml:space="preserve">
+    <value>Clearance/Data Admin Co.</value>
+  </data>
+  <data name="XlHdrClubMailOrder" xml:space="preserve">
+    <value>Club-Mail Order</value>
+  </data>
+  <data name="XlHdrCommencementDate" xml:space="preserve">
+    <value>Contract Commencement Date</value>
+  </data>
+  <data name="XlHdrContractDescription" xml:space="preserve">
+    <value>Contract Description</value>
+  </data>
+  <data name="XlHdrContractId" xml:space="preserve">
+    <value>Contract ID</value>
+  </data>
+  <data name="XlHdrContractingParty" xml:space="preserve">
+    <value>Contracting Party</value>
+  </data>
+  <data name="XlHdrContractStatus" xml:space="preserve">
+    <value>Contract Status</value>
+  </data>
+  <data name="XlHdrDigitalExploitationRights" xml:space="preserve">
+    <value>Digital Exploitation Rights</value>
+  </data>
+  <data name="XlHdrDigitalUnbundling" xml:space="preserve">
+    <value>Digital Unbundling Allowed</value>
+  </data>
+  <data name="XlHdrDirectMarketing" xml:space="preserve">
+    <value>Direct Marketing</value>
+  </data>
+  <data name="XlHdrGreatestHits" xml:space="preserve">
+    <value>Greatest Hits</value>
+  </data>
+  <data name="XlHdrImage" xml:space="preserve">
+    <value>Traits</value>
+  </data>
+  <data name="XlHdrIsrc" xml:space="preserve">
+    <value>ISRC</value>
+  </data>
+  <data name="XlHdrKiosk" xml:space="preserve">
+    <value>Kiosk</value>
+  </data>
+  <data name="XlHdrLinkedContract" xml:space="preserve">
+    <value>Linked Contract</value>
+  </data>
+  <data name="XlHdrLocalContractRefNo" xml:space="preserve">
+    <value>Local Contract Ref Number</value>
+  </data>
+  <data name="XlHdrLostRights" xml:space="preserve">
+    <value>Lost Rights</value>
+  </data>
+  <data name="XlHdrLostRightsDate" xml:space="preserve">
+    <value>Lost Rights Date</value>
+  </data>
+  <data name="XlHdrLostRightsReason" xml:space="preserve">
+    <value>Lost Rights Reason</value>
+  </data>
+  <data name="XlHdrMasterSyncUse" xml:space="preserve">
+    <value>Master/Synchronization Use</value>
+  </data>
+  <data name="XlHdrMidPrice" xml:space="preserve">
+    <value>Mid Price</value>
+  </data>
+  <data name="XlHdrMidPriceCompilation" xml:space="preserve">
+    <value>Mid Price Compilation</value>
+  </data>
+  <data name="XlHdrMobileExploitationRights" xml:space="preserve">
+    <value>Mobile Exploitation Rights</value>
+  </data>
+  <data name="XlHdrMultiArtistCompilation" xml:space="preserve">
+    <value>Multi Artist Compilation</value>
+  </data>
+  <data name="XlHdrNewForReview" xml:space="preserve">
+    <value>New For Review</value>
+  </data>
+  <data name="XlHdrPhysicalExploitationRights" xml:space="preserve">
+    <value>Physical Exploitation Rights</value>
+  </data>
+  <data name="XlHdrPpbRevenue" xml:space="preserve">
+    <value>PPB Revenue Claim</value>
+  </data>
+  <data name="XlHdrPreClearanceTerritory" xml:space="preserve">
+    <value>Pre-Clearance Territory Exclusions</value>
+  </data>
+  <data name="XlHdrPremium" xml:space="preserve">
+    <value>Premium</value>
+  </data>
+  <data name="XlHdrPremiums" xml:space="preserve">
+    <value>Premiums</value>
+  </data>
+  <data name="XlHdrPYear" xml:space="preserve">
+    <value>PYear</value>
+  </data>
+  <data name="XlHdrReleaseDate" xml:space="preserve">
+    <value>Release Date</value>
+  </data>
+  <data name="XlHdrRemixEdit" xml:space="preserve">
+    <value>Remix Edit</value>
+  </data>
+  <data name="XlHdrReviewStatus" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="XlHdrRightsPeriod" xml:space="preserve">
+    <value>Rights Period</value>
+  </data>
+  <data name="XlHdrRightsType" xml:space="preserve">
+    <value>Rights Type</value>
+  </data>
+  <data name="XlHdrSampleCredit" xml:space="preserve">
+    <value>Sample Credit</value>
+  </data>
+  <data name="XlHdrSampleExists" xml:space="preserve">
+    <value>Sample Exists</value>
+  </data>
+  <data name="XlHdrSampleUse" xml:space="preserve">
+    <value>Sample Use</value>
+  </data>
+  <data name="XlHdrSideArtist" xml:space="preserve">
+    <value>Side Artist</value>
+  </data>
+  <data name="XlHdrSynchronisation" xml:space="preserve">
+    <value>Synchronisation</value>
+  </data>
+  <data name="XlHdrTerritorialRights" xml:space="preserve">
+    <value>Territorial Rights</value>
+  </data>
+  <data name="XlHdrTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="XlHdrTopPriceCompilation" xml:space="preserve">
+    <value>Top Price Compilation</value>
+  </data>
+  <data name="XlHdrType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="XlHdrUmgSigningCompany" xml:space="preserve">
+    <value>UMG Signing Co.</value>
+  </data>
+  <data name="XlHdrUpc" xml:space="preserve">
+    <value>UPC</value>
+  </data>
+  <data name="XlHdrVersionTitle" xml:space="preserve">
+    <value>Version Title</value>
+  </data>
+  <data name="XlHdrWorkflowStatus" xml:space="preserve">
+    <value>WorkFlow Status</value>
+  </data>
+  <data name="XlHdrCommercialModels" xml:space="preserve">
+    <value>Commercial Models</value>
+  </data>
+  <data name="XlHdrConsentPeriod" xml:space="preserve">
+    <value>Consent/Consult Period</value>
+  </data>
+  <data name="XlHdrNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="XlHdrRestrictions" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="XlHdrUseType" xml:space="preserve">
+    <value>Use Type</value>
+  </data>
+  <data name="LocalRefGridHeader" xml:space="preserve">
+    <value>Local Contract Ref. No</value>
+  </data>
+  <data name="PCComapnyGridHeader" xml:space="preserve">
+    <value>PC Notice Co.</value>
+  </data>
+  <data name="UmgCompanyGridHeader" xml:space="preserve">
+    <value>UMG Signing Co.</value>
+  </data>
+  <data name="editCriteriaWorkQueue" xml:space="preserve">
+    <value>Please select only a single record to Edit</value>
+  </data>
+  <data name="noRowEdit" xml:space="preserve">
+    <value>Please select a contract </value>
+  </data>
+  <data name="DeleteConcurrencyCode" xml:space="preserve">
+    <value>67890</value>
+  </data>
+  <data name="SaveConcurrencyCode" xml:space="preserve">
+    <value>12345</value>
+  </data>
+  <data name="XlRightsDataSource" xml:space="preserve">
+    <value>Rights Data Source</value>
+  </data>
+  <data name="XlHdrCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="XlHdrEmailIds" xml:space="preserve">
+    <value>EmailIds</value>
+  </data>
+  <data name="XlHdrRoleGroupName" xml:space="preserve">
+    <value>Role/Group Name</value>
+  </data>
+  <data name="EditTemplateHeader" xml:space="preserve">
+    <value>Edit Contract Template</value>
+  </data>
+  <data name="NewContractTemplateHeader" xml:space="preserve">
+    <value>Create New Contract from Template</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Data Entry</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending Approval</value>
+  </data>
+  <data name="UnderAmend" xml:space="preserve">
+    <value>Under Amendment</value>
+  </data>
+  <data name="UnlinkRepertoireButton" xml:space="preserve">
+    <value>Unlink Repertoire</value>
+  </data>
+  <data name="ActivePassiveColumn" xml:space="preserve">
+    <value>Active / Passive</value>
+  </data>
+  <data name="ContractDetailsMenu" xml:space="preserve">
+    <value>Contract Details</value>
+  </data>
+  <data name="talentId" xml:space="preserve">
+    <value>Talent ID</value>
+  </data>
+  <data name="ContractAuditHistoryValid" xml:space="preserve">
+    <value>Please select a contract for audit history</value>
+  </data>
+  <data name="ChildContractPropAlert" xml:space="preserve">
+    <value>This contract has child contracts (listed below). Please ensure that your contract changes are also made to these child contracts, where applicable.</value>
+  </data>
+  <data name="LinkedContractPropAlert" xml:space="preserve">
+    <value>This contract has repertoire linked. Please ensure that your contract changes are also made to this repertoire, where applicable. To do this, create a custom Rights Review Work Queue by selecting this contract in the "linked contract" parameter, which will give you a work queue containing the linked repertoire. You will then be able to make changes to some or all of the repertoire, as necessary. Note that you will need to create separate work queues for updating resources/releases</value>
+  </data>
+  <data name="OpenContract" xml:space="preserve">
+    <value>Open Contract</value>
+  </data>
+  <data name="SelectRowAddressBook" xml:space="preserve">
+    <value>Please select a Group</value>
+  </data>
+  <data name="SelectRowForEditAddressBook" xml:space="preserve">
+    <value>Please select only one Group</value>
+  </data>
+</root>

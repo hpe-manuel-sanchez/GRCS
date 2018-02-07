@@ -1,0 +1,24 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel
+@using System.Web.Mvc.Html
+@using System.Linq
+@using MvcSiteMapProvider.Web.Html.Models
+
+
+<style type="text/css">
+.breadCrumbSeparator
+{
+    color:#143489;}
+</style>
+@foreach (var node in Model)
+{ 
+    <span id="@node.Description">
+    @Html.DisplayFor(m => node)
+    </span>
+       
+            if (node != Model.Last())
+            {
+                <text><label class="breadCrumbSeparator"> / </label></text>
+            }
+        
+    
+}

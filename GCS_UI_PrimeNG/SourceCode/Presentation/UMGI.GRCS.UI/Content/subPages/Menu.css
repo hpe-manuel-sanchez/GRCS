@@ -1,0 +1,116 @@
+﻿        .homeMainMenu
+        {
+             background-image: url('/GCS/Images/grs_sprite_img.png');
+             background-repeat: no-repeat;
+             background-position: -4px -139px;
+            
+           
+         
+        }
+        
+        .homeMenuImg
+        {
+           background: url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -8px -4px transparent;
+           margin-left: -3px; 
+           padding-left: 10px;
+           padding-right: 5px;
+        }
+       
+        
+     .mainMenuDownArr
+    {
+      background: url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -9px -1781px transparent;
+      height: 12px;
+    margin-left: 3px;
+    margin-right: -4px;
+    padding-left: 6px;
+    padding-right: 5px;
+    }
+    
+     .mainMenuRightArr
+    {
+     background: url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -9px -1803px transparent;
+     height: 12px;
+     position: absolute;
+     left: 218px;
+     padding-left: 6px;
+     padding-right: 5px;     
+    }
+    
+     .mainMenuRightArr_L1
+    {
+     background: url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -9px -1803px transparent;
+     height: 12px;
+     position: absolute;
+     left: 195px;
+     padding-left: 6px;
+     padding-right: 5px;
+     margin-top: -20px;   
+    }
+    
+      .mainMenuRightArr_L2
+    {
+     background: url("/GCS/Images/grs_sprite_img.png") no-repeat scroll -9px -1803px transparent;
+     height: 12px;
+     position: absolute;
+     left: 165px;
+     padding-left: 6px;
+     padding-right: 5px;
+     margin-top: -20px;   
+    }
+        
+        .homeMainMenu:hover
+        {
+             background-image: url('/GCS/Images/grs_sprite_img.png');
+             background-repeat: no-repeat;
+             background-position: -10px -139px;
+          
+          
+        }
+        
+        .reportsMainMenu
+        {
+             background-image: url('/GCS/Images/grs_sprite_img.png'); 
+                        
+             background-position: -247px -139px;             
+             background-position: -243px -139px\0;  
+             background-position: -245px -139px \9;    
+        }
+        
+       
+        .reportsMainMenu:hover
+        {
+             background-image: url('/GCS/Images/grs_sprite_img.png');
+             
+             background-position: -271px -139px;
+             background-position: -267px -139px\0;
+             background-position: -269px -139px \9;       
+        }
+        
+        .homeMainMenuInner
+        {
+           margin-left: 4px;
+           
+        }
+        
+    
+        .reportsMainMenuInner
+        {
+            margin-right: 4px;
+            border: none !important;
+        }
+        
+        .contrTempTxt
+        {
+            position: relative;
+            top: -15px;
+        }
+ .homeMainMenuActive
+        {
+             background-image: url('/GCS/Images/grs_sprite_img.png');
+             background-repeat: no-repeat;
+             background-position: -10px -139px;
+            
+           
+         
+        }

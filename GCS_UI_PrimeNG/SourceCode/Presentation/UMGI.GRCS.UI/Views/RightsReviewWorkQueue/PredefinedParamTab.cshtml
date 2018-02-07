@@ -1,0 +1,64 @@
+﻿@using System.Web.Mvc.Html
+@using UMGI.GRCS.Resx.Resource.UIResources
+
+<script src="@Url.Content("/GCS/Scripts/Custom/RightsReviewWorkqueue/ReleaseCustomParameters.js")" type="text/javascript"> </script>
+@* @model UMGI.GRCS.BusinessEntities.Entities.RightsReviewEntities.ResourceFilterParameters *@
+@model UMGI.GRCS.UI.Models.RightsReviewWQ.ReleaseRightsWorkQueueModel
+@{
+    
+    <link href="@Url.Content("/GCS/Content/SubPages/CustomSetting.min.css")"  rel="stylesheet" type="text/css" />
+    
+    <div class="predefinedParamTabContainer">
+
+    <div class="selectQueryLabel">
+    Select Predefined Query</div>
+
+
+    @if (ViewBag.referrerMessage == "Resource")
+        {
+        <div class="radioBtnContainer">
+             @for(int i=0;i < Model.ResourcePredefinedParameterType.Count();i++)
+             {
+                 var id = "ResourcePredefinedParameterType" + i;
+                        <div class="predefinedQueryRadio">@Html.RadioButtonFor(a => a.ResourcePredefinedParameterType, Model.ResourcePredefinedParameterType[i].Value, new { id = "ResourcePredefinedParameterType" + i }) <label for='@id'>@Model.ResourcePredefinedParameterType[i].Text </label> </div>
+             }
+        </div>  
+        }
+    else
+    {
+            <div class="radioBtnContainer">
+                
+                @for (int i = 0; i < Model.ReleasePredefinedParameterType.Count(); i++)
+                {
+                    var id = "ReleasePredefinedParameterType" + i;
+                    <div class="predefinedQueryRadio">@Html.RadioButtonFor(b => b.ReleasePredefinedParameterType, Model.ReleasePredefinedParameterType[i].Value, new { id = "ReleasePredefinedParameterType" + i }) <label for='@id'> @Model.ReleasePredefinedParameterType[i].Text </label></div>
+                }
+        
+            </div>
+    }
+
+    
+    </div>
+
+    <div class="fieldControl">
+        
+        
+    </div>
+    <div class="releaseRangeContainer">
+        <div class="releasedateRangeLabel">
+        Release Date Range:
+        <div class="maxSixMonths">(Max 6 Months)</div>
+            <!--@WorkQueueResource.ReleaseDateRange : (Max 6 Months)-->
+        </div>
+        <div class="releaseDate">
+            @Html.EditorFor(model => model.ReleaseDateRangeParams.PreDefinedFromDt)
+        </div>
+        <div class="releaseDate">
+            @Html.EditorFor(model => model.ReleaseDateRangeParams.PreDefinedToDt)
+        </div>
+        <div class="preDefReleaseChckBox">
+            <input type="checkbox" value="chkPreDefNoRlsDt" id="chkPreDefNoRlsDt" onclick="FnChkVal()" />
+            @WorkQueueResource.NoReleaseDate
+        </div>
+    </div>
+}

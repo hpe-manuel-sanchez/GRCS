@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.BaseEntities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:7778/Contract/Contract.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" />
+  <xs:complexType name="EntityInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientIpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityInformation" nillable="true" type="tns:EntityInformation" />
+  <xs:complexType name="Page">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPageDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAscendingOrder" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+          <xs:element minOccurs="0" name="SortField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalRows" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Page" nillable="true" type="tns:Page" />
+  <xs:complexType name="UserInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailId" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" minOccurs="0" name="GcsPermissions" nillable="true" type="q1:ArrayOfGcsPermission" />
+          <xs:element minOccurs="0" name="IsMimicUser" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MimicedRccAdminLoginName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" minOccurs="0" name="Permissions" nillable="true" type="q2:ArrayOfGrsPermission" />
+          <xs:element minOccurs="0" name="PreferredRoleId" type="xs:long" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Roles" nillable="true" type="q3:ArrayOfunsignedByte" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.AnaEntities" minOccurs="0" name="UserApplicationName" type="q4:AnaTargetApplication" />
+          <xs:element minOccurs="0" name="UserLoginName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="ArrayOfConsentPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsentPeriod" nillable="true" type="tns:ConsentPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsentPeriod" nillable="true" type="tns:ArrayOfConsentPeriod" />
+  <xs:complexType name="ConsentPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsentPeriod" nillable="true" type="tns:ConsentPeriod" />
+  <xs:complexType name="ArrayOfExploitations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Exploitations" nillable="true" type="tns:Exploitations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExploitations" nillable="true" type="tns:ArrayOfExploitations" />
+  <xs:complexType name="Exploitations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isRestricted" nillable="true" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exploitations" nillable="true" type="tns:Exploitations" />
+  <xs:complexType name="ArrayOfHoldbackPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HoldbackPeriod" nillable="true" type="tns:HoldbackPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHoldbackPeriod" nillable="true" type="tns:ArrayOfHoldbackPeriod" />
+  <xs:complexType name="HoldbackPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HoldbackPeriod" nillable="true" type="tns:HoldbackPeriod" />
+  <xs:complexType name="ArrayOfRestrictionOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RestrictionOptions" nillable="true" type="tns:RestrictionOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRestrictionOptions" nillable="true" type="tns:ArrayOfRestrictionOptions" />
+  <xs:complexType name="RestrictionOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RestrictionOptions" nillable="true" type="tns:RestrictionOptions" />
+  <xs:complexType name="ArrayOfRestrictions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Restrictions" nillable="true" type="tns:Restrictions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRestrictions" nillable="true" type="tns:ArrayOfRestrictions" />
+  <xs:complexType name="Restrictions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Restrictions" nillable="true" type="tns:Restrictions" />
+  <xs:complexType name="TemplateDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClearanceAdmin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClearenceCompanyId" type="xs:long" />
+          <xs:element minOccurs="0" name="LastModifiedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OwnerCompany" nillable="true" type="tns:StringIdentifier" />
+          <xs:element minOccurs="0" name="TemplateId" type="xs:long" />
+          <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TemplateType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TemplateDetails" nillable="true" type="tns:TemplateDetails" />
+  <xs:complexType name="StringIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="Value" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StringIdentifier" nillable="true" type="tns:StringIdentifier" />
+  <xs:complexType name="BaseSearch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPageDetails" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasSearchCriteria" type="xs:boolean" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" minOccurs="0" name="PageDetails" nillable="true" type="q5:FilterFields" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseSearch" nillable="true" type="tns:BaseSearch" />
+  <xs:complexType name="ArrayOfStringIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringIdentifier" nillable="true" type="tns:StringIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStringIdentifier" nillable="true" type="tns:ArrayOfStringIdentifier" />
+  <xs:complexType name="ArrayOfTemplateDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TemplateDetails" nillable="true" type="tns:TemplateDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTemplateDetails" nillable="true" type="tns:ArrayOfTemplateDetails" />
+  <xs:complexType name="ArrayOfClearanceAdminCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClearanceAdminCompany" nillable="true" type="tns:ClearanceAdminCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClearanceAdminCompany" nillable="true" type="tns:ArrayOfClearanceAdminCompany" />
+  <xs:complexType name="ClearanceAdminCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" base="q6:CompanyInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClearanceAdminCompany" nillable="true" type="tns:ClearanceAdminCompany" />
+  <xs:complexType name="ArrayOfUmgSigningCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UmgSigningCompany" nillable="true" type="tns:UmgSigningCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUmgSigningCompany" nillable="true" type="tns:ArrayOfUmgSigningCompany" />
+  <xs:complexType name="UmgSigningCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/UMGI.GRCS.BusinessEntities.Entities.ContractEntities" base="q7:CompanyInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UmgSigningCompany" nillable="true" type="tns:UmgSigningCompany" />
+  <xs:complexType name="BaseIdentifier">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseIdentifier" nillable="true" type="tns:BaseIdentifier" />
+  <xs:complexType name="RepertoireBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ArtistId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepertoireBase" nillable="true" type="tns:RepertoireBase" />
+</xs:schema>

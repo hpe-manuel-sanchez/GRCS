@@ -1,0 +1,79 @@
+﻿@model UMGI.GRCS.UI.Models.ClearenceUserTransferModel
+@using UMGI.GRCS.Resx.Resource.Layout;
+@{
+    ViewBag.Title = @UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.ProUserTransProjExistUserLabeljTransUserTitle;
+    Layout = "";
+}
+<link href="@Url.Content("/GCS/Scripts/jtable/themes/standard/green/jtable_green.min.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("/GCS/Scripts/jtable/jquery.jtable.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/json2.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/jquery.watermark.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceProjectSearch.js")" type="text/javascript"></script>
+<script src="@Url.Content("/GCS/Scripts/Custom/UserTransfer.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var mandatoryselectUser = '@UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.UserTransProjTransferAlertSelectUser';
+</script>
+@using (Html.BeginForm())
+{
+    if (ViewBag.ValidationMsg != null)
+    {
+    <div id="divMessage" class="validationMsg">@ViewBag.ValidationMsg</div>
+    }
+
+    <div id="showwaringingmsg" class="warningMsg"></div>
+
+    <div class="gridPanel">
+        <div class="tableGrid floatL width_80  marT_10">
+
+            <table style="width: 99%;" class="jtable" id="tblProjectsToUserTransfer">
+                <thead>
+                    <tr>
+                        <th class="jtable-command-column-header" style="width: 30%">
+                            @ClearanceLayout.UserTransProjectReferenceNumberHeader
+                        </th>
+                        <th class="jtable-command-column-header" style="width: 33%">
+                            @ClearanceLayout.UserTransProjectTitleHeader
+                        </th>
+                        <th class="jtable-command-column-header" style="width: 37%">
+                            @ClearanceLayout.UserTransPopupExistingRequestorHeader
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.listClearanceProjectTransfer.Count; i++)
+                    {
+                        <tr>
+                            <td style="width: 30%">@Html.DisplayFor(model => model.listClearanceProjectTransfer[i].ProjectReferenceId)</td>
+                            <td style="width: 33%">@Html.DisplayFor(model => model.listClearanceProjectTransfer[i].ProjectTitle)</td>
+                            <td style="width: 37%">@Html.DisplayFor(model => model.listClearanceProjectTransfer[i].CreatedUserName)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="floatR width_19" id="divShowUser">
+            <div id="tdWorkgroupUser" class="rightBox  marT_10">
+                <div class="title">@ClearanceLayout.UserTransPopupTransferToHeader</div>
+                <center>
+                    @Html.DropDownListFor(model => model.WorkgroupUser, new SelectList(Model.WorkgroupUser, "Value", "Text", Model.WorkgroupUser), @ClearanceLayout.ClrProjSearchSelectLabel)
+                </center>
+            </div>
+
+            <div class="floatR marT_10">
+                <input type="button"  id ="btnSubmit" value='@ClearanceLayout.UserTransPopupTransferSubmitButton' class="primbutton" />
+                <input type="button"  id ="btnCancel" value='@ClearanceLayout.UserTransPopupTransferCancelButton' class="secbutton" />
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $('#loadingDivPA').hide();
+        </script>
+    </div>
+
+    <div id="loadingDivPA">
+        <img alt="" src="/GCS/images/animated_gcs.gif" class="ajax-loader" />
+    </div>
+
+}

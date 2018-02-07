@@ -1,0 +1,219 @@
+﻿@*@model UMGI.GRCS.UI.Models.ClearanceProjectModel
+           
+ <table style="width: 100%;">        
+         
+
+        <tr>           
+
+            <td>
+                <table style="width: 100%; border:no;">
+                 <tr>
+                 
+                            <td align="right"><b>Label:</b></td>
+                            <td align="left">@Html.DropDownListFor(model => model.LabelList, new SelectList(Model.LabelList, "value", "text", Model.LabelList), "--Select--")</td> 
+
+                            <td align="right"><b>Music Type:</b></td>
+                            <td align="left">@Html.DropDownListFor(model => model.MusicType, new SelectList(Model.MusicType, "value", "text", Model.MusicType), "--Select--")</td>
+                                                        
+                            <td align="right"><b>Package:</b></td>                           
+                            <td align="left" width="20px">Package</td>    
+                    </tr>
+                    <tr>
+                            
+                            <td align="right"><b>Configuration Group:</b></td>
+                            <td align="left">@Html.DropDownListFor(model => model.ConfigGroupList, new SelectList(Model.ConfigGroupList, "value", "text", Model.ConfigGroupList), "--Select--")</td>
+                                  
+                            <td align="right"><b>Sound Track:</b></td>                               
+                            <td align="left">@Html.CheckBox("chkSoundTrack")</td> 
+
+                            <td align="right"><b>Number Of Components:</b></td>
+                            <td align="left">@Html.TextBox("txtNoOfComp")</td>  
+                                                                                            
+                    </tr>
+                    <tr>
+                            
+                            <td align="right"><b>Configuration:</b></td>
+                            <td align="left">@Html.DropDownListFor(model => model.ConfigList, new SelectList(Model.ConfigList, "value", "text", Model.ConfigList), "--Select--")</td>
+                                                         
+                            <td align="right"><b>Number Of Tracks:</b></td>
+                            <td align="left">@Html.TextBox("txtNoOfTrack")</td> 
+                              
+                            <td align="right"><b>Existing Releases in<br />Package:</b></td>  
+                            <td align="left">
+                            <select id="cmbExRelInPkg" runat="server">
+                            <option>-select-</option>
+                            <option id="1" value="Yes">Yes</option>
+                            <option id="2" value="No">No</option>
+                            </select>
+                            <input type="button" value="Search" />
+                            </td>
+                </tr>
+
+                <tr>
+                        
+                        <td colspan="5">&nbsp;</td>
+                        <td>@Html.ActionLink("(View Existing Release)", "", "")</td>
+                </tr>
+
+                
+                <tr>        
+                        <td colspan="5">&nbsp;</td>
+                        <td>@Html.TextArea("txtAreaComments", "") </td>
+                </tr>
+
+                <tr>     
+                                
+                      <td align="left" colspan="6"><b>Regular Detail</b></td>   
+                      
+                </tr>
+                <tr>       
+                                
+                    <td align="right" colspan="2"><b>Price Level:</b></td>    
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right" colspan="2"><b>@Html.CheckBox("chkRegDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                                          
+                </tr> 
+                  <tr>    
+                                     
+                    <td align="right" colspan="2"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="center" colspan="3">@Html.TextArea("txtRegAreaComments", "Comments")</td>     
+                                        
+                </tr> 
+                 <tr>       
+                                 
+                      <td align="left" colspan="6"><b>TV/Radio Break ICLA</b></td>   
+                      
+                </tr>
+                <tr>       
+                                
+                    <td align="right" colspan="2"><b>Price Level:</b></td>    
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right"><b>@Html.CheckBox("chkTVDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left" colspan="2"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                                        
+                </tr> 
+                  <tr>    
+                                 
+                    <td align="right" colspan="2"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="center" colspan="3">@Html.TextArea("txtTVAreaComments", "Comments")</td>     
+                                      
+                </tr> 
+                <tr>      
+                                
+                    <td align="right" colspan="2"><b>Exact PPD:</b></td>    
+                    <td align="left" colspan="4">@Html.TextBox("txtExPPD")</td>     
+                </tr> 
+                 <tr>       
+                                  
+                    <td align="right" colspan="2"><b>Estimated Retail:</b></td>    
+                    <td align="left" colspan="4">@Html.TextBox("txtEstRetail")</td>                    
+                </tr> 
+                <tr>         
+                              
+                      <td align="left" colspan="6"><b>Price Reduction</b></td>   
+                      
+                </tr>
+                 <tr>      
+                                   
+                    <td align="right" colspan="2"><b>Price Level:</b></td>    
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right"><b>@Html.CheckBox("chkPriceDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left" colspan="2"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                                          
+                </tr> 
+                  <tr>        
+                              
+                    <td align="right" colspan="2"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="center" colspan="3">@Html.TextArea("txtPriceAreaComments", "Comments")</td>     
+                </tr>           
+                <tr>                              
+                </tr>
+                 <tr>      
+                            
+                      <td align="left" colspan="6"><b>Club</b></td>   
+                      
+                </tr>
+                 <tr>  
+                                      
+                    <td align="right" colspan="2"><b>Price Level:</b></td>    
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right"><b>@Html.CheckBox("chkClubDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left" colspan="2"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                                      
+                </tr> 
+                  <tr>       
+                            
+                    <td align="right" colspan="2"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="center" colspan="3">@Html.TextArea("txtClubAreaComments", "Comments")</td>     
+                                      
+                </tr>      
+                <tr></tr>  
+                 <tr>        
+                             
+                      <td align="left" colspan="6"><b>Promotional</b></td>   
+                      
+                </tr>
+                 <tr>    
+                                 
+                    <td align="right" colspan="2"><b>Price Level:</b></td>    
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right"><b>@Html.CheckBox("chkPromoDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left" colspan="2"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                                        
+                </tr> 
+                  <tr>   
+                                 
+                    <td align="right" colspan="2"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="center" colspan="3">@Html.TextArea("txtPromoAreaComments", "Comments")</td>     
+                                         
+                </tr>  
+                <tr></tr>           
+                 <tr>      
+                           
+                      <td align="left" colspan="6"><b>Non Traditional</b></td>   
+                      
+                </tr>
+                 <tr>                 
+                     
+                    <td align="left"><b>@Html.RadioButton("rdoRadio","") ICLA </b></td>
+                    <td align="left"><b>@Html.RadioButton("rdoSuggFee","") Suggested Fee </b></td>                    
+                    <td align="right"><b>@Html.CheckBox("chkNonTradDeviatedICLA")Deviated ICLA Level</b></td>
+                    <td align="left"><select size="1" style="width:200px"><option>---select---</option></select></td>
+                    <td align="right"><b>Resource Fee:</b></td> 
+                    <td align="left">@Html.TextBox("txtResourceFee")</td>                   
+                </tr> 
+                  <tr>      
+                                
+                    <td align="right"><b>ICLA Level:</b></td>    
+                    <td align="left">@Html.Label("Top")</td>         
+                    <td align="right" colspan="2">@Html.TextArea("txtNonTradAreaComments", "Comments")</td>     
+                    <td align="right"><b>Deemed PPD:</b></td> 
+                    <td align="left">@Html.TextBox("txtDeemedPPD")</td>                          
+                </tr>     
+                 <tr>             
+                        
+                    <td align="right"><b>Invoice Price:</b></td>                        
+                    <td align="left">@Html.TextBox("txtInvPrice")</td>
+                    <td align="right"><b>ICLA Accounting Base:</b></td> 
+                    <td align="left" colspan="3">@Html.TextBox("txtICLAcc")</td>                           
+                                          
+                </tr>     
+                 <tr>  
+                                  
+                    <td align="right"><b>Selling Price Less VAT:</b></td>    
+                   <td align="left" colspan="5">@Html.TextBox("txtSellPrice")</td>    
+                    
+                                        
+                </tr>        
+                     
+               </table>
+            </td>
+        </tr>   
+             
+        </table>*@

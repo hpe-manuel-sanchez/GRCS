@@ -1,0 +1,64 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.Resx.Resource.ClearanceInbox
+@using System.Text; 
+
+<div id="inboxLeftPanel">
+	
+	<div id="clearanceInboxFilter">
+		<div id="inboxHeaderDiv">
+			<div id="filter">
+				<a id="inboxArrow" class="inboxArrow"></a>@Html.Label("", "Filters")
+			</div>
+			
+			<div id="save">
+				<a class="inboxSaveFilters" onclick="saveFilters();">@Html.Label("", "Save")</a>
+			</div>
+		</div>
+
+		<div id="contentDiv">
+
+			<div class="filter-leftnav-wrapper">
+				<div class="section-one inboxCnt">
+					<span class="inboxSpanClass">@Html.Label("", "Request Type:")</span>
+					@foreach (var requestType in Model.FilterCriteria.RequestType)
+					{
+						<div class="checkBoxWrapper">
+							<div class="checkBox floatL text-align-right">
+								<input type="checkbox" id="chkRequestType_@(requestType.Value)" class="regular-checkbox" value="@(requestType.Value)" name="requestType" @(requestType.Selected ? "checked" : "")/>
+							</div>
+							<div class="checkBoxLabel floatR text-align-left">
+								@Html.Label("", requestType.Text)
+							</div>
+						</div>
+					}
+				</div>
+		
+				<div class="section-two inboxCnt">
+					<span class="inboxSpanClass">@Html.Label("", "Scope:")</span>
+					@foreach (var scopeType in Model.FilterCriteria.ScopeType)
+					{
+						<div class="checkBoxWrapper">
+							<div class="checkBox floatL text-align-right">
+								<input type="radio" id="rdoScopeType_@(scopeType.Value)" class="regular-checkbox" value="@(scopeType.Value)" name="scopeType" @(scopeType.Selected ? "checked" : "")/>
+							</div>
+							<div class="checkBoxLabel floatR text-align-left">
+								@Html.Label("", scopeType.Text)
+							</div>
+						</div>
+					}
+				</div>
+		
+				<div class="section-four inboxCnt">
+					<div class="checkBoxWrapper text-align-center">
+						<input type="button" name="applyFilter" id="applyFilter" class="plbutton" value="Apply Filters" onclick="applyFilters();" />
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>		

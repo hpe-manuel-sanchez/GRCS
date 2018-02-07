@@ -1,0 +1,64 @@
+﻿#TblReviewerResourceGrid .RowCell,
+#TblReviewerResourceGrid .RowCell div,
+#TblReviewerResourceGrid .RowCell a,
+#TblReviewerTrackGrid .RowCell,
+#TblReviewerTrackGrid .RowCell div,
+#TblReviewerTrackGrid .RowCell a {
+    overflow: hidden !important;
+    -ms-text-overflow: ellipsis !important;
+    -o-text-overflow: ellipsis !important;
+    text-overflow: ellipsis !important;
+    line-height: normal;
+}
+
+
+#tabsReviewer {
+    display: inline-block !important;
+    overflow: visible !important;
+}
+
+
+#TblReviewerTrackGrid .TblReviewerTrackGrid_ManualPager,
+#TblReviewerResourceGrid .TblReviewerResourceGrid_ManualPager,
+#TblReviewerResourceGrid .RefreshPager,
+#TblReviewerTrackGrid .RefreshPager {
+    display: none !important;
+}
+
+#TblReviewerResourceGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}
+
+#TblReviewerTrackGrid .ParentMsgBar {
+    float: left !important;
+    margin-right: 5px;
+}
+
+
+.ui-state-default,
+.ui-multiselect-header ul,
+.ui-multiselect-checkboxes li,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    font-weight: normal;
+    font-size: 11px;
+}
+
+button {
+    width: 150px !important;
+}
+
+.align_top {
+    vertical-align: top;
+}
+
+.float_left {
+    float: left;
+}
+
+.content_header_box {
+    float: left;
+    vertical-align: top;
+    margin-right: 10px;
+}

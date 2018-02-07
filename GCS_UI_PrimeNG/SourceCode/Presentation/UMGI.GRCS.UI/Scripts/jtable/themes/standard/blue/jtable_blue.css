@@ -1,0 +1,229 @@
+﻿/******************************************************************************
+ * Name        : jtable jQuery plug-in 'standard blue' theme
+ * Author      : Halil İbrahim KALKAN
+ * Description : This file defines 'blue' colors for jtable standard theme.
+ *****************************************************************************/
+
+/* IMPORTS *******************************************************************/
+
+@import '../jtable_standard_base.css';
+
+/* MAIN ELEMENTS *************************************************************/
+
+/* Main container of all elements those are created by jtable plugin */
+div.jtable-main-container {
+    color: #000000;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+/* A div that contains title of the table (if any title supplied in options) */
+div.jtable-title {
+    background: url('title-bg.png') left;
+    color: #FFFFFF;
+    border-color: #C6D5E1;
+}
+
+/* Main table tag */
+table.jtable {
+    background-color: #C6D5E1;
+}
+
+/* HEADER ********************************************************************/
+
+/* All header cells in the table */
+table.jtable th {
+    background-color: #B8D0E9;
+    color: black;
+    height: 24px;
+    border: 1px solid #a4b7c9;   
+}
+
+/* PAGING ********************************************************************/
+
+/* Page numbers */
+.jtable-page-number,
+/* First page link */
+.jtable-page-number-first,
+/* Last page link */
+.jtable-page-number-last,
+/* Previous page link */
+.jtable-page-number-previous,
+/* Next page link */
+.jtable-page-number-next {
+    background-color: #CFDCE7;
+    border: 1px solid #a3bfd6;
+}
+
+/* Page numbers */
+.jtable-page-number:hover,
+/* First page link */
+.jtable-page-number-first:hover,
+/* Last page link */
+.jtable-page-number-last:hover,
+/* Previous page link */
+.jtable-page-number-previous:hover,
+/* Next page link */
+    .jtable-page-number-next:hover {
+    background-color: #9ec7e9;
+}
+
+/* Active/current page link */
+.jtable-page-number-active {
+    background-color: #4881b0;
+    border: 1px solid #a3bfd6;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ROWS **********************************************************************/
+
+/* All rows in the table */
+table.jtable tr {
+    background-color: #FFFFFF;
+    height: 22px;
+    border: 1px solid #a4b7c9;
+}
+
+/* Even rows */
+    table.jtable tr.jtable-row-even {
+    color: #000;
+    background-color: #f6f7f9;
+}
+
+/* Odd rows */
+    table.jtable tr.jtable-row-odd {
+    color: #000;
+    background-color: #EAF0F6;
+}
+
+/* Rows when mouse over */
+    table.jtable tr:hover {
+    background-color: #91B3D6;
+}
+
+/* Selected row */
+table.jtable tr.jtable-row-selected
+{
+    color: #333;
+    background-color: #3171bb;
+
+}
+
+/* Style for a child row */
+    table.jtable tr.jtable-child-row {
+    background-color: #b1f2ff;
+}
+
+/* ROW ANIMATIONS ***********************************************************/
+
+/* A 'new created row' style for animation */
+    table.jtable tr.jtable-row-created {
+    background-color: #00FF89;
+}
+
+/* An 'updated row style' for animation */
+    table.jtable tr.jtable-row-updated {
+    background-color: #00FFFF;
+}
+
+/* A 'deleting row style' for animation */
+    table.jtable tr.jtable-row-deleting {
+    background-color: #FF0000;
+}
+
+/* COMMAND BUTTONS ***********************************************************/
+
+/* 'add new record' link */
+span.jtable-add-record a {
+    color: #1E90FF;
+}
+
+/* FORM INPUT ELEMENTS *******************************************************/
+
+/* A div that contains a label (title) and input field */
+div.jtable-input-field-container {
+    background-color: #ECF2F6;
+    border-color: #C6D5E1;
+}
+
+/* BUSY MESSAGE AND PANEL ****************************************************/
+
+table td {
+    border: 1px solid #a4b7c9;  
+} 
+
+.tooltip {
+  position: inherit; 
+  cursor: help;  
+    display: inline-block;
+  text-decoration: none;
+  color: #222;
+  outline: none; 
+  z-index: 1;
+    height: 50%;
+    width: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+    .tooltip span {
+  visibility: hidden;
+  position: absolute; 
+  padding: 3px;
+  border: 2px solid #ccc; 
+  background-color: #ddd; 
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image: -moz-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image: -o-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+  background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));    
+  z-index: auto;
+        width: 150px;
+        word-wrap: break-word;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: auto;
+}
+
+    .tooltip:hover {
+  border: 0; /* IE6 fix */
+}
+
+        .tooltip:hover span {
+  visibility: visible;
+}
+
+.tooltip span:before,
+    .tooltip span:after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -8px;  
+  border-top: 8px solid #ddd;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;        
+  border-bottom: 0;  
+        z-index: -1;
+}
+
+    .tooltip span:before {
+  border-top-color: #ccc;
+  bottom: -8px;
+}
+
+/* Blue */
+
+.blue-tooltip span {
+  border-color: #59add4;
+  background-color: #61bde7;
+}
+
+    .blue-tooltip span:after {
+  border-top-color: #61bde7;
+}
+
+    .blue-tooltip span:before {
+  border-top-color: #59add4;
+}

@@ -1,0 +1,853 @@
+﻿@model UMGI.GRCS.UI.Models.ClearanceInboxModel 
+@using UMGI.GRCS.BusinessEntities.Entities.ClearanceInboxEntities
+@using UMGI.GRCS.BusinessEntities.Entities.AnaEntities
+@using System.Collections.Generic
+@using System.Web.Script.Serialization
+@using UMGI.GRCS.UI.Models
+
+
+<link href="@Url.Content("/GCS/Content/SubPages/Inbox/RightPanel-Reviewer.min.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("/GCS/Content/SubPages/pi-regular.min.css")" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#tabsReviewer").tabs();
+    });
+
+    $("#ddlRejectReasons").each(function () {
+        var s = this;
+        for (i = 0; i < s.length; i++)
+            s.options[i].title = s.options[i].text;
+        if (s.selectedIndex > -1)
+            s.onmousemove = function () { s.title = s.options[s.selectedIndex].text; };
+    });
+
+    $(document).ready(function () {
+        var assignedToData = '@Html.Raw(HttpUtility.JavaScriptStringEncode(ViewBag.AssignedTo))';
+        var assignedToOptions = "<option value='0' selected class='current'> </option>" + assignedToData;
+        var assignedToSelect = "<select style='width:135px' id='assignedToMultiple'>" + assignedToOptions + "</select>";
+        $("#ddlAssignToMultiple").html(assignedToSelect);
+    });
+
+</script>
+
+<!-- HEADER ONE START -->
+<div id="reviewerHeaderContent">
+    <div class="rightPanelHeader dark-green-background" id="reviewerHeader">
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix smallWidth-M">
+            @Html.HiddenFor(model => model.projectDetails.clrProjectId, new { id = "hdnclrProjectId" })
+            @Html.Hidden("projectRefNo", "", new { id = "hdnProjectRefNo" })
+            @Html.HiddenFor(model => model.projectDetails.RoleName, new { id = "hdnRoleName" })
+            @Html.HiddenFor(model => model.projectDetails.FolderId, new { id = "hdnFolderId" })
+            <a href="#" id="projectRefNum" onclick="viewProject(@Model.projectDetails.clrProjectId, @Model.projectDetails.ProjectType, @Model.projectDetails.ProjectType)" title="@Model.projectDetails.ProjectDetail" class="smallWidth-S text-align-left  text-color-white ">@Html.DisplayFor(model => model.projectDetails.ProjectReferenceNumber)</a>
+        </div>
+        <div class="inboxRightHeaderUpcNum floatL text-align-left margin-left-tenpix margin-top-threepix smallWidth-M remove-underline">
+            (@(Model.projectDetails.StatusDesc))
+        </div>
+        <!-- HEADER ONE ENDS -->
+        <!-- HEADER TWO START -->
+        <ul class="upper_header" style="color: #fff !important;">
+            @if (Model.projectDetails.AvailableActions != null)
+            {
+                foreach (var item in Model.projectDetails.AvailableActions.OrderBy(action => action.Order))
+                {
+                <li>&nbsp;|&nbsp;</li>
+                <li><a href="#" class="smallWidth-S text-align-left" style="color:#fff !important;" onclick="return actionOnSelectedItem('@item.Value','Reviewer')">@(item.Text)</a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+<!-- HEADER TWO ENDS -->
+<div class="clear1 text-align-left">
+    @if (Model.TasksList != null)
+    {
+        if (Model.TasksList.Count > 0)
+        {
+            var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsProjectLevel).SingleOrDefault();
+            if (taskval.Value)
+            {
+                var Rcomments = "";
+        <b>Review Comments: </b>
+        <br />
+    
+                if (ViewBag.ReviewComments != null)
+                {
+                    Rcomments = ViewBag.ReviewComments;
+                } 
+        @Html.Hidden("hdnRComments", Rcomments, new { id = "hdnRComments" })          
+        <textarea id="review_comment" rows="2" cols="30" onchange="return isValueChangedCss($(this));"></textarea>                      
+            }
+        }
+    }
+</div>
+
+<div id="tabsReviewer" class="clear">
+    <ul id="screenTabs" class="reviewerTab">
+        <li style="display: none" id="reviewerResourceListItem"><a href="#Reviewer_ResourceGrid" id="tablinkReviewer1"><span class="rightcurvePATab">Resources</span></a></li>
+        <li style="display: none" id="reviewerExistingResourceListItem"><a href="#wrapperexample2" id="tablinkReviewer2"><span class="rightcurvePATab">Resources of Existing Release</span></a></li>
+        <li style="display: block !important; margin-left: 5px; top: 3px !important;">
+            <ul class="upper_header">
+                <li style="padding-right: 10px;">
+                    <img src="/GCS/Images/save.gif" title="Save" onclick="return SaveReviewComments_AssignedTo('Reviewer');" title="Save" />&nbsp;&nbsp;
+                </li>
+                <li>RCC Handler:</li>
+                @if (Model.projectDetails.RccHandler != null)
+                {
+                    <li>
+                        <div id="rcc_handler">@Model.projectDetails.RccHandler.Select(r => r.Text).FirstOrDefault()</div>
+                    </li>
+                }
+                else
+                {
+                    <li style="margin-top: 0px;">
+                        <div id="rcc_hqandler">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    </li>
+                }
+                @if (Model.projectDetails.Upc != null)
+                {                                                                                                                                                                                          
+                    <li>&nbsp;&nbsp;&nbsp;| UPC:&nbsp;&nbsp;</li>         
+                    if (Model.projectDetails.Upc.Count > 2)
+                    {
+                    <li id="upc_text" title="@(string.Join(";", Model.projectDetails.Upc.ToArray()))" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                    }
+                    else
+                    {
+                    <li id="upc_text" class="tooltip">@(string.Join(";", Model.projectDetails.Upc.ToArray()))</li>
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+
+    <div class="rpi-wrapper">
+        <div class="content_header_box">
+            <input class="float_left align_top" type="checkbox" id="SelectAllAcrossPagesReviewer" />
+            <label class="float_left align_top">
+                <b style="vertical-align: middle;">Select All Across Pages</b>
+            </label>
+        </div>
+        @if (Model.projectDetails.RoleName != "UMGI Marketing Reviewer")
+        {
+            <div class="content_header_box">
+                <input class="float_left align_top" type="checkbox" id="chkEnableAssignedTo" />
+                <label class="float_left align_top"><b style="vertical-align: middle;">Assign To:&nbsp</b></label>
+                <div id="ddlAssignToMultiple" disabled="disabled" class="float_left align_top" />
+            </div>                           
+            <div class="content_header_box">
+                <input class="float_left align_top" type="checkbox" id="chkEnableCommentMultiple" />
+                <textarea class="float_left align_top" disabled="disabled" rows="4" cols="50" placeholder="Comment" id="txtCommentMultiple" />
+            </div>
+        }
+    </div>
+
+    <div id="reviewerWrapper" style="background-color: #fff;">
+        @Html.Hidden("GridSelectedValues", "", new { Id = "grdSelectedValues" })
+        @Html.Hidden("WorkgrpId", "", new { Id = "WorkGrpId" })
+
+
+        <div id="Reviewer_ResourceGrid" style="display: none">
+            @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblReviewerResourceGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblReviewerResourceGridData"])
+        .Caption("Reviewer")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .EnableOnDemand(true)
+        .AllowColumnSelection(false)
+        .EnableAlternateRowStyling()
+        .ActionMode(ActionMode.Server)
+        .TotalRecordCount((long)ViewData["TotalRecCountResourceGrid"])
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBeginResource"))
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadReviewerResource"))
+        .ClientSideEvents(evt => evt.Resized("GridResizedReviewerResource"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+        .AllowResizing(true)
+        .ColumnMinimumWidth(50)
+                          .RowDataBound(row =>
+                          {
+                              if (row.Data.RightsType_Desc == "NONUMG")
+                              {
+                                  row.HtmlAttributes["Style"] = "border: 1px solid #ff0000 !important; background-color: #ffeeee !important; color: #ff0000 !important; ";
+                              }
+                          })
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Data.IsDisabled)
+                {
+                    cell.HtmlAttributes.Add("disabled", true);
+                }
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")// for showing the actions based on Approval Status
+                {
+                    string KeyRoutedItemRequest = "";
+                    foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                    {
+                        if (KeyRoutedItemRequest == "")
+                        {
+                            KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                        }
+                        else
+                        {
+                            KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                        }
+                    }
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevProjectLevelAction).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        var workgroupid = cell.Data.WorkgroupId;
+                        var projectId = cell.Data.ClearanceProjectId;
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','ResourceGrid','Reviewer');\" class=\"hidden\"/>";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = false;
+                    }
+                    else
+                    {
+                        var workgroupid = cell.Data.WorkgroupId;
+                        var projectId = cell.Data.ClearanceProjectId;
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','ResourceGrid','Reviewer');\" class=\"visible\" />";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = true;
+                    }
+                }
+
+                if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+                    string link = "<div></div><a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + link;
+                    cell.HtmlAttributes["Title"] = cell.Data.LastRoutingComment;
+                }
+                if (cell.Column.MappingName == "ContractSummary")// for Binding the Contracts
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                        string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                        summaryText = summaryText.ToString().Replace('~', ' ');
+                        summaryText = summaryText.ToString().Replace('=', ' ');
+                        cell.Text = summaryText;
+                        cell.HtmlAttributes["Title"] = summaryText;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "AssignedToUserId")// for Binding the Assigned To user Id
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevAssignedToRequestLevel).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string value = "<div class='assignedToUserName' >" + cell.Data.AssignedToUserName + "<div>"
+                                        + "<input type=\"hidden\" class=\"assignedToUserId\" value='" + cell.Data.AssignedToUserId + "'></input>";
+                        cell.Text = value;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "Resource History")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewHistory).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string ResourceHistory = "<img src=\"/Gcs/Images/ClearanceInbox/revResourceHistory.png\" onclick=\"ResourceHistory(" + cell.Data.ResourceId + ");\" title=\"Review History\"/>";
+
+                        cell.Text = ResourceHistory;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "ReinstatedRequests")// for showing Resource History Popup
+                {
+                    if (cell.Data.IsReinstated)
+                    {
+                        var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewReInstateRequest).SingleOrDefault();
+                        if (taskval.Value)
+                        {
+
+                            string ReinstatedRequest = "<img src=\"/Gcs/Images/ClearanceInbox/reinstated.png\" title=\"Reinstated\"/>";
+                            cell.Text = ReinstatedRequest;
+                            cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                        }
+                        else
+                        {
+                            cell.Column.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "Comment")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsRequest).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string TextArea = "<TEXTAREA ROWS=2 class=\"textareaclass\" onblur=\"return isValueChangedCss($(this));\">" + cell.Data.Comment + "</TEXTAREA>";
+                        cell.Text = TextArea;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+
+                    }
+                }
+                if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+
+                if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+
+                if (cell.Column.MappingName == "ModifiedDateRequest")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRequestDate\" value='" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "'></input>";
+                    cell.Text = TextArea;
+                }
+                if (cell.Column.MappingName == "ModifiedDate")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRoutedItemDate\" value='" + serializer.Serialize(cell.Data.ModifiedDate) + "'></input>";
+                    cell.Text = TextArea;
+                }
+                if (cell.Column.MappingName == "WorkgroupId")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"hidden\" class=\"WorkgroupId\" value='" + cell.Data.WorkgroupId + "'></input>";
+                    cell.Text = TextArea;
+                }
+                if (cell.Column.MappingName == "UndoAction")// for showing Resource History Popup
+                {
+                    KeyValuePair<GcsTasks, bool> taskval = new KeyValuePair<GcsTasks, bool>();
+                    int actionId = 0;
+                    if (Model.TasksList.ContainsKey(GcsTasks.RevUndoArtistConsent))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevUndoArtistConsent).SingleOrDefault();
+                        actionId = 18;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToResearchFolder))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToResearchFolder).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToResearchFolder;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToInternalReviewFolder))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToInternalReviewFolder).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToInternalReviewFolder;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToSideArtistSample))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToSideArtistSample).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToSideArtistSample;
+                    }
+
+                    if (taskval.Value)
+                    {
+                        string KeyRoutedItemRequest = "";
+                        foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                        {
+                            if (KeyRoutedItemRequest == "")
+                            {
+                                KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                            }
+                            else
+                            {
+                                KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                            }
+                        }
+                        string RoutedItemDate = serializer.Serialize(cell.Data.ModifiedDate);
+                        string requestDate = serializer.Serialize(cell.Data.ModifiedDateRequest);
+                        string Beginslash = "\"\\/";
+                        string EndSlash = "\\/\"";
+                        RoutedItemDate = RoutedItemDate.ToString().Replace(Beginslash, "");
+                        RoutedItemDate = RoutedItemDate.ToString().Replace(EndSlash, "");
+                        requestDate = requestDate.ToString().Replace(Beginslash, "");
+                        requestDate = requestDate.ToString().Replace(EndSlash, "");
+
+                        string value = KeyRoutedItemRequest + "~" + RoutedItemDate + "~" + requestDate; // 8 for remind
+                        string UndoAction = "<img src=\"/Gcs/Images/ClearanceInbox/undo.png\" onclick=\"return UndoAction('" + value + "','Reviewer'," + actionId + ");\" title=\"Undo\" />";
+                        cell.Text = UndoAction;
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                }
+
+                if (cell.Column.MappingName == "ResourceId")
+                {
+                    string resourceId = "<input type=\"hidden\" class=\"resourceId\" value='" + cell.Data.ResourceId + "'></input>";
+                    cell.Text = resourceId;
+                }
+
+            }
+            else if (cell.TableCellType == GridTableCellType.ColumnHeaderCell)
+            {
+                cell.HtmlAttributes["id"] = cell.Column.MappingName;
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "border-right:0px !important";
+                }
+            }
+        })
+        .Column(cols =>
+        {
+            cols.Add("UndoAction").HeaderText(" ").Width(35);
+            cols.Add("ReinstatedRequests").HeaderText(" ").Width(35);
+            cols.Add(c => c.KeyRoutedItemRequest).HeaderText("<input id=\"ChkSelectAllResource\" type='checkbox' onclick=\"return SelectAllCheckboxes($(this),'ResourceGrid','Reviewer');\" />").Width(35).AllowSorting(false);
+            cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+            cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+            cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+            cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(88);
+            cols.Add(c => c.RequestType).HeaderText("Request Type").Width(88);
+            cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Width(90).Format("{0:dd MMM yyyy}");
+            cols.Add(c => c.LastRoutingComment).HeaderText("Comment").Width(150);
+            cols.Add(c => c.ContractSummary).HeaderText("Contracts").Width(150);
+            cols.Add(c => c.AssignedToUserId).HeaderText("Assigned To").Width(147);
+            cols.Add(c => c.Comment).HeaderText("Review Comments").Width(220);
+            cols.Add("Resource History").HeaderText(" ").Width(35);
+            cols.Add(c => c.ModifiedDateRequest).HeaderText("RequestDate").Visible(false);
+            cols.Add(c => c.ModifiedDate).HeaderText("RoutedItemDate").Visible(false);
+            cols.Add(c => c.RightsType_Desc).HeaderText("RightsTypeDesc").Width(5).Visible(false);
+            cols.Add(c => c.WorkgroupId).HeaderText("WorkgroupId").CssClass("WorkgroupId").Visible(false);
+            cols.Add(c => c.ResourceId).HeaderText("ResourceId").CssClass("ResourceId").Width(35).Visible(false);
+
+        }))
+        </div>
+
+        <div id="wrapperexample2" style="display: none">
+            @(Html.Syncfusion().Grid<ClearanceInboxRequest>("TblReviewerTrackGrid")
+        .Datasource((IEnumerable<ClearanceInboxRequest>)ViewData["TblReviewerTrackGridData"])
+        .Caption("Reviewer Tracks")
+        .PageSettings(page =>
+        {
+            page.PageSize(20);
+            page.PagerPosition(Position.TopLeft);
+            page.PagerStyle(PagerStyle.DefaultAndAdvanced);
+        })
+        .EnablePaging()
+        .EnableSorting()
+        .AllowColumnSelection(false)
+        .EnableOnDemand(true)
+        .EnableAlternateRowStyling()
+        .ActionMode(ActionMode.Server)
+        .TotalRecordCount((long)ViewData["TotalRecCountTrackGrid"])
+        .ClientSideEvents(evt => evt.OnActionBegin("GridBeginTrack"))
+        .ClientSideEvents(evt => evt.OnLoad("GridOnLoadReviewerTracks"))
+        .ClientSideEvents(evt => evt.Resized("GridResizedReviewerResource"))
+        .ClientSideEvents(evt => evt.Resized("resizeGridAction"))
+        .AllowResizing(true)
+        .ColumnMinimumWidth(50)
+        .QueryCellInfo(cell =>
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            if (cell.TableCellType == GridTableCellType.RecordFieldCell || cell.TableCellType == GridTableCellType.AlternateRecordFieldCell)
+            {
+                if (cell.Data.IsDisabled)
+                {
+                    cell.HtmlAttributes.Add("disabled", true);
+                }
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")// for showing the actions based on Approval Status
+                {
+                    string KeyRoutedItemRequest = "";
+                    foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                    {
+                        if (KeyRoutedItemRequest == "")
+                        {
+                            KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                        }
+                        else
+                        {
+                            KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                        }
+                    }
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevProjectLevelAction).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+
+                        var workgroupid = cell.Data.WorkgroupId;
+                        var projectId = cell.Data.ClearanceProjectId;
+                        var GridType = "TrackGrid";
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','" + GridType + "','Reviewer');\" class=\"hidden\"/>";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = false;
+                    }
+                    else
+                    {
+
+                        var workgroupid = cell.Data.WorkgroupId;
+                        var projectId = cell.Data.ClearanceProjectId;
+                        var GridType = "TrackGrid";
+                        string Chkbox = "<input type=\"checkbox\" value=" + KeyRoutedItemRequest + "^" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "^" + serializer.Serialize(cell.Data.ModifiedDate) + " onclick=\"oncheckboxCheck(this, " + "'" + workgroupid + "','" + projectId + "','" + GridType + "','Reviewer');\" class=\"visible\"/>";
+                        cell.Text = Chkbox;
+                        cell.Column.Visible = true;
+                    }
+                }
+
+                if (cell.Column.MappingName == "LastRoutingComment")// for showing the actions based on Approval Status
+                {
+                    string value = cell.Data.ClearanceProjectId + "~" + cell.Data.RequestId + "~" + cell.Data.RoutedItemId;
+                    long comment = cell.Data.CommentCount;
+                    string link = "<a href=\"#\" title=" + comment + "comment(s) available style=\"font-weight:bold;color:black;\" OnClick=\"return routingInfo(" + "'" + value + "'" + ")\">Routing Details</a>";
+                    cell.Text = cell.Data.LastRoutingComment + "<div></div>" + link;
+                    cell.HtmlAttributes["Title"] = cell.Data.LastRoutingComment;
+                }
+                if (cell.Column.MappingName == "ContractSummary")// for Binding the Contracts
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewContracts).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        var taskval1 = Model.TasksList.Where(x => x.Key == GcsTasks.RevManageContract).SingleOrDefault();
+                        string summaryText = string.Join(",", cell.Data.ContractSummary.ToArray());
+                        summaryText = summaryText.ToString().Replace('~', ' ');
+                        summaryText = summaryText.ToString().Replace('=', ' ');
+                        cell.Text = summaryText;
+                        cell.HtmlAttributes["Title"] = summaryText;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "AssignedToUserId")// for Binding the Assigned To user Id
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevAssignedToRequestLevel).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string value = "<div class='assignedToUserName' >" + cell.Data.AssignedToUserName + "<div>"
+                                        + "<input type=\"hidden\" class=\"assignedToUserId\" value='" + cell.Data.AssignedToUserId + "'></input>";
+                        cell.Text = value;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "Resource History")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewHistory).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string ResourceHistory = "<img src=\"/GCS/Images/ClearanceInbox/revResourceHistory.png\" onclick=\"ResourceHistory(" + cell.Data.ResourceId + ");\" title=\"Review History\"/>";
+                        cell.Text = ResourceHistory;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "ReinstatedRequests")// for showing Resource History Popup
+                {
+                    if (cell.Data.IsReinstated)
+                    {
+                        var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevViewReInstateRequest).SingleOrDefault();
+                        if (taskval.Value)
+                        {
+
+                            string ReinstatedRequest = "<img src=\"/Gcs/Images/ClearanceInbox/reinstated.png\" title=\"Reinstated\"/>";
+                            cell.Text = ReinstatedRequest;
+                            cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                        }
+                        else
+                        {
+                            cell.Column.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+                if (cell.Column.MappingName == "Comment")// for showing Resource History Popup
+                {
+                    var taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevReviewCommentsRequest).SingleOrDefault();
+                    if (taskval.Value)
+                    {
+                        string TextArea = "<TEXTAREA ROWS=2 class=\"textareaclass\" onblur=\"return isValueChangedCss($(this));\">" + cell.Data.Comment + "</TEXTAREA>";
+                        cell.Text = TextArea;
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "PrimaryArtistName")
+                {
+                    cell.HtmlAttributes["Title"] = cell.Data.PrimaryArtistName ?? string.Empty;
+                }
+
+                if (cell.Column.MappingName == "ResourceTitle")
+                {
+                    string newFieldValue = cell.Data.ResourceTitle;
+
+                    if (cell.Data != null && !string.IsNullOrEmpty(cell.Data.VersionTitle))
+                        newFieldValue = cell.Data.ResourceTitle + " [" + cell.Data.VersionTitle + "]";
+
+                    cell.Text = newFieldValue;
+                    cell.HtmlAttributes["Title"] = newFieldValue;
+                }
+
+                if (cell.Column.MappingName == "ModifiedDateRequest")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRequestDate\" value='" + serializer.Serialize(cell.Data.ModifiedDateRequest) + "'></input>";
+                    cell.Text = TextArea;
+
+                }
+                if (cell.Column.MappingName == "ModifiedDate")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"textbox\" class=\"ModifiedRoutedItemDate\" value='" + serializer.Serialize(cell.Data.ModifiedDate) + "'></input>";
+                    cell.Text = TextArea;
+
+                }
+                if (cell.Column.MappingName == "WorkgroupId")// for showing/hiding configuratio column
+                {
+                    string TextArea = "<input type=\"hidden\" class=\"WorkgroupId\" value='" + cell.Data.WorkgroupId + "'></input>";
+                    cell.Text = TextArea;
+                }
+                if (cell.Column.MappingName == "UndoAction")// for showing Resource History Popup
+                {
+                    KeyValuePair<GcsTasks, bool> taskval = new KeyValuePair<GcsTasks, bool>();
+                    int actionId = 0;
+                    if (Model.TasksList.ContainsKey(GcsTasks.RevUndoArtistConsent))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.RevUndoArtistConsent).SingleOrDefault();
+                        actionId = 18;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToResearchFolder))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToResearchFolder).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToResearchFolder;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToInternalReviewFolder))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToInternalReviewFolder).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToInternalReviewFolder;
+                    }
+                    else if (Model.TasksList.ContainsKey(GcsTasks.UndoMoveToSideArtistSample))
+                    {
+                        taskval = Model.TasksList.Where(x => x.Key == GcsTasks.UndoMoveToSideArtistSample).SingleOrDefault();
+                        actionId = (int)GcsTasks.UndoMoveToSideArtistSample;
+                    }
+
+                    if (taskval.Value)
+                    {
+                        string KeyRoutedItemRequest = "";
+                        foreach (KeyValuePair<string, string> kv in cell.Data.KeyRoutedItemRequest)
+                        {
+                            if (KeyRoutedItemRequest == "")
+                            {
+                                KeyRoutedItemRequest = kv.Key + "," + kv.Value;
+                            }
+                            else
+                            {
+                                KeyRoutedItemRequest = KeyRoutedItemRequest + "|" + kv.Key + "," + kv.Value;
+                            }
+                        }
+                        string RoutedItemDate = serializer.Serialize(cell.Data.ModifiedDate);
+                        string requestDate = serializer.Serialize(cell.Data.ModifiedDateRequest);
+                        string Beginslash = "\"\\/";
+                        string EndSlash = "\\/\"";
+                        RoutedItemDate = RoutedItemDate.ToString().Replace(Beginslash, "");
+                        RoutedItemDate = RoutedItemDate.ToString().Replace(EndSlash, "");
+                        requestDate = requestDate.ToString().Replace(Beginslash, "");
+                        requestDate = requestDate.ToString().Replace(EndSlash, "");
+
+                        string value = KeyRoutedItemRequest + "~" + RoutedItemDate + "~" + requestDate; // 8 for remind
+                        string UndoAction = "<img src=\"/Gcs/Images/ClearanceInbox/undo.png\" onclick=\"return UndoAction('" + value + "','Reviewer'," + actionId + ");\" title=\"Undo\" />";
+                        cell.Text = UndoAction;
+                        cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                    }
+                    else
+                    {
+                        cell.Column.Visible = false;
+                    }
+                }
+
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "vertical-align:middle !important";
+                }
+
+                if (cell.Column.MappingName == "ResourceId")
+                {
+                    string resourceId = "<input type=\"hidden\" class=\"resourceId\" value='" + cell.Data.ResourceId + "'></input>";
+                    cell.Text = resourceId;
+                }
+
+            }
+            else if (cell.TableCellType == GridTableCellType.ColumnHeaderCell)
+            {
+                if (cell.Column.MappingName == "KeyRoutedItemRequest")
+                {
+                    cell.HtmlAttributes["style"] = "border-right:0px !important";
+                }
+            }
+        })
+        .Column(cols =>
+        {
+            cols.Add("UndoAction").HeaderText(" ").Width(35);
+            cols.Add("ReinstatedRequests").HeaderText(" ").Width(35);
+            cols.Add(c => c.KeyRoutedItemRequest).HeaderText("<input id=\"ChkSelectAllTrack\" type='checkbox' onclick=\"return SelectAllCheckboxes($(this),'TrackGrid','Reviewer');\" />").Format("<input type='checkbox' />").Width(35).AllowSorting(false);
+            cols.Add(c => c.Upc).HeaderText("UPC").Width(110);
+            cols.Add(c => c.PrimaryArtistName).HeaderText("Artist Name").Width(150);
+            cols.Add(c => c.ResourceTitle).HeaderText("Resource").Width(150);
+            cols.Add(c => c.Isrc).HeaderText("ISRC").Width(100);
+            cols.Add(c => c.ResourceType).HeaderText("Resource Type").Width(88);
+            cols.Add(c => c.RequestType).HeaderText("Request Type").Width(88);
+            cols.Add(c => c.Configuration).HeaderText("Configuration").Width(90);
+            cols.Add(c => c.CreatedDate).HeaderText("Submission Date").Width(90).Format("{0:dd MMM yyyy}");
+            cols.Add(c => c.LastRoutingComment).HeaderText("Comment").Width(150);
+            cols.Add(c => c.ContractSummary).HeaderText("Contracts").Width(150);
+            cols.Add(c => c.AssignedToUserId).HeaderText("Assigned To").Width(147);
+            cols.Add(c => c.Comment).HeaderText("Review Comments").Width(220);
+            cols.Add("Resource History").HeaderText(" ").Width(35);
+            cols.Add(c => c.ModifiedDateRequest).HeaderText("RequestDate").Visible(false);
+            cols.Add(c => c.ModifiedDate).HeaderText("RoutedItemDate").Visible(false);
+            cols.Add(c => c.WorkgroupId).HeaderText("WorkgroupId").CssClass("WorkgroupId").Visible(false);
+            cols.Add(c => c.ResourceId).HeaderText("ResourceId").CssClass("ResourceId").Width(35).Visible(false);
+        }))
+        </div>
+    </div>
+</div>
+
+<div id="popup-request-approve" class="always-hidden">
+    <div style="margin: 3px 5px; position: relative;">
+        <div>
+            <label class="labelbold">Please enter comments (Optional)</label>
+        </div>
+        <div>
+            <textarea id="txt-request-approve-comments" rows="5" cols="20"></textarea>
+        </div>
+        <div class="floatL text-align-left pop-button4" style="padding-top: 10px;">
+            <input id="btn-request-approve-approve" class=" plbutton" type="button" value="Approve" />
+            <input id="btn-request-approve-cancel" type="button" class=" plbutton" value="Cancel" />
+        </div>
+    </div>
+</div>
+
+<div id="popup-request-conditionallyapprove" class="always-hidden">
+    <div style="margin: 3px 5px; position: relative;">
+        <div>
+            <label class="labelbold">Please enter comments</label>
+        </div>
+        <div>
+            <textarea id="txt-request-conditionallyapprove-comments" rows="5" cols="20"></textarea>
+        </div>
+        <div class="floatL text-align-left pop-button4" style="padding-top: 10px;">
+            <input id="btn-request-conditionallyapprove-conditionallyapprove" class=" plbutton" type="button" value="Conditionally Approve" />
+            <input id="btn-request-conditionallyapprove-cancel" type="button" class=" plbutton" value="Cancel" />
+        </div>
+    </div>
+</div>
+
+<div id="popup-request-rejectrequest" class="always-hidden">
+    <div style="margin: 3px 5px; position: relative;">
+        <div>
+            <label class="labelbold">Please select a comment and/or enter comments</label>
+        </div>
+        <div>
+            <label class="labelbold">Predefined reason for rejection :</label>
+        </div>
+        <br />
+        <div>
+            @if (@ViewBag.RejectReasons != null)
+            {
+                @Html.DropDownList("ddl-request-rejectrequest-reason", new SelectList(@ViewBag.RejectReasons, "Value", "Text"), "--  Select a Reason for Rejection  --", new { id = "ddlRejectReasons", style = "max-width:300px" })
+            }
+        </div>
+        <br />
+        <div>
+            <textarea id="txt-request-rejectrequest-comments" rows="5" cols="20"></textarea>
+        </div>
+        <br />
+        <div class="floatL text-align-left pop-button2" style="padding-top: 10px;">
+            <input id="btn-request-rejectrequest-reject" type="button" class="plbutton" value="Reject" />
+            <input id="btn-request-rejectrequest-cancel" type="button" class="plbutton" value="Cancel" />
+        </div>
+    </div>
+</div>
+
+<div id="popup-request-dispatch" class="always-hidden" style="overflow-Y: auto;">
+    <div style="margin: 3px 5px; position: relative;">
+        <div>
+            <label class="labelbold">Select a Workgroup</label>
+        </div>
+        <div>
+            <div id="div-request-dispatch-workgroups" class="dispatchDv">
+                <table class="inboxTable nomargin" id="inboxTable">
+                    @foreach (ClearanceInboxDispatch dispatchWorkgroup in @ViewBag.DispatchWorkgroups)
+                    {
+                        <tr>
+                            <td>
+                                <span>
+                                    <input type="radio" id="rdoDispatchWorkgroup_@(dispatchWorkgroup.WorkgroupId)" class="regular-checkbox" value="@(dispatchWorkgroup.WorkgroupId)" name="dispatchWorkgroup"/>
+                                </span>
+                            </td>
+                            <td><span>@dispatchWorkgroup.WorkgroupName</span></td>
+                            @if (dispatchWorkgroup.WorkgroupPrimaryUser != null)
+                            {
+                                <td><span>@String.Join("; ", dispatchWorkgroup.WorkgroupPrimaryUser)</span></td>
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="floatL text-align-left pop-button2" style="padding-top: 10px;">
+            <input id="btn-request-dispatch-dispatch" type="button" class="plbutton" value="Dispatch" />
+            <input id="btn-request-dispatch-cancel" type="button" class="plbutton" value="Cancel" />
+        </div>
+    </div>
+</div>
+
+<div id="popup-request-routetorccadmin" class="always-hidden">
+    <div style="margin: 3px 5px; position: relative;">
+        <div>
+            <label class="labelbold">Please enter comments</label>
+        </div>
+        <div>
+            <div id="div-request-RoutetoRCC-workgroups">
+                <textarea id="txt-request-routetorccadmin-comments"></textarea>
+            </div>
+        </div>
+        <div class="floatL text-align-left pop-button3" style="padding-top: 10px;">
+            <input id="btn-request-routetorccadmin-routetorccadmin" type="button" class="plbutton" value="Route to RCC Admin" />
+            <input id="btn-request-routetorccadmin-cancel" type="button" class="plbutton" value="Cancel" />
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("/GCS/Scripts/Custom/ClearanceInbox/RightPanelReviewer.js")" type="text/javascript"></script>
