@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RepertoiretDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RepertoiretDataModelStoreContainer">
+    <EntitySet Name="Artist" EntityType="RepertoiretDataModel.Store.Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Project_Release" EntityType="RepertoiretDataModel.Store.Clr_Project_Release" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Company" EntityType="RepertoiretDataModel.Store.Company" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Country" EntityType="RepertoiretDataModel.Store.Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Interface_Log" EntityType="RepertoiretDataModel.Store.Interface_Log" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Label" EntityType="RepertoiretDataModel.Store.Label" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Lookup" EntityType="RepertoiretDataModel.Store.Lookup" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Lookup_Type" EntityType="RepertoiretDataModel.Store.Lookup_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Package" EntityType="RepertoiretDataModel.Store.Package" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Preclearance" EntityType="RepertoiretDataModel.Store.Preclearance" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Preclearance_Country" EntityType="RepertoiretDataModel.Store.Preclearance_Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Preclearance_Territory" EntityType="RepertoiretDataModel.Store.Preclearance_Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Project" EntityType="RepertoiretDataModel.Store.Project" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Project_Artist" EntityType="RepertoiretDataModel.Store.Project_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Project_Contract" EntityType="RepertoiretDataModel.Store.Project_Contract" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Project_Release" EntityType="RepertoiretDataModel.Store.Project_Release" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Project_Resource" EntityType="RepertoiretDataModel.Store.Project_Resource" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Release" EntityType="RepertoiretDataModel.Store.Release" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Release_Artist" EntityType="RepertoiretDataModel.Store.Release_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Release_Right" EntityType="RepertoiretDataModel.Store.Release_Right" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource" EntityType="RepertoiretDataModel.Store.Resource" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource_Artist" EntityType="RepertoiretDataModel.Store.Resource_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource_Right" EntityType="RepertoiretDataModel.Store.Resource_Right" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Rights_Roll_Up" EntityType="RepertoiretDataModel.Store.Rights_Roll_Up" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Task" EntityType="RepertoiretDataModel.Store.Task" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Temp_Repertoire" EntityType="RepertoiretDataModel.Store.Temp_Repertoire" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Track" EntityType="RepertoiretDataModel.Store.Track" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Track_Right" EntityType="RepertoiretDataModel.Store.Track_Right" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Clr_Project_Release" EntitySet="Clr_Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="RepertoiretDataModel.Store.FK_COMPANY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOOKUP_LOOKUP_TYPE_ID" Association="RepertoiretDataModel.Store.FK_LOOKUP_LOOKUP_TYPE_ID">
+      <End Role="Lookup_Type" EntitySet="Lookup_Type" />
+      <End Role="Lookup" EntitySet="Lookup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACKAGE_PARENT_ID" Association="RepertoiretDataModel.Store.FK_PACKAGE_PARENT_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACKAGE_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_PACKAGE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" Association="RepertoiretDataModel.Store.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Preclearance_Country" EntitySet="Preclearance_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Project_Artist" EntitySet="Project_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_ARTIST_PROJECT_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_ARTIST_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Artist" EntitySet="Project_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_CONTRACT_PROJECT_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_CONTRACT_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Contract" EntitySet="Project_Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_LABLE_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_LABLE_ID">
+      <End Role="Label" EntitySet="Label" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELEASE_PROJECT_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_RELEASE_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Release" EntitySet="Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELEASE_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_RELEASE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Project_Release" EntitySet="Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RESOURCE_PROJECT_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_RESOURCE_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Resource" EntitySet="Project_Resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RESOURCE_RESOURCE_ID" Association="RepertoiretDataModel.Store.FK_PROJECT_RESOURCE_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Project_Resource" EntitySet="Project_Resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.Store.FK_RELEASE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_RELEASE_ARTIST_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_RIGHT_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_RELEASE_RIGHT_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Release_Right" EntitySet="Release_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.Store.FK_RESOURCE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_RESOURCE_ID" Association="RepertoiretDataModel.Store.FK_RESOURCE_ARTIST_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_RIGHT_RESOURCE_ID" Association="RepertoiretDataModel.Store.FK_RESOURCE_RIGHT_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Right" EntitySet="Resource_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RELEASE_ID" Association="RepertoiretDataModel.Store.FK_TRACK_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RESOURCE_ID" Association="RepertoiretDataModel.Store.FK_TRACK_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RIGHT_TRACK_ID" Association="RepertoiretDataModel.Store.FK_TRACK_RIGHT_TRACK_ID">
+      <End Role="Track" EntitySet="Track" />
+      <End Role="Track_Right" EntitySet="Track_Right" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="Artist_Id" />
+    </Key>
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Talent_Id" Type="bigint" Nullable="false" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Name" Type="nvarchar" Nullable="false" MaxLength="520" />
+    <Property Name="Contributor_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Clr_Project_Release">
+    <Key>
+      <PropertyRef Name="Clr_Project_Release_Id" />
+    </Key>
+    <Property Name="Clr_Project_Release_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Sales_Channel_Id" Type="bigint" Nullable="false" />
+    <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Is_Multi_Artist" Type="bit" />
+    <Property Name="Is_Compilation" Type="bit" />
+    <Property Name="Is_Existing" Type="bit" />
+    <Property Name="Release_Dt" Type="date" />
+    <Property Name="Price_Level_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Deviated_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Deviated_Comment" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar" MaxLength="500" />
+    <Property Name="Deemed_Ppd_Price" Type="money" />
+    <Property Name="Invoice_Price" Type="money" />
+    <Property Name="Selling_Price" Type="money" />
+    <Property Name="Icla_Base_Price" Type="money" />
+    <Property Name="Estimated_Retail_Price" Type="money" />
+    <Property Name="Exact_Ppd_Price" Type="money" />
+    <Property Name="Resource_Fee" Type="money" />
+    <Property Name="Is_Icla_Level_Deviated" Type="bit" />
+    <Property Name="Is_Icla" Type="bit" />
+    <Property Name="Is_Suggestedfee" Type="bit" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Name="Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Id" Type="bigint" />
+    <Property Name="Company_Account_Id" Type="bigint" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="120" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Is_Grc" Type="bit" />
+    <Property Name="Isac_Code" Type="varchar" MaxLength="6" />
+    <Property Name="Company_Type_Code" Type="varchar" MaxLength="2" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Name="Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Name" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Iso_Code_2" Type="varchar" MaxLength="5" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Interface_Log">
+    <Key>
+      <PropertyRef Name="Interface_Log_Id" />
+    </Key>
+    <Property Name="Interface_Log_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Interface_Type" Type="tinyint" />
+    <Property Name="Source_System" Type="varchar" MaxLength="50" />
+    <Property Name="Xml_Content" Type="xml" />
+    <Property Name="Xml_Count" Type="bigint" />
+    <Property Name="Item_Id" Type="bigint" />
+    <Property Name="Item_Type" Type="tinyint" />
+    <Property Name="Error" Type="varchar(max)" />
+    <Property Name="No_Of_Retry" Type="int" />
+    <Property Name="Delivery_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Label">
+    <Key>
+      <PropertyRef Name="Label_Id" />
+    </Key>
+    <Property Name="Label_Id" Type="bigint" Nullable="false" />
+    <Property Name="Label_Name" Type="varchar" MaxLength="75" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Lookup_Id" />
+    </Key>
+    <Property Name="Lookup_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Lookup_Type_Id" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Short_Description" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Display_Order" Type="tinyint" />
+    <Property Name="Is_Default" Type="char" MaxLength="1" />
+    <Property Name="R2_Code" Type="varchar" MaxLength="6" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Lookup_Type">
+    <Key>
+      <PropertyRef Name="Lookup_Type_Id" />
+    </Key>
+    <Property Name="Lookup_Type_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Package_Id" />
+    </Key>
+    <Property Name="Package_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Parent_Id" Type="bigint" Nullable="false" />
+    <Property Name="Sequence" Type="bigint" Nullable="false" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Source_Id" Type="bigint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Preclearance">
+    <Key>
+      <PropertyRef Name="Preclearance_Id" />
+    </Key>
+    <Property Name="Preclearance_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Right_Set_Id" Type="bigint" Nullable="false" />
+    <Property Name="Preclearance_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Is_Preclearance" Type="bit" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Source_Id" Type="bigint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Source_Reference_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Preclearance_Country">
+    <Key>
+      <PropertyRef Name="Preclearance_Country_Id" />
+    </Key>
+    <Property Name="Preclearance_Country_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Right_Set_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Included_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Source_Id" Type="bigint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Source_Reference_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Preclearance_Territory">
+    <Key>
+      <PropertyRef Name="Preclearance_Territory_Id" />
+    </Key>
+    <Property Name="Preclearance_Territory_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Right_Set_Id" Type="bigint" Nullable="false" />
+    <Property Name="Territory_Id" Type="bigint" Nullable="false" />
+    <Property Name="Included_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Source_Id" Type="bigint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Source_Reference_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Admin_Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="Is_Contract_Required" Type="bit" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Project_Artist">
+    <Key>
+      <PropertyRef Name="Project_Artist_Id" />
+    </Key>
+    <Property Name="Project_Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Project_Contract">
+    <Key>
+      <PropertyRef Name="Project_Contract_Id" />
+    </Key>
+    <Property Name="Project_Contract_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Contract_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Project_Release">
+    <Key>
+      <PropertyRef Name="Project_Release_Id" />
+    </Key>
+    <Property Name="Project_Release_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Project_Resource">
+    <Key>
+      <PropertyRef Name="Project_Resource_Id" />
+    </Key>
+    <Property Name="Project_Resource_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Release">
+    <Key>
+      <PropertyRef Name="Release_Id" />
+    </Key>
+    <Property Name="Release_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Release_Id" Type="bigint" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Grid" Type="varchar" MaxLength="25" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Version_Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Configuration_Id" Type="varchar" MaxLength="20" />
+    <Property Name="Catalogue_Number" Type="varchar" MaxLength="50" />
+    <Property Name="P_Company_Id" Type="bigint" />
+    <Property Name="P_Year" Type="int" />
+    <Property Name="P_Notice_Extension" Type="nvarchar(max)" />
+    <Property Name="Earliest_Release_Dt" Type="date" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Is_Mac" Type="bit" />
+    <Property Name="Is_Ost" Type="bit" />
+    <Property Name="Music_Class_Type" Type="tinyint" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="No_Components" Type="int" />
+    <Property Name="No_Tracks" Type="int" />
+    <Property Name="Scope_Type" Type="tinyint" />
+    <Property Name="R2_Workflow_Status_Type" Type="tinyint" />
+    <Property Name="Is_Upc_Manual" Type="bit" />
+    <Property Name="Configuration_Group_Code" Type="varchar" MaxLength="4" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Release_Artist">
+    <Key>
+      <PropertyRef Name="Release_Artist_Id" />
+    </Key>
+    <Property Name="Release_Artist_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Release_Artist_Id" Type="bigint" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Release_Right">
+    <Key>
+      <PropertyRef Name="Release_Right_Id" />
+    </Key>
+    <Property Name="Release_Right_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Right_Set_Id" Type="bigint" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Assigned_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Resource_Id" />
+    </Key>
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Resource_Id" Type="bigint" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Isrc" Type="varchar" MaxLength="20" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rights_Type" Type="tinyint" />
+    <Property Name="Version_Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Resource_Type" Type="tinyint" />
+    <Property Name="Genre_Id" Type="varchar" MaxLength="24" />
+    <Property Name="P_Company_Id" Type="bigint" />
+    <Property Name="P_Year" Type="int" />
+    <Property Name="P_Notice_Extension" Type="nvarchar" MaxLength="250" />
+    <Property Name="Is_Sample_Exists" Type="bit" />
+    <Property Name="Sample_Credit" Type="nvarchar" />
+    <Property Name="Is_Side_Artist_Exists" Type="bit" />
+    <Property Name="Earliest_Release_Dt" Type="date" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Source_Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Live_Studio_Type" Type="tinyint" />
+    <Property Name="Music_Class_Type" Type="tinyint" />
+    <Property Name="Music_Time" Type="varchar" MaxLength="20" />
+    <Property Name="R2_Resource_Company_Link_Id" Type="bigint" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Resource_Artist">
+    <Key>
+      <PropertyRef Name="Resource_Artist_Id" />
+    </Key>
+    <Property Name="Resource_Artist_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Resource_Artist_Id" Type="bigint" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Sequence_No" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Resource_Right">
+    <Key>
+      <PropertyRef Name="Resource_Right_Id" />
+    </Key>
+    <Property Name="Resource_Right_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Right_Set_Id" Type="bigint" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Assigned_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Rights_Roll_Up">
+    <Key>
+      <PropertyRef Name="Rights_Roll_Up_Id" />
+    </Key>
+    <Property Name="Rights_Roll_Up_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Item_Type" Type="tinyint" />
+    <Property Name="Item_Id" Type="bigint" Nullable="false" />
+    <Property Name="No_Of_Retry" Type="int" />
+    <Property Name="Status_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Date" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Task_Id" />
+    </Key>
+    <Property Name="Task_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Task_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Status_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Review_Reason_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Owner_Company_Id" Type="bigint" />
+    <Property Name="Item_Id" Type="bigint" />
+    <Property Name="Item_Type" Type="tinyint" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Temp_Repertoire">
+    <Key>
+      <PropertyRef Name="Temp_Repertoire_Id" />
+    </Key>
+    <Property Name="Temp_Repertoire_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="R2_Repertoire_Id" Type="bigint" Nullable="false" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Grid" Type="varchar" MaxLength="25" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Rights_Type" Type="tinyint" />
+    <Property Name="Version_Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Configuration__Id" Type="varchar" MaxLength="20" />
+    <Property Name="Catalogue_Number" Type="varchar" MaxLength="50" />
+    <Property Name="P_Company_Id" Type="bigint" />
+    <Property Name="P_Year" Type="int" />
+    <Property Name="P_Notice_Extension" Type="nvarchar(max)" />
+    <Property Name="Earliest_Release_Dt" Type="date" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Is_Mac" Type="bit" />
+    <Property Name="Is_Ost" Type="bit" />
+    <Property Name="Music_Class_Type" Type="tinyint" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="No_Components" Type="int" />
+    <Property Name="No_Tracks" Type="int" />
+    <Property Name="Scope_Type" Type="tinyint" />
+    <Property Name="R2_Workflow_Status_Type" Type="tinyint" />
+    <Property Name="Isrc" Type="varchar" MaxLength="20" />
+    <Property Name="Resource_Type" Type="tinyint" />
+    <Property Name="Genre_Id" Type="varchar" MaxLength="24" />
+    <Property Name="Is_Sample_Exists" Type="bit" />
+    <Property Name="Sample_Credit" Type="nvarchar" />
+    <Property Name="Is_Side_Artist_Exists" Type="bit" />
+    <Property Name="Source_Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Live_Studio_Type" Type="tinyint" />
+    <Property Name="Audio_Video_Type" Type="tinyint" />
+    <Property Name="Music_Time" Type="varchar" MaxLength="20" />
+    <Property Name="No_Of_Retry" Type="int" />
+    <Property Name="Status_Type" Type="char" MaxLength="10" />
+    <Property Name="Item_Type" Type="tinyint" />
+    <Property Name="Process_Type" Type="tinyint" />
+    <Property Name="Owned_Project_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Track">
+    <Key>
+      <PropertyRef Name="Track_Id" />
+    </Key>
+    <Property Name="Track_Id" Type="bigint" Nullable="false" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Sequence_No" Type="bigint" />
+    <Property Name="Side" Type="smallint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Track_Right">
+    <Key>
+      <PropertyRef Name="Track_Right_Id" />
+    </Key>
+    <Property Name="Track_Right_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Track_Id" Type="bigint" Nullable="false" />
+    <Property Name="Right_Set_Id" Type="bigint" Nullable="false" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Clr_Project_Release" Type="RepertoiretDataModel.Store.Clr_Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Clr_Project_Release">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMPANY_COUNTRY_ID">
+    <End Role="Country" Type="RepertoiretDataModel.Store.Country" Multiplicity="0..1" />
+    <End Role="Company" Type="RepertoiretDataModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOOKUP_LOOKUP_TYPE_ID">
+    <End Role="Lookup_Type" Type="RepertoiretDataModel.Store.Lookup_Type" Multiplicity="1" />
+    <End Role="Lookup" Type="RepertoiretDataModel.Store.Lookup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup_Type">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Principal>
+      <Dependent Role="Lookup">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACKAGE_PARENT_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Package" Type="RepertoiretDataModel.Store.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Parent_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACKAGE_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Package" Type="RepertoiretDataModel.Store.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+    <End Role="Country" Type="RepertoiretDataModel.Store.Country" Multiplicity="1" />
+    <End Role="Preclearance_Country" Type="RepertoiretDataModel.Store.Preclearance_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Preclearance_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_ARTIST_ARTIST_ID">
+    <End Role="Artist" Type="RepertoiretDataModel.Store.Artist" Multiplicity="1" />
+    <End Role="Project_Artist" Type="RepertoiretDataModel.Store.Project_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Project_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_ARTIST_PROJECT_ID">
+    <End Role="Project" Type="RepertoiretDataModel.Store.Project" Multiplicity="1" />
+    <End Role="Project_Artist" Type="RepertoiretDataModel.Store.Project_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Artist">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_CONTRACT_PROJECT_ID">
+    <End Role="Project" Type="RepertoiretDataModel.Store.Project" Multiplicity="1" />
+    <End Role="Project_Contract" Type="RepertoiretDataModel.Store.Project_Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Contract">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_LABLE_ID">
+    <End Role="Label" Type="RepertoiretDataModel.Store.Label" Multiplicity="0..1" />
+    <End Role="Project" Type="RepertoiretDataModel.Store.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Label_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Label_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELEASE_PROJECT_ID">
+    <End Role="Project" Type="RepertoiretDataModel.Store.Project" Multiplicity="1" />
+    <End Role="Project_Release" Type="RepertoiretDataModel.Store.Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Release">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELEASE_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Project_Release" Type="RepertoiretDataModel.Store.Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Project_Release">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RESOURCE_PROJECT_ID">
+    <End Role="Project" Type="RepertoiretDataModel.Store.Project" Multiplicity="1" />
+    <End Role="Project_Resource" Type="RepertoiretDataModel.Store.Project_Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Resource">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RESOURCE_RESOURCE_ID">
+    <End Role="Resource" Type="RepertoiretDataModel.Store.Resource" Multiplicity="1" />
+    <End Role="Project_Resource" Type="RepertoiretDataModel.Store.Project_Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Project_Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_ARTIST_ID">
+    <End Role="Artist" Type="RepertoiretDataModel.Store.Artist" Multiplicity="1" />
+    <End Role="Release_Artist" Type="RepertoiretDataModel.Store.Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Release_Artist" Type="RepertoiretDataModel.Store.Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_RIGHT_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Release_Right" Type="RepertoiretDataModel.Store.Release_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Release_Right">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_ARTIST_ID">
+    <End Role="Artist" Type="RepertoiretDataModel.Store.Artist" Multiplicity="1" />
+    <End Role="Resource_Artist" Type="RepertoiretDataModel.Store.Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_RESOURCE_ID">
+    <End Role="Resource" Type="RepertoiretDataModel.Store.Resource" Multiplicity="1" />
+    <End Role="Resource_Artist" Type="RepertoiretDataModel.Store.Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_RIGHT_RESOURCE_ID">
+    <End Role="Resource" Type="RepertoiretDataModel.Store.Resource" Multiplicity="1" />
+    <End Role="Resource_Right" Type="RepertoiretDataModel.Store.Resource_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Right">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RELEASE_ID">
+    <End Role="Release" Type="RepertoiretDataModel.Store.Release" Multiplicity="1" />
+    <End Role="Track" Type="RepertoiretDataModel.Store.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RESOURCE_ID">
+    <End Role="Resource" Type="RepertoiretDataModel.Store.Resource" Multiplicity="1" />
+    <End Role="Track" Type="RepertoiretDataModel.Store.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RIGHT_TRACK_ID">
+    <End Role="Track" Type="RepertoiretDataModel.Store.Track" Multiplicity="1" />
+    <End Role="Track_Right" Type="RepertoiretDataModel.Store.Track_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="Track_Id" />
+      </Principal>
+      <Dependent Role="Track_Right">
+        <PropertyRef Name="Track_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="USP_GetHierarchy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Resource_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetReleaseHierarchy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Release_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetRightsDataReviewCondition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="ResourceId" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="contractid" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_MacRelease_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Release_id" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_MPRelease_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Release_id" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="LostRightsDate" Type="datetime" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="NewRightSetId" Type="bigint" Mode="InOut" />
+    <Parameter Name="RightSetTemplateId" Type="bigint" Mode="InOut" />
+  </Function>
+  <Function Name="USP_MPResource_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Resource_id" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="AdSuppotedStreaming" Type="tinyint" Mode="In" />
+    <Parameter Name="LostRightsDate" Type="datetime" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="NewRightSetId" Type="bigint" Mode="InOut" />
+    <Parameter Name="RightSetTemplateId" Type="bigint" Mode="InOut" />
+  </Function>
+  <Function Name="USP_MPTrack_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Track_id" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="CountryId" Type="bigint" Mode="In" />
+    <Parameter Name="AlbumOnly" Type="tinyint" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="NewRightSetId" Type="bigint" Mode="InOut" />
+    <Parameter Name="RightSetTemplateId" Type="bigint" Mode="InOut" />
+  </Function>
+  <Function Name="USP_Repertoire_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Right_Set_Id" Type="bigint" Mode="In" />
+    <Parameter Name="Release_id" Type="bigint" Mode="In" />
+    <Parameter Name="isGCSRelease" Type="bit" Mode="In" />
+    <Parameter Name="Repertoire_Type" Type="int" Mode="In" />
+    <Parameter Name="IsMediaPortal" Type="bit" Mode="In" />
+    <Parameter Name="Earliest_Date" Type="date" Mode="In" />
+    <Parameter Name="Content_Type" Type="int" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="ReviewstatusType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Right_Set_Id" Type="bigint" Mode="In" />
+    <Parameter Name="Repertoire_Type" Type="int" Mode="In" />
+    <Parameter Name="IsMediaPortal" Type="bit" Mode="In" />
+    <Parameter Name="Earliest_Date" Type="date" Mode="In" />
+    <Parameter Name="Content_Type" Type="int" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="ReviewstatusType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_RollUpCalculation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Release_Id" Type="bigint" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_Track_Rights_Propagation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrackId" Type="bigint" Mode="In" />
+    <Parameter Name="CompanyId" Type="bigint" Mode="In" />
+    <Parameter Name="IsoCode" Type="varchar" Mode="In" />
+    <Parameter Name="Repertoire_Type" Type="int" Mode="In" />
+    <Parameter Name="User" Type="nvarchar" Mode="In" />
+  </Function>
+</Schema>

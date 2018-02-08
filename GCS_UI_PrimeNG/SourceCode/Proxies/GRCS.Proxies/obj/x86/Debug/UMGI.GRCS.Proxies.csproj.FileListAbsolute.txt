@@ -5,3 +5,9 @@ C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.csproj.CoreCompileInputs.cache
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.dll
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\bin\Debug\UMGI.GRCS.Proxies.dll.config
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\bin\Debug\UMGI.GRCS.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\bin\Debug\UMGI.GRCS.Proxies.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.csproj.CoreCompileInputs.cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Proxies\GRCS.Proxies\obj\x86\Debug\UMGI.GRCS.Proxies.pdb

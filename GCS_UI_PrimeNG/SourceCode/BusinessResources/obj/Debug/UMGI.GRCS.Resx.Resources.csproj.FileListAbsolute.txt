@@ -25,3 +25,29 @@ C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\BusinessResources\obj\Debug\ar\UMGI.GRC
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\BusinessResources\obj\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.dll
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\bin\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.ClearanceInbox.ClearanceInbox.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.ClearenceRoutingResource.ClearenceRouting.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.EntityResource.Entity.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.Layout.ClearanceLayout.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.Layout.Layout.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.Layout.LayoutRes.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.AdminResource.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.ClearenceResource.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.ContractResource.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.RepertoireRightsSearch.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.RoutingResource.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.WorkQueueResource.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.EntityResource.Entity.ar.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.EntityResource.Entity.fr.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.Layout.LayoutRes.ar.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.UIResources.ContractResource.ar.resources
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resources.csproj.GenerateResource.Cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resources.csproj.CoreCompileInputs.cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\BusinessResources\obj\Debug\UMGI.GRCS.Resx.Resource.pdb

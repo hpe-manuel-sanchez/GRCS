@@ -1,0 +1,1324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClearanceDevModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ClearanceDevModelStoreContainer">
+    <EntitySet Name="Artist" EntityType="ClearanceDevModel.Store.Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Project" EntityType="ClearanceDevModel.Store.Clr_Project" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Project_Release" EntityType="ClearanceDevModel.Store.Clr_Project_Release" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Role_Group" EntityType="ClearanceDevModel.Store.Clr_Role_Group" store:Type="Tables" store:Schema="dbo" store:Name="Clr_Role_Group" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+      <DefiningQuery>SELECT 
+      [Clr_Role_Group].[Role_Type] AS [Role_Type], 
+      [Clr_Role_Group].[Role_Group_Type] AS [Role_Group_Type], 
+      [Clr_Role_Group].[Created_User] AS [Created_User], 
+      [Clr_Role_Group].[Created_Dttm] AS [Created_Dttm], 
+      [Clr_Role_Group].[Modified_User] AS [Modified_User], 
+      [Clr_Role_Group].[Modified_Dttm] AS [Modified_Dttm], 
+      [Clr_Role_Group].[Archive_Flag] AS [Archive_Flag]
+      FROM [dbo].[Clr_Role_Group] AS [Clr_Role_Group]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Company" EntityType="ClearanceDevModel.Store.Company" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Configuration" EntityType="ClearanceDevModel.Store.Configuration" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Configuration_Group" EntityType="ClearanceDevModel.Store.Configuration_Group" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Contract" EntityType="ClearanceDevModel.Store.Contract" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Country" EntityType="ClearanceDevModel.Store.Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Label" EntityType="ClearanceDevModel.Store.Label" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Lookup" EntityType="ClearanceDevModel.Store.Lookup" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Lookup_Type" EntityType="ClearanceDevModel.Store.Lookup_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Preference" EntityType="ClearanceDevModel.Store.Preference" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Release" EntityType="ClearanceDevModel.Store.Release" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Release_Artist" EntityType="ClearanceDevModel.Store.Release_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Request" EntityType="ClearanceDevModel.Store.Request" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource" EntityType="ClearanceDevModel.Store.Resource" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource_Artist" EntityType="ClearanceDevModel.Store.Resource_Artist" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Resource_Right" EntityType="ClearanceDevModel.Store.Resource_Right" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Routed_Item" EntityType="ClearanceDevModel.Store.Routed_Item" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Sales_Channel" EntityType="ClearanceDevModel.Store.Sales_Channel" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Territory" EntityType="ClearanceDevModel.Store.Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Territory_Area" EntityType="ClearanceDevModel.Store.Territory_Area" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Territory_Country" EntityType="ClearanceDevModel.Store.Territory_Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="User" EntityType="ClearanceDevModel.Store.User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="User_Preference" EntityType="ClearanceDevModel.Store.User_Preference" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="User_Preference_Values" EntityType="ClearanceDevModel.Store.User_Preference_Values" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup" EntityType="ClearanceDevModel.Store.Workgroup" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup_Company" EntityType="ClearanceDevModel.Store.Workgroup_Company" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup_Country" EntityType="ClearanceDevModel.Store.Workgroup_Country" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup_Deviation" EntityType="ClearanceDevModel.Store.Workgroup_Deviation" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup_Territory" EntityType="ClearanceDevModel.Store.Workgroup_Territory" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Workgroup_User" EntityType="ClearanceDevModel.Store.Workgroup_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_CLR_PROJECT_RELEASE_CLR_PROJECT_ID" Association="ClearanceDevModel.Store.FK_CLR_PROJECT_RELEASE_CLR_PROJECT_ID">
+      <End Role="Clr_Project" EntitySet="Clr_Project" />
+      <End Role="Clr_Project_Release" EntitySet="Clr_Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID" Association="ClearanceDevModel.Store.FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Clr_Project_Release" EntitySet="Clr_Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLR_PROJECT_RELEASE_SALSE_CHANNEL_ID" Association="ClearanceDevModel.Store.FK_CLR_PROJECT_RELEASE_SALSE_CHANNEL_ID">
+      <End Role="Sales_Channel" EntitySet="Sales_Channel" />
+      <End Role="Clr_Project_Release" EntitySet="Clr_Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="ClearanceDevModel.Store.FK_COMPANY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONFIGURATION_CONFIGURATION_GROUP_CODE" Association="ClearanceDevModel.Store.FK_CONFIGURATION_CONFIGURATION_GROUP_CODE">
+      <End Role="Configuration_Group" EntitySet="Configuration_Group" />
+      <End Role="Configuration" EntitySet="Configuration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_ADMIN_COMPANY_ID" Association="ClearanceDevModel.Store.FK_CONTRACT_ADMIN_COMPANY_ID">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_ADMIN_COMPANY_ID1" Association="ClearanceDevModel.Store.FK_CONTRACT_ADMIN_COMPANY_ID1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_ARTIST_ID" Association="ClearanceDevModel.Store.FK_CONTRACT_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_ARTIST_ID1" Association="ClearanceDevModel.Store.FK_CONTRACT_ARTIST_ID1">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_SIGNING_COMPANY_ID" Association="ClearanceDevModel.Store.FK_CONTRACT_SIGNING_COMPANY_ID">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_SIGNING_COMPANY_ID1" Association="ClearanceDevModel.Store.FK_CONTRACT_SIGNING_COMPANY_ID1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOOKUP_LOOKUP_TYPE_ID" Association="ClearanceDevModel.Store.FK_LOOKUP_LOOKUP_TYPE_ID">
+      <End Role="Lookup_Type" EntitySet="Lookup_Type" />
+      <End Role="Lookup" EntitySet="Lookup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_ARTIST_ID" Association="ClearanceDevModel.Store.FK_RELEASE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_RELEASE_ID" Association="ClearanceDevModel.Store.FK_RELEASE_ARTIST_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_CONFIGURATION_GROUP_CODE" Association="ClearanceDevModel.Store.FK_RELEASE_CONFIGURATION_GROUP_CODE">
+      <End Role="Configuration_Group" EntitySet="Configuration_Group" />
+      <End Role="Release" EntitySet="Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REQUEST_ROUTED_ITEM_ID" Association="ClearanceDevModel.Store.FK_REQUEST_ROUTED_ITEM_ID">
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REQUEST_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_REQUEST_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_ARTIST_ID" Association="ClearanceDevModel.Store.FK_RESOURCE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_RESOURCE_ID" Association="ClearanceDevModel.Store.FK_RESOURCE_ARTIST_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_RIGHT__CONTRACT_ID" Association="ClearanceDevModel.Store.FK_RESOURCE_RIGHT__CONTRACT_ID">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="Resource_Right" EntitySet="Resource_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_RIGHT_RESOURCE_ID" Association="ClearanceDevModel.Store.FK_RESOURCE_RIGHT_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Right" EntitySet="Resource_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID" Association="ClearanceDevModel.Store.FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTED_ITEM_CLR_PROJECT_ID" Association="ClearanceDevModel.Store.FK_ROUTED_ITEM_CLR_PROJECT_ID">
+      <End Role="Clr_Project" EntitySet="Clr_Project" />
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTED_ITEM_CONTRACT_ID" Association="ClearanceDevModel.Store.FK_ROUTED_ITEM_CONTRACT_ID">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTED_ITEM_RELEASE_ID" Association="ClearanceDevModel.Store.FK_ROUTED_ITEM_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ROUTED_ITEM_RESOURCE_ID" Association="ClearanceDevModel.Store.FK_ROUTED_ITEM_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Routed_Item" EntitySet="Routed_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITORY_COUNTRY_COUNTRY_ID" Association="ClearanceDevModel.Store.FK_TERRITORY_COUNTRY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Territory_Country" EntitySet="Territory_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITORY_COUNTRY_TERRITORY_ID" Association="ClearanceDevModel.Store.FK_TERRITORY_COUNTRY_TERRITORY_ID">
+      <End Role="Territory" EntitySet="Territory" />
+      <End Role="Territory_Country" EntitySet="Territory_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITROY_AREA_TERRITORY_AREA_ID" Association="ClearanceDevModel.Store.FK_TERRITROY_AREA_TERRITORY_AREA_ID">
+      <End Role="Territory" EntitySet="Territory" />
+      <End Role="Territory_Area" EntitySet="Territory_Area" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_PREFERENCE_PREFERENCE_ID" Association="ClearanceDevModel.Store.FK_USER_PREFERENCE_PREFERENCE_ID">
+      <End Role="Preference" EntitySet="Preference" />
+      <End Role="User_Preference" EntitySet="User_Preference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_PREFERENCE_USER_ID" Association="ClearanceDevModel.Store.FK_USER_PREFERENCE_USER_ID">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Preference" EntitySet="User_Preference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_PREFERENCE_VALUES_USER_PREFERENCE_ID" Association="ClearanceDevModel.Store.FK_USER_PREFERENCE_VALUES_USER_PREFERENCE_ID">
+      <End Role="User_Preference" EntitySet="User_Preference" />
+      <End Role="User_Preference_Values" EntitySet="User_Preference_Values" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_WORKGROUP_USER_ID" Association="ClearanceDevModel.Store.FK_USER_WORKGROUP_USER_ID">
+      <End Role="User" EntitySet="User" />
+      <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_WORKGROUP_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_USER_WORKGROUP_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Workgroup_User" EntitySet="Workgroup_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_COMPANY_COMPANY_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_COMPANY_COMPANY_ID">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Workgroup_Company" EntitySet="Workgroup_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_COMPANY_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_COMPANY_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Workgroup_Company" EntitySet="Workgroup_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_COUNTRY_COUNTRY_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_COUNTRY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Workgroup_Country" EntitySet="Workgroup_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_COUNTRY_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_COUNTRY_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Workgroup_Country" EntitySet="Workgroup_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_DEVIATION_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_DEVIATION_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Workgroup_Deviation" EntitySet="Workgroup_Deviation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_TERRITORY_TERRITORY_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_TERRITORY_TERRITORY_ID">
+      <End Role="Territory" EntitySet="Territory" />
+      <End Role="Workgroup_Territory" EntitySet="Workgroup_Territory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WORKGROUP_TERRITORY_WORKGROUP_ID" Association="ClearanceDevModel.Store.FK_WORKGROUP_TERRITORY_WORKGROUP_ID">
+      <End Role="Workgroup" EntitySet="Workgroup" />
+      <End Role="Workgroup_Territory" EntitySet="Workgroup_Territory" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="Artist_Id" />
+    </Key>
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Talent_Id" Type="bigint" Nullable="false" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Name" Type="nvarchar" Nullable="false" MaxLength="520" />
+    <Property Name="Contributor_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Clr_Project">
+    <Key>
+      <PropertyRef Name="Clr_Project_Id" />
+    </Key>
+    <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Project_Id" Type="bigint" />
+    <Property Name="Project_Code" Type="varchar" MaxLength="20" />
+    <Property Name="Project_Type" Type="tinyint" />
+    <Property Name="Title" Type="nvarchar" MaxLength="275" />
+    <Property Name="Local_Reference" Type="varchar" MaxLength="50" />
+    <Property Name="Scope_Type" Type="tinyint" />
+    <Property Name="Estimated_Sales_Units" Type="bigint" />
+    <Property Name="Release_Dt" Type="date" />
+    <Property Name="Currency_Code" Type="varchar" MaxLength="3" />
+    <Property Name="Is_Sensitive" Type="bit" />
+    <Property Name="Is_One_Stop" Type="bit" />
+    <Property Name="Is_High_Priority" Type="bit" />
+    <Property Name="Status_Type" Type="tinyint" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="One_Stop_Reason" Type="nvarchar(max)" />
+    <Property Name="Third_Party_Repertoire" Type="nvarchar(max)" />
+    <Property Name="Requester_Workgroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="Requester_Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Requester_User_Id" Type="bigint" Nullable="false" />
+    <Property Name="Locked_User_Id" Type="bigint" />
+    <Property Name="Is_Master" Type="bit" />
+    <Property Name="Is_Tv" Type="bit" />
+    <Property Name="Is_Non_Traditional" Type="bit" />
+    <Property Name="Is_Club" Type="bit" />
+    <Property Name="Is_Promotional" Type="bit" />
+    <Property Name="Is_Price_Reduction" Type="bit" />
+    <Property Name="Is_Multi_Artist" Type="bit" />
+    <Property Name="Is_Compilation" Type="bit" />
+    <Property Name="Is_Third_Party" Type="bit" />
+    <Property Name="Is_Regular_Retail" Type="bit" />
+    <Property Name="Is_Resubmitted" Type="bit" />
+    <Property Name="Territorial_Right" Type="varchar(max)" />
+    <Property Name="Rcc_User_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Creates_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Included_Territories" Type="varchar(max)" />
+    <Property Name="Excluded_Territories" Type="varchar(max)" />
+    <Property Name="Is_Existing" Type="bit" />
+  </EntityType>
+  <EntityType Name="Clr_Project_Release">
+    <Key>
+      <PropertyRef Name="Clr_Project_Release_Id" />
+    </Key>
+    <Property Name="Clr_Project_Release_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Sales_Channel_Id" Type="bigint" Nullable="false" />
+    <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Is_Multi_Artist" Type="bit" />
+    <Property Name="Is_Compilation" Type="bit" />
+    <Property Name="Is_Existing" Type="bit" />
+    <Property Name="Release_Dt" Type="date" />
+    <Property Name="Price_Level_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Deviated_Type" Type="tinyint" />
+    <Property Name="Icla_Level_Deviated_Comment" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar" MaxLength="500" />
+    <Property Name="Deemed_Ppd_Price" Type="money" />
+    <Property Name="Invoice_Price" Type="money" />
+    <Property Name="Selling_Price" Type="money" />
+    <Property Name="Icla_Base_Price" Type="money" />
+    <Property Name="Estimated_Retail_Price" Type="money" />
+    <Property Name="Exact_Ppd_Price" Type="money" />
+    <Property Name="Resource_Fee" Type="money" />
+    <Property Name="Is_Icla_Level_Deviated" Type="bit" />
+    <Property Name="Is_Icla" Type="bit" />
+    <Property Name="Is_Suggestedfee" Type="bit" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Is_Routed" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'GRCSDEV.dbo.Clr_Role_Group' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Clr_Role_Group">
+    <Key>
+      <PropertyRef Name="Created_User" />
+      <PropertyRef Name="Created_Dttm" />
+      <PropertyRef Name="Modified_User" />
+      <PropertyRef Name="Modified_Dttm" />
+      <PropertyRef Name="Archive_Flag" />
+    </Key>
+    <Property Name="Role_Type" Type="tinyint" />
+    <Property Name="Role_Group_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Name="Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Id" Type="bigint" />
+    <Property Name="Company_Account_Id" Type="bigint" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="120" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Is_Grc" Type="bit" />
+    <Property Name="Isac_Code" Type="varchar" MaxLength="6" />
+    <Property Name="Company_Type_Code" Type="varchar" MaxLength="2" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="UNIVERSAL_LICENSEE_IND" Type="bit" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="Configuration_Id" />
+    </Key>
+    <Property Name="Configuration_Id" Type="bigint" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Configuration_Group_Code" Type="varchar" Nullable="false" MaxLength="4" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Configuration_Group">
+    <Key>
+      <PropertyRef Name="Configuration_Group_Code" />
+    </Key>
+    <Property Name="Configuration_Group_Code" Type="varchar" Nullable="false" MaxLength="4" />
+    <Property Name="Description" Type="varchar" MaxLength="25" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="Contract_Id" />
+    </Key>
+    <Property Name="Contract_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Artist_Id" Type="bigint" />
+    <Property Name="Artist_Name_Local" Type="nvarchar" MaxLength="520" />
+    <Property Name="Contracting_Parties" Type="nvarchar" MaxLength="255" />
+    <Property Name="Admin_Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Signing_Company_Id" Type="bigint" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Local_Reference_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contract_Status_Type" Type="tinyint" />
+    <Property Name="Workflow_Status_Type" Type="tinyint" />
+    <Property Name="Workflow_Correlation_Id" Type="uniqueidentifier" />
+    <Property Name="P_Company_Default_Id" Type="bigint" />
+    <Property Name="P_Line_Extension_Default" Type="nvarchar(max)" />
+    <Property Name="Rights_Default_Type" Type="tinyint" />
+    <Property Name="Commencement_Dt" Type="date" />
+    <Property Name="End_Of_Term_Dt" Type="date" />
+    <Property Name="Is_Active_Roster" Type="bit" />
+    <Property Name="Is_Legal_Review" Type="bit" />
+    <Property Name="Is_Clearance_Sensitive_Artist" Type="bit" />
+    <Property Name="Clearance_Notes" Type="nvarchar(max)" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Split_Deal_Id" Type="bigint" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Source_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Name="Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Name" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Iso_Code_2" Type="varchar" MaxLength="5" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Label">
+    <Key>
+      <PropertyRef Name="Label_Id" />
+    </Key>
+    <Property Name="Label_Id" Type="bigint" Nullable="false" />
+    <Property Name="Label_Name" Type="varchar" MaxLength="75" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Lookup_Id" />
+    </Key>
+    <Property Name="Lookup_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Lookup_Type_Id" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Short_Description" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Display_Order" Type="tinyint" />
+    <Property Name="Is_Default" Type="char" MaxLength="1" />
+    <Property Name="R2_Code" Type="varchar" MaxLength="6" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Lookup_Type">
+    <Key>
+      <PropertyRef Name="Lookup_Type_Id" />
+    </Key>
+    <Property Name="Lookup_Type_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Preference">
+    <Key>
+      <PropertyRef Name="Preference_Id" />
+    </Key>
+    <Property Name="Preference_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Preference_Type" Type="tinyint" />
+    <Property Name="Ui_Control__Type" Type="tinyint" />
+    <Property Name="Role_Type" Type="tinyint" />
+    <Property Name="Sno" Type="int" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Release">
+    <Key>
+      <PropertyRef Name="Release_Id" />
+    </Key>
+    <Property Name="Release_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Release_Id" Type="bigint" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Grid" Type="varchar" MaxLength="25" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Version_Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Configuration_Id" Type="varchar" MaxLength="20" />
+    <Property Name="Catalogue_Number" Type="varchar" MaxLength="50" />
+    <Property Name="P_Company_Id" Type="bigint" />
+    <Property Name="P_Year" Type="int" />
+    <Property Name="P_Notice_Extension" Type="nvarchar(max)" />
+    <Property Name="Earliest_Release_Dt" Type="date" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Is_Mac" Type="bit" />
+    <Property Name="Is_Ost" Type="bit" />
+    <Property Name="Music_Class_Type" Type="tinyint" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="No_Components" Type="int" />
+    <Property Name="No_Tracks" Type="int" />
+    <Property Name="Scope_Type" Type="tinyint" />
+    <Property Name="R2_Workflow_Status_Type" Type="tinyint" />
+    <Property Name="Is_Upc_Manual" Type="bit" />
+    <Property Name="Configuration_Group_Code" Type="varchar" MaxLength="4" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Release_Artist">
+    <Key>
+      <PropertyRef Name="Release_Artist_Id" />
+    </Key>
+    <Property Name="Release_Artist_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Release_Artist_Id" Type="bigint" />
+    <Property Name="Release_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Request_Id" />
+    </Key>
+    <Property Name="Request_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Routed_Item_Id" Type="bigint" Nullable="false" />
+    <Property Name="Workgroup_Id" Type="bigint" />
+    <Property Name="Review_Dt" Type="date" />
+    <Property Name="Is_Open" Type="bit" />
+    <Property Name="Available_Dt" Type="date" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="Request_Status_Type" Type="tinyint" />
+    <Property Name="Sequence_No" Type="int" />
+    <Property Name="Assigned_To" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Resource_Id" />
+    </Key>
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Resource_Id" Type="bigint" />
+    <Property Name="Account_Id" Type="bigint" Nullable="false" />
+    <Property Name="Isrc" Type="varchar" MaxLength="20" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rights_Type" Type="tinyint" />
+    <Property Name="Version_Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Resource_Type" Type="tinyint" />
+    <Property Name="Genre_Id" Type="varchar" MaxLength="24" />
+    <Property Name="P_Company_Id" Type="bigint" />
+    <Property Name="P_Year" Type="int" />
+    <Property Name="P_Notice_Extension" Type="nvarchar" MaxLength="250" />
+    <Property Name="Is_Sample_Exists" Type="bit" />
+    <Property Name="Sample_Credit" Type="nvarchar" />
+    <Property Name="Is_Side_Artist_Exists" Type="bit" />
+    <Property Name="Earliest_Release_Dt" Type="date" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Source_Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Live_Studio_Type" Type="tinyint" />
+    <Property Name="Music_Class_Type" Type="tinyint" />
+    <Property Name="Music_Time" Type="varchar" MaxLength="20" />
+    <Property Name="R2_Resource_Company_Link_Id" Type="bigint" />
+    <Property Name="Label_Id" Type="bigint" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Resource_Artist">
+    <Key>
+      <PropertyRef Name="Resource_Artist_Id" />
+    </Key>
+    <Property Name="Resource_Artist_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="R2_Resource_Artist_Id" Type="bigint" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Artist_Id" Type="bigint" Nullable="false" />
+    <Property Name="Source_System_Name" Type="tinyint" />
+    <Property Name="Stg_Source_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Sequence_No" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Resource_Right">
+    <Key>
+      <PropertyRef Name="Resource_Right_Id" />
+    </Key>
+    <Property Name="Resource_Right_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Resource_Id" Type="bigint" Nullable="false" />
+    <Property Name="Right_Set_Id" Type="bigint" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Assigned_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Routed_Item">
+    <Key>
+      <PropertyRef Name="Routed_Item_Id" />
+    </Key>
+    <Property Name="Routed_Item_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Resource_Id" Type="bigint" />
+    <Property Name="Clr_Project_Id" Type="bigint" Nullable="false" />
+    <Property Name="Release_Id" Type="bigint" />
+    <Property Name="Package_Id" Type="bigint" />
+    <Property Name="Admin_Company_Id" Type="bigint" />
+    <Property Name="Approval_Status_Type" Type="tinyint" />
+    <Property Name="Routed_Channel_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Right_Set_Id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Sales_Channel">
+    <Key>
+      <PropertyRef Name="Sales_Channel_Id" />
+    </Key>
+    <Property Name="Sales_Channel_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Sales_Channel" Type="varchar" MaxLength="18" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Territory">
+    <Key>
+      <PropertyRef Name="Territory_Id" />
+    </Key>
+    <Property Name="Territory_Id" Type="bigint" Nullable="false" />
+    <Property Name="Territory_Name" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Territory_Area">
+    <Key>
+      <PropertyRef Name="Territory_Area_Id" />
+      <PropertyRef Name="Territory_Member" />
+    </Key>
+    <Property Name="Territory_Area_Id" Type="bigint" Nullable="false" />
+    <Property Name="Territory_Member" Type="bigint" Nullable="false" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Territory_Country">
+    <Key>
+      <PropertyRef Name="Territory_Country_Id" />
+    </Key>
+    <Property Name="Territory_Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Territory_Id" Type="bigint" Nullable="false" />
+    <Property Name="Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Gta_Status" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Login_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Hashcode" Type="varchar" MaxLength="50" />
+    <Property Name="Security_Object" Type="xml" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Source_Id" Type="bigint" />
+  </EntityType>
+  <EntityType Name="User_Preference">
+    <Key>
+      <PropertyRef Name="User_Preference_Id" />
+    </Key>
+    <Property Name="User_Preference_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="bigint" />
+    <Property Name="Preference_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="User_Preference_Values">
+    <Key>
+      <PropertyRef Name="User_Preference_Values_Id" />
+    </Key>
+    <Property Name="User_Preference_Values_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="User_Preference_Id" Type="bigint" />
+    <Property Name="Item_Id" Type="varchar" MaxLength="20" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Workgroup">
+    <Key>
+      <PropertyRef Name="Workgroup_Id" />
+    </Key>
+    <Property Name="Workgroup_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Parent_Id" Type="bigint" />
+    <Property Name="Workgroup_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status_Type" Type="tinyint" />
+    <Property Name="R2_Contact_Email" Type="varchar" MaxLength="500" />
+    <Property Name="Role_Type" Type="tinyint" />
+    <Property Name="Country_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Source_Id" Type="bigint" />
+    <Property Name="Included_Territories" Type="varchar(max)" />
+    <Property Name="Excluded_Territories" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Workgroup_Company">
+    <Key>
+      <PropertyRef Name="Workgroup_Company_Id" />
+    </Key>
+    <Property Name="Workgroup_Company_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Workgroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="Company_Id" Type="bigint" Nullable="false" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Workgroup_Country">
+    <Key>
+      <PropertyRef Name="Workgroup_Country_Id" />
+    </Key>
+    <Property Name="Workgroup_Country_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Workgroup_Id" Type="bigint" />
+    <Property Name="Country_Id" Type="bigint" Nullable="false" />
+    <Property Name="Included_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Workgroup_Deviation">
+    <Key>
+      <PropertyRef Name="Workgroup_Deviation_Id" />
+    </Key>
+    <Property Name="Workgroup_Deviation_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Workgroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="Item_Type" Type="tinyint" />
+    <Property Name="Item_Id" Type="bigint" Nullable="false" />
+    <Property Name="Resource_Id" Type="bigint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Workgroup_Territory">
+    <Key>
+      <PropertyRef Name="Workgroup_Territory_Id" />
+    </Key>
+    <Property Name="Workgroup_Territory_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Workgroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="Territory_Id" Type="bigint" Nullable="false" />
+    <Property Name="Included_Type" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Workgroup_User">
+    <Key>
+      <PropertyRef Name="Workgroup_User_Id" />
+    </Key>
+    <Property Name="Workgroup_User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Workgroup_Id" Type="bigint" Nullable="false" />
+    <Property Name="User_Id" Type="bigint" Nullable="false" />
+    <Property Name="Is_Default" Type="bit" />
+    <Property Name="Is_In_Role" Type="bit" />
+    <Property Name="Is_Manage_Workgroup" Type="bit" />
+    <Property Name="Is_R2_Authorized" Type="bit" />
+    <Property Name="Is_Upc_Allocation" Type="bit" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Source_Id" Type="bigint" />
+  </EntityType>
+  <Association Name="FK_CLR_PROJECT_RELEASE_CLR_PROJECT_ID">
+    <End Role="Clr_Project" Type="ClearanceDevModel.Store.Clr_Project" Multiplicity="1" />
+    <End Role="Clr_Project_Release" Type="ClearanceDevModel.Store.Clr_Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clr_Project">
+        <PropertyRef Name="Clr_Project_Id" />
+      </Principal>
+      <Dependent Role="Clr_Project_Release">
+        <PropertyRef Name="Clr_Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+    <End Role="Release" Type="ClearanceDevModel.Store.Release" Multiplicity="1" />
+    <End Role="Clr_Project_Release" Type="ClearanceDevModel.Store.Clr_Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Clr_Project_Release">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLR_PROJECT_RELEASE_SALSE_CHANNEL_ID">
+    <End Role="Sales_Channel" Type="ClearanceDevModel.Store.Sales_Channel" Multiplicity="1" />
+    <End Role="Clr_Project_Release" Type="ClearanceDevModel.Store.Clr_Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Channel">
+        <PropertyRef Name="Sales_Channel_Id" />
+      </Principal>
+      <Dependent Role="Clr_Project_Release">
+        <PropertyRef Name="Sales_Channel_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMPANY_COUNTRY_ID">
+    <End Role="Country" Type="ClearanceDevModel.Store.Country" Multiplicity="0..1" />
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONFIGURATION_CONFIGURATION_GROUP_CODE">
+    <End Role="Configuration_Group" Type="ClearanceDevModel.Store.Configuration_Group" Multiplicity="1" />
+    <End Role="Configuration" Type="ClearanceDevModel.Store.Configuration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration_Group">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Principal>
+      <Dependent Role="Configuration">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_ADMIN_COMPANY_ID">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Admin_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_ADMIN_COMPANY_ID1">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Admin_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_ARTIST_ID">
+    <End Role="Artist" Type="ClearanceDevModel.Store.Artist" Multiplicity="0..1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_ARTIST_ID1">
+    <End Role="Artist" Type="ClearanceDevModel.Store.Artist" Multiplicity="0..1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_SIGNING_COMPANY_ID">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="0..1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Signing_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_SIGNING_COMPANY_ID1">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="0..1" />
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Signing_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOOKUP_LOOKUP_TYPE_ID">
+    <End Role="Lookup_Type" Type="ClearanceDevModel.Store.Lookup_Type" Multiplicity="1" />
+    <End Role="Lookup" Type="ClearanceDevModel.Store.Lookup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup_Type">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Principal>
+      <Dependent Role="Lookup">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_ARTIST_ID">
+    <End Role="Artist" Type="ClearanceDevModel.Store.Artist" Multiplicity="1" />
+    <End Role="Release_Artist" Type="ClearanceDevModel.Store.Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_RELEASE_ID">
+    <End Role="Release" Type="ClearanceDevModel.Store.Release" Multiplicity="1" />
+    <End Role="Release_Artist" Type="ClearanceDevModel.Store.Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_CONFIGURATION_GROUP_CODE">
+    <End Role="Configuration_Group" Type="ClearanceDevModel.Store.Configuration_Group" Multiplicity="0..1" />
+    <End Role="Release" Type="ClearanceDevModel.Store.Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration_Group">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Principal>
+      <Dependent Role="Release">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REQUEST_ROUTED_ITEM_ID">
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="1" />
+    <End Role="Request" Type="ClearanceDevModel.Store.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routed_Item">
+        <PropertyRef Name="Routed_Item_Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="Routed_Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REQUEST_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="0..1" />
+    <End Role="Request" Type="ClearanceDevModel.Store.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_ARTIST_ID">
+    <End Role="Artist" Type="ClearanceDevModel.Store.Artist" Multiplicity="1" />
+    <End Role="Resource_Artist" Type="ClearanceDevModel.Store.Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_RESOURCE_ID">
+    <End Role="Resource" Type="ClearanceDevModel.Store.Resource" Multiplicity="1" />
+    <End Role="Resource_Artist" Type="ClearanceDevModel.Store.Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_RIGHT__CONTRACT_ID">
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="0..1" />
+    <End Role="Resource_Right" Type="ClearanceDevModel.Store.Resource_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Contract_Id" />
+      </Principal>
+      <Dependent Role="Resource_Right">
+        <PropertyRef Name="Contract_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_RIGHT_RESOURCE_ID">
+    <End Role="Resource" Type="ClearanceDevModel.Store.Resource" Multiplicity="1" />
+    <End Role="Resource_Right" Type="ClearanceDevModel.Store.Resource_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Right">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTED_ITEM_ADMIN_COMPANY_ID">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="0..1" />
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Routed_Item">
+        <PropertyRef Name="Admin_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTED_ITEM_CLR_PROJECT_ID">
+    <End Role="Clr_Project" Type="ClearanceDevModel.Store.Clr_Project" Multiplicity="1" />
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clr_Project">
+        <PropertyRef Name="Clr_Project_Id" />
+      </Principal>
+      <Dependent Role="Routed_Item">
+        <PropertyRef Name="Clr_Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTED_ITEM_CONTRACT_ID">
+    <End Role="Contract" Type="ClearanceDevModel.Store.Contract" Multiplicity="0..1" />
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Contract_Id" />
+      </Principal>
+      <Dependent Role="Routed_Item">
+        <PropertyRef Name="Contract_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTED_ITEM_RELEASE_ID">
+    <End Role="Release" Type="ClearanceDevModel.Store.Release" Multiplicity="0..1" />
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Routed_Item">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ROUTED_ITEM_RESOURCE_ID">
+    <End Role="Resource" Type="ClearanceDevModel.Store.Resource" Multiplicity="0..1" />
+    <End Role="Routed_Item" Type="ClearanceDevModel.Store.Routed_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Routed_Item">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITORY_COUNTRY_COUNTRY_ID">
+    <End Role="Country" Type="ClearanceDevModel.Store.Country" Multiplicity="1" />
+    <End Role="Territory_Country" Type="ClearanceDevModel.Store.Territory_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Territory_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITORY_COUNTRY_TERRITORY_ID">
+    <End Role="Territory" Type="ClearanceDevModel.Store.Territory" Multiplicity="1" />
+    <End Role="Territory_Country" Type="ClearanceDevModel.Store.Territory_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Territory_Country">
+        <PropertyRef Name="Territory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITROY_AREA_TERRITORY_AREA_ID">
+    <End Role="Territory" Type="ClearanceDevModel.Store.Territory" Multiplicity="1" />
+    <End Role="Territory_Area" Type="ClearanceDevModel.Store.Territory_Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Territory_Area">
+        <PropertyRef Name="Territory_Area_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_PREFERENCE_PREFERENCE_ID">
+    <End Role="Preference" Type="ClearanceDevModel.Store.Preference" Multiplicity="0..1" />
+    <End Role="User_Preference" Type="ClearanceDevModel.Store.User_Preference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Preference">
+        <PropertyRef Name="Preference_Id" />
+      </Principal>
+      <Dependent Role="User_Preference">
+        <PropertyRef Name="Preference_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_PREFERENCE_USER_ID">
+    <End Role="User" Type="ClearanceDevModel.Store.User" Multiplicity="0..1" />
+    <End Role="User_Preference" Type="ClearanceDevModel.Store.User_Preference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Preference">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_PREFERENCE_VALUES_USER_PREFERENCE_ID">
+    <End Role="User_Preference" Type="ClearanceDevModel.Store.User_Preference" Multiplicity="0..1" />
+    <End Role="User_Preference_Values" Type="ClearanceDevModel.Store.User_Preference_Values" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Preference">
+        <PropertyRef Name="User_Preference_Id" />
+      </Principal>
+      <Dependent Role="User_Preference_Values">
+        <PropertyRef Name="User_Preference_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_WORKGROUP_USER_ID">
+    <End Role="User" Type="ClearanceDevModel.Store.User" Multiplicity="1" />
+    <End Role="Workgroup_User" Type="ClearanceDevModel.Store.Workgroup_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_User">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_WORKGROUP_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="1" />
+    <End Role="Workgroup_User" Type="ClearanceDevModel.Store.Workgroup_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_User">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_COMPANY_COMPANY_ID">
+    <End Role="Company" Type="ClearanceDevModel.Store.Company" Multiplicity="1" />
+    <End Role="Workgroup_Company" Type="ClearanceDevModel.Store.Workgroup_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Company">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_COMPANY_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="1" />
+    <End Role="Workgroup_Company" Type="ClearanceDevModel.Store.Workgroup_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Company">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_COUNTRY_COUNTRY_ID">
+    <End Role="Country" Type="ClearanceDevModel.Store.Country" Multiplicity="1" />
+    <End Role="Workgroup_Country" Type="ClearanceDevModel.Store.Workgroup_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_COUNTRY_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="0..1" />
+    <End Role="Workgroup_Country" Type="ClearanceDevModel.Store.Workgroup_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Country">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_DEVIATION_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="1" />
+    <End Role="Workgroup_Deviation" Type="ClearanceDevModel.Store.Workgroup_Deviation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Deviation">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_TERRITORY_TERRITORY_ID">
+    <End Role="Territory" Type="ClearanceDevModel.Store.Territory" Multiplicity="1" />
+    <End Role="Workgroup_Territory" Type="ClearanceDevModel.Store.Workgroup_Territory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WORKGROUP_TERRITORY_WORKGROUP_ID">
+    <End Role="Workgroup" Type="ClearanceDevModel.Store.Workgroup" Multiplicity="1" />
+    <End Role="Workgroup_Territory" Type="ClearanceDevModel.Store.Workgroup_Territory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workgroup">
+        <PropertyRef Name="Workgroup_Id" />
+      </Principal>
+      <Dependent Role="Workgroup_Territory">
+        <PropertyRef Name="Workgroup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RepertoiretDataModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="RepertoireDataEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <FunctionImport Name="USP_Rights_Propagation" ReturnType="Collection(RepertoiretDataModel.USP_Rights_Propagation_Result)">
+      <Parameter Name="Right_Set_Id" Mode="In" Type="Int64" />
+      <Parameter Name="Repertoire_Type" Mode="In" Type="Int32" />
+      <Parameter Name="IsMediaPortal" Mode="In" Type="Boolean" />
+      <Parameter Name="Earliest_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Content_Type" Mode="In" Type="Int32" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="ReviewstatusType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Repertoire_Rights_Propagation" ReturnType="Collection(RepertoiretDataModel.USP_Repertoire_Rights_Propagation_Result)">
+      <Parameter Name="Right_Set_Id" Mode="In" Type="Int64" />
+      <Parameter Name="Release_id" Mode="In" Type="Int64" />
+      <Parameter Name="isGCSRelease" Mode="In" Type="Boolean" />
+      <Parameter Name="Repertoire_Type" Mode="In" Type="Int32" />
+      <Parameter Name="IsMediaPortal" Mode="In" Type="Boolean" />
+      <Parameter Name="Earliest_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Content_Type" Mode="In" Type="Int32" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="ReviewstatusType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Track_Rights_Propagation" ReturnType="Collection(RepertoiretDataModel.USP_Track_Rights_Propagation_Result)">
+      <Parameter Name="TrackId" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="IsoCode" Mode="In" Type="String" />
+      <Parameter Name="Repertoire_Type" Mode="In" Type="Int32" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_MacRelease_Rights_Propagation" ReturnType="Collection(RepertoiretDataModel.USP_MacRelease_Rights_Propagation_Result)">
+      <Parameter Name="Release_id" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetRightsDataReviewCondition" ReturnType="Collection(RepertoiretDataModel.USP_GetRightsDataReviewCondition_Result)">
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="ResourceId" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="contractid" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_RollUpCalculation">
+      <Parameter Name="Release_Id" Mode="In" Type="Int64" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetReleaseHierarchy" ReturnType="Collection(RepertoiretDataModel.USP_GetReleaseHierarchy_Result)">
+      <Parameter Name="Release_Id" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetHierarchy" ReturnType="Collection(RepertoiretDataModel.USP_GetHierarchy_Result)">
+      <Parameter Name="Resource_Id" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="USP_MPRelease_Rights_Propagation">
+      <Parameter Name="Release_id" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="LostRightsDate" Mode="In" Type="DateTime" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="NewRightSetId" Mode="InOut" Type="Int64" />
+      <Parameter Name="RightSetTemplateId" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="USP_MPResource_Rights_Propagation">
+      <Parameter Name="Resource_id" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="AdSuppotedStreaming" Mode="In" Type="Byte" />
+      <Parameter Name="LostRightsDate" Mode="In" Type="DateTime" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="NewRightSetId" Mode="InOut" Type="Int64" />
+      <Parameter Name="RightSetTemplateId" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="USP_MPTrack_Rights_Propagation">
+      <Parameter Name="Track_id" Mode="In" Type="Int64" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int64" />
+      <Parameter Name="CountryId" Mode="In" Type="Int64" />
+      <Parameter Name="AlbumOnly" Mode="In" Type="Byte" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="NewRightSetId" Mode="InOut" Type="Int64" />
+      <Parameter Name="RightSetTemplateId" Mode="InOut" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="Artist" EntityType="RepertoiretDataModel.Artist" />
+    <EntitySet Name="Clr_Project_Release" EntityType="RepertoiretDataModel.Clr_Project_Release" />
+    <EntitySet Name="Company" EntityType="RepertoiretDataModel.Company" />
+    <EntitySet Name="Country" EntityType="RepertoiretDataModel.Country" />
+    <EntitySet Name="Interface_Log" EntityType="RepertoiretDataModel.Interface_Log" />
+    <EntitySet Name="Label" EntityType="RepertoiretDataModel.Label" />
+    <EntitySet Name="Lookup" EntityType="RepertoiretDataModel.Lookup" />
+    <EntitySet Name="Lookup_Type" EntityType="RepertoiretDataModel.Lookup_Type" />
+    <EntitySet Name="Package" EntityType="RepertoiretDataModel.Package" />
+    <EntitySet Name="Preclearance" EntityType="RepertoiretDataModel.Preclearance" />
+    <EntitySet Name="Preclearance_Country" EntityType="RepertoiretDataModel.Preclearance_Country" />
+    <EntitySet Name="Preclearance_Territory" EntityType="RepertoiretDataModel.Preclearance_Territory" />
+    <EntitySet Name="Project" EntityType="RepertoiretDataModel.Project" />
+    <EntitySet Name="Project_Artist" EntityType="RepertoiretDataModel.Project_Artist" />
+    <EntitySet Name="Project_Contract" EntityType="RepertoiretDataModel.Project_Contract" />
+    <EntitySet Name="Project_Release" EntityType="RepertoiretDataModel.Project_Release" />
+    <EntitySet Name="Project_Resource" EntityType="RepertoiretDataModel.Project_Resource" />
+    <EntitySet Name="Release" EntityType="RepertoiretDataModel.Release" />
+    <EntitySet Name="Release_Artist" EntityType="RepertoiretDataModel.Release_Artist" />
+    <EntitySet Name="Release_Right" EntityType="RepertoiretDataModel.Release_Right" />
+    <EntitySet Name="Resource" EntityType="RepertoiretDataModel.Resource" />
+    <EntitySet Name="Resource_Artist" EntityType="RepertoiretDataModel.Resource_Artist" />
+    <EntitySet Name="Resource_Right" EntityType="RepertoiretDataModel.Resource_Right" />
+    <EntitySet Name="Rights_Roll_Up" EntityType="RepertoiretDataModel.Rights_Roll_Up" />
+    <EntitySet Name="Task" EntityType="RepertoiretDataModel.Task" />
+    <EntitySet Name="Temp_Repertoire" EntityType="RepertoiretDataModel.Temp_Repertoire" />
+    <EntitySet Name="Track" EntityType="RepertoiretDataModel.Track" />
+    <EntitySet Name="Track_Right" EntityType="RepertoiretDataModel.Track_Right" />
+    <AssociationSet Name="FK_PROJECT_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.FK_PROJECT_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Project_Artist" EntitySet="Project_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.FK_RELEASE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_ARTIST_ID" Association="RepertoiretDataModel.FK_RESOURCE_ARTIST_ARTIST_ID">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID" Association="RepertoiretDataModel.FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Clr_Project_Release" EntitySet="Clr_Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="RepertoiretDataModel.FK_COMPANY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" Association="RepertoiretDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Preclearance_Country" EntitySet="Preclearance_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_LABLE_ID" Association="RepertoiretDataModel.FK_PROJECT_LABLE_ID">
+      <End Role="Label" EntitySet="Label" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOOKUP_LOOKUP_TYPE_ID" Association="RepertoiretDataModel.FK_LOOKUP_LOOKUP_TYPE_ID">
+      <End Role="Lookup_Type" EntitySet="Lookup_Type" />
+      <End Role="Lookup" EntitySet="Lookup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACKAGE_PARENT_ID" Association="RepertoiretDataModel.FK_PACKAGE_PARENT_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PACKAGE_RELEASE_ID" Association="RepertoiretDataModel.FK_PACKAGE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_ARTIST_PROJECT_ID" Association="RepertoiretDataModel.FK_PROJECT_ARTIST_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Artist" EntitySet="Project_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_CONTRACT_PROJECT_ID" Association="RepertoiretDataModel.FK_PROJECT_CONTRACT_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Contract" EntitySet="Project_Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELEASE_PROJECT_ID" Association="RepertoiretDataModel.FK_PROJECT_RELEASE_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Release" EntitySet="Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RESOURCE_PROJECT_ID" Association="RepertoiretDataModel.FK_PROJECT_RESOURCE_PROJECT_ID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Resource" EntitySet="Project_Resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELEASE_RELEASE_ID" Association="RepertoiretDataModel.FK_PROJECT_RELEASE_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Project_Release" EntitySet="Project_Release" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RESOURCE_RESOURCE_ID" Association="RepertoiretDataModel.FK_PROJECT_RESOURCE_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Project_Resource" EntitySet="Project_Resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_ARTIST_RELEASE_ID" Association="RepertoiretDataModel.FK_RELEASE_ARTIST_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Release_Artist" EntitySet="Release_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELEASE_RIGHT_RELEASE_ID" Association="RepertoiretDataModel.FK_RELEASE_RIGHT_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Release_Right" EntitySet="Release_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RELEASE_ID" Association="RepertoiretDataModel.FK_TRACK_RELEASE_ID">
+      <End Role="Release" EntitySet="Release" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_ARTIST_RESOURCE_ID" Association="RepertoiretDataModel.FK_RESOURCE_ARTIST_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Artist" EntitySet="Resource_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOURCE_RIGHT_RESOURCE_ID" Association="RepertoiretDataModel.FK_RESOURCE_RIGHT_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Resource_Right" EntitySet="Resource_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RESOURCE_ID" Association="RepertoiretDataModel.FK_TRACK_RESOURCE_ID">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRACK_RIGHT_TRACK_ID" Association="RepertoiretDataModel.FK_TRACK_RIGHT_TRACK_ID">
+      <End Role="Track" EntitySet="Track" />
+      <End Role="Track_Right" EntitySet="Track_Right" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="USP_Rights_Propagation_Result">
+    <Property Type="Int64" Name="RightSetID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Repertoire_Rights_Propagation_Result">
+    <Property Type="Int64" Name="RightSetID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Track_Rights_Propagation_Result">
+    <Property Type="Int64" Name="RightSetID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_MacRelease_Rights_Propagation_Result">
+    <Property Type="Int64" Name="RightSetID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetRightsDataReviewCondition_Result">
+    <Property Type="Int32" Name="LookupValue" Nullable="true" />
+    <Property Type="Int32" Name="LookupId" Nullable="true" />
+    <Property Type="String" Name="ReviewDescription" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_GetReleaseHierarchy_Result">
+    <Property Type="Int64" Name="RELEASE_ID" Nullable="true" />
+    <Property Type="Int32" Name="level" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_GetHierarchy_Result">
+    <Property Type="Int64" Name="RELEASE_ID" Nullable="true" />
+    <Property Type="Int32" Name="level" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="Artist_Id" />
+    </Key>
+    <Property Type="Int64" Name="Artist_Id" Nullable="false" />
+    <Property Type="Int64" Name="Talent_Id" Nullable="false" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Artist_Name" Nullable="false" MaxLength="520" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Contributor_Type" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project_Artist" Relationship="RepertoiretDataModel.FK_PROJECT_ARTIST_ARTIST_ID" FromRole="Artist" ToRole="Project_Artist" />
+    <NavigationProperty Name="Release_Artist" Relationship="RepertoiretDataModel.FK_RELEASE_ARTIST_ARTIST_ID" FromRole="Artist" ToRole="Release_Artist" />
+    <NavigationProperty Name="Resource_Artist" Relationship="RepertoiretDataModel.FK_RESOURCE_ARTIST_ARTIST_ID" FromRole="Artist" ToRole="Resource_Artist" />
+  </EntityType>
+  <EntityType Name="Clr_Project_Release">
+    <Key>
+      <PropertyRef Name="Clr_Project_Release_Id" />
+    </Key>
+    <Property Type="Int64" Name="Clr_Project_Release_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="Int64" Name="Sales_Channel_Id" Nullable="false" />
+    <Property Type="Int64" Name="Clr_Project_Id" Nullable="false" />
+    <Property Type="Boolean" Name="Is_Multi_Artist" />
+    <Property Type="Boolean" Name="Is_Compilation" />
+    <Property Type="Boolean" Name="Is_Existing" />
+    <Property Type="DateTime" Name="Release_Dt" />
+    <Property Type="Byte" Name="Price_Level_Type" />
+    <Property Type="Byte" Name="Icla_Level_Type" />
+    <Property Type="Byte" Name="Icla_Level_Deviated_Type" />
+    <Property Type="String" Name="Icla_Level_Deviated_Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Comment" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Deemed_Ppd_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Invoice_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Selling_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Icla_Base_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Estimated_Retail_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Exact_Ppd_Price" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Resource_Fee" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="Is_Icla_Level_Deviated" />
+    <Property Type="Boolean" Name="Is_Icla" />
+    <Property Type="Boolean" Name="Is_Suggestedfee" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_CLR_PROJECT_RELEASE_RELEASE_ID" FromRole="Clr_Project_Release" ToRole="Release" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Type="Int64" Name="Company_Id" Nullable="false" />
+    <Property Type="Int64" Name="Country_Id" />
+    <Property Type="Int64" Name="Company_Account_Id" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Boolean" Name="Is_Grc" />
+    <Property Type="String" Name="Isac_Code" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Type_Code" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="RepertoiretDataModel.FK_COMPANY_COUNTRY_ID" FromRole="Company" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="String" Name="Country_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Iso_Code_2" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Company" Relationship="RepertoiretDataModel.FK_COMPANY_COUNTRY_ID" FromRole="Country" ToRole="Company" />
+    <NavigationProperty Name="Preclearance_Country" Relationship="RepertoiretDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" FromRole="Country" ToRole="Preclearance_Country" />
+  </EntityType>
+  <EntityType Name="Interface_Log">
+    <Key>
+      <PropertyRef Name="Interface_Log_Id" />
+    </Key>
+    <Property Type="Int64" Name="Interface_Log_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Byte" Name="Interface_Type" />
+    <Property Type="String" Name="Source_System" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Xml_Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Xml_Count" />
+    <Property Type="Int64" Name="Item_Id" />
+    <Property Type="Byte" Name="Item_Type" />
+    <Property Type="String" Name="Error" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="No_Of_Retry" />
+    <Property Type="Byte" Name="Delivery_Type" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Label">
+    <Key>
+      <PropertyRef Name="Label_Id" />
+    </Key>
+    <Property Type="Int64" Name="Label_Id" Nullable="false" />
+    <Property Type="String" Name="Label_Name" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project" Relationship="RepertoiretDataModel.FK_PROJECT_LABLE_ID" FromRole="Label" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Lookup_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Lookup_Type_Id" Nullable="false" />
+    <Property Type="Byte" Name="Value" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Short_Description" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Display_Order" />
+    <Property Type="String" Name="Is_Default" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="R2_Code" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Lookup_Type" Relationship="RepertoiretDataModel.FK_LOOKUP_LOOKUP_TYPE_ID" FromRole="Lookup" ToRole="Lookup_Type" />
+  </EntityType>
+  <EntityType Name="Lookup_Type">
+    <Key>
+      <PropertyRef Name="Lookup_Type_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Type_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Lookup" Relationship="RepertoiretDataModel.FK_LOOKUP_LOOKUP_TYPE_ID" FromRole="Lookup_Type" ToRole="Lookup" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Package_Id" />
+    </Key>
+    <Property Type="Int64" Name="Package_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Parent_Id" Nullable="false" />
+    <Property Type="Int64" Name="Sequence" Nullable="false" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_PACKAGE_PARENT_ID" FromRole="Package" ToRole="Release" />
+    <NavigationProperty Name="Release1" Relationship="RepertoiretDataModel.FK_PACKAGE_RELEASE_ID" FromRole="Package" ToRole="Release" />
+  </EntityType>
+  <EntityType Name="Preclearance">
+    <Key>
+      <PropertyRef Name="Preclearance_Id" />
+    </Key>
+    <Property Type="Int64" Name="Preclearance_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Byte" Name="Preclearance_Type" Nullable="false" />
+    <Property Type="Boolean" Name="Is_Preclearance" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Preclearance_Country">
+    <Key>
+      <PropertyRef Name="Preclearance_Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Preclearance_Country_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="Byte" Name="Included_Type" Nullable="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="RepertoiretDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" FromRole="Preclearance_Country" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="Preclearance_Territory">
+    <Key>
+      <PropertyRef Name="Preclearance_Territory_Id" />
+    </Key>
+    <Property Type="Int64" Name="Preclearance_Territory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Int64" Name="Territory_Id" Nullable="false" />
+    <Property Type="Byte" Name="Included_Type" Nullable="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Type="Int64" Name="Project_Id" Nullable="false" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="Admin_Company_Id" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Is_Contract_Required" />
+    <Property Type="Int64" Name="Label_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Label" Relationship="RepertoiretDataModel.FK_PROJECT_LABLE_ID" FromRole="Project" ToRole="Label" />
+    <NavigationProperty Name="Project_Artist" Relationship="RepertoiretDataModel.FK_PROJECT_ARTIST_PROJECT_ID" FromRole="Project" ToRole="Project_Artist" />
+    <NavigationProperty Name="Project_Contract" Relationship="RepertoiretDataModel.FK_PROJECT_CONTRACT_PROJECT_ID" FromRole="Project" ToRole="Project_Contract" />
+    <NavigationProperty Name="Project_Release" Relationship="RepertoiretDataModel.FK_PROJECT_RELEASE_PROJECT_ID" FromRole="Project" ToRole="Project_Release" />
+    <NavigationProperty Name="Project_Resource" Relationship="RepertoiretDataModel.FK_PROJECT_RESOURCE_PROJECT_ID" FromRole="Project" ToRole="Project_Resource" />
+  </EntityType>
+  <EntityType Name="Project_Artist">
+    <Key>
+      <PropertyRef Name="Project_Artist_Id" />
+    </Key>
+    <Property Type="Int64" Name="Project_Artist_Id" Nullable="false" />
+    <Property Type="Int64" Name="Project_Id" Nullable="false" />
+    <Property Type="Int64" Name="Artist_Id" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Artist" Relationship="RepertoiretDataModel.FK_PROJECT_ARTIST_ARTIST_ID" FromRole="Project_Artist" ToRole="Artist" />
+    <NavigationProperty Name="Project" Relationship="RepertoiretDataModel.FK_PROJECT_ARTIST_PROJECT_ID" FromRole="Project_Artist" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Project_Contract">
+    <Key>
+      <PropertyRef Name="Project_Contract_Id" />
+    </Key>
+    <Property Type="Int64" Name="Project_Contract_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Project_Id" Nullable="false" />
+    <Property Type="Int64" Name="Contract_Id" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project" Relationship="RepertoiretDataModel.FK_PROJECT_CONTRACT_PROJECT_ID" FromRole="Project_Contract" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Project_Release">
+    <Key>
+      <PropertyRef Name="Project_Release_Id" />
+    </Key>
+    <Property Type="Int64" Name="Project_Release_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Project_Id" Nullable="false" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project" Relationship="RepertoiretDataModel.FK_PROJECT_RELEASE_PROJECT_ID" FromRole="Project_Release" ToRole="Project" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_PROJECT_RELEASE_RELEASE_ID" FromRole="Project_Release" ToRole="Release" />
+  </EntityType>
+  <EntityType Name="Project_Resource">
+    <Key>
+      <PropertyRef Name="Project_Resource_Id" />
+    </Key>
+    <Property Type="Int64" Name="Project_Resource_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Project_Id" Nullable="false" />
+    <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project" Relationship="RepertoiretDataModel.FK_PROJECT_RESOURCE_PROJECT_ID" FromRole="Project_Resource" ToRole="Project" />
+    <NavigationProperty Name="Resource" Relationship="RepertoiretDataModel.FK_PROJECT_RESOURCE_RESOURCE_ID" FromRole="Project_Resource" ToRole="Resource" />
+  </EntityType>
+  <EntityType Name="Release">
+    <Key>
+      <PropertyRef Name="Release_Id" />
+    </Key>
+    <Property Type="Int64" Name="Release_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="R2_Release_Id" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Upc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Grid" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Version_Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Configuration_Id" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Catalogue_Number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="P_Company_Id" />
+    <Property Type="Int32" Name="P_Year" />
+    <Property Type="String" Name="P_Notice_Extension" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Earliest_Release_Dt" />
+    <Property Type="Int64" Name="Admin_Company_Id" />
+    <Property Type="Boolean" Name="Is_Mac" />
+    <Property Type="Boolean" Name="Is_Ost" />
+    <Property Type="Byte" Name="Music_Class_Type" />
+    <Property Type="Int64" Name="Label_Id" />
+    <Property Type="Int32" Name="No_Components" />
+    <Property Type="Int32" Name="No_Tracks" />
+    <Property Type="Byte" Name="Scope_Type" />
+    <Property Type="Byte" Name="R2_Workflow_Status_Type" />
+    <Property Type="Boolean" Name="Is_Upc_Manual" />
+    <Property Type="String" Name="Configuration_Group_Code" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Clr_Project_Release" Relationship="RepertoiretDataModel.FK_CLR_PROJECT_RELEASE_RELEASE_ID" FromRole="Release" ToRole="Clr_Project_Release" />
+    <NavigationProperty Name="Package" Relationship="RepertoiretDataModel.FK_PACKAGE_PARENT_ID" FromRole="Release" ToRole="Package" />
+    <NavigationProperty Name="Package1" Relationship="RepertoiretDataModel.FK_PACKAGE_RELEASE_ID" FromRole="Release" ToRole="Package" />
+    <NavigationProperty Name="Project_Release" Relationship="RepertoiretDataModel.FK_PROJECT_RELEASE_RELEASE_ID" FromRole="Release" ToRole="Project_Release" />
+    <NavigationProperty Name="Release_Artist" Relationship="RepertoiretDataModel.FK_RELEASE_ARTIST_RELEASE_ID" FromRole="Release" ToRole="Release_Artist" />
+    <NavigationProperty Name="Release_Right" Relationship="RepertoiretDataModel.FK_RELEASE_RIGHT_RELEASE_ID" FromRole="Release" ToRole="Release_Right" />
+    <NavigationProperty Name="Track" Relationship="RepertoiretDataModel.FK_TRACK_RELEASE_ID" FromRole="Release" ToRole="Track" />
+  </EntityType>
+  <EntityType Name="Release_Artist">
+    <Key>
+      <PropertyRef Name="Release_Artist_Id" />
+    </Key>
+    <Property Type="Int64" Name="Release_Artist_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="R2_Release_Artist_Id" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="Int64" Name="Artist_Id" Nullable="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Artist" Relationship="RepertoiretDataModel.FK_RELEASE_ARTIST_ARTIST_ID" FromRole="Release_Artist" ToRole="Artist" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_RELEASE_ARTIST_RELEASE_ID" FromRole="Release_Artist" ToRole="Release" />
+  </EntityType>
+  <EntityType Name="Release_Right">
+    <Key>
+      <PropertyRef Name="Release_Right_Id" />
+    </Key>
+    <Property Type="Int64" Name="Release_Right_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" />
+    <Property Type="Int64" Name="Contract_Id" />
+    <Property Type="Byte" Name="Assigned_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_RELEASE_RIGHT_RELEASE_ID" FromRole="Release_Right" ToRole="Release" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Resource_Id" />
+    </Key>
+    <Property Type="Int64" Name="Resource_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="R2_Resource_Id" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Isrc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Rights_Type" />
+    <Property Type="String" Name="Version_Title" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Resource_Type" />
+    <Property Type="String" Name="Genre_Id" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="P_Company_Id" />
+    <Property Type="Int32" Name="P_Year" />
+    <Property Type="String" Name="P_Notice_Extension" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is_Sample_Exists" />
+    <Property Type="String" Name="Sample_Credit" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is_Side_Artist_Exists" />
+    <Property Type="DateTime" Name="Earliest_Release_Dt" />
+    <Property Type="Int64" Name="Admin_Company_Id" />
+    <Property Type="String" Name="Source_Upc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Live_Studio_Type" />
+    <Property Type="Byte" Name="Music_Class_Type" />
+    <Property Type="String" Name="Music_Time" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="R2_Resource_Company_Link_Id" />
+    <Property Type="Int64" Name="Label_Id" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Project_Resource" Relationship="RepertoiretDataModel.FK_PROJECT_RESOURCE_RESOURCE_ID" FromRole="Resource" ToRole="Project_Resource" />
+    <NavigationProperty Name="Resource_Artist" Relationship="RepertoiretDataModel.FK_RESOURCE_ARTIST_RESOURCE_ID" FromRole="Resource" ToRole="Resource_Artist" />
+    <NavigationProperty Name="Resource_Right" Relationship="RepertoiretDataModel.FK_RESOURCE_RIGHT_RESOURCE_ID" FromRole="Resource" ToRole="Resource_Right" />
+    <NavigationProperty Name="Track" Relationship="RepertoiretDataModel.FK_TRACK_RESOURCE_ID" FromRole="Resource" ToRole="Track" />
+  </EntityType>
+  <EntityType Name="Resource_Artist">
+    <Key>
+      <PropertyRef Name="Resource_Artist_Id" />
+    </Key>
+    <Property Type="Int64" Name="Resource_Artist_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="R2_Resource_Artist_Id" />
+    <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+    <Property Type="Int64" Name="Artist_Id" Nullable="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Int64" Name="Sequence_No" />
+    <NavigationProperty Name="Artist" Relationship="RepertoiretDataModel.FK_RESOURCE_ARTIST_ARTIST_ID" FromRole="Resource_Artist" ToRole="Artist" />
+    <NavigationProperty Name="Resource" Relationship="RepertoiretDataModel.FK_RESOURCE_ARTIST_RESOURCE_ID" FromRole="Resource_Artist" ToRole="Resource" />
+  </EntityType>
+  <EntityType Name="Resource_Right">
+    <Key>
+      <PropertyRef Name="Resource_Right_Id" />
+    </Key>
+    <Property Type="Int64" Name="Resource_Right_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" />
+    <Property Type="Int64" Name="Contract_Id" />
+    <Property Type="Byte" Name="Assigned_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Resource" Relationship="RepertoiretDataModel.FK_RESOURCE_RIGHT_RESOURCE_ID" FromRole="Resource_Right" ToRole="Resource" />
+  </EntityType>
+  <EntityType Name="Rights_Roll_Up">
+    <Key>
+      <PropertyRef Name="Rights_Roll_Up_Id" />
+    </Key>
+    <Property Type="Int64" Name="Rights_Roll_Up_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Byte" Name="Item_Type" />
+    <Property Type="Int64" Name="Item_Id" Nullable="false" />
+    <Property Type="Int32" Name="No_Of_Retry" />
+    <Property Type="Byte" Name="Status_Type" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Task_Id" />
+    </Key>
+    <Property Type="Int64" Name="Task_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Byte" Name="Task_Type" Nullable="false" />
+    <Property Type="String" Name="Task_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Status_Type" Nullable="false" />
+    <Property Type="Byte" Name="Review_Reason_Type" Nullable="false" />
+    <Property Type="String" Name="Username" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="Owner_Company_Id" />
+    <Property Type="Int64" Name="Item_Id" />
+    <Property Type="Byte" Name="Item_Type" />
+    <Property Type="Int64" Name="Contract_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Temp_Repertoire">
+    <Key>
+      <PropertyRef Name="Temp_Repertoire_Id" />
+    </Key>
+    <Property Type="Int64" Name="Temp_Repertoire_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Contract_Id" />
+    <Property Type="Int64" Name="R2_Repertoire_Id" Nullable="false" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Upc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Grid" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Rights_Type" />
+    <Property Type="String" Name="Version_Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Configuration__Id" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Catalogue_Number" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="P_Company_Id" />
+    <Property Type="Int32" Name="P_Year" />
+    <Property Type="String" Name="P_Notice_Extension" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Earliest_Release_Dt" />
+    <Property Type="Int64" Name="Admin_Company_Id" />
+    <Property Type="Boolean" Name="Is_Mac" />
+    <Property Type="Boolean" Name="Is_Ost" />
+    <Property Type="Byte" Name="Music_Class_Type" />
+    <Property Type="Int64" Name="Label_Id" />
+    <Property Type="Int32" Name="No_Components" />
+    <Property Type="Int32" Name="No_Tracks" />
+    <Property Type="Byte" Name="Scope_Type" />
+    <Property Type="Byte" Name="R2_Workflow_Status_Type" />
+    <Property Type="String" Name="Isrc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Resource_Type" />
+    <Property Type="String" Name="Genre_Id" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Is_Sample_Exists" />
+    <Property Type="String" Name="Sample_Credit" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is_Side_Artist_Exists" />
+    <Property Type="String" Name="Source_Upc" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Live_Studio_Type" />
+    <Property Type="Byte" Name="Audio_Video_Type" />
+    <Property Type="String" Name="Music_Time" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="No_Of_Retry" />
+    <Property Type="String" Name="Status_Type" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="Byte" Name="Item_Type" />
+    <Property Type="Byte" Name="Process_Type" />
+    <Property Type="Int64" Name="Owned_Project_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Track">
+    <Key>
+      <PropertyRef Name="Track_Id" />
+    </Key>
+    <Property Type="Int64" Name="Track_Id" Nullable="false" />
+    <Property Type="Int64" Name="Release_Id" Nullable="false" />
+    <Property Type="Int64" Name="Resource_Id" Nullable="false" />
+    <Property Type="Int64" Name="Sequence_No" />
+    <Property Type="Int16" Name="Side" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Release" Relationship="RepertoiretDataModel.FK_TRACK_RELEASE_ID" FromRole="Track" ToRole="Release" />
+    <NavigationProperty Name="Resource" Relationship="RepertoiretDataModel.FK_TRACK_RESOURCE_ID" FromRole="Track" ToRole="Resource" />
+    <NavigationProperty Name="Track_Right" Relationship="RepertoiretDataModel.FK_TRACK_RIGHT_TRACK_ID" FromRole="Track" ToRole="Track_Right" />
+  </EntityType>
+  <EntityType Name="Track_Right">
+    <Key>
+      <PropertyRef Name="Track_Right_Id" />
+    </Key>
+    <Property Type="Int64" Name="Track_Right_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Track_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Int64" Name="Contract_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Track" Relationship="RepertoiretDataModel.FK_TRACK_RIGHT_TRACK_ID" FromRole="Track_Right" ToRole="Track" />
+  </EntityType>
+  <Association Name="FK_PROJECT_ARTIST_ARTIST_ID">
+    <End Type="RepertoiretDataModel.Artist" Role="Artist" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Artist" Role="Project_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Project_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_ARTIST_ID">
+    <End Type="RepertoiretDataModel.Artist" Role="Artist" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Release_Artist" Role="Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_ARTIST_ID">
+    <End Type="RepertoiretDataModel.Artist" Role="Artist" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Resource_Artist" Role="Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Artist_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLR_PROJECT_RELEASE_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Clr_Project_Release" Role="Clr_Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Clr_Project_Release">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMPANY_COUNTRY_ID">
+    <End Type="RepertoiretDataModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="RepertoiretDataModel.Company" Role="Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+    <End Type="RepertoiretDataModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Preclearance_Country" Role="Preclearance_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Preclearance_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_LABLE_ID">
+    <End Type="RepertoiretDataModel.Label" Role="Label" Multiplicity="0..1" />
+    <End Type="RepertoiretDataModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Label_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Label_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOOKUP_LOOKUP_TYPE_ID">
+    <End Type="RepertoiretDataModel.Lookup_Type" Role="Lookup_Type" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Lookup" Role="Lookup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup_Type">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Principal>
+      <Dependent Role="Lookup">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACKAGE_PARENT_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Package" Role="Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Parent_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PACKAGE_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Package" Role="Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_ARTIST_PROJECT_ID">
+    <End Type="RepertoiretDataModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Artist" Role="Project_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Artist">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_CONTRACT_PROJECT_ID">
+    <End Type="RepertoiretDataModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Contract" Role="Project_Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Contract">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELEASE_PROJECT_ID">
+    <End Type="RepertoiretDataModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Release" Role="Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Release">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RESOURCE_PROJECT_ID">
+    <End Type="RepertoiretDataModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Resource" Role="Project_Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Project_Resource">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELEASE_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Release" Role="Project_Release" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Project_Release">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RESOURCE_RESOURCE_ID">
+    <End Type="RepertoiretDataModel.Resource" Role="Resource" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Project_Resource" Role="Project_Resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Project_Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_ARTIST_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Release_Artist" Role="Release_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Release_Artist">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELEASE_RIGHT_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Release_Right" Role="Release_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Release_Right">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RELEASE_ID">
+    <End Type="RepertoiretDataModel.Release" Role="Release" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Track" Role="Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Release">
+        <PropertyRef Name="Release_Id" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="Release_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_ARTIST_RESOURCE_ID">
+    <End Type="RepertoiretDataModel.Resource" Role="Resource" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Resource_Artist" Role="Resource_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Artist">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOURCE_RIGHT_RESOURCE_ID">
+    <End Type="RepertoiretDataModel.Resource" Role="Resource" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Resource_Right" Role="Resource_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Resource_Right">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RESOURCE_ID">
+    <End Type="RepertoiretDataModel.Resource" Role="Resource" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Track" Role="Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Resource_Id" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="Resource_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRACK_RIGHT_TRACK_ID">
+    <End Type="RepertoiretDataModel.Track" Role="Track" Multiplicity="1" />
+    <End Type="RepertoiretDataModel.Track_Right" Role="Track_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="Track_Id" />
+      </Principal>
+      <Dependent Role="Track_Right">
+        <PropertyRef Name="Track_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

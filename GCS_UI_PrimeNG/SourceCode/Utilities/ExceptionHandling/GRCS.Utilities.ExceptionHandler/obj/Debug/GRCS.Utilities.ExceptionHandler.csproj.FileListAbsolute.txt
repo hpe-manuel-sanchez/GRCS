@@ -26,3 +26,31 @@ C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Utilities\ExceptionHandling\GRCS.Utilit
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.csproj.CoreCompileInputs.cache
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.dll
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\Schema\EmailTemplate.xml
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\GRCS.Utilities.ExceptionHandler.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\GRCS.Utilities.ExceptionHandler.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\GRCS.Utilities.ExceptionHandler.dll.CodeAnalysisLog.xml
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\GRCS.Utilities.ExceptionHandler.dll.lastcodeanalysissucceeded
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.BusinessEntities.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Common.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Core.Utilities.Helper.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Data.Entities.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.NotificationInterfaces.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Core.Utilities.logger.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\log4net.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.BusinessEntities.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Common.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Proxies.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Proxies.dll.config
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Data.Entities.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.Data.Entities.dll.config
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\UMGI.GRCS.NotificationInterfaces.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.csprojResolveAssemblyReference.cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.csproj.CoreCompileInputs.cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Utilities\ExceptionHandling\GRCS.Utilities.ExceptionHandler\obj\Debug\GRCS.Utilities.ExceptionHandler.pdb

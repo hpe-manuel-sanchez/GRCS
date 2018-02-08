@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\enterprise\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="15.0">
  <Targets>
-  <Target Name="C:\OneDrive - Hewlett Packard Enterprise\Dev Projects\GCS_UI_PrimeNG\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.dll">
+  <Target Name="C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Business\BusinessEntities\GRCS.BusinessEntities\bin\Debug\UMGI.GRCS.BusinessEntities.dll">
    <Modules>
     <Module Name="umgi.grcs.businessentities.dll">
      <Namespaces>
@@ -12,7 +12,7 @@
          <Members>
           <Member Name="#&lt;MappingInfo&gt;k__BackingField" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-07 15:59:37Z" FixCategory="NonBreaking">
+            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-08 13:08:13Z" FixCategory="NonBreaking">
              <Issue Certainty="95" Level="Error">Field 'MappingFilterCriteria.&lt;MappingInfo&gt;k__BackingField' is a member of type 'MappingFilterCriteria', which is serializable, but is of type 'MappingInfo', which is not serializable. Add the NonSerializedAttribute to 'MappingFilterCriteria.&lt;MappingInfo&gt;k__BackingField'.</Issue>
             </Message>
            </Messages>
@@ -27,7 +27,7 @@
          <Members>
           <Member Name="#&lt;ProjectRouted&gt;k__BackingField" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-07 15:59:37Z" FixCategory="NonBreaking">
+            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-08 13:08:13Z" FixCategory="NonBreaking">
              <Issue Certainty="95" Level="Error">Field 'ClearanceRoutingItem.&lt;ProjectRouted&gt;k__BackingField' is a member of type 'ClearanceRoutingItem', which is serializable, but is of type 'ClearanceRoutedProject', which is not serializable. Add the NonSerializedAttribute to 'ClearanceRoutingItem.&lt;ProjectRouted&gt;k__BackingField'.</Issue>
             </Message>
            </Messages>
@@ -42,7 +42,7 @@
          <Members>
           <Member Name="#&lt;DigitalRestriction&gt;k__BackingField" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-07 15:59:37Z" FixCategory="NonBreaking">
+            <Message TypeName="MarkAllNonSerializableFields" Category="Microsoft.Usage" CheckId="CA2235" Status="Active" Created="2018-02-08 13:08:13Z" FixCategory="NonBreaking">
              <Issue Certainty="95" Level="Error">Field 'RepertoireRightsSearchResult.&lt;DigitalRestriction&gt;k__BackingField' is a member of type 'RepertoireRightsSearchResult', which is serializable, but is of type 'ReportoireDigitalRestriction', which is not serializable. Add the NonSerializedAttribute to 'RepertoireRightsSearchResult.&lt;DigitalRestriction&gt;k__BackingField'.</Issue>
             </Message>
            </Messages>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmailModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EmailModelStoreContainer">
+    <EntitySet Name="Clr_Email_Queue" EntityType="EmailModel.Store.Clr_Email_Queue" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Email_Queue_Details" EntityType="EmailModel.Store.Clr_Email_Queue_Details" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Clr_Email_Queue_User" EntityType="EmailModel.Store.Clr_Email_Queue_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID" Association="EmailModel.Store.FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+      <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+      <End Role="Clr_Email_Queue_Details" EntitySet="Clr_Email_Queue_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID" Association="EmailModel.Store.FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+      <End Role="Clr_Email_Queue" EntitySet="Clr_Email_Queue" />
+      <End Role="Clr_Email_Queue_User" EntitySet="Clr_Email_Queue_User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Clr_Email_Queue">
+    <Key>
+      <PropertyRef Name="Clr_Email_Queue_Id" />
+    </Key>
+    <Property Name="Clr_Email_Queue_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Emailto_Workgroup_Id" Type="bigint" />
+    <Property Name="Emailto_User_Id" Type="bigint" />
+    <Property Name="Emailto_Email_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="Emailcc_Email_Id" Type="varchar(max)" />
+    <Property Name="Emailbcc_Email_Id" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Clr_Email_Queue_Details">
+    <Key>
+      <PropertyRef Name="Clr_Email_Queue_Details_Id" />
+    </Key>
+    <Property Name="Clr_Email_Queue_Details_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Clr_Email_Queue_Id" Type="bigint" />
+    <Property Name="Clr_Project_Id" Type="bigint" />
+    <Property Name="Resource_Id" Type="bigint" />
+    <Property Name="Release_Id" Type="bigint" />
+    <Property Name="Routed_Channel_Type" Type="tinyint" />
+    <Property Name="Contract_Id" Type="bigint" />
+    <Property Name="Action_User_Login_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Action_Type" Type="tinyint" />
+    <Property Name="Upc" Type="varchar" MaxLength="20" />
+    <Property Name="Freehand_Company_Id" Type="bigint" />
+    <Property Name="Optionaldata1" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Optionaldata2" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Clr_Email_Queue_User">
+    <Key>
+      <PropertyRef Name="Clr_Email_Queue_User_Id" />
+    </Key>
+    <Property Name="Clr_Email_Queue_User_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Clr_Email_Queue_Id" Type="bigint" Nullable="false" />
+    <Property Name="User_Id" Type="bigint" />
+    <Property Name="Email_Id" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Preference_Type" Type="tinyint" Nullable="false" />
+    <Property Name="Is_Emailsent" Type="bit" Nullable="false" />
+    <Property Name="Is_Error" Type="bit" Nullable="false" />
+    <Property Name="Is_Emailignored" Type="bit" Nullable="false" />
+    <Property Name="Email_Attempts" Type="tinyint" />
+    <Property Name="Created_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Created_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Modified_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Modified_Dttm" Type="datetime" Nullable="false" />
+    <Property Name="Archive_Flag" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK_CLR_EMAIL_QUEUE_DETAILS_CLR_EMAIL_QUEUE_ID">
+    <End Role="Clr_Email_Queue" Type="EmailModel.Store.Clr_Email_Queue" Multiplicity="0..1" />
+    <End Role="Clr_Email_Queue_Details" Type="EmailModel.Store.Clr_Email_Queue_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clr_Email_Queue">
+        <PropertyRef Name="Clr_Email_Queue_Id" />
+      </Principal>
+      <Dependent Role="Clr_Email_Queue_Details">
+        <PropertyRef Name="Clr_Email_Queue_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLR_EMAIL_QUEUE_USER_CLR_EMAIL_QUEUE_ID">
+    <End Role="Clr_Email_Queue" Type="EmailModel.Store.Clr_Email_Queue" Multiplicity="1" />
+    <End Role="Clr_Email_Queue_User" Type="EmailModel.Store.Clr_Email_Queue_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clr_Email_Queue">
+        <PropertyRef Name="Clr_Email_Queue_Id" />
+      </Principal>
+      <Dependent Role="Clr_Email_Queue_User">
+        <PropertyRef Name="Clr_Email_Queue_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="USP_EmailArtistManagementGetResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailMasterArtistManagementGetProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailRegularNonTraditionalArtistManagementGetProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSEmailDataForResourceByActionType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+    <Parameter Name="ActionType" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSEmailDataRoutingDetailWithReviewStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CLRPROJECTID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSEmailDataSummaryWithReviewStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CLRPROJECTID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSEmailProjectData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSReleaseEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="USP_GetGCSResourceEmailData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clr_Email_queue_Id" Type="bigint" Mode="In" />
+  </Function>
+</Schema>

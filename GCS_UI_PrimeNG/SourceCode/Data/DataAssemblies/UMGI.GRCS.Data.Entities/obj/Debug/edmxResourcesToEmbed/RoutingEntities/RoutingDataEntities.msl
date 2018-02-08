@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RoutingDevEntitiesStoreContainer" CdmEntityContainer="RoutingDataEntities">
+    <EntitySetMapping Name="Routing_Exception">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Exception">
+        <MappingFragment StoreEntitySet="Routing_Exception">
+          <ScalarProperty Name="Routing_Exception_Id" ColumnName="Routing_Exception_Id" />
+          <ScalarProperty Name="Rule_Type" ColumnName="Rule_Type" />
+          <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+          <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+          <ScalarProperty Name="Requester" ColumnName="Requester" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Skip_Step" ColumnName="Skip_Step" />
+          <ScalarProperty Name="Rule_Level" ColumnName="Rule_Level" />
+          <ScalarProperty Name="Project_Subtype" ColumnName="Project_Subtype" />
+          <ScalarProperty Name="Is_Active_Artist" ColumnName="Is_Active_Artist" />
+          <ScalarProperty Name="Is_Third_Party" ColumnName="Is_Third_Party" />
+          <ScalarProperty Name="Rule_Description" ColumnName="Rule_Description" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroups">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Workgroup">
+        <MappingFragment StoreEntitySet="Workgroup">
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+          <ScalarProperty Name="R2_Contact_Email" ColumnName="R2_Contact_Email" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Workgroup_Name" ColumnName="Workgroup_Name" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routed_Item">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routed_Item">
+        <MappingFragment StoreEntitySet="Routed_Item">
+          <ScalarProperty Name="Is_Split_Deal" ColumnName="Is_Split_Deal" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Approval_Status_Type" ColumnName="Approval_Status_Type" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Notification">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Notification">
+        <MappingFragment StoreEntitySet="Clr_Notification">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="To_Workgroup_Id" ColumnName="To_Workgroup_Id" />
+          <ScalarProperty Name="From_Workgroup_Id" ColumnName="From_Workgroup_Id" />
+          <ScalarProperty Name="Is_New" ColumnName="Is_New" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+          <ScalarProperty Name="Notification_Type" ColumnName="Notification_Type" />
+          <ScalarProperty Name="Clr_Notification_Id" ColumnName="Clr_Notification_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroup_User">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Workgroup_User">
+        <MappingFragment StoreEntitySet="Workgroup_User">
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Is_Upc_Allocation" ColumnName="Is_Upc_Allocation" />
+          <ScalarProperty Name="Is_R2_Authorized" ColumnName="Is_R2_Authorized" />
+          <ScalarProperty Name="Is_Manage_Workgroup" ColumnName="Is_Manage_Workgroup" />
+          <ScalarProperty Name="Is_In_Role" ColumnName="Is_In_Role" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Workgroup_User_Id" ColumnName="Workgroup_User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="Is_UMGI_Workgroup" ColumnName="Is_UMGI_Workgroup" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Assigned_To" ColumnName="Assigned_To" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Request_Status_Type" ColumnName="Request_Status_Type" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Available_Dt" ColumnName="Available_Dt" />
+          <ScalarProperty Name="Is_Open" ColumnName="Is_Open" />
+          <ScalarProperty Name="Review_Dt" ColumnName="Review_Dt" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+          <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Routing_Queue">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Routing_Queue">
+        <MappingFragment StoreEntitySet="Clr_Routing_Queue">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="Error_Description" ColumnName="Error_Description" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Routing_Queue_Id" ColumnName="Clr_Routing_Queue_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Safe_Area_Territory">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Safe_Area_Territory">
+        <MappingFragment StoreEntitySet="Safe_Area_Territory">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Safe_Area_Territory_Id" ColumnName="Safe_Area_Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Territories">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Territory">
+        <MappingFragment StoreEntitySet="Territory">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Territory_Name" ColumnName="Territory_Name" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Country">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Project_Country">
+        <MappingFragment StoreEntitySet="Clr_Project_Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Clr_Project_Country_Id" ColumnName="Clr_Project_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Log">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Log">
+        <MappingFragment StoreEntitySet="Routing_Log">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Comment_Table_Id" ColumnName="Comment_Table_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+          <ScalarProperty Name="Routing_Log_Id" ColumnName="Routing_Log_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_SafeTerritoryCheck" FunctionName="RoutingDevEntities.Store.USP_SafeTerritoryCheck">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RoutingDevEntities.USP_SafeTerritoryCheck_Result" />
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Routing_Rule">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Rule">
+        <MappingFragment StoreEntitySet="Routing_Rule">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+          <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Variation">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation">
+        <MappingFragment StoreEntitySet="Routing_Variation">
+          <ScalarProperty Name="Excluded_Requesting_Territories" ColumnName="Excluded_Requesting_Territories" />
+          <ScalarProperty Name="Included_Requesting_Territories" ColumnName="Included_Requesting_Territories" />
+          <ScalarProperty Name="Excluded_Owning_Territories" ColumnName="Excluded_Owning_Territories" />
+          <ScalarProperty Name="Included_Owning_Territories" ColumnName="Included_Owning_Territories" />
+          <ScalarProperty Name="Excluded_Release_Territories" ColumnName="Excluded_Release_Territories" />
+          <ScalarProperty Name="Included_Release_Territories" ColumnName="Included_Release_Territories" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Is_Skip_Locallabel" ColumnName="Is_Skip_Locallabel" />
+          <ScalarProperty Name="Is_Parent" ColumnName="Is_Parent" />
+          <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+          <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+          <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+          <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+          <ScalarProperty Name="Is_Active_Artist" ColumnName="Is_Active_Artist" />
+          <ScalarProperty Name="Is_Sensitive_Artist" ColumnName="Is_Sensitive_Artist" />
+          <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+          <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+          <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Variation_Artist">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Artist">
+        <MappingFragment StoreEntitySet="Routing_Variation_Artist">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Routing_Variation_Artist_Id" ColumnName="Routing_Variation_Artist_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Variation_Company">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Company">
+        <MappingFragment StoreEntitySet="Routing_Variation_Company">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Company_Type" ColumnName="Company_Type" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Routing_Variation_Company_Id" ColumnName="Routing_Variation_Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Variation_Country">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Country">
+        <MappingFragment StoreEntitySet="Routing_Variation_Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Applied_Rule_Type" ColumnName="Applied_Rule_Type" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Routing_Variation_Country_Id" ColumnName="Routing_Variation_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routing_Variation_Territory">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Routing_Variation_Territory">
+        <MappingFragment StoreEntitySet="Routing_Variation_Territory">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Applied_Rule_Type" ColumnName="Applied_Rule_Type" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Routing_Variation_Territory_Id" ColumnName="Routing_Variation_Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Contributor_Type" ColumnName="Contributor_Type" />
+          <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+          <ScalarProperty Name="Talent_Id" ColumnName="Talent_Id" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Universal_Licensee_Ind" ColumnName="Universal_Licensee_Ind" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Company_Type_Code" ColumnName="Company_Type_Code" />
+          <ScalarProperty Name="Isac_Code" ColumnName="Isac_Code" />
+          <ScalarProperty Name="Is_Grc" ColumnName="Is_Grc" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company_Account_Id" ColumnName="Company_Account_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Iso_Code_2" ColumnName="Iso_Code_2" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Project">
+        <MappingFragment StoreEntitySet="Clr_Project">
+          <ScalarProperty Name="UMGI_Sensitive_Exploitation_Type" ColumnName="UMGI_Sensitive_Exploitation_Type" />
+          <ScalarProperty Name="UMGI_Budget_Price_Reduction_Type" ColumnName="UMGI_Budget_Price_Reduction_Type" />
+          <ScalarProperty Name="UMGI_Mid_Price_Reduction_Type" ColumnName="UMGI_Mid_Price_Reduction_Type" />
+          <ScalarProperty Name="UMGI_Third_Party_Company_Type" ColumnName="UMGI_Third_Party_Company_Type" />
+          <ScalarProperty Name="UMGI_Cross_Border_Request_Type" ColumnName="UMGI_Cross_Border_Request_Type" />
+          <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+          <ScalarProperty Name="Is_Existing" ColumnName="Is_Existing" />
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Creates_Dttm" ColumnName="Creates_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Rcc_User_Id" ColumnName="Rcc_User_Id" />
+          <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+          <ScalarProperty Name="Is_Resubmitted" ColumnName="Is_Resubmitted" />
+          <ScalarProperty Name="Is_Regular_Retail" ColumnName="Is_Regular_Retail" />
+          <ScalarProperty Name="Is_Third_Party" ColumnName="Is_Third_Party" />
+          <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+          <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+          <ScalarProperty Name="Is_Price_Reduction" ColumnName="Is_Price_Reduction" />
+          <ScalarProperty Name="Is_Promotional" ColumnName="Is_Promotional" />
+          <ScalarProperty Name="Is_Club" ColumnName="Is_Club" />
+          <ScalarProperty Name="Is_Non_Traditional" ColumnName="Is_Non_Traditional" />
+          <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+          <ScalarProperty Name="Is_Master" ColumnName="Is_Master" />
+          <ScalarProperty Name="Locked_User_Id" ColumnName="Locked_User_Id" />
+          <ScalarProperty Name="Requester_User_Id" ColumnName="Requester_User_Id" />
+          <ScalarProperty Name="Requester_Company_Id" ColumnName="Requester_Company_Id" />
+          <ScalarProperty Name="Requester_Workgroup_Id" ColumnName="Requester_Workgroup_Id" />
+          <ScalarProperty Name="Third_Party_Repertoire" ColumnName="Third_Party_Repertoire" />
+          <ScalarProperty Name="One_Stop_Reason" ColumnName="One_Stop_Reason" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Is_High_Priority" ColumnName="Is_High_Priority" />
+          <ScalarProperty Name="Is_One_Stop" ColumnName="Is_One_Stop" />
+          <ScalarProperty Name="Is_Sensitive" ColumnName="Is_Sensitive" />
+          <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+          <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+          <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+          <ScalarProperty Name="Scope_Type" ColumnName="Scope_Type" />
+          <ScalarProperty Name="Local_Reference" ColumnName="Local_Reference" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+          <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetRoutingVariation" FunctionName="RoutingDevEntities.Store.USP_GetRoutingVariation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RoutingDevEntities.USP_GetRoutingVariation_Result">
+          <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+          <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+          <ScalarProperty Name="Is_Parent" ColumnName="Is_Parent" />
+          <ScalarProperty Name="Is_Skip_Locallabel" ColumnName="Is_Skip_Locallabel" />
+          <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+          <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+          <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Is_Send_Email" ColumnName="Is_Send_Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_IsDuplicateRoutingVariation" FunctionName="RoutingDevEntities.Store.USP_IsDuplicateRoutingVariation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RoutingDevEntities.USP_IsDuplicateRoutingVariation_Result">
+          <ScalarProperty Name="Is_Duplicate" ColumnName="Is_Duplicate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Clr_Manage_Contract">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Manage_Contract">
+        <MappingFragment StoreEntitySet="Clr_Manage_Contract">
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Is_Routed" ColumnName="Is_Routed" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Clr_Manage_Contract_Id" ColumnName="Clr_Manage_Contract_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RoutingDevEntities.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Security_Object" ColumnName="Security_Object" />
+          <ScalarProperty Name="Hashcode" ColumnName="Hashcode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_Routing_IdentifyWorkGroups" FunctionName="RoutingDevEntities.Store.USP_Routing_IdentifyWorkGroups">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RoutingDevEntities.USP_Routing_IdentifyWorkGroups_Result">
+          <ScalarProperty Name="Local_Label_WGId" ColumnName="Local_Label_WGId" />
+          <ScalarProperty Name="Marketing_WGId" ColumnName="Marketing_WGId" />
+          <ScalarProperty Name="Legal_WGId" ColumnName="Legal_WGId" />
+          <ScalarProperty Name="Is_Skip_National" ColumnName="Is_Skip_National" />
+          <ScalarProperty Name="Is_Skip_International" ColumnName="Is_Skip_International" />
+          <ScalarProperty Name="Is_Skip_LocalLabel" ColumnName="Is_Skip_LocalLabel" />
+          <ScalarProperty Name="Routing_Rule_Id" ColumnName="Routing_Rule_Id" />
+          <ScalarProperty Name="Routing_Variation_Id" ColumnName="Routing_Variation_Id" />
+          <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+          <ScalarProperty Name="Is_Send_Email" ColumnName="Is_Send_Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Clr_Background_Status">
+      <EntityTypeMapping TypeName="RoutingDevEntities.Clr_Background_Status">
+        <MappingFragment StoreEntitySet="Clr_Background_Status">
+          <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="Retry" ColumnName="Retry" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Background_Status_Id" ColumnName="Clr_Background_Status_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

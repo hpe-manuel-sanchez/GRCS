@@ -1,7 +1,5 @@
-﻿using Microsoft.Practices.Unity;
-using System;
+﻿using System;
 using System.Configuration;
-using System.Linq;
 using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +11,7 @@ using UMGI.GRCS.UI.Helper;
 using UMGI.GRCS.UI.Interfaces;
 using UMGI.GRCS.UI.Models;
 using UMGI.GRCS.UI.Utilities;
+using Unity;
 
 namespace UMGI.GRCS.UI
 {

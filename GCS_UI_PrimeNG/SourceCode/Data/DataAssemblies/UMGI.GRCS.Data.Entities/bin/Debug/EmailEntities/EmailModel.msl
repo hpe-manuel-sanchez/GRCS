@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmailModelStoreContainer" CdmEntityContainer="EmailEntities">
+    <FunctionImportMapping FunctionImportName="USP_GetGCSEmailData" FunctionName="EmailModel.Store.USP_GetGCSEmailData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailData_Result">
+          <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+          <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+          <ScalarProperty Name="Clr_Project_id" ColumnName="Clr_Project_id" />
+          <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+          <ScalarProperty Name="Release_Title" ColumnName="Release_Title" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+          <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+          <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+          <ScalarProperty Name="RequestCompany" ColumnName="RequestCompany" />
+          <ScalarProperty Name="AdminCompany" ColumnName="AdminCompany" />
+          <ScalarProperty Name="OptionalData1" ColumnName="OptionalData1" />
+          <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+          <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+          <ScalarProperty Name="third_party_company_name" ColumnName="third_party_company_name" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Review_Status" ColumnName="Review_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Clr_Email_Queue">
+      <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue">
+        <MappingFragment StoreEntitySet="Clr_Email_Queue">
+          <ScalarProperty Name="Emailbcc_Email_Id" ColumnName="Emailbcc_Email_Id" />
+          <ScalarProperty Name="Emailcc_Email_Id" ColumnName="Emailcc_Email_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Emailto_Email_Id" ColumnName="Emailto_Email_Id" />
+          <ScalarProperty Name="Emailto_User_Id" ColumnName="Emailto_User_Id" />
+          <ScalarProperty Name="Emailto_Workgroup_Id" ColumnName="Emailto_Workgroup_Id" />
+          <ScalarProperty Name="Email_Type" ColumnName="Email_Type" />
+          <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Email_Queue_Details">
+      <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue_Details">
+        <MappingFragment StoreEntitySet="Clr_Email_Queue_Details">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Optionaldata2" ColumnName="Optionaldata2" />
+          <ScalarProperty Name="Optionaldata1" ColumnName="Optionaldata1" />
+          <ScalarProperty Name="Freehand_Company_Id" ColumnName="Freehand_Company_Id" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
+          <ScalarProperty Name="Action_Type" ColumnName="Action_Type" />
+          <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+          <ScalarProperty Name="Clr_Email_Queue_Details_Id" ColumnName="Clr_Email_Queue_Details_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Email_Queue_User">
+      <EntityTypeMapping TypeName="EmailModel.Clr_Email_Queue_User">
+        <MappingFragment StoreEntitySet="Clr_Email_Queue_User">
+          <ScalarProperty Name="Is_Emailsent" ColumnName="Is_Emailsent" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Email_Attempts" ColumnName="Email_Attempts" />
+          <ScalarProperty Name="Is_Emailignored" ColumnName="Is_Emailignored" />
+          <ScalarProperty Name="Is_Error" ColumnName="Is_Error" />
+          <ScalarProperty Name="Email_Preference_Type" ColumnName="Email_Preference_Type" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Clr_Email_Queue_Id" ColumnName="Clr_Email_Queue_Id" />
+          <ScalarProperty Name="Clr_Email_Queue_User_Id" ColumnName="Clr_Email_Queue_User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSEmailProjectData" FunctionName="EmailModel.Store.USP_GetGCSEmailProjectData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailProjectData_Result">
+          <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+          <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+          <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+          <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+          <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+          <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+          <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+          <ScalarProperty Name="IS_OTHER" ColumnName="IS_OTHER" />
+          <ScalarProperty Name="OTHER_COMMENT" ColumnName="OTHER_COMMENT" />
+          <ScalarProperty Name="IS_GIVE_AWAY" ColumnName="IS_GIVE_AWAY" />
+          <ScalarProperty Name="Give_Away_Comment" ColumnName="Give_Away_Comment" />
+          <ScalarProperty Name="IS_PREMIUM" ColumnName="IS_PREMIUM" />
+          <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+          <ScalarProperty Name="IS_EDUCATIONAL" ColumnName="IS_EDUCATIONAL" />
+          <ScalarProperty Name="IS_DIRECT_RESPONSE" ColumnName="IS_DIRECT_RESPONSE" />
+          <ScalarProperty Name="IS_INTERNET" ColumnName="IS_INTERNET" />
+          <ScalarProperty Name="IS_PARTWORK" ColumnName="IS_PARTWORK" />
+          <ScalarProperty Name="IS_KIOSK" ColumnName="IS_KIOSK" />
+          <ScalarProperty Name="IS_MAIL_ORDER" ColumnName="IS_MAIL_ORDER" />
+          <ScalarProperty Name="IS_UMG_MANUFACTURED" ColumnName="IS_UMG_MANUFACTURED" />
+          <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+          <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+          <ScalarProperty Name="MEDIA_PROMO_SPEND_COMMENT" ColumnName="MEDIA_PROMO_SPEND_COMMENT" />
+          <ScalarProperty Name="PROMO_DISTRIBUTION_LIST" ColumnName="PROMO_DISTRIBUTION_LIST" />
+          <ScalarProperty Name="IS_CLUB_MAIL_ORDER" ColumnName="IS_CLUB_MAIL_ORDER" />
+          <ScalarProperty Name="IS_CLUB_INTRODUCTORY" ColumnName="IS_CLUB_INTRODUCTORY" />
+          <ScalarProperty Name="PRICE_LEVEL_CURRENT_TYPE" ColumnName="PRICE_LEVEL_CURRENT_TYPE" />
+          <ScalarProperty Name="PRICE_LEVEL_REQUESTED_TYPE" ColumnName="PRICE_LEVEL_REQUESTED_TYPE" />
+          <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+          <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+          <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+          <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+          <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="Other_Media_Detail" ColumnName="Other_Media_Detail" />
+          <ScalarProperty Name="Tv_Budget" ColumnName="Tv_Budget" />
+          <ScalarProperty Name="Tv_Budget_Usd" ColumnName="Tv_Budget_Usd" />
+          <ScalarProperty Name="Radio_Budget" ColumnName="Radio_Budget" />
+          <ScalarProperty Name="Radio_Budget_Usd" ColumnName="Radio_Budget_Usd" />
+          <ScalarProperty Name="Other_Budget" ColumnName="Other_Budget" />
+          <ScalarProperty Name="Other_Budget_Usd" ColumnName="Other_Budget_Usd" />
+          <ScalarProperty Name="Rts_To_Date" ColumnName="Rts_To_Date" />
+          <ScalarProperty Name="Rts_With_Campaign" ColumnName="Rts_With_Campaign" />
+          <ScalarProperty Name="Rts_Without_Campaign" ColumnName="Rts_Without_Campaign" />
+          <ScalarProperty Name="Uds_To_Date" ColumnName="Uds_To_Date" />
+          <ScalarProperty Name="Uds_With_Campaign" ColumnName="Uds_With_Campaign" />
+          <ScalarProperty Name="Uds_Without_Campaign" ColumnName="Uds_Without_Campaign" />
+          <ScalarProperty Name="SalesChannel" ColumnName="SalesChannel" />
+          <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+          <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+          <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+          <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+          <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+          <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSReleaseEmailData" FunctionName="EmailModel.Store.USP_GetGCSReleaseEmailData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSReleaseEmailData_Result">
+          <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+          <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="Exact_Ppd_Price" ColumnName="Exact_Ppd_Price" />
+          <ScalarProperty Name="Estimated_Retail_Price" ColumnName="Estimated_Retail_Price" />
+          <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+          <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSResourceEmailData" FunctionName="EmailModel.Store.USP_GetGCSResourceEmailData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSResourceEmailData_Result">
+          <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+          <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataSummaryWithReviewStatus" FunctionName="EmailModel.Store.USP_GetGCSEmailDataSummaryWithReviewStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataSummaryWithReviewStatus_Result">
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+          <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+          <ScalarProperty Name="Local_Reference" ColumnName="Local_Reference" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+          <ScalarProperty Name="Routem_Item_Id" ColumnName="Routem_Item_Id" />
+          <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="ISRC" ColumnName="ISRC" />
+          <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+          <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+          <ScalarProperty Name="Resource_Type" ColumnName="Resource_Type" />
+          <ScalarProperty Name="Resource_Type_Description" ColumnName="Resource_Type_Description" />
+          <ScalarProperty Name="Resource_Comment" ColumnName="Resource_Comment" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+          <ScalarProperty Name="Clearance_Company_Id" ColumnName="Clearance_Company_Id" />
+          <ScalarProperty Name="Clearance_Company_Name" ColumnName="Clearance_Company_Name" />
+          <ScalarProperty Name="Reviewer_Role_Name" ColumnName="Reviewer_Role_Name" />
+          <ScalarProperty Name="Reviewer_Name" ColumnName="Reviewer_Name" />
+          <ScalarProperty Name="Current_Status" ColumnName="Current_Status" />
+          <ScalarProperty Name="Sales_Channel_Description" ColumnName="Sales_Channel_Description" />
+          <ScalarProperty Name="Submission_Date" ColumnName="Submission_Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataRoutingDetailWithReviewStatus" FunctionName="EmailModel.Store.USP_GetGCSEmailDataRoutingDetailWithReviewStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataRoutingDetailWithReviewStatus_Result">
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Workgroup" ColumnName="Workgroup" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date_Time_Field" ColumnName="Date_Time_Field" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailMasterArtistManagementGetProject" FunctionName="EmailModel.Store.USP_EmailMasterArtistManagementGetProject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailMasterArtistManagementGetProject_Result">
+          <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+          <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+          <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+          <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+          <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+          <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+          <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+          <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+          <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+          <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+          <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+          <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+          <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+          <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+          <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+          <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailArtistManagementGetResources" FunctionName="EmailModel.Store.USP_EmailArtistManagementGetResources">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailArtistManagementGetResources_Result">
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+          <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalArtistManagementGetProject" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalArtistManagementGetProject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetProject_Result1">
+          <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+          <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+          <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+          <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+          <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+          <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+          <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+          <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+          <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+          <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalExistingArtistManagementGetRelease_Result">
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+          <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+          <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalNewArtistManagementGetRelease" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalNewArtistManagementGetRelease">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalNewArtistManagementGetRelease_Result">
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+          <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+          <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetGCSEmailDataForResourceByActionType" FunctionName="EmailModel.Store.USP_GetGCSEmailDataForResourceByActionType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_GetGCSEmailDataForResourceByActionType_Result">
+          <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+          <ScalarProperty Name="Project_Title" ColumnName="Project_Title" />
+          <ScalarProperty Name="Clr_Project_id" ColumnName="Clr_Project_id" />
+          <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Resource_Title" ColumnName="Resource_Title" />
+          <ScalarProperty Name="Release_Title" ColumnName="Release_Title" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="Request_Type" ColumnName="Request_Type" />
+          <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+          <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+          <ScalarProperty Name="RequestCompany" ColumnName="RequestCompany" />
+          <ScalarProperty Name="AdminCompany" ColumnName="AdminCompany" />
+          <ScalarProperty Name="OptionalData1" ColumnName="OptionalData1" />
+          <ScalarProperty Name="Action_User_Login_Name" ColumnName="Action_User_Login_Name" />
+          <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+          <ScalarProperty Name="third_party_company_name" ColumnName="third_party_company_name" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Review_Status" ColumnName="Review_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalAndMasterArtistManagementGetProjects_Result">
+          <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+          <ScalarProperty Name="SCOPE_TYPE" ColumnName="SCOPE_TYPE" />
+          <ScalarProperty Name="REQUESTCOMPANY" ColumnName="REQUESTCOMPANY" />
+          <ScalarProperty Name="PROJECT_TITLE" ColumnName="PROJECT_TITLE" />
+          <ScalarProperty Name="REQUESTTYPE" ColumnName="REQUESTTYPE" />
+          <ScalarProperty Name="Requested_Included_Territories" ColumnName="Requested_Included_Territories" />
+          <ScalarProperty Name="Requested_Excluded_Territories" ColumnName="Requested_Excluded_Territories" />
+          <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+          <ScalarProperty Name="CLIENT_WEBSITE" ColumnName="CLIENT_WEBSITE" />
+          <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+          <ScalarProperty Name="Media" ColumnName="Media" />
+          <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+          <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+          <ScalarProperty Name="PREMIUM_COMMENT" ColumnName="PREMIUM_COMMENT" />
+          <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+          <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+          <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+          <ScalarProperty Name="THIRD_PARTY_REPERTOIRE" ColumnName="THIRD_PARTY_REPERTOIRE" />
+          <ScalarProperty Name="EmailSignature" ColumnName="EmailSignature" />
+          <ScalarProperty Name="Third_Party_Company_Name" ColumnName="Third_Party_Company_Name" />
+          <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+          <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+          <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+          <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+          <ScalarProperty Name="ProjectType_ForEmail" ColumnName="ProjectType_ForEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_EmailRegularNonTraditionalArtistManagementGetAllReleases" FunctionName="EmailModel.Store.USP_EmailRegularNonTraditionalArtistManagementGetAllReleases">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmailModel.USP_EmailRegularNonTraditionalArtistManagementGetAllReleases_Result">
+          <ScalarProperty Name="Release_Artist" ColumnName="Release_Artist" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Release_Version_Title" ColumnName="Release_Version_Title" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="isPackage" ColumnName="isPackage" />
+          <ScalarProperty Name="Price_Level" ColumnName="Price_Level" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+          <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

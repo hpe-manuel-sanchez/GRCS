@@ -1,0 +1,1812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClearanceDataEntitiesStoreContainer" CdmEntityContainer="ClearanceProjectDataEntities">
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="Contributor_Type" ColumnName="Contributor_Type" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Talent_Id" ColumnName="Talent_Id" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+          <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Country">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Country">
+        <MappingFragment StoreEntitySet="Clr_Project_Country">
+          <ScalarProperty Name="Clr_Project_Country_Id" ColumnName="Clr_Project_Country_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Misc">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Misc">
+        <MappingFragment StoreEntitySet="Clr_Project_Misc">
+          <ScalarProperty Name="Clr_Project_Misc_Id" ColumnName="Clr_Project_Misc_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Is_Club_Mail_Order" ColumnName="Is_Club_Mail_Order" />
+          <ScalarProperty Name="Is_Club_Introductory" ColumnName="Is_Club_Introductory" />
+          <ScalarProperty Name="Promo_Distribution_List" ColumnName="Promo_Distribution_List" />
+          <ScalarProperty Name="Price_Level_Current_Type" ColumnName="Price_Level_Current_Type" />
+          <ScalarProperty Name="Price_Level_Requested_Type" ColumnName="Price_Level_Requested_Type" />
+          <ScalarProperty Name="Third_Party_License_Term" ColumnName="Third_Party_License_Term" />
+          <ScalarProperty Name="Third_Party_Company_Id" ColumnName="Third_Party_Company_Id" />
+          <ScalarProperty Name="Third_Party_Company_Name" ColumnName="Third_Party_Company_Name" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Non_Traditional">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Non_Traditional">
+        <MappingFragment StoreEntitySet="Clr_Project_Non_Traditional">
+          <ScalarProperty Name="Clr_Project_Non_Traditional_Id" ColumnName="Clr_Project_Non_Traditional_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Client_Name" ColumnName="Client_Name" />
+          <ScalarProperty Name="Is_Umg_Manufactured" ColumnName="Is_Umg_Manufactured" />
+          <ScalarProperty Name="Is_Partwork" ColumnName="Is_Partwork" />
+          <ScalarProperty Name="Is_Kiosk" ColumnName="Is_Kiosk" />
+          <ScalarProperty Name="Is_Mail_Order" ColumnName="Is_Mail_Order" />
+          <ScalarProperty Name="Is_Internet" ColumnName="Is_Internet" />
+          <ScalarProperty Name="Is_Give_Away" ColumnName="Is_Give_Away" />
+          <ScalarProperty Name="Give_Away_Comment" ColumnName="Give_Away_Comment" />
+          <ScalarProperty Name="Is_Premium" ColumnName="Is_Premium" />
+          <ScalarProperty Name="Is_Other" ColumnName="Is_Other" />
+          <ScalarProperty Name="Other_Comment" ColumnName="Other_Comment" />
+          <ScalarProperty Name="Is_Direct_Response" ColumnName="Is_Direct_Response" />
+          <ScalarProperty Name="Is_Educational" ColumnName="Is_Educational" />
+          <ScalarProperty Name="Media_Promo_Spend_Comment" ColumnName="Media_Promo_Spend_Comment" />
+          <ScalarProperty Name="Premium_Comment" ColumnName="Premium_Comment" />
+          <ScalarProperty Name="Client_Website" ColumnName="Client_Website" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Resource_Country">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Resource_Country">
+        <MappingFragment StoreEntitySet="Clr_Project_Resource_Country">
+          <ScalarProperty Name="Clr_Project_Resource_Country_Id" ColumnName="Clr_Project_Resource_Country_Id" />
+          <ScalarProperty Name="Clr_Project_Resource_Id" ColumnName="Clr_Project_Resource_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Resource_Territory">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Resource_Territory">
+        <MappingFragment StoreEntitySet="Clr_Project_Resource_Territory">
+          <ScalarProperty Name="Clr_Project_Resource_Territory_Id" ColumnName="Clr_Project_Resource_Territory_Id" />
+          <ScalarProperty Name="Clr_Project_Resource_Id" ColumnName="Clr_Project_Resource_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Sales_Channel">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Sales_Channel">
+        <MappingFragment StoreEntitySet="Clr_Project_Sales_Channel">
+          <ScalarProperty Name="Clr_Project_Sales_Channel_Id" ColumnName="Clr_Project_Sales_Channel_Id" />
+          <ScalarProperty Name="Sales_Channel_Id" ColumnName="Sales_Channel_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Territory">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Territory">
+        <MappingFragment StoreEntitySet="Clr_Project_Territory">
+          <ScalarProperty Name="Clr_Project_Territory_Id" ColumnName="Clr_Project_Territory_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Tv_Country">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Tv_Country">
+        <MappingFragment StoreEntitySet="Clr_Project_Tv_Country">
+          <ScalarProperty Name="Clr_Project_Tv_Country_Id" ColumnName="Clr_Project_Tv_Country_Id" />
+          <ScalarProperty Name="Clr_Project_Tv_Id" ColumnName="Clr_Project_Tv_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modifed_User" ColumnName="Modifed_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Tv_Territory">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Tv_Territory">
+        <MappingFragment StoreEntitySet="Clr_Project_Tv_Territory">
+          <ScalarProperty Name="Clr_Project_Tv_Territory_Id" ColumnName="Clr_Project_Tv_Territory_Id" />
+          <ScalarProperty Name="Clr_Project_Tv_Id" ColumnName="Clr_Project_Tv_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modifed_User" ColumnName="Modifed_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Iso_Code_2" ColumnName="Iso_Code_2" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No_Of_Decimal_Places" ColumnName="No_Of_Decimal_Places" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interface_Log">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Interface_Log">
+        <MappingFragment StoreEntitySet="Interface_Log">
+          <ScalarProperty Name="UniqueMessageId" ColumnName="UniqueMessageId" />
+          <ScalarProperty Name="Message_Created_Dttm" ColumnName="Message_Created_Dttm" />
+          <ScalarProperty Name="Interface_Log_Id" ColumnName="Interface_Log_Id" />
+          <ScalarProperty Name="Interface_Type" ColumnName="Interface_Type" />
+          <ScalarProperty Name="Source_System" ColumnName="Source_System" />
+          <ScalarProperty Name="Xml_Content" ColumnName="Xml_Content" />
+          <ScalarProperty Name="Xml_Count" ColumnName="Xml_Count" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="No_Of_Retry" ColumnName="No_Of_Retry" />
+          <ScalarProperty Name="Delivery_Type" ColumnName="Delivery_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Labels">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Label">
+        <MappingFragment StoreEntitySet="Label">
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookups">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Lookup">
+        <MappingFragment StoreEntitySet="Lookup">
+          <ScalarProperty Name="Lookup_Id" ColumnName="Lookup_Id" />
+          <ScalarProperty Name="Lookup_Type_Id" ColumnName="Lookup_Type_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Short_Description" ColumnName="Short_Description" />
+          <ScalarProperty Name="Display_Order" ColumnName="Display_Order" />
+          <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+          <ScalarProperty Name="R2_Code" ColumnName="R2_Code" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookup_Type">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Lookup_Type">
+        <MappingFragment StoreEntitySet="Lookup_Type">
+          <ScalarProperty Name="Lookup_Type_Id" ColumnName="Lookup_Type_Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Release_Right">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Release_Right">
+        <MappingFragment StoreEntitySet="Release_Right">
+          <ScalarProperty Name="Release_Right_Id" ColumnName="Release_Right_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Assigned_Type" ColumnName="Assigned_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Right">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Resource_Right">
+        <MappingFragment StoreEntitySet="Resource_Right">
+          <ScalarProperty Name="Resource_Right_Id" ColumnName="Resource_Right_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Assigned_Type" ColumnName="Assigned_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Channel">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Sales_Channel">
+        <MappingFragment StoreEntitySet="Sales_Channel">
+          <ScalarProperty Name="Sales_Channel_Id" ColumnName="Sales_Channel_Id" />
+          <ScalarProperty Name="Sales_Channel1" ColumnName="Sales_Channel" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroup_Company">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Workgroup_Company">
+        <MappingFragment StoreEntitySet="Workgroup_Company">
+          <ScalarProperty Name="Workgroup_Company_Id" ColumnName="Workgroup_Company_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroup_Country">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Workgroup_Country">
+        <MappingFragment StoreEntitySet="Workgroup_Country">
+          <ScalarProperty Name="Workgroup_Country_Id" ColumnName="Workgroup_Country_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroup_User">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Workgroup_User">
+        <MappingFragment StoreEntitySet="Workgroup_User">
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Is_Upc_Allocation" ColumnName="Is_Upc_Allocation" />
+          <ScalarProperty Name="Is_R2_Authorized" ColumnName="Is_R2_Authorized" />
+          <ScalarProperty Name="Is_Manage_Workgroup" ColumnName="Is_Manage_Workgroup" />
+          <ScalarProperty Name="Is_In_Role" ColumnName="Is_In_Role" />
+          <ScalarProperty Name="Workgroup_User_Id" ColumnName="Workgroup_User_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetArtists" FunctionName="ClearanceDataEntities.Store.USP_GetArtists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetArtists_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="TotalRowCount" ColumnName="TotalRowCount" />
+          <ScalarProperty Name="abbreviatedName" ColumnName="abbreviatedName" />
+          <ScalarProperty Name="accountId" ColumnName="accountId" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="DataAdminCompany" ColumnName="DataAdminCompany" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="countryDisplay" ColumnName="countryDisplay" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="dateOfBirthYear" ColumnName="dateOfBirthYear" />
+          <ScalarProperty Name="dateOfDeathYear" ColumnName="dateOfDeathYear" />
+          <ScalarProperty Name="Info_Name" ColumnName="Info_Name" />
+          <ScalarProperty Name="dqStatus" ColumnName="dqStatus" />
+          <ScalarProperty Name="dqStatusDisplay" ColumnName="dqStatusDisplay" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="formattedName" ColumnName="formattedName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="RolesPerformed" ColumnName="RolesPerformed" />
+          <ScalarProperty Name="AdditonalInfo" ColumnName="AdditonalInfo" />
+          <ScalarProperty Name="Info_Id" ColumnName="Info_Id" />
+          <ScalarProperty Name="talentNameId" ColumnName="talentNameId" />
+          <ScalarProperty Name="talentType" ColumnName="talentType" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetPCNoticeCompany" FunctionName="ClearanceDataEntities.Store.USP_GetPCNoticeCompany">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetPCNoticeCompany_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="TotalRowCount" ColumnName="TotalRowCount" />
+          <ScalarProperty Name="accountId" ColumnName="accountId" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="dqStatus" ColumnName="dqStatus" />
+          <ScalarProperty Name="dqStatusDisplay" ColumnName="dqStatusDisplay" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rightsType" ColumnName="rightsType" />
+          <ScalarProperty Name="rightsTypeDisplay" ColumnName="rightsTypeDisplay" />
+          <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
+          <ScalarProperty Name="talentId" ColumnName="talentId" />
+          <ScalarProperty Name="talentNameId" ColumnName="talentNameId" />
+          <ScalarProperty Name="talentType" ColumnName="talentType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetProjects" FunctionName="ClearanceDataEntities.Store.USP_GetProjects">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetProjects_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="TotalRowCount" ColumnName="TotalRowCount" />
+          <ScalarProperty Name="accountId" ColumnName="accountId" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+          <ScalarProperty Name="auditDateCreated" ColumnName="auditDateCreated" />
+          <ScalarProperty Name="budgetNumber" ColumnName="budgetNumber" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="DataAdminCompany" ColumnName="DataAdminCompany" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="craProjectId" ColumnName="craProjectId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="divisionDisplay" ColumnName="divisionDisplay" />
+          <ScalarProperty Name="divisionId" ColumnName="divisionId" />
+          <ScalarProperty Name="financialLabelCode" ColumnName="financialLabelCode" />
+          <ScalarProperty Name="formattedAuditDateCreated" ColumnName="formattedAuditDateCreated" />
+          <ScalarProperty Name="formattedCode" ColumnName="formattedCode" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="labelId" ColumnName="labelId" />
+          <ScalarProperty Name="localRowIndicator" ColumnName="localRowIndicator" />
+          <ScalarProperty Name="profitCenterCode" ColumnName="profitCenterCode" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="royaltyAdmin" ColumnName="royaltyAdmin" />
+          <ScalarProperty Name="royaltyAdminDisplay" ColumnName="royaltyAdminDisplay" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="statusDisplay" ColumnName="statusDisplay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetReleases" FunctionName="ClearanceDataEntities.Store.USP_GetReleases">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetReleases_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="TotalRowCount" ColumnName="TotalRowCount" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+          <ScalarProperty Name="artistOverride" ColumnName="artistOverride" />
+          <ScalarProperty Name="availabilityOverrideReason" ColumnName="availabilityOverrideReason" />
+          <ScalarProperty Name="available" ColumnName="available" />
+          <ScalarProperty Name="CatalogueNo" ColumnName="CatalogueNo" />
+          <ScalarProperty Name="classicalCategory" ColumnName="classicalCategory" />
+          <ScalarProperty Name="classicalCategoryDisplay" ColumnName="classicalCategoryDisplay" />
+          <ScalarProperty Name="classicalSubcategory" ColumnName="classicalSubcategory" />
+          <ScalarProperty Name="classicalSubcategoryDisplay" ColumnName="classicalSubcategoryDisplay" />
+          <ScalarProperty Name="CNoticeCompanyDisplay" ColumnName="CNoticeCompanyDisplay" />
+          <ScalarProperty Name="CNoticeCompanyId" ColumnName="CNoticeCompanyId" />
+          <ScalarProperty Name="CNoticeExtension" ColumnName="CNoticeExtension" />
+          <ScalarProperty Name="CNoticeYear" ColumnName="CNoticeYear" />
+          <ScalarProperty Name="DataAdminCompany" ColumnName="DataAdminCompany" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="companyNotes" ColumnName="companyNotes" />
+          <ScalarProperty Name="configDisplay" ColumnName="configDisplay" />
+          <ScalarProperty Name="configGroupId" ColumnName="configGroupId" />
+          <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+          <ScalarProperty Name="contextReleaseId" ColumnName="contextReleaseId" />
+          <ScalarProperty Name="contextType" ColumnName="contextType" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="craProjectId" ColumnName="craProjectId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="digitalFormat" ColumnName="digitalFormat" />
+          <ScalarProperty Name="digitalFormatDisplay" ColumnName="digitalFormatDisplay" />
+          <ScalarProperty Name="distributionDealIndicator" ColumnName="distributionDealIndicator" />
+          <ScalarProperty Name="divisionDisplay" ColumnName="divisionDisplay" />
+          <ScalarProperty Name="divisionId" ColumnName="divisionId" />
+          <ScalarProperty Name="dqStatus" ColumnName="dqStatus" />
+          <ScalarProperty Name="dqStatusDisplay" ColumnName="dqStatusDisplay" />
+          <ScalarProperty Name="EMarketingTag" ColumnName="EMarketingTag" />
+          <ScalarProperty Name="equivalentReleaseId" ColumnName="equivalentReleaseId" />
+          <ScalarProperty Name="EReleaseLabel" ColumnName="EReleaseLabel" />
+          <ScalarProperty Name="formattedCNotice" ColumnName="formattedCNotice" />
+          <ScalarProperty Name="formattedPNotice" ColumnName="formattedPNotice" />
+          <ScalarProperty Name="formattedTime" ColumnName="formattedTime" />
+          <ScalarProperty Name="formattedTitle" ColumnName="formattedTitle" />
+          <ScalarProperty Name="genre" ColumnName="genre" />
+          <ScalarProperty Name="genreDisplay" ColumnName="genreDisplay" />
+          <ScalarProperty Name="Grid" ColumnName="Grid" />
+          <ScalarProperty Name="issuingEmployeeDisplay" ColumnName="issuingEmployeeDisplay" />
+          <ScalarProperty Name="issuingEmployeeNo" ColumnName="issuingEmployeeNo" />
+          <ScalarProperty Name="labelDisplay" ColumnName="labelDisplay" />
+          <ScalarProperty Name="labelId" ColumnName="labelId" />
+          <ScalarProperty Name="miscellaneousCredits" ColumnName="miscellaneousCredits" />
+          <ScalarProperty Name="mobileArtist" ColumnName="mobileArtist" />
+          <ScalarProperty Name="mobileLock" ColumnName="mobileLock" />
+          <ScalarProperty Name="mobileTitle" ColumnName="mobileTitle" />
+          <ScalarProperty Name="musicType" ColumnName="musicType" />
+          <ScalarProperty Name="musicTypeDisplay" ColumnName="musicTypeDisplay" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="npsc" ColumnName="npsc" />
+          <ScalarProperty Name="originalProgramming" ColumnName="originalProgramming" />
+          <ScalarProperty Name="originalProjectId" ColumnName="originalProjectId" />
+          <ScalarProperty Name="originatingIndicator" ColumnName="originatingIndicator" />
+          <ScalarProperty Name="packageIndicator" ColumnName="packageIndicator" />
+          <ScalarProperty Name="packagingDefinition" ColumnName="packagingDefinition" />
+          <ScalarProperty Name="PCompanyId" ColumnName="PCompanyId" />
+          <ScalarProperty Name="PNoticeCompanyId" ColumnName="PNoticeCompanyId" />
+          <ScalarProperty Name="PNoticeCompilation" ColumnName="PNoticeCompilation" />
+          <ScalarProperty Name="PLicensingExtension" ColumnName="PLicensingExtension" />
+          <ScalarProperty Name="PNoticeCompilationDisplay" ColumnName="PNoticeCompilationDisplay" />
+          <ScalarProperty Name="PYear" ColumnName="PYear" />
+          <ScalarProperty Name="releaseCompanyLinkId" ColumnName="releaseCompanyLinkId" />
+          <ScalarProperty Name="releaseDate" ColumnName="releaseDate" />
+          <ScalarProperty Name="releaseDateDay" ColumnName="releaseDateDay" />
+          <ScalarProperty Name="releaseDateMonth" ColumnName="releaseDateMonth" />
+          <ScalarProperty Name="releaseDateYear" ColumnName="releaseDateYear" />
+          <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+          <ScalarProperty Name="releaseLocalId" ColumnName="releaseLocalId" />
+          <ScalarProperty Name="releaseType" ColumnName="releaseType" />
+          <ScalarProperty Name="releaseTypeDisplay" ColumnName="releaseTypeDisplay" />
+          <ScalarProperty Name="royaltyAdmin" ColumnName="royaltyAdmin" />
+          <ScalarProperty Name="royaltyAdminDisplay" ColumnName="royaltyAdminDisplay" />
+          <ScalarProperty Name="ScopeType" ColumnName="ScopeType" />
+          <ScalarProperty Name="searchInformation" ColumnName="searchInformation" />
+          <ScalarProperty Name="seriesDisplay" ColumnName="seriesDisplay" />
+          <ScalarProperty Name="seriesId" ColumnName="seriesId" />
+          <ScalarProperty Name="soundtrackIndicator" ColumnName="soundtrackIndicator" />
+          <ScalarProperty Name="R2StatusType" ColumnName="R2StatusType" />
+          <ScalarProperty Name="R2Status" ColumnName="R2Status" />
+          <ScalarProperty Name="thematicCategory" ColumnName="thematicCategory" />
+          <ScalarProperty Name="thematicCategoryDisplay" ColumnName="thematicCategoryDisplay" />
+          <ScalarProperty Name="ReleaseTitle" ColumnName="ReleaseTitle" />
+          <ScalarProperty Name="titleOverride" ColumnName="titleOverride" />
+          <ScalarProperty Name="trackCount" ColumnName="trackCount" />
+          <ScalarProperty Name="uniqueIndicator" ColumnName="uniqueIndicator" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="upcType" ColumnName="upcType" />
+          <ScalarProperty Name="VersionTitle" ColumnName="VersionTitle" />
+          <ScalarProperty Name="versionTitleOverride" ColumnName="versionTitleOverride" />
+          <ScalarProperty Name="versionType" ColumnName="versionType" />
+          <ScalarProperty Name="versionTypeDisplay" ColumnName="versionTypeDisplay" />
+          <ScalarProperty Name="videoLongDescription" ColumnName="videoLongDescription" />
+          <ScalarProperty Name="videoNetwork" ColumnName="videoNetwork" />
+          <ScalarProperty Name="videoNetworkDisplay" ColumnName="videoNetworkDisplay" />
+          <ScalarProperty Name="videoOriginalReleaseYear" ColumnName="videoOriginalReleaseYear" />
+          <ScalarProperty Name="videoRating" ColumnName="videoRating" />
+          <ScalarProperty Name="videoRatingDisplay" ColumnName="videoRatingDisplay" />
+          <ScalarProperty Name="videoSeasonId" ColumnName="videoSeasonId" />
+          <ScalarProperty Name="videoShortDescription" ColumnName="videoShortDescription" />
+          <ScalarProperty Name="videoType" ColumnName="videoType" />
+          <ScalarProperty Name="videoTypeDisplay" ColumnName="videoTypeDisplay" />
+          <ScalarProperty Name="vodType" ColumnName="vodType" />
+          <ScalarProperty Name="vodTypeDisplay" ColumnName="vodTypeDisplay" />
+          <ScalarProperty Name="workflowStatus" ColumnName="workflowStatus" />
+          <ScalarProperty Name="workflowStatusDisplay" ColumnName="workflowStatusDisplay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetResources" FunctionName="ClearanceDataEntities.Store.USP_GetResources">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetResources_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="TotalRowCount" ColumnName="TotalRowCount" />
+          <ScalarProperty Name="accountId" ColumnName="accountId" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="analogDigitalCode" ColumnName="analogDigitalCode" />
+          <ScalarProperty Name="analogDigitalCodeDisplay" ColumnName="analogDigitalCodeDisplay" />
+          <ScalarProperty Name="Artist" ColumnName="Artist" />
+          <ScalarProperty Name="artistOverride" ColumnName="artistOverride" />
+          <ScalarProperty Name="aspectRatio" ColumnName="aspectRatio" />
+          <ScalarProperty Name="aspectRatioDisplay" ColumnName="aspectRatioDisplay" />
+          <ScalarProperty Name="availableIndicator" ColumnName="availableIndicator" />
+          <ScalarProperty Name="bitDepth" ColumnName="bitDepth" />
+          <ScalarProperty Name="bitDepthDisplay" ColumnName="bitDepthDisplay" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="categoryDisplay" ColumnName="categoryDisplay" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="colorDisplay" ColumnName="colorDisplay" />
+          <ScalarProperty Name="colorMode" ColumnName="colorMode" />
+          <ScalarProperty Name="colorModeDisplay" ColumnName="colorModeDisplay" />
+          <ScalarProperty Name="companyDisplay" ColumnName="companyDisplay" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="companyNotes" ColumnName="companyNotes" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="divisionDisplay" ColumnName="divisionDisplay" />
+          <ScalarProperty Name="divisionId" ColumnName="divisionId" />
+          <ScalarProperty Name="dqStatus" ColumnName="dqStatus" />
+          <ScalarProperty Name="dqStatusDisplay" ColumnName="dqStatusDisplay" />
+          <ScalarProperty Name="EMarketingTag" ColumnName="EMarketingTag" />
+          <ScalarProperty Name="EOwningLabel" ColumnName="EOwningLabel" />
+          <ScalarProperty Name="EReleaseLabel" ColumnName="EReleaseLabel" />
+          <ScalarProperty Name="extract" ColumnName="extract" />
+          <ScalarProperty Name="familyDisplay" ColumnName="familyDisplay" />
+          <ScalarProperty Name="format" ColumnName="format" />
+          <ScalarProperty Name="formatDisplay" ColumnName="formatDisplay" />
+          <ScalarProperty Name="formattedPcNotice" ColumnName="formattedPcNotice" />
+          <ScalarProperty Name="formattedTitle" ColumnName="formattedTitle" />
+          <ScalarProperty Name="genre" ColumnName="genre" />
+          <ScalarProperty Name="genreDisplay" ColumnName="genreDisplay" />
+          <ScalarProperty Name="genreLockIndicator" ColumnName="genreLockIndicator" />
+          <ScalarProperty Name="hasSample" ColumnName="hasSample" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="isan" ColumnName="isan" />
+          <ScalarProperty Name="ISRC" ColumnName="ISRC" />
+          <ScalarProperty Name="labelDisplay" ColumnName="labelDisplay" />
+          <ScalarProperty Name="labelId" ColumnName="labelId" />
+          <ScalarProperty Name="languageDisplay" ColumnName="languageDisplay" />
+          <ScalarProperty Name="languageNo" ColumnName="languageNo" />
+          <ScalarProperty Name="masteringTrackCount" ColumnName="masteringTrackCount" />
+          <ScalarProperty Name="measurement" ColumnName="measurement" />
+          <ScalarProperty Name="measurementDisplay" ColumnName="measurementDisplay" />
+          <ScalarProperty Name="medleyContainer" ColumnName="medleyContainer" />
+          <ScalarProperty Name="miscellaneousCredits" ColumnName="miscellaneousCredits" />
+          <ScalarProperty Name="mobileLock" ColumnName="mobileLock" />
+          <ScalarProperty Name="movieRating" ColumnName="movieRating" />
+          <ScalarProperty Name="movieRatingDisplay" ColumnName="movieRatingDisplay" />
+          <ScalarProperty Name="musicType" ColumnName="musicType" />
+          <ScalarProperty Name="musicTypeDisplay" ColumnName="musicTypeDisplay" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="originalCatalogNumber" ColumnName="originalCatalogNumber" />
+          <ScalarProperty Name="originalMatrixNumber" ColumnName="originalMatrixNumber" />
+          <ScalarProperty Name="originalProgramming" ColumnName="originalProgramming" />
+          <ScalarProperty Name="originalProjectId" ColumnName="originalProjectId" />
+          <ScalarProperty Name="originatingIndicator" ColumnName="originatingIndicator" />
+          <ScalarProperty Name="PNoticeCompany" ColumnName="PNoticeCompany" />
+          <ScalarProperty Name="pcNoticeCompanyId" ColumnName="pcNoticeCompanyId" />
+          <ScalarProperty Name="PLicensingExtension" ColumnName="PLicensingExtension" />
+          <ScalarProperty Name="PYear" ColumnName="PYear" />
+          <ScalarProperty Name="previewStartTime" ColumnName="previewStartTime" />
+          <ScalarProperty Name="previewStartTimeDisplay" ColumnName="previewStartTimeDisplay" />
+          <ScalarProperty Name="previewStartTimeFraction" ColumnName="previewStartTimeFraction" />
+          <ScalarProperty Name="previewStopTime" ColumnName="previewStopTime" />
+          <ScalarProperty Name="previewStopTimeDisplay" ColumnName="previewStopTimeDisplay" />
+          <ScalarProperty Name="previewStopTimeFraction" ColumnName="previewStopTimeFraction" />
+          <ScalarProperty Name="printDetail" ColumnName="printDetail" />
+          <ScalarProperty Name="printDetailDisplay" ColumnName="printDetailDisplay" />
+          <ScalarProperty Name="ratingReason" ColumnName="ratingReason" />
+          <ScalarProperty Name="resolution" ColumnName="resolution" />
+          <ScalarProperty Name="resolutionDisplay" ColumnName="resolutionDisplay" />
+          <ScalarProperty Name="resourceCompanyLinkId" ColumnName="resourceCompanyLinkId" />
+          <ScalarProperty Name="resourceId" ColumnName="resourceId" />
+          <ScalarProperty Name="resourceLocalId" ColumnName="resourceLocalId" />
+          <ScalarProperty Name="resourceType" ColumnName="resourceType" />
+          <ScalarProperty Name="resourceTypeDisplay" ColumnName="resourceTypeDisplay" />
+          <ScalarProperty Name="rightsOwnerDisplay" ColumnName="rightsOwnerDisplay" />
+          <ScalarProperty Name="rightsOwnerId" ColumnName="rightsOwnerId" />
+          <ScalarProperty Name="RightsType" ColumnName="RightsType" />
+          <ScalarProperty Name="rightsTypeDisplay" ColumnName="rightsTypeDisplay" />
+          <ScalarProperty Name="sampleCredits" ColumnName="sampleCredits" />
+          <ScalarProperty Name="samplingFrequency" ColumnName="samplingFrequency" />
+          <ScalarProperty Name="samplingFrequencyDisplay" ColumnName="samplingFrequencyDisplay" />
+          <ScalarProperty Name="scorePublisherDisplay" ColumnName="scorePublisherDisplay" />
+          <ScalarProperty Name="scorePublisherId" ColumnName="scorePublisherId" />
+          <ScalarProperty Name="searchInformation" ColumnName="searchInformation" />
+          <ScalarProperty Name="sessionCountryDisplay" ColumnName="sessionCountryDisplay" />
+          <ScalarProperty Name="sessionCountryId" ColumnName="sessionCountryId" />
+          <ScalarProperty Name="sessionDisplay" ColumnName="sessionDisplay" />
+          <ScalarProperty Name="sessionEndDate" ColumnName="sessionEndDate" />
+          <ScalarProperty Name="sessionEndDateDay" ColumnName="sessionEndDateDay" />
+          <ScalarProperty Name="sessionEndDateMonth" ColumnName="sessionEndDateMonth" />
+          <ScalarProperty Name="sessionEndDateYear" ColumnName="sessionEndDateYear" />
+          <ScalarProperty Name="sessionId" ColumnName="sessionId" />
+          <ScalarProperty Name="sessionLocationDisplay" ColumnName="sessionLocationDisplay" />
+          <ScalarProperty Name="sessionLocationId" ColumnName="sessionLocationId" />
+          <ScalarProperty Name="sessionPerformanceType" ColumnName="sessionPerformanceType" />
+          <ScalarProperty Name="sessionPerformanceTypeDisplay" ColumnName="sessionPerformanceTypeDisplay" />
+          <ScalarProperty Name="sessionSetting" ColumnName="sessionSetting" />
+          <ScalarProperty Name="sessionSettingDisplay" ColumnName="sessionSettingDisplay" />
+          <ScalarProperty Name="sessionStartDate" ColumnName="sessionStartDate" />
+          <ScalarProperty Name="sessionStartDateDay" ColumnName="sessionStartDateDay" />
+          <ScalarProperty Name="sessionStartDateMonth" ColumnName="sessionStartDateMonth" />
+          <ScalarProperty Name="sessionStartDateYear" ColumnName="sessionStartDateYear" />
+          <ScalarProperty Name="sessionUnion" ColumnName="sessionUnion" />
+          <ScalarProperty Name="sessionUnionDisplay" ColumnName="sessionUnionDisplay" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="sizeDisplay" ColumnName="sizeDisplay" />
+          <ScalarProperty Name="sourceReleaseId" ColumnName="sourceReleaseId" />
+          <ScalarProperty Name="sourceUpc" ColumnName="sourceUpc" />
+          <ScalarProperty Name="technicalFormat" ColumnName="technicalFormat" />
+          <ScalarProperty Name="technicalFormatDisplay" ColumnName="technicalFormatDisplay" />
+          <ScalarProperty Name="timeDisplay" ColumnName="timeDisplay" />
+          <ScalarProperty Name="ResourceTitle" ColumnName="ResourceTitle" />
+          <ScalarProperty Name="titleExtension" ColumnName="titleExtension" />
+          <ScalarProperty Name="titleExtensionOverride" ColumnName="titleExtensionOverride" />
+          <ScalarProperty Name="titleOverride" ColumnName="titleOverride" />
+          <ScalarProperty Name="VersionTitle" ColumnName="VersionTitle" />
+          <ScalarProperty Name="versionTitleOverride" ColumnName="versionTitleOverride" />
+          <ScalarProperty Name="versionType" ColumnName="versionType" />
+          <ScalarProperty Name="versionTypeDisplay" ColumnName="versionTypeDisplay" />
+          <ScalarProperty Name="videoLongDescription" ColumnName="videoLongDescription" />
+          <ScalarProperty Name="videoNetwork" ColumnName="videoNetwork" />
+          <ScalarProperty Name="videoNetworkDisplay" ColumnName="videoNetworkDisplay" />
+          <ScalarProperty Name="videoProductionNumber" ColumnName="videoProductionNumber" />
+          <ScalarProperty Name="videoRating" ColumnName="videoRating" />
+          <ScalarProperty Name="videoRatingDisplay" ColumnName="videoRatingDisplay" />
+          <ScalarProperty Name="videoReleaseYear" ColumnName="videoReleaseYear" />
+          <ScalarProperty Name="videoSeasonId" ColumnName="videoSeasonId" />
+          <ScalarProperty Name="videoShortDescription" ColumnName="videoShortDescription" />
+          <ScalarProperty Name="videoType" ColumnName="videoType" />
+          <ScalarProperty Name="videoTypeDisplay" ColumnName="videoTypeDisplay" />
+          <ScalarProperty Name="width" ColumnName="width" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Clr_Project_Master">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Master">
+        <MappingFragment StoreEntitySet="Clr_Project_Master">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Client_Website" ColumnName="Client_Website" />
+          <ScalarProperty Name="License_Term" ColumnName="License_Term" />
+          <ScalarProperty Name="No_Of_Spot" ColumnName="No_Of_Spot" />
+          <ScalarProperty Name="Advertised_Product" ColumnName="Advertised_Product" />
+          <ScalarProperty Name="Duration_To_Dt" ColumnName="Duration_To_Dt" />
+          <ScalarProperty Name="Duration_From_Dt" ColumnName="Duration_From_Dt" />
+          <ScalarProperty Name="Is_Radio" ColumnName="Is_Radio" />
+          <ScalarProperty Name="Is_Trailer" ColumnName="Is_Trailer" />
+          <ScalarProperty Name="Is_Internet" ColumnName="Is_Internet" />
+          <ScalarProperty Name="Is_Other" ColumnName="Is_Other" />
+          <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+          <ScalarProperty Name="Is_Video" ColumnName="Is_Video" />
+          <ScalarProperty Name="Is_Other_Request" ColumnName="Is_Other_Request" />
+          <ScalarProperty Name="Is_Trailer_Request" ColumnName="Is_Trailer_Request" />
+          <ScalarProperty Name="Is_Film_Request" ColumnName="Is_Film_Request" />
+          <ScalarProperty Name="Is_Advertising_Request" ColumnName="Is_Advertising_Request" />
+          <ScalarProperty Name="Client_Name" ColumnName="Client_Name" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Project_Master_Id" ColumnName="Clr_Project_Master_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Master_Delivery">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Master_Delivery">
+        <MappingFragment StoreEntitySet="Clr_Project_Master_Delivery">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Optional_Additional_Right" ColumnName="Optional_Additional_Right" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="No_Of_Video" ColumnName="No_Of_Video" />
+          <ScalarProperty Name="Is_Cinema" ColumnName="Is_Cinema" />
+          <ScalarProperty Name="Is_Radio" ColumnName="Is_Radio" />
+          <ScalarProperty Name="Is_Trailer" ColumnName="Is_Trailer" />
+          <ScalarProperty Name="Is_Internet" ColumnName="Is_Internet" />
+          <ScalarProperty Name="Is_Other" ColumnName="Is_Other" />
+          <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+          <ScalarProperty Name="Is_Video" ColumnName="Is_Video" />
+          <ScalarProperty Name="Master_Request_Type" ColumnName="Master_Request_Type" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Project_Master_Delivery_Id" ColumnName="Clr_Project_Master_Delivery_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workgroup_Territory">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Workgroup_Territory">
+        <MappingFragment StoreEntitySet="Workgroup_Territory">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Workgroup_Territory_Id" ColumnName="Workgroup_Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Track">
+        <MappingFragment StoreEntitySet="Track">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Side" ColumnName="Side" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Track_Id" ColumnName="Track_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Application_Seq">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Application_Seq">
+        <MappingFragment StoreEntitySet="Application_Seq">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="End_Value" ColumnName="End_Value" />
+          <ScalarProperty Name="Start_Value" ColumnName="Start_Value" />
+          <ScalarProperty Name="Seq_Value" ColumnName="Seq_Value" />
+          <ScalarProperty Name="Seq_Name" ColumnName="Seq_Name" />
+          <ScalarProperty Name="Application_Seq_Id" ColumnName="Application_Seq_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Configuration">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Configuration_Group_Code" ColumnName="Configuration_Group_Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Configuration_Id" ColumnName="Configuration_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuration_Group">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Configuration_Group">
+        <MappingFragment StoreEntitySet="Configuration_Group">
+          <ScalarProperty Name="Scope" ColumnName="Scope" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Configuration_Group_Code" ColumnName="Configuration_Group_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Background_Process">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Background_Process">
+        <MappingFragment StoreEntitySet="Clr_Background_Process">
+          <ScalarProperty Name="No_Of_Retries" ColumnName="No_Of_Retries" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Error_Description" ColumnName="Error_Description" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Background_Process_Id" ColumnName="Clr_Background_Process_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work_Queue_Parameter">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Work_Queue_Parameter">
+        <MappingFragment StoreEntitySet="Work_Queue_Parameter">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Parameter_Xml" ColumnName="Parameter_Xml" />
+          <ScalarProperty Name="Sql_Text" ColumnName="Sql_Text" />
+          <ScalarProperty Name="Queue_Type" ColumnName="Queue_Type" />
+          <ScalarProperty Name="Queue_Name" ColumnName="Queue_Name" />
+          <ScalarProperty Name="Work_Queue_Parameter_Id" ColumnName="Work_Queue_Parameter_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Inbox_Status">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Inbox_Status">
+        <MappingFragment StoreEntitySet="Clr_Inbox_Status">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Folder_Id" ColumnName="Folder_Id" />
+          <ScalarProperty Name="Clr_Inbox_Status_Id" ColumnName="Clr_Inbox_Status_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Notification">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Notification">
+        <MappingFragment StoreEntitySet="Clr_Notification">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="To_Workgroup_Id" ColumnName="To_Workgroup_Id" />
+          <ScalarProperty Name="From_Workgroup_Id" ColumnName="From_Workgroup_Id" />
+          <ScalarProperty Name="Is_New" ColumnName="Is_New" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+          <ScalarProperty Name="Notification_Type" ColumnName="Notification_Type" />
+          <ScalarProperty Name="Clr_Notification_Id" ColumnName="Clr_Notification_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Document">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Document">
+        <MappingFragment StoreEntitySet="Clr_Project_Document">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Document_Content" ColumnName="Document_Content" />
+          <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Project_Document_Id" ColumnName="Clr_Project_Document_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Assigned_To">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Assigned_To">
+        <MappingFragment StoreEntitySet="Clr_Project_Assigned_To">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Assigned_To" ColumnName="Assigned_To" />
+          <ScalarProperty Name="Folder_Id" ColumnName="Folder_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Project_Assigned_To_Id" ColumnName="Clr_Project_Assigned_To_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_Get_ProjectReferenceNumber" FunctionName="ClearanceDataEntities.Store.usp_Get_ProjectReferenceNumber" />
+    <EntitySetMapping Name="Territory_Country">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Territory_Country">
+        <MappingFragment StoreEntitySet="Territory_Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Territory_Country_Id" ColumnName="Territory_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rejection_Reason">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Rejection_Reason">
+        <MappingFragment StoreEntitySet="Rejection_Reason">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Umgi" ColumnName="Is_Umgi" />
+          <ScalarProperty Name="Is_Marketing" ColumnName="Is_Marketing" />
+          <ScalarProperty Name="Is_Legal" ColumnName="Is_Legal" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Rejection_Reason_Id" ColumnName="Rejection_Reason_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Release">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Release">
+        <MappingFragment StoreEntitySet="Clr_Project_Release">
+          <ScalarProperty Name="Is_Routed" ColumnName="Is_Routed" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Suggestedfee" ColumnName="Is_Suggestedfee" />
+          <ScalarProperty Name="Is_Icla" ColumnName="Is_Icla" />
+          <ScalarProperty Name="Is_Icla_Level_Deviated" ColumnName="Is_Icla_Level_Deviated" />
+          <ScalarProperty Name="Resource_Fee" ColumnName="Resource_Fee" />
+          <ScalarProperty Name="Exact_Ppd_Price" ColumnName="Exact_Ppd_Price" />
+          <ScalarProperty Name="Estimated_Retail_Price" ColumnName="Estimated_Retail_Price" />
+          <ScalarProperty Name="Icla_Base_Price" ColumnName="Icla_Base_Price" />
+          <ScalarProperty Name="Selling_Price" ColumnName="Selling_Price" />
+          <ScalarProperty Name="Invoice_Price" ColumnName="Invoice_Price" />
+          <ScalarProperty Name="Deemed_Ppd_Price" ColumnName="Deemed_Ppd_Price" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Icla_Level_Deviated_Comment" ColumnName="Icla_Level_Deviated_Comment" />
+          <ScalarProperty Name="Icla_Level_Deviated_Type" ColumnName="Icla_Level_Deviated_Type" />
+          <ScalarProperty Name="Icla_Level_Type" ColumnName="Icla_Level_Type" />
+          <ScalarProperty Name="Price_Level_Type" ColumnName="Price_Level_Type" />
+          <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+          <ScalarProperty Name="Is_Existing" ColumnName="Is_Existing" />
+          <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+          <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Sales_Channel_Id" ColumnName="Sales_Channel_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Clr_Project_Release_Id" ColumnName="Clr_Project_Release_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seq_Project_Referencenumber">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Seq_Project_Referencenumber">
+        <MappingFragment StoreEntitySet="Seq_Project_Referencenumber">
+          <ScalarProperty Name="Seq_Project_Ref_Id" ColumnName="Seq_Project_Ref_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Complete_Status">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Resource_Complete_Status">
+        <MappingFragment StoreEntitySet="Resource_Complete_Status">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Is_Complete" ColumnName="Is_Complete" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+          <ScalarProperty Name="Resource_Complete_Status_Id" ColumnName="Resource_Complete_Status_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Routing_Queue">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Routing_Queue">
+        <MappingFragment StoreEntitySet="Clr_Routing_Queue">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="Error_Description" ColumnName="Error_Description" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Routing_Queue_Id" ColumnName="Clr_Routing_Queue_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Folder_Clr_Project">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Folder_Clr_Project">
+        <MappingFragment StoreEntitySet="Folder_Clr_Project">
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Original_System_Folder_Id" ColumnName="Original_System_Folder_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Folder_Id" ColumnName="Folder_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Folder_Clr_Project_Id" ColumnName="Folder_Clr_Project_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resources">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Resource">
+        <MappingFragment StoreEntitySet="Resource">
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+          <ScalarProperty Name="Street_Date" ColumnName="Street_Date" />
+          <ScalarProperty Name="Is_Mobile" ColumnName="Is_Mobile" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+          <ScalarProperty Name="R2_Resource_Company_Link_Id" ColumnName="R2_Resource_Company_Link_Id" />
+          <ScalarProperty Name="Music_Time" ColumnName="Music_Time" />
+          <ScalarProperty Name="Music_Class_Type" ColumnName="Music_Class_Type" />
+          <ScalarProperty Name="Live_Studio_Type" ColumnName="Live_Studio_Type" />
+          <ScalarProperty Name="Source_Upc" ColumnName="Source_Upc" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Earliest_Release_Dt" ColumnName="Earliest_Release_Dt" />
+          <ScalarProperty Name="Is_Side_Artist_Exists" ColumnName="Is_Side_Artist_Exists" />
+          <ScalarProperty Name="Sample_Credit" ColumnName="Sample_Credit" />
+          <ScalarProperty Name="Is_Sample_Exists" ColumnName="Is_Sample_Exists" />
+          <ScalarProperty Name="P_Notice_Extension" ColumnName="P_Notice_Extension" />
+          <ScalarProperty Name="P_Year" ColumnName="P_Year" />
+          <ScalarProperty Name="P_Company_Id" ColumnName="P_Company_Id" />
+          <ScalarProperty Name="Genre_Id" ColumnName="Genre_Id" />
+          <ScalarProperty Name="Resource_Type" ColumnName="Resource_Type" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Rights_Type" ColumnName="Rights_Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+          <ScalarProperty Name="R2_Resource_Id" ColumnName="R2_Resource_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Release_Artist">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Release_Artist">
+        <MappingFragment StoreEntitySet="Release_Artist">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="R2_Release_Artist_Id" ColumnName="R2_Release_Artist_Id" />
+          <ScalarProperty Name="Release_Artist_Id" ColumnName="Release_Artist_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Folders">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Folder">
+        <MappingFragment StoreEntitySet="Folder">
+          <ScalarProperty Name="Request_Status_Type" ColumnName="Request_Status_Type" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Role_Group_Type" ColumnName="Role_Group_Type" />
+          <ScalarProperty Name="Is_System_Folder" ColumnName="Is_System_Folder" />
+          <ScalarProperty Name="Folder_Owner_Id" ColumnName="Folder_Owner_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Folder_Name" ColumnName="Folder_Name" />
+          <ScalarProperty Name="Folder_Id" ColumnName="Folder_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Role_Group">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Role_Group">
+        <MappingFragment StoreEntitySet="Clr_Role_Group">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Role_Group_Type" ColumnName="Role_Group_Type" />
+          <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_CLEARANCEROUTINGDETAILS" FunctionName="ClearanceDataEntities.Store.USP_CLEARANCEROUTINGDETAILS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_CLEARANCEROUTINGDETAILS_Result">
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="WORKGROUP" ColumnName="WORKGROUP" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+          <ScalarProperty Name="DATETIMEFIELD" ColumnName="DATETIMEFIELD" />
+          <ScalarProperty Name="COMMENTS" ColumnName="COMMENTS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Workgroups">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Workgroup">
+        <MappingFragment StoreEntitySet="Workgroup">
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Role_Type" ColumnName="Role_Type" />
+          <ScalarProperty Name="R2_Contact_Email" ColumnName="R2_Contact_Email" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Workgroup_Name" ColumnName="Workgroup_Name" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Resource">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Resource">
+        <MappingFragment StoreEntitySet="Clr_Project_Resource">
+          <ScalarProperty Name="Is_Routed" ColumnName="Is_Routed" />
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Sensitive" ColumnName="Is_Sensitive" />
+          <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+          <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+          <ScalarProperty Name="Excerpt_Time" ColumnName="Excerpt_Time" />
+          <ScalarProperty Name="Suggested_Fee" ColumnName="Suggested_Fee" />
+          <ScalarProperty Name="Globally_Cleared_Comments" ColumnName="Globally_Cleared_Comments" />
+          <ScalarProperty Name="Is_Globally_Cleared" ColumnName="Is_Globally_Cleared" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Clr_Project_Resource_Id" ColumnName="Clr_Project_Resource_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project_Tv">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project_Tv">
+        <MappingFragment StoreEntitySet="Clr_Project_Tv">
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+          <ScalarProperty Name="Rts_Without_Campaign" ColumnName="Rts_Without_Campaign" />
+          <ScalarProperty Name="Rts_With_Campaign" ColumnName="Rts_With_Campaign" />
+          <ScalarProperty Name="Rts_To_Date" ColumnName="Rts_To_Date" />
+          <ScalarProperty Name="Rds_Without_Campaign" ColumnName="Rds_Without_Campaign" />
+          <ScalarProperty Name="Rds_With_Campaign" ColumnName="Rds_With_Campaign" />
+          <ScalarProperty Name="Rds_To_Date" ColumnName="Rds_To_Date" />
+          <ScalarProperty Name="Rps_Without_Campaign" ColumnName="Rps_Without_Campaign" />
+          <ScalarProperty Name="Rps_With_Campaign" ColumnName="Rps_With_Campaign" />
+          <ScalarProperty Name="Rps_To_Date" ColumnName="Rps_To_Date" />
+          <ScalarProperty Name="Uts_Wihtout_Campaign" ColumnName="Uts_Wihtout_Campaign" />
+          <ScalarProperty Name="Uts_With_Campaign" ColumnName="Uts_With_Campaign" />
+          <ScalarProperty Name="Uts_To_Date" ColumnName="Uts_To_Date" />
+          <ScalarProperty Name="Uds_Without_Campaign" ColumnName="Uds_Without_Campaign" />
+          <ScalarProperty Name="Uds_With_Campaign" ColumnName="Uds_With_Campaign" />
+          <ScalarProperty Name="Uds_To_Date" ColumnName="Uds_To_Date" />
+          <ScalarProperty Name="Ups_Without_Campaign" ColumnName="Ups_Without_Campaign" />
+          <ScalarProperty Name="Ups_With_Campaign" ColumnName="Ups_With_Campaign" />
+          <ScalarProperty Name="Ups_To_Date" ColumnName="Ups_To_Date" />
+          <ScalarProperty Name="Is_Sb_Channel" ColumnName="Is_Sb_Channel" />
+          <ScalarProperty Name="Is_St_Channel" ColumnName="Is_St_Channel" />
+          <ScalarProperty Name="Is_Mrb_Channel" ColumnName="Is_Mrb_Channel" />
+          <ScalarProperty Name="Is_Mrt_Channel" ColumnName="Is_Mrt_Channel" />
+          <ScalarProperty Name="Is_Alc_Channel" ColumnName="Is_Alc_Channel" />
+          <ScalarProperty Name="Is_Physical_Channel" ColumnName="Is_Physical_Channel" />
+          <ScalarProperty Name="Other_Media_Detail" ColumnName="Other_Media_Detail" />
+          <ScalarProperty Name="Other_Cost_Of_Spot" ColumnName="Other_Cost_Of_Spot" />
+          <ScalarProperty Name="Other_Budget_Usd" ColumnName="Other_Budget_Usd" />
+          <ScalarProperty Name="Other_Budget" ColumnName="Other_Budget" />
+          <ScalarProperty Name="Is_Other" ColumnName="Is_Other" />
+          <ScalarProperty Name="Radio_Cost_Of_Spot" ColumnName="Radio_Cost_Of_Spot" />
+          <ScalarProperty Name="Radio_Budget_Usd" ColumnName="Radio_Budget_Usd" />
+          <ScalarProperty Name="Radio_Budget" ColumnName="Radio_Budget" />
+          <ScalarProperty Name="Is_Radio" ColumnName="Is_Radio" />
+          <ScalarProperty Name="Tv_Cost_Of_Spot" ColumnName="Tv_Cost_Of_Spot" />
+          <ScalarProperty Name="Tv_Budget_Usd" ColumnName="Tv_Budget_Usd" />
+          <ScalarProperty Name="Tv_Budget" ColumnName="Tv_Budget" />
+          <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+          <ScalarProperty Name="Duration_To" ColumnName="Duration_To" />
+          <ScalarProperty Name="Duration_From" ColumnName="Duration_From" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Clr_Project_Tv_Id" ColumnName="Clr_Project_Tv_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Artist">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Resource_Artist">
+        <MappingFragment StoreEntitySet="Resource_Artist">
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="R2_Resource_Artist_Id" ColumnName="R2_Resource_Artist_Id" />
+          <ScalarProperty Name="Resource_Artist_Id" ColumnName="Resource_Artist_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetUserCompanyFromR2DAG" FunctionName="ClearanceDataEntities.Store.USP_GetUserCompanyFromR2DAG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetUserCompanyFromR2DAG_Result">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Division_Name" ColumnName="Division_Name" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Division_Label">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Division_Label">
+        <MappingFragment StoreEntitySet="Division_Label">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+          <ScalarProperty Name="Division_Label_Id" ColumnName="Division_Label_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetUserDivisionsFromR2DAG" FunctionName="ClearanceDataEntities.Store.USP_GetUserDivisionsFromR2DAG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetUserDivisionsFromR2DAG_Result">
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Division_Name" ColumnName="Division_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetUserLabelFromR2DAG" FunctionName="ClearanceDataEntities.Store.USP_GetUserLabelFromR2DAG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetUserLabelFromR2DAG_Result">
+          <ScalarProperty Name="LabelId" ColumnName="LabelId" />
+          <ScalarProperty Name="LabelName" ColumnName="LabelName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Routed_Item">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Routed_Item">
+        <MappingFragment StoreEntitySet="Routed_Item">
+          <ScalarProperty Name="Is_Split_Deal" ColumnName="Is_Split_Deal" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Routed_Channel_Type" ColumnName="Routed_Channel_Type" />
+          <ScalarProperty Name="Approval_Status_Type" ColumnName="Approval_Status_Type" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Package_Id" ColumnName="Package_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Project">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Project">
+        <MappingFragment StoreEntitySet="Clr_Project">
+          <ScalarProperty Name="UMGI_Sensitive_Exploitation_Type" ColumnName="UMGI_Sensitive_Exploitation_Type" />
+          <ScalarProperty Name="UMGI_Budget_Price_Reduction_Type" ColumnName="UMGI_Budget_Price_Reduction_Type" />
+          <ScalarProperty Name="UMGI_Mid_Price_Reduction_Type" ColumnName="UMGI_Mid_Price_Reduction_Type" />
+          <ScalarProperty Name="UMGI_Third_Party_Company_Type" ColumnName="UMGI_Third_Party_Company_Type" />
+          <ScalarProperty Name="UMGI_Cross_Border_Request_Type" ColumnName="UMGI_Cross_Border_Request_Type" />
+          <ScalarProperty Name="R2_Project_Code" ColumnName="R2_Project_Code" />
+          <ScalarProperty Name="Is_Existing" ColumnName="Is_Existing" />
+          <ScalarProperty Name="Excluded_Territories" ColumnName="Excluded_Territories" />
+          <ScalarProperty Name="Included_Territories" ColumnName="Included_Territories" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Creates_Dttm" ColumnName="Creates_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Rcc_User_Id" ColumnName="Rcc_User_Id" />
+          <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+          <ScalarProperty Name="Is_Resubmitted" ColumnName="Is_Resubmitted" />
+          <ScalarProperty Name="Is_Regular_Retail" ColumnName="Is_Regular_Retail" />
+          <ScalarProperty Name="Is_Third_Party" ColumnName="Is_Third_Party" />
+          <ScalarProperty Name="Is_Compilation" ColumnName="Is_Compilation" />
+          <ScalarProperty Name="Is_Multi_Artist" ColumnName="Is_Multi_Artist" />
+          <ScalarProperty Name="Is_Price_Reduction" ColumnName="Is_Price_Reduction" />
+          <ScalarProperty Name="Is_Promotional" ColumnName="Is_Promotional" />
+          <ScalarProperty Name="Is_Club" ColumnName="Is_Club" />
+          <ScalarProperty Name="Is_Non_Traditional" ColumnName="Is_Non_Traditional" />
+          <ScalarProperty Name="Is_Tv" ColumnName="Is_Tv" />
+          <ScalarProperty Name="Is_Master" ColumnName="Is_Master" />
+          <ScalarProperty Name="Locked_User_Id" ColumnName="Locked_User_Id" />
+          <ScalarProperty Name="Requester_User_Id" ColumnName="Requester_User_Id" />
+          <ScalarProperty Name="Requester_Company_Id" ColumnName="Requester_Company_Id" />
+          <ScalarProperty Name="Requester_Workgroup_Id" ColumnName="Requester_Workgroup_Id" />
+          <ScalarProperty Name="Third_Party_Repertoire" ColumnName="Third_Party_Repertoire" />
+          <ScalarProperty Name="One_Stop_Reason" ColumnName="One_Stop_Reason" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Status_Type" ColumnName="Status_Type" />
+          <ScalarProperty Name="Is_High_Priority" ColumnName="Is_High_Priority" />
+          <ScalarProperty Name="Is_One_Stop" ColumnName="Is_One_Stop" />
+          <ScalarProperty Name="Is_Sensitive" ColumnName="Is_Sensitive" />
+          <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+          <ScalarProperty Name="Release_Dt" ColumnName="Release_Dt" />
+          <ScalarProperty Name="Estimated_Sales_Units" ColumnName="Estimated_Sales_Units" />
+          <ScalarProperty Name="Scope_Type" ColumnName="Scope_Type" />
+          <ScalarProperty Name="Local_Reference" ColumnName="Local_Reference" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Project_Type" ColumnName="Project_Type" />
+          <ScalarProperty Name="Project_Code" ColumnName="Project_Code" />
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Universal_Licensee_Ind" ColumnName="Universal_Licensee_Ind" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Company_Type_Code" ColumnName="Company_Type_Code" />
+          <ScalarProperty Name="Isac_Code" ColumnName="Isac_Code" />
+          <ScalarProperty Name="Is_Grc" ColumnName="Is_Grc" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company_Account_Id" ColumnName="Company_Account_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="Is_UMGI_Workgroup" ColumnName="Is_UMGI_Workgroup" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Assigned_To" ColumnName="Assigned_To" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Request_Status_Type" ColumnName="Request_Status_Type" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Available_Dt" ColumnName="Available_Dt" />
+          <ScalarProperty Name="Is_Open" ColumnName="Is_Open" />
+          <ScalarProperty Name="Review_Dt" ColumnName="Review_Dt" />
+          <ScalarProperty Name="Workgroup_Id" ColumnName="Workgroup_Id" />
+          <ScalarProperty Name="Routed_Item_Id" ColumnName="Routed_Item_Id" />
+          <ScalarProperty Name="Request_Id" ColumnName="Request_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Ana_Permission">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.User_Ana_Permission">
+        <MappingFragment StoreEntitySet="User_Ana_Permission">
+          <ScalarProperty Name="Hashcode" ColumnName="Hashcode" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Security_Object" ColumnName="Security_Object" />
+          <ScalarProperty Name="Ana_Task_Type" ColumnName="Ana_Task_Type" />
+          <ScalarProperty Name="Application_Type" ColumnName="Application_Type" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_Ana_Permission_Id" ColumnName="User_Ana_Permission_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Releases">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Release">
+        <MappingFragment StoreEntitySet="Release">
+          <ScalarProperty Name="Division_id" ColumnName="Division_id" />
+          <ScalarProperty Name="Clr_R2_Release_Id" ColumnName="Clr_R2_Release_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Package_Indicator" ColumnName="Package_Indicator" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Configuration_Group_Code" ColumnName="Configuration_Group_Code" />
+          <ScalarProperty Name="Is_Upc_Manual" ColumnName="Is_Upc_Manual" />
+          <ScalarProperty Name="R2_Workflow_Status_Type" ColumnName="R2_Workflow_Status_Type" />
+          <ScalarProperty Name="Scope_Type" ColumnName="Scope_Type" />
+          <ScalarProperty Name="No_Tracks" ColumnName="No_Tracks" />
+          <ScalarProperty Name="No_Components" ColumnName="No_Components" />
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+          <ScalarProperty Name="Music_Class_Type" ColumnName="Music_Class_Type" />
+          <ScalarProperty Name="Is_Ost" ColumnName="Is_Ost" />
+          <ScalarProperty Name="Is_Mac" ColumnName="Is_Mac" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Earliest_Release_Dt" ColumnName="Earliest_Release_Dt" />
+          <ScalarProperty Name="P_Notice_Extension" ColumnName="P_Notice_Extension" />
+          <ScalarProperty Name="P_Year" ColumnName="P_Year" />
+          <ScalarProperty Name="P_Company_Id" ColumnName="P_Company_Id" />
+          <ScalarProperty Name="Catalogue_Number" ColumnName="Catalogue_Number" />
+          <ScalarProperty Name="Configuration_Id" ColumnName="Configuration_Id" />
+          <ScalarProperty Name="Version_Title" ColumnName="Version_Title" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Grid" ColumnName="Grid" />
+          <ScalarProperty Name="Upc" ColumnName="Upc" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+          <ScalarProperty Name="R2_Release_Id" ColumnName="R2_Release_Id" />
+          <ScalarProperty Name="Release_Id" ColumnName="Release_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Security_Object" ColumnName="Security_Object" />
+          <ScalarProperty Name="Hashcode" ColumnName="Hashcode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clr_Manage_Contract">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Clr_Manage_Contract">
+        <MappingFragment StoreEntitySet="Clr_Manage_Contract">
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Is_Routed" ColumnName="Is_Routed" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Clr_Manage_Contract_Id" ColumnName="Clr_Manage_Contract_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_CLEARANCEREQUESTSUMMARY" FunctionName="ClearanceDataEntities.Store.USP_CLEARANCEREQUESTSUMMARY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_CLEARANCEREQUESTSUMMARY_Result">
+          <ScalarProperty Name="APPROVAL_STATUS_TYPE" ColumnName="APPROVAL_STATUS_TYPE" />
+          <ScalarProperty Name="ARCHIVE_FLAG" ColumnName="ARCHIVE_FLAG" />
+          <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+          <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+          <ScalarProperty Name="COMMENT_COUNT" ColumnName="COMMENT_COUNT" />
+          <ScalarProperty Name="REQUEST_ID" ColumnName="REQUEST_ID" />
+          <ScalarProperty Name="REQUEST_STATUS_TYPE" ColumnName="REQUEST_STATUS_TYPE" />
+          <ScalarProperty Name="ROUTED_CHANNEL_TYPE" ColumnName="ROUTED_CHANNEL_TYPE" />
+          <ScalarProperty Name="ROUTED_ITEM_ID" ColumnName="ROUTED_ITEM_ID" />
+          <ScalarProperty Name="WORKGROUP_ID" ColumnName="WORKGROUP_ID" />
+          <ScalarProperty Name="CONTRACT_ID" ColumnName="CONTRACT_ID" />
+          <ScalarProperty Name="RELEASE_ID" ColumnName="RELEASE_ID" />
+          <ScalarProperty Name="PACKAGE_ID" ColumnName="PACKAGE_ID" />
+          <ScalarProperty Name="SEQUENCE_NO" ColumnName="SEQUENCE_NO" />
+          <ScalarProperty Name="REVIEW_DATE" ColumnName="REVIEW_DATE" />
+          <ScalarProperty Name="LAST_ROUTING_COMMENT" ColumnName="LAST_ROUTING_COMMENT" />
+          <ScalarProperty Name="REVIEWER_ROLE" ColumnName="REVIEWER_ROLE" />
+          <ScalarProperty Name="WORKGROUP_NAME" ColumnName="WORKGROUP_NAME" />
+          <ScalarProperty Name="SALESCHANNEL_DESCRIPTION" ColumnName="SALESCHANNEL_DESCRIPTION" />
+          <ScalarProperty Name="APPROVAL_STATUS_DESCRIPTION" ColumnName="APPROVAL_STATUS_DESCRIPTION" />
+          <ScalarProperty Name="UPDATED_ROUTEDITEM_TIME" ColumnName="UPDATED_ROUTEDITEM_TIME" />
+          <ScalarProperty Name="UPDATED_REQUEST_TIME" ColumnName="UPDATED_REQUEST_TIME" />
+          <ScalarProperty Name="ISEXISTINGRELEASEREQUEST" ColumnName="ISEXISTINGRELEASEREQUEST" />
+          <ScalarProperty Name="IS_OPEN" ColumnName="IS_OPEN" />
+          <ScalarProperty Name="IS_DISABLED" ColumnName="IS_DISABLED" />
+          <ScalarProperty Name="IS_NON_UMG_NON_EXCLU" ColumnName="IS_NON_UMG_NON_EXCLU" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="RESOURCE_TYPE" ColumnName="RESOURCE_TYPE" />
+          <ScalarProperty Name="VERSION_TITLE" ColumnName="VERSION_TITLE" />
+          <ScalarProperty Name="ISRC" ColumnName="ISRC" />
+          <ScalarProperty Name="ADMIN_COMPANY_ID" ColumnName="ADMIN_COMPANY_ID" />
+          <ScalarProperty Name="ADMIN_COMPANY_NAME" ColumnName="ADMIN_COMPANY_NAME" />
+          <ScalarProperty Name="ARTIST_NAME" ColumnName="ARTIST_NAME" />
+          <ScalarProperty Name="SUBMISSION_DATE" ColumnName="SUBMISSION_DATE" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="CONFIGURATION_ID" ColumnName="CONFIGURATION_ID" />
+          <ScalarProperty Name="RESOURCE_TYPE_DESCRIPTION" ColumnName="RESOURCE_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="ROWNUMBER_RESOURCE" ColumnName="ROWNUMBER_RESOURCE" />
+          <ScalarProperty Name="TOTALRECORDCOUNT" ColumnName="TOTALRECORDCOUNT" />
+          <ScalarProperty Name="CONFIGURATION_DESC" ColumnName="CONFIGURATION_DESC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_ClearanceInboxRequestItems" FunctionName="ClearanceDataEntities.Store.USP_ClearanceInboxRequestItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_ClearanceInboxRequestItems_Result">
+          <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+          <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+          <ScalarProperty Name="RELEASE_ID" ColumnName="RELEASE_ID" />
+          <ScalarProperty Name="PACKAGE_ID" ColumnName="PACKAGE_ID" />
+          <ScalarProperty Name="REQUEST_TYPE_ID" ColumnName="REQUEST_TYPE_ID" />
+          <ScalarProperty Name="ROUTED_ITEM_ID" ColumnName="ROUTED_ITEM_ID" />
+          <ScalarProperty Name="REQUEST_ID" ColumnName="REQUEST_ID" />
+          <ScalarProperty Name="CONTRACT_ID" ColumnName="CONTRACT_ID" />
+          <ScalarProperty Name="ISO_CODE_2" ColumnName="ISO_CODE_2" />
+          <ScalarProperty Name="CONTRACT_ARTIST_NAME" ColumnName="CONTRACT_ARTIST_NAME" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="VERSION_TITLE" ColumnName="VERSION_TITLE" />
+          <ScalarProperty Name="ARTIST_NAME" ColumnName="ARTIST_NAME" />
+          <ScalarProperty Name="ISRC" ColumnName="ISRC" />
+          <ScalarProperty Name="RESOURCE_TYPE_ID" ColumnName="RESOURCE_TYPE_ID" />
+          <ScalarProperty Name="RESOURCE_TYPE_DESC" ColumnName="RESOURCE_TYPE_DESC" />
+          <ScalarProperty Name="REQUEST_STATUS_TYPE_ID" ColumnName="REQUEST_STATUS_TYPE_ID" />
+          <ScalarProperty Name="REQUEST_STATUS_TYPE_DESC" ColumnName="REQUEST_STATUS_TYPE_DESC" />
+          <ScalarProperty Name="REQUEST_TYPE_DESC" ColumnName="REQUEST_TYPE_DESC" />
+          <ScalarProperty Name="CONFIG" ColumnName="CONFIG" />
+          <ScalarProperty Name="CONFIG_DESC" ColumnName="CONFIG_DESC" />
+          <ScalarProperty Name="UPC" ColumnName="UPC" />
+          <ScalarProperty Name="SUBDATE" ColumnName="SUBDATE" />
+          <ScalarProperty Name="LAST_ROUTING_COMMENTS" ColumnName="LAST_ROUTING_COMMENTS" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+          <ScalarProperty Name="ASSIGNED_TO" ColumnName="ASSIGNED_TO" />
+          <ScalarProperty Name="WORKGROUP_ID" ColumnName="WORKGROUP_ID" />
+          <ScalarProperty Name="ISDISABLED" ColumnName="ISDISABLED" />
+          <ScalarProperty Name="ISEXISTINGRELEASEREQUEST" ColumnName="ISEXISTINGRELEASEREQUEST" />
+          <ScalarProperty Name="SEQUENCE_NO" ColumnName="SEQUENCE_NO" />
+          <ScalarProperty Name="APPROVAL_STATUS_TYPE" ColumnName="APPROVAL_STATUS_TYPE" />
+          <ScalarProperty Name="ISREINSTATED" ColumnName="ISREINSTATED" />
+          <ScalarProperty Name="APPROVAL_STATUS_TYPE_DESC" ColumnName="APPROVAL_STATUS_TYPE_DESC" />
+          <ScalarProperty Name="ROLE_TYPE" ColumnName="ROLE_TYPE" />
+          <ScalarProperty Name="ROLE_TYPE_DESC" ColumnName="ROLE_TYPE_DESC" />
+          <ScalarProperty Name="ADMIN_COMPANY_ID" ColumnName="ADMIN_COMPANY_ID" />
+          <ScalarProperty Name="ADMIN_COMPANY" ColumnName="ADMIN_COMPANY" />
+          <ScalarProperty Name="COMMENT_COUNT" ColumnName="COMMENT_COUNT" />
+          <ScalarProperty Name="REVIEW_DATE" ColumnName="REVIEW_DATE" />
+          <ScalarProperty Name="WORKGROUP_NAME" ColumnName="WORKGROUP_NAME" />
+          <ScalarProperty Name="TOTALRECORDCOUNT" ColumnName="TOTALRECORDCOUNT" />
+          <ScalarProperty Name="UPDATED_USER" ColumnName="UPDATED_USER" />
+          <ScalarProperty Name="UPDATED_ROUTEDITEM_TIME" ColumnName="UPDATED_ROUTEDITEM_TIME" />
+          <ScalarProperty Name="UPDATED_REQUEST_TIME" ColumnName="UPDATED_REQUEST_TIME" />
+          <ScalarProperty Name="RIGHTS_TYPE" ColumnName="RIGHTS_TYPE" />
+          <ScalarProperty Name="ASSIGNEDTO_USER_NAME" ColumnName="ASSIGNEDTO_USER_NAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="ClearanceDataEntities.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="Artist_Legal_Name" ColumnName="Artist_Legal_Name" />
+          <ScalarProperty Name="RightsHubNotes" ColumnName="RightsHubNotes" />
+          <ScalarProperty Name="Is_Passive_Ancillary_Right_Complete" ColumnName="Is_Passive_Ancillary_Right_Complete" />
+          <ScalarProperty Name="Is_Active_Ancillary_Right_Complete" ColumnName="Is_Active_Ancillary_Right_Complete" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Split_Deal_Id" ColumnName="Split_Deal_Id" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Clearance_Notes" ColumnName="Clearance_Notes" />
+          <ScalarProperty Name="Is_Clearance_Sensitive_Artist" ColumnName="Is_Clearance_Sensitive_Artist" />
+          <ScalarProperty Name="Is_Legal_Review" ColumnName="Is_Legal_Review" />
+          <ScalarProperty Name="Is_Active_Roster" ColumnName="Is_Active_Roster" />
+          <ScalarProperty Name="End_Of_Term_Dt" ColumnName="End_Of_Term_Dt" />
+          <ScalarProperty Name="Commencement_Dt" ColumnName="Commencement_Dt" />
+          <ScalarProperty Name="Rights_Default_Type" ColumnName="Rights_Default_Type" />
+          <ScalarProperty Name="P_Line_Extension_Default" ColumnName="P_Line_Extension_Default" />
+          <ScalarProperty Name="P_Company_Default_Id" ColumnName="P_Company_Default_Id" />
+          <ScalarProperty Name="Workflow_Correlation_Id" ColumnName="Workflow_Correlation_Id" />
+          <ScalarProperty Name="Workflow_Status_Type" ColumnName="Workflow_Status_Type" />
+          <ScalarProperty Name="Contract_Status_Type" ColumnName="Contract_Status_Type" />
+          <ScalarProperty Name="Local_Reference_Number" ColumnName="Local_Reference_Number" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Signing_Company_Id" ColumnName="Signing_Company_Id" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Contracting_Parties" ColumnName="Contracting_Parties" />
+          <ScalarProperty Name="Artist_Name_Local" ColumnName="Artist_Name_Local" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetClearanceInboxProjects" FunctionName="ClearanceDataEntities.Store.USP_GetClearanceInboxProjects">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetClearanceInboxProjects_Result">
+          <ScalarProperty Name="CLR_PROJECT_ID" ColumnName="CLR_PROJECT_ID" />
+          <ScalarProperty Name="WORKGROUP_ID" ColumnName="WORKGROUP_ID" />
+          <ScalarProperty Name="WORKGROUP_NAME" ColumnName="WORKGROUP_NAME" />
+          <ScalarProperty Name="PROJECT_CODE" ColumnName="PROJECT_CODE" />
+          <ScalarProperty Name="PROJECT_TYPE" ColumnName="PROJECT_TYPE" />
+          <ScalarProperty Name="PROJECT_TYPE_ID" ColumnName="PROJECT_TYPE_ID" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="PROJECT_SUBMISSION_DATE" ColumnName="PROJECT_SUBMISSION_DATE" />
+          <ScalarProperty Name="REQUESTER_NAME" ColumnName="REQUESTER_NAME" />
+          <ScalarProperty Name="RELEASE_DT" ColumnName="RELEASE_DT" />
+          <ScalarProperty Name="ESTIMATED_SALES_UNITS" ColumnName="ESTIMATED_SALES_UNITS" />
+          <ScalarProperty Name="FOLDER_ID" ColumnName="FOLDER_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+          <ScalarProperty Name="ISUNREAD" ColumnName="ISUNREAD" />
+          <ScalarProperty Name="ASSIGNED_TO" ColumnName="ASSIGNED_TO" />
+          <ScalarProperty Name="ASSIGNEDTO_USER_NAME" ColumnName="ASSIGNEDTO_USER_NAME" />
+          <ScalarProperty Name="IS_THIRD_PARTY" ColumnName="IS_THIRD_PARTY" />
+          <ScalarProperty Name="PROJ_DETAIL" ColumnName="PROJ_DETAIL" />
+          <ScalarProperty Name="STATUS_TYPE" ColumnName="STATUS_TYPE" />
+          <ScalarProperty Name="RCC_HANDLER_ID" ColumnName="RCC_HANDLER_ID" />
+          <ScalarProperty Name="RCC_HANDLER_NAME" ColumnName="RCC_HANDLER_NAME" />
+          <ScalarProperty Name="LAST_RECEIVED_NOTIFICATION_DATE" ColumnName="LAST_RECEIVED_NOTIFICATION_DATE" />
+          <ScalarProperty Name="REQUESTING_COMPANY_NAME" ColumnName="REQUESTING_COMPANY_NAME" />
+          <ScalarProperty Name="REQUESTING_COMPANY_ISO" ColumnName="REQUESTING_COMPANY_ISO" />
+          <ScalarProperty Name="THIRD_PARTY_COMPANY" ColumnName="THIRD_PARTY_COMPANY" />
+          <ScalarProperty Name="THIRD_PARTY_COMPANY_ISO" ColumnName="THIRD_PARTY_COMPANY_ISO" />
+          <ScalarProperty Name="IS_ALL_REQ_RESPONSE_REV" ColumnName="IS_ALL_REQ_RESPONSE_REV" />
+          <ScalarProperty Name="ORGINALSYSTEMFOLDERID" ColumnName="ORGINALSYSTEMFOLDERID" />
+          <ScalarProperty Name="Modified_User_Assigned_To" ColumnName="Modified_User_Assigned_To" />
+          <ScalarProperty Name="Modified_Dttm_Assigned_To" ColumnName="Modified_Dttm_Assigned_To" />
+          <ScalarProperty Name="TOTAL_REC_COUNT" ColumnName="TOTAL_REC_COUNT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetClearanceRegularResourcesByProjectId" FunctionName="ClearanceDataEntities.Store.USP_GetClearanceRegularResourcesByProjectId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetClearanceRegularResourcesByProjectId_Result">
+          <ScalarProperty Name="ClearanceResourceId" ColumnName="ClearanceResourceId" />
+          <ScalarProperty Name="ArchiveFlag" ColumnName="ArchiveFlag" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ExcerptTime" ColumnName="ExcerptTime" />
+          <ScalarProperty Name="SuggestedFee" ColumnName="SuggestedFee" />
+          <ScalarProperty Name="IsGloballyCleared" ColumnName="IsGloballyCleared" />
+          <ScalarProperty Name="GloballyClearedComments" ColumnName="GloballyClearedComments" />
+          <ScalarProperty Name="R2_ResourceId" ColumnName="R2_ResourceId" />
+          <ScalarProperty Name="Isrc" ColumnName="Isrc" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Rights_TypeId" ColumnName="Rights_TypeId" />
+          <ScalarProperty Name="VersionTitle" ColumnName="VersionTitle" />
+          <ScalarProperty Name="ResourceTypeDesc" ColumnName="ResourceTypeDesc" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="RecordingTypeDesc" ColumnName="RecordingTypeDesc" />
+          <ScalarProperty Name="MusicTypeDesc" ColumnName="MusicTypeDesc" />
+          <ScalarProperty Name="MusicTime" ColumnName="MusicTime" />
+          <ScalarProperty Name="AdminCompanyId" ColumnName="AdminCompanyId" />
+          <ScalarProperty Name="IsRouted" ColumnName="IsRouted" />
+          <ScalarProperty Name="FreeHandResourceStatus" ColumnName="FreeHandResourceStatus" />
+          <ScalarProperty Name="IsNewlyAddedAfterSubmit" ColumnName="IsNewlyAddedAfterSubmit" />
+          <ScalarProperty Name="isPushedToR2" ColumnName="isPushedToR2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetTerritorialRightsByProjectId" FunctionName="ClearanceDataEntities.Store.USP_GetTerritorialRightsByProjectId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetTerritorialRightsByProjectId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsTerritory" ColumnName="IsTerritory" />
+          <ScalarProperty Name="IsIncluded" ColumnName="IsIncluded" />
+          <ScalarProperty Name="IsExcluded" ColumnName="IsExcluded" />
+          <ScalarProperty Name="ClearanceResourceId" ColumnName="ClearanceResourceId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetResourceStatus" FunctionName="ClearanceDataEntities.Store.USP_GetResourceStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ClearanceDataEntities.USP_GetResourceStatus_Result">
+          <ScalarProperty Name="Clr_Project_Id" ColumnName="Clr_Project_Id" />
+          <ScalarProperty Name="Resource_Id" ColumnName="Resource_Id" />
+          <ScalarProperty Name="APPROVAL_STATUS_DESCRIPTION" ColumnName="APPROVAL_STATUS_DESCRIPTION" />
+          <ScalarProperty Name="SALESCHANNEL_DESCRIPTION" ColumnName="SALESCHANNEL_DESCRIPTION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FillResourceSideArtistByResourceIds" FunctionName="ClearanceDataEntities.Store.USP_FillResourceSideArtistByResourceIds" />
+  </EntityContainerMapping>
+</Mapping>

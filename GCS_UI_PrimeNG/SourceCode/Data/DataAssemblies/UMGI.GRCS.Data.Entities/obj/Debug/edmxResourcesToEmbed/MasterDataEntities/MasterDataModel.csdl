@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UMGI.GRCS.Data.Entities.MasterDataModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="MasterDataEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="Companies" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Company" />
+    <EntitySet Name="Contract_Right" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Right" />
+    <EntitySet Name="Contract_Template" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" />
+    <EntitySet Name="Countries" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Country" />
+    <EntitySet Name="Divisions" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Division" />
+    <EntitySet Name="Division_Label" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Division_Label" />
+    <EntitySet Name="Labels" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Label" />
+    <EntitySet Name="Lookups" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup" />
+    <EntitySet Name="Lookup_Business_Rule" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Business_Rule" />
+    <EntitySet Name="Lookup_Digital_Restriction" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Digital_Restriction" />
+    <EntitySet Name="Lookup_Type" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Type" />
+    <EntitySet Name="P_Company" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.P_Company" />
+    <EntitySet Name="Preclearances" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance" />
+    <EntitySet Name="Right_Country" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Country" />
+    <EntitySet Name="Right_Set" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" />
+    <EntitySet Name="Territories" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Territory" />
+    <EntitySet Name="Territory_Area" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Area" />
+    <EntitySet Name="Territory_Country" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Country" />
+    <AssociationSet Name="FK_COMPANY_COUNTRY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_TEMPLATE_ADMIN_COMPANY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_ADMIN_COMPANY_ID">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contract_Template" EntitySet="Contract_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_TEMPLATE_OWNER_COMPANY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COMPANY_ID">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contract_Template" EntitySet="Contract_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_TEMPLATE_SIGNING_COMPANY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_SIGNING_COMPANY_ID">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contract_Template" EntitySet="Contract_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_RIGHT_RIGHT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_RIGHT_ID">
+      <End Role="Right_Set" EntitySet="Right_Set" />
+      <End Role="Contract_Right" EntitySet="Contract_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_TEMPLATE_OWNER_COUNTRY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COUNTRY_ID">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Contract_Template" EntitySet="Contract_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_TEMPLATE_P_COMPANY_DEFAULT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_P_COMPANY_DEFAULT_ID">
+      <End Role="P_Company" EntitySet="P_Company" />
+      <End Role="Contract_Template" EntitySet="Contract_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIGHT_COUNTRY_COUNTRY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Right_Country" EntitySet="Right_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITORY_COUNTRY_COUNTRY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Territory_Country" EntitySet="Territory_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIVISION_LABEL_DIVISION_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_DIVISION_ID">
+      <End Role="Division" EntitySet="Divisions" />
+      <End Role="Division_Label" EntitySet="Division_Label" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIVISION_LABEL_LABLE_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_LABLE_ID">
+      <End Role="Label" EntitySet="Labels" />
+      <End Role="Division_Label" EntitySet="Division_Label" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOOKUP_LOOKUP_TYPE_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_LOOKUP_LOOKUP_TYPE_ID">
+      <End Role="Lookup_Type" EntitySet="Lookup_Type" />
+      <End Role="Lookup" EntitySet="Lookups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRECLEARANCE_RIGHT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_RIGHT_ID">
+      <End Role="Right_Set" EntitySet="Right_Set" />
+      <End Role="Preclearance" EntitySet="Preclearances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIGHT_COUNTRY_RIGHT_SET_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_RIGHT_SET_ID">
+      <End Role="Right_Set" EntitySet="Right_Set" />
+      <End Role="Right_Country" EntitySet="Right_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITORY_COUNTRY_TERRITORY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_TERRITORY_ID">
+      <End Role="Territory" EntitySet="Territories" />
+      <End Role="Territory_Country" EntitySet="Territory_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TERRITROY_AREA_TERRITORY_AREA_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITROY_AREA_TERRITORY_AREA_ID">
+      <End Role="Territory" EntitySet="Territories" />
+      <End Role="Territory_Area" EntitySet="Territory_Area" />
+    </AssociationSet>
+    <EntitySet Name="Currencies" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Currency" />
+    <EntitySet Name="Right_Territory" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Territory" />
+    <AssociationSet Name="FK_RIGHT_TERRITORY_RIGHT_SET_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_RIGHT_SET_ID">
+      <End Role="Right_Set" EntitySet="Right_Set" />
+      <End Role="Right_Territory" EntitySet="Right_Territory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIGHT_TERRITORY_TERRITORY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_TERRITORY_ID">
+      <End Role="Territory" EntitySet="Territories" />
+      <End Role="Right_Territory" EntitySet="Right_Territory" />
+    </AssociationSet>
+    <EntitySet Name="Company_Account" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Company_Account" />
+    <AssociationSet Name="FK_COMPANY_COMPANY_ACCOUNT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COMPANY_ACCOUNT_ID">
+      <End Role="Company_Account" EntitySet="Company_Account" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <EntitySet Name="Configurations" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration" />
+    <EntitySet Name="Contracts" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Contract" />
+    <EntitySet Name="Preclearance_Country" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance_Country" />
+    <AssociationSet Name="FK_CONTRACT_ADMIN_COMPANY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_ADMIN_COMPANY_ID">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_SIGNING_COMPANY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_SIGNING_COMPANY_ID">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_P_COMPANY_DEFAULT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_P_COMPANY_DEFAULT_ID">
+      <End Role="P_Company" EntitySet="P_Company" />
+      <End Role="Contract" EntitySet="Contracts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_RIGHT_CONTRACT_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_CONTRACT_ID">
+      <End Role="Contract" EntitySet="Contracts" />
+      <End Role="Contract_Right" EntitySet="Contract_Right" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Preclearance_Country" EntitySet="Preclearance_Country" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRECLEARANCE_COUNTRY_RIGHT_SET_ID" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_COUNTRY_RIGHT_SET_ID">
+      <End Role="Right_Set" EntitySet="Right_Set" />
+      <End Role="Preclearance_Country" EntitySet="Preclearance_Country" />
+    </AssociationSet>
+    <EntitySet Name="Configuration_Group" EntityType="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration_Group" />
+    <AssociationSet Name="FK_CONFIGURATION_CONFIGURATION_GROUP_CODE" Association="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONFIGURATION_CONFIGURATION_GROUP_CODE">
+      <End Role="Configuration_Group" EntitySet="Configuration_Group" />
+      <End Role="Configuration" EntitySet="Configurations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Type="Int64" Name="Company_Id" Nullable="false" />
+    <Property Type="Int64" Name="Country_Id" />
+    <Property Type="Int64" Name="Company_Account_Id" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Boolean" Name="Is_Grc" />
+    <Property Type="String" Name="Isac_Code" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company_Type_Code" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COUNTRY_ID" FromRole="Company" ToRole="Country" />
+    <NavigationProperty Name="Contract_Template" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_ADMIN_COMPANY_ID" FromRole="Company" ToRole="Contract_Template" />
+    <NavigationProperty Name="Contract_Template1" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COMPANY_ID" FromRole="Company" ToRole="Contract_Template" />
+    <NavigationProperty Name="Contract_Template2" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_SIGNING_COMPANY_ID" FromRole="Company" ToRole="Contract_Template" />
+    <NavigationProperty Name="Company_Account" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COMPANY_ACCOUNT_ID" FromRole="Company" ToRole="Company_Account" />
+    <NavigationProperty Name="Contracts" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_ADMIN_COMPANY_ID" FromRole="Company" ToRole="Contract" />
+    <NavigationProperty Name="Contracts1" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_SIGNING_COMPANY_ID" FromRole="Company" ToRole="Contract" />
+    <Property Type="Boolean" Name="UNIVERSAL_LICENSEE_IND" />
+  </EntityType>
+  <EntityType Name="Contract_Right">
+    <Key>
+      <PropertyRef Name="Contract_Right_Id" />
+    </Key>
+    <Property Type="Int64" Name="Contract_Right_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Contract_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Right_Set" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_RIGHT_ID" FromRole="Contract_Right" ToRole="Right_Set" />
+    <NavigationProperty Name="Contract" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_CONTRACT_ID" FromRole="Contract_Right" ToRole="Contract" />
+  </EntityType>
+  <EntityType Name="Contract_Template">
+    <Key>
+      <PropertyRef Name="Contract_Template_Id" />
+    </Key>
+    <Property Type="Int64" Name="Contract_Template_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Template_Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="Owner_Company_Id" />
+    <Property Type="Int64" Name="Owner_Country_Id" />
+    <Property Type="String" Name="Contracting_Parties" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Artist_Id" />
+    <Property Type="String" Name="Artist_Name_Local" MaxLength="520" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Admin_Company_Id" Nullable="false" />
+    <Property Type="Int64" Name="Signing_Company_Id" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Local_Reference_Number" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Contract_Status_Type" />
+    <Property Type="Byte" Name="Workflow_Status_Type" />
+    <Property Type="Int64" Name="P_Company_Default_Id" />
+    <Property Type="String" Name="P_Line_Extension_Default" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Rights_Default_Type" />
+    <Property Type="DateTime" Name="Commencement_Dt" />
+    <Property Type="DateTime" Name="End_Of_Term_Dt" />
+    <Property Type="Boolean" Name="Is_Active_Roster" />
+    <Property Type="Boolean" Name="Is_Legal_Review" />
+    <Property Type="Boolean" Name="Is_Clearance_Marketing_Active" />
+    <Property Type="Boolean" Name="Is_Clearance_Sensitive_Artist" />
+    <Property Type="String" Name="Clearance_Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notest" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Company" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_ADMIN_COMPANY_ID" FromRole="Contract_Template" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COMPANY_ID" FromRole="Contract_Template" ToRole="Company" />
+    <NavigationProperty Name="Company2" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_SIGNING_COMPANY_ID" FromRole="Contract_Template" ToRole="Company" />
+    <NavigationProperty Name="Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COUNTRY_ID" FromRole="Contract_Template" ToRole="Country" />
+    <NavigationProperty Name="P_Company" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_P_COMPANY_DEFAULT_ID" FromRole="Contract_Template" ToRole="P_Company" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="String" Name="Country_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Iso_Code_2" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Companies" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COUNTRY_ID" FromRole="Country" ToRole="Company" />
+    <NavigationProperty Name="Contract_Template" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_OWNER_COUNTRY_ID" FromRole="Country" ToRole="Contract_Template" />
+    <NavigationProperty Name="Right_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_COUNTRY_ID" FromRole="Country" ToRole="Right_Country" />
+    <NavigationProperty Name="Territory_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_COUNTRY_ID" FromRole="Country" ToRole="Territory_Country" />
+    <NavigationProperty Name="Preclearance_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" FromRole="Country" ToRole="Preclearance_Country" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Division_Id" />
+    </Key>
+    <Property Type="Int64" Name="Division_Id" Nullable="false" />
+    <Property Type="Int64" Name="Company_Id" Nullable="false" />
+    <Property Type="String" Name="Division_Name" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Division_Label" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_DIVISION_ID" FromRole="Division" ToRole="Division_Label" />
+  </EntityType>
+  <EntityType Name="Division_Label">
+    <Key>
+      <PropertyRef Name="Division_Label_Id" />
+    </Key>
+    <Property Type="Int64" Name="Division_Label_Id" Nullable="false" />
+    <Property Type="Int64" Name="Division_Id" Nullable="false" />
+    <Property Type="Int64" Name="Label_Id" Nullable="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Division" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_DIVISION_ID" FromRole="Division_Label" ToRole="Division" />
+    <NavigationProperty Name="Label" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_LABLE_ID" FromRole="Division_Label" ToRole="Label" />
+  </EntityType>
+  <EntityType Name="Label">
+    <Key>
+      <PropertyRef Name="Label_Id" />
+    </Key>
+    <Property Type="Int64" Name="Label_Id" Nullable="false" />
+    <Property Type="String" Name="Label_Name" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Division_Label" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_DIVISION_LABEL_LABLE_ID" FromRole="Label" ToRole="Division_Label" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Lookup_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Lookup_Type_Id" Nullable="false" />
+    <Property Type="Byte" Name="Value" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Short_Description" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Display_Order" />
+    <Property Type="String" Name="Is_Default" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="R2_Code" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Lookup_Type" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_LOOKUP_LOOKUP_TYPE_ID" FromRole="Lookup" ToRole="Lookup_Type" />
+  </EntityType>
+  <EntityType Name="Lookup_Business_Rule">
+    <Key>
+      <PropertyRef Name="Lookup_Business_Rule_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Business_Rule_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Rule_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Table_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Column_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Column_Value" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Lookup_Digital_Restriction">
+    <Key>
+      <PropertyRef Name="Lookup_Digital_Restriction_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Digital_Restriction_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Byte" Name="Content_Type" Nullable="false" />
+    <Property Type="Byte" Name="Use_Type" Nullable="false" />
+    <Property Type="Byte" Name="Commercial_Model_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Lookup_Type">
+    <Key>
+      <PropertyRef Name="Lookup_Type_Id" />
+    </Key>
+    <Property Type="Int64" Name="Lookup_Type_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Lookups" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_LOOKUP_LOOKUP_TYPE_ID" FromRole="Lookup_Type" ToRole="Lookup" />
+  </EntityType>
+  <EntityType Name="P_Company">
+    <Key>
+      <PropertyRef Name="P_Company_Id" />
+    </Key>
+    <Property Type="Int64" Name="P_Company_Id" Nullable="false" />
+    <Property Type="String" Name="P_Company_Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Contract_Template" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_TEMPLATE_P_COMPANY_DEFAULT_ID" FromRole="P_Company" ToRole="Contract_Template" />
+    <NavigationProperty Name="Contracts" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_P_COMPANY_DEFAULT_ID" FromRole="P_Company" ToRole="Contract" />
+  </EntityType>
+  <EntityType Name="Preclearance">
+    <Key>
+      <PropertyRef Name="Preclearance_Id" />
+    </Key>
+    <Property Type="Int64" Name="Preclearance_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Byte" Name="Preclearance_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Right_Set" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_RIGHT_ID" FromRole="Preclearance" ToRole="Right_Set" />
+    <Property Type="Boolean" Name="Is_Preclearance" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+  </EntityType>
+  <EntityType Name="Right_Country">
+    <Key>
+      <PropertyRef Name="Right_Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Right_Country_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Byte" Name="Included_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_COUNTRY_ID" FromRole="Right_Country" ToRole="Country" />
+    <NavigationProperty Name="Right_Set" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_RIGHT_SET_ID" FromRole="Right_Country" ToRole="Right_Set" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+  </EntityType>
+  <EntityType Name="Right_Set">
+    <Key>
+      <PropertyRef Name="Right_Set_Id" />
+    </Key>
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Byte" Name="Right_Period_Type" Nullable="false" />
+    <Property Type="Boolean" Name="Is_Digital_Unbundle" />
+    <Property Type="String" Name="Expiry_Rule" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is_Lost_Right" />
+    <Property Type="Byte" Name="Lost_Right_Reason_Type" />
+    <Property Type="DateTime" Name="Lost_Right_Dt" />
+    <Property Type="String" Name="Exception" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Exception_Commitment_Reversion" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Review_Status_Type" />
+    <Property Type="Boolean" Name="Is_Exception_Applied" />
+    <Property Type="String" Name="Territorial_Right" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Right_Source_Type" />
+    <Property Type="Boolean" Name="Is_Clearance_Marketing_Active" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Contract_Right" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_RIGHT_ID" FromRole="Right_Set" ToRole="Contract_Right" />
+    <NavigationProperty Name="Preclearances" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_RIGHT_ID" FromRole="Right_Set" ToRole="Preclearance" />
+    <NavigationProperty Name="Right_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_COUNTRY_RIGHT_SET_ID" FromRole="Right_Set" ToRole="Right_Country" />
+    <NavigationProperty Name="Right_Territory" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_RIGHT_SET_ID" FromRole="Right_Set" ToRole="Right_Territory" />
+    <NavigationProperty Name="Preclearance_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_COUNTRY_RIGHT_SET_ID" FromRole="Right_Set" ToRole="Preclearance_Country" />
+    <Property Type="Boolean" Name="Is_Territorial_Right_Set_Manually" />
+    <Property Type="String" Name="Preclearance_Territorial_Rights" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Byte" Name="Entity_Level" />
+  </EntityType>
+  <EntityType Name="Territory">
+    <Key>
+      <PropertyRef Name="Territory_Id" />
+    </Key>
+    <Property Type="Int64" Name="Territory_Id" Nullable="false" />
+    <Property Type="String" Name="Territory_Name" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Territory_Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_TERRITORY_ID" FromRole="Territory" ToRole="Territory_Country" />
+    <NavigationProperty Name="Territory_Area" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITROY_AREA_TERRITORY_AREA_ID" FromRole="Territory" ToRole="Territory_Area" />
+    <NavigationProperty Name="Right_Territory" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_TERRITORY_ID" FromRole="Territory" ToRole="Right_Territory" />
+  </EntityType>
+  <EntityType Name="Territory_Area">
+    <Key>
+      <PropertyRef Name="Territory_Area_Id" />
+      <PropertyRef Name="Territory_Member" />
+    </Key>
+    <Property Type="Int64" Name="Territory_Area_Id" Nullable="false" />
+    <Property Type="Int64" Name="Territory_Member" Nullable="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Territory" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITROY_AREA_TERRITORY_AREA_ID" FromRole="Territory_Area" ToRole="Territory" />
+  </EntityType>
+  <EntityType Name="Territory_Country">
+    <Key>
+      <PropertyRef Name="Territory_Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Territory_Country_Id" Nullable="false" />
+    <Property Type="Int64" Name="Territory_Id" Nullable="false" />
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_COUNTRY_ID" FromRole="Territory_Country" ToRole="Country" />
+    <NavigationProperty Name="Territory" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_TERRITORY_COUNTRY_TERRITORY_ID" FromRole="Territory_Country" ToRole="Territory" />
+  </EntityType>
+  <Association Name="FK_COMPANY_COUNTRY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_TEMPLATE_ADMIN_COMPANY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" Role="Contract_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract_Template">
+        <PropertyRef Name="Admin_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_TEMPLATE_OWNER_COMPANY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" Role="Contract_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract_Template">
+        <PropertyRef Name="Owner_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_TEMPLATE_SIGNING_COMPANY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" Role="Contract_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract_Template">
+        <PropertyRef Name="Signing_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_RIGHT_RIGHT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" Role="Right_Set" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Right" Role="Contract_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Right_Set">
+        <PropertyRef Name="Right_Set_Id" />
+      </Principal>
+      <Dependent Role="Contract_Right">
+        <PropertyRef Name="Right_Set_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_TEMPLATE_OWNER_COUNTRY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" Role="Contract_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Contract_Template">
+        <PropertyRef Name="Owner_Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_TEMPLATE_P_COMPANY_DEFAULT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.P_Company" Role="P_Company" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template" Role="Contract_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="P_Company">
+        <PropertyRef Name="P_Company_Id" />
+      </Principal>
+      <Dependent Role="Contract_Template">
+        <PropertyRef Name="P_Company_Default_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIGHT_COUNTRY_COUNTRY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Country" Role="Right_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Right_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITORY_COUNTRY_COUNTRY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Country" Role="Territory_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Territory_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIVISION_LABEL_DIVISION_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Division" Role="Division" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Division_Label" Role="Division_Label" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Division_Id" />
+      </Principal>
+      <Dependent Role="Division_Label">
+        <PropertyRef Name="Division_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIVISION_LABEL_LABLE_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Label" Role="Label" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Division_Label" Role="Division_Label" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Label">
+        <PropertyRef Name="Label_Id" />
+      </Principal>
+      <Dependent Role="Division_Label">
+        <PropertyRef Name="Label_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOOKUP_LOOKUP_TYPE_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Type" Role="Lookup_Type" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup" Role="Lookup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup_Type">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Principal>
+      <Dependent Role="Lookup">
+        <PropertyRef Name="Lookup_Type_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRECLEARANCE_RIGHT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" Role="Right_Set" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance" Role="Preclearance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Right_Set">
+        <PropertyRef Name="Right_Set_Id" />
+      </Principal>
+      <Dependent Role="Preclearance">
+        <PropertyRef Name="Right_Set_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIGHT_COUNTRY_RIGHT_SET_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" Role="Right_Set" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Country" Role="Right_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Right_Set">
+        <PropertyRef Name="Right_Set_Id" />
+      </Principal>
+      <Dependent Role="Right_Country">
+        <PropertyRef Name="Right_Set_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITORY_COUNTRY_TERRITORY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory" Role="Territory" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Country" Role="Territory_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Territory_Country">
+        <PropertyRef Name="Territory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TERRITROY_AREA_TERRITORY_AREA_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory" Role="Territory" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Area" Role="Territory_Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Territory_Area">
+        <PropertyRef Name="Territory_Area_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Currency_Code" />
+    </Key>
+    <Property Type="String" Name="Currency_Code" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Symbol" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="No_Of_Decimal_Places" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="Country_Id" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Right_Territory">
+    <Key>
+      <PropertyRef Name="Right_Territory_Id" />
+    </Key>
+    <Property Type="Int64" Name="Right_Territory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Territory_Id" Nullable="false" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Byte" Name="Included_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Right_Set" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_RIGHT_SET_ID" FromRole="Right_Territory" ToRole="Right_Set" />
+    <NavigationProperty Name="Territory" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_RIGHT_TERRITORY_TERRITORY_ID" FromRole="Right_Territory" ToRole="Territory" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+  </EntityType>
+  <Association Name="FK_RIGHT_TERRITORY_RIGHT_SET_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" Role="Right_Set" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Territory" Role="Right_Territory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Right_Set">
+        <PropertyRef Name="Right_Set_Id" />
+      </Principal>
+      <Dependent Role="Right_Territory">
+        <PropertyRef Name="Right_Set_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIGHT_TERRITORY_TERRITORY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Territory" Role="Territory" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Territory" Role="Right_Territory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Principal>
+      <Dependent Role="Right_Territory">
+        <PropertyRef Name="Territory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company_Account">
+    <Key>
+      <PropertyRef Name="Company_Account_Id" />
+    </Key>
+    <Property Type="Int64" Name="Company_Account_Id" Nullable="false" />
+    <Property Type="Int64" Name="Account_Id" Nullable="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Companies" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_COMPANY_COMPANY_ACCOUNT_ID" FromRole="Company_Account" ToRole="Company" />
+  </EntityType>
+  <Association Name="FK_COMPANY_COMPANY_ACCOUNT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company_Account" Role="Company_Account" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company_Account">
+        <PropertyRef Name="Company_Account_Id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="Company_Account_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="Configuration_Id" />
+    </Key>
+    <Property Type="Int64" Name="Configuration_Id" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Configuration_Group_Code" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Configuration_Group" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONFIGURATION_CONFIGURATION_GROUP_CODE" FromRole="Configuration" ToRole="Configuration_Group" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="Contract_Id" />
+    </Key>
+    <Property Type="Int64" Name="Contract_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Artist_Id" />
+    <Property Type="String" Name="Artist_Name_Local" MaxLength="520" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contracting_Parties" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Admin_Company_Id" Nullable="false" />
+    <Property Type="Int64" Name="Signing_Company_Id" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Local_Reference_Number" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Contract_Status_Type" />
+    <Property Type="Byte" Name="Workflow_Status_Type" />
+    <Property Type="Guid" Name="Workflow_Correlation_Id" />
+    <Property Type="Int64" Name="P_Company_Default_Id" />
+    <Property Type="String" Name="P_Line_Extension_Default" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="Rights_Default_Type" />
+    <Property Type="DateTime" Name="Commencement_Dt" />
+    <Property Type="DateTime" Name="End_Of_Term_Dt" />
+    <Property Type="Boolean" Name="Is_Active_Roster" />
+    <Property Type="Boolean" Name="Is_Legal_Review" />
+    <Property Type="Boolean" Name="Is_Clearance_Sensitive_Artist" />
+    <Property Type="String" Name="Clearance_Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Split_Deal_Id" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Company" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_ADMIN_COMPANY_ID" FromRole="Contract" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_SIGNING_COMPANY_ID" FromRole="Contract" ToRole="Company" />
+    <NavigationProperty Name="P_Company" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_P_COMPANY_DEFAULT_ID" FromRole="Contract" ToRole="P_Company" />
+    <NavigationProperty Name="Contract_Right" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONTRACT_RIGHT_CONTRACT_ID" FromRole="Contract" ToRole="Contract_Right" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="String" Name="Source_Id" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+  </EntityType>
+  <EntityType Name="Preclearance_Country">
+    <Key>
+      <PropertyRef Name="Preclearance_Country_Id" />
+    </Key>
+    <Property Type="Int64" Name="Preclearance_Country_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="Right_Set_Id" Nullable="false" />
+    <Property Type="Int64" Name="Country_Id" Nullable="false" />
+    <Property Type="Byte" Name="Included_Type" Nullable="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_TERRITORY_COUNTRY_ID" FromRole="Preclearance_Country" ToRole="Country" />
+    <NavigationProperty Name="Right_Set" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_PRECLEARANCE_COUNTRY_RIGHT_SET_ID" FromRole="Preclearance_Country" ToRole="Right_Set" />
+    <Property Type="Byte" Name="Source_System_Name" />
+    <Property Type="Int64" Name="Source_Id" />
+    <Property Type="Int64" Name="Stg_Source_Id" />
+    <Property Type="Int64" Name="Source_Reference_Id" />
+  </EntityType>
+  <Association Name="FK_CONTRACT_ADMIN_COMPANY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Admin_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_SIGNING_COMPANY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Signing_Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_P_COMPANY_DEFAULT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.P_Company" Role="P_Company" Multiplicity="0..1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="P_Company">
+        <PropertyRef Name="P_Company_Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="P_Company_Default_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_RIGHT_CONTRACT_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract" Role="Contract" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Right" Role="Contract_Right" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Contract_Id" />
+      </Principal>
+      <Dependent Role="Contract_Right">
+        <PropertyRef Name="Contract_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRECLEARANCE_TERRITORY_COUNTRY_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance_Country" Role="Preclearance_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Country_Id" />
+      </Principal>
+      <Dependent Role="Preclearance_Country">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRECLEARANCE_COUNTRY_RIGHT_SET_ID">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set" Role="Right_Set" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance_Country" Role="Preclearance_Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Right_Set">
+        <PropertyRef Name="Right_Set_Id" />
+      </Principal>
+      <Dependent Role="Preclearance_Country">
+        <PropertyRef Name="Right_Set_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Configuration_Group">
+    <Key>
+      <PropertyRef Name="Configuration_Group_Code" />
+    </Key>
+    <Property Type="String" Name="Configuration_Group_Code" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gta_Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Created_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Created_Dttm" Nullable="false" />
+    <Property Type="String" Name="Modified_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Modified_Dttm" Nullable="false" />
+    <Property Type="String" Name="Archive_Flag" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Configurations" Relationship="UMGI.GRCS.Data.Entities.MasterDataModel.FK_CONFIGURATION_CONFIGURATION_GROUP_CODE" FromRole="Configuration_Group" ToRole="Configuration" />
+  </EntityType>
+  <Association Name="FK_CONFIGURATION_CONFIGURATION_GROUP_CODE">
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration_Group" Role="Configuration_Group" Multiplicity="1" />
+    <End Type="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration" Role="Configuration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration_Group">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Principal>
+      <Dependent Role="Configuration">
+        <PropertyRef Name="Configuration_Group_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

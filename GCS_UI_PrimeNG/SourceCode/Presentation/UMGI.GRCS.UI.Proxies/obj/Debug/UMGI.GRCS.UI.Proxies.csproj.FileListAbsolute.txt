@@ -16,3 +16,22 @@ C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\D
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
 C:\GRCS_Agile\GCS\Dev\GCS_Dev\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\Schema\EmailTemplate.xml
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.UI.Proxies.dll.config
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.UI.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.UI.Proxies.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.BusinessEntities.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Core.Utilities.Helper.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Resx.Resource.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Core.Utilities.logger.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\log4net.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.BusinessEntities.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Resx.Resource.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Proxies.pdb
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\UMGI.GRCS.Proxies.dll.config
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\ar\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\bin\Debug\fr\UMGI.GRCS.Resx.Resource.resources.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\obj\Debug\UMGI.GRCS.UI.Proxies.csproj.CoreCompileInputs.cache
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\obj\Debug\UMGI.GRCS.UI.Proxies.dll
+C:\OneDrive - Hewlett Packard Enterprise\GIT\GRCS\GCS_UI_PrimeNG\SourceCode\Presentation\UMGI.GRCS.UI.Proxies\obj\Debug\UMGI.GRCS.UI.Proxies.pdb

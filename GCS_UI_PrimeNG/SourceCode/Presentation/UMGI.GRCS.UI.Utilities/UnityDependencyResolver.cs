@@ -1,24 +1,24 @@
-﻿/* *************************************************************************** 
- * Copyrights ® 2012 Universal Musical Group 
- * *************************************************************************** 
+﻿/* ***************************************************************************
+ * Copyrights ® 2012 Universal Musical Group
+ * ***************************************************************************
  * File Name      : UnityDependencyResolver.cs
- * Project Code   : UMG-GRCS(C/115921) 
+ * Project Code   : UMG-GRCS(C/115921)
  * Author         : Satheesh Gopal
- * Created on     : 24-07-2012 
- * Reference      : 
- * *************************************************************************** 
- * Modification History 
- * *************************************************************************** 
- * Modified by                   Modified on                       Remarks 
+ * Created on     : 24-07-2012
+ * Reference      :
+ * ***************************************************************************
+ * Modification History
+ * ***************************************************************************
+ * Modified by                   Modified on                       Remarks
  *
  * ***************************************************************************
- * Reviewed by                 Modified on                       Remarks 
+ * Reviewed by                 Modified on                       Remarks
  *
 *************************************************************************** */
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace UMGI.GRCS.UI.Utilities
 {
@@ -72,5 +72,5 @@ namespace UMGI.GRCS.UI.Utilities
                 return new List<object>();
             }
         }
-    }    
+    }
 }

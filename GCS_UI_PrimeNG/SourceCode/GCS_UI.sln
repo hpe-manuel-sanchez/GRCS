@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{63528951-D42A-46A8-AFA2-5125446E47D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GRCS.UI", "GRCS.UI", "{5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}"
@@ -44,75 +46,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMGI.GRCS.NotificationInter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMGI.GRCS.Data.Entities", "Data\DataAssemblies\UMGI.GRCS.Data.Entities\UMGI.GRCS.Data.Entities.csproj", "{5A75CDEA-79EC-4BDF-9788-70A8666E8B14}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{780B4845-FD39-49C3-A712-EFE61398F188}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{58A583F2-2278-4B03-9479-22106E63E23A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMGI.GRCS.UnitTestUIProject", "UnitTest\UMGI.GRCS.UnitTestUIProject\UMGI.GRCS.UnitTestUIProject.csproj", "{F858275A-4EB2-4172-9CE2-A82438A54E2B}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 15
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://10.253.50.212:8080/tfs/grcs_agile
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Proxies\\GRCS.Proxies\\UMGI.GRCS.Proxies.csproj
-		SccProjectTopLevelParentUniqueName1 = GCS_UI.sln
-		SccProjectName1 = Proxies/GRCS.Proxies
-		SccLocalPath1 = Proxies\\GRCS.Proxies
-		SccProjectUniqueName2 = BusinessResources\\UMGI.GRCS.Resx.Resources.csproj
-		SccProjectTopLevelParentUniqueName2 = GCS_UI.sln
-		SccProjectName2 = BusinessResources
-		SccLocalPath2 = BusinessResources
-		SccProjectUniqueName3 = Business\\BusinessEntities\\GRCS.BusinessEntities\\UMGI.GRCS.BusinessEntities.csproj
-		SccProjectTopLevelParentUniqueName3 = GCS_UI.sln
-		SccProjectName3 = Business/BusinessEntities/GRCS.BusinessEntities
-		SccLocalPath3 = Business\\BusinessEntities\\GRCS.BusinessEntities
-		SccProjectUniqueName4 = Presentation\\UMGI.GRCS.UI\\UMGI.GRCS.UI.csproj
-		SccProjectTopLevelParentUniqueName4 = GCS_UI.sln
-		SccProjectName4 = Presentation/UMGI.GRCS.UI
-		SccLocalPath4 = Presentation\\UMGI.GRCS.UI
-		SccProjectUniqueName5 = Presentation\\UMGI.GRCS.UI.Models\\UMGI.GRCS.UI.Models.csproj
-		SccProjectTopLevelParentUniqueName5 = GCS_UI.sln
-		SccProjectName5 = Presentation/UMGI.GRCS.UI.Models
-		SccLocalPath5 = Presentation\\UMGI.GRCS.UI.Models
-		SccProjectUniqueName6 = Presentation\\UMGI.GRCS.UI.Interfaces\\UMGI.GRCS.UI.Interfaces.csproj
-		SccProjectTopLevelParentUniqueName6 = GCS_UI.sln
-		SccProjectName6 = Presentation/UMGI.GRCS.UI.Interfaces
-		SccLocalPath6 = Presentation\\UMGI.GRCS.UI.Interfaces
-		SccProjectUniqueName7 = Presentation\\UMGI.GRCS.UI.Utilities\\UMGI.GRCS.UI.Utilities.csproj
-		SccProjectTopLevelParentUniqueName7 = GCS_UI.sln
-		SccProjectName7 = Presentation/UMGI.GRCS.UI.Utilities
-		SccLocalPath7 = Presentation\\UMGI.GRCS.UI.Utilities
-		SccProjectUniqueName8 = Utilities\\ExceptionHandling\\GRCS.Utilities.ExceptionHandler\\GRCS.Utilities.ExceptionHandler.csproj
-		SccProjectTopLevelParentUniqueName8 = GCS_UI.sln
-		SccProjectName8 = Utilities/ExceptionHandling/GRCS.Utilities.ExceptionHandler
-		SccLocalPath8 = Utilities\\ExceptionHandling\\GRCS.Utilities.ExceptionHandler
-		SccProjectUniqueName9 = Utilities\\Caching\\GRCS.Utilities.Caching\\GRCS.Utilities.Caching.csproj
-		SccProjectTopLevelParentUniqueName9 = GCS_UI.sln
-		SccProjectName9 = Utilities/Caching/GRCS.Utilities.Caching
-		SccLocalPath9 = Utilities\\Caching\\GRCS.Utilities.Caching
-		SccProjectUniqueName10 = Presentation\\UMGI.GRCS.UI.Proxies\\UMGI.GRCS.UI.Proxies.csproj
-		SccProjectTopLevelParentUniqueName10 = GCS_UI.sln
-		SccProjectName10 = Presentation/UMGI.GRCS.UI.Proxies
-		SccLocalPath10 = Presentation\\UMGI.GRCS.UI.Proxies
-		SccProjectUniqueName11 = Common\\UMGI.GRCS.Common\\UMGI.GRCS.Common.csproj
-		SccProjectTopLevelParentUniqueName11 = GCS_UI.sln
-		SccProjectName11 = Common/UMGI.GRCS.Common
-		SccLocalPath11 = Common\\UMGI.GRCS.Common
-		SccProjectUniqueName12 = Utilities\\Notification\\UMGI.GRCS.NotificationInterfaces\\UMGI.GRCS.NotificationInterfaces.csproj
-		SccProjectTopLevelParentUniqueName12 = GCS_UI.sln
-		SccProjectName12 = Utilities/Notification/UMGI.GRCS.NotificationInterfaces
-		SccLocalPath12 = Utilities\\Notification\\UMGI.GRCS.NotificationInterfaces
-		SccProjectUniqueName13 = Data\\DataAssemblies\\UMGI.GRCS.Data.Entities\\UMGI.GRCS.Data.Entities.csproj
-		SccProjectTopLevelParentUniqueName13 = GCS_UI.sln
-		SccProjectName13 = Data/DataAssemblies/UMGI.GRCS.Data.Entities
-		SccLocalPath13 = Data\\DataAssemblies\\UMGI.GRCS.Data.Entities
-		SccProjectUniqueName14 = UnitTest\\UMGI.GRCS.UnitTestUIProject\\UMGI.GRCS.UnitTestUIProject.csproj
-		SccProjectTopLevelParentUniqueName14 = GCS_UI.sln
-		SccProjectName14 = UnitTest/UMGI.GRCS.UnitTestUIProject
-		SccLocalPath14 = UnitTest\\UMGI.GRCS.UnitTestUIProject
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -270,20 +208,23 @@ Global
 		{5E2DF064-C92F-4B6A-8B24-A84EAA8B0394} = {63528951-D42A-46A8-AFA2-5125446E47D4}
 		{0A30CC97-7515-4EB8-8457-E17D6EE6E80C} = {63528951-D42A-46A8-AFA2-5125446E47D4}
 		{0C710DC5-8E76-4567-9982-9187A2B69733} = {63528951-D42A-46A8-AFA2-5125446E47D4}
+		{F900DBDC-70D6-41D0-A5B9-EC00621F59B7} = {0C710DC5-8E76-4567-9982-9187A2B69733}
+		{D8480320-3CFF-4304-80F4-AFE151046C86} = {0A30CC97-7515-4EB8-8457-E17D6EE6E80C}
+		{A227DF1F-44D4-4727-B734-0B063B2489A4} = {6E70E493-054C-4070-BD84-8E80748757B4}
+		{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF} = {0A30CC97-7515-4EB8-8457-E17D6EE6E80C}
 		{DD91EF78-4131-4E29-9059-5788C7D4ADFC} = {5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}
 		{8224AF96-D311-4952-B834-901E5E8FDE46} = {5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}
 		{697940BE-3D6D-4C9A-8B46-DCF892E44816} = {5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}
-		{DEA9C93B-519B-4B05-BA01-99B9A4E07267} = {5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}
-		{D8480320-3CFF-4304-80F4-AFE151046C86} = {0A30CC97-7515-4EB8-8457-E17D6EE6E80C}
-		{F55BD4EC-A3A3-4C96-9619-BE6CA2E6B3EF} = {0A30CC97-7515-4EB8-8457-E17D6EE6E80C}
-		{F900DBDC-70D6-41D0-A5B9-EC00621F59B7} = {0C710DC5-8E76-4567-9982-9187A2B69733}
 		{2100DF6D-12C6-4D9E-90D3-5D43C27926F6} = {0C710DC5-8E76-4567-9982-9187A2B69733}
+		{1914E70E-1EAE-4F2F-A1E7-C82F5E9A9960} = {F900DBDC-70D6-41D0-A5B9-EC00621F59B7}
 		{B3C663A0-F2E9-477D-8D88-37778E942D01} = {0C710DC5-8E76-4567-9982-9187A2B69733}
+		{DEA9C93B-519B-4B05-BA01-99B9A4E07267} = {5E2DF064-C92F-4B6A-8B24-A84EAA8B0394}
 		{1F7A27BE-A5B8-461B-BE70-12170904A908} = {0C710DC5-8E76-4567-9982-9187A2B69733}
 		{31373207-C3EF-41B8-8450-3594DEA3B2D2} = {0C710DC5-8E76-4567-9982-9187A2B69733}
 		{5A75CDEA-79EC-4BDF-9788-70A8666E8B14} = {0C710DC5-8E76-4567-9982-9187A2B69733}
-		{A227DF1F-44D4-4727-B734-0B063B2489A4} = {6E70E493-054C-4070-BD84-8E80748757B4}
-		{1914E70E-1EAE-4F2F-A1E7-C82F5E9A9960} = {F900DBDC-70D6-41D0-A5B9-EC00621F59B7}
 		{F858275A-4EB2-4172-9CE2-A82438A54E2B} = {58A583F2-2278-4B03-9479-22106E63E23A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30BEC189-FB8F-48A8-8F2B-7CB7D6B8D27B}
 	EndGlobalSection
 EndGlobal

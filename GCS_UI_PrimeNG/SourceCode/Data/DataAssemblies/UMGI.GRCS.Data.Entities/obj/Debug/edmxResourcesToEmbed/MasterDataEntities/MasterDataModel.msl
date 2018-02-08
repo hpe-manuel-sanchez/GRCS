@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UMGIGRCSDataEntitiesMasterDataModelStoreContainer" CdmEntityContainer="MasterDataEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="UNIVERSAL_LICENSEE_IND" ColumnName="UNIVERSAL_LICENSEE_IND" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Company_Type_Code" ColumnName="Company_Type_Code" />
+          <ScalarProperty Name="Isac_Code" ColumnName="Isac_Code" />
+          <ScalarProperty Name="Is_Grc" ColumnName="Is_Grc" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company_Account_Id" ColumnName="Company_Account_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract_Right">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Right">
+        <MappingFragment StoreEntitySet="Contract_Right">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+          <ScalarProperty Name="Contract_Right_Id" ColumnName="Contract_Right_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contract_Template">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Contract_Template">
+        <MappingFragment StoreEntitySet="Contract_Template">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Notest" ColumnName="Notest" />
+          <ScalarProperty Name="Clearance_Notes" ColumnName="Clearance_Notes" />
+          <ScalarProperty Name="Is_Clearance_Sensitive_Artist" ColumnName="Is_Clearance_Sensitive_Artist" />
+          <ScalarProperty Name="Is_Clearance_Marketing_Active" ColumnName="Is_Clearance_Marketing_Active" />
+          <ScalarProperty Name="Is_Legal_Review" ColumnName="Is_Legal_Review" />
+          <ScalarProperty Name="Is_Active_Roster" ColumnName="Is_Active_Roster" />
+          <ScalarProperty Name="End_Of_Term_Dt" ColumnName="End_Of_Term_Dt" />
+          <ScalarProperty Name="Commencement_Dt" ColumnName="Commencement_Dt" />
+          <ScalarProperty Name="Rights_Default_Type" ColumnName="Rights_Default_Type" />
+          <ScalarProperty Name="P_Line_Extension_Default" ColumnName="P_Line_Extension_Default" />
+          <ScalarProperty Name="P_Company_Default_Id" ColumnName="P_Company_Default_Id" />
+          <ScalarProperty Name="Workflow_Status_Type" ColumnName="Workflow_Status_Type" />
+          <ScalarProperty Name="Contract_Status_Type" ColumnName="Contract_Status_Type" />
+          <ScalarProperty Name="Local_Reference_Number" ColumnName="Local_Reference_Number" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Signing_Company_Id" ColumnName="Signing_Company_Id" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Artist_Name_Local" ColumnName="Artist_Name_Local" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Contracting_Parties" ColumnName="Contracting_Parties" />
+          <ScalarProperty Name="Owner_Country_Id" ColumnName="Owner_Country_Id" />
+          <ScalarProperty Name="Owner_Company_Id" ColumnName="Owner_Company_Id" />
+          <ScalarProperty Name="Template_Name" ColumnName="Template_Name" />
+          <ScalarProperty Name="Contract_Template_Id" ColumnName="Contract_Template_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Iso_Code_2" ColumnName="Iso_Code_2" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Division_Name" ColumnName="Division_Name" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Division_Label">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Division_Label">
+        <MappingFragment StoreEntitySet="Division_Label">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+          <ScalarProperty Name="Division_Label_Id" ColumnName="Division_Label_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Labels">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Label">
+        <MappingFragment StoreEntitySet="Label">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Label_Name" ColumnName="Label_Name" />
+          <ScalarProperty Name="Label_Id" ColumnName="Label_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookups">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup">
+        <MappingFragment StoreEntitySet="Lookup">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="R2_Code" ColumnName="R2_Code" />
+          <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+          <ScalarProperty Name="Display_Order" ColumnName="Display_Order" />
+          <ScalarProperty Name="Short_Description" ColumnName="Short_Description" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Lookup_Type_Id" ColumnName="Lookup_Type_Id" />
+          <ScalarProperty Name="Lookup_Id" ColumnName="Lookup_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookup_Business_Rule">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Business_Rule">
+        <MappingFragment StoreEntitySet="Lookup_Business_Rule">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Column_Value" ColumnName="Column_Value" />
+          <ScalarProperty Name="Column_Name" ColumnName="Column_Name" />
+          <ScalarProperty Name="Table_Name" ColumnName="Table_Name" />
+          <ScalarProperty Name="Rule_Name" ColumnName="Rule_Name" />
+          <ScalarProperty Name="Lookup_Business_Rule_Id" ColumnName="Lookup_Business_Rule_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookup_Digital_Restriction">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Digital_Restriction">
+        <MappingFragment StoreEntitySet="Lookup_Digital_Restriction">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Commercial_Model_Type" ColumnName="Commercial_Model_Type" />
+          <ScalarProperty Name="Use_Type" ColumnName="Use_Type" />
+          <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+          <ScalarProperty Name="Lookup_Digital_Restriction_Id" ColumnName="Lookup_Digital_Restriction_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookup_Type">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Lookup_Type">
+        <MappingFragment StoreEntitySet="Lookup_Type">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Lookup_Type_Id" ColumnName="Lookup_Type_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_Company">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.P_Company">
+        <MappingFragment StoreEntitySet="P_Company">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="P_Company_Name" ColumnName="P_Company_Name" />
+          <ScalarProperty Name="P_Company_Id" ColumnName="P_Company_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preclearances">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance">
+        <MappingFragment StoreEntitySet="Preclearance">
+          <ScalarProperty Name="Source_Reference_Id" ColumnName="Source_Reference_Id" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Is_Preclearance" ColumnName="Is_Preclearance" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Preclearance_Type" ColumnName="Preclearance_Type" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Preclearance_Id" ColumnName="Preclearance_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Right_Country">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Country">
+        <MappingFragment StoreEntitySet="Right_Country">
+          <ScalarProperty Name="Source_Reference_Id" ColumnName="Source_Reference_Id" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Right_Country_Id" ColumnName="Right_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Right_Set">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Set">
+        <MappingFragment StoreEntitySet="Right_Set">
+          <ScalarProperty Name="Entity_Level" ColumnName="Entity_Level" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Preclearance_Territorial_Rights" ColumnName="Preclearance_Territorial_Rights" />
+          <ScalarProperty Name="Is_Territorial_Right_Set_Manually" ColumnName="Is_Territorial_Right_Set_Manually" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Is_Clearance_Marketing_Active" ColumnName="Is_Clearance_Marketing_Active" />
+          <ScalarProperty Name="Right_Source_Type" ColumnName="Right_Source_Type" />
+          <ScalarProperty Name="Territorial_Right" ColumnName="Territorial_Right" />
+          <ScalarProperty Name="Is_Exception_Applied" ColumnName="Is_Exception_Applied" />
+          <ScalarProperty Name="Review_Status_Type" ColumnName="Review_Status_Type" />
+          <ScalarProperty Name="Exception_Commitment_Reversion" ColumnName="Exception_Commitment_Reversion" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Lost_Right_Dt" ColumnName="Lost_Right_Dt" />
+          <ScalarProperty Name="Lost_Right_Reason_Type" ColumnName="Lost_Right_Reason_Type" />
+          <ScalarProperty Name="Is_Lost_Right" ColumnName="Is_Lost_Right" />
+          <ScalarProperty Name="Expiry_Rule" ColumnName="Expiry_Rule" />
+          <ScalarProperty Name="Is_Digital_Unbundle" ColumnName="Is_Digital_Unbundle" />
+          <ScalarProperty Name="Right_Period_Type" ColumnName="Right_Period_Type" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Territories">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Territory">
+        <MappingFragment StoreEntitySet="Territory">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Territory_Name" ColumnName="Territory_Name" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Territory_Area">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Area">
+        <MappingFragment StoreEntitySet="Territory_Area">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Territory_Member" ColumnName="Territory_Member" />
+          <ScalarProperty Name="Territory_Area_Id" ColumnName="Territory_Area_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Territory_Country">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Territory_Country">
+        <MappingFragment StoreEntitySet="Territory_Country">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Territory_Country_Id" ColumnName="Territory_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="No_Of_Decimal_Places" ColumnName="No_Of_Decimal_Places" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Right_Territory">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Right_Territory">
+        <MappingFragment StoreEntitySet="Right_Territory">
+          <ScalarProperty Name="Source_Reference_Id" ColumnName="Source_Reference_Id" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Territory_Id" ColumnName="Territory_Id" />
+          <ScalarProperty Name="Right_Territory_Id" ColumnName="Right_Territory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_Account">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Company_Account">
+        <MappingFragment StoreEntitySet="Company_Account">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+          <ScalarProperty Name="Company_Account_Id" ColumnName="Company_Account_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Configuration_Group_Code" ColumnName="Configuration_Group_Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Configuration_Id" ColumnName="Configuration_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Split_Deal_Id" ColumnName="Split_Deal_Id" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Clearance_Notes" ColumnName="Clearance_Notes" />
+          <ScalarProperty Name="Is_Clearance_Sensitive_Artist" ColumnName="Is_Clearance_Sensitive_Artist" />
+          <ScalarProperty Name="Is_Legal_Review" ColumnName="Is_Legal_Review" />
+          <ScalarProperty Name="Is_Active_Roster" ColumnName="Is_Active_Roster" />
+          <ScalarProperty Name="End_Of_Term_Dt" ColumnName="End_Of_Term_Dt" />
+          <ScalarProperty Name="Commencement_Dt" ColumnName="Commencement_Dt" />
+          <ScalarProperty Name="Rights_Default_Type" ColumnName="Rights_Default_Type" />
+          <ScalarProperty Name="P_Line_Extension_Default" ColumnName="P_Line_Extension_Default" />
+          <ScalarProperty Name="P_Company_Default_Id" ColumnName="P_Company_Default_Id" />
+          <ScalarProperty Name="Workflow_Correlation_Id" ColumnName="Workflow_Correlation_Id" />
+          <ScalarProperty Name="Workflow_Status_Type" ColumnName="Workflow_Status_Type" />
+          <ScalarProperty Name="Contract_Status_Type" ColumnName="Contract_Status_Type" />
+          <ScalarProperty Name="Local_Reference_Number" ColumnName="Local_Reference_Number" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Signing_Company_Id" ColumnName="Signing_Company_Id" />
+          <ScalarProperty Name="Admin_Company_Id" ColumnName="Admin_Company_Id" />
+          <ScalarProperty Name="Contracting_Parties" ColumnName="Contracting_Parties" />
+          <ScalarProperty Name="Artist_Name_Local" ColumnName="Artist_Name_Local" />
+          <ScalarProperty Name="Artist_Id" ColumnName="Artist_Id" />
+          <ScalarProperty Name="Contract_Id" ColumnName="Contract_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preclearance_Country">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Preclearance_Country">
+        <MappingFragment StoreEntitySet="Preclearance_Country">
+          <ScalarProperty Name="Source_Reference_Id" ColumnName="Source_Reference_Id" />
+          <ScalarProperty Name="Stg_Source_Id" ColumnName="Stg_Source_Id" />
+          <ScalarProperty Name="Source_Id" ColumnName="Source_Id" />
+          <ScalarProperty Name="Source_System_Name" ColumnName="Source_System_Name" />
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Included_Type" ColumnName="Included_Type" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="Right_Set_Id" ColumnName="Right_Set_Id" />
+          <ScalarProperty Name="Preclearance_Country_Id" ColumnName="Preclearance_Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuration_Group">
+      <EntityTypeMapping TypeName="UMGI.GRCS.Data.Entities.MasterDataModel.Configuration_Group">
+        <MappingFragment StoreEntitySet="Configuration_Group">
+          <ScalarProperty Name="Archive_Flag" ColumnName="Archive_Flag" />
+          <ScalarProperty Name="Modified_Dttm" ColumnName="Modified_Dttm" />
+          <ScalarProperty Name="Modified_User" ColumnName="Modified_User" />
+          <ScalarProperty Name="Created_Dttm" ColumnName="Created_Dttm" />
+          <ScalarProperty Name="Created_User" ColumnName="Created_User" />
+          <ScalarProperty Name="Gta_Status" ColumnName="Gta_Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Configuration_Group_Code" ColumnName="Configuration_Group_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
